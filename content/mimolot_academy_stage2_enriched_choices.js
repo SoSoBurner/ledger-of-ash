@@ -365,7 +365,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The weighing notation in the reagent manifest doesn't match Academy standard. A craft tell, not a clerical error.",
+    label: "The manifest notation isn't Academy standard. Someone with field training filled this in.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -604,7 +604,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The charter ink is wrong for the date. The seal is right. The paper hasn't aged.",
+    label: "The seal is genuine. The paper it's on was made this year.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {

@@ -11,7 +11,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 1. SHRINE HELPER: OFFERING PATTERNS CORRUPTED
   {
     plot: 'main',
-    label: "The offering standards changed. Copper mixed with iron is being accepted now. That was always sent back before.",
+    label: "Copper mixed with iron is being accepted now. That was always sent back before.",
     tags: ['Investigation', 'NPC', 'Ritual', 'Offerings', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -91,7 +91,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 3. MEMORIAL COUNSELOR: GRIEF PROCESSING CHANGING
   {
-    label: "Families used to take weeks. Now they're done in days and they're not finished — they're empty.",
+    label: "Families used to take weeks. Now they're rushed through in days and sent away empty.",
     tags: ['Investigation', 'NPC', 'Grief', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -128,7 +128,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 4. PROCESSIONAL COORDINATOR: ROUTE DIVERSIONS
   {
-    label: "The processional routes changed three weeks ago. Every path now runs straight to the mediation courts.",
+    label: "The processional routes changed three weeks ago. Every path ends at the mediation courts now.",
     tags: ['Investigation', 'NPC', 'Process', 'Routes', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -165,7 +165,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 5. CHAPEL KEEPER: BLESSING FAILURE
   {
-    label: "People are returning to say their blessings didn't hold. The ritual authority says the blessings are working as designed.",
+    label: "People return saying their blessings didn't hold. The ritual authority says they're working as designed.",
     tags: ['Investigation', 'NPC', 'Divine', 'Protection', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -202,7 +202,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 6. RITUAL AUTHORITY: DOCTRINE CHANGES
   {
-    label: "The ritual authority received sealed guidance from outside. They know the ritual structure precisely — not approximately.",
+    label: "The ritual authority received sealed guidance from outside. They know the structure too precisely.",
     tags: ['Investigation', 'NPC', 'Authority', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -242,7 +242,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INNKEEPER: GUEST PATTERNS AND SEALED LETTERS
   {
-    label: "Northern couriers arrive every seven days, always sealed, always meeting the ritual authority. Different courier, same timing.",
+    label: "Northern couriers arrive every seven days, always sealed. Different courier, same timing.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -279,7 +279,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MEDIATION OFFICIAL: CASE OUTCOMES RIGGED
   {
-    label: "Northern traders win every merchant dispute. Inheritance cases transfer to outside buyers. The pattern is forty cases deep.",
+    label: "Northern traders win every merchant dispute. The pattern is forty cases deep.",
     tags: ['Investigation', 'NPC', 'Justice', 'Corruption', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -321,7 +321,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LORE TIER 1: RITUAL FORMULA ANALYSIS
   {
-    label: "The original invocation asks for balance of divine and mortal will. The current version asks for appropriate divine resolution.",
+    label: "The original asks for balance. The current version asks for appropriate divine resolution.",
     tags: ['Investigation', 'Lore', 'Magic', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -361,7 +361,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 10. LORE TIER 2: DIVINE BALANCE DOCTRINE
   {
-    label: "Old doctrine: find the just outcome. New doctrine: find the efficient one. The primary texts haven't changed — the interpretation has.",
+    label: "Old doctrine: find the just outcome. New doctrine: find the efficient one.",
     tags: ['Investigation', 'Lore', 'Philosophy', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -401,7 +401,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 11. CRAFT TIER 1: OFFERING PREPARATION INSPECTION
   {
-    label: "The offering materials pass a surface check. Each substitution passes a casual check. Together they corrupt everything.",
+    label: "Each substitution passes on its own. Together they corrupt the entire offering.",
     tags: ['Investigation', 'Craft', 'Materials', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -441,7 +441,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 12. CRAFT TIER 2: MEDIATION LEDGER DOCUMENT ANALYSIS
   {
-    label: "The binding threads on the replaced sections are newer than surrounding pages. Someone with document craft did this.",
+    label: "The binding threads on replaced sections are newer than the surrounding pages.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -481,7 +481,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 13. SURVIVAL TIER 1: ROUTE NETWORK ANALYSIS
   {
-    label: "The messenger routes don't align with any formal shrine business destination. Same paths, same timings, different messengers.",
+    label: "Messenger routes don't match any shrine business destination. Same paths, different messengers.",
     tags: ['Investigation', 'Survival', 'Routes', 'Movement', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -596,7 +596,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: SHRINE WORKER DEFECTION
   {
-    label: "One of the shrine workers knows the blessings changed. The fear in how they describe it is specific, not general.",
+    label: "A shrine worker knows the blessings changed. The fear in their voice is specific.",
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -636,7 +636,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MEDIATION FAILURE: WRONGED FAMILY SPEAKS
   {
-    label: "Every precedent was in her favor. The mediation official ruled against her. Her home sold within the month.",
+    label: "Every precedent favored her. The official ruled against her. Her home sold within the month.",
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -677,7 +677,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 18. LAYERED REVELATION: MEDIATION AS INSTRUMENT
   {
     plot: 'main',
-    label: "The system isn't broken. It's been reoriented. Everything points the same direction and always to the same beneficiaries.",
+    label: "The system isn't broken. It's been reoriented toward the same beneficiaries every time.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -747,7 +747,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 20. CLUE: COASTAL ROUTE PASSAGE RECORDS
   {
-    label: "Three vessels departed under Bureau escort during the ghost case windows. The cargo has left this jurisdiction.",
+    label: "Three vessels left under Bureau escort during the ghost case windows. The cargo is gone.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -772,7 +772,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 21. ARCHETYPE-GATED: READING THE RECKONING QUARTER
   {
-    label: "The queue outside the Bureau hasn't moved in three hours. The wait is the answer — not a delay, a mechanism.",
+    label: "The queue outside the Bureau hasn't moved in three hours. The wait is a mechanism.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -826,7 +826,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ATMOSPHERE: TAZREN'S SHADOW
   {
-    label: "Tazren's name appears in every pre-reform archive. It's absent from every current Bureau document. That absence required effort.",
+    label: "Tazren's name is in every pre-reform archive. He's absent from every current Bureau document.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     fn: function() {
@@ -841,7 +841,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 24. PERSONAL ARC: FIND TAZREN
   {
-    label: "The retired Bureau head lives two streets from the Bureau. His name was deliberately removed from every current record.",
+    label: "The retired Bureau head lives two streets away. Removed from every current record.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: 'This path is closed here, but someone from the Bureau era who can introduce you as trustworthy is the specific key Tazren\'s neighbors named — the archive clerk who still dusts the plaque knows which names survived the revision.',
@@ -864,7 +864,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 25. SOCIAL: THE CASE THAT WAS CLOSED YESTERDAY
   {
-    label: "A case was closed yesterday under the ghost code. The complainant hasn't left yet. The window is narrow.",
+    label: "A case closed under the ghost code yesterday. The complainant hasn't left yet.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: 'This path is closed here, but the Bureau closure process moved faster than expected — the forged release-of-claim signature is still something the harbor master may have a copy of if the property transfer required a maritime stamp.',
@@ -887,7 +887,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 26. SHADOW RIVAL INTRO
   {
-    label: "Tazren mentions a visitor came to see him last month — someone who claimed to be researching Bureau reform history.",
+    label: "Tazren mentions a visitor last month claiming to research Bureau reform history.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
@@ -920,7 +920,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: INFORMATION — WORLD COLOR VIGNETTE
   {
-    label: "The offering smoke from Panim Haven's memorial halls carries in a specific direction every morning regardless of the wind.",
+    label: "The memorial hall offering smoke drifts the same direction every morning regardless of the wind.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     fn: function() {
@@ -933,7 +933,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — ARCHETYPE GATE (Saint — Support family)
   {
-    label: "The blessings distributed at Panim Haven have been systematically weakened — the doctrine that explains the change is recent.",
+    label: "The blessings here have been weakened. The doctrine used to explain it is recent.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     fn: function() {

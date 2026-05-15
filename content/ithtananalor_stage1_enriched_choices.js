@@ -11,7 +11,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 1. MARTIAL COMMANDER: COMMAND STRUCTURE FRACTURING
   {
     plot: 'main',
-    label: "Orders are contradicting each other. The hierarchy is losing coherence and no one up the chain will say why.",
+    label: "Orders are contradicting each other. No one up the chain will say why.",
     tags: ['Investigation', 'NPC', 'Observation', 'Military', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -52,7 +52,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 2. HONOR GUARD: OATH-BINDING COMPROMISED
   {
-    label: "Oaths are binding soldiers to commands they know are wrong. The oath-binding mechanism has been turned against the people it was meant to protect.",
+    label: "Soldiers are bound to commands they know are wrong. The oath mechanism has been turned against them.",
     tags: ['Investigation', 'NPC', 'Oaths', 'Binding', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -93,7 +93,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 3. OATH KEEPER: OATH RECORDS FALSIFIED
   {
     plot: 'main',
-    label: "The oath records show new bindings replacing old ones. Someone is overwriting commitments that were meant to be permanent.",
+    label: "The oath records show new bindings replacing old ones. Permanent commitments being overwritten.",
     tags: ['Investigation', 'NPC', 'Records', 'Binding', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -132,7 +132,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 4. TRAINING MASTER: DISCIPLINE BECOMING BRUTALITY
   {
-    label: "Training has escalated past martial standard. The training master knows the difference between discipline and something else.",
+    label: "Training has gone past martial standard. The master knows the difference.",
     tags: ['Investigation', 'NPC', 'Training', 'Discipline', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -172,7 +172,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 5. GARRISON CLERK: ROSTER DISCREPANCIES
   {
-    label: "Soldiers are disappearing from the garrison roster. Assignments are going somewhere that isn't in the standard documentation.",
+    label: "Soldiers are disappearing from the garrison roster. The assignments lead nowhere documented.",
     tags: ['Investigation', 'NPC', 'Records', 'Personnel', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -211,7 +211,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 6. SUPPLY QUARTERMASTER: WEAPONRY REDISTRIBUTION
   {
-    label: "Supply movements don't match the garrison's declared deployment. Military capability is being redistributed somewhere not on the map.",
+    label: "Supply movements don't match declared deployment. Military capability is leaving the map.",
     tags: ['Investigation', 'NPC', 'Supply', 'Weaponry', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -251,7 +251,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 7. RITUAL KEEPER: RITUAL CORRUPTED
   {
-    label: "The ritual formulas that bind the military structure have been altered. Sacred practice is being rewritten by someone with access to the texts.",
+    label: "The binding ritual formulas have been altered. Sacred practice is being rewritten.",
     tags: ['Investigation', 'NPC', 'Ritual', 'Sacred', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -291,7 +291,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 8. RITUAL AUTHORITY: COMMAND LEGITIMACY COMPROMISED
   {
-    label: "Legitimate authority has been replaced. The ritual chain is being used to validate commands that have no legitimate source.",
+    label: "The ritual chain is validating commands that have no legitimate source.",
     tags: ['Investigation', 'NPC', 'Authority', 'Legitimacy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -333,7 +333,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 9. COMBAT TIER 1: DEFENSIVE POSITION ANALYSIS
   {
-    label: "The defensive positions have been modified. The modifications open specific approach angles that the original fortifications closed.",
+    label: "The defensive positions have been modified to open angles the original fortifications closed.",
     tags: ['Investigation', 'Combat', 'Fortification', 'Defense', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -373,7 +373,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 10. COMBAT TIER 2: HIDDEN MILITARY FORCE MAPPED
   {
-    label: "The disappeared soldiers are somewhere. They're under a command structure that doesn't appear in any garrison record.",
+    label: "The disappeared soldiers are under a command structure that appears in no garrison record.",
     tags: ['Investigation', 'Combat', 'Hidden-Force', 'Command', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -413,7 +413,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 11. LORE TIER 1: OATH BINDING LEGAL ANALYSIS
   {
-    label: "The oath corruption uses historical precedent as cover. Someone who knew the law found the loophole before they built the trap.",
+    label: "The oath corruption uses historical precedent as cover. The loophole was found before the trap was built.",
     tags: ['Investigation', 'Lore', 'Law', 'Precedent', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -453,7 +453,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSUASION TIER 2: COERCION THROUGH OATH
   {
-    label: "Soldiers are being forced to swear oaths to commands they can't refuse. The consequences for breaking them are specific and documented.",
+    label: "Soldiers are being forced to swear oaths they can't refuse. Breaking them is documented and punished.",
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Oath-Breaking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -493,7 +493,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSIGHT TIER 1: MILITARY MORALE COLLAPSE
   {
-    label: "Trust in the command structure is eroding. The soldiers still show up. They've stopped believing the orders mean what they say.",
+    label: "Soldiers still show up. They've stopped believing the orders mean what they say.",
     tags: ['Investigation', 'Insight', 'Morale', 'Trust', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -533,7 +533,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: COMMAND CONSPIRACY REVEALED
   {
-    label: "Someone is directing the oath corruption. They're answering to authority outside Ithtananalor. The command chain terminates somewhere else.",
+    label: "Someone is directing the oath corruption from outside. The command chain terminates elsewhere.",
     tags: ['Investigation', 'Perception', 'Conspiracy', 'Hierarchy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -575,7 +575,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: MILITARY ANXIETIES
   {
-    label: "The garrison commons goes quiet when the wrong people walk through. What's left in the gaps between conversations is the real picture.",
+    label: "The garrison commons goes quiet when the wrong people walk through.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -603,7 +603,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: PROOF OF MILITARY OVERTHROW
   {
-    label: "Every institution in Ithtananalor has bent the same direction in the same window. That's not drift. Someone built it.",
+    label: "Every institution here bent the same direction in the same window. Someone built this.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -642,7 +642,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
-    label: "One of them is participating in the conspiracy. They know it. The choice is whether they're the kind of person who can be turned.",
+    label: "One of them is in this knowingly. The question is whether they can be turned.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -685,7 +685,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
     plot: 'main',
-    label: "There's a document somewhere that names who is directing this from outside. The garrison's own records point toward it.",
+    label: "There's a document that names who is directing this from outside. The records point toward it.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -725,7 +725,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
-    label: "Oath corruption, missing soldiers, rewritten rituals, weakened fortifications — all happening at once. All pointing the same direction.",
+    label: "Oath corruption, missing soldiers, rewritten rituals, weakened fortifications — all pointing the same direction.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Command', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -765,7 +765,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
-    label: "This isn't conquest. Conquest announces itself. Whatever is happening to Ithtananalor's military is designed to be invisible until it's complete.",
+    label: "Conquest announces itself. Whatever is happening here is designed to be invisible until it's done.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Occupation', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -807,7 +807,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: IRON LEDGER ANOMALY
   {
-    label: "The Iron Ledger Ward's public records terminal shows six months of transaction summaries. Something in those numbers has been moving on a schedule.",
+    label: "Six months of transaction summaries at the Iron Ledger Ward. Something in those numbers moves on a schedule.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
     failResult: {
@@ -837,7 +837,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: DEBT LEVERAGE TRAIL
   {
-    label: "Three garrison officers were displaced in the same month. Someone holds their outstanding obligations. That's not coincidence.",
+    label: "Three garrison officers displaced in the same month. Someone holds their outstanding obligations.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -862,7 +862,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE GARRISON
   {
-    label: "Change of watch is when the command structure shows its seams. Who defers to whom, who doesn't make eye contact, who's watching the gate.",
+    label: "The watch change is when the command structure shows its seams.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -890,7 +890,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: WARDEN ORDER FINANCIAL ATTACHE
   {
-    label: "The Warden Order has a financial attaché at the Iron Ledger Ward. Debt leverage used against garrison officers falls in his jurisdiction.",
+    label: "The Warden Order attaché at the Iron Ledger Ward handles debt leverage cases. This qualifies.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -920,7 +920,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE IRON LEDGER WARD AT NIGHT
   {
-    label: "The Iron Ledger Ward runs different business after the market closes. That's when the accounts that aren't posted move.",
+    label: "The ward doesn't stop when the market closes. The unposted accounts move after dark.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     fn: function() {
@@ -958,7 +958,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE DISPLACED GARRISON OFFICER
   {
-    label: "Three officers were displaced in the same month. One of them is still at Ithtananalor and hasn't been told to leave.",
+    label: "One of the displaced officers is still here. She hasn't been told to leave.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -984,7 +984,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "Someone was here yesterday asking about the same formatting codes. Their credentials were from a northern archive. Maret remembers faces.",
+    label: "Someone was here yesterday asking about the same codes. Maret remembers faces.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     fn: function() {

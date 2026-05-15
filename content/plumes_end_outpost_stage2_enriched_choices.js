@@ -38,7 +38,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A structure on the northern road not on any survey map. The Patrol Leader has seen it.",
+    label: "The Patrol Leader has seen the unmapped structure. He's been warned off it.",
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -129,7 +129,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A gap in the guard rotation where the tree line reaches thirty meters from the outer wall.",
+    label: "There's a gap in the rotation where the tree line runs close to the wall.",
     tags: ['Stage2', 'Scouting'],
     xpReward: 80,
     fn: function() {
@@ -245,7 +245,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The smith has seen what the northern crews bring in for maintenance. He hasn't said anything.",
+    label: "The smith repairs northern crew equipment. He's seen what it does.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -303,7 +303,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A survey team camp marker in the northern tree line. The team stopped returning reports six weeks ago.",
+    label: "A survey camp marker in the northern tree line. The team stopped reporting six weeks ago.",
     tags: ['Stage2', 'Scouting'],
     xpReward: 72,
     fn: function() {
@@ -359,7 +359,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The supply runner who works the northern route knows the structure by its cargo. She's been inside.",
+    label: "The northern route runner knows the structure by its cargo. She's been inside.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -387,7 +387,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The apothecary has been asked about a chemical smell drifting from the north on still mornings.",
+    label: "The apothecary knows the northern smell. Others have asked her about it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -473,7 +473,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The night-watch keeps a private account of what moves on the northern road after gate close.",
+    label: "The night-watch keeps his own record of what moves north after gate close.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -586,7 +586,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The woodcutter's yard has been supplying fuel north. The delivery records name a structure not on any register.",
+    label: "The woodcutter's delivery records name a northern structure that isn't on any register.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -614,7 +614,7 @@ const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The staging location is physically located. Patrol Leader backup or Letha's map — two ways in.",
+    label: "The location is confirmed. Patrol Leader or Letha's map — two ways in.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
     fn: function() {

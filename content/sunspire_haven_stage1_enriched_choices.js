@@ -11,7 +11,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 1. SYNDICATE YARD MASTER: CONVOY ROUTE CHANGES
   {
     plot: 'main',
-    label: "The yard master signs off on routes he didn't write. The convoys go where he isn't told they go.",
+    label: "The yard master signs off on routes he didn't write.",
     tags: ['Investigation', 'NPC', 'Syndicate', 'Logistics', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -126,7 +126,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 4. TEXTILE MERCHANT: TRADE PREFERENCE BIAS
   {
-    label: "The contract board shows the same three family names at the top of every premium listing for two months.",
+    label: "The same three family names top every premium listing for two months running.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Bias', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -206,7 +206,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 6. CONVOY ORGANIZER: EXTERNAL COORDINATION
   {
-    label: "Some convoys get instructions that don't come from the yard. The organizer was told not to ask about those runs.",
+    label: "Some convoys run on instructions not from the yard. She was told not to ask.",
     tags: ['Investigation', 'NPC', 'Communication', 'External', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -362,7 +362,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 10. RESOURCE CONTROL TIER 2: SCARCITY ENGINEERING
   {
-    label: "More food comes in than goes out to households. The gap between those numbers is going somewhere.",
+    label: "More food comes in than goes out to households. The gap is going somewhere.",
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -402,7 +402,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INFORMATION ISOLATION TIER 1: EXTERNAL NEWS FILTERING
   {
-    label: "The message board is thinner than it should be. The traveler from the northern road stopped mid-story.",
+    label: "The message board is thinner than it should be. A traveler stopped mid-story.",
     tags: ['Investigation', 'Information', 'Isolation', 'Communication', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -439,7 +439,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 12. COERCION SYSTEM TIER 2: THREAT MAPPING
   {
-    label: "The families that push back get resource cuts. The families that comply get waivers. That's not variance.",
+    label: "Push back and get cut. Comply and get a waiver. That's not variance.",
     tags: ['Investigation', 'Coercion', 'Threats', 'Fear', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -479,7 +479,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 13. EXTERNAL FLOWS TIER 1: RESOURCE EXTRACTION
   {
-    label: "Three outbound convoys carry more than their manifests account for. The destinations point north past any trade route.",
+    label: "Three convoys carry more than their manifests show. Destinations point north past any trade route.",
     tags: ['Investigation', 'Resources', 'Flow', 'Extraction', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -516,7 +516,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 14. COMMUNITY COHESION TIER 2: SOCIAL FRAGMENTATION
   {
-    label: "The communal fire is the right size for a dozen people. Four sit around it. Nobody moved the others away.",
+    label: "The communal fire is the right size for a dozen. Four sit around it.",
     tags: ['Investigation', 'Community', 'Bonds', 'Fragmentation', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -596,7 +596,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 16. CONSENT FICTION TIER 2: MANUFACTURED ACCEPTANCE
   {
-    label: "The council minutes show unanimous agreement on every major decision. No abstentions. No dissent. Not once.",
+    label: "Every council vote unanimous. No abstentions. No dissent. Not once.",
     tags: ['Investigation', 'Coercion', 'Consent', 'Fiction', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -638,7 +638,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. STREET RUMOR: FAMILY WHISPERS
   {
-    label: "The same story at both ends of the market square, in a lowered voice. Nobody is organizing it.",
+    label: "The same story at both ends of the market, told quietly. Nobody is coordinating it.",
     tags: ['Investigation', 'Rumor', 'Family', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -778,7 +778,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: SIGNAL-DAMPING CONTAINER
   {
-    label: "The sealed container from the disrupted convoy is heavier than its size. The interior lining isn't trade-grade.",
+    label: "The sealed container is heavier than its size. The interior lining isn't trade-grade.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -804,7 +804,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: CONVOY ROUTE DEVIATION
   {
-    label: "The filed route and the actual route don't match. The detour avoided the only Warden checkpoint on that road.",
+    label: "Filed route and actual route don't match. The detour avoided the only Warden checkpoint.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -849,7 +849,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: WARDEN ORDER CONTACT
   {
-    label: "The Warden Order post at the north gate. Either they already know, or they need to.",
+    label: "The Warden post at the north gate. Either they know already, or they need to.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -875,7 +875,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 25. ATMOSPHERE: THE SIGNAL TOWER
   {
-    label: "The signal tower runs the standard sequence. Between the second and third light, there's a half-beat pause that isn't in the protocol.",
+    label: "Between the second and third signal light, a half-beat pause that isn't in the protocol.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 53,
     fn: function() {
@@ -890,7 +890,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 26. PERSONAL ARC: DOCUMENT THE CONTAINER
   {
-    label: "The container gets catalogued and locked away today. The craftmark needs to be recorded before that happens.",
+    label: "The container gets catalogued and locked today. The craftmark needs recording before that happens.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 62,
     fn: function() {
@@ -913,7 +913,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 27. SOCIAL: THE CONVOY GUARD SURVIVOR
   {
-    label: "One guard survived the convoy disruption. He's still at the waystation infirmary, still lucid enough to talk.",
+    label: "One guard survived the disruption. He's at the waystation infirmary, still lucid.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -935,7 +935,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "The waystation innkeeper mentions a traveler asking about the convoy disruption — their description of events was more detailed than any sanctioned report.",
+    label: "Someone asked the innkeeper about the disruption. Their account exceeded any sanctioned report.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
     fn: function() {

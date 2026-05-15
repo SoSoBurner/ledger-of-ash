@@ -10,7 +10,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   // 1. FIRST ENCOUNTER: VELKA IRONSPIKE
   {
     plot: 'main',
-    label: "A mine overseer has been here twenty years. She's been keeping a private operations log for fourteen months. The official record is wrong on purpose.",
+    label: "Velka has kept her own logs for fourteen months. The official record is wrong on purpose.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -39,7 +39,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   // 2. CLUE: THE EASTERN FACE EXTRACTION
   {
     plot: 'main',
-    label: "The eastern face produces something that gets classified as disposal. The disposal schedule doesn't match the shipping calendar.",
+    label: "The eastern face disposal schedule doesn't match the shipping calendar.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     failResult: {
@@ -69,7 +69,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: DARIAN'S OPERATIONS SCHEDULE
   {
-    label: "The extraction runs on days the official calendar leaves blank. Someone read the inspection timetable before building it.",
+    label: "The extraction runs on days the calendar leaves blank. Someone built it around the inspection schedule.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -100,7 +100,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: THE SECONDARY MINERAL
   {
-    label: "The official sheet calls it geological waste. The color banding is wrong for waste. Something specific is in that discard pile.",
+    label: "The official sheet calls it waste. The color banding says otherwise.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 74,
     failResult: {
@@ -131,7 +131,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 5. ARCHETYPE-GATED: READING THE QUARRY
   {
-    label: "The quarry runs at peak production and the workforce knows what it's doing. So does everyone watching it.",
+    label: "The quarry runs at peak production. The eastern face does not behave like the rest.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {
@@ -160,7 +160,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: IRON COMPACT MINING AUTHORITY
   {
-    label: "The Iron Compact's mining authority has a representative here. This needs to go somewhere with enforcement standing.",
+    label: "The Iron Compact has a representative at the assay station. This belongs with her.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -191,7 +191,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SOCIAL: DARIAN'S BACKGROUND
   {
-    label: "Darian arrived as operations lead eighteen months ago. His predecessor is still at Ironhold, doing different work.",
+    label: "Darian arrived eighteen months ago. His predecessor is still here, doing different work.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: {
@@ -218,7 +218,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: VELKA'S DILEMMA
   {
-    label: "Velka has been doing the quiet version for fourteen months. She needs to know if that's still the right call.",
+    label: "Velka has been keeping quiet for fourteen months. She wants to know if that was right.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     effects: [
@@ -239,7 +239,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 9. INVESTIGATION: THE CONTAINER DESTINATION
   {
-    label: "Unmarked containers leave the eastern face on days the official calendar shows no shipments. They go somewhere.",
+    label: "Unmarked containers leave the eastern face on days the calendar shows nothing moving.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
     failResult: {
@@ -274,7 +274,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 10. ATMOSPHERE: THE QUARRY AT DAWN
   {
-    label: "Arrive at Ironhold at first light — observe the quarry as it begins the production day.",
+    label: "The quarry at first light, before the shift whistle — a different operation than at noon.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -294,7 +294,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION: QUARRY OWNERSHIP STRUCTURE
   {
-    label: "Darian reports to management. Management reports to someone. The ownership structure above them doesn't appear in any public filing.",
+    label: "The ownership structure above Darian doesn't appear in any public filing.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -325,7 +325,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL ARC: VELKA'S LOG OFFSITE
   {
-    label: "Velka's fourteen-month log is the only accurate record of what the eastern face has produced. It can't stay here.",
+    label: "Velka's log is the only accurate eastern face record. It can't stay at Ironhold.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -347,7 +347,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "The end-of-shift gathering is when the face goes quiet and the supervisors move to the equipment shed. That's when workers talk.",
+    label: "When the supervisors move to the equipment shed, workers talk.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
     failResult: {
@@ -375,7 +375,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SOCIAL: THE RETURNING EASTERN FACE WORKER
   {
-    label: "One of the eastern face crew has been on that rotation long enough to know what the official sheet isn't recording.",
+    label: "One eastern face worker has been on the rotation long enough to know what isn't recorded.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {
@@ -402,7 +402,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 15. INVESTIGATION: THE QUOTA TARGET
   {
-    label: "Velka's fourteen-month log has enough volume data to calculate how far along the operation is. The number matters.",
+    label: "Velka's log has the volume data to calculate how far along the operation is.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -437,7 +437,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 16. ATMOSPHERE: VELKA'S TWENTY YEARS
   {
-    label: "Velka has twenty years at this face. The question isn't what she knows — it's what twenty years costs a person to keep quiet.",
+    label: "Twenty years at this face. The question is what keeping quiet costs a person.",
     tags: ['WorldColor', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 48,
     failResult: {
@@ -457,7 +457,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INVESTIGATION: CONNECTING IRONHOLD TO SHELKOPOLIS
   {
-    label: "The same mineral class appearing at Craftspire and here means both operations are moving toward the same point. That point isn't Ironhold.",
+    label: "The same mineral class appears at Craftspire and here. Both operations point the same direction.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -488,7 +488,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 18. WORLD COLOR: THE QUARRY FACE
   {
-    label: "Stand at the active quarry face during extraction — observe what industrial-scale mineral extraction actually looks like.",
+    label: "The active quarry face during extraction — what the eastern face doesn't look like.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 48,
     failResult: {
@@ -509,7 +509,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   // 19. INVESTIGATION: TIMELINE URGENCY
   {
     plot: 'main',
-    label: "The extraction is 4-6 weeks from completion. What the accumulated material doesafter collection is the question no one has answered yet.",
+    label: "The extraction ends in 4-6 weeks. What happens to the material after collection is unanswered.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
@@ -587,7 +587,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: DISCOVERY — ARCHETYPE GATE (Support family)
   {
-    label: "The workers coming off the eastern face rotation show a specific pattern of fatigue that isn't from physical labor.",
+    label: "Eastern face workers come off rotation showing fatigue that isn't from physical labor.",
     tags: ['Discovery', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     fn: function() {
@@ -629,7 +629,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: DISCOVERY — RISKY
   {
-    label: "The eastern face drainage channel runs a different color after heavy rain than the main face channels do.",
+    label: "The eastern face drainage channel runs a different color after heavy rain.",
     tags: ['Discovery', 'Risky', 'Physical', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -650,7 +650,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: DISCOVERY — BOLD
   {
-    label: "The operations manifest for last month shows a container batch number that doesn't appear in either the intake or dispatch records.",
+    label: "A container batch in last month's manifest doesn't appear in intake or dispatch records.",
     tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     fn: function() {
@@ -671,7 +671,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: DISCOVERY — SAFE/LORE
   {
-    label: "Ironhold's original extraction license covers seventeen material categories — the current operation adds an eighteenth, unnamed.",
+    label: "The extraction license covers seventeen categories. The current operation adds an unnamed eighteenth.",
     tags: ['Discovery', 'Safe', 'Records', 'Stage1'],
     xpReward: 55,
     failResult: {
@@ -690,7 +690,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: DISCOVERY — SOCIAL/RISKY
   {
-    label: "The supply contractor who delivers the eastern face's specialized equipment visits only at night and leaves before dawn.",
+    label: "The contractor who supplies the eastern face only visits at night and leaves before dawn.",
     tags: ['Discovery', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -729,7 +729,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: DISCOVERY — BOLD/LORE
   {
-    label: "The geological survey for Ironhold was last updated eight years ago — and a section was redacted before filing.",
+    label: "The geological survey was last updated eight years ago. A section was redacted before filing.",
     tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
     xpReward: 75,
     fn: function() {

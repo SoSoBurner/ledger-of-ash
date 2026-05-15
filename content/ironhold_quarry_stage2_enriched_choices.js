@@ -7,7 +7,7 @@
 const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
-    label: "Six months of 'special mineral assessment' logs. No assay reports exist to support any of them.",
+    label: "Six months of 'special mineral assessment' entries. No assay reports back any of them.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -126,7 +126,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The assessment section is open during midday break. The extraction face is visible from the ridge.",
+    label: "The extraction face is visible from the ridge during midday break.",
     tags: ['Stage2', 'Physical', 'Survival'],
     xpReward: 72,
     fn: function() {
@@ -157,7 +157,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Questioning the tally in front of the crew is the fastest way to become the day's problem.",
+    label: "Challenge the tally publicly and the whole crew becomes the audience.",
     tags: ['Stage2', 'Social', 'Complication'],
     xpReward: 68,
     fn: function() {
@@ -241,7 +241,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The man rotating back to standard line has dust from the wrong vein in his collar.",
+    label: "He's back on standard line. The dust on his collar is from the wrong vein.",
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 72,
     fn: function() {
@@ -326,7 +326,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Velka has a fourth safety report she hasn't filed. She's waiting for someone to make it stick.",
+    label: "Velka's fourth safety report is written. She's waiting for someone to make it hold.",
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 76,
     fn: function() {
@@ -414,7 +414,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The man in the gray coat runs the secondary cut on a schedule no posted roster shows.",
+    label: "The gray coat runs the secondary cut on a schedule that doesn't appear anywhere.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 76,
     fn: function() {
@@ -473,7 +473,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The dock closes for one hour at shift end. The outbound manifest is signed before it seals.",
+    label: "The manifest gets signed just before the dock seals. That's the window.",
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 70,
     fn: function() {
@@ -615,7 +615,7 @@ const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The raw material source is confirmed. ORE command chain or Roadwarden post — the evidence needs a route.",
+    label: "The source is confirmed. ORE command or Roadwarden — the evidence needs a route.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {

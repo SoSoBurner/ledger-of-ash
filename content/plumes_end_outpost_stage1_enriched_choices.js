@@ -140,7 +140,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 5. ARCHETYPE-GATED: READING PLUMES END
   {
-    label: "Walk the outpost perimeter at the frontier edge — read what the environment tells you about what's approaching.",
+    label: "The frontier edge has been trying to say something. Walk it and listen.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -413,7 +413,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 15. INVESTIGATION: THE SCALE OF THE AFFECTED ZONE
   {
-    label: "Letha's directional readings can anchor a radius calculation. The zone is bigger than anyone has said.",
+    label: "Letha's readings can anchor the radius. Nobody has mapped how far this reaches.",
     tags: ['Investigation', 'Survival', 'Stage1', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -578,7 +578,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: PRESSURE — WORLD COLOR VIGNETTE
   {
-    label: "The wind at Plumes End has a name the patrol uses among themselves that doesn't appear on any map.",
+    label: "The patrol calls the northeast wind by a name that's not on any map.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     fn: function() {
@@ -591,7 +591,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ARCHETYPE GATE (Knight archetype / mounted)
   {
-    label: "The patrol routes on the northeast circuit were quietly shortened three months ago — the amended maps never reached the supply traders.",
+    label: "The northeast patrol routes were shortened three months ago. The traders still have the old maps.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
     xpReward: 70,
     fn: function() {
@@ -615,7 +615,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BACKGROUND FLAVOR
   {
-    label: "The outpost's supply manifest has a line item that appears every month but corresponds to no equipment in the inventory.",
+    label: "A monthly manifest line item with no matching equipment in the inventory.",
     tags: ['Pressure', 'Background', 'Stage1'],
     xpReward: 55,
     fn: function() {
@@ -634,7 +634,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — RISKY
   {
-    label: "The outpost's communications log shows a two-week gap in acknowledged receipt from the central coordination channel.",
+    label: "Two weeks of outpost dispatches with no acknowledged receipt from coordination.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -655,7 +655,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BOLD
   {
-    label: "The suppression order's language has a clause that Letha didn't receive — someone edited the version sent to Plumes End.",
+    label: "Letha's suppression order is missing a clause every other outpost received.",
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     fn: function() {
@@ -676,7 +676,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — SAFE/SOCIAL
   {
-    label: "The youngest patrol member has been on the northeast route more times than anyone else at this outpost.",
+    label: "The youngest patrol member keeps taking the northeast route. Nobody else will.",
     tags: ['Pressure', 'Safe', 'NPC', 'Stage1'],
     xpReward: 58,
     fn: function() {
@@ -699,7 +699,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — SOCIAL/RISKY
   {
-    label: "The regional Compact officer who is supposed to review Plumes End's monthly reports hasn't visited in eight months.",
+    label: "The Compact review officer hasn't visited in eight months. No explanation sent.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -720,7 +720,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ATMOSPHERE
   {
-    label: "The supply station has a small hearth that the overnight watch keeps burning regardless of the season.",
+    label: "The overnight watch keeps the supply station hearth burning even in summer.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
     fn: function() {
@@ -733,7 +733,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BOLD/STEALTH
   {
-    label: "The northeast zone boundary cairns have been moved — they mark a smaller area than the map shows.",
+    label: "The boundary cairns don't match the map. Someone moved them south.",
     tags: ['Pressure', 'Bold', 'Physical', 'Stage1'],
     xpReward: 75,
     fn: function() {

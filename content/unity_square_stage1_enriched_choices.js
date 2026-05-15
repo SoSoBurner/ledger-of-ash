@@ -70,7 +70,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. CLUE: THE DELETED CASE
   {
-    label: "A case number exists on a private outcome document. The public register has no record of that case.",
+    label: "A private outcome document names a case. The public register has no record of it.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 76,
     failResult: {
@@ -103,7 +103,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. ARCHETYPE-GATED: READING UNITY SQUARE
   {
-    label: "Walk the coordination hub's central plaza at the peak of daily business — read what the commercial activity tells you.",
+    label: "The plaza at peak hours reads like a document, if I know how to look.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {
@@ -163,7 +163,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: OVERSIGHT COLLEGIUM
   {
-    label: "The Oversight Collegium has an observer here. The two previous complaints went to the council for self-review.",
+    label: "The Collegium posted an observer here. Both prior complaints went to the council for self-review.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -194,7 +194,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SOCIAL: THE DISPOSSESSED ROUTING PARTY
   {
-    label: "The party that won the routing case has the original outcome document. The register says that case never existed.",
+    label: "The winning party has the outcome document. The register says the case never existed.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {
@@ -221,7 +221,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: THE ARBITER BELOW VALE
   {
-    label: "The junior arbiter near the archive door is the one who enters Brokerwell's corrections into the public record.",
+    label: "The junior arbiter by the archive door enters Brokerwell's corrections into the public record.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -272,7 +272,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. ATMOSPHERE: UNITY SQUARE AT MIDDAY
   {
-    label: "Stand at Unity Square's central marker stone and observe how the hub coordinates the movement of people and goods.",
+    label: "The marker stone at the center of the square. Worth watching from there.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -349,7 +349,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "The factors in the waiting hall have stopped expecting the process to be neutral. They say it plainly.",
+    label: "The factors in the waiting hall have stopped expecting the process to be neutral.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 60,
     failResult: {
@@ -404,7 +404,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. INVESTIGATION: WHAT UNITY SQUARE COORDINATES
   {
-    label: "The public mandate board lists seven agreements. The filing index shows seventeen. The rest aren't posted anywhere.",
+    label: "The mandate board shows seven agreements. The filing index shows seventeen.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -429,7 +429,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. ATMOSPHERE: THE ARBITRATION HALL
   {
-    label: "Sit in the public gallery of an open arbitration session — observe how the process actually operates.",
+    label: "The public gallery is open. I can see the process from there.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: {
@@ -480,7 +480,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. WORLD COLOR: THE SQUARE AT DUSK
   {
-    label: "Watch Unity Square empty at the close of business — observe what the space means to those who leave it.",
+    label: "The square at close of business. Worth watching who leaves and how they move.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 48,
     failResult: {
@@ -501,7 +501,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   // 19. INVESTIGATION: SHELKOPOLIS CONNECTION
   {
     plot: 'main',
-    label: "Routing rights captured here feed supply lines that run directly into Shelkopolis's market. This isn't isolated.",
+    label: "Routing rights captured here feed supply lines directly into Shelkopolis. This isn't isolated.",
     tags: ['Investigation', 'Networks', 'Exposure', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
@@ -533,7 +533,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. SHADOW RIVAL INTRO
   {
-    label: "Nance Tarn mentions someone visited the Collegium observer before you — leaving documents that turned out to be fabricated evidence.",
+    label: "Someone visited the Collegium observer before me and left fabricated evidence.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
@@ -564,7 +564,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: PRESSURE — WORLD COLOR VIGNETTE
   {
-    label: "The waiting hall at Unity Square operates on a numbered queue system that everyone ignores in practice.",
+    label: "The waiting hall has a numbered queue system. Everyone ignores it.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     fn: function() {
@@ -600,7 +600,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BACKGROUND FLAVOR
   {
-    label: "The coordination ledger's binding has been replaced recently — the old stitching marks are visible inside the cover.",
+    label: "The coordination ledger has a new binding. Old stitching marks are still visible inside.",
     tags: ['Pressure', 'Background', 'Stage1'],
     xpReward: 55,
     fn: function() {
@@ -661,7 +661,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — SAFE/SOCIAL
   {
-    label: "The factors who appear most often in the waiting hall have stopped bringing their own clerks.",
+    label: "The regulars in the waiting hall have stopped bringing their own clerks.",
     tags: ['Pressure', 'Safe', 'Social', 'Stage1'],
     xpReward: 55,
     failResult: {
@@ -680,7 +680,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — RISKY/NPC
   {
-    label: "The Oversight Collegium has an observer posted at Unity Square — she has been filing reports for six months and receiving no acknowledgment.",
+    label: "The Collegium observer has filed six months of reports. None have been acknowledged.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {
@@ -701,7 +701,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ATMOSPHERE
   {
-    label: "The coordination seal stamp at Unity Square has worn to a point where most impressions are unreadable — nobody has requested a replacement.",
+    label: "The coordination seal is worn past readability. Nobody has requested a replacement.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
     fn: function() {
@@ -714,7 +714,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — BOLD/LORE
   {
-    label: "Unity Square's founding charter contains a recall provision that has never been used — and has never been publicized.",
+    label: "The founding charter has a recall provision that has never been used or publicized.",
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
     xpReward: 75,
     fn: function() {

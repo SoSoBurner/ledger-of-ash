@@ -69,7 +69,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The ghost accounts point toward the Shadowhands. Velden commands them. A formal meeting is one option.",
+    label: "Velden commands the Shadowhands. The accounts point there. A meeting is one option.",
     tags: ['NPC', 'Combat', 'Authority', 'Stage2', 'Meaningful'],
     xpReward: 90,
     fn: function() {
@@ -187,7 +187,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Roaz heads ORE Supreme Command. Either an ally against internal corruption or the source of it.",
+    label: "Roaz commands ORE. Either he's been bypassed or his record is cover.",
     tags: ['Combat', 'Investigation', 'Personal', 'Stage2', 'Meaningful'],
     xpReward: 88,
     fn: function() {
@@ -238,7 +238,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Unmarked crates move through the foundry dock on nights the quota ledger says nothing is moving",
+    label: "The dock is moving weight on nights the ledger shows nothing moving.",
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     fn: function() {
@@ -388,7 +388,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The quota calibration threshold is not a round number. Whoever set it knew the exact audit trigger.",
+    label: "The threshold isn't a round number. Someone calculated the exact audit ceiling.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -534,7 +534,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The courier run loops the cold hold and the foundry loading dock on the same circuit.",
+    label: "The courier hits the cold hold and the foundry dock on the same circuit every morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -650,7 +650,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A compliance officer filed a query eighteen months ago. Transferred to a non-posting within the week.",
+    label: "He filed a query eighteen months ago. Had a new posting within the week.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -737,7 +737,7 @@ const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The ghost account evidence is ready. Roaz command or independent disclosure — both paths are open.",
+    label: "The evidence is ready. Roaz or independent disclosure — both paths are open.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,
     fn: function() {

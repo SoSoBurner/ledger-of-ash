@@ -47,7 +47,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // 2. QUOTA CLERK: LEDGER MANIPULATION
   {
     plot: 'main',
-    label: "They set the ceiling high, then raise the floor on failure. Both ends. The replacement paperwork practically writes itself.",
+    label: "The ceiling is set high. The floor rises on failure. Both ends move.",
     tags: ['Investigation', 'NPC', 'Records', 'Bureaucracy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -84,7 +84,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 3. MACHINERY SPECIALIST: EQUIPMENT SABOTAGE
   {
-    label: "The parts are on the shelf. The repair takes three days instead of one. Someone upstream is sitting on the approvals.",
+    label: "The parts are on the shelf. The approval to use them isn't.",
     tags: ['Investigation', 'NPC', 'Craft', 'Equipment', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -117,7 +117,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 4. REPAIR WORKER: WORKPLACE ACCIDENTS
   {
-    label: "Three accidents this month. One a season was the pattern. Nobody is filing complaints — that's the point.",
+    label: "Three accidents this month. Nobody is filing complaints. That's the point.",
     tags: ['Investigation', 'NPC', 'Safety', 'Labor', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -154,7 +154,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 5. SHRINE HELPER: FAITH UNDER PRESSURE
   {
-    label: "Used to be harvest thanks and travel blessings. Now they kneel for a long time without saying anything. When they speak, it's: keep my position.",
+    label: "They used to pray for harvest and travel. Now they pray to keep their position.",
     tags: ['Investigation', 'NPC', 'Faith', 'Community', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -259,7 +259,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 8. ARTISAN/CRAFTSPERSON: SKILL DEGRADATION
   {
-    label: "That joint would have come back three months ago. Now it ships. Every worker who held the tolerance line is gone.",
+    label: "Work that failed three months ago now ships. The workers who caught it are gone.",
     tags: ['Investigation', 'NPC', 'Craft', 'Integrity', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -300,7 +300,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LABOR ANALYSIS TIER 1: WORKFORCE RESTRUCTURING
   {
-    label: "The skill mix that let Soreheim run independently has been excised position by position. Whatever comes next, this workforce won't organize to stop it.",
+    label: "The skills that made Soreheim independent have been cut out post by post.",
     tags: ['Investigation', 'Labor', 'Analysis', 'Pattern', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -334,7 +334,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 10. PRODUCTION ANALYSIS TIER 2: QUOTA SYSTEM MECHANICS
   {
-    label: "Safety stops count against output. Maintenance time counts against output. A worker who stops to prevent an accident fails their quota.",
+    label: "Safety stops count against output. Preventing an accident means failing quota.",
     tags: ['Investigation', 'Systems', 'Economics', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -371,7 +371,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INDUSTRIAL ANALYSIS TIER 1: SUPPLY CHAIN DISRUPTION
   {
-    label: "Outbound carts outnumber inbound three to one. The routing stamps on the outbound manifests face inward, away from the gate.",
+    label: "Outbound carts outnumber inbound three to one. The stamps on those manifests face inward.",
     tags: ['Investigation', 'Industrial', 'Supply', 'Flow', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -405,7 +405,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 12. AUTHORITY STRUCTURE TIER 2: DECISION ISOLATION
   {
-    label: "The administrator still holds the morning briefing. Every directive on those targets carries a northern coordination office stamp. He didn't write any of them.",
+    label: "The administrator runs the briefing. Every directive carries a northern stamp.",
     tags: ['Investigation', 'Authority', 'Structure', 'Power', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -442,7 +442,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 13. COMMUNICATION NETWORK TIER 1: MESSAGE MONITORING
   {
-    label: "Outbound labor petitions are being held at the relay station for verification. They come back stamped but not forwarded. The city is talking to itself.",
+    label: "Labor petitions come back stamped but never forwarded. The city is talking to itself.",
     tags: ['Investigation', 'Communication', 'Networks', 'Control', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -476,7 +476,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 14. RESISTANCE TIER 2: SUPPRESSION MECHANISMS
   {
-    label: "The machinery of suppression wears the face of routine management. No formal warnings — just reassignments, timed precisely.",
+    label: "No formal warnings — just reassignments, always timed precisely.",
     tags: ['Investigation', 'Resistance', 'Suppression', 'Fear', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -513,7 +513,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SURVIVAL ANALYSIS TIER 1: WORKER VULNERABILITY
   {
-    label: "This is not an economy under pressure. This is a pressure map that someone drew first.",
+    label: "This isn't an economy under pressure. Someone drew the pressure map first.",
     tags: ['Investigation', 'Survival', 'Vulnerability', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -550,7 +550,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 16. NARRATIVE CONTROL TIER 2: OFFICIAL JUSTIFICATION STRUCTURE
   {
-    label: "The posted notices use three phrases that cycle. The same language appeared in a northern Iron Compact bulletin eight weeks ago, word for word.",
+    label: "The posted notices recycle three phrases. Those exact phrases appeared in a northern Compact bulletin.",
     tags: ['Investigation', 'Narrative', 'Control', 'Justification', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -589,7 +589,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 17. STREET RUMOR: LABOR WHISPERS
   {
-    label: "The story passes down the meal hall bench in pieces — one person certain, one hedging, one shrugging. Too consistent for coincidence, never confirmed enough for action.",
+    label: "The story moves down the meal hall bench in pieces. Too consistent for coincidence.",
     tags: ['Investigation', 'Rumor', 'Labor', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -614,7 +614,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INSTITUTIONAL CRACK: QUOTA SYSTEM FAILURE PROOF
   {
-    label: "The workforce hits ninety-two percent of sustainable maximum every day. They fail quota every day. The target was designed to produce documented failure.",
+    label: "They hit ninety-two percent of sustainable output every day. They fail quota every day.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Systems', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -653,7 +653,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: COMPLICITY AND PARTICIPATION CHOICE
   {
-    label: "They're waiting to learn what this conversation costs them. Expose them and they lose everything. Protect them and they owe you.",
+    label: "They're waiting to learn what this conversation costs them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -690,7 +690,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
     plot: 'main',
-    label: "The orders predate the first quota increase by three weeks. Soreheim wasn't reacting to a problem. Soreheim was the plan.",
+    label: "The orders predate the quota increase by three weeks. Soreheim was the plan.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -729,7 +729,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 21. CLUE: IRON COMPACT ROUTING MARKS
   {
-    label: "Three crates in the outbound row carry a secondary stamp not in the Soreheim registry. The crate numbers don't appear in the dispatch manifest on the wall.",
+    label: "Three outbound crates carry a stamp not in the Soreheim registry. No manifest entry.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: 'This path is closed here, but the Iron Compact arbiter Keln Vare holds office inside the shift administration building — the anomalous freight marks fall inside his stated area of oversight.',
@@ -756,7 +756,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: WORKER DISPLACEMENT LOG
   {
-    label: "Thirty-one workers crossed out in a hand that doesn't match the original entries. Notation says transferred. No destination follows.",
+    label: "Thirty-one workers crossed out in a different hand. Notation says transferred. No destination.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: 'This path is closed here, but the displacement log was drafted before it was filed — Record Keeper Parol works the outer desk alone on the morning half-shift, before the labor administrator arrives with the stamp.',
@@ -778,7 +778,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ARCHETYPE-GATED: READING THE PRESSURE
   {
-    label: "The posture is wrong for exhaustion — shoulders loose, weight back, eyes tracking the gate. This yard is paused, not tired.",
+    label: "Shoulders loose, weight back, eyes on the gate. This yard is paused, not tired.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: 'This path is closed here, but the shift yard is most readable at the bell change when supervisors are occupied with the handover count — the workers move freely for four minutes before the new shift coordinator reaches the gate.',
@@ -803,7 +803,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 24. SOCIAL: APPROACH THE JUNIOR CLERK
   {
-    label: "The youngest clerk is on the evening shift alone. He asked why they changed the dating system. Nobody told him.",
+    label: "The youngest clerk asked why they changed the dating system. Nobody told him.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: 'This path is closed here, but Davel is still at the evening shift tomorrow — bringing something that shows what the dating code maps to may give him a reason to talk.',
@@ -826,7 +826,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 25. FACTION SEED: IRON COMPACT CONTACT
   {
-    label: "The Iron Compact's regional arbiter has an office inside the shift administration building. That's an unusual location for a neutral party.",
+    label: "The Compact arbiter's office is inside the shift administration building. Unusual for a neutral party.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: 'This path is closed here, but Vare said even-numbered afternoons during shift administrator reviews — the office runs a posted schedule and the secretary records every name that waits.',
@@ -853,7 +853,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 26. ATMOSPHERE: THE RELIC STRATEGY WING PLAQUE
   {
-    label: "The plaque has been recently cleaned. Whoever dusts it still believes the story is worth dusting. The quota board is visible from here.",
+    label: "The plaque has been recently cleaned. Someone still believes the story is worth dusting.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 55,
     failResult: 'This path is closed here, but the guild annex holds a bound history of the Relic Strategy Wing — the founding registry is a public charter document, available at the clerk desk without authorization.',
@@ -892,7 +892,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 28. CLUE: RELIC STRATEGY WING CORRESPONDENCE
   {
-    label: "The courier's route doubles back twice before heading north. The Relic Strategy Wing seal on the closure, a second seal I don't recognize on the inner wrap.",
+    label: "The courier's route doubles back before heading north. Two seals — one I don't recognize.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 78,
     failResult: 'This path is closed here, but the courier Fess loads his pre-dawn batch from the side window before the relay station supervisor arrives — that window has no standing order to check observer credentials.',
@@ -925,7 +925,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 29. SHADOW RIVAL INTRO (final expansion choice)
   {
-    label: "A veteran labor organizer warns you — someone matching an unusual description has been following your line of inquiry by one day.",
+    label: "A veteran organizer warns me — someone has been following this inquiry by one day.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 60,
     fn: function() {

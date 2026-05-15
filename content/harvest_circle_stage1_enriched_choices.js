@@ -596,7 +596,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FIELD RUMOR: FARMER WHISPERS
   {
-    label: "The murmur in the field rows is consistent. One says it eyes down. His neighbor nods.",
+    label: "The field rows have a theory. Everyone in them shares it.",
     tags: ['Investigation', 'Rumor', 'Farming', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,

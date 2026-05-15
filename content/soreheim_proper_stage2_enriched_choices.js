@@ -177,7 +177,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The porter knows exactly what's in the manifest discrepancy. He knows who signed the transfer order.",
+    label: "The porter moved those crates. He remembers the seal on the transfer order.",
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -195,7 +195,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The wrong name on a tower merit judgment. Someone substituted into a ceremony they had no standing to attend.",
+    label: "A Relic Wing clerk attended a merit ceremony in a councillor's slot.",
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -318,7 +318,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A junior Wing clerk was on duty when the override was entered. Her correction note never reached the record.",
+    label: "A junior Wing clerk wrote down what Decon entered. She kept the note.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -347,7 +347,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Wing courier leaving the third tower the same hour every fourth night. No posted assignment matches the route.",
+    label: "A Wing courier leaves the third tower every fourth night. No assignment covers the route.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -375,7 +375,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The outer forge ring runs cold one night a week. The loading crews show up anyway.",
+    label: "The forge ring runs cold one night a week. A crew shows up anyway.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -460,7 +460,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The herald runs extra routes on days Decon is absent. The correspondence doesn't go to posted destinations.",
+    label: "The herald runs extra routes when Decon is absent. The destinations don't match any posted address.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -516,7 +516,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Night patrol at the curfew line shows which transit passes move freely after the third bell.",
+    label: "Some passes move through the curfew line without being logged.",
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -544,7 +544,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The assay marks on the forge cavity crates don't match any Soreheim stamp. They came from somewhere else.",
+    label: "The forge cavity crate marks don't match any Soreheim stamp.",
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -572,7 +572,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A retired senior Wing officer who knows the override protocols. Left without explanation two years ago.",
+    label: "A retired Wing officer designed the override protocols. He left without explanation.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -600,7 +600,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A suppressed addendum redefined northern defense materiel. It gave the operation legal cover it never disclosed.",
+    label: "A hidden addendum quietly legalized what the operation needed.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -629,7 +629,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A sealed dispatch rider every third morning. The route suggests the next shipment is closer than the evidence implies.",
+    label: "A sealed dispatch rider leaves every third morning on a route that avoids the checkpoints.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
