@@ -10,7 +10,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 1. FIRST ENCOUNTER: JORIN
   {
     plot: 'main',
-    label: "An unofficial complaint about chemical input anomalies was filed four months ago. The master who filed it is still at his bench.",
+    label: "An unofficial complaint about chemical anomalies was filed four months ago. He's still at his bench.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The workshop is running at full pace — a press cycle turning, two apprentices logging tolerance marks, the air sharp with flux. Jorin is at the calibration bench with both hands occupied and a queue of three behind you. He doesn't look up. The break schedule is posted on the door: second bell, sixth bell. The analysis sheets are visible on the back table. Come back when the bench is clear.",
     xpReward: 68,
@@ -34,7 +34,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 2. CLUE: CHEMICAL INPUT RECORDS
   {
     plot: 'main',
-    label: "The manifests say one concentration. The delivered samples test at another. Someone in the supply chain is doing the math.",
+    label: "The manifests say one concentration. The samples test at another. Someone is doing the math.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "The records office clerk closes the window at the third bell — midday processing, back at the fourth. The analysis sheets are filed under Jorin's member number and require his signature for outside access. The data exists. The route to it runs through Jorin, who takes his break at the second and sixth bell. Neither window has passed yet.",
     xpReward: 74,
@@ -92,7 +92,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 4. INVESTIGATION: THE SUPPLY CHAIN ORIGIN
   {
     plot: 'main',
-    label: "The compound leaves the production facility at full concentration. It arrives here short. Something happens in between.",
+    label: "The compound leaves at full concentration. It arrives short. Something happens in between.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     failResult: "The production facility's output records come back clean — full concentration at source, well-documented. The gap sits somewhere in the middle. The waystation intake records are under the supply contractor's internal administration, not publicly filed. Two clean endpoints establish the problem. What sits between them is still closed. The contractor's guild registration has a contact office with a public address.",
     xpReward: 72,
@@ -119,7 +119,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. ARCHETYPE-GATED: READING CRAFTSPIRE
   {
-    label: "The guild district runs on a tight production clock. What's happening doesn't match the posted schedule.",
+    label: "The district runs on a tight production clock. What's happening doesn't match the schedule.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     failResult: "The district moves on a synchronized clock — shift bells, production rotations, inspection rounds. The posted schedule is accurate as far as it goes. Reading the gaps in it, the unmarked movements and the workshop activity that falls outside the official timetable, requires more time on the floor than one pass allows. The sixth bell shift change opens a longer observation window.",
     xpReward: 67,
@@ -144,7 +144,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: WARDEN ORDER INDUSTRIAL COMPLIANCE
   {
-    label: "The Warden Order's industrial compliance officer is stationed at the guild registry. This has to go somewhere official.",
+    label: "The Warden Order's compliance officer is at the guild registry. This needs to go somewhere official.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The compliance officer takes the written summary, stamps it received, and adds it to a tray with twelve other items. No questions asked. The compound class code is in the documentation — if he read it, the intake category would shift from standard supply fraud to material interference. The tray moves on a weekly review cycle. Naming the compound class explicitly in person, rather than in a filed form, changes who processes the response.",
     xpReward: 70,
@@ -171,7 +171,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SOCIAL: THE WAYSTATION WORKER
   {
-    label: "The extraction happens at the waystation. Someone on that processing floor logs the numbers every day and knows it.",
+    label: "The extraction happens at the waystation. Someone logs the numbers every day and knows it.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The waystation supervisor stops you before you reach the processing floor. Workers under guild contract administration require a two-day approval form for non-guild inquiries. You can see the processing line from the gate — one handler keeps glancing toward the log form on his bench, its 'transit variance' column visible from here. The form is at the gate office. Jorin's endorsement bypasses the approval requirement entirely.",
     xpReward: 68,
@@ -194,7 +194,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MORAL PRESSURE: JORIN'S CHOICE
   {
-    label: "Jorin has been doing the quiet version for four months. He needs to know if that's still the right call.",
+    label: "Jorin's been quiet for four months. He needs to know if that's still the right call.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     effects: [
@@ -216,7 +216,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. INVESTIGATION: THE TRANSIT VARIANCE LOG ORIGIN
   {
-    label: "The 'transit variance' log category exists to absorb this. Someone had to create it. Someone had to authorize it.",
+    label: "The 'transit variance' category exists to absorb this. Someone created it. Someone authorized it.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     failResult: "The waystation log form has a version date in the footer — the category addition happened between two version numbers, seven months ago by the date sequence. Who authorized the revision is in the supply contractor's internal administrative records. Those files don't run through guild channels. The contractor's registration is filed with the guild — the registered contact office has a name and an address attached to it.",
     xpReward: 72,
@@ -259,7 +259,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION: THE UNINSPECTED EXIT
   {
-    label: "Some crates leave through a route that bypasses the guild's outgoing inspection entirely. That gap didn't happen by accident.",
+    label: "Some crates leave through a route that bypasses inspection entirely. That gap wasn't an accident.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "The loading dock is active during the late afternoon shift — carts moving, handlers calling counts, the inspection table staffed and watching outbound loads. The uninspected exit through the storage building runs when the dock is quieter. The transition between the fourth and fifth bell produces a gap in cart traffic. The dock layout is fixed. The window to observe the alternate route without drawing attention from the inspection desk opens then.",
     xpReward: 73,
@@ -290,7 +290,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL ARC: SECURE JORIN'S RECORDS
   {
-    label: "Help Jorin create a secure copy of his six-month chemical input analysis for safekeeping outside the guild.",
+    label: "Jorin's six-month analysis needs a secure copy outside the guild.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -312,7 +312,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. RUMOR LAYER
   {
-    label: "Something changed in this district recently. The workers know it. They just haven't said it in front of the wrong person yet.",
+    label: "Something changed here recently. The workers know it. They haven't said it in front of the wrong person yet.",
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     failResult: "The common area is busy between shifts — workers at the water basin, two apprentices running a manifest to the next workshop, the smell of cooling metal following everyone in. Conversations cut short when someone unfamiliar sits too close. The afternoon break runs longer and looser. Come back when the district has its rhythm back and the faces at the table recognize yours.",
     xpReward: 60,
@@ -336,7 +336,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. INVESTIGATION: THE OTHER AFFECTED GUILDS
   {
-    label: "Jorin isn't the only master on this supply chain. The other workshops are receiving from the same source.",
+    label: "Jorin isn't the only master on this chain. The other workshops receive from the same source.",
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     failResult: "Two workshop masters listen to the question, both of them with the same flat pause before answering. Internal production data is registered guild information — sharing it with an outside party requires formal authorization or a personal reason to trust. One master says nothing and tilts his head toward Jorin's workshop across the district. His endorsement is what opens this door.",
     xpReward: 70,
@@ -359,7 +359,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SOCIAL: THE ASSISTANT WHO NOTICED
   {
-    label: "Jorin tracks the numbers. His assistant tracks the deliveries. They're watching different parts of the same problem.",
+    label: "Jorin tracks the numbers. His assistant tracks the deliveries. Different parts of the same problem.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "Lev is sorting sample containers at the far end of the workshop, methodical, not looking up. He listens to the first question and looks toward the main bench. 'I don't talk about what goes on in here without Jorin knowing about it.' He turns back to the containers. The hiss of the cooling rack fills the silence. He's not hostile. Jorin's word changes that calculation entirely.",
     xpReward: 64,
@@ -382,7 +382,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. ATMOSPHERE: THE GUILD FORGE AT NIGHT
   {
-    label: "Stay near Craftspire's central forge through the late evening — observe what production continues after official hours.",
+    label: "The forge doesn't stop at closing. Something runs after official hours.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The guild district winds down in layers after ninth bell — first the small workshops, then the secondary forges, finally the apprentice dormitory lights. The central forge stays lit. Whatever continues tonight does so without an audience. The approach routes to the forge yard are narrow and the smell of hot metal carries far in still air. The north alley stays in shadow until the tenth bell lamp rotation.",
     xpReward: 50,
@@ -429,7 +429,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. WORLD COLOR: CRAFTSPIRE'S FOUNDING GUILD CHARTER
   {
-    label: "Read the guild founding charter displayed in Craftspire's main hall — understand what the guild was built for.",
+    label: "The founding charter is on display. What the guild was built for may not match what it does now.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The main hall is occupied with a certification review — three masters at the central table, a stack of portfolios, an apprentice standing at the edge of the room trying not to look like she's counting the minutes. The founding charter hangs in its frame on the far wall, readable from here at a distance: the opening line begins 'We make things that work.' The hall clears after the review panel concludes.",
     xpReward: 48,
@@ -445,7 +445,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. PERSONAL ARC: TRAVEL DECISION
   {
-    label: "The accumulation is ongoing. Every day here is a day the supply chain runs. This doesn't wait forever.",
+    label: "Every day here is a day the supply chain keeps running. This doesn't wait.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     fn: function() {
@@ -462,7 +462,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. SHADOW RIVAL INTRO
   {
-    label: "Six weeks before you arrived, someone else came here asking about the compound. Their questions already had the answers built in.",
+    label: "Someone came here six weeks ago asking the same questions. Their questions had the answers built in.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
@@ -495,7 +495,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   },
   // TYPE: INFORMATION — WORLD COLOR VIGNETTE (no skill check)
   {
-    label: "The guild mark on every door here is the same — but the ink shade shifts subtly block by block.",
+    label: "Same guild mark on every door. The ink shade shifts block by block.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 40,
     fn: function() {
@@ -596,7 +596,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — SAFE/LORE
   {
-    label: "The guild charter amendment logs go back forty years — something changed in the materials licensing section fifteen years ago.",
+    label: "Forty years of charter amendments. Something changed in materials licensing fifteen years ago.",
     tags: ['Information', 'Safe', 'Lore', 'Stage1'],
     failResult: "The amendment logs are in the archive's open-access section — forty years of charter revisions, each session dated and numbered. The materials licensing amendments are in volume three of five. The volume is currently in use by a guild solicitor who has the reading desk until the end of the hour. The clerk marks your name on the wait list. The relevant amendment is in the last third of the volume.",
     xpReward: 58,
@@ -624,7 +624,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — SOCIAL/RISKY
   {
-    label: "The quality standards officer has a reputation for thoroughness — and she stopped filing inspection reports eight months ago.",
+    label: "Known for thoroughness. She stopped filing inspection reports eight months ago.",
     tags: ['Information', 'Risky', 'NPC', 'Stage1'],
     failResult: "Miv Sothrel's door is closed during morning rounds — she moves workshop to workshop on a fixed inspection schedule and her desk sits empty until early afternoon. The inspection forms stacked on her desk are visible through the window: organized, dated, the filing tray on the left side unused. She's back at her desk by the second bell past midday.",
     xpReward: 70,
@@ -646,7 +646,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — BOLD/COMBAT-GATE
   {
-    label: "The locked supply room in the guild's northern annex has a new hasp that doesn't match the building's age.",
+    label: "New hasp on a locked supply room that doesn't match the building's age.",
     tags: ['Information', 'Bold', 'Stage1'],
     xpReward: 75,
     fn: function() {
