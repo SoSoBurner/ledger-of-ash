@@ -12700,7 +12700,7 @@ function showLevelUpScreen() {
       el.appendChild(block);
       scrollNarrative();
       block.querySelector('#btn-lu-done').addEventListener('click', function() {
-        block.remove(); _finalizeLevelUp(chosenStat, null);
+        block.remove(); renderAbilityStep(chosenStat, null);
       });
       return;
     }
@@ -12714,7 +12714,7 @@ function showLevelUpScreen() {
         '<div class="lu-opt-tag lu-tag-' + tagClass + '">' + trait.type + '</div>' +
         '</button>';
     });
-    html += '</div><div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">STEP 2 OF 2 \u2014 TRAIT</div>';
+    html += '</div><div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">STEP 2 OF 3 \u2014 TRAIT</div>';
     block.innerHTML = html;
     el.appendChild(block);
     scrollNarrative();
@@ -12741,7 +12741,88 @@ function showLevelUpScreen() {
           });
         }
         block.remove();
-        _finalizeLevelUp(chosenStat, trait);
+        renderAbilityStep(chosenStat, trait);
+      });
+    });
+  }
+
+  function renderAbilityStep(chosenStat, chosenTrait) {
+    var archId = G.archetype ? G.archetype.id : '_default';
+    var pool = (ARCHETYPE_TRAIT_POOLS[archId] || ARCHETYPE_TRAIT_POOLS._default || []);
+    var alreadyUnlocked = (G.unlockedTraits || []);
+
+    function isUnlocked(ab) {
+      return alreadyUnlocked.some(function(u) {
+        return (typeof u === 'string' ? u : u.id) === ab.id;
+      });
+    }
+
+    function isEligible(ab) {
+      var lvMin = ab.levelMin || ab.minLevel || 1;
+      return lvMin <= G.level && !isUnlocked(ab);
+    }
+
+    var actives = pool.filter(function(ab) {
+      return (ab.type === 'active' || ab.traitType === 'active') && isEligible(ab);
+    });
+    var passives = pool.filter(function(ab) {
+      return (ab.type !== 'active' && ab.traitType !== 'active') && isEligible(ab);
+    });
+
+    var options = actives.length > 0 ? actives : passives;
+    var stepLabel = actives.length > 0 ? 'ACTIVE ABILITY' : (passives.length > 0 ? 'PASSIVE ABILITY' : '');
+
+    var block = document.createElement('div');
+    block.className = 'scene-block levelup-block';
+
+    if (options.length === 0) {
+      block.innerHTML = '<div class="lu-title">All abilities unlocked for your archetype.</div>' +
+        '<button class="btn btn-ghost btn-sm" id="btn-lu-ability-done" style="margin-top:12px">Continue</button>';
+      el.appendChild(block);
+      scrollNarrative();
+      block.querySelector('#btn-lu-ability-done').addEventListener('click', function() {
+        block.remove();
+        _finalizeLevelUp(chosenStat, chosenTrait);
+      });
+      return;
+    }
+
+    var html = '<div class="lu-title">Choose a new ability:</div><div class="lu-options">';
+    options.forEach(function(ab, i) {
+      var tagClass = (ab.type === 'active' || ab.traitType === 'active') ? 'gold' : 'jade';
+      var typeLabel = (ab.type === 'active' || ab.traitType === 'active') ? 'active' : 'passive';
+      html += '<button class="lu-option-btn" data-lu-ability="' + i + '">' +
+        '<div class="lu-opt-label">' + (ab.name || ab.id) + '</div>' +
+        '<div class="lu-opt-detail">' + (ab.desc || '') + '</div>' +
+        '<div class="lu-opt-tag lu-tag-' + tagClass + '">' + typeLabel + '</div>' +
+        '</button>';
+    });
+    html += '</div><div style="margin-top:8px;font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif;letter-spacing:1px">STEP 3 OF 3 \u2014 ' + stepLabel + '</div>';
+    block.innerHTML = html;
+    el.appendChild(block);
+    scrollNarrative();
+
+    block.querySelectorAll('.lu-option-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var ab = options[parseInt(this.dataset.luAbility, 10)];
+        if (!G.unlockedTraits) G.unlockedTraits = [];
+        // Push full object so character sheet can render it as active/passive
+        G.unlockedTraits.push({
+          id: ab.id,
+          name: ab.name || ab.id,
+          description: ab.desc || '',
+          type: ab.type || ab.traitType || 'active',
+          traitType: ab.traitType || ab.type || 'active',
+          passive: false,
+          levelMin: ab.levelMin || ab.minLevel || 1,
+          desc: ab.desc || '',
+          activeSkillType: ab.activeSkillType || null,
+          skill: ab.skill || ab.bonusSkill || null,
+          bonus: ab.bonus || 0,
+          source: 'levelup_ability'
+        });
+        block.remove();
+        _finalizeLevelUp(chosenStat, chosenTrait);
       });
     });
   }
