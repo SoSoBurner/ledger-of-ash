@@ -11316,6 +11316,7 @@ function renderChoices(choices) {
     // Synthetic choice stored at end of _pendingChoices
     _pendingChoices = _pendingChoices.concat([{
       id: '_tension_combat_flip', text: 'Force it', tag: 'bold', align: 'chaotic',
+      failResult: 'The moment passes. You steady yourself and step back.',
       action: function() {
         G.tensionLevel = 0;
         G.benevolence = (G.benevolence||0) - 3;
@@ -11731,6 +11732,7 @@ function handleChoice(choice) {
     }
 
     choice.action();
+    setTimeout(function() { if (!document.querySelector('.choice-block,.levelup-block,.move-block')) loadStageChoices(G.location); }, 700);
     return;
   }
 
@@ -14772,7 +14774,7 @@ function activateAbilityFromSheet(abilityId) {
 // ── CHARACTER SHEET ────────────────────────────────────────
 function showCharSheet() {
   setText('sheet-title', G.name || 'Character');
-  const needed = G.level * 60;
+  const needed = G.level === 1 ? 120 : G.level * 60;
   const sb = document.getElementById('sheet-body');
 
   const woundRows = (G.wounds||[]).filter(w=>!w.healed).map(w =>
@@ -15846,7 +15848,7 @@ function updateHUD() {
       _xpEl.style.color = 'var(--accent-gold)';
     } else {
       if (_xpLabelEl) _xpLabelEl.textContent = 'XP';
-      var _nextXp = (G.level || 1) * 60;
+      var _nextXp = (G.level === 1) ? 120 : (G.level || 1) * 60;
       _xpEl.textContent = (G.xp || 0) + ' / ' + _nextXp;
       _xpEl.style.color = '';
     }
