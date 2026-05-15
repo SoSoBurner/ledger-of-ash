@@ -11796,6 +11796,9 @@ function handleChoice(choice) {
   else if (roll === 1) _critPrefix = '<span style="color:var(--danger);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Failure! </span>';
   addNarration('', _critPrefix + '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">' + rollDisplay + '</span>');
 
+  // First-choice tutorial callout — fires once after the player's first real roll
+  if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_choice');
+
   // Alignment
   const alignShifts = {lawful:[0,5], chaotic:[0,-5], good:[8,0], evil:[-8,0]};
   const shift = alignShifts[choice.align];
