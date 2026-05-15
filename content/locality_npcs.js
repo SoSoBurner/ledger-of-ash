@@ -206,6 +206,168 @@ window.LOCALITY_NPCS = {
     }
   },
 
+  shelkopolis_harbor: {
+    tavern: {
+      npcId: 'renne_dock_supervisor',
+      name: 'Renne',
+      role: 'Dock Supervisor, Shelk Harbor Authority',
+      tell: 'checks the tide chart on the wall each time she pauses to think, even when the question has nothing to do with tides',
+      agenda: 'Three cargo manifests filed under the wrong vessel flag — she knows it is deliberate, does not know who authorized it',
+      register: 'Shelk maritime — practical, time-oriented, speaks in shifts and tides not hours, minimal elaboration',
+      dialogue: [
+        {
+          id: 'renne_wrong_flags',
+          text: 'Three manifests under the wrong flag. She filed them anyway.',
+          skill: 'lore', tag: 'safe', dc: 7,
+          result: 'Renne glances at the tide chart. "Flag of convenience filing happens. Single-vessel error, clerical, happens." She looks back at you. "Three manifests, same flag discrepancy, same dock window, same shift. That\'s not clerical." She crosses her arms. "I filed them because the authorization signature was legitimate. Whose it was and whether they had standing to issue it — that\'s a different question than I\'m paid to answer."',
+          failResult: 'Renne shakes her head. "Harbor records are internal. You\'d need a procurement warrant." She moves on.',
+          effects: [{ type: 'journal', text: 'Renne: three manifests filed under wrong vessel flag — legitimate signature, but standing of issuer unclear', category: 'intelligence' }]
+        },
+        {
+          id: 'renne_dock_clock',
+          text: 'She knows who owns the dock office clock. The timing is not accidental.',
+          skill: 'persuasion', tag: 'risky', dc: 13,
+          result: 'Renne checks the tide chart. A long pause. "Dock window that morning ran first bell to third bell, harbor supervisor\'s shift. Harbor supervisor is Foreman Drehn." She says his name the way you say a fact you have confirmed more than once. "Drehn countersigned the flag reassignment. That\'s in the record." She looks at the chart again, not at you. "What\'s not in the record is who Drehn spoke to the evening before."',
+          failResult: 'Renne\'s expression shuts. "I\'m not in the business of telling stories about my supervisors." She walks to the board.',
+          effects: [
+            { type: 'journal', text: 'Renne: Foreman Drehn countersigned the flag reassignment — meeting the evening before not on record', category: 'intelligence' },
+            { type: 'flag', key: 'harbor_authority_contact', value: true }
+          ]
+        },
+        {
+          id: 'renne_leave',
+          text: 'Nothing worth pressing further here.',
+          skill: 'persuasion', tag: 'safe', dc: 7,
+          result: 'Renne gives a brief nod, already looking back at the tide chart. The dock board clicks over to the next shift.',
+          failResult: 'Renne has moved on before you have.',
+          effects: []
+        }
+      ]
+    }
+  },
+
+  mimolot_academy: {
+    tavern: {
+      npcId: 'davan_selt',
+      name: 'Davan Selt',
+      role: 'Administrative Records Officer, Mimolot Academy — drinks at the Cipher Hall',
+      tell: 'corrects word choice in other people\'s sentences under his breath, then looks guilty about it',
+      agenda: 'A research grant was approved, disbursed, and the research never happened — he signed the documentation',
+      register: 'Mimolot academic — precise vocabulary, uncomfortable with direct conflict, very aware of who is watching',
+      dialogue: [
+        {
+          id: 'davan_grant',
+          text: 'The grant disbursed. The research never started. He signed the paperwork.',
+          skill: 'lore', tag: 'safe', dc: 7,
+          result: 'Davan starts to say "the research was — " and stops. He mouths one word silently, correcting himself. "The grant disbursement was authorized under Academy Protocol 14, subsection C — structured research allocation." He looks at his drink. "The receiving researcher is on sabbatical. Extended. Indefinitely." He says the word "indefinitely" as if he finds it imprecise. "The allocated funds have not been returned. They have not appeared in any research output register."',
+          failResult: 'Davan glances around the room. "Grant records are internal to the review board. I can\'t — that\'s not my — " He stops. "No."',
+          effects: [{ type: 'journal', text: 'Davan Selt: research grant disbursed under Academy Protocol 14 — researcher on indefinite sabbatical, funds unaccounted', category: 'evidence' }]
+        },
+        {
+          id: 'davan_scared',
+          text: 'He is more scared of being caught knowing than of what he knows.',
+          skill: 'persuasion', tag: 'risky', dc: 13,
+          result: 'Davan\'s mouth tightens. He almost corrects something in your phrasing. Then he doesn\'t. "I countersigned the disbursement authorization. As a records officer. Routinely." He looks at the door. "The researcher who received the grant is — was — connected to the Vice-Chancellor\'s infrastructure committee." He says "infrastructure committee" with very careful pronunciation. "I did not know that when I signed. I know it now. There is a meaningful — " He stops himself on the word. "There is a substantial difference between those two states."',
+          failResult: 'Davan stands up, straightening his jacket. "I shouldn\'t have — this was a social drink, not a — " He leaves without finishing.',
+          effects: [
+            { type: 'journal', text: 'Davan Selt: grant recipient connected to Vice-Chancellor\'s infrastructure committee — Davan signed before knowing this', category: 'evidence' },
+            { type: 'flag', key: 'mimolot_grant_thread', value: true }
+          ]
+        },
+        {
+          id: 'davan_leave',
+          text: 'Too careful to push further.',
+          skill: 'persuasion', tag: 'safe', dc: 7,
+          result: 'Davan exhales slowly. He almost says something, catches himself, and picks up his drink instead. The Cipher Hall murmurs around him.',
+          failResult: 'Davan is already looking elsewhere. You step back.',
+          effects: []
+        }
+      ]
+    }
+  },
+
+  guildheart_hub_stage2: {
+    tavern: {
+      npcId: 'ossana_vel',
+      name: 'Ossana Vel',
+      role: 'Guild Council Administrative Secretary — seen at the Closed Session bar',
+      tell: 'arranges her documents into a precise stack before answering, even when she has no documents in front of her',
+      agenda: 'Council session minutes for the last three quarters contain decisions that were made before the official session — she transcribed them herself',
+      register: 'Guild institutional upper tier — formal, uses first-person passive, speaks as if being recorded',
+      dialogue: [
+        {
+          id: 'ossana_minutes',
+          text: 'The decisions were made before the session. She wrote the minutes after.',
+          skill: 'lore', tag: 'risky', dc: 13,
+          result: 'Ossana straightens an invisible stack of papers. "It has been observed, in the course of transcription work, that certain resolution language in session minutes — minutes of record — appears to predate the session dates as logged." She does not look up. "This observation was made across three consecutive quarterly sessions." She adjusts the nonexistent stack again. "The minutes are signed by the Council Secretary. The Council Secretary is not me. I transcribe. I do not sign."',
+          failResult: 'Ossana\'s hands flatten on the table. "Session records are under Council seal. I\'m not in a position to characterize their contents." She is done.',
+          effects: [{ type: 'journal', text: 'Ossana Vel: Council session minutes contain pre-dated resolution language across three quarters — signed by Council Secretary, not Ossana', category: 'evidence' }]
+        },
+        {
+          id: 'ossana_chose_this_bar',
+          text: 'She has been sitting on this for three quarters. She chose this bar for a reason.',
+          skill: 'persuasion', tag: 'bold', dc: 16,
+          result: 'A very long pause. The invisible documents get arranged once more. "It is noted that this establishment is not frequented by Council staff." She finally looks at you directly. "The resolution language that predates the sessions references infrastructure allocations in the eastern transit corridor. Those allocations were implemented before the vote that authorized them." She stands, collecting nothing. "I have retained personal copies of all three quarters of minutes. I am an extremely precise transcriptionist. The copies are exact." She picks up her coat. "I have said what I came here to say."',
+          failResult: 'Ossana reads the room, then reads you. Whatever she was weighing, she puts it down. "I\'ve said enough." She settles into careful silence.',
+          effects: [
+            { type: 'journal', text: 'Ossana Vel: eastern transit corridor allocations implemented before the authorizing vote — she holds exact copies of three quarters of minutes', category: 'evidence' },
+            { type: 'flag', key: 'council_minutes_thread', value: true },
+            { type: 'stageProgress', stage: 2, amount: 1 }
+          ]
+        },
+        {
+          id: 'ossana_leave',
+          text: 'She straightens an invisible document. Not ready.',
+          skill: 'persuasion', tag: 'safe', dc: 7,
+          result: 'Ossana gives a small, formal inclination of the head. The invisible stack gets one final adjustment. "A reasonable conclusion to the present conversation." She returns to her drink.',
+          failResult: 'Ossana does not look up. You step away.',
+          effects: []
+        }
+      ]
+    }
+  },
+
+  cosmoria_stage2: {
+    tavern: {
+      npcId: 'lend_auditor',
+      name: 'Lend',
+      role: 'Senior Manifest Auditor, Cosmoria Harbor Authority',
+      tell: 'taps the table twice before answering any question, as if confirming something to himself',
+      agenda: 'Found a pattern in three years of manifest data showing systematic underdeclaration from a specific vessel class — building a case without authorization',
+      register: 'Cosmoria institutional — methodical, citation-heavy, uncomfortable without a reference document in front of him',
+      dialogue: [
+        {
+          id: 'lend_underdeclarations',
+          text: 'Three years of underdeclarations. He built the case without authorization.',
+          skill: 'lore', tag: 'safe', dc: 7,
+          result: 'Lend taps the table twice. "Coastal packet vessels, register class four, berths nine through fourteen, quarterly manifests, thirty-seven months." He says this the way other people say their name. "Declared cargo weight averages 14.2 percent below the vessel class minimum load efficiency. Consistently. Across eleven distinct captains and eight different cargo brokers." He taps again, once this time. "That\'s not eleven captains all running light. That\'s a declaration floor. Someone set it."',
+          failResult: 'Lend taps twice, frowns at the table, and shakes his head. "Audit findings are internal to the Harbor Authority. I can\'t discuss them out of context." He does not tap again.',
+          effects: [{ type: 'journal', text: 'Lend: 37 months of coastal packet manifests show consistent 14% underdeclaration — pattern spans 11 captains, suggesting coordinated declaration floor', category: 'intelligence' }]
+        },
+        {
+          id: 'lend_waiting',
+          text: 'He has the data. He is waiting for someone to make it mean something.',
+          skill: 'persuasion', tag: 'risky', dc: 13,
+          result: 'Two taps. A longer pause than usual. "The analysis is complete. Methodology is sound — I\'ve cross-referenced against seasonal variation, vessel age, three different load efficiency models." He looks at his hands. "I submitted a preliminary findings notice to my supervisor fourteen weeks ago. I received an acknowledgment. No follow-up." He taps once. "An audit finding with no follow-up either gets buried or gets escalated past the person who buried it." He looks at you. "I don\'t have the standing to escalate past my supervisor. Not alone."',
+          failResult: 'Lend taps twice and looks away. "I shouldn\'t be discussing an open audit thread. I apologize." He\'s retreating back into procedure.',
+          effects: [
+            { type: 'journal', text: 'Lend: submitted findings 14 weeks ago, received no follow-up — supervisor appears to have buried the report', category: 'intelligence' },
+            { type: 'flag', key: 'cosmoria_audit_thread', value: true },
+            { type: 'stageProgress', stage: 2, amount: 1 }
+          ]
+        },
+        {
+          id: 'lend_leave',
+          text: 'He taps twice. Not the right moment.',
+          skill: 'persuasion', tag: 'safe', dc: 7,
+          result: 'Lend taps the table, nods once, and returns to his drink. The audit lives in his head for another night.',
+          failResult: 'Lend does not look up. You go.',
+          effects: []
+        }
+      ]
+    }
+  },
+
   ironhold_quarry: {
     tavern: {
       npcId: 'setta_assayer',
