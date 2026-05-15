@@ -4279,6 +4279,7 @@ function renderCombatRound() {
 }
 
 function resolveCombatAction(action, abilityId) {
+  if (!CS) return;
   document.querySelectorAll('.combat-block').forEach(b => b.remove());
   const archId = G.archetype ? G.archetype.id : 'warrior';
   const combatSkill = G.skills.might || 0;

@@ -629,8 +629,10 @@ async function probeHowToPlay(page, tag) {
   }
 }
 
+let _lastProbedAtPick = -1;
 async function runFullPanelSimulation(page, tag, g, picks) {
-  if (picks > 0 && picks % PROBE_EVERY === 0) {
+  if (picks > 0 && picks % PROBE_EVERY === 0 && picks !== _lastProbedAtPick) {
+    _lastProbedAtPick = picks;
     await dismissOverlays(page);
     await probeCharSheet(page, tag, g);
     await probeJournal(page, tag, g);
