@@ -11,7 +11,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 1. GRAIN MEASURER: QUOTA MANIPULATION
   {
     plot: 'main',
-    label: "Connected families: log light. Independent farmers: extra review, lower count than the scale shows. Instructions, not guidelines.",
+    label: "Connected families log light. Independent farmers get extra review and lower counts.",
     tags: ['Investigation', 'NPC', 'Grain', 'Quotas', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -262,7 +262,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INSPECTOR: QUALITY SUPPRESSION
   {
-    label: "He marks the grain, files the mark. Two days later it's gone from the record — passed.",
+    label: "He marks it, files the mark. Two days later it's gone — passed.",
     tags: ['Investigation', 'NPC', 'Quality', 'Inspection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -304,7 +304,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. DISPUTE MEDIATOR: CONFLICT RESOLUTION FAILURES
   {
-    label: "He got the outcome note before the hearing. The Halversen family lost eleven years of storage.",
+    label: "He had the outcome note before the hearing. The Halversen family lost eleven years.",
     tags: ['Investigation', 'NPC', 'Mediation', 'Conflicts', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -596,7 +596,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FIELD RUMOR: FARMER WHISPERS
   {
-    label: "The murmur in the field rows is consistent. One farmer says it eyes down. His neighbor nods.",
+    label: "The murmur in the field rows is consistent. One says it eyes down. His neighbor nods.",
     tags: ['Investigation', 'Rumor', 'Farming', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -626,7 +626,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. MARKET RUMOR: MERCHANT WHISPERS
   {
-    label: "The cloth trader says it at normal volume. Whatever caution applied six months ago has worn thin.",
+    label: "The cloth trader says it at normal volume. The caution wore off.",
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,

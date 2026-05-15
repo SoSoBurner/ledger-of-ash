@@ -626,7 +626,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 16. DECISION OPACITY TIER 2: UNEXPLAINED AUTHORITY SHIFTS
   {
-    label: "Rulings cite 'coordinating directive' — no number, no issuing body. His name is on the outcome.",
+    label: "No issuing body, no number — just his name on the outcome.",
     tags: ['Investigation', 'Authority', 'Opacity', 'Decision', 'Meaningful'],
     xpReward: 75,
     failResult: {

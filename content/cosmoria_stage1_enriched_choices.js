@@ -971,7 +971,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "Someone visited last week asking about the same ghost vessels. Claimed to be a cargo specialist.",
+    label: "Someone else was asking about those ghost vessels. A week ahead of me.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
