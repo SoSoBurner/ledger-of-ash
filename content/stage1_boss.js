@@ -266,6 +266,7 @@ function checkStage1BossTriggered() {
 }
 
 window.STAGE1_BOSS_MODULE = {
+  trigger: checkStage1BossTriggered,
   triggerMiniBoss: triggerStage1MiniBoss,
   triggerMainBoss: triggerStage1MainBoss,
   checkTrigger: checkStage1BossTriggered,
