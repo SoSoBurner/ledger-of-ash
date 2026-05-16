@@ -209,7 +209,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Her name is Hess. Forty years in the Ironspool Ward, the last twelve in the same building. She talks to you because you stood at the right angle to her window and knocked the right way — she explains this without irony. "Three months back, the terminal changed," she says. "Twice a week now, late. People carrying things by hand, not contractor crews. I asked the duty officer. He said maintenance. I told him maintenance workers use trolleys and come in the morning. He stopped answering after that." She lets the silence do the rest.`;
+        G.lastResult = `Her name is Hess. Forty years in the Ironspool Ward, the last twelve in the same building. She talks to you because you stood at the right angle to her window and knocked the right way — she explains this without irony. She leans against the door frame with her arms crossed, one hand loose, the other holding her own wrist — not defensive, just the posture of someone who has decided to stay put and is making that clear. "Three months back, the terminal changed," she says. "Twice a week now, late. People carrying things by hand, not contractor crews. I asked the duty officer. He said maintenance. I told him maintenance workers use trolleys and come in the morning. He stopped answering after that." She lets the silence do the rest.`;
         G.flags.met_hess_ironspool_resident = true;
         addJournal('Hess: dome terminal night deliveries twice weekly, unknown carriers — duty officer stopped answering questions', 'discovery', `ironspool-s1-hess-${G.dayCount}`);
         G.recentOutcomeType = 'success';
@@ -511,7 +511,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `She was the adjudicator for two of the three frozen cases. "I assigned them both to the same magistrate," she says. "The magistrate transferred them to administrative review without notifying me. I filed a complaint about the procedure. Two weeks later, I was informed that my adjudicator contract was not being renewed. No further explanation." She kept her case notes. She gives you the relevant pages.`;
+        G.lastResult = `She was the adjudicator for two of the three frozen cases. She doesn't look up when you sit — she finishes reading to the bottom of her page, folds the paper with precise corners, and sets it face-down before she speaks. "I assigned them both to the same magistrate. The magistrate transferred them to administrative review without notifying me. I filed a complaint about the procedure. Two weeks later, I was informed that my adjudicator contract was not being renewed. No further explanation." She kept her case notes. She gives you the relevant pages without being asked twice.`;
         G.flags.met_former_adjudicator = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
@@ -620,7 +620,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Doss uses the Scriptorium Steps as his working space — he doesn't have an institutional affiliation here, but the library's open access policy lets him use the reference section indefinitely. He's cautious but once he knows you're connected to the inquiry network, he opens his notes. "The formula fragments describe a compound that becomes something different under shard amplification," he says. "It crosses a toxicological threshold. The study that explains that threshold is the Iceveil study. Both were suppressed for the same reason."`;
+        G.lastResult = `Doss uses the Scriptorium Steps as his working space — he doesn't have an institutional affiliation here, but the library's open access policy lets him use the reference section indefinitely. He's cautious; when you sit across from him he slides his open notebook a few inches to the left, out of your direct line of sight, before he's decided whether to trust you. Once he knows you're connected to the inquiry network, he pulls it back and opens it fully. "The formula fragments describe a compound that becomes something different under shard amplification," he says. "It crosses a toxicological threshold. The study that explains that threshold is the Iceveil study. Both were suppressed for the same reason."`;
         G.flags.met_doss_scriptorium = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
@@ -709,7 +709,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
-        G.lastResult = `The liaison is careful — her position requires it. But when you reference the atmospheric vent shaft dispute as a research interest, she says something specific: "That's the third inquiry about vent shaft access this quarter. The other two came from people who identified themselves as 'coordinating association representatives.' I've never heard that term before." The pre-Union charter's entity type is a "coordinating commercial association." They've been here before you.`;
+        G.lastResult = `The liaison is careful — her position requires it. She keeps a pen in her hand throughout, clicking the cap against the barrel at a slow, steady interval without seeming to notice she's doing it. When you reference the atmospheric vent shaft dispute as a research interest, the clicking stops. "That's the third inquiry about vent shaft access this quarter. The other two came from people who identified themselves as 'coordinating association representatives.' I've never heard that term before." The pre-Union charter's entity type is a "coordinating commercial association." They've been here before you.`;
         G.flags.met_high_quarter_liaison = true;
         addJournal('High Quarter liaison: two prior \'coordinating association\' inquiries about vent shaft access — charter entity type matches', 'discovery', `high-quarter-s1-liaison-${G.dayCount}`);
         G.recentOutcomeType = 'success';

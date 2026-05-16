@@ -25,7 +25,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Velka is at the production checkpoint with a tally board, marking off the morning output. She listens without turning from the board. "Twenty years at this face. I know what comes out of it and what doesn't." She caps her pen. "There's a section on the eastern side that doesn't appear in the weekly reports. I've been logging it myself because the official record is wrong on purpose." She has the tone of someone who has waited a long time for the right question.`;
+        G.lastResult = `Velka is at the production checkpoint with a tally board, marking off the morning output. She listens without turning from the board. "Twenty years at this face. I know what comes out of it and what doesn't." She caps her pen and sets it in the same groove on the board frame — a groove worn smooth from use, the wood darker there than anywhere else. "There's a section on the eastern side that doesn't appear in the weekly reports. I've been logging it myself because the official record is wrong on purpose." She has the tone of someone who has waited a long time for the right question.`;
         G.flags.met_velka_ironspike = true;
         addJournal('contact', 'Velka Ironspike met: 20-year veteran, personal log of undisclosed eastern face operations, waiting for the right inquiry', `ironhold-velka-${G.dayCount}`);
       } else {

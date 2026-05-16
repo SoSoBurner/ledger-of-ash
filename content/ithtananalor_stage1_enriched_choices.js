@@ -30,7 +30,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Torvin waits until the cup is half empty before speaking. His voice drops to the register of someone watching the door. "Orders contradict each other. Hold the line, then pull three soldiers off the line for unspecified duties. Prepare for external threat, then reposition the northern gate coverage in a way that leaves a specific approach angle open." He sets the cup down. "When I flag the discrepancy up the chain, I'm told compliance is sufficient. I've commanded this garrison for nine years. I know the difference between orders under pressure and orders with a purpose I'm not meant to understand."`;
+        G.lastResult = `Torvin waits until the cup is half empty before speaking. His voice drops to the register of someone watching the door. "Orders contradict each other. Hold the line, then pull three soldiers off the line for unspecified duties. Prepare for external threat, then reposition the northern gate coverage in a way that leaves a specific approach angle open." He sets the cup down — precisely, squarely on the ring it left when he first picked it up, the habit of a man who returns things to exactly where they were. "When I flag the discrepancy up the chain, I'm told compliance is sufficient. I've commanded this garrison for nine years. I know the difference between orders under pressure and orders with a purpose I'm not meant to understand."`;
         G.stageProgress[1]++;
         addJournal('Commander flagged contradictory and weakening orders', 'evidence', `ithtananalor-commander-${G.dayCount}`);
       } else if (result.isFumble) {

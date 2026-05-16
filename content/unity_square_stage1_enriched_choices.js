@@ -25,7 +25,7 @@ const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Brokerwell's desk faces the door. He was already watching when you were shown in. "Unity Square functions on trust in the process," he says, before you've asked anything. He pours water for himself without offering any. The sentence is measured — not aggressive, not warm. He lets it sit. When you respond, he listens with his hands flat on the desk and his eyes on your collarbone rather than your face. He's cataloguing something. What he's filing away about this meeting will determine how every subsequent approach is received.`;
+        G.lastResult = `Brokerwell's desk faces the door. He was already watching when you were shown in. "Unity Square functions on trust in the process," he says, before you've asked anything. He pours water for himself without offering any. The sentence is measured — not aggressive, not warm. He lets it sit. When you respond, he listens with his hands flat on the desk and his eyes on your collarbone rather than your face. His right thumb moves in a slow arc across the desk surface, tracing the same short path, back and forth — the motion of someone who runs through options without showing it. He's cataloguing something. What he's filing away about this meeting will determine how every subsequent approach is received.`;
         G.flags.met_vale_brokerwell = true;
         addJournal('contact', 'Vale Brokerwell met: practiced, measured, deflects with process language — strategic opacity', `unity-vale-${G.dayCount}`);
       } else {

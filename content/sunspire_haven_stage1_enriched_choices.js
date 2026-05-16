@@ -26,7 +26,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Corbek steps back from the manifest board and lowers his voice. "Routes used to be optimized for access — fastest path, community depots first. Now instructions come from above the yard level. Certain supply lines are lengthened, delayed, or rerouted through external storage before reaching Sunspire's market." He taps the board without pointing at anything specific. "Convoys leaving this yard are moving through chokepoints someone else controls. What arrives and when isn't our decision anymore."`;
+        G.lastResult = `Corbek steps back from the manifest board and lowers his voice. He pulls a page from the stack and folds it once, the crease sharp, the way someone gives their hands something neutral to do. "Routes used to be optimized for access — fastest path, community depots first. Now instructions come from above the yard level. Certain supply lines are lengthened, delayed, or rerouted through external storage before reaching Sunspire's market." He sets the folded page back without unfolding it. "Convoys leaving this yard are moving through chokepoints someone else controls. What arrives and when isn't our decision anymore."`;
         G.stageProgress[1]++;
         addJournal('Yard master revealed route manipulation and supply filtering', 'evidence', `sunspire-yard-routes-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -64,7 +64,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Lysander chooses a corner of the market hall before he speaks. "Obligations are the structure of Sunspire — everyone knows this. What's changed is who decides what an obligation means." He keeps his hands folded. "Families that push back on syndicate preferences get told their service obligations are being reviewed for increase. Families that comply get waivers and reductions. The registry of mutual duty now runs through syndicate preference." He doesn't call it by any larger name. He doesn't have to. The registry is a public document. This season's waivers and increases will be in the record.`;
+        G.lastResult = `Lysander chooses a corner of the market hall before he speaks. He checks behind him once — not a glance, a full turn — and then sets both hands on the table, palms down, the way a person establishes ground before saying something they can't unsay. "Obligations are the structure of Sunspire — everyone knows this. What's changed is who decides what an obligation means. Families that push back on syndicate preferences get told their service obligations are being reviewed for increase. Families that comply get waivers and reductions. The registry of mutual duty now runs through syndicate preference." He doesn't call it by any larger name. He doesn't have to. The registry is a public document. This season's waivers and increases will be in the record.`;
         G.stageProgress[1]++;
         addJournal('Broker revealed obligation system weaponization', 'evidence', `sunspire-broker-obligations-${G.dayCount}`);
       } else if (result.isFumble) {
