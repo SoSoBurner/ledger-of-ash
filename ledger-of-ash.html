@@ -11996,6 +11996,11 @@ function handleChoice(choice) {
       }
     }
 
+    // Bold bonus XP: +10 on success for bold choices (additive on top of base XP)
+    if (success && _resolvedTier === 'bold') {
+      if (typeof gainXp === 'function') gainXp(10); else G.xp = (G.xp||0)+10;
+    }
+
     resolveConsequence(choice.cid, success, false);
 
     // Archetype confirmation beat — track skill roll count on primary skill
