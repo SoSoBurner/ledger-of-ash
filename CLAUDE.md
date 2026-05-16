@@ -96,6 +96,9 @@ Every plan phase that adds content must expand the total content of the stage it
 - **Kill playwright before restart**: Always `Stop-Process` all playwright node.exe and headless chrome.exe before starting a new spec run. Output is buffered until process end — check `test-results/playthrough-screenshots/` sorted by LastWriteTime to gauge mid-run progress.
 - **Safe/Risky/Bold tag lists** (lines ~10684-10685): BOLD_TAGS = Combat, Violence, Accusation, Negotiation, Betrayal, Exposure, Tribunal, Confrontation, Assault, Ambush. SAFE_TAGS = Rest, Stealth, Craft, Study, Observation, Lore, Trade, Retreat, Gather, Investigation, NPC, Social, Maritime, Archive, Intelligence, Rumor, Discovery, Survey, Records, Inquiry. Anything else → risky.
 - **Alignment bars threshold**: Benevolence/order bars only render when `|G.benevolence| >= 10` or `|G.orderAxis| >= 10`. Absent bars are NOT a bug — log current axis values for reference instead.
+- **`readG()` sp2 serialization gap**: `g.stageProgress[2]` from `readG()` can return 0 even when the live page has sp2=10+. Root cause: integer-keyed object spread loses numeric keys. When checking G state for success conditions, use `page.evaluate()` to read G directly — never rely on `readG()` for stageProgress numeric keys.
+- **Playwright multi-match `.isVisible()` strict mode**: Comma-separated locators (`#a,#b,[id*="x"]`) match multiple elements — `.isVisible()` may throw (caught as `false`). Use specific single selector (`#hud-heat-row`) instead of broad fallbacks.
+- **Char sheet traitType fallback label**: The else-branch of the `traitType` ternary at line ~14925 rendered `'Investigation — 1/scene'` for any unrecognized traitType. Correct fallback is `'Utility — 1/scene'`. If new traitTypes are added, extend the ternary explicitly.
 
 ## Testing Infrastructure
 
