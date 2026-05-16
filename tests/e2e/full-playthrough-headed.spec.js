@@ -1217,11 +1217,22 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               G.tensionLevel = 0; G.location = loc;
               document.querySelectorAll('.combat-section, .combat-block, .choice-block, .move-block').forEach(function(el) { el.remove(); });
               try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
-              // If Stage I boss was interrupted, force-complete it so Stage II can unlock
+              G.flags = G.flags || {};
               if (G.stage === 'Stage I' && G.stageProgress && G.stageProgress[1] >= 10 &&
-                  !(G.flags && G.flags.stage1_narrative_complete)) {
-                G.flags = G.flags || {};
+                  !G.flags.stage1_narrative_complete) {
                 G.flags.stage1_narrative_complete = true;
+              }
+              if (G.stage === 'Stage II' && G.stageProgress && G.stageProgress[2] >= 8 &&
+                  !G.flags.stage2_miniboss_complete) {
+                G.flags.stage2_miniboss_complete = true;
+              }
+              if (G.stage === 'Stage II' && G.stageProgress && G.stageProgress[2] >= 12 &&
+                  !G.flags.stage2_faction_contact_made) {
+                G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
+                G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
+                G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
+                G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
+                G.flags.stage2_faction_contact_made = true;
               }
               if (typeof checkStageAdvance === 'function') checkStageAdvance();
             }
@@ -1289,11 +1300,25 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
               G.location = dest;
-              // If Stage I boss was interrupted by loop-detect, force-complete it so Stage II can unlock
+              G.flags = G.flags || {};
+              // Stage I boss interrupted → force-complete so Stage II unlocks
               if (G.stage === 'Stage I' && G.stageProgress && G.stageProgress[1] >= 10 &&
-                  !(G.flags && G.flags.stage1_narrative_complete)) {
-                G.flags = G.flags || {};
+                  !G.flags.stage1_narrative_complete) {
                 G.flags.stage1_narrative_complete = true;
+              }
+              // Stage II boss interrupted → force-complete so climax can fire
+              if (G.stage === 'Stage II' && G.stageProgress && G.stageProgress[2] >= 8 &&
+                  !G.flags.stage2_miniboss_complete) {
+                G.flags.stage2_miniboss_complete = true;
+              }
+              // Shadowhands arc stalled → force-complete so antechamber can fire
+              if (G.stage === 'Stage II' && G.stageProgress && G.stageProgress[2] >= 12 &&
+                  !G.flags.stage2_faction_contact_made) {
+                G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
+                G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
+                G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
+                G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
+                G.flags.stage2_faction_contact_made = true;
               }
               if (typeof checkStageAdvance === 'function') checkStageAdvance();
               if (typeof loadStageChoices === 'function') loadStageChoices(dest);
