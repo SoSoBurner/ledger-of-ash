@@ -11030,6 +11030,25 @@ function loadStageChoices(locId) {
       var npcChoices = buildNPCChoices(G.location);
       if (npcChoices && npcChoices.length) adapted.push.apply(adapted, npcChoices.map(function(c){ return (c.text == null && c.label != null) ? Object.assign({}, c, {text: c.label}) : c; }));
     }
+    // Inject LOCALITY_NPCS tavern conversation trigger
+    if (window.LOCALITY_NPCS && G.location && window.LOCALITY_NPCS[G.location]) {
+      var _npcEntry = window.LOCALITY_NPCS[G.location];
+      var _npcDayFlag = 'npc_talked_' + _npcEntry.npcId + '_' + (G.dayCount || 0);
+      if (!G.flags[_npcDayFlag]) {
+        (function(capturedEntry, capturedFlag) {
+          adapted.push({
+            id: 'talk_npc_' + capturedEntry.npcId,
+            text: capturedEntry.triggerText,
+            tag: 'conversation',
+            plot: 'side',
+            action: function() {
+              G.flags[capturedFlag] = true;
+              if (typeof window.renderNPCDialogue === 'function') window.renderNPCDialogue(capturedEntry.npcId);
+            }
+          });
+        })(_npcEntry, _npcDayFlag);
+      }
+    }
     // Inject authority encounter at top if heat threshold met
     var authChoice = _getAuthorityEncounterChoice(G._currentPolity || '');
     if (authChoice) adapted.unshift(authChoice);
@@ -16917,6 +16936,7 @@ document.getElementById('howto-close').addEventListener('click', function() {
 <script src="content/social_misstep_pool.js"></script>
 <script src="content/public_complication_pool.js"></script>
 <script src="content/locality_rumors.js"></script>
+<script src="content/locality_npcs.js"></script>
 <script src='content/stage1_boss.js'></script>
 <script src='content/stage2_antechamber.js'></script>
 <script src='content/stage2_boss.js'></script>
