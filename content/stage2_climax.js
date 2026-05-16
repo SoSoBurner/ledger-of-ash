@@ -125,6 +125,7 @@ var STAGE2_CLIMAX = (function() {
       G.lastResult = 'Your contact chain is intercepted before the document reaches more than one source. The partial copy is confiscated at the first handoff — someone was watching that courier. You are not arrested. Inquisitor Orveth sends a message, no seal, no signature: "You tried. I respect that. Come find me when you are ready to try more carefully." The records\' existence is now known by more people than you intended. Their contents are still contained. For now.';
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 2;
       G.recentOutcomeType = 'complication';
+      if (G.flags) { G.flags.fumble_locked = true; G.flags['fumble_locked_climax_p3_expose'] = true; }
     }
     _closeClimax();
   }
