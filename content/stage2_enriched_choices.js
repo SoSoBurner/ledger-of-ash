@@ -1813,6 +1813,156 @@
     }
   },
 
+  // ========== ARCHETYPE-EXCLUSIVE: Combat Family (5 choices) ==========
+
+  {
+    id: 's2_arch_combat_warden_shakedown',
+    text: 'The warden is lying. He knows I can tell. That is enough.',
+    tags: ['Combat', 'Confrontation', 'Pressure'],
+    plot: 'side',
+    condition: function() {
+      return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.combat || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'The warden\'s hand stops moving when you step closer. You don\'t touch him. You don\'t need to — what you project is the specific patience of someone who has hurt people for functional reasons and found it unremarkable. He recalculates something privately and pushes the ledger across the table. The entry you wanted to see is circled in the original ink, flagged for review by someone whose name is in a column the public version does not include. He doesn\'t look up while you read.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_warden_ledger_accessed = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Warden ledger accessed under physical pressure. Flagged entry names a reviewing authority absent from public records.', 'evidence');
+      } else {
+        G.lastResult = 'He doesn\'t fold. He\'s dealt with people who project threat before and learned to read which ones actually follow through. He rings for a second warden without breaking eye contact. You leave before the door opens. The ledger stays on his side of the table. Whatever he\'s protecting, he\'s been paid enough to hold it against physical pressure.';
+        G.recentOutcomeType = 'complication';
+        if (G.worldClocks) G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        addJournal('Warden held position under pressure — has instructions and backing. Watchfulness raised.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_arch_combat_courier_escort',
+    text: 'The courier carrying that manifest needs to arrive. I can make that happen.',
+    tags: ['Combat', 'Protection', 'Route'],
+    plot: 'side',
+    condition: function() {
+      return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.combat || 0);
+      if (r.total >= 11) {
+        G.lastResult = 'Three figures step out of the alley at the second crossing — the kind of interception that requires someone knowing the route in advance. You read the geometry before they\'ve finished moving: two flanking, one center, the center one watching your hands. You close the distance fast enough that the center step becomes a retreat. They peel off within a block. The courier says nothing for the rest of the walk. At the handoff point, she gives you a name: the clerk who told someone about the schedule.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_courier_escorted = true;
+        G.flags.stage2_schedule_leak_known = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Courier escorted through interception. Clerk who leaked schedule identified — internal source confirmed.', 'evidence');
+      } else {
+        G.lastResult = 'The interception is larger than expected — five people, and two of them have already moved to block the far end of the lane. The courier drops the satchel and runs. You hold the lane long enough for her to clear the block, then disengage. The manifest is gone. The courier made it. One of those things is recoverable.';
+        G.recentOutcomeType = 'complication';
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Interception larger than anticipated — manifest lost, courier survived. Professional opposition confirmed.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_arch_combat_patrol_pattern',
+    text: 'Warden deployment shifted three days ago. Someone gave an order they didn\'t write down.',
+    tags: ['Combat', 'Observation', 'Tactics'],
+    plot: 'side',
+    condition: function() {
+      return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.combat || 0);
+      if (r.total >= 10) {
+        G.lastResult = 'A tactical eye reads this the same way it reads any changed deployment: there is a reason, and the reason is the thing being protected. The new patrol arc covers the transit administration\'s rear entrance and the weighmaster\'s annex — two buildings that share a wall but have no public connection. The coverage gap they created is over the public records entrance, which is now effectively unmonitored at shift change. Someone repositioned the wardens toward what matters and left the appearance of coverage intact.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_patrol_pattern_read = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Warden redeployment analyzed — new arc protects transit admin rear entrance and weighmaster annex. Records entrance left unmonitored at shift change.', 'evidence');
+      } else {
+        G.lastResult = 'The pattern is changed but the reason isn\'t readable from the outside. Too many variables: understaffing, seasonal rotation, district complaint, routine adjustment. Without a second data point — another change, or the original deployment order — the shift is a signal but not a message. You note the timing and the covered buildings and wait for the second point.';
+        G.recentOutcomeType = 'intelligence';
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addJournal('Warden redeployment noted — pattern unclear without additional data point. Timing and covered buildings logged.', 'intelligence');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_arch_combat_enforcer_known',
+    text: 'The man following me is a professional. He wants me to know he\'s there.',
+    tags: ['Combat', 'Confrontation', 'Stealth'],
+    plot: 'side',
+    condition: function() {
+      return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.combat || 0);
+      if (r.total >= 13) {
+        G.lastResult = 'You choose the time and the ground — a narrow service passage, no exits to either side. He rounds the corner and stops when he sees you\'ve turned. For a moment the calculation runs on both sides. He\'s good: his weight is forward, hands relaxed, feet wider than a civilian would stand. He was told to follow, not to engage. You tell him what you know and who you think gave the order. He doesn\'t confirm anything, but the specific way he doesn\'t confirm it is its own answer. He leaves. By morning, whoever sent him knows what you said.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_tail_confronted = true;
+        G.flags.stage2_opposition_messaged = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Professional tail confronted and released — deliberately sent message to their handler. Opposition now aware of current intelligence level.', 'evidence');
+      } else {
+        G.lastResult = 'He\'s better than the situation suggested — he anticipated the reversal and had already moved to a parallel passage. By the time you circle back, he\'s on a roof line three buildings over, watching. The message is clear: he\'s not afraid of you knowing he\'s there. Whatever he\'s doing, he\'s been authorized to do it openly.';
+        G.recentOutcomeType = 'complication';
+        if (G.worldClocks) G.worldClocks.pressure = Math.min(10, (G.worldClocks.pressure || 0) + 1);
+        addJournal('Tail evasion failed — professional counter-surveillance confirmed. Operation is openly authorized.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
+  {
+    id: 's2_arch_combat_document_seizure',
+    text: 'The clerk is leaving with something that isn\'t supposed to leave that building.',
+    tags: ['Combat', 'Confrontation', 'Evidence'],
+    plot: 'side',
+    condition: function() {
+      return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
+    },
+    result: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.combat || 0);
+      if (r.total >= 12) {
+        G.lastResult = 'He makes it half a block before your hand is on his shoulder. He\'s not a fighter — the satchel drops and he starts talking before you\'ve said anything. The document inside is a routing variance authorization signed by someone three ranks above the clerk\'s supervisor. He was told to deliver it to a private residence address and destroy the transit record. The address is on the document header. He didn\'t write it there; someone above him did, which means the paper has a chain even it didn\'t intend to have.';
+        G.recentOutcomeType = 'discovery';
+        G.flags.stage2_routing_variance_seized = true;
+        G.flags.stage2_private_address_known = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addJournal('Routing variance authorization seized — signed three ranks above clerk\'s supervisor, bearing private residence address for delivery.', 'evidence');
+      } else {
+        G.lastResult = 'He drops the satchel and runs — faster than expected, and he takes a route that suggests he\'s used it before. When you retrieve the satchel, it\'s empty. He transferred whatever he was carrying before he left the building; the satchel was cover. The real document moved a different way, and you\'ve now shown your hand.';
+        G.recentOutcomeType = 'complication';
+        if (G.worldClocks) G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 2);
+        addJournal('Document transfer failed — clerk used decoy satchel. Real document moved separately. Cover blown.', 'complication');
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof loadStageChoices === 'function') loadStageChoices();
+    }
+  },
+
   // ========== GLOBAL INVESTIGATION: Suppression Conspiracy Arc ==========
 
   {
