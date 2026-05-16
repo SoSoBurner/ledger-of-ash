@@ -12616,7 +12616,7 @@ function checkStageAdvance() {
     updateHUD();
     var _pill = document.getElementById('topbar-stage');
     if (_pill) { _pill.classList.add('stage-flash'); setTimeout(function(){ _pill.classList.remove('stage-flash'); }, 800); }
-  } else if (G.level >= 11 && G.stage === 'Stage II') {
+  } else if (G.stage === 'Stage II') {
     checkNeutralArcScene();
     var _sp2n = (G.stageProgress && G.stageProgress[2]) || 0;
     if (_sp2n >= 5 && !G.flags.quest_s2_boss_hint) {
