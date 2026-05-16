@@ -55,6 +55,7 @@
 
 | Feature | Status | Notes |
 |---------|--------|-------|
+| Save/Load overlay (`#overlay-save`) — DOM stub exists, no render logic | NOT BUILT | spec-miner 2026-05-15: element in HTML but `showSaveLoad()` or equivalent not implemented |
 | Arrival scenes (locality first-arrival narration, all localities) | DONE | locality_arrival_narrations.js covers all 22 Stage 1 localities; helper fns wired |
 | Text RPG flavor packets (all 14+ localities) | DONE | All 11 missing Stage 1 packets authored and committed (bcf7ad22) |
 | Enemy scaling — tiered stat variants (L1-3/L4-7/L8-10) | DONE | getEnemyStats(key, level) + getEnemyTier(level) wired |
