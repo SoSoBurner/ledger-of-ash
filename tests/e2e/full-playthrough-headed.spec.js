@@ -1273,6 +1273,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               G.tensionLevel = 0;
               // Clear combat state so combat choices don't re-render after teleport
               try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
+              // Remove stale combat + choice DOM so spec doesn't keep clicking old buttons
+              document.querySelectorAll('.combat-section, .combat-block, .choice-block, .move-block').forEach(function(el) { el.remove(); });
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
               G.location = dest;
