@@ -1212,9 +1212,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[escape ${tag}] pick=${picks} stuck at "${g.location}" for ${stuckAtLoc} picks — teleporting to ${escLoc}`);
         try {
           await page.evaluate((loc) => {
-            if (typeof G !== 'undefined') { G.tensionLevel = 0; G.location = loc; }
-            if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(loc);
-            else if (typeof loadStageChoices === 'function') loadStageChoices();
+            if (typeof G !== 'undefined') {
+              G.tensionLevel = 0; G.location = loc;
+              document.querySelectorAll('.combat-section, .combat-block, .choice-block, .move-block').forEach(function(el) { el.remove(); });
+              try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
+            }
+            if (typeof loadStageChoices === 'function') loadStageChoices(loc);
           }, escLoc);
         } catch (_) {}
         stuckAtLoc = 0;
@@ -1278,8 +1281,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
               G.location = dest;
-              if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(dest);
-              else if (typeof loadStageChoices === 'function') loadStageChoices();
+              // Use loadStageChoices instead of _travelCoreTravelTo to skip corridor combat
+              // that would kill the player and waste the remaining picks
+              if (typeof loadStageChoices === 'function') loadStageChoices(dest);
             }
           }, ESCAPE_LOCS);
         } catch (_) {}
