@@ -36,6 +36,7 @@
 
 | Feature | Status | Notes |
 |---------|--------|-------|
+| Camp actions `sleep`/`post_watches`/`campout`/`lay_low`/`review_notes` — buttons render but no handlers wired | NOT BUILT | spec-miner 2026-05-15: 5 of 9 camp types have DOM buttons but `campAction()` has no branch for them; clicking silently does nothing |
 | Blue border for main quest choices (gold left-border CSS) | DONE | `.choice-btn.plot-main` wired at `#4a7ab5`; CSS rule exists |
 | Rival direct encounter scenes (triggerRivalEncounter + resolveRivalOutcome) | DONE | do-2-replicated-newell.md; all 4 edits applied; lines 9870/9905/11201 |
 | __rival__ routing in handleChoice | DONE | line 11201 |
