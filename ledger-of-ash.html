@@ -11159,6 +11159,13 @@ function loadStageChoices(locId) {
   // Inject authority encounter at top if heat threshold met
   var authChoiceFallback = _getAuthorityEncounterChoice(G._currentPolity || '');
   if (authChoiceFallback) base.unshift(authChoiceFallback);
+  // Inject Stage 2 Shadowhands arc choices in fallback path (same as enriched path)
+  if (G.stage === 'Stage II' && window.STAGE2_SHADOWHANDS_ARC && typeof adaptEnrichedChoice === 'function') {
+    var _shadowArcFallback = window.STAGE2_SHADOWHANDS_ARC.filter(function(c) {
+      return !c.condition || c.condition();
+    }).map(adaptEnrichedChoice);
+    if (_shadowArcFallback.length) base.unshift.apply(base, _shadowArcFallback);
+  }
   if (typeof renderChoices === 'function') {
     const choices = _injectBossSeedChoices(prioritizeChoices(base, 8)).slice(0, 8);
     renderChoices(choices);
@@ -12083,11 +12090,8 @@ function resolveConsequence(cid, success, partial) {
   const entry = C[cid];
   if (!entry) {
     if (success) { addNarration('', 'The action finds purchase.', 'success'); gainXP(3); }
-    else { addNarration('', 'The approach fails. The situation is unchanged but you are noticed.', 'failure'); modHP(-1); }
-    renderChoices([
-      { text:'Try a different approach.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' },
-      { text:'Ask around for better information first.', skill:'persuasion', tag:'safe', align:'neutral', cid:'market_intel' }
-    ]);
+    else { addNarration('', 'The approach finds no opening. The next move is yours.', 'failure'); }
+    setTimeout(function(){ if (typeof loadStageChoices === 'function') loadStageChoices(G.location); }, 400);
     return;
   }
   const res = success ? entry.success : (partial && entry.partial ? entry.partial : entry.failure);
