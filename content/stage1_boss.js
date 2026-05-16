@@ -127,6 +127,7 @@ function triggerStage1MainBoss() {
   if (!G || G.flags.stage1_mainboss_complete) return;
   G.flags.stage1_mainboss_complete = true;
   G.flags.stage1_mainboss_started = true;
+  G.flags.stage1_advance_deferred = true;
 
   addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She reaches to the desk edge, picks up a short marking rod — bone-handled, the kind used to underline registry entries — and holds it in her left hand without looking at it. She does not write anything. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
 

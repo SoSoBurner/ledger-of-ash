@@ -12555,9 +12555,11 @@ function checkStageAdvance() {
     STAGE1_BOSS_MODULE.trigger();
     return;
   }
-  // Advance Stage II when boss resolved: either defeated by player, or boss started and sp>=22
-  // (gives ~5 picks after boss trigger at sp15-18 for player to win; forces advance if they lose)
-  if (G.flags.stage1_mainboss_complete && !G.flags.stage1_narrative_complete
+  // Advance Stage II: on defeat, OR after boss started + sp>=22 (fallback if player lost combat)
+  // stage1_advance_deferred gives one free tick when boss first fires so it doesn't overwrite itself
+  if (G.flags.stage1_advance_deferred) {
+    G.flags.stage1_advance_deferred = false;
+  } else if (G.flags.stage1_mainboss_complete && !G.flags.stage1_narrative_complete
       && (G.flags.stage1_mainboss_defeated ||
           (G.flags.stage1_mainboss_started && _sp1n >= 22))) {
     G.stageProgress[1] = Math.max(_sp1n, 18);
