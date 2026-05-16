@@ -6,7 +6,7 @@ const STAGE2_SHADOWHANDS_ARC = [
     label: "The chalk mark on the third column means someone left a message. It wasn't there yesterday.",
     tags: ['ArcDeparture', 'Stealth', 'Investigation'],
     xpReward: 75,
-    condition: function() { return G.stage == 2 && !(G.flags && G.flags.shadowhands_contacted); },
+    condition: function() { return G.stage === 'Stage II' && !(G.flags && G.flags.shadowhands_contacted); },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -24,6 +24,7 @@ const STAGE2_SHADOWHANDS_ARC = [
         G.lastResult = "The chalk mark is there. Whatever it signals, you don't know the code. It will still be there tomorrow if you learn to read it.";
         G.recentOutcomeType = 'neutral';
       }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
   },
 
@@ -49,6 +50,7 @@ const STAGE2_SHADOWHANDS_ARC = [
         G.lastResult = "She watches you for a long moment after you sit. Then she says she'll need another meeting before she shares anything substantive. She leaves the way someone leaves who has two other exits already identified.";
         G.recentOutcomeType = 'neutral';
       }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
   },
 
@@ -76,6 +78,7 @@ const STAGE2_SHADOWHANDS_ARC = [
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.recentOutcomeType = 'complication';
       }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
   },
 
@@ -102,6 +105,7 @@ const STAGE2_SHADOWHANDS_ARC = [
         G.lastResult = "Ilve says the name is still being verified. Come back in a day. She's not lying — the pause is real. She just doesn't have enough yet to be certain.";
         G.recentOutcomeType = 'neutral';
       }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
   }
 

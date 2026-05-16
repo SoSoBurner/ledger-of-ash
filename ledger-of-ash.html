@@ -11598,6 +11598,10 @@ function gainXp(amount) {
 }
 
 function maybeStageAdvance() {
+  // Stage II: sync investigationProgress → stageProgress[2] so the HUD and spec both track the same value
+  if (G && G.stage === 'Stage II' && typeof G.investigationProgress === 'number' && G.stageProgress) {
+    G.stageProgress[2] = Math.max(G.stageProgress[2] || 0, G.investigationProgress);
+  }
   checkStageAdvance();
   updateHUD();
 }
