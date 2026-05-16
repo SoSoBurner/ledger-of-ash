@@ -506,6 +506,28 @@ async function probeCharSheet(page, tag, g) {
     if (!hasAbils)  log(`[panel:char-sheet ${tag}] WARN: no .ability-card found`);
     if (objObj)     log(`[panel:char-sheet ${tag}] VIOLATION: [object Object] in char sheet`);
     probeCanonText(txt, tag, 'char-sheet');
+
+    // Skill cross-check: parse each visible skill row and compare to G.skills
+    // Key normalization per CLAUDE.md: display names → internal keys
+    const KEY_NORM = { might:'combat', finesse:'stealth', vigor:'survival', wits:'lore', charm:'persuasion', spirit:'craft' };
+    const gSkills = await page.evaluate(() => {
+      try { return G.skills ? { ...G.skills } : {}; } catch (_) { return {}; }
+    }).catch(() => ({}));
+    for (const rowTxt of skillRows) {
+      // Expected row format: "Might  3" or "Combat  3" — split on whitespace, last token is value
+      const parts = rowTxt.trim().split(/\s+/);
+      if (parts.length < 2) continue;
+      const rawName  = parts[0].toLowerCase();
+      const rowVal   = parseInt(parts[parts.length - 1]);
+      const internalKey = KEY_NORM[rawName] || rawName;
+      const gVal = gSkills[internalKey];
+      if (gVal !== undefined && !isNaN(rowVal) && rowVal !== gVal) {
+        log(`[panel:char-sheet ${tag}] VIOLATION: skill "${rawName}" sheet=${rowVal} vs G.skills.${internalKey}=${gVal}`);
+      } else if (gVal !== undefined && !isNaN(rowVal)) {
+        log(`[panel:char-sheet ${tag}] skill-match: ${internalKey} sheet=${rowVal} G=${gVal} OK`);
+      }
+    }
+
     await closeSpecificOverlay(page, 'overlay-charsheet');
   } catch (err) {
     log(`[panel:char-sheet ${tag}] FAIL: ${err.message}`);
@@ -560,6 +582,30 @@ async function probeCamp(page, tag, g) {
       await screenshot(page, `${tag}_camp_rest_result`);
       const postTxt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
       log(`[panel:camp ${tag}] rest-result: "${postTxt.slice(0,100).replace(/\n/g,' ')}"`);
+    }
+    // Click train if visible — screenshot result, read text, then close overlay
+    const trainVisible = await page.locator('button.camp-action[data-camp="train"],[data-camp="train"]').isVisible({ timeout: 600 }).catch(() => false);
+    if (trainVisible) {
+      const trainBtn = page.locator('button.camp-action[data-camp="train"],[data-camp="train"]').first();
+      await trainBtn.click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_train_result`);
+      const trainTxt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] train-result: "${trainTxt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] train: not visible`);
+    }
+    // Click craft if visible — screenshot result, read text, then close overlay
+    const craftVisible = await page.locator('button.camp-action[data-camp="craft"],[data-camp="craft"],#btn-craft').isVisible({ timeout: 600 }).catch(() => false);
+    if (craftVisible) {
+      const craftBtn = page.locator('button.camp-action[data-camp="craft"],[data-camp="craft"],#btn-craft').first();
+      await craftBtn.click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_craft_result`);
+      const craftTxt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] craft-result: "${craftTxt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] craft: not visible`);
     }
     await closeSpecificOverlay(page, 'overlay-camp');
   } catch (err) {
@@ -765,6 +811,180 @@ async function probeHowToPlay(page, tag) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Forced-state alignment + heat probe
+// ---------------------------------------------------------------------------
+async function probeForcedStateChecks(page, tag) {
+  try {
+    // Capture original values before mutation
+    const origVals = await page.evaluate(() => {
+      try {
+        return {
+          benevolence: G.benevolence || 0,
+          orderAxis:   G.orderAxis   || 0,
+          heat:        G.heat ? JSON.parse(JSON.stringify(G.heat)) : {},
+        };
+      } catch (_) { return { benevolence: 0, orderAxis: 0, heat: {} }; }
+    }).catch(() => ({ benevolence: 0, orderAxis: 0, heat: {} }));
+
+    // ── Alignment bars: force values past ±10 threshold ──────────────────
+    await page.evaluate(() => {
+      try {
+        G.benevolence = 15;
+        G.orderAxis   = -12;
+        if (typeof updateHUD === 'function') updateHUD();
+      } catch (_) {}
+    }).catch(() => {});
+    await page.waitForTimeout(PACE.short);
+
+    // Open char sheet to see alignment bars
+    const sheetOpened = await openOverlay(page, '#btn-charsheet', '#overlay-charsheet');
+    await screenshot(page, `${tag}_forced_alignment_bars`);
+    if (sheetOpened) {
+      const barEl = await page.locator('[class*="alignment"],[id*="benevolence"],[id*="orderAxis"],[class*="benevolence"],[class*="order-bar"]').isVisible({ timeout: 1000 }).catch(() => false);
+      if (!barEl) {
+        log(`[forced-state ${tag}] VIOLATION: alignment bars not visible after forcing benevolence=15 orderAxis=-12`);
+      } else {
+        log(`[forced-state ${tag}] alignment-bars: PASS (bars visible at forced values)`);
+      }
+      await closeSpecificOverlay(page, 'overlay-charsheet');
+    } else {
+      log(`[forced-state ${tag}] alignment-bars: char sheet not opened — skipping bar check`);
+    }
+
+    // ── Heat HUD: force heat to 5 on shelk ───────────────────────────────
+    await page.evaluate(() => {
+      try {
+        if (!G.heat) G.heat = {};
+        G.heat.shelk = 5;
+        if (typeof updateHUD === 'function') updateHUD();
+      } catch (_) {}
+    }).catch(() => {});
+    await page.waitForTimeout(PACE.short);
+    await screenshot(page, `${tag}_forced_heat_hud`);
+    const heatEl = await page.locator('#hud-heat-row,#hud-heat,[id*="heat"]').isVisible({ timeout: 1000 }).catch(() => false);
+    if (!heatEl) {
+      log(`[forced-state ${tag}] VIOLATION: heat HUD row not visible after forcing G.heat.shelk=5`);
+    } else {
+      const heatTxt = await page.locator('#hud-heat-row,#hud-heat,[id*="heat"]').first().innerText().catch(() => '');
+      log(`[forced-state ${tag}] heat-hud: PASS "${heatTxt.slice(0,60)}"`);
+    }
+
+    // ── Restore original values ───────────────────────────────────────────
+    await page.evaluate((orig) => {
+      try {
+        G.benevolence = orig.benevolence;
+        G.orderAxis   = orig.orderAxis;
+        G.heat        = orig.heat;
+        if (typeof updateHUD === 'function') updateHUD();
+      } catch (_) {}
+    }, origVals).catch(() => {});
+    log(`[forced-state ${tag}] restored original values`);
+  } catch (err) {
+    log(`[forced-state ${tag}] WARN: ${err.message}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Combat branch probe — enter, read actions, click Talk/Defend, exit
+// ---------------------------------------------------------------------------
+async function probeCombatBranches(page, tag) {
+  try {
+    // Capture current G state snapshot so we can restore if needed
+    const preG = await readG(page);
+
+    // Trigger combat via enterCombat — guild_enforcer is a known safe enemy key
+    await page.evaluate(() => {
+      try {
+        if (typeof enterCombat === 'function') {
+          enterCombat('guild_enforcer', { context: 'probe', isBoss: false });
+        }
+      } catch (_) {}
+    }).catch(() => {});
+
+    // Wait for combat UI to appear
+    let combatVisible = false;
+    try {
+      await page.waitForSelector('.combat-actions,.combat-btn,#combat-overlay', { timeout: 3000 });
+      combatVisible = true;
+    } catch (_) {}
+
+    if (!combatVisible) {
+      // Try waiting for choice buttons with combat labels
+      const cnt = await waitForChoices(page, 2000);
+      if (cnt > 0) combatVisible = true;
+    }
+
+    await screenshot(page, `${tag}_combat_probe_entry`);
+
+    if (!combatVisible) {
+      log(`[combat-probe ${tag}] WARN: combat UI not visible after enterCombat — skipping`);
+      return;
+    }
+
+    // Read all visible combat action button labels
+    const combatBtns = await page.locator('.combat-btn:visible,.choice-btn:visible:not([disabled])').allInnerTexts().catch(() => []);
+    log(`[combat-probe ${tag}] combat-entry actions: ${combatBtns.slice(0,6).map(t=>t.replace(/\n/g,' ').slice(0,40)).join(' | ')}`);
+
+    // Prefer Talk or Defend — avoid Press (attacks) which could kill character
+    const SAFE_LABELS = ['Talk', 'Retreat', 'Defend'];
+    let clickedLabel = null;
+    for (const safeLabel of SAFE_LABELS) {
+      const btn = page.locator(`.combat-btn:visible:has-text("${safeLabel}"),.choice-btn:visible:not([disabled]):has-text("${safeLabel}")`).first();
+      if (await btn.isVisible({ timeout: 500 }).catch(() => false)) {
+        await btn.click();
+        clickedLabel = safeLabel;
+        break;
+      }
+    }
+    if (!clickedLabel) {
+      // Fall back to first visible button
+      const fallback = page.locator('.combat-btn:visible,.choice-btn:visible:not([disabled])').first();
+      if (await fallback.isVisible({ timeout: 500 }).catch(() => false)) {
+        clickedLabel = await fallback.innerText().catch(() => '?');
+        await fallback.click();
+      }
+    }
+    await page.waitForTimeout(PACE.betweenCombat);
+    await screenshot(page, `${tag}_combat_probe_after_click`);
+    log(`[combat-probe ${tag}] clicked: "${String(clickedLabel).slice(0,40)}"`);
+
+    // Try to escape/close combat via Escape key or Retreat button
+    for (let i = 0; i < 4; i++) {
+      const retreatBtn = page.locator('.combat-btn:visible:has-text("Retreat"),.choice-btn:visible:not([disabled]):has-text("Retreat")').first();
+      if (await retreatBtn.isVisible({ timeout: 500 }).catch(() => false)) {
+        await retreatBtn.click();
+        break;
+      }
+      await page.keyboard.press('Escape');
+      await page.waitForTimeout(400);
+      const choicesBack = await waitForChoices(page, 800);
+      if (choicesBack > 0) break;
+    }
+
+    // Restore location/tension in case combat left a dirty state
+    await page.evaluate((loc) => {
+      try {
+        if (typeof G !== 'undefined') {
+          G.tensionLevel = 0;
+          try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
+          if (typeof loadStageChoices === 'function' && loc) loadStageChoices(loc);
+        }
+      } catch (_) {}
+    }, preG.location || '').catch(() => {});
+
+    await page.waitForTimeout(PACE.short);
+    log(`[combat-probe ${tag}] PASS — combat branch exercised`);
+  } catch (err) {
+    log(`[combat-probe ${tag}] WARN: ${err.message}`);
+    // Best-effort cleanup
+    await page.evaluate(() => {
+      try { G.tensionLevel = 0; CS = null; } catch (_) {}
+      try { if (typeof loadStageChoices === 'function' && G.location) loadStageChoices(G.location); } catch (_) {}
+    }).catch(() => {});
+  }
+}
+
 let _lastProbedAtPick = -1;
 async function runFullPanelSimulation(page, tag, g, picks) {
   if (picks > 0 && picks % PROBE_EVERY === 0 && picks !== _lastProbedAtPick) {
@@ -792,6 +1012,16 @@ async function runFullPanelSimulation(page, tag, g, picks) {
   }
   if (picks === 5) {
     await probeHowToPlay(page, tag);
+  }
+  // Forced-state probe — once per family at pick 30 (character is established)
+  if (picks === 30) {
+    await dismissOverlays(page);
+    await probeForcedStateChecks(page, tag);
+  }
+  // Combat branch probe — once per family at pick 50 (after initial progression)
+  if (picks === 50) {
+    await dismissOverlays(page);
+    await probeCombatBranches(page, tag);
   }
 }
 
