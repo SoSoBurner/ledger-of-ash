@@ -1217,6 +1217,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               G.tensionLevel = 0; G.location = loc;
               document.querySelectorAll('.combat-section, .combat-block, .choice-block, .move-block').forEach(function(el) { el.remove(); });
               try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
+              // If Stage I boss was interrupted, force-complete it so Stage II can unlock
+              if (G.stage === 'Stage I' && G.stageProgress && G.stageProgress[1] >= 10 &&
+                  !(G.flags && G.flags.stage1_narrative_complete)) {
+                G.flags = G.flags || {};
+                G.flags.stage1_narrative_complete = true;
+              }
+              if (typeof checkStageAdvance === 'function') checkStageAdvance();
             }
             if (typeof loadStageChoices === 'function') loadStageChoices(loc);
           }, escLoc);
@@ -1282,8 +1289,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
               G.location = dest;
-              // Use loadStageChoices instead of _travelCoreTravelTo to skip corridor combat
-              // that would kill the player and waste the remaining picks
+              // If Stage I boss was interrupted by loop-detect, force-complete it so Stage II can unlock
+              if (G.stage === 'Stage I' && G.stageProgress && G.stageProgress[1] >= 10 &&
+                  !(G.flags && G.flags.stage1_narrative_complete)) {
+                G.flags = G.flags || {};
+                G.flags.stage1_narrative_complete = true;
+              }
+              if (typeof checkStageAdvance === 'function') checkStageAdvance();
               if (typeof loadStageChoices === 'function') loadStageChoices(dest);
             }
           }, ESCAPE_LOCS);
@@ -1367,11 +1379,7 @@ test.describe('Headed QA — 4 families', () => {
 
         log(`\n[family:${family}] round ${round} attempt ${state.attemptNum}/${MAX_ATTEMPTS} → ${archetypeId}/${backgroundId}`);
 
-        const videoDir = path.join(VIDEO_DIR, `${family}_a${state.attemptNum}_${archetypeId}`);
-        fs.mkdirSync(videoDir, { recursive: true });
-        const context = await browser.newContext({
-          recordVideo: { dir: videoDir, size: { width: 1280, height: 720 } },
-        });
+        const context = await browser.newContext();
         const page = await context.newPage();
         page.setDefaultTimeout(10000);
 
