@@ -12555,9 +12555,11 @@ function checkStageAdvance() {
     STAGE1_BOSS_MODULE.trigger();
     return;
   }
-  // Only fast-advance if boss encounter has fully resolved (defeated), not just started
+  // Advance Stage II when boss resolved: either defeated by player, or boss started and sp>=22
+  // (gives ~5 picks after boss trigger at sp15-18 for player to win; forces advance if they lose)
   if (G.flags.stage1_mainboss_complete && !G.flags.stage1_narrative_complete
-      && (!G.flags.stage1_mainboss_started || G.flags.stage1_mainboss_defeated)) {
+      && (G.flags.stage1_mainboss_defeated ||
+          (G.flags.stage1_mainboss_started && _sp1n >= 22))) {
     G.stageProgress[1] = Math.max(_sp1n, 18);
     G.flags.stage1_narrative_complete = true;
   }
