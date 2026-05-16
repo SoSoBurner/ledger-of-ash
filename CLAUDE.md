@@ -74,6 +74,8 @@ Every plan phase that adds content must expand the total content of the stage it
 - **`test.use({ launchOptions })` must be file-level**: Can't use inside `test.describe()` — Playwright rejects it. Headed vs headless = separate spec files.
 - **`playwright.config.js` headless override**: `use.headless: true` in config beats `test.use({ launchOptions: { headless: false } })` in spec. Use `test.use({ headless: false })` (top-level key) to override it correctly.
 - **Headless pacing = 0**: No human watching → set all `waitForTimeout` pacing constants to 0. Only `waitForChoices` needs a real timeout (1500ms) for DOM to render.
+- **Monitor tool on Windows**: `Get-Content -Wait | Where-Object` and `Get-Content -Wait | Select-String` both exit immediately (exit 1) in the Monitor tool. Use bash `tail -f /path/to/file | grep -E --line-buffered "pattern"` syntax instead.
+- **`ctx_execute` cap vs Playwright specs**: Playwright headless runs take 10–20 min — exceeds `ctx_execute`'s 10-min sandbox limit. Run specs via PowerShell `run_in_background` or foreground PowerShell only; never `ctx_execute`.
 - **Background task output files**: Written to a Windows temp path. Read via PowerShell `Get-Content` or the `Read` tool — bash `cat`/`tail` on those paths fails silently.
 - **Never pipe Playwright background runs through `Select-Object -First N`**: PowerShell closes the pipe after N items, silently killing the test process. Run with no piping.
 - **Kill only Playwright processes, not all Chrome**: `Stop-Process -Force` on all chrome kills the user's regular browser. Use WMI to filter by command line instead:
