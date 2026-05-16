@@ -97,6 +97,31 @@
 
 ---
 
+## P1 — System Design Gaps (May 2026 skill/agent review)
+
+| Item | Priority | Notes |
+|------|----------|-------|
+| Heat reduction mechanic — heat is a one-way ratchet with no drain | P1 | Camp action `rest_low_profile`: heat -1 in current polity when heat ≤5, costs 2 days, unavailable at heat≥8; converts heat from ratchet to managed resource |
+| stageProgress denominator in HUD — player sees `7` not `7/10` | P1 | Engine shows raw value; add threshold denominator to HUD so incentive chain closes |
+| Bold choice reward differential — bold success = same +1 stageProgress as safe | P1 | Bold success should give +2 stageProgress; safe +1; restores risk/reward calculus |
+| Tutorial: investigation mandate framing missing | P1 | Onboarding should state "You're finding the shape of an operation, not a specific person" |
+| Tutorial: heat/rival first-occurrence callouts missing | P1 | One-time inline notices on first `addHeat()` call and first rival threshold crossing |
+| Gold/supply drain — travel is free (foot only, no daily supply sink) | P1 | Wire `advanceTime(1)` to consume 1 supply; shortage = small HP/morale penalty |
+| Mandatory gold drain — shop is only gold sink, no travel cost | P1 | Add 1-2 gold toll in `resolveArrival` for non-adjacent travel until travel mode built |
+| `adaptEnrichedChoice` rethrow not caught in callers — blank choice block on content bug | P1 | Catch rethrow in `loadStageChoices`; call fallback `loadStageChoices(G.location)` on failure |
+| `startCombat` unknown key silently reloads — no player signal | P2 | Add toast 'An encounter was skipped — unknown enemy.' before fallback reload |
+| Craft/spirit choice density in Stage 1 — support archetypes penalized | P2 | Audit craft-tagged choices per locality; add craft alternate roll paths to investigation choices |
+| `'Meaningful'` tag on every Stage 1 choice — tag system non-functional | P2 | Remove `'Meaningful'` from all choice tag arrays; replace with actual skill/action type |
+| "pulls you aside" repeated 9× across 8 localities | P2 | Vary NPC approach geometry: overheard, note, document, third party, social pressure |
+| Closing meta-summary pattern in result text (5/15 passages audited) | P2 | Strip final editorial sentence that names the theme; let the scene close on action or image |
+| Stage 2 enriched_choices.js line 972 label — infinitive + action-description | P2 | `"You observe... Follow them"` → `"They're moving through my region and no one announced it."` |
+| Save migration error silently swallowed | P3 | Add `console.error('[save migration]', e)` + toast on migration failure |
+| `'Investigation'` tag as universal first tag — no classification signal | P3 | Replace with specific skill/action type tags (Lore, Persuasion, Observation, Social) |
+| `.title-error` uses display font (Cinzel) — legibility under stress | P3 | Switch to `var(--font-body)`; keep `color: var(--blood-bright)` |
+| 8px card tags / 9px item-use buttons — below readable floor | P3 | Floor at 10px minimum for all interactive text |
+
+---
+
 ## P4 — UX & Polish
 
 | Feature | Status | Notes |
