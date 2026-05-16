@@ -11100,14 +11100,43 @@ function loadStageChoices(locId) {
     { text: 'Walk the settlement and read what is there.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' }
   ];
   if (stage.includes('II') || stage.includes('III')) {
-    base.push({ text: 'Press for the next thread before the day ends.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'probe_order_origin' });
-    base.push({
-      text: 'The routing discrepancy is still unresolved. Return to it.',
-      skill: 'lore', tag: 'safe', align: 'neutral', cid: 'stage2_review_thread',
-      result: 'The notes spread across the table again. Three manifests, different hands, the same destination code — a transfer point that appears on none of the official route records. Not an omission. A deliberate absence. The authorization column is blank where it should carry a name. Finding who signed off on that blank space is the next step.',
-      onSuccess: function() {
-        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
-        addJournal('The routing discrepancy points to a transfer point with no official record — authorization column deliberately blank.', 'evidence');
+    base.push({ text: 'Press for the next thread before the day ends.',
+      tag: 'risky', align: 'neutral',
+      action: function() {
+        document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
+        var _sk = (G.skills && G.skills.lore) || 0;
+        var _r = Math.floor(Math.random()*20)+1;
+        var _dc = 13;
+        var _ok = (_r + _sk) >= _dc;
+        addNarration('', '<div class="roll-result '+(_ok?'success':'failure')+'">d20: '+_r+' + Wits '+_sk+' = <strong>'+(_r+_sk)+'</strong> vs DC '+_dc+' — '+(_ok?'Success':'Failure')+'</div>');
+        if (_ok) {
+          G.investigationProgress = (G.investigationProgress||0) + 1;
+          addNarration('', 'There is a gap in the chain of authorization. The name that should appear in the transit record is missing — not redacted, not smudged. Simply absent. Whatever moved through that checkpoint was never meant to be traceable back.');
+        } else {
+          addNarration('', 'The thread frays before it leads anywhere useful. The record ends without giving up its logic.');
+        }
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
+      }
+    });
+    base.push({ text: 'The routing discrepancy is still unresolved. Return to it.',
+      tag: 'safe', align: 'neutral',
+      action: function() {
+        document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
+        var _sk = (G.skills && G.skills.lore) || 0;
+        var _r = Math.floor(Math.random()*20)+1;
+        var _dc = 11;
+        var _ok = (_r + _sk) >= _dc;
+        addNarration('', '<div class="roll-result '+(_ok?'success':'failure')+'">d20: '+_r+' + Wits '+_sk+' = <strong>'+(_r+_sk)+'</strong> vs DC '+_dc+' — '+(_ok?'Success':'Failure')+'</div>');
+        if (_ok) {
+          G.investigationProgress = (G.investigationProgress||0) + 1;
+          addNarration('', 'The notes spread across the table again. Three manifests, different hands, the same destination code — a transfer point that appears on none of the official route records. Not an omission. A deliberate absence. The authorization column is blank where it should carry a name. Finding who signed off on that blank space is the next step.');
+          addJournal('The routing discrepancy points to a transfer point with no official record — authorization column deliberately blank.', 'evidence');
+        } else {
+          addNarration('', 'The thread is there but the next step isn\'t clear without more information. The gap in the record stays open.');
+        }
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
       }
     });
   } else {
@@ -15859,6 +15888,10 @@ function buildCompanionHudHTML(companions) {
 }
 
 function updateHUD() {
+  // Stage II: keep stageProgress[2] in sync with investigationProgress
+  if (G && G.stage === 'Stage II' && typeof G.investigationProgress === 'number' && G.stageProgress) {
+    G.stageProgress[2] = Math.max(G.stageProgress[2] || 0, G.investigationProgress);
+  }
   setText('hud-name',    G.name||'&#x2014;');
   setText('hud-class',   G.archetype?G.archetype.name:'&#x2014;');
   setText('hud-level',   G.level);
