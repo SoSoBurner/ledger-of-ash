@@ -9889,7 +9889,7 @@ var _currentOnboardingPages = [];
 
 function _buildOnboardingPages() {
   // Page 1: grant manifest item + quest (once)
-  if (G && !G.flags.manifest_received) {
+  if (G && G.flags && !G.flags.manifest_received) {
     G.flags.manifest_received = true;
     if (!Array.isArray(G.inventory)) G.inventory = [];
     G.inventory.push({
@@ -12686,7 +12686,7 @@ function checkStageAdvance() {
 }
 
 function getNPCTone() {
-  if (!window.G) return 'neutral';
+  if (!G) return 'neutral';
   var b = G.benevolence || 0;
   var o = G.orderAxis || 0;
   if (b >= 30 && o >= 20) return 'lawful_good';
@@ -12719,7 +12719,7 @@ function getNPCToneText(npcContext) {
 window.getNPCToneText = getNPCToneText;
 
 function checkNeutralArcScene() {
-  if (!window.G) return;
+  if (!G) return;
   if (!G.worldClocks) G.worldClocks = {};
   var b = Math.abs(G.benevolence || 0);
   var o = Math.abs(G.orderAxis || 0);
@@ -16094,7 +16094,7 @@ function updateEnvDesc(text) {
 window.updateEnvDesc = updateEnvDesc;
 
 function showSandboxPanel() {
-  if (!window.G || !G.location) return;
+  if (!G || !G.location) return;
   var kl = window.KEY_LOCALITIES || {};
   var loc = kl[G.location];
   var locName = loc ? (loc.name || G.location) : G.location;
@@ -16116,7 +16116,7 @@ window.showSandboxPanel = showSandboxPanel;
 
 function updateWorldTab() {
   var el = document.getElementById('tab-world');
-  if (!el || !window.G || !G.worldClocks) return;
+  if (!el || !G || !G.worldClocks) return;
   var clocks = ['pressure','watchfulness','rival','reverence','omens','isolation'];
   var labels = {pressure:'Pressure',watchfulness:'Watchfulness',rival:'RIVAL PRESSURE',reverence:'Reverence',omens:'Omens',isolation:'Isolation'};
   var html = clocks.map(function(c) {
@@ -16136,7 +16136,7 @@ window.updateWorldTab = updateWorldTab;
 
 function updatePartyTab() {
   var el = document.getElementById('tab-party');
-  if (!el || !window.G) return;
+  if (!el || !G) return;
   var companions = G.companions ? (Array.isArray(G.companions) ? G.companions : Object.values(G.companions)) : [];
   var active = companions.filter(function(c){ return c.active; });
   if (!active.length) { el.innerHTML = '<p style="color:var(--ink-dim);font-size:0.85em">No companions.</p>'; return; }
@@ -16155,7 +16155,7 @@ function updatePartyTab() {
 window.updatePartyTab = updatePartyTab;
 
 function updateStageProgressBar() {
-  if (!window.G) return;
+  if (!G) return;
   var track = document.getElementById('stage-progress-track');
   var fill  = document.getElementById('stage-progress-fill');
   if (!track || !fill) return;
@@ -16476,7 +16476,7 @@ function loadGame(slotArg, legacyCode) {
 }
 
 function exportSave() {
-  if (!window.G) return;
+  if (!G) return;
   if (!G.runId) initRunIdentity();
   var code = G.caseCode || _makeCaseCode(G.runId);
   var blob = new Blob([JSON.stringify(G, null, 2)], { type: 'application/json' });

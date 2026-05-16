@@ -26,7 +26,7 @@ window.STAGE2_ANTECHAMBER = (function() {
     window.renderChoices([
       {
         id: 'antechamber_accelerate',
-        text: 'You press harder \u2014 they\u2019re warning you because you\u2019re close.',
+        text: 'They warned me because I\u2019m close. That changes what pressing harder costs.',
         tag: 'risky \u00b7 pressure \u00b7 DC 12',
         action: function() {
           var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: Math.floor(Math.random() * 20) + 1 };
@@ -45,7 +45,7 @@ window.STAGE2_ANTECHAMBER = (function() {
       },
       {
         id: 'antechamber_acknowledge',
-        text: 'You note the warning and keep moving \u2014 knowing you\u2019re watched is its own advantage.',
+        text: 'Being watched and knowing it are two different things.',
         tag: 'safe \u00b7 observation \u00b7 DC 0',
         action: function() {
           addJournal('You adjust your movements — slower, more oblique. They are watching, but watching does not mean understanding. Not yet.', 'evidence');

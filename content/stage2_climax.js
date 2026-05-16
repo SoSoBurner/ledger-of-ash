@@ -14,17 +14,17 @@ var STAGE2_CLIMAX = (function() {
     (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'climax_p1_negotiate',
-        text: 'You present yourself openly \u2014 negotiate your position directly.',
+        text: 'They want a version of me I haven\u2019t decided to give them.',
         action: function() { phase1_negotiate(); }
       },
       {
         id: 'climax_p1_deflect',
-        text: 'You go, but give them nothing \u2014 a clerk following cold files, nothing more.',
+        text: 'Play the clerk. Let them see what they expect.',
         action: function() { phase1_deflect(); }
       },
       {
         id: 'climax_p1_refuse',
-        text: 'You refuse \u2014 send a counter-message asserting your independence.',
+        text: 'Answering their summons is already a concession.',
         action: function() { phase1_refuse(); }
       }
     ]);
@@ -97,17 +97,17 @@ var STAGE2_CLIMAX = (function() {
     (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'climax_p3_expose',
-        text: 'You expose it \u2014 bring the record to public hands. Let the city decide.',
+        text: 'The city doesn\u2019t know what it\u2019s holding. It should.',
         action: function() { phase3_expose(); }
       },
       {
         id: 'climax_p3_align',
-        text: 'You align with Orveth \u2014 bring her the record and work from within.',
+        text: 'Orveth wants the same thing. Her method is the question.',
         action: function() { phase3_align(); }
       },
       {
         id: 'climax_p3_withdraw',
-        text: 'You withdraw \u2014 hide the record and buy time to understand what you hold.',
+        text: 'I don\u2019t know what this record is yet. That matters.',
         action: function() { phase3_withdraw(); }
       }
     ]);
