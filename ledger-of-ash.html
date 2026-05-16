@@ -14922,7 +14922,7 @@ function showCharSheet() {
         _html += '<div style="font-family:var(--font-body);font-size:12px;color:var(--ink-faint);margin-bottom:8px;">No traits unlocked yet.</div>';
       } else {
         (G.traits||[]).forEach(function(t) {
-          var _typeLabel = t.traitType === 'passive' ? 'Passive' : t.traitType === 'active' ? 'Active \u2014 1/rest' : 'Investigation \u2014 1/scene';
+          var _typeLabel = t.traitType === 'passive' ? 'Passive' : t.traitType === 'active' ? 'Active \u2014 1/rest' : 'Utility \u2014 1/scene';
           var _usedLabel = (t.traitType !== 'passive' && t.used) ? ' <span style="color:var(--ink-faint)">(used)</span>' : '';
           var _useBtn = '';
           if ((t.traitType === 'active' || t.type === 'active') && t.activeSkillType === 'utility' && !t.used) {

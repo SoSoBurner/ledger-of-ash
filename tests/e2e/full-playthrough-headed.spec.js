@@ -877,11 +877,11 @@ async function probeForcedStateChecks(page, tag) {
     }).catch(() => {});
     await page.waitForTimeout(PACE.short);
     await screenshot(page, `${tag}_forced_heat_hud`);
-    const heatEl = await page.locator('#hud-heat-row,#hud-heat,[id*="heat"]').isVisible({ timeout: 1000 }).catch(() => false);
+    const heatEl = await page.locator('#hud-heat-row').isVisible({ timeout: 1000 }).catch(() => false);
     if (!heatEl) {
       log(`[forced-state ${tag}] VIOLATION: heat HUD row not visible after forcing G.heat.shelk=5`);
     } else {
-      const heatTxt = await page.locator('#hud-heat-row,#hud-heat,[id*="heat"]').first().innerText().catch(() => '');
+      const heatTxt = await page.locator('#hud-heat-row').innerText().catch(() => '');
       log(`[forced-state ${tag}] heat-hud: PASS "${heatTxt.slice(0,60)}"`);
     }
 
