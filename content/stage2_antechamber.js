@@ -58,9 +58,10 @@ window.STAGE2_ANTECHAMBER = (function() {
   }
 
   function _resolve() {
-    
+
     G.flags.stage2_antechamber_done = true;
     if (typeof window.advanceTime === 'function') window.advanceTime(1);
+    if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }
 
   return { shouldTrigger: shouldTrigger, trigger: trigger };

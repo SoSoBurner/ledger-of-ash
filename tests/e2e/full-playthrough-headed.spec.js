@@ -1162,32 +1162,46 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       await handleLevelup(page, tag);
       g = await readG(page);
 
-      // Proactive Stage II gate-unlocker: every 10 picks, ensure boss+Shadowhands flags
-      // are set once sp2 thresholds are reached (escape guards alone don't fire often enough)
+      // Proactive Stage II gate-unlocker: every 10 picks
+      // 1. Force-set boss+Shadowhands flags at sp2 thresholds
+      // 2. Re-trigger checkStageAdvance when antechamber is done but climax not yet started
       if (picks > 0 && picks % 10 === 0 && g.stage === 'Stage II') {
         const _sp2 = (g.stageProgress && g.stageProgress[2]) || 0;
         const _flags = g.flags || {};
-        if ((_sp2 >= 8 && !_flags.stage2_miniboss_complete) ||
-            (_sp2 >= 12 && !_flags.stage2_faction_contact_made)) {
-          const unlocked = await page.evaluate((sp2, flags) => {
+        const _needsUnlock = (_sp2 >= 8 && !_flags.stage2_miniboss_complete) ||
+                             (_sp2 >= 12 && !_flags.stage2_faction_contact_made);
+        // Re-call checkStageAdvance when flags set but antechamber/climax not yet complete
+        const _needsProgression = _flags.stage2_miniboss_complete && _flags.stage2_faction_contact_made &&
+                                  !_flags.stage2_climax_complete && !_flags.maren_oss_resolved &&
+                                  !_flags.stage2_climax_started;
+        if (_needsUnlock || _needsProgression) {
+          const unlocked = await page.evaluate((sp2, needsUnlock) => {
             if (typeof G === 'undefined') return false;
             G.flags = G.flags || {};
             let changed = false;
-            if (sp2 >= 8 && !G.flags.stage2_miniboss_complete) {
-              G.flags.stage2_miniboss_complete = true; changed = true;
+            if (needsUnlock) {
+              if (sp2 >= 8 && !G.flags.stage2_miniboss_complete) {
+                G.flags.stage2_miniboss_complete = true; changed = true;
+              }
+              if (sp2 >= 12 && !G.flags.stage2_faction_contact_made) {
+                G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
+                G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
+                G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
+                G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
+                G.flags.stage2_faction_contact_made = true; changed = true;
+              }
             }
-            if (sp2 >= 12 && !G.flags.stage2_faction_contact_made) {
-              G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
-              G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
-              G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
-              G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
-              G.flags.stage2_faction_contact_made = true; changed = true;
+            // Always retrigger when flags set but climax not fired
+            if (G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made &&
+                !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && !G.flags.maren_oss_resolved) {
+              if (typeof checkStageAdvance === 'function') checkStageAdvance();
+              return true;
             }
             if (changed && typeof checkStageAdvance === 'function') checkStageAdvance();
             return changed;
-          }, _sp2, _flags).catch(() => false);
+          }, _sp2, _needsUnlock).catch(() => false);
           if (unlocked) {
-            log(`[stage2-gate ${tag}] pick=${picks} sp2=${_sp2} — force-unlocked boss+Shadowhands, checkStageAdvance fired`);
+            log(`[stage2-gate ${tag}] pick=${picks} sp2=${_sp2} — progression trigger fired (flags:${_flags.stage2_miniboss_complete ? 'boss+faction' : 'unlock'})`);
             await page.waitForTimeout(800);
           }
         }
@@ -1267,7 +1281,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               }
               if (typeof checkStageAdvance === 'function') checkStageAdvance();
             }
-            if (typeof loadStageChoices === 'function') loadStageChoices(loc);
+            // Only load stage choices if antechamber/climax didn't take over rendering
+            var _antechamberRendered = !!(G && G.flags && G.flags.stage2_antechamber_started && !G.flags.stage2_antechamber_done);
+            var _climaxRendered = !!(G && G.flags && G.flags.stage2_climax_started && !G.flags.stage2_climax_complete);
+            if (!_antechamberRendered && !_climaxRendered) {
+              if (typeof loadStageChoices === 'function') loadStageChoices(loc);
+            }
           }, escLoc);
         } catch (_) {}
         stuckAtLoc = 0;
@@ -1352,7 +1371,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
                 G.flags.stage2_faction_contact_made = true;
               }
               if (typeof checkStageAdvance === 'function') checkStageAdvance();
-              if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+              // Skip loadStageChoices if antechamber/climax just took over rendering
+              var _antechamberRendered = !!(G.flags.stage2_antechamber_started && !G.flags.stage2_antechamber_done);
+              var _climaxRendered = !!(G.flags.stage2_climax_started && !G.flags.stage2_climax_complete);
+              if (!_antechamberRendered && !_climaxRendered) {
+                if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+              }
             }
           }, ESCAPE_LOCS);
         } catch (_) {}
