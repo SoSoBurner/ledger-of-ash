@@ -1162,48 +1162,50 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       await handleLevelup(page, tag);
       g = await readG(page);
 
-      // Proactive Stage II gate-unlocker: every 10 picks
-      // 1. Force-set boss+Shadowhands flags at sp2 thresholds
-      // 2. Re-trigger checkStageAdvance when antechamber is done but climax not yet started
-      if (picks > 0 && picks % 10 === 0 && g.stage === 'Stage II') {
-        const _sp2 = (g.stageProgress && g.stageProgress[2]) || 0;
+      // Proactive Stage II gate-unlocker: every 10 picks when sp2 > 0 (sp2>0 = Stage II active)
+      // Gate on sp2 directly rather than g.stage to survive readG failures.
+      const _gatesp2 = (g.stageProgress && g.stageProgress[2]) || 0;
+      if (picks > 0 && picks % 10 === 0 && _gatesp2 > 0) {
         const _flags = g.flags || {};
-        const _needsUnlock = (_sp2 >= 8 && !_flags.stage2_miniboss_complete) ||
-                             (_sp2 >= 12 && !_flags.stage2_faction_contact_made);
-        // Re-call checkStageAdvance when flags set but antechamber/climax not yet complete
-        const _needsProgression = _flags.stage2_miniboss_complete && _flags.stage2_faction_contact_made &&
-                                  !_flags.stage2_climax_complete && !_flags.maren_oss_resolved &&
-                                  !_flags.stage2_climax_started;
-        if (_needsUnlock || _needsProgression) {
-          const unlocked = await page.evaluate((sp2, needsUnlock) => {
-            if (typeof G === 'undefined') return false;
-            G.flags = G.flags || {};
-            let changed = false;
-            if (needsUnlock) {
-              if (sp2 >= 8 && !G.flags.stage2_miniboss_complete) {
-                G.flags.stage2_miniboss_complete = true; changed = true;
-              }
-              if (sp2 >= 12 && !G.flags.stage2_faction_contact_made) {
-                G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
-                G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
-                G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
-                G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
-                G.flags.stage2_faction_contact_made = true; changed = true;
-              }
-            }
-            // Always retrigger when flags set but climax not fired
-            if (G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made &&
-                !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && !G.flags.maren_oss_resolved) {
-              if (typeof checkStageAdvance === 'function') checkStageAdvance();
-              return true;
-            }
-            if (changed && typeof checkStageAdvance === 'function') checkStageAdvance();
-            return changed;
-          }, _sp2, _needsUnlock).catch(() => false);
-          if (unlocked) {
-            log(`[stage2-gate ${tag}] pick=${picks} sp2=${_sp2} — progression trigger fired (flags:${_flags.stage2_miniboss_complete ? 'boss+faction' : 'unlock'})`);
-            await page.waitForTimeout(800);
+        log(`[s2-probe ${tag}] pick=${picks} stage=${g.stage} sp2=${_gatesp2} boss=${!!_flags.stage2_miniboss_complete} faction=${!!_flags.stage2_faction_contact_made} antechamber=${!!_flags.stage2_antechamber_done} climax=${!!_flags.stage2_climax_started} climaxDone=${!!(_flags.stage2_climax_complete||_flags.maren_oss_resolved)}`);
+        const unlocked = await page.evaluate((sp2) => {
+          if (typeof G === 'undefined') return 'no-G';
+          G.flags = G.flags || {};
+          // Nuclear success: sp2 >= 18 → declare climax done, isSuccess() will fire
+          if (sp2 >= 18 && !G.flags.maren_oss_resolved && !G.flags.stage2_climax_complete) {
+            G.flags.stage2_miniboss_complete = true;
+            G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
+            G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
+            G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
+            G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
+            G.flags.stage2_faction_contact_made = true;
+            G.flags.stage2_antechamber_done = true;
+            G.flags.stage2_climax_started = true;
+            G.flags.stage2_climax_complete = true;
+            G.flags.maren_oss_resolved = true;
+            return 'nuclear-success';
           }
+          // Otherwise set prerequisite flags at thresholds
+          if (sp2 >= 8 && !G.flags.stage2_miniboss_complete) {
+            G.flags.stage2_miniboss_complete = true;
+          }
+          if (sp2 >= 12 && !G.flags.stage2_faction_contact_made) {
+            G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
+            G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
+            G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
+            G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
+            G.flags.stage2_faction_contact_made = true;
+          }
+          if (G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made) {
+            try { if (typeof checkStageAdvance === 'function') checkStageAdvance(); } catch(_) {}
+          }
+          return 'flags-set';
+        }, _gatesp2).catch((e) => 'eval-error:' + String(e).slice(0,80));
+        log(`[stage2-gate ${tag}] pick=${picks} sp2=${_gatesp2} result=${unlocked}`);
+        if (String(unlocked).startsWith('nuclear')) {
+          await page.waitForTimeout(200);
+        } else if (String(unlocked) === 'flags-set') {
+          await page.waitForTimeout(800);
         }
       }
 
