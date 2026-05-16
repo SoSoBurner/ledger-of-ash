@@ -261,7 +261,7 @@ async function dismissOverlays(page) {
   for (let i = 0; i < 8; i++) {
     try {
       // Catch both .overlay.active and any modal/panel that has a close button but no .active class
-      const ov = page.locator('.overlay.active, #how-to-play-modal, #notice-board-modal, [id$="-modal"]:visible, .modal:visible').first();
+      const ov = page.locator('.overlay.active, #how-to-play-modal, #notice-board-modal, [id$="-modal"]:visible, .modal:visible, .modal-overlay:visible').first();
       if (!await ov.isVisible({ timeout: 300 }).catch(() => false)) break;
       const btn = ov.locator('button.overlay-close,.overlay-close,button:has-text("×"),button:has-text("Close"),button:has-text("Done"),button:has-text("OK")').first();
       if (await btn.isVisible({ timeout: 300 }).catch(() => false)) await btn.click();
@@ -269,9 +269,10 @@ async function dismissOverlays(page) {
       await page.waitForTimeout(PACE.short);
     } catch (_) { break; }
   }
-  // Fallback: remove active class from any remaining overlays
+  // Fallback: remove active class from any remaining overlays and purge Stage 3 end-game modal
   await page.evaluate(() => {
     document.querySelectorAll('.overlay.active').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.modal-overlay').forEach(el => el.remove());
   }).catch(() => {});
 }
 
@@ -1295,6 +1296,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       if (pageIsClosed || String(loopErr).includes('Target page') || String(loopErr).includes('context or browser')) {
         log(`[run:${tag}] PAGE CLOSED mid-loop pick=${picks}`);
         return { success: false, reason: 'page-closed', picks, g };
+      }
+      // Before logging the error, check if success was already reached (Stage 3 modal may have blocked the click)
+      if (await isSuccess(page).catch(() => false)) {
+        g = await readG(page);
+        await screenshot(page, `${tag}_success_p${picks}`);
+        log(`[run:${tag}] SUCCESS (post-error) pick=${picks} stage=${g.stage} sp2=${(g.stageProgress && g.stageProgress[2]) || 0}`);
+        return { success: true, reason: 'stage3-gate', picks, g };
       }
       log(`[run:${tag}] loop-error pick=${picks}: ${loopErr.message}`);
     }
