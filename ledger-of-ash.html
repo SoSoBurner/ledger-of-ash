@@ -13240,11 +13240,10 @@ function addJournal(text, category, dedupeKey) {
   updateJournalHUD();
 }
 function addQuest(msg, hint, questId) {
-  var text = (typeof msg === 'object' && msg !== null) ? (msg.msg || msg.text || JSON.stringify(msg)) : String(msg);
+  var text = (typeof msg === 'object' && msg !== null) ? (msg.msg || JSON.stringify(msg)) : String(msg || '');
   if (!G.quests) G.quests = [];
-  var already = G.quests.some(function(q) { return (typeof q === 'string' ? q : q.msg) === text; });
-  if (!already) {
-    G.quests.push({msg: text, questId: questId || null});
+  if (G.quests.indexOf(text) === -1) {
+    G.quests.push(text);
     updateQuestHUD();
     showToast('Quest: ' + text.slice(0,40) + (text.length>40?'...':''));
   }
@@ -13314,7 +13313,11 @@ function travelTo(locId) {
     }
   }
   G._journeyDest = locId;
-  showTravelModeSelect(locId, loc.name, function() { beginJourney(G.location, locId); });
+  if (G.travelMode) {
+    beginJourney(G.location, locId);
+  } else {
+    showTravelModeSelect(locId, loc.name, function() { beginJourney(G.location, locId); });
+  }
 }
 
 function beginJourney(fromId, toId) {
