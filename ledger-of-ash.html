@@ -12555,7 +12555,9 @@ function checkStageAdvance() {
     STAGE1_BOSS_MODULE.trigger();
     return;
   }
-  if (G.flags.stage1_mainboss_complete && !G.flags.stage1_narrative_complete) {
+  // Only fast-advance if boss encounter has fully resolved (defeated), not just started
+  if (G.flags.stage1_mainboss_complete && !G.flags.stage1_narrative_complete
+      && (!G.flags.stage1_mainboss_started || G.flags.stage1_mainboss_defeated)) {
     G.stageProgress[1] = Math.max(_sp1n, 18);
     G.flags.stage1_narrative_complete = true;
   }

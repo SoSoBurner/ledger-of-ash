@@ -106,8 +106,8 @@ function _stage1MiniBossFight() {
   var miniBossEnemy = {
     id: STAGE1_BOSS_NPC_MINIBOSS,
     name: 'Roadwarden Lt. Perrin Gleam',
-    hp: 35, maxHp: 35,
-    attack: 7, defense: 8,
+    hp: 20, maxHp: 20,
+    attack: 4, defense: 6,
     morale: 100,
     desc: 'Gleam fights economically — baton and a short blade, no wasted movement. He uses corners and the narrow space deliberately, minimizing your angles.',
     loot: [{name: 'Silver Registry Pencil', type: 'tool', effect: {lore: 1}, desc: 'A roadwarden\'s marking tool. Someone\'s initials are scratched off the clip end.'}],
@@ -126,6 +126,7 @@ function _stage1MiniBossFight() {
 function triggerStage1MainBoss() {
   if (!G || G.flags.stage1_mainboss_complete) return;
   G.flags.stage1_mainboss_complete = true;
+  G.flags.stage1_mainboss_started = true;
 
   addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She reaches to the desk edge, picks up a short marking rod — bone-handled, the kind used to underline registry entries — and holds it in her left hand without looking at it. She does not write anything. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
 
@@ -172,9 +173,9 @@ function _stage1MainBossCombat(aggressive) {
   var bossEnemy = {
     id: STAGE1_BOSS_NPC_MAIN,
     name: 'Marshal Sera Ironveil',
-    hp: aggressive ? 40 : 45,
-    maxHp: aggressive ? 40 : 45,
-    attack: 9, defense: 10,
+    hp: aggressive ? 22 : 26,
+    maxHp: aggressive ? 22 : 26,
+    attack: 5, defense: 7,
     morale: 100,
     desc: 'Ironveil fights with the lamp and a short enforcement blade. She uses the desk as terrain and forces you into the narrow intake lane. At half health she calls for the ward lock — the room seals and she fights without retreat pressure.',
     loot: [{name: 'ORE Intake Seal', type: 'tool', effect: {lore: 2}, desc: 'The silver intake-marshal seal. Carries ORE authority in the Iron Ledger Ward.'}],
