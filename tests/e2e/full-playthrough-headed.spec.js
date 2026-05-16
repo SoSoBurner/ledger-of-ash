@@ -14,6 +14,11 @@ const { test } = require('@playwright/test');
 const fs   = require('fs');
 const path = require('path');
 
+const { getStageCeiling, isSuccess: stageLockIsSuccess, ceilingLabel } = require('./helpers/stage-lock');
+const { shouldTravelNow, openMapAndTravel } = require('./helpers/map-travel');
+const CoverageTracker = require('./helpers/coverage-tracker');
+const ReportWriter    = require('./helpers/report-writer');
+
 // Headed mode — top-level, uses top-level key to override playwright.config.js's headless:true
 test.use({ headless: false });
 
@@ -230,29 +235,10 @@ async function waitForChoices(page, ms) {
   return page.locator('.choice-btn:visible').count().catch(() => 0);
 }
 
-async function isSuccess(page) {
-  return page.evaluate(() => {
-    try {
-      if (typeof G === 'undefined') return false;
-      const sp2 = (G.stageProgress && G.stageProgress[2]) || 0;
-      // Nuclear: if sp2 >= 18 but climax flags not set, force them — bypasses readG serialization gaps
-      if (sp2 >= 18 && G.flags && !G.flags.maren_oss_resolved && !G.flags.stage2_climax_complete) {
-        G.flags.stage2_miniboss_complete = true;
-        G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
-        G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
-        G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
-        G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
-        G.flags.stage2_faction_contact_made = true;
-        G.flags.stage2_antechamber_done = true;
-        G.flags.stage2_climax_started = true;
-        G.flags.stage2_climax_complete = true;
-        G.flags.maren_oss_resolved = true;
-        return true;
-      }
-      const climaxDone = !!(G.flags && (G.flags.stage2_climax_complete || G.flags.maren_oss_resolved));
-      return G.stage === 'Stage III' || (climaxDone && sp2 >= 18);
-    } catch (_) { return false; }
-  }).catch(() => false);
+// Organic isSuccess — no nuclear injection. Reports what actually happened.
+// ceiling is determined once per run via getStageCeiling().
+async function isSuccess(page, ceiling) {
+  return stageLockIsSuccess(page, ceiling || 'Stage II');
 }
 
 async function isDead(page) {
@@ -1115,9 +1101,10 @@ async function handleDeadEndRepair(page, tag, pickNum) {
 // ---------------------------------------------------------------------------
 // Single playthrough
 // ---------------------------------------------------------------------------
-async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors) {
+async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, ceiling, tracker) {
+  ceiling = ceiling || 'Stage II';
   const tag = `${family}_${archetypeId}_a${attemptNum}`;
-  log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family}`);
+  log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family} ceiling=${ceiling}`);
 
   let pageIsClosed = false;
   page.on('close',     () => { pageIsClosed = true; log(`[run:${tag}] PAGE CLOSED`); });
@@ -1136,16 +1123,18 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   log(`[run:${tag}] game-started level=${g.level} location=${g.location}`);
   await screenshot(page, `${tag}_start`);
 
-  let picks         = 0;
-  let deadStreak    = 0;
-  let lastSP1       = 0;
-  let noProgress    = 0;
-  let forcePlotMain = 0;
-  let lastLoggedSP1 = -1;
-  let lastPickLabels = [];
-  let lastPickTime   = Date.now();
-  let lastLocation   = '';
-  let stuckAtLoc     = 0;
+  let picks            = 0;
+  let deadStreak       = 0;
+  let lastSP1          = 0;
+  let noProgress       = 0;
+  let forcePlotMain    = 0;
+  let lastLoggedSP1    = -1;
+  let lastPickLabels   = [];
+  let lastPickTime     = Date.now();
+  let lastLocation     = '';
+  let stuckAtLoc       = 0;
+  let lastMapTravelPick = 0;
+  const visitedLocalities = new Set();
   const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
 
   while (picks < MAX_PICKS) {
@@ -1166,7 +1155,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[run:${tag}] DEAD pick=${picks} level=${g.level}`);
         return { success: false, reason: 'death', picks, g };
       }
-      if (await isSuccess(page)) {
+      if (await isSuccess(page, ceiling)) {
         g = await readG(page);
         await screenshot(page, `${tag}_success_p${picks}`);
         log(`[run:${tag}] SUCCESS pick=${picks} stage=${g.stage} sp2=${(g.stageProgress && g.stageProgress[2]) || 0}`);
@@ -1176,51 +1165,29 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       await handleLevelup(page, tag);
       g = await readG(page);
 
-      // Proactive Stage II gate-unlocker: every 10 picks when sp2 > 0 (sp2>0 = Stage II active)
-      // Gate on sp2 directly rather than g.stage to survive readG failures.
-      const _gatesp2 = (g.stageProgress && g.stageProgress[2]) || 0;
-      if (picks > 0 && picks % 10 === 0 && _gatesp2 > 0) {
-        const _flags = g.flags || {};
-        log(`[s2-probe ${tag}] pick=${picks} stage=${g.stage} sp2=${_gatesp2} boss=${!!_flags.stage2_miniboss_complete} faction=${!!_flags.stage2_faction_contact_made} antechamber=${!!_flags.stage2_antechamber_done} climax=${!!_flags.stage2_climax_started} climaxDone=${!!(_flags.stage2_climax_complete||_flags.maren_oss_resolved)}`);
-        const unlocked = await page.evaluate((sp2) => {
-          if (typeof G === 'undefined') return 'no-G';
-          G.flags = G.flags || {};
-          // Nuclear success: sp2 >= 18 → declare climax done, isSuccess() will fire
-          if (sp2 >= 18 && !G.flags.maren_oss_resolved && !G.flags.stage2_climax_complete) {
-            G.flags.stage2_miniboss_complete = true;
-            G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
-            G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
-            G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
-            G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
-            G.flags.stage2_faction_contact_made = true;
-            G.flags.stage2_antechamber_done = true;
-            G.flags.stage2_climax_started = true;
-            G.flags.stage2_climax_complete = true;
-            G.flags.maren_oss_resolved = true;
-            return 'nuclear-success';
-          }
-          // Otherwise set prerequisite flags at thresholds
-          if (sp2 >= 8 && !G.flags.stage2_miniboss_complete) {
-            G.flags.stage2_miniboss_complete = true;
-          }
-          if (sp2 >= 12 && !G.flags.stage2_faction_contact_made) {
-            G.flags.shadowhands_contacted = true; G.flags.shadowhands_meeting_set = true;
-            G.flags.shadowhands_met = true; G.flags.shadowhands_ilve_contact = true;
-            G.flags.shadowhands_cover_resolved = true; G.flags.shadowhands_ironhold_ledger = true;
-            G.flags.shadowhands_finale_done = true; G.flags.shadowhands_torveld_revealed = true;
-            G.flags.stage2_faction_contact_made = true;
-          }
-          if (G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made) {
-            try { if (typeof checkStageAdvance === 'function') checkStageAdvance(); } catch(_) {}
-          }
-          return 'flags-set';
-        }, _gatesp2).catch((e) => 'eval-error:' + String(e).slice(0,80));
-        log(`[stage2-gate ${tag}] pick=${picks} sp2=${_gatesp2} result=${unlocked}`);
-        if (String(unlocked).startsWith('nuclear')) {
-          await page.waitForTimeout(200);
-        } else if (String(unlocked) === 'flags-set') {
-          await page.waitForTimeout(800);
+      // Coverage tracking
+      if (tracker && g.location) {
+        visitedLocalities.add(g.location);
+        tracker.onPick(g);
+      }
+
+      // Map menu travel every 15–20 picks
+      if (shouldTravelNow(picks, lastMapTravelPick)) {
+        const fromLoc = g.location;
+        const travelled = await openMapAndTravel(page, visitedLocalities, log, picks);
+        if (travelled) {
+          lastMapTravelPick = picks;
+          if (tracker) tracker.onMapTravel(fromLoc, travelled, picks);
+          await screenshot(page, `${tag}_map_travel_p${picks}`);
+          g = await readG(page);
         }
+      }
+
+      // sp2 probe (no flag injection — organic only in headed spec)
+      if (picks > 0 && picks % 10 === 0) {
+        const _gatesp2 = (g.stageProgress && g.stageProgress[2]) || 0;
+        const _flags = g.flags || {};
+        log(`[s2-probe ${tag}] pick=${picks} stage=${g.stage} sp2=${_gatesp2} boss=${!!_flags.stage2_miniboss_complete} faction=${!!_flags.stage2_faction_contact_made} antechamber=${!!_flags.stage2_antechamber_done} climaxDone=${!!(_flags.stage2_climax_complete||_flags.maren_oss_resolved)}`);
       }
 
       await runFullPanelSimulation(page, tag, g, picks);
@@ -1241,6 +1208,10 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       if (choiceCount === 0) {
         deadStreak++;
+        if (tracker) {
+          const htmlSnippet = await page.evaluate(() => document.getElementById('action-content') ? document.getElementById('action-content').innerHTML.slice(0, 120) : '').catch(() => '');
+          tracker.onDeadEnd(g.location || '', picks, htmlSnippet);
+        }
         if (deadStreak >= 3) {
           const recovered = await handleDeadEndRepair(page, tag, picks);
           if (!recovered) {
@@ -1436,6 +1407,24 @@ test.describe('Headed QA — 4 families', () => {
     const MAX_ATTEMPTS  = 3;
     const suiteStart    = Date.now();
 
+    // Detect stage ceiling from live engine
+    let ceiling = 'Stage II';
+    try {
+      const ceilCtx = await browser.newContext();
+      const ceilPage = await ceilCtx.newPage();
+      await ceilPage.goto('/ledger-of-ash.html', { waitUntil: 'domcontentloaded', timeout: 15000 });
+      await ceilPage.waitForTimeout(1500);
+      ceiling = await getStageCeiling(ceilPage).catch(() => 'Stage II');
+      await ceilPage.close(); await ceilCtx.close();
+    } catch (_) {}
+    log(`[suite:headed] stage ceiling detected: ${ceiling}`);
+
+    // Shared coverage tracker + report writer
+    const tracker  = new CoverageTracker();
+    const reporter = new ReportWriter('headed');
+    reporter.setCeiling(ceiling);
+    reporter.setWarningBaseline(291);
+
     // Per-family state for round-robin
     const familyState = {};
     for (const family of HEADED_FAMILY_ORDER) {
@@ -1479,12 +1468,24 @@ test.describe('Headed QA — 4 families', () => {
         const page = await context.newPage();
         page.setDefaultTimeout(10000);
 
-        const result = await runPlaythrough(page, archetypeId, backgroundId, family, state.attemptNum, jsErrors);
+        const result = await runPlaythrough(page, archetypeId, backgroundId, family, state.attemptNum, jsErrors, ceiling, tracker);
 
         try { await page.close(); }    catch (_) {}
         try { await context.close(); } catch (_) {}
 
         log(`[family:${family}] round ${round} attempt ${state.attemptNum} ${result.success ? 'SUCCESS ✓' : `FAILED (${result.reason})`} picks=${result.picks}`);
+
+        const sp2 = (result.g && result.g.stageProgress && result.g.stageProgress[2]) || 0;
+        reporter.addFamily({
+          family,
+          archetypeId,
+          backgroundId,
+          success:  result.success,
+          reason:   result.reason,
+          picks:    result.picks,
+          sp2,
+          stage:    (result.g && result.g.stage) || '—',
+        });
 
         if (result.success) {
           state.success = true;
@@ -1502,12 +1503,18 @@ test.describe('Headed QA — 4 families', () => {
       }
     }
 
+    // Write playtest report
+    const coverage  = tracker.getSummary();
+    const reportPath = reporter.write(coverage, 0);
+    log(`[suite:headed] report written → ${reportPath}`);
+
     // Final summary
     log('\n' + '='.repeat(60));
     log('[suite:headed] COMPLETE');
     for (const [fam, r] of Object.entries(familyResults)) {
       log(`  ${fam}: ${r.success !== false ? `SUCCESS ${r.archetypeId}/${r.backgroundId} ${r.attempts} attempts ${r.picks} picks` : `incomplete (${r.attempts} attempts)`}`);
     }
+    log(`[suite:headed] locality coverage: ${coverage.localitiesVisited || 0} visited, ${(coverage.coverageGaps || []).length} gaps`);
     if (jsErrors.length) {
       log(`\n[js-errors] ${jsErrors.length} total:`);
       jsErrors.slice(0, 30).forEach(e => log(`  [${e.tag}] ${e.msg}`));

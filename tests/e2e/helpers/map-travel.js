@@ -1,0 +1,117 @@
+'use strict';
+/**
+ * map-travel.js — Map menu travel helper
+ *
+ * Opens the Map overlay (#overlay-map), picks a random unvisited locality,
+ * clicks "Travel here", then returns. Corridor encounters fired by travelTo()
+ * are handled by the main pick loop (map-travel just initiates the travel).
+ *
+ * Usage:
+ *   const { shouldTravelNow, openMapAndTravel } = require('./helpers/map-travel');
+ *
+ *   // In pick loop:
+ *   if (shouldTravelNow(picks, lastMapTravelPick)) {
+ *     const travelled = await openMapAndTravel(page, visitedLocalities, log);
+ *     if (travelled) { lastMapTravelPick = picks; tracker.onMapTravel(from, travelled, picks); }
+ *   }
+ */
+
+const MAP_TRAVEL_INTERVAL_MIN = 15;
+const MAP_TRAVEL_INTERVAL_MAX = 20;
+
+let _nextTravelAt = MAP_TRAVEL_INTERVAL_MIN + Math.floor(Math.random() * (MAP_TRAVEL_INTERVAL_MAX - MAP_TRAVEL_INTERVAL_MIN + 1));
+
+/**
+ * Returns true when it's time to do a map travel.
+ * Randomizes the next interval after each travel.
+ *
+ * @param {number} picks — current pick count
+ * @param {number} lastMapTravelPick — pick number of last map travel (0 if none)
+ * @returns {boolean}
+ */
+function shouldTravelNow(picks, lastMapTravelPick) {
+  return picks > 0 && (picks - lastMapTravelPick) >= _nextTravelAt;
+}
+
+/** Resets interval after a travel fires */
+function resetInterval() {
+  _nextTravelAt = MAP_TRAVEL_INTERVAL_MIN + Math.floor(Math.random() * (MAP_TRAVEL_INTERVAL_MAX - MAP_TRAVEL_INTERVAL_MIN + 1));
+}
+
+/**
+ * Opens Map overlay, picks a random unvisited locality, and clicks "Travel here".
+ * Returns the locId travelled to, or null if no unvisited localities remain or map fails.
+ *
+ * @param {import('@playwright/test').Page} page
+ * @param {Set<string>} visitedLocalities — set of already-visited locIds this run
+ * @param {Function} log — logging function
+ * @param {number} picks — current pick count (for log label)
+ * @returns {Promise<string|null>} — locId travelled to, or null
+ */
+async function openMapAndTravel(page, visitedLocalities, log, picks) {
+  try {
+    // Open map via engine (avoids selector brittleness with nav button)
+    const opened = await page.evaluate(() => {
+      try { showMap(); return true; } catch (_) { return false; }
+    }).catch(() => false);
+
+    if (!opened) {
+      log(`[map-travel] pick=${picks} — showMap() failed, skipping`);
+      resetInterval();
+      return null;
+    }
+
+    await page.waitForTimeout(300);
+
+    // Read all available travel buttons from the map overlay
+    const locIds = await page.evaluate(() => {
+      return Array.from(document.querySelectorAll('.map-travel-btn[data-locid]'))
+        .map(btn => btn.dataset.locid)
+        .filter(id => !!id);
+    }).catch(() => []);
+
+    if (!locIds.length) {
+      log(`[map-travel] pick=${picks} — no .map-travel-btn found, closing map`);
+      await page.evaluate(() => { try { closeOverlay('overlay-map'); } catch (_) {} }).catch(() => {});
+      resetInterval();
+      return null;
+    }
+
+    // Prefer unvisited localities; fall back to all if all visited
+    const unvisited = locIds.filter(id => !visitedLocalities.has(id));
+    const pool = unvisited.length > 0 ? unvisited : locIds;
+    const target = pool[Math.floor(Math.random() * pool.length)];
+
+    log(`[map-travel] pick=${picks} → travelling to ${target} (${unvisited.length} unvisited available)`);
+
+    // Click the travel button for the chosen locality
+    const clicked = await page.evaluate((locId) => {
+      const btn = document.querySelector(`.map-travel-btn[data-locid="${locId}"]`);
+      if (!btn) return false;
+      btn.click();
+      return true;
+    }, target).catch(() => false);
+
+    if (!clicked) {
+      // Fallback: close overlay and call travelTo directly
+      await page.evaluate((locId) => {
+        try { closeOverlay('overlay-map'); } catch (_) {}
+        try { travelTo(locId); } catch (_) {}
+      }, target).catch(() => {});
+    }
+
+    resetInterval();
+    await page.waitForTimeout(400);
+    return target;
+  } catch (err) {
+    log(`[map-travel] pick=${picks} — error: ${String(err).slice(0, 80)}`);
+    // Try to close any open overlay
+    await page.evaluate(() => {
+      try { closeOverlay('overlay-map'); } catch (_) {}
+    }).catch(() => {});
+    resetInterval();
+    return null;
+  }
+}
+
+module.exports = { shouldTravelNow, openMapAndTravel, resetInterval };

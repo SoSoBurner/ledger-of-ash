@@ -62,6 +62,7 @@ Every plan phase that adds content must expand the total content of the stage it
 - Stage I → II: `stage1_narrative_complete` flag only — `checkStageAdvance()` line 12465. Level cap (5) stops XP but does NOT auto-advance stage. **`checkStageAdvance` must be called from `resolveArrival`** — at level cap, `checkLevelUp` never fires, so it's the only reliable call site.
 - Stage I→II full chain: `STAGE1_BOSS_MODULE.shouldTrigger()` → boss fires → `stage1_narrative_complete` set (`stage1_boss.js:191`) → next `resolveArrival` call → `checkStageAdvance()` unlocks Stage II. `checkStageAdvance` handles both boss trigger AND stage advance.
 - `STAGE1_BOSS_MODULE` export **must** include `shouldTrigger: checkStage1BossTriggered` — engine checks this property; if absent (`undefined`), boss never fires, Stage II never unlocks. `checkTrigger` is a separate alias and is NOT what the engine calls.
+- `STAGE2_BOSS_MODULE` exports `checkTrigger` (not `shouldTrigger`) — intentionally different from Stage 1. Silent-failure-hunter will flag this as a bug; it is a false positive.
 - Stage II → III: `canAdvanceToStage3()` ~line 8786 — **V1.0 stub: hardcoded `return false`**. Flags/conditions documented in plan but not yet active.
 - `G.stageProgress` is `{1:0, 2:0, 3:0, 4:0, 5:0}` — all 5 stages declared, 3–5 not yet authored
 
@@ -104,6 +105,7 @@ Every plan phase that adds content must expand the total content of the stage it
 
 - Run logic tests: `npx jest` (not `npm test` if jest not in PATH globally)
 - Run content validators: `node tests/content/validate-content.js && node tests/content/validate-flags.js && node tests/content/validate-structure.js`
+- **`node --check` rejects HTML**: `node --check ledger-of-ash.html` fails — Node treats it as ESM. Use `node --check content/*.js` to syntax-check content files instead.
 - **vm context mocking gotcha**: Function declarations in `ledger-of-ash.html` are hoisted into the vm context at eval time, overriding sandbox stubs. Reassigning `ctx.funcName` after eval has no effect on compiled closures. Assert observable G state (e.g. `G.dead`, `G.hp`) instead of spying on internal function calls.
 - **Backlog violation counts are estimates**: Always run `node tests/content/validate-content.js 2>&1 | grep <filename>` to get the real count before starting a fix pass — BACKLOG.md snapshots drift.
 - Run E2E: `npx playwright test`
@@ -160,6 +162,8 @@ Every plan phase that adds content must expand the total content of the stage it
 ## G Defaults Rule
 
 Any property read from G in enriched choices or game logic must be initialized in the G defaults object. Missing keys cause silent TypeErrors swallowed by `adaptEnrichedChoice`'s try/catch — stage progress silently stops advancing.
+
+**`G.flags` null guard**: Always write `if (G && G.flags && !G.flags.someFlag)` — `G.flags` itself can be null at early init. `if (G && !G.flags.x)` crashes.
 
 ## Stage II Companion Gate
 
@@ -559,3 +563,22 @@ Root cause of label drift: absent enforcement at authoring time. New choices mus
 ## Stage 3+ Content Freeze
 
 Stage 3, 4, and 5 content is **NOT being authored** until Stages 1 and 2 are complete and play-tested. `canAdvanceToStage3()` is hardcoded `return false`. Do not author Stage 3+ choices, NPCs, localities, climaxes, or mechanics in any plan or session until explicitly instructed. Stage 3 stub files (`stage3_enriched_choices.js`, `stage3_climax.js`) exist but contain no playable content.
+
+## Playtest Harness v2
+
+Helper files in `tests/e2e/helpers/`:
+- `stage-lock.js` — `getStageCeiling(page)` reads `canAdvanceToStage3/4/5()` from the live engine and returns `'Stage II'|'Stage III'|'Stage IV'|'Stage V'`. `isSuccess(page, ceiling)` is organic (no nuclear injection). When Stage III content is built: change `canAdvanceToStage3()` from `return false` to real conditions — the harness auto-scales.
+- `map-travel.js` — `shouldTravelNow(picks, lastMapTravelPick)` fires every 15–20 picks. `openMapAndTravel(page, visitedLocalities, log, picks)` opens `#overlay-map` via `showMap()`, reads `.map-travel-btn[data-locid]`, clicks a random unvisited locality. Returns `locId` or `null`.
+- `coverage-tracker.js` — `CoverageTracker` tracks per-locality sp2 contribution, dead-ends, map travels. `getSummary()` returns coverage object consumed by `ReportWriter`.
+- `report-writer.js` — `ReportWriter('headed'|'headless')` writes `test-results/playtest-report-{YYYYMMDD-HHmm}-{mode}.md` after each run.
+
+**Headless spec**: nuclear gate KEPT (speed). **Headed spec**: nuclear gate REMOVED — organic sp2 only.
+
+**Post-run analysis**: `node tests/e2e/post-run-analysis.js [report-file] [screenshot-dir]`
+- Reads latest `test-results/playtest-report-*-headed.md` + log + screenshot list
+- Calls Claude API (via `@anthropic-ai/sdk` if `ANTHROPIC_API_KEY` set, else `claude` CLI) for 7 analysis domains
+- Writes `test-results/playtest-analysis-{YYYYMMDD-HHmm}.md` + `docs/superpowers/plans/playtest-plan-{YYYYMMDD-HHmm}.md`
+
+**Report file naming**: `playtest-report-{YYYYMMDD-HHmm}-headed.md` / `playtest-report-{YYYYMMDD-HHmm}-headless.md` in `test-results/`.
+
+**Warning baseline**: 291 (set via `reporter.setWarningBaseline(291)`). New warnings above baseline are flagged in report. Fix warnings in a separate session — non-blocking for harness runs.

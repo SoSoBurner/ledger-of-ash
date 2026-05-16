@@ -19,6 +19,11 @@ const { test } = require('@playwright/test');
 const fs   = require('fs');
 const path = require('path');
 
+const { getStageCeiling, isSuccess: stageLockIsSuccess, ceilingLabel } = require('./helpers/stage-lock');
+const { shouldTravelNow, openMapAndTravel } = require('./helpers/map-travel');
+const CoverageTracker = require('./helpers/coverage-tracker');
+const ReportWriter    = require('./helpers/report-writer');
+
 // ---------------------------------------------------------------------------
 // Output dirs
 // ---------------------------------------------------------------------------
@@ -210,16 +215,22 @@ async function waitForChoices(page, ms) {
   return page.locator('.choice-btn:visible').count().catch(() => 0);
 }
 
-async function isSuccess(page, headed) {
-  return page.evaluate((h) => {
-    try {
-      if (typeof G === 'undefined') return false;
-      if (!h && G.stage !== 'Stage I') return true; // headless: reaching Stage II is success
-      const sp2        = (G.stageProgress && G.stageProgress[2]) || 0;
-      const climaxDone = !!(G.flags && (G.flags.stage2_climax_complete || G.flags.maren_oss_resolved));
-      return G.stage === 'Stage III' || (climaxDone && sp2 >= 12);
-    } catch (_) { return false; }
-  }, headed).catch(() => false);
+// isSuccess uses dynamic ceiling from stage-lock helper.
+// headless: quick-win = exiting Stage I (nuclear-assisted). Headed: organic only (see headed spec).
+async function isSuccess(page, ceiling, headless) {
+  if (headless) {
+    // Headless smoke-test: reaching Stage II (or higher) = pass (nuclear-assisted).
+    return page.evaluate((c) => {
+      try {
+        if (typeof G === 'undefined') return false;
+        if (c === 'Stage II') return G.stage !== 'Stage I';
+        if (c === 'Stage III') return G.stage === 'Stage III' || G.stage === 'Stage IV' || G.stage === 'Stage V';
+        if (c === 'Stage IV') return G.stage === 'Stage IV' || G.stage === 'Stage V';
+        return G.stage === 'Stage V';
+      } catch (_) { return false; }
+    }, ceiling).catch(() => false);
+  }
+  return stageLockIsSuccess(page, ceiling);
 }
 
 async function isDead(page) {
@@ -668,9 +679,11 @@ async function runFullPanelSimulation(page, tag, g, pickNum) {
 // ---------------------------------------------------------------------------
 // Single playthrough — mode: 'headless' | 'headed'
 // ---------------------------------------------------------------------------
-async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, mode) {
+async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, mode, ceiling, tracker) {
   const tag      = `${family}_${archetypeId}_a${attemptNum}`;
   const isHeaded = mode === 'headed';
+  ceiling = ceiling || 'Stage II';
+  tracker = tracker || new CoverageTracker();
   log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family} mode=${mode}`);
 
   let pageIsClosed = false;
@@ -690,16 +703,18 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   log(`[run:${tag}] game-started level=${g.level} location=${g.location}`);
   await screenshot(page, `${tag}_start`);
 
-  let picks          = 0;
-  let deadStreak     = 0;
-  let lastSP1        = 0;
-  let noProgress     = 0;
-  let forcePlotMain  = 0;
-  let lastLoggedSP1  = -1;
-  let lastPickLabels = [];
-  let lastPickTime   = Date.now();
-  let lastLocation   = '';
-  let stuckAtLoc     = 0;
+  let picks              = 0;
+  let deadStreak         = 0;
+  let lastSP1            = 0;
+  let noProgress         = 0;
+  let forcePlotMain      = 0;
+  let lastLoggedSP1      = -1;
+  let lastPickLabels     = [];
+  let lastPickTime       = Date.now();
+  let lastLocation       = '';
+  let stuckAtLoc         = 0;
+  let lastMapTravelPick  = 0;
+  const visitedLocalities = new Set();
   const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
 
   while (picks < MAX_PICKS) {
@@ -720,11 +735,14 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[run:${tag}] DEAD pick=${picks} level=${g.level}`);
         return { success: false, reason: 'death', picks, g };
       }
-      if (await isSuccess(page, isHeaded)) {
+      if (await isSuccess(page, ceiling, !isHeaded)) {
         g = await readG(page);
         await screenshot(page, `${tag}_success_p${picks}`);
-        log(`[run:${tag}] SUCCESS pick=${picks} stage=${g.stage} sp2=${(g.stageProgress && g.stageProgress[2]) || 0}`);
-        return { success: true, reason: 'stage3-gate', picks, g };
+        const sp2Final = (g.stageProgress && g.stageProgress[2]) || 0;
+        log(`[run:${tag}] SUCCESS pick=${picks} stage=${g.stage} sp2=${sp2Final}`);
+        tracker.onPick(g);
+        if (g.location) visitedLocalities.add(g.location);
+        return { success: true, reason: 'ceiling-reached', picks, g, sp2: sp2Final, stage: g.stage };
       }
 
       await handleLevelup(page, tag);
@@ -759,10 +777,25 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       const choiceCount = await waitForChoices(page, PACE.waitChoices);
 
+      // Map travel every 15-20 picks (tests map UI + spreads locality coverage)
+      if (shouldTravelNow(picks, lastMapTravelPick)) {
+        const fromLoc = g.location || '';
+        const travelledTo = await openMapAndTravel(page, visitedLocalities, log, picks);
+        if (travelledTo) {
+          tracker.onMapTravel(fromLoc, travelledTo, picks);
+          lastMapTravelPick = picks;
+          await page.waitForTimeout(PACE.short);
+          g = await readG(page);
+          tracker.onPick(g);
+          if (g.location) visitedLocalities.add(g.location);
+        }
+      }
+
       // Dead-end detection
       if (choiceCount === 0) {
         deadStreak++;
         if (deadStreak >= 3) {
+          tracker.onDeadEnd(g.location || 'unknown', picks, '');
           const recovered = isHeaded
             ? await handleDeadEndRepair(page, tag, picks)
             : await handleDeadEnd(page, tag, picks);
@@ -778,8 +811,11 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       }
       deadStreak = 0;
 
-      // stageProgress tracking
+      // stageProgress tracking + coverage
       g = await readG(page);
+      tracker.onPick(g);
+      if (g.location) visitedLocalities.add(g.location);
+
       const sp1 = (g.stageProgress && g.stageProgress[1]) || 0;
       if (sp1 !== lastLoggedSP1) {
         log(`[G ${tag}] pick=${picks} sp1=${sp1} sp2=${(g.stageProgress && g.stageProgress[2]) || 0} stage=${g.stage} loc=${g.location} lvl=${g.level}`);
@@ -894,7 +930,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 // ---------------------------------------------------------------------------
 // Helper: run a family loop and return { success, familyResult }
 // ---------------------------------------------------------------------------
-async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOverride, familyCeiling) {
+async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOverride, familyCeiling, ceiling, tracker) {
   const START = Date.now();
   let success    = false;
   let attemptNum = 0;
@@ -927,7 +963,7 @@ async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOve
     const page = await context.newPage();
     page.setDefaultTimeout(10000); // prevent evaluate/locator from hanging indefinitely
 
-    result = await runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, mode);
+    result = await runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, mode, ceiling, tracker);
 
     try { await page.close(); }    catch (_) {}
     try { await context.close(); } catch (_) {}
@@ -936,7 +972,7 @@ async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOve
 
     if (result.success) {
       success = true;
-      return { success: true, archetypeId, backgroundId, attempts: attemptNum, picks: result.picks };
+      return { success: true, archetypeId, backgroundId, attempts: attemptNum, picks: result.picks, sp2: result.sp2, stage: result.stage };
     }
   }
 
@@ -944,17 +980,34 @@ async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOve
 }
 
 // ===========================================================================
-// TEST 1 — HEADLESS (3 families, 1 hour hard cap)
+// TEST 1 — HEADLESS (4 families, 1 hour hard cap)
+// Dynamic stage ceiling — automatically scales when Stage III content is built.
+// Nuclear gate KEPT for speed. Coverage tracked per run.
 // ===========================================================================
-test.describe('Headless QA — 3 families', () => {
+test.describe('Headless QA — 4 families', () => {
   test.setTimeout(62 * 60 * 1000); // 62 min outer ceiling
 
-  test('headless 3-family playtest', async ({ browser }) => {
+  test('headless 4-family playtest', async ({ browser }) => {
     initLog('headless');
     const jsErrors      = [];
     const familyResults = {};
     const HEADLESS_CAP  = 60 * 60 * 1000; // 1 hour
     const suiteStart    = Date.now();
+    const tracker       = new CoverageTracker();
+    const reporter      = new ReportWriter('headless');
+
+    // Detect current stage ceiling once (e.g. 'Stage II' while canAdvanceToStage3=false)
+    let ceiling = 'Stage II';
+    try {
+      const tmpCtx  = await browser.newContext();
+      const tmpPage = await tmpCtx.newPage();
+      await tmpPage.goto('/ledger-of-ash.html');
+      await tmpPage.waitForFunction(() => typeof canAdvanceToStage3 === 'function', { timeout: 10000 }).catch(() => {});
+      ceiling = await getStageCeiling(tmpPage);
+      await tmpCtx.close();
+    } catch (_) {}
+    log(`[suite:headless] Stage ceiling detected: ${ceilingLabel(ceiling)}`);
+    reporter.setCeiling(ceiling);
 
     for (const family of HEADLESS_FAMILY_ORDER) {
       if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
@@ -967,8 +1020,9 @@ test.describe('Headless QA — 3 families', () => {
       log('='.repeat(60));
 
       const remaining = HEADLESS_CAP - (Date.now() - suiteStart);
-      const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, remaining);
+      const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, remaining, ceiling, tracker);
       familyResults[family] = r;
+      reporter.addFamily({ family, ...r });
       if (r.success) {
         log(`[family:${family}] DONE after ${r.attempts} attempt(s) — ${r.archetypeId}/${r.backgroundId} ${r.picks} picks`);
       }
@@ -976,7 +1030,7 @@ test.describe('Headless QA — 3 families', () => {
 
     // Summary
     log('\n' + '='.repeat(60));
-    log('[suite:headless] COMPLETE (1hr cap or all 3 families done)');
+    log(`[suite:headless] COMPLETE — ceiling=${ceiling} (1hr cap or all 4 families done)`);
     for (const [fam, r] of Object.entries(familyResults)) {
       log(`  ${fam}: ${r.success ? `SUCCESS ${r.archetypeId}/${r.backgroundId} ${r.attempts} attempts ${r.picks} picks` : `incomplete (${r.attempts} attempts)`}`);
     }
@@ -984,6 +1038,20 @@ test.describe('Headless QA — 3 families', () => {
       log(`\n[js-errors] ${jsErrors.length} total:`);
       jsErrors.slice(0, 20).forEach(e => log(`  [${e.tag}] ${e.msg}`));
     }
+
+    // Coverage summary
+    const coverage = tracker.getSummary();
+    log(`[coverage] localities visited: ${coverage.localitiesVisited} | dead-ends: ${coverage.deadEnds.length} | map travels: ${coverage.mapTravels.length}`);
+    if (coverage.coverageGaps.length) {
+      log(`[coverage-gaps] localities visited with 0 sp2: ${coverage.coverageGaps.join(', ')}`);
+    }
+
+    // Write structured report
+    try {
+      const reportPath = reporter.write(coverage, 291); // 291 = known warning baseline
+      log(`[report] written: ${reportPath}`);
+    } catch (e) { log(`[report] write failed: ${e.message}`); }
+
     log('='.repeat(60));
   });
 });
