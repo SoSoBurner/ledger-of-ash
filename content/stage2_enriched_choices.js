@@ -1832,11 +1832,13 @@
         G.flags.stage2_warden_ledger_accessed = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        if (typeof addHeat === 'function') addHeat('shelk', 2);
         addJournal('Warden ledger accessed under physical pressure. Flagged entry names a reviewing authority absent from public records.', 'evidence');
       } else {
         G.lastResult = 'He doesn\'t fold. He\'s dealt with people who project threat before and learned to read which ones actually follow through. He rings for a second warden without breaking eye contact. You leave before the door opens. The ledger stays on his side of the table. Whatever he\'s protecting, he\'s been paid enough to hold it against physical pressure.';
         G.recentOutcomeType = 'complication';
         if (G.worldClocks) G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        if (typeof addHeat === 'function') addHeat('shelk', 1);
         addJournal('Warden held position under pressure — has instructions and backing. Watchfulness raised.', 'complication');
       }
       if (typeof updateHUD === 'function') updateHUD();
