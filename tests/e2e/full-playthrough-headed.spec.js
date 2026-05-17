@@ -1134,6 +1134,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let lastLocation     = '';
   let stuckAtLoc       = 0;
   let lastMapTravelPick = 0;
+  let _lastScreenshotAtPick = -1;
+  let _menuCycleDoneForFamily = false;
+  let _lastHudProbeAtPick = -1;
   const visitedLocalities = new Set();
   const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
 
@@ -1190,7 +1193,74 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[s2-probe ${tag}] pick=${picks} stage=${g.stage} sp2=${_gatesp2} boss=${!!_flags.stage2_miniboss_complete} faction=${!!_flags.stage2_faction_contact_made} antechamber=${!!_flags.stage2_antechamber_done} climaxDone=${!!(_flags.stage2_climax_complete||_flags.maren_oss_resolved)}`);
       }
 
+      // Enhancement 1 — Every-10-pick periodic screenshot (deduped)
+      try {
+        if (picks > 0 && picks % 10 === 0 && picks !== _lastScreenshotAtPick) {
+          _lastScreenshotAtPick = picks;
+          await screenshot(page, `${tag}_periodic_p${picks}`);
+        }
+      } catch (_) {}
+
+      // Enhancement 3 — HUD integrity check every 10 picks (deduped, separate from PROBE_EVERY panel cycle)
+      try {
+        if (picks > 0 && picks % 10 === 0 && picks !== _lastHudProbeAtPick) {
+          _lastHudProbeAtPick = picks;
+          // Only fire if this pick isn't already covered by runFullPanelSimulation's PROBE_EVERY block
+          if (picks % PROBE_EVERY !== 0) {
+            await probeHUD(page, tag, g);
+          }
+        }
+      } catch (_) {}
+
       await runFullPanelSimulation(page, tag, g, picks);
+
+      // Enhancement 2 — Full menu cycle once per family at pick ~20 (deduped)
+      try {
+        if (picks === 20 && !_menuCycleDoneForFamily) {
+          _menuCycleDoneForFamily = true;
+          log(`[menu-cycle ${tag}] pick=${picks} — running full menu cycle`);
+          await dismissOverlays(page);
+
+          // Journal
+          try {
+            await page.evaluate(function() { if (typeof showJournal === 'function') showJournal(); });
+            await page.waitForTimeout(500);
+            await screenshot(page, `menu_journal_${family}`);
+            await page.evaluate(function() { document.querySelectorAll('.overlay.active').forEach(function(e){ e.classList.remove('active'); }); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Character sheet
+          try {
+            await page.evaluate(function() { if (typeof showCharSheet === 'function') showCharSheet(); else if (typeof renderCharacterSheet === 'function') renderCharacterSheet(); });
+            await page.waitForTimeout(500);
+            await screenshot(page, `menu_charsheet_${family}`);
+            await page.evaluate(function() { document.querySelectorAll('.overlay.active').forEach(function(e){ e.classList.remove('active'); }); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Camp
+          try {
+            await page.evaluate(function() { if (typeof showCampMenu === 'function') showCampMenu(); else if (typeof openCamp === 'function') openCamp(); });
+            await page.waitForTimeout(500);
+            await screenshot(page, `menu_camp_${family}`);
+            await page.evaluate(function() { document.querySelectorAll('.overlay.active').forEach(function(e){ e.classList.remove('active'); }); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Map (read-only — do NOT click travel buttons)
+          try {
+            await page.evaluate(function() { if (typeof showMap === 'function') showMap(); });
+            await page.waitForTimeout(500);
+            await screenshot(page, `menu_map_${family}`);
+            await page.evaluate(function() { document.querySelectorAll('.overlay.active').forEach(function(e){ e.classList.remove('active'); }); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          await dismissOverlays(page);
+          log(`[menu-cycle ${tag}] complete`);
+        }
+      } catch (_) {}
 
       if (picks % SCREENSHOT_EVERY === 0) {
         await screenshot(page, `${tag}_p${picks}_sp${(g.stageProgress && g.stageProgress[1]) || 0}`);
@@ -1205,6 +1275,14 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       } catch (_) {}
 
       const choiceCount = await waitForChoices(page, PACE.waitChoices);
+
+      // Enhancement 4 — Forbidden word scan on narrative text after choices render
+      try {
+        const _narrForbidden = await page.locator('.narrative-text').first().textContent().catch(function(){ return ''; });
+        if (_narrForbidden) {
+          probeCanonText(_narrForbidden, tag, `narrative-post-choices pick=${picks}`);
+        }
+      } catch (_) {}
 
       if (choiceCount === 0) {
         deadStreak++;
