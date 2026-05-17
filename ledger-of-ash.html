@@ -10979,6 +10979,11 @@ function prioritizeChoices(choices, maxCount) {
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
 function loadStageChoices(locId) {
   if (G.dead) { confirmDeath(); return; }
+  // Faction contact hint — fires once when sp2>=10 and no contact made yet
+  if (G.stageProgress && G.stageProgress[2] >= 10 && G.flags && !G.flags.stage2_faction_contact_made && !G.flags.faction_hint_shown) {
+    G.flags.faction_hint_shown = true;
+    if (typeof addJournal === 'function') addJournal('A Guild intermediary is reportedly taking appointments at the Guildheart Registry. Appointments available through the usual channels.', 'intelligence');
+  }
   checkHeatConsequences();
   var _heatPolity = G._currentPolity || '';
   var _heatTickFlag = '_auth_check_' + _heatPolity + '_' + (G.dayCount || 0);
