@@ -303,6 +303,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The exemption code is stamped across eleven consecutive manifests — GC-Transit-Exemption-4417, issued to a now-dissolved northern resupply cooperative, expired at the close of the last fiscal season. The transit clerk's copy shows the expiry date crossed out in fresh ink and a handwritten extension notation beneath it. The notation carries no authorizing signature. Whoever renewed the exemption did it on the face of the document, by hand, without council approval. The shipments moved anyway. Every manifest after the expiry date is legally unsanctioned.`;
         addJournal('Northern transit ledger: 11 manifests under expired GC exemption code — unauthorized handwritten extension, no countersignature', 'evidence', `sor-transit-ledger-${G.dayCount}`);
+        if (!G.suspects) G.suspects = {}; G.suspects['dravn_pell'] = (G.suspects['dravn_pell']||0) + 2;
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The transit ledger office requires a Giant Council registry identifier for cross-period exemption searches. The clerk writes the requirement on a slip and slides it across the counter without looking up. Behind the counter the ledger sits open to the wrong season. The identifier requirement is not posted anywhere visible — it was added to the internal protocol three weeks ago. The forward path runs through the permit archive, where the procedural wall hasn't been erected yet.`;
@@ -312,6 +313,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.lastResult = `The exemption code appears on seven manifests across a four-month window. The transit clerk confirms it was issued to a dissolved cooperative — she checks the dissolution register without being asked and marks the date. "Expired accounts shouldn't carry active exemption codes." She looks at the manifests once more. "These were processed by a different shift." She does not say which shift.`;
         addJournal('Northern transit ledger: expired exemption code on 7 manifests — dissolved cooperative, different shift processing', 'intelligence', `sor-transit-ledger-partial-${G.dayCount}`);
+        if (!G.suspects) G.suspects = {}; G.suspects['dravn_pell'] = (G.suspects['dravn_pell']||0) + 2;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -360,6 +362,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.lastResult = `The courier moves through three service corridors that bypass the forge-dock checkpoints entirely — maintenance access routes that are open but unwatched after the third bell. He ends at a storage annex behind the north bridge transit station: a low building with a new padlock on the loading bay door and no signage. He goes in, stays twelve minutes, and comes back without the satchel he carried in. The annex does not appear in the tower registry as active storage. The padlock manufacturer's mark is the same mark stamped on the staging depot hardware Vorgul's manifest described.`;
         addJournal('Wing courier route traced to unlisted north bridge annex — new padlock matching staging depot hardware; satchel delivered, courier returned empty-handed', 'evidence', `sor-courier-crit-${G.dayCount}`);
+        if (!G.suspects) G.suspects = {}; G.suspects['dravn_pell'] = (G.suspects['dravn_pell']||0) + 2;
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `The courier stops at the junction of the second service corridor and faces the wall, still, for thirty seconds. Then he turns around and retraces two full corridor segments without going anywhere. He exits through the public dock and returns to the tower by the main entrance. A patrol officer in the dock writes something in a small notebook when you emerge behind the courier. The notebook goes into his breast pocket. The writing took about four seconds.`;

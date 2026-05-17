@@ -74,7 +74,7 @@ window.LOCALITY_NPCS = {
         dc: 13,
         result: 'Tideglass sets down her pen. She says there is a procedural distinction between an amendment, which requires countersignature, and a correction, which requires margin notation and date. She says she has received documents that bear neither. She selects her next words with the care of someone writing for the record: she does not know what was changed, or when, or by whom. She knows the chain of custody was broken between the Soreheim relay and the Cosmoria intake stamp. She resumes writing.',
         failResult: 'Tideglass says that archival assessment requires a formal review request and a stated basis. She cannot speculate about document integrity in conversation. The form is at the front desk.',
-        effects: [{ type: 'journal', text: 'Tideglass confirmed chain-of-custody break between Soreheim relay and Cosmoria intake stamp. Documents arrived without required amendment notation. She logged it. She did not name who submitted them.', category: 'evidence' }]
+        effects: [{ type: 'journal', text: 'Tideglass confirmed chain-of-custody break between Soreheim relay and Cosmoria intake stamp. Documents arrived without required amendment notation. She logged it. She did not name who submitted them.', category: 'evidence' }, { type: 'suspect', npc: 'coralyn_tideglass', n: 1 }]
       },
       {
         id: 'tideglass_exposure',
@@ -86,7 +86,8 @@ window.LOCALITY_NPCS = {
         failResult: 'Tideglass meets your eyes and says she speaks for the archive. What she writes is the record. What she does not write has no standing. She returns to her work with the practiced ease of someone who has ended conversations exactly this way before.',
         effects: [
           { type: 'journal', text: 'Tideglass identified post-marking stamp application on the Soreheim relay document — impression depth indicates the stamp was added after sealing. This is not in the archive. She has documented intake anomaly only.', category: 'evidence' },
-          { type: 'renown', n: 1 }
+          { type: 'renown', n: 1 },
+          { type: 'suspect', npc: 'coralyn_tideglass', n: 1 }
         ]
       }
     ]

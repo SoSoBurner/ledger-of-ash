@@ -787,6 +787,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         addNarration('Off-Key Mark', 'The transit ledger\'s marginalia key covers the standard route symbols — triangles for rest stops, circles for toll stations, squares for bonded depots. One waypoint carries a mark that is not in the key: two parallel bars crossed by a diagonal, drawn in ink rather than pencil. The mark appears at the same waypoint across thirty-one separate entries, always on charter-exempt routes, never on standard freight. A retired hauler at the next bench recognizes it — Shelkopolis coaster shorthand for a private hand-off point, used when cargo changes custody without a guild registration. The mark does not appear in any Union training material. Someone who learned it elsewhere taught it here.');
         addJournal('Transit ledger: off-key waypoint symbol is Shelkopolis coaster private hand-off mark — 31 entries on charter-exempt routes', 'evidence');
+        if (!G.suspects) G.suspects = {}; G.suspects['dravn_pell'] = (G.suspects['dravn_pell']||0) + 1;
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
