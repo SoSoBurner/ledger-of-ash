@@ -980,5 +980,35 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     drawLocalityRumor(G.location);
   }
 }
+,
+
+  // ========== UNGATED ARRIVAL CHOICES (sp1=0 safe) ==========
+
+  {
+    id: 'sun_observe_spire',
+    label: "The Sunspire catches light differently at different hours. Someone built that intentionally.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'At this hour the upper facets of the spire catch the angle of the sun and throw a reflected bar of light across the archive annex roofline — a narrow bright line that moves over the course of an hour as the sun tracks west. The stonework at the base is a different material than the upper sections, older by the grain and color, and the seam between the two phases of construction is unmistakable up close. Whatever the Sunspire was first built for, the current structure was extended upward by a later hand with a different purpose. The records office sits in the shadow of the original base.',
+    failResult: 'The angle that makes the spire\'s construction history readable is only visible from the east approach plaza, which is currently blocked by a delivery operation. The view opens again once the cart traffic clears the plaza gate.'
+  },
+
+  {
+    id: 'sun_observe_archive',
+    label: "The archive annex is open but the reading tables are all occupied.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'Six reading tables in the archive annex, all occupied by people who came prepared — personal ink, their own marking strips, document stacks already pulled and organized before the morning access bell. The archive staff move between the stacks in a pattern that suggests they know what each reader is after without being asked. Two readers at the far table are working from the same document set and not acknowledging each other. The annex runs on appointment and familiarity: walk-in access is permitted, but the prepared readers hold the table advantage for the morning hours.',
+    failResult: 'The archive annex closes for midday organization — the staff rotate the morning document stacks back to the shelves and won\'t take new requests until the afternoon access window opens at the second bell past noon.'
+  },
+
+  {
+    id: 'sun_observe_convoy_yard',
+    label: "The convoy yard behind the archive processes more outbound than inbound. That ratio is wrong.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'From the lane beside the archive annex, the yard is visible through a gap in the boundary fence — wide enough to read the loading bays without entering. Three outbound wagons are staged and being loaded. One inbound wagon sits at the far bay, already emptied, the driver sitting on the traces waiting for the return paperwork. Sunspire Haven is an accumulation point by geography; more should be coming in than going out at this stage of the supply cycle. What\'s leaving is crated and rope-tied, the crates marked with a routing stamp that points north rather than toward the local distribution network.',
+    failResult: 'The yard gate has closed for the midday count — the handlers run a manifest tally at this hour and don\'t allow observation from the lane while it\'s in progress. The yard reopens for loading in the early afternoon.'
+  }
 ];
 window.SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES;

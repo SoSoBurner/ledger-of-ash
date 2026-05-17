@@ -987,5 +987,35 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     drawLocalityRumor(G.location);
   }
 }
+,
+
+  // ========== UNGATED ARRIVAL CHOICES (sp1=0 safe) ==========
+
+  {
+    id: 'panim_observe_route_board',
+    label: "The route-board at the inn has more pins than routes. Someone marked closed roads.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'The board runs floor to ceiling on the main wall of the common room, cork surface worn through to the backing in three places from decades of pinning and repinning. Colored pins mark active routes in blue, closed routes in red, and something between the two — orange pins, no key on the legend strip — cluster along the eastern corridor approaches. The innkeeper refreshes the board each morning from the carters who overnight here. The orange markings went in four weeks ago. The legend strip hasn\'t been updated to explain them.',
+    failResult: 'The board is being updated right now — the innkeeper has it half cleared and is talking to a drover at the same time. Coming back after the morning exchange ends will leave it freshly pinned and readable.'
+  },
+
+  {
+    id: 'panim_observe_drovers',
+    label: "The drovers eat fast and leave before the common room fills. That\'s not how drovers usually eat.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'Four drovers at the end table work through their plates in silence, eyes on the door whenever it opens. The table holds five chairs; the fifth is pushed back and angled away, occupied by packs rather than a person. They pay before the food arrives, the coins already counted and flat on the table when the bowls come out. A carter at the adjacent table clocks them the same way — not suspiciously, just with the practiced attention of someone who reads the room for information about what the roads ahead are carrying. The drovers leave together. The table is clear inside a minute.',
+    failResult: 'The common room has emptied for the mid-morning lull — the drovers have moved on and the next wave won\'t arrive until the afternoon stage comes through. The route-board near the door carries more information than the empty tables right now.'
+  },
+
+  {
+    id: 'panim_observe_waystation',
+    label: "The waystation log at the crossroads post is open to anyone who can read it.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'The log is a wide-ruled ledger mounted under a hinged weather cover at the crossroads post, open by custom for traveler reference. Entries run in three columns: arrival, departure, cargo category. The categories are shorthand — grain, dry goods, medicinal, personal — and most entries fill in all three columns cleanly. Three entries from the past week carry the cargo column blank, the departure time entered before the arrival time can have been accurate, and initials in the registrar column that don\'t appear anywhere else in the book. Someone is using the public log to hide movement inside it.',
+    failResult: 'The waystation log cover is latched — a registrar is making entries and the book is on their side of the counter. The crossroads post opens the log to public reading again once the registrar finishes the morning batch.'
+  }
 ];
 window.PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = PANIM_HAVEN_STAGE1_ENRICHED_CHOICES;

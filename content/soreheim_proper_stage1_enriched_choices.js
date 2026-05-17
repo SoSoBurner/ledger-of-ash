@@ -1057,6 +1057,35 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'observe';
       maybeStageAdvance();
     }
+  },
+
+  // ========== UNGATED ARRIVAL CHOICES (sp1=0 safe) ==========
+
+  {
+    id: 'sore_observe_quarry_face',
+    label: "The quarry face runs in three active cuts. The middle one stopped moving two weeks ago.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'The eastern and western cuts show fresh stone at the upper edge — pale gray where the surface is new, dark below where the cut has been exposed long enough to weather. The middle cut is different: the face is the same uniform gray from top to bottom, no fresh break visible, the hoist cables slack on their overhead rail. A work crew moves through the stopped cut without tools, doing something administrative — counting, marking, not cutting. Two supervisors stand at the base watching the crew without participating. The middle cut has been producing nothing and receiving attention in equal measure.',
+    failResult: 'The supervisor viewing area is blocked by a supply movement — a line of carts crossing the access lane needs to clear before the cut face is readable from outside the perimeter. The dock-side route runs past the processing shed where the cut output gets sorted, which may show the same pattern from a different angle.'
+  },
+
+  {
+    id: 'sore_observe_titan_towers',
+    label: "The Titan Tower infrastructure marks where the old operation ended and the new one began.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'Four stone towers anchor the corners of the original quarry perimeter, each one twice the height of anything built adjacent to them, the construction style different enough from the current processing sheds that the generations of work are easy to read. The towers carry lifting gear at the top — block and tackle frames, still functional, used for the heaviest quarry loads. Between the towers, the newer infrastructure clusters: processing sheds, sorting stations, a covered weighing yard. The new operation grew inside the old frame and uses the towers as load-bearing anchors. Whoever built this second phase understood the first phase well enough to build around it rather than through it.',
+    failResult: 'The tower base access is restricted during shift change — the hoist operators need clear sight lines to the upper frames and workers are moving through the zone. The lane around the eastern perimeter stays open and gives a read of the tower profiles without entering the restricted corridor.'
+  },
+
+  {
+    id: 'sore_observe_dock_output',
+    label: "The processing dock loads faster than the quarry cuts can account for.",
+    tag: 'safe · observation · DC 7',
+    effects: [],
+    result: 'At the processing dock, palletized stone moves from the sorting shed to the waiting freight platform at a pace that doesn\'t match what the active cuts are producing today. The active eastern cut runs one crew at a moderate pace; the dock is loading as if three cuts are running full shifts. Either there is stockpiled material being drawn down from somewhere not visible from here, or the dock is processing quarry output from a source that isn\'t this yard. The freight platform stamps are Soreheim registration. The volume on the platform is not Soreheim\'s current output.',
+    failResult: 'The dock gate is closed for an inspection check — the freight coordinator is running numbers against the platform stack before the next barge loads. The processing shed side entrance stays open and the sorted output waiting for the dock is visible from there without needing dock authorization.'
   }
 ];
 window.SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;
