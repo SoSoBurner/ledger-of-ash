@@ -120,7 +120,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
   },
   {
     id: 'sheresh_water_route',
-    label: 'The water-route marks on the eastern path have been moved. Someone redirected the way without a commune vote.',
+    label: 'The water-route marks moved north without a vote.',
     tags: ['Survey', 'Observation', 'Stage1'],
     xpReward: 60,
     skill: 'survival',
@@ -146,7 +146,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
   },
   {
     id: 'sheresh_provisioning_log',
-    label: 'The provisioning log covers five years. One year has fewer entries than the others by a significant margin.',
+    label: 'One year in the provisioning log is nearly empty.',
     tags: ['Records', 'Inquiry', 'Stage1'],
     xpReward: 65,
     skill: 'lore',
