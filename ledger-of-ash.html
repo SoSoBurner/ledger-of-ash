@@ -9528,6 +9528,16 @@ function advanceTime(ticks) {
       }
     }
   }
+  // Heat decay: every 3 days in a polity reduces heat by 1
+  if (G.dayCount % 3 === 0 && G.heat && G.location) {
+    var _decayPolity = WORLD_LOCATIONS[G.location] && WORLD_LOCATIONS[G.location].polity;
+    if (_decayPolity) {
+      var _decayKey = _decayPolity.toLowerCase().replace(/\s+/g,'_').split('_')[0];
+      if (getHeat(_decayKey) > 0) {
+        addHeat(_decayKey, -1);
+      }
+    }
+  }
   updateHUD();
   if (typeof SHADOW_LEDGER_HINTS !== 'undefined' && SHADOW_LEDGER_HINTS.checkAndFire) SHADOW_LEDGER_HINTS.checkAndFire();
   // Passive rival pressure in Stage II
