@@ -239,10 +239,14 @@ function _closeMiniboss() {
 // Trigger check — called from checkStageAdvance
 function checkTrigger() {
   if (!G) return;
+  var sp2 = ((G.stageProgress && G.stageProgress[2]) || 0);
+  // seed_seen required at sp2>=8; at sp2>=12 the miniboss fires regardless (catches
+  // archetypes like paladin whose enriched-choice mix never surfaces the seed choices)
+  var seedReady = G.flags.stage2_miniboss_seed_seen || sp2 >= 12;
   if (!G.flags.stage2_miniboss_complete &&
       !G.flags.stage2_miniboss_started &&
-      ((G.stageProgress && G.stageProgress[2]) || 0) >= 8 &&
-      G.flags.stage2_miniboss_seed_seen) {
+      sp2 >= 8 &&
+      seedReady) {
     setTimeout(_pell_phase1, 500);
   }
 }
