@@ -1880,7 +1880,7 @@ input, button, select, textarea { font-family: inherit; }
         </div>
         <div class="l-prog-row">
           <span class="l-prog-key" id="hud-xp-label">XP</span>
-          <span class="l-prog-val" id="hud-xp">0 / 60</span>
+          <span class="l-prog-val" id="hud-xp">0 / 120</span>
         </div>
         <div class="l-renown" id="hud-renown">0 &#x2014; Unknown</div>
       </div>
@@ -1907,7 +1907,7 @@ input, button, select, textarea { font-family: inherit; }
       </div>
       <div id="hud-stage-progress-wrap" class="pressure-bar-row" style="display:none;padding:0 14px 6px;">
         <div class="pressure-bar-label" style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;">
-          <span>INVESTIGATION</span><span id="hud-stage-progress-val"></span>
+          <span>THREADS</span><span id="hud-stage-progress-val"></span>
         </div>
         <div class="skill-bar-track"><div id="hud-stage-progress" class="skill-bar-fill" style="background:var(--discovery);width:0%"></div></div>
       </div>
@@ -1945,7 +1945,7 @@ input, button, select, textarea { font-family: inherit; }
       <div id="hud-trait-ready" style="display:none; font-family:var(--font-body); font-size:10px; letter-spacing:0.06em; padding: 2px 14px;"></div>
       <div id="hud-stage-progress-wrap" style="display:none;padding:0 14px 6px;">
         <div style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;margin-bottom:3px;">
-          <span>INVESTIGATION</span><span id="hud-stage-progress-val"></span>
+          <span>THREADS</span><span id="hud-stage-progress-val"></span>
         </div>
         <div class="pressure-bar-track"><div id="hud-stage-progress" class="pressure-bar-fill" style="background:var(--discovery);width:0%"></div></div>
       </div>
@@ -2037,7 +2037,7 @@ input, button, select, textarea { font-family: inherit; }
         <button class="camp-action" id="btn-craft" data-camp="craft"><div class="ca-icon">&#x2699;</div><div class="ca-title">Craft</div><div class="ca-desc">Prepare rations, tools, and materials. Requires Level 2.</div></button>
         <button class="camp-action" id="btn-talk" data-camp="talk"><div class="ca-icon">&#x25C8;</div><div class="ca-title">Companions</div><div class="ca-desc">Reveal companion opinions and unlock their choices. Requires Level 3.</div></button>
         <button class="camp-action" id="btn-post-watches" data-camp="post_watches"><div class="ca-icon">&#x25CE;</div><div class="ca-title">Post Watches</div><div class="ca-desc">Set companions on rotating watch. Requires at least one companion.</div></button>
-        <div class="camp-group-label">Investigate</div>
+        <div class="camp-group-label">Active Threads</div>
         <button class="camp-action" id="btn-campout" data-camp="campout"><div class="ca-icon">&#x25CB;</div><div class="ca-title">Camp Outside</div><div class="ca-desc">Sleep outside the settlement. Risk a night encounter; rolls −1 the following day.</div></button>
         <button class="camp-action" id="btn-lay-low" data-camp="lay_low" style="display:none"><div class="ca-icon">&#x25AA;</div><div class="ca-title">Lay Low</div><div class="ca-desc">Go quiet for a day. Reduces Watchfulness by 1. Costs a day.</div></button>
         <button class="camp-action" id="btn-review-notes" data-camp="review_notes" style="display:none"><div class="ca-icon">&#x2393;</div><div class="ca-title">Review Notes</div><div class="ca-desc">Go back to the beginning. A lost thread may still hold. Costs a day.</div></button>
@@ -9619,7 +9619,7 @@ function getDefaultG() {
     marenRenown:0, marenRevealed:false,
     stageProgress:{1:0, 2:0, 3:0, 4:0, 5:0},
     telemetry:{turns:0, actions:0},
-    worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0},
+    worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
     discoveries:{}, contacts:{},
     investigationProgress:0, flags:{}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
@@ -11352,7 +11352,7 @@ function renderChoices(choices) {
   let html = '<div class="choice-label">What do you do?' + (disadv ? ' <span style="color:var(--gold-dim);font-size:10px">[Training fatigue: -2 to rolls, ' + G.trainingDisadvantage + ' left]</span>' : '') + '</div><div class="choices">';
 
   const _tierHints = {
-    safe: 'Safe choices always succeed — steady progress, no risk.',
+    safe: 'Safe choices roll at low DC — failure redirects rather than stops you.',
     risky: 'Risky choices roll d20 against a DC. Success advances faster.',
     bold: 'Bold choices are high stakes — greater reward, permanent consequences on fumble.'
   };
@@ -14437,7 +14437,7 @@ function showMap() {
 
   let html = '<div style="color:var(--ink-dim);font-size:13px;margin-bottom:16px">' +
     (G.stage === 'Stage I' ?
-      'Stage I restricts travel to <strong>' + curRegion + '</strong>. Reach Level 6 to cross polity lines.' :
+      'Stage I restricts travel to <strong>' + curRegion + '</strong>. Advance to Stage II to unlock cross-polity travel.' :
       'Stage II unlocked. Canon-supported routes connect the polities below.') +
     '</div>';
 
@@ -15729,7 +15729,7 @@ function maybeShowTutorial(event) {
     first_camp: '<strong>Camp:</strong> Rest restores HP and refreshes your trait. Train costs an axis tick and improves one skill — but leaves you fatigued for 5 choices. Seek Care finds a healer NPC nearby.',
     first_journal: '<strong>Journal:</strong> The Ledger tracks your quests, wounds, inventory, faction relations, rival adventurers, and all journal entries. Open it from the topbar.',
     first_npc: '<strong>NPCs:</strong> Local contacts are gated by your Lore skill. Higher Lore reveals more contacts. Approach them to open conversation. Trust increases with repeated contact.',
-    first_map: '<strong>Map:</strong> In Stage I, you are restricted to your origin polity. At Level 6, Stage II opens cross-polity travel. Travel advances the axis and time of day.',
+    first_map: '<strong>Map:</strong> In Stage I, you are restricted to your origin polity. Advance to Stage II to unlock cross-polity travel. Travel advances the axis and time of day.',
     first_combat: '<strong>Combat:</strong> You enter combat only when you choose to or are forced into it. You can always attempt to talk, flee, or find another approach before fighting.',
     first_shop: '<strong>Shopping:</strong> Each location has goods available from local sites. Gold is limited — spend it on what your archetype actually uses.',
     first_watchfulness: '<strong>Watchfulness increased.</strong> This marks how visible your movements have become. High watchfulness raises DCs and draws attention from local authorities.',
@@ -16149,7 +16149,9 @@ function updateWorldTab() {
   var clocks = ['pressure','watchfulness','rival','reverence','omens','isolation'];
   var labels = {pressure:'Pressure',watchfulness:'Watchfulness',rival:'RIVAL PRESSURE',reverence:'Reverence',omens:'Omens',isolation:'Isolation'};
   var html = clocks.map(function(c) {
-    var val = Math.max(0, G.worldClocks[c] || 0);
+    var _raw = G.worldClocks[c];
+    if (typeof _raw !== 'number') _raw = 0;
+    var val = Math.max(0, _raw);
     if (c === 'rival' && val === 0) return '';
     var pct = Math.min(100, (val / 10) * 100);
     var fillStyle = c === 'rival' ? 'width:' + pct + '%;background:var(--danger)' : 'width:' + pct + '%';
