@@ -9661,7 +9661,7 @@ function getDefaultG() {
     stageProgress:{1:0, 2:0, 3:0, 4:0, 5:0},
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
-    discoveries:{}, contacts:{},
+    discoveries:{}, contacts:{}, suspects:{},
     investigationProgress:0, flags:{}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
@@ -12231,6 +12231,12 @@ function applyEffect(fx) {
       break;
     }
     case 'heat':      addHeat(fx.polity || fx.key, fx.n || fx.amount || 0); break;
+    case 'suspect': {
+      G.suspects = G.suspects || {};
+      var _sNpc = fx.npc;
+      G.suspects[_sNpc] = Math.min(10, (G.suspects[_sNpc] || 0) + (fx.n || 1));
+      break;
+    }
   }
 }
 
@@ -14844,7 +14850,21 @@ function showJournal() {
     '<div class="jov-section"><div class="jov-title">&#x25A0; Materials' + _badge(_jmCount) + '</div>' + matRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Faction Relations' + _badge(_jfCount) + '</div>' + factionRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Rival Adventurers' + _badge(_jrCount) + '</div>' + rivalRows + '</div>' +
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Journal Entries' + _badge(_jlCount) + '</div>' + loreRows + '</div>';
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Journal Entries' + _badge(_jlCount) + '</div>' + loreRows + '</div>' +
+    (function() {
+      var _suspects = G.suspects || {};
+      var _sKeys = Object.keys(_suspects).filter(function(k){ return _suspects[k] >= 3; });
+      if (_sKeys.length === 0) return '';
+      var _html = '<div class="jov-section"><div class="jov-section-title">SUSPECTS</div>';
+      _sKeys.forEach(function(npcId) {
+        var _sc = _suspects[npcId];
+        var _dots = '';
+        for (var _di = 0; _di < 10; _di++) { _dots += (_sc > _di) ? '●' : '○'; }
+        _html += '<div class="jov-entry"><span>' + npcId.replace(/_/g,' ') + '</span><span style="color:var(--accent-gold);letter-spacing:2px;">' + _dots + '</span></div>';
+      });
+      _html += '</div>';
+      return _html;
+    })();
 
   showOverlay('overlay-journal');
 }
