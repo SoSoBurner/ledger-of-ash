@@ -10,7 +10,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Suppression requests citing a non-existent regulatory authority. The registry keeps receiving them.",
-    tags: ['Investigation', 'Stage2', 'Meaningful'],
+    tags: ['Investigation', 'Stage2'],
     xpReward: 76,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -43,7 +43,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Convoy modification requisitions matching suppression compound transport container descriptions.",
-    tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 72,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -71,7 +71,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A payment dispute over container modification work. The commissioning party's documentation is in it.",
-    tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -99,7 +99,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Glyph surges disrupting wildlife migration in a pattern Elyra has tracked for four months.",
-    tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Survival', 'Stage2'],
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -131,7 +131,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A community member filed a report. Convoy handlers receiving payments from an external party.",
-    tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 64,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -688,7 +688,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sunspire is an operation infrastructure node. Shut it down formally or neutralize it quietly.",
-    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
+    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 104,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

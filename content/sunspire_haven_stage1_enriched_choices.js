@@ -12,7 +12,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The yard master signs off on routes he didn't write.",
-    tags: ['Investigation', 'NPC', 'Syndicate', 'Logistics', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Syndicate', 'Logistics'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -51,7 +51,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Family obligations used to be mutual. Something changed who decides what the obligation means.",
-    tags: ['Investigation', 'NPC', 'Family', 'Coercion', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Family', 'Coercion'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -91,7 +91,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 3. HARVEST COORDINATOR: FOOD DISTRIBUTION CHANGES
   {
     label: "The grain register says scarcity. The grain depot says otherwise.",
-    tags: ['Investigation', 'NPC', 'Resources', 'Food', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Resources', 'Food'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -127,7 +127,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 4. TEXTILE MERCHANT: TRADE PREFERENCE BIAS
   {
     label: "The same three family names top every premium listing for two months running.",
-    tags: ['Investigation', 'NPC', 'Commerce', 'Bias', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Commerce', 'Bias'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -167,7 +167,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 5. QUOTA KEEPER: PRODUCTION PRESSURE
   {
     label: "The quotas for certain families are set above what their resource allocation can reach.",
-    tags: ['Investigation', 'NPC', 'Production', 'Quotas', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Production', 'Quotas'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -207,7 +207,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 6. CONVOY ORGANIZER: EXTERNAL COORDINATION
   {
     label: "Some convoys run on instructions not from the yard. She was told not to ask.",
-    tags: ['Investigation', 'NPC', 'Communication', 'External', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Communication', 'External'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -244,7 +244,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 7. FAMILY ELDER: DECISION AUTHORITY EROSION
   {
     label: "The elder still holds the title. The decisions stopped being his some time ago.",
-    tags: ['Investigation', 'NPC', 'Family', 'Authority', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Family', 'Authority'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -284,7 +284,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 8. MARKET INSPECTOR: QUALITY ENFORCEMENT BIAS
   {
     label: "The inspector enforces standards on families who complain and waves through stalls that don't.",
-    tags: ['Investigation', 'NPC', 'Quality', 'Market', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Quality', 'Market'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -326,7 +326,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 9. FAMILY STRUCTURE TIER 1: SYNDICATE INTEGRATION ANALYSIS
   {
     label: "The work assignments have been pulling family members apart, systematically, for two cycles.",
-    tags: ['Investigation', 'Family', 'Structure', 'Organization', 'Meaningful'],
+    tags: ['Investigation', 'Family', 'Structure', 'Organization'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -363,7 +363,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 10. RESOURCE CONTROL TIER 2: SCARCITY ENGINEERING
   {
     label: "More food comes in than goes out to households. The gap is going somewhere.",
-    tags: ['Investigation', 'Resources', 'Scarcity', 'Control', 'Meaningful'],
+    tags: ['Investigation', 'Resources', 'Scarcity', 'Control'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -403,7 +403,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 11. INFORMATION ISOLATION TIER 1: EXTERNAL NEWS FILTERING
   {
     label: "The message board is thinner than it should be. A traveler stopped mid-story.",
-    tags: ['Investigation', 'Information', 'Isolation', 'Communication', 'Meaningful'],
+    tags: ['Investigation', 'Information', 'Isolation', 'Communication'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -440,7 +440,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 12. COERCION SYSTEM TIER 2: THREAT MAPPING
   {
     label: "Push back and get cut. Comply and get a waiver. That's not variance.",
-    tags: ['Investigation', 'Coercion', 'Threats', 'Fear', 'Meaningful'],
+    tags: ['Investigation', 'Coercion', 'Threats', 'Fear'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -480,7 +480,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 13. EXTERNAL FLOWS TIER 1: RESOURCE EXTRACTION
   {
     label: "Three convoys carry more than their manifests show. Destinations point north past any trade route.",
-    tags: ['Investigation', 'Resources', 'Flow', 'Extraction', 'Meaningful'],
+    tags: ['Investigation', 'Resources', 'Flow', 'Extraction'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -517,7 +517,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 14. COMMUNITY COHESION TIER 2: SOCIAL FRAGMENTATION
   {
     label: "The communal fire is the right size for a dozen. Four sit around it.",
-    tags: ['Investigation', 'Community', 'Bonds', 'Fragmentation', 'Meaningful'],
+    tags: ['Investigation', 'Community', 'Bonds', 'Fragmentation'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -557,7 +557,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 15. FAMILY FRAGMENTATION TIER 1: KINSHIP BREAKDOWN
   {
     label: "The work assignments keep landing members of the same family in locations days apart. Consistently.",
-    tags: ['Investigation', 'Family', 'Bonds', 'Fragmentation', 'Meaningful'],
+    tags: ['Investigation', 'Family', 'Bonds', 'Fragmentation'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -597,7 +597,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 16. CONSENT FICTION TIER 2: MANUFACTURED ACCEPTANCE
   {
     label: "Every council vote unanimous. No abstentions. No dissent. Not once.",
-    tags: ['Investigation', 'Coercion', 'Consent', 'Fiction', 'Meaningful'],
+    tags: ['Investigation', 'Coercion', 'Consent', 'Fiction'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -639,7 +639,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 17. STREET RUMOR: FAMILY WHISPERS
   {
     label: "The same story at both ends of the market, told quietly. Nobody is coordinating it.",
-    tags: ['Investigation', 'Rumor', 'Family', 'Gossip', 'Meaningful'],
+    tags: ['Investigation', 'Rumor', 'Family', 'Gossip'],
     xpReward: 65,
     stageProgress: 1,
     fn: function() {
@@ -663,7 +663,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: SYNDICATE CONTROL PROOF
   {
     label: "The diversion, the scarcity, the family pressure — these aren't separate problems. They're one apparatus.",
-    tags: ['Investigation', 'Evidence', 'Proof', 'Coordination', 'Exposure', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Proof', 'Coordination', 'Exposure'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -705,7 +705,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: FAMILY COMPLICITY CHOICE
   {
     label: "The family leader cooperated. The question is whether they had any other choice.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -741,7 +741,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The syndicate takes orders from someone outside Sunspire. The courier receipts came from somewhere north.",
-    tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
+    tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -779,7 +779,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 21. CLUE: SIGNAL-DAMPING CONTAINER
   {
     label: "The sealed container is heavier than its size. The interior lining isn't trade-grade.",
-    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 74,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -805,7 +805,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 22. CLUE: CONVOY ROUTE DEVIATION
   {
     label: "Filed route and actual route don't match. The detour avoided the only Warden checkpoint.",
-    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -826,7 +826,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 23. ARCHETYPE-GATED: READING THE AFTERMATH
   {
     label: "The formal report describes a raid. The site tells a different story.",
-    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Archetype', 'Stage1'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -850,7 +850,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 24. FACTION SEED: WARDEN ORDER CONTACT
   {
     label: "The Warden post at the north gate. Either they know already, or they need to.",
-    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -876,7 +876,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 25. ATMOSPHERE: THE SIGNAL TOWER
   {
     label: "Between the second and third signal light, a half-beat pause that isn't in the protocol.",
-    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 53,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -891,7 +891,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 26. PERSONAL ARC: DOCUMENT THE CONTAINER
   {
     label: "The container gets catalogued and locked today. The craftmark needs recording before that happens.",
-    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 62,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -914,7 +914,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 27. SOCIAL: THE CONVOY GUARD SURVIVOR
   {
     label: "One guard survived the disruption. He's at the waystation infirmary, still lucid.",
-    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -936,7 +936,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 28. SHADOW RIVAL INTRO
   {
     label: "Someone asked the innkeeper about the disruption. Their account exceeded any sanctioned report.",
-    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    tags: ['Rival', 'Warning', 'Stage1'],
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -947,9 +947,9 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       if (arch === 'combat') {
         G.lastResult = `"Military bearing," the innkeeper says. "Asked whether the guards fired before or after the container was moved. Not whether they fired at all — specifically in what order. Someone with tactical training, working out a timeline." They knew what questions to ask. That means they already know what happened.`;
       } else if (arch === 'magic') {
-        G.lastResult = `"Carried a measuring instrument — brass, cylindrical," the innkeeper says. "Held it near the container storage area before asking questions. I thought it was for surveying." A resonance reader or material sensor. This person was characterizing the container's damping field, not investigating the disruption. They came for the container specifically.`;
+        G.lastResult = `"Carried a measuring instrument — brass, cylindrical," the innkeeper says. "Held it near the container storage area before asking questions. I thought it was for surveying." A resonance reader or material sensor. This person was characterizing the container's damping field, not documenting the disruption. They came for the container specifically.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `"Didn't ask about the disruption at all," the innkeeper says. "Just asked who'd been asking about it. Named three people by description before they'd been introduced." A counter-investigator. They were mapping inquirers, not events. Your name isn't on their list yet — but it will be.`;
+        G.lastResult = `"Didn't ask about the disruption at all," the innkeeper says. "Just asked who'd been asking about it. Named three people by description before they'd been introduced." A monitor. Someone whose role is watching the watchers. They were mapping inquirers, not events. Your name isn't on their list yet — but it will be.`;
       } else {
         G.lastResult = `"Spoke to every staff member separately," the innkeeper says. "Different questions each time. I only put it together afterward — they were building a complete picture of everyone involved." A pause, cloth folded on the counter. "Never repeated themselves. Each person got a different angle of the same thing." Methodical social mapping. They moved through the staff the way a surveyor moves through terrain — covering the ground systematically, never doubling back. A profile of this disruption's participants is already assembled somewhere. It's more complete than yours.`;
       }

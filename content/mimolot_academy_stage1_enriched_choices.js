@@ -12,7 +12,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The librarian knows which topics disappeared. He also knows he didn't change them.",
-    tags: ['Investigation', 'NPC', 'Observation', 'Knowledge', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Observation', 'Knowledge'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -56,7 +56,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Scholars working on institutional critique have been reassigned to cataloging. Their projects still exist.",
-    tags: ['Investigation', 'NPC', 'Records', 'Research', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Records', 'Research'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -96,7 +96,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 3. ARCHIVE GUARDIAN: SEALED SECTIONS EXPANDED
   {
     label: "The sealed sections keep expanding. Behind them is what senior scholars once read freely.",
-    tags: ['Investigation', 'NPC', 'Archives', 'Secrets', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Archives', 'Secrets'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -135,7 +135,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 4. KNOWLEDGE ARCHIVIST: DOCUMENTATION BEING ALTERED
   {
     label: "The archivist has both editions and has been logging the differences for months.",
-    tags: ['Investigation', 'NPC', 'History', 'Records', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'History', 'Records'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -177,7 +177,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 5. STUDENT ADMINISTRATOR: ENROLLMENT RESTRICTIONS
   {
     label: "The strongest critical methodology students aren't getting advanced research placements. The gap has direction.",
-    tags: ['Investigation', 'NPC', 'Students', 'Access', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Students', 'Access'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -217,7 +217,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 6. RESTRICTION KEEPER: FORBIDDEN KNOWLEDGE CATALOGED
   {
     label: "Everything classified in eighteen months has one thing in common. The restriction keeper has noticed.",
-    tags: ['Investigation', 'NPC', 'Classification', 'Forbidden', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Classification', 'Forbidden'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -257,7 +257,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 7. CURATION MASTER: COLLECTION BIAS SYSTEMATIC
   {
     label: "Eighteen months of silence in whole subject areas. He knows exactly when it started.",
-    tags: ['Investigation', 'NPC', 'Curation', 'Bias', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Curation', 'Bias'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -297,7 +297,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 8. VERIFICATION SCRIBE: TRUTH VERIFICATION COMPROMISED
   {
     label: "Three scribes reassigned. All three had refused to certify documents they flagged as inaccurate.",
-    tags: ['Investigation', 'NPC', 'Verification', 'Truth', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Verification', 'Truth'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -339,7 +339,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 9. LORE TIER 1: ACADEMIC PRECEDENT ANALYSIS
   {
     label: "The framework was revised. The burden of proof was inverted. Someone knew where to push.",
-    tags: ['Investigation', 'Lore', 'Precedent', 'Framework', 'Meaningful'],
+    tags: ['Investigation', 'Lore', 'Precedent', 'Framework'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -379,7 +379,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 10. ARCANA TIER 2: MAGICAL KNOWLEDGE SUPPRESSION
   {
     label: "The restricted arcane texts are the ones describing how to work without Academy-authorized equipment.",
-    tags: ['Investigation', 'Arcana', 'Magical', 'Power', 'Meaningful'],
+    tags: ['Investigation', 'Arcana', 'Magical', 'Power'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -419,7 +419,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 11. INVESTIGATION TIER 1: INQUIRY PATTERNS MONITORED
   {
     label: "Request documents on institutional history and get a review entry within twenty-four hours.",
-    tags: ['Investigation', 'Investigation', 'Monitoring', 'Control', 'Meaningful'],
+    tags: ['Investigation', 'Investigation', 'Monitoring', 'Control'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -459,7 +459,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 12. INSIGHT TIER 2: INTELLECTUAL AUTONOMY ERODED
   {
     label: "Twenty years ago scholars argued across the refectory. The silence now is not contentment.",
-    tags: ['Investigation', 'Insight', 'Autonomy', 'Freedom', 'Meaningful'],
+    tags: ['Investigation', 'Insight', 'Autonomy', 'Freedom'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -499,7 +499,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 13. PERCEPTION TIER 1: ADMINISTRATIVE HIERARCHY MAPPED
   {
     label: "The charter says the scholarly council governs. The reassignment orders carry signatures from outside faculty.",
-    tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy', 'Meaningful'],
+    tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -539,7 +539,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 14. PERCEPTION TIER 2: EXTERNAL CONTROL COORDINATION
   {
     label: "Restriction directives arrive through a sealed external channel. Nobody has asked who sends them.",
-    tags: ['Investigation', 'Perception', 'Control', 'External', 'Meaningful'],
+    tags: ['Investigation', 'Perception', 'Control', 'External'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -581,7 +581,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 15. STREET RUMOR: SCHOLARLY ANXIETIES
   {
     label: "The study halls go quiet in a specific way when the wrong people walk through.",
-    tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
+    tags: ['Investigation', 'Rumor', 'Gossip', 'Fear'],
     xpReward: 65,
     stageProgress: 1,
     fn: function() {
@@ -609,7 +609,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: PROOF OF KNOWLEDGE CONSPIRACY
   {
     label: "Each piece has an innocent explanation. Together they don't.",
-    tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Exposure', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Exposure'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -651,7 +651,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
     label: "One of them is complicit and knows it. Can they be turned.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -691,7 +691,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Somewhere a document names who is directing this. The administrative vault is one door further.",
-    tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
+    tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -731,7 +731,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
     label: "Research suppression, historical revision, verification corruption, enrollment steering — all pointing the same direction.",
-    tags: ['Investigation', 'Pattern', 'Analysis', 'Knowledge', 'Meaningful'],
+    tags: ['Investigation', 'Pattern', 'Analysis', 'Knowledge'],
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
@@ -771,7 +771,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
     label: "This isn't institutional drift. The systems were rebuilt to prevent a specific conclusion.",
-    tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose', 'Meaningful'],
+    tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose'],
     xpReward: 80,
     stageProgress: 1,
     fn: function() {
@@ -813,7 +813,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 21. CLUE: CLASSIFIED FORMULA FRAGMENTS
   {
     label: "The Restricted Holdings alcove in the lower scriptorium. Formula fragments pulled from the main catalogue.",
-    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 75,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -844,8 +844,8 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 22. CLUE: MEMORY HALL SUPPRESSED DOCUMENTS
   {
-    label: "Search the Memory Hall's off-catalogue section — the reading room that requires senior faculty endorsement.",
-    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    label: "The off-catalogue section requires faculty endorsement nobody hands out freely.",
+    tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 72,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -879,7 +879,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 23. ARCHETYPE-GATED: READING THE ACADEMY
   {
     label: "Attend an open lecture at Mimolot Academy and read what the room is actually about.",
-    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Archetype', 'Stage1'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -907,7 +907,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 24. FACTION SEED: WARDEN ORDER ACADEMIC LIASON
   {
     label: "The Warden liaison watched the suppression unfold from the Archive annexe. No report filed.",
-    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -937,7 +937,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 25. ATMOSPHERE: THE SCRIPTORIUM STEPS AT NIGHT
   {
     label: "The Scriptorium Steps at dusk. Worth watching who comes and goes when the Academy closes.",
-    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -974,7 +974,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 27. SOCIAL: THE STUDENT WHO ASKS THE WRONG QUESTIONS
   {
     label: "A student asked about the previous edition. An auditor wrote his name down.",
-    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1000,7 +1000,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 28. SHADOW RIVAL INTRO
   {
     label: "Someone else asked Archivist Doss about the suppressed papers. They claimed northern scholarly affiliation.",
-    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    tags: ['Rival', 'Warning', 'Stage1'],
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

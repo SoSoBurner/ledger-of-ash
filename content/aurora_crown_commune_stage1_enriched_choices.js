@@ -12,7 +12,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The rotations increased. The repairs that matter most have fewer hands.",
-    tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -56,7 +56,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The observation logs have been moved. The authorization isn't on the board.",
-    tags: ['Investigation', 'NPC', 'Records', 'Knowledge', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Records', 'Knowledge'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -98,7 +98,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 3. RESOURCE ALLOCATOR: SUPPLY DIVERSION
   {
     label: "Survival supplies are being redirected. The destination codes don't appear in any public record.",
-    tags: ['Investigation', 'NPC', 'Logistics', 'Survival', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Logistics', 'Survival'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -140,7 +140,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 4. REPAIR COORDINATOR: MAINTENANCE DELAYS SYSTEMATIC
   {
     label: "Critical repairs are sitting in the queue. They have been sitting there for weeks.",
-    tags: ['Investigation', 'NPC', 'Maintenance', 'Integrity', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Maintenance', 'Integrity'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -183,7 +183,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 5. CELESTIAL OBSERVER: AURORA PATTERNS CORRUPTED
   {
     label: "The observer's charts ran irregular for three weeks. No notice filed.",
-    tags: ['Investigation', 'NPC', 'Celestial', 'Phenomenon', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Celestial', 'Phenomenon'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -226,7 +226,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 6. CONTAMINATION MONITOR: SEEPAGE ALLOWED DELIBERATELY
   {
     label: "The seepage logs show response times doubling. The monitor knows.",
-    tags: ['Investigation', 'NPC', 'Contamination', 'Safety', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Contamination', 'Safety'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -269,7 +269,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 7. RELAY KEEPER: COMMUNICATION MONITORING
   {
     label: "A second relay channel opened six weeks ago. The keeper hasn't asked what it's for.",
-    tags: ['Investigation', 'NPC', 'Communications', 'Information', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Communications', 'Information'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -312,7 +312,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 8. SURVIVAL PLANNER: CONTINGENCY PROTOCOLS ABANDONED
   {
     label: "The evacuation procedures aren't in the current binder. They were there last year.",
-    tags: ['Investigation', 'NPC', 'Emergency', 'Protocol', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Emergency', 'Protocol'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -357,7 +357,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 9. LORE/INVESTIGATION TIER 1: DOME STRUCTURAL ANALYSIS
   {
     label: "Three stress points appear fourteen times in the log. None have repair authorizations.",
-    tags: ['Investigation', 'Lore', 'Structure', 'Engineering', 'Meaningful'],
+    tags: ['Investigation', 'Lore', 'Structure', 'Engineering'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -399,7 +399,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 10. CRAFT/INVESTIGATION TIER 2: CONTAMINATION BARRIER MODIFICATION
   {
     label: "The barrier components look correct. They aren't the same material.",
-    tags: ['Investigation', 'Craft', 'Barrier', 'Materials', 'Meaningful'],
+    tags: ['Investigation', 'Craft', 'Barrier', 'Materials'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -441,7 +441,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 11. SURVIVAL TIER 1: RESOURCE SUSTAINABILITY CALCULATIONS
   {
     label: "The consumption figures don't match the population. Twelve months of supply is moving somewhere else.",
-    tags: ['Investigation', 'Survival', 'Economics', 'Resources', 'Meaningful'],
+    tags: ['Investigation', 'Survival', 'Economics', 'Resources'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -483,7 +483,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 12. PERSUASION TIER 2: COLLECTIVE CONSENT MANUFACTURED
   {
     label: "Every conversation stops at the same topic. The line is too consistent to be coincidence.",
-    tags: ['Investigation', 'Persuasion', 'Coercion', 'Silence', 'Meaningful'],
+    tags: ['Investigation', 'Persuasion', 'Coercion', 'Silence'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -525,7 +525,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 13. INSIGHT TIER 1: PSYCHOLOGICAL PRESSURE DOCUMENTED
   {
     label: "The tables empty at hours they should be full. Nobody reads the boards.",
-    tags: ['Investigation', 'Insight', 'Psychology', 'Pressure', 'Meaningful'],
+    tags: ['Investigation', 'Insight', 'Psychology', 'Pressure'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -567,7 +567,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 14. PERCEPTION TIER 2: ADMINISTRATIVE COORDINATION DISCOVERED
   {
     label: "Three directives, three timing windows, all matching the relay traffic. Outside coordination.",
-    tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy', 'Meaningful'],
+    tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -611,7 +611,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 15. STREET RUMOR: SURVIVAL ANXIETIES
   {
     label: "The maintenance workers don't talk about the dome readings. Not where anyone can hear.",
-    tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
+    tags: ['Investigation', 'Rumor', 'Gossip', 'Fear'],
     xpReward: 65,
     stageProgress: 1,
     failResult: {
@@ -641,7 +641,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: PROOF OF SYSTEMATIC SABOTAGE
   {
     label: "Four documents, four contradictions, all pointing the same direction. Someone built that.",
-    tags: ['Investigation', 'Evidence', 'Proof', 'Systematic', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Proof', 'Systematic'],
     xpReward: 80,
     stageProgress: 1,
     failResult: {
@@ -683,7 +683,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
     label: "They didn't design the trap. They're just standing in it with everyone else.",
-    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
+    tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
     stageProgress: 1,
     effects: [
@@ -728,7 +728,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The instruction chain passes through the relay and ends somewhere unnamed.",
-    tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
+    tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     stageProgress: 1,
     failResult: {
@@ -770,7 +770,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
     label: "Barrier, maintenance, resources, protocol. All degrading. All timed to the same relay windows.",
-    tags: ['Investigation', 'Pattern', 'Analysis', 'Connection', 'Meaningful'],
+    tags: ['Investigation', 'Pattern', 'Analysis', 'Connection'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -812,7 +812,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
     label: "The degradation is calibrated. Too slow to trigger response. Too precise to be natural.",
-    tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose', 'Meaningful'],
+    tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose'],
     xpReward: 80,
     stageProgress: 1,
     failResult: {
@@ -856,7 +856,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 21. CLUE: FILTRATION SYSTEM DOCUMENTATION
   {
     label: "Eighteen months ago, the service log has a two-word margin note. That's the answer.",
-    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 73,
     failResult: {
       text: 'The archive section holding the bound service logs is in its morning consolidation window — thirty minutes, the sign says. The amber light from the dome panels reaches this corridor but doesn\'t warm it. The filtration specification sheet is posted in the open reference section. The specification alone won\'t show the substitution, but it names what should be there.',
@@ -890,7 +890,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 22. CLUE: DOME PRESSURE GRADIENT DATA
   {
     label: "The northeast quadrant reading should have tripped an alarm. The alarm wire has been bypassed.",
-    tags: ['Investigation', 'Evidence', 'Craft', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Craft', 'Stage1'],
     xpReward: 70,
     failResult: {
       text: 'The northeast quadrant access corridor is behind a maintenance lock — requires a rotation card, not available to visitors. The dome\'s outer walkway circles the perimeter at ground level. From there you can see the quadrant\'s exterior face. The stress isn\'t always visible, but the repair markers tell you where to look.',
@@ -924,7 +924,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 23. ARCHETYPE-GATED: READING THE COMMUNE
   {
     label: "The commons at midday shows what the commune can't say out loud.",
-    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Archetype', 'Stage1'],
     xpReward: 68,
     failResult: {
       text: 'The central commons is packed — a scheduled assembly running over, people standing in the doorways. There\'s no vantage point in the crowd. The outer corridor runs the commons\' full length with a row of small windows. The same behavior is visible from outside the glass, without the noise.',
@@ -954,7 +954,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 24. FACTION SEED: OVERSIGHT COLLEGIUM
   {
     label: "The Collegium's name is in the correspondence log. Someone tried this route already.",
-    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 70,
     failResult: {
       text: 'The external correspondence room is locked — Merav Solind receives visitors by appointment only, and none are scheduled today. Her name appears in the registry hall\'s external liaison log alongside the complaint reference number. The log is public. The complaint was formally filed. That\'s enough to begin.',
@@ -986,7 +986,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 25. ATMOSPHERE: THE COMMUNE MEMORIAL STONE
   {
     label: "The founding stone says what the commune was built for. Worth reading now.",
-    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
     failResult: {
       text: 'The dome anchor corridor is blocked — a maintenance crew running pressure checks, the space too narrow to pass safely. The founding stone will be accessible again in an hour. The commons carry the same history in smaller form: the marks where the first internal walls were set are still visible in the floor tile pattern.',
@@ -1007,7 +1007,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 26. PERSONAL ARC: SECURE THE FILTRATION DATA
   {
     label: "The filtration data needs to leave this archive before it disappears too.",
-    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1029,7 +1029,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 27. SOCIAL: THE ENGINEER WHO FILED THE COMPLAINT
   {
     label: "The complaint was filed. The engineer who filed it was reassigned three days later.",
-    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 67,
     failResult: {
       text: 'Orren\'s reassignment posting shows him in the residential maintenance block — but the block is locked for a scheduled inspection. The sealed document case he carries was stamped with an engineering certification mark. The NE quadrant inspection report in the public registry hall carries the same stamp. That report is accessible without him.',
@@ -1058,7 +1058,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 28. SHADOW RIVAL INTRO
   {
     label: "Someone else came asking about the dome. The credentials didn't add up.",
-    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    tags: ['Rival', 'Warning', 'Stage1'],
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

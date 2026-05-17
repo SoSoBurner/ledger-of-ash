@@ -11,7 +11,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The chapel intermediary knows the name behind the northern route. She hasn't said it yet.",
-    tags: ['Investigation', 'Stage2', 'Meaningful'],
+    tags: ['Investigation', 'Stage2'],
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -42,7 +42,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Every south market glyph surge broke within thirty-six hours of a sealed letter. Eleven times.",
-    tags: ['Investigation', 'Stage2', 'Lore', 'Meaningful'],
+    tags: ['Investigation', 'Stage2', 'Lore'],
     xpReward: 75,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -69,7 +69,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shortages are too surgical for a family dispute. The rivalry is scaffolding.",
-    tags: ['Investigation', 'Stage2', 'Faction', 'Meaningful'],
+    tags: ['Investigation', 'Stage2', 'Faction'],
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -98,7 +98,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The picture is close enough to share. Sharing it means sharing the exposure.",
-    tags: ['Investigation', 'Consequence', 'Stage2', 'Meaningful'],
+    tags: ['Investigation', 'Consequence', 'Stage2'],
     xpReward: 85,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -129,7 +129,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lady Isabella Shelk knows the disruption doesn't originate in this city. She may say so.",
-    tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -158,7 +158,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Windrider has noticed the same pattern. The conditions for sharing it haven't been agreed yet.",
-    tags: ['NPC', 'Combat', 'Authority', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Combat', 'Authority', 'Stage2'],
     xpReward: 82,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -189,7 +189,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lyara Dawnlight filed three formal objections. All stamped received. None answered.",
-    tags: ['NPC', 'Lore', 'Religion', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Lore', 'Religion', 'Stage2'],
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -220,7 +220,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A Warden Order representative is waiting at the inn. The assessment has already begun.",
-    tags: ['Faction', 'Antagonist', 'Stage2', 'Meaningful'],
+    tags: ['Faction', 'Antagonist', 'Stage2'],
     xpReward: 85,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -252,7 +252,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Same questions, same locations, one day behind. The gap is closing.",
-    tags: ['Rival', 'Stage2', 'Combat', 'Meaningful'],
+    tags: ['Rival', 'Stage2', 'Combat'],
     xpReward: 88,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -288,7 +288,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Roadwarden invitation comes with a records access chit. The uniform opens the archive.",
-    tags: ['Personal', 'Combat', 'Stage2', 'Meaningful'],
+    tags: ['Personal', 'Combat', 'Stage2'],
     xpReward: 88,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -316,7 +316,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Aurora Light Cathedral's restricted archive holds the protocol revision records. The credentials gate is real.",
-    tags: ['Personal', 'Magic', 'Lore', 'Stage2', 'Meaningful'],
+    tags: ['Personal', 'Magic', 'Lore', 'Stage2'],
     xpReward: 84,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -345,7 +345,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Verdant Row runs on three handshake protocols. Getting the sequence wrong has a cost.",
-    tags: ['Personal', 'Stealth', 'Stage2', 'Meaningful'],
+    tags: ['Personal', 'Stealth', 'Stage2'],
     xpReward: 82,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -375,7 +375,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elowen's audit needs a facilitator. The revenue gaps point the same direction.",
-    tags: ['Personal', 'Support', 'Stage2', 'Meaningful'],
+    tags: ['Personal', 'Support', 'Stage2'],
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -408,7 +408,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Aelra kept a private log in her room ledger margin. Two months. Her own cipher.",
-    tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 76,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -435,7 +435,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The scorch patterns don't radiate from a center. They lean. The surge was channeled in.",
-    tags: ['Lore', 'Environment', 'Stage2', 'Meaningful'],
+    tags: ['Lore', 'Environment', 'Stage2'],
     xpReward: 74,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -460,7 +460,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The patrol leader has sealed records access. The property dispute is leverage on both sides.",
-    tags: ['Survival', 'Faction', 'Stage2', 'Meaningful'],
+    tags: ['Survival', 'Faction', 'Stage2'],
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -487,7 +487,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The operation's shape is clear. The name at the top is one link away.",
-    tags: ['Investigation', 'Advanced', 'Stage2', 'Consequence', 'Meaningful'],
+    tags: ['Investigation', 'Advanced', 'Stage2', 'Consequence'],
     xpReward: 95,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -823,7 +823,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The evidence is complete. The choice about how to use it doesn't reverse.",
-    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent', 'Meaningful'],
+    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent'],
     xpReward: 120,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

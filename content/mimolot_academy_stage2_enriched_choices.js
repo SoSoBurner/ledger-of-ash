@@ -9,7 +9,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression compound formula appears in theoretical texts three years before it was commissioned.",
-    tags: ['Investigation', 'Stage2', 'Meaningful'],
+    tags: ['Investigation', 'Stage2'],
     xpReward: 82,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -42,7 +42,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Incoming shipments logged that don't match standard academic supply manifests.",
-    tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -70,7 +70,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three recent acquisitions bypassed tariff entirely. No exemption filed.",
-    tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -99,7 +99,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A late-night conversation about 'pressure management protocols.' The guests aren't on the faculty roster.",
-    tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -127,7 +127,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shrine inscriptions include pre-suppression glyph data that was never formally classified.",
-    tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 72,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -637,7 +637,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Academy's classified research was the theoretical foundation. Expose or contain.",
-    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
+    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 108,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -808,6 +808,39 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         addNarration('Sweeper Intervention', 'The hall sweeper reaches the lectern before the lamp angle is right for reading the indent. He is a tidy older man with a cart, and he carries the pages to the faculty pigeonholes without looking at them — long habit, deliberate incuriosity. The lecturer has already left through the side corridor. The lectern is wiped down with a cloth that leaves no streak. Whatever was crossed out is now in a pigeonhole, which is a locked-key corridor the Academy does not extend to visiting readers. The reading path closes cleanly.');
+      }
+    }
+  },
+
+  // === COLLEGIUM INVESTIGATION PATH — Chain Link 3 (Terminus) ===
+  // Gated on collegium_contact_2; sets collegium_contact_3 + stage2_faction_contact_made
+  {
+    label: "Renne's cross-reference code points to a name in the Academy's restricted visitor log.",
+    tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion', 'Faction'],
+    xpReward: 95,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.flags) G.flags = {};
+      if (!G.flags.collegium_contact_2) {
+        G.lastResult = 'The senior review track at the Academy requires a Cosmoria cross-reference code. You do not have one yet.';
+        G.recentOutcomeType = 'locked';
+        return;
+      }
+      gainXp(95, 'completing Collegium chain at Mimolot Academy');
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      if (result.total >= 14) {
+        G.flags.collegium_contact_3 = true;
+        G.flags.stage2_faction_contact_made = true;
+        G.investigationProgress = (G.investigationProgress||0) + 2;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The name in the restricted visitor log is Overseer Davan Mirce, Collegium Senior Review, Transit Certification Division. He visited the Academy twice in the same season the glyph damping abstracts were pulled from the catalog. The Academy\'s notation lists the purpose as "curriculum consultation." Mirce is in the Collegium\'s own records as a routing compliance officer, not a curriculum consultant. The cross-reference code from Cosmoria connects his visit dates to the hold stamp anomaly. The chain is complete. It is also documentable, which is different from safe.';
+        addJournal('Collegium Senior Reviewer Mirce visited Mimolot Academy during the abstract suppression period. Visit logged as curriculum consultation — does not match his Collegium role. Cross-reference to Cosmoria hold stamp anomaly confirmed. Source: Mimolot restricted visitor log, Collegium transit records.', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The restricted visitor log requires a faculty counter-signature to release cross-reference entries to outside inquirers. The faculty registrar is willing but needs two working days to produce the form. She is precise about this — two days, not one, and not before the certification review cycle closes. The cross-reference will be accessible then. The window is narrow and the Collegium\'s review schedule moves on its own clock.';
+        G.recentOutcomeType = 'blocked';
       }
     }
   },
