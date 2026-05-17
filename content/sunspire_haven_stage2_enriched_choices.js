@@ -22,6 +22,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Taldan opens the suppression file on the first request and keeps going — fourteen in a row, six months of them, fanned across the desk. The cited authority, "Northern Glyph Oversight Commission," appears nowhere in the legal register or the regional charter index, and he has checked both twice. Every request targeted documentation that would allow someone to identify and counter glyph pressure engineering. Not general glyph knowledge. Specifically the countermeasures. "Censorship is most useful when it is targeted," he says. He has been waiting for someone to ask why.`;
         addJournal('Sunspire: 14 suppression requests from fake authority — targeting glyph countermeasure documentation', 'evidence', `sun-taldan-${G.dayCount}`);
@@ -32,6 +33,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Taldan confirms the requests without prompting — he's been expecting someone to ask. "An authority I cannot verify in three major legal registers is not an authority." He taps the file. Multiple requests, same fake citation, same pattern of targeted documentation. He has not complied with any of them. The refusals are logged carefully, each one cross-referenced to the register checks he ran. He has been building a record on the assumption that the record would eventually matter.`;
         addJournal('Suppression requests from unverified authority — Taldan declined compliance', 'evidence', `sun-taldan-partial-${G.dayCount}`);
       }
@@ -109,6 +111,7 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_elyra_mossbane_sun = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Elyra's thumb presses the migration logbook flat while she turns pages. She exhales through her nose — small, controlled — and stops on four months back. Wildlife corridors shifted northwest across every indicator species. The shift began precisely when the Watchers Perch cave modification completed. Her thumb does not lift from the cover. "The pressure gradient is displacing the creatures. Toward the staging location." She has known the alignment longer than she has said it aloud.`;
         addJournal('Wildlife migration shifted northwest — glyph gradient displaces ecosystems toward staging location', 'evidence', `sun-elyra-${G.dayCount}`);
@@ -645,6 +648,39 @@ const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.lastResult = `Orvak opens the charter entry file to the secondary signature line and sets a finger alongside it without covering the name. "An external agent is permitted to sign on behalf of a subsidiary principal under entry protocol." The name is legible. He closes the file and squares it with the desk edge. "I am not authorized to provide further biographical detail on charter signatories. The name is in the public entry record."`;
         addJournal('Charter entry record: local agent name identified in public secondary signature — no further detail available', 'intelligence', `sun-agent-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The suppression requests targeted the same countermeasure the Compact developed.",
+    tags: ['Stage2', 'Lore', 'Arcane'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'connecting suppression requests to Resonance Compact countermeasure research');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags.arcane_contact_1) {
+        G.lastResult = 'The pattern in Taldan\'s suppression files is clear — targeted documentation, not broad censorship — but the connection to any specific practitioner group requires a thread that has not yet surfaced here. There is more to find elsewhere before this line opens.';
+        return;
+      }
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.total >= 13 || result.isCrit) {
+        G.flags.arcane_contact_2 = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Taldan lays the fourteen suppression requests out in sequence and you set the Compact\'s practitioner mark beside the relevant paper titles. Every document the fake Northern Glyph Oversight Commission tried to suppress is a countermeasure paper. Not glyph theory broadly — specifically the dispersal methods the Compact\'s pre-classification research made possible. Taldan\'s finger traces the list. "Someone knew exactly which papers would make glyph pressure engineering reversible." He looks at the practitioner mark. "And exactly who had authored the methods to reverse it."';
+        addJournal('Suppression list targets Resonance Compact countermeasure papers specifically — knowledge of practitioner authorship confirmed', 'intelligence');
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The visitor log entry from the earlier inquiry surfaces during this conversation — Taldan\'s junior archivist has already flagged the cross-reference attempt. The connection between the suppression list and any practitioner group is a conclusion Taldan cannot officially endorse without a formal comparative analysis request. He describes this procedure at length. He is not obstructing. He is unable to do otherwise while someone is watching the log.';
+        addJournal('Cross-reference attempt flagged — comparative analysis procedure invoked, visitor log active', 'complication');
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The suppression target list and the Compact practitioner citations overlap across eight of the fourteen papers. The pattern is specific enough to be meaningful. Taldan pulls the overlap documents and sets them aside from the main stack. "These eight were the ones they pushed hardest on," he says. "I refused all fourteen, but the pressure on these was different. More persistent." He squares the stack. He does not say what that implies, but he has been thinking about it.';
+        addJournal('Eight suppression targets overlap with Compact-cited papers — most persistent suppression on Compact-linked countermeasures', 'evidence');
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

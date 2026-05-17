@@ -21,6 +21,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_quenra_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Quenra lays the original research notes beside the commission date — the gap is unmistakable. The formula was developed here as theoretical glyph resonance damping work, years before anyone placed an order for it. The classification directive that sealed it came eighteen months ago, not from the faculty council but from an external charter instruction. Quenra reads the charter reference aloud and stops. She's seen that designation before, in a different context, tied to the buyer pattern.`;
         addJournal('Academy glyph damping research classified by external charter — predates commission', 'evidence', `mim-quenra-${G.dayCount}`);
@@ -31,6 +32,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_quenra_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Quenra confirms the formula is in restricted materials without opening the file. She can't share it directly, but she confirms the classification came after the commission date — not before. She says this carefully, as if she's thought about what it implies and decided that confirming the sequence is different from discussing the content. Someone placed the commission knowing the formula already existed here.`;
         addJournal('Academy formula classified post-commission — buyer had prior knowledge', 'evidence', `mim-quenra-partial-${G.dayCount}`);
       }
@@ -137,6 +139,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_velis_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `The inscriptions predate the classification directive by decades — this is history that was never flagged for restriction because nobody connected it to the present. The original Watchers Perch cave is documented as a designed pressure regulation site: built by the settlement architects specifically to prevent glyph surge overload in the surrounding area. The modifications Quenra referenced weren't experimental additions. They reversed a safety system that has been functioning for generations.`;
         addJournal('Memory Hall: Watchers Perch was safety system — modifications reversed it deliberately', 'evidence', `mim-velis-${G.dayCount}`);
@@ -756,6 +759,35 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         addNarration('Circulation Protocol', 'The circulation librarian closes the register cover with a small movement that does not hurry itself. Withdrawal records are library administrative files; access requires a librarian referral and a filed purpose statement. She does not produce either form — she simply waits. Two students at the return counter have started reshelving slips that do not require reshelving. The register goes back under the desk. The cloth binder carries a small ink smudge on the spine from a thumb that rests there when someone is deciding what to do next.');
       }
+    }
+  },
+
+  {
+    label: "The glyph damping theoretical texts cite a practitioner network the faculty won't name.",
+    tags: ['Stage2', 'Lore', 'Arcane'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'tracing practitioner network cited in Academy glyph damping theory');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.total >= 13 || result.isCrit) {
+        G.flags.arcane_contact_1 = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The footnotes in the glyph resonance theory stack use an inconsistent citation format for one specific body of work — not the Fairhaven phantom monograph, something older. The source is identified only by a practitioner mark: a three-loop glyph pressed into the page margin in faded ink, not printed. Quenra sees you trace it and takes the book. She holds it to the window for a moment. "That mark belongs to the Resonance Compact. They operated before the classification period." She sets the book down carefully. "They are not supposed to still be operating." Her voice is level. Her hand is still on the cover.';
+        addJournal('Academy texts cite pre-suppression Resonance Compact — practitioner mark found in margin, Quenra confirms group still active', 'intelligence');
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The footnote trail leads to the restricted section, and the restricted section is locked. A faculty proctor finds you at the gate with the open research paper in hand. He writes the citation reference in his duty log before he escorts you out. Whatever practitioner network left those margin marks, the Academy has now been told someone was looking for them.';
+        addJournal('Restricted-stack approach logged — practitioner citation inquiry flagged', 'complication');
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The margin marks are consistent across four papers: a three-loop glyph, pressed with a personal seal rather than printed. The papers span the founding period of the Academy\'s glyph resonance track. The mark does not match any faculty seal in the public registry. Someone outside the institution contributed to this research and chose not to be named in the formal record. The omission looks deliberate.';
+        addJournal('Unregistered practitioner seal in Academy glyph theory margins — consistent across four papers, deliberate omission', 'evidence');
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
 

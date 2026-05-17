@@ -22,6 +22,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_warden_sera_whiteglass = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 1;
         G.lastResult = `Sera pulls the calibration log without being asked. She found the change three weeks ago — not a malfunction, the codes were altered deliberately, using Collegium administrative credentials routed through an external access. She points to the timestamp. The sensor suppression has been running since then. Aurora Crown's reported glyph exposure figures go to the broader settlement network at the suppressed rate. On paper the commune reads safe. Sera sets the log on the desk between you and doesn't pick it up again.`;
@@ -34,6 +35,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_warden_sera_whiteglass = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Sera confirms the irregularities without being told what you already know. "Consistent with external recalibration," she says, pulling a second file. She's been working on the access event since she found it. "Someone changed our baseline readings." She writes something in her log, caps the pen, looks at you. "I don't know why yet. I intend to." She smooths the written statement flat with one hand and does not look at it again. Her jaw is set. She's already moving to the next step before you've left the room.`;
         addJournal('Dome sensor baseline changed by external access — Sera investigating', 'evidence', `aur-sera-partial-${G.dayCount}`);
       }
@@ -142,6 +144,7 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_liora_sealwater = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Liora lays her petition records alongside the delivery manifest you brought. Six months of data, two columns. Respiratory complaint spikes appear within seventy-two hours of each filtration delivery — every time, without exception — then fall off over the following week as the compound disperses through the ventilation cycle. She traces it with her finger across all six months, slowly, not for your benefit but for her own. "I brought this to the medical board six weeks ago," she says. "They called it seasonal." She looks at the delivery dates again. "It follows the delivery schedule exactly."`;
 
@@ -677,6 +680,40 @@ const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.lastResult = `Theron's vehicle notations from the intake bay log give you four fleet mark sets across the last six deliveries. You run them against the transport registry at the market counter — Northern Provision Compact has no fleet registration at all. The marks on three of the vehicles match a Cosmouth-based haulage company. One mark comes back unregistered. The deliveries are arriving in vehicles that don't belong to the supplier listed on the intake manifests. The manifest supplier and the actual carrier are different entities.`;
         addJournal('Northern Provision Compact has no registered fleet — delivery vehicles belong to Cosmouth haulage company', 'intelligence', `aur-fleet-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The dosing pattern matches a technique the Compact documented before the suppression period.",
+    tags: ['Stage2', 'Lore', 'Arcane'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'connecting dome dosing method to Resonance Compact pre-suppression documentation');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags.arcane_contact_2) {
+        G.lastResult = 'The amber residue and the intake concentrations tell part of the story, but matching them to any specific documented technique requires a thread that has not yet surfaced here. There is more groundwork to lay before this connection can be made.';
+        return;
+      }
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.total >= 13 || result.isCrit) {
+        G.flags.arcane_contact_3 = true;
+        G.flags.stage2_faction_contact_made = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The dismissed technician\'s log describes the compound profile in precise field notation — compound class, intake concentration curve, dispersal rate through the dome\'s ventilation cycle. You set the Compact\'s pre-classification research notes beside it. The match is exact: not approximate, not similar. The same delivery method the Compact developed to map population glyph sensitivity for protective purposes is being run here in reverse, as an exposure protocol. The technician reads the comparison without speaking for a long time. Then she pulls a name from memory: a Compact contact still operating in the northern circuit who would recognize this as her organization\'s own method being used against the people it was built to protect. She writes the name down and sets the paper on the table.';
+        addJournal('Dome dosing method matches Resonance Compact protective protocol exactly — Compact contact identified, willing to act', 'contact_made');
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The comparison requires access to the Compact\'s original documentation, and the only copy available here is incomplete — field notes without the full protocol specification. The match is suggestive but not demonstrable. Someone at the dome stewardship level has also noticed the research materials spread across the technician\'s table; a note goes into the visitor log before you have packed them away.';
+        addJournal('Compact protocol comparison inconclusive — incomplete field notes, visitor log entry generated', 'complication');
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The compound profile in the technician\'s log is consistent with a Compact-documented dispersal method — the concentration curve follows the same shape, the ventilation-cycle timing matches. Consistent is not identical, and the Compact\'s original documentation is not accessible here in full. But the technician examines the field notes and says, quietly, that she has seen the intake behavior before in a research context she does not name. The connection is there. It is not yet closeable.';
+        addJournal('Dome intake profile consistent with Compact dispersal method — technician confirms pattern without naming source', 'evidence');
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
