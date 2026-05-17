@@ -16692,16 +16692,17 @@ function getCombatAbilityChoices(enemyKey) {
     seenIds[abilityId] = true;
     if ((G.level || 1) < (a.levelMin || 1)) return;
     var spent = !!(G.spentAbilities && G.spentAbilities[abilityId]);
-    choices.push({
+    (function(_aid){ choices.push({
       text: a.name + (spent ? ' [spent]' : ''),
       disabled: spent,
       skill: (_KEY_NORM_GLOBAL[a.skill] || a.skill || 'combat'),
       tag: 'combat',
-      cid: '__combat_ability__' + (enemyKey || '') + '__' + abilityId,
+      cid: '__combat_ability__' + (enemyKey || '') + '__' + _aid,
       result: a.successEffect || 'The ability fires.',
       failResult: a.failEffect || 'The ability misfires.',
-      dc: 12
-    });
+      dc: 12,
+      action: function() { activateAbility(_aid); }
+    }); })(abilityId);
   });
   return choices;
 }
