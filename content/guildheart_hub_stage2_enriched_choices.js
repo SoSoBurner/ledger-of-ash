@@ -844,6 +844,33 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // === COLLEGIUM INVESTIGATION PATH — Chain Link 1 ===
+  // Persuasion-based route; parallels arcane faction arc for warriors/rogues
+  {
+    label: "The routing clerk filed the same deviation note seven times. No response ever came.",
+    tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.flags) G.flags = {};
+      gainXp(70, 'establishing Collegium contact at Guildheart Hub');
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      if (result.total >= 13) {
+        G.flags.collegium_contact_1 = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The clerk\'s name is Fenwick. He has filed the deviation note seven times — once a fortnight, beginning the season the transit exemptions changed. Each note went to the Collegium intake desk downstairs. None received a response or acknowledgment stamp. He pulls the carbon copies from a folder he keeps in his own drawer, not the official file. He sets them on the desk and smooths the edges with the heel of his hand. "Someone should see these," he says. "That is all I am saying."';
+        addJournal('Guildheart routing clerk Fenwick has filed seven unanswered Collegium deviation notes on transit exemptions. He keeps the carbon copies himself. Source: Guildheart Hub routing desk.', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Fenwick checks the doorway twice before answering, and the second check decides him. He closes the folder and returns it to his drawer. "The intake process is working as designed," he says, which is not an answer to anything you asked. The deviation notes stay in the drawer. The exemption pattern stays in the manifest record, unaddressed.';
+        G.recentOutcomeType = 'blocked';
+      }
+    }
+  },
+
 ];
 
 // Sideplot injection — guildheart union testimony gap (Stage II only)

@@ -807,6 +807,38 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // === COLLEGIUM INVESTIGATION PATH — Chain Link 2 ===
+  // Gated on collegium_contact_1; sets collegium_contact_2
+  {
+    label: "The Collegium intake form asks for a certifying reference. Fenwick's name opens one door.",
+    tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.flags) G.flags = {};
+      if (!G.flags.collegium_contact_1) {
+        G.lastResult = 'The Collegium intake desk requires a certifying reference from a registered filer before opening a secondary inquiry. You do not have one yet.';
+        G.recentOutcomeType = 'locked';
+        return;
+      }
+      gainXp(80, 'advancing Collegium chain at Cosmoria');
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      if (result.total >= 13) {
+        G.flags.collegium_contact_2 = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Collegium intake desk in Cosmoria is staffed by a woman named Renne who processes secondary inquiries under a separate ledger kept on a lower shelf. Fenwick\'s reference number clears the intake without a wait period. She reads the deviation note carbons without expression, then writes a cross-reference code in a small bound register she does not leave on the desk. "This goes to senior review," she says. She means it as information, not reassurance. The register goes back onto the lower shelf. The code is now in the system.';
+        addJournal('Collegium intake officer Renne at Cosmoria accepted secondary inquiry using Fenwick\'s reference. Cross-reference code entered into senior review ledger. Source: Cosmoria Collegium intake desk.', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Renne reads the reference number and checks it against a list she keeps folded in the intake register. It is not on the list. "Fenwick\'s certification lapsed two rotations ago," she says. "He should have renewed." The form goes back across the desk, stamped REFER TO ORIGINATING DESK. The cross-reference stays unissued. The secondary inquiry path requires a current certification.';
+        G.recentOutcomeType = 'blocked';
+      }
+    }
+  },
+
 ];
 
 // Sideplot injection — cosmoria harbor weight fraud rung2 hook
