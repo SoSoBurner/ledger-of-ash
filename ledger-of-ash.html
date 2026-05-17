@@ -6201,7 +6201,7 @@ tr_nomdara:{text:'Three seasons learning what each polity wanted to believe abou
 // ── HEALER ──
 hl_shelk:{text:'You left Roadwarden medical service because what you were fixing was not the actual problem. The work injuries on the eastern route are inconsistent with the official cause of the closure. You treated three workers from that route in the last four days. Their injuries are from something other than what their paperwork says.',choices:[
   {text:'Listen to the people the operation affected. They saw things nobody thought to ask about.', skill:'persuasion', tag:'safe', align:'neutral', cid:'support_community'},
-  {text:'Find the workers again. Ask them directly what happened.', skill:'persuasion', tag:'risky', align:'neutral', cid:'trace_missing_persons'},
+  {text:'She saw what happened. She hasn\'t been asked the right way yet.', skill:'persuasion', tag:'risky', align:'neutral', cid:'trace_missing_persons'},
   {text:'The Roadwardens medical records. Cross-reference the injury pattern.', skill:'lore', tag:'safe', align:'lawful', cid:'read_notices'},
   {text:'The eastern depot. The physical site will confirm or deny what the workers described.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'}
 ]},
@@ -11115,8 +11115,8 @@ function loadStageChoices(locId) {
 
   // Fallback when no enriched table exists for this location/stage
   const base = [
-    { text: 'Find the local inn and read the room.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'inn_arrival' },
-    { text: 'Walk the settlement and read what is there.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' }
+    { text: 'The inn keeps its own kind of record.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'inn_arrival' },
+    { text: 'The settlement will show what records won\'t.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'market_intel' }
   ];
   if (stage.includes('II') || stage.includes('III')) {
     base.push({ text: 'Press for the next thread before the day ends.',
