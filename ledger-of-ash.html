@@ -11110,6 +11110,18 @@ function loadStageChoices(locId) {
     }
     const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8).filter(function(c){ return passesAlignGate(c); });
     renderChoices(choices);
+    // Zero-choice fallback: prevent dead-ends when boss trigger or other path leaves panel empty
+    setTimeout(function() {
+      var _activeBtns = document.querySelectorAll('#choices-panel .choice-btn:not([disabled])');
+      if (_activeBtns.length === 0 && G && !G.dead && G.flags && !G.flags.stage1_boss_started) {
+        renderChoices([{
+          id: 'fallback_pause',
+          text: 'Hold position. The situation needs a clearer read.',
+          tag: 'safe',
+          action: function() { if (typeof advanceTime === 'function') advanceTime(1); loadStageChoices(); }
+        }]);
+      }
+    }, 300);
     return;
   }
 
