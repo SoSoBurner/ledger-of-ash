@@ -1,0 +1,1 @@
+before starting preload the following to preform a review: debugging-wizard, systematic-debugging, architecture-patterns, incident-response:smart-fix, javascript-pro, java-architect, and game-design:cursed-problems. analyze and build a plan with writing-plans. we are not creating anything new. we are exclusively debugging and fixing what exists.

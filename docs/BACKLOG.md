@@ -119,6 +119,7 @@
 | `'Investigation'` tag as universal first tag — no classification signal | P3 | Replace with specific skill/action type tags (Lore, Persuasion, Observation, Social) |
 | `.title-error` uses display font (Cinzel) — legibility under stress | P3 | Switch to `var(--font-body)`; keep `color: var(--blood-bright)` |
 | 8px card tags / 9px item-use buttons — below readable floor | P3 | Floor at 10px minimum for all interactive text |
+| Locality name casing on death screen — "cosmouth" not "Cosmouth" | P3 | `WORLD_LOCATIONS[loc].name` should be title-cased at all render sites; check death-location-text and HUD |
 
 ---
 
@@ -307,3 +308,19 @@ each with 21–39 choices. shelkopolis_stage2_enriched_choices.js: 39 choices, 1
 Total Stage 2 choice count substantially exceeds 56. World Expansion Rule is satisfied.
 
 **Status:** DONE — matches BACKLOG line "Stage 2 locality enriched choices | All files exist; 21-26 choices each"
+
+---
+
+## P3 — DEBUG/GAMEPLAYCLEANUP Archive (May 2026)
+
+*Source files: DEBUG.txt and GAMEPLAYCLEANUP.txt — session bootstrapping prompts, archived 2026-05-16*
+
+- [ ] Gameplay audit pass — prose, result text, and choice labels across Stages 1 & 2 for immersion and quality tightening *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — tactical UI (combat HUD, range display, threat escalation) for full implementation of existing mechanics *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — tutorial flow: verify all existing onboarding text is clean, accurate, and reflects current systems *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — shops, services, and items: verify shop inventory wiring, item equip/use paths, and economy balance *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — stats, active abilities, and passive traits: verify all archetypes have correct bonuses applied in combat and rolls *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — level-up system: verify XP threshold display, mastery XP overflow, and level-cap messaging across all stages *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — travel system: verify corridor encounters, travel mode selection UI, supply drain, and toll wiring *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — NPC conversations and local locality scenes (taverns, inns, shops): verify conversational NPC wiring and result text quality *(source: GAMEPLAYCLEANUP.txt)*
+- [ ] Gameplay audit pass — main and side plot pathing for Stages 1 & 2: verify all arcs reach a narrative conclusion and no dead ends remain *(source: GAMEPLAYCLEANUP.txt)*
