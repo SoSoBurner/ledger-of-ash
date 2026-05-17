@@ -10425,7 +10425,7 @@ function startOpeningScene() {
     addNarration('', 'The manifest you carried out of the Crossing Hall is missing four entries. The routing numbers exist in the system. The shipments do not.');
     setTimeout(() => renderChoices([
       { text:'Find the nearest inn and take stock.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival' },
-      { text:'Walk the main road and read the settlement.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' }
+      { text:'The settlement will say more than the person I am looking for.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' }
     ]), 300);
     return;
   }
