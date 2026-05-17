@@ -12829,7 +12829,7 @@ function showLevelUpScreen() {
     STAT_DISPLAY.forEach(stat => {
       const cur = G.skills[stat.key] || 0;
       const maxed = cur >= 10;
-      html += '<button class="lu-option-btn' + (maxed ? ' lu-maxed' : '') + '" data-lu-stat="' + stat.key + '"' + (maxed ? ' disabled' : '') + '>' +
+      html += '<button class="lu-option-btn choice-btn' + (maxed ? ' lu-maxed' : '') + '" data-lu-stat="' + stat.key + '"' + (maxed ? ' disabled' : '') + '>' +
         '<div class="lu-opt-label">' + stat.name + (maxed ? ' <span style="opacity:.5">(max)</span>' : '') + '</div>' +
         '<div class="lu-opt-detail">' + stat.hint + '</div>' +
         '<div class="lu-opt-tag lu-tag-neutral">' + cur + ' / 10</div>' +
@@ -12882,7 +12882,7 @@ function showLevelUpScreen() {
     let html = '<div class="lu-title">Choose a trait:</div><div class="lu-options">';
     options.forEach((trait, i) => {
       const tagClass = trait.type === 'passive' ? 'jade' : trait.type === 'active' ? 'gold' : 'neutral';
-      html += '<button class="lu-option-btn" data-lu-trait="' + i + '">' +
+      html += '<button class="lu-option-btn choice-btn" data-lu-trait="' + i + '">' +
         '<div class="lu-opt-label">' + trait.name + '</div>' +
         '<div class="lu-opt-detail">' + trait.desc + '</div>' +
         '<div class="lu-opt-tag lu-tag-' + tagClass + '">' + trait.type + '</div>' +
@@ -12965,7 +12965,7 @@ function showLevelUpScreen() {
     options.forEach(function(ab, i) {
       var tagClass = (ab.type === 'active' || ab.traitType === 'active') ? 'gold' : 'jade';
       var typeLabel = (ab.type === 'active' || ab.traitType === 'active') ? 'active' : 'passive';
-      html += '<button class="lu-option-btn" data-lu-ability="' + i + '">' +
+      html += '<button class="lu-option-btn choice-btn" data-lu-ability="' + i + '">' +
         '<div class="lu-opt-label">' + (ab.name || ab.id) + '</div>' +
         '<div class="lu-opt-detail">' + (ab.desc || '') + '</div>' +
         '<div class="lu-opt-tag lu-tag-' + tagClass + '">' + typeLabel + '</div>' +

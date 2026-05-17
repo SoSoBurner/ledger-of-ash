@@ -156,8 +156,8 @@ window.renderNPCDialogue = function(npcId) {
         text: choice.text,
         tag: choice.tag,
         action: function() {
-          var rollResult = (typeof rollD20 === 'function') ? rollD20(choice.skill) : { total: 10, success: function(dc){ return 10 >= dc; } };
-          var passed = rollResult.success(choice.dc);
+          var rollResult = (typeof rollD20 === 'function') ? rollD20(choice.skill) : { total: 10 };
+          var passed = (rollResult.total || 0) >= choice.dc;
           var resultText = passed ? choice.result : choice.failResult;
 
           G.lastResult = resultText;
