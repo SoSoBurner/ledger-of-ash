@@ -1495,6 +1495,14 @@ input, button, select, textarea { font-family: inherit; }
 .trait-card-type.passive { color: var(--jade-bright); }
 .trait-card-effect { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; }
 .card-trait { background: linear-gradient(180deg, var(--cinder), var(--char)); border: 1px solid var(--storm); padding: 10px; border-radius: 2px; margin-bottom: 6px; }
+.card-abilities-preview { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+.card-ability-pill { position: relative; display: inline-block; font-family: var(--font-display); font-size: 9.5px; letter-spacing: .5px; text-transform: uppercase; color: var(--gold-dim); background: var(--ash); border: 1px solid var(--border); border-radius: 2px; padding: 2px 6px; cursor: default; }
+.card-ability-pill:hover { border-color: var(--accent-gold); color: var(--gold-bright); }
+.card-ability-pill:hover .card-ability-tooltip { display: block; }
+.card-ability-tooltip { display: none; position: absolute; bottom: calc(100% + 5px); left: 0; z-index: 9999; background: var(--coal); border: 1px solid var(--accent-gold); padding: 7px 10px; min-width: 180px; max-width: 240px; pointer-events: none; }
+.card-ability-tooltip-name { font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--gold-bright); margin-bottom: 3px; letter-spacing: .5px; }
+.card-ability-tooltip-type { font-family: var(--font-display); font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: var(--ember-hi); margin-bottom: 4px; }
+.card-ability-tooltip-desc { font-family: var(--font-body); font-size: 11.5px; color: var(--ink-faint); line-height: 1.4; }
 .eq-summary { padding: 8px 0 4px; }
 .eq-summary-header { font-family: var(--font-display); font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
 .eq-summary-row { display: flex; justify-content: space-between; margin-bottom: 3px; }
@@ -9696,13 +9704,27 @@ function initCreate() {
         '</div>';
       }
       _bonusHtml = _statsHtml + _bonusHtml;
+      // Ability pills from ARCHETYPE_TRAIT_POOLS
+      var _abilitiesHtml = '';
+      var _abilityPool = (typeof ARCHETYPE_TRAIT_POOLS !== 'undefined' && ARCHETYPE_TRAIT_POOLS[a.id]) || [];
+      if (_abilityPool.length) {
+        var _pills = _abilityPool.map(function(t) {
+          var _tipName = '<div class="card-ability-tooltip-name">' + (t.name || '') + '</div>';
+          var _tipType = t.type ? '<div class="card-ability-tooltip-type">' + t.type + '</div>' : '';
+          var _tipDesc = '<div class="card-ability-tooltip-desc">' + (t.desc || '') + '</div>';
+          var _tooltip = '<div class="card-ability-tooltip">' + _tipName + _tipType + _tipDesc + '</div>';
+          return '<span class="card-ability-pill">' + (t.name || '') + _tooltip + '</span>';
+        });
+        _abilitiesHtml = '<div class="card-abilities-preview">' + _pills.join('') + '</div>';
+      }
       d.innerHTML = '<div class="card-name">' + a.name + '</div>' +
         '<div style="font-family:\'Crimson Pro\',serif;font-weight:300;font-size:14px;color:var(--ink-faint);margin-top:6px;line-height:1.5;">' + (a.archDesc||'') + '</div>' +
         '<div class="card-tag">' + a.tag + '</div>' +
         '<div class="card-desc" style="margin-top:8px">' + a.desc + '</div>' +
         '<div class="card-trait" style="margin-top:8px">&#x2736; ' + a.trait + '</div>' +
         (a.mechNote ? '<p class="archetype-mechanic-note">' + a.mechNote + '</p>' : '') +
-        _bonusHtml;
+        _bonusHtml +
+        _abilitiesHtml;
       d.addEventListener('click', () => selectArchetype(a.id));
       row.appendChild(d);
     });
