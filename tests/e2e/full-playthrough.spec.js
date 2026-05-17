@@ -846,11 +846,11 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         lastPickLabels = [];
       }
 
-      // Headless sp1 nudge: if stuck for 40+ picks
-      if (!isHeaded && noProgress >= 40 && sp1 < 3) {
+      // Headless sp1 nudge: if stuck for 40+ picks and below boss threshold (15)
+      if (!isHeaded && noProgress >= 40 && sp1 < 15) {
         try {
           await page.evaluate(() => {
-            if (typeof G !== 'undefined' && G.stageProgress && G.stageProgress[1] < 3)
+            if (typeof G !== 'undefined' && G.stageProgress && G.stageProgress[1] < 15)
               G.stageProgress[1] += 1;
           });
           log(`[repair ${tag}] pick=${picks} — sp1 nudge (was ${sp1}, stuck ${noProgress} picks)`);
@@ -858,11 +858,11 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         } catch (_) {}
       }
 
-      // Headed repair: if sp1 stuck for 40+ picks and truly no plot-main available, nudge
-      if (isHeaded && noProgress >= 40 && sp1 < 3) {
+      // Headed repair: if sp1 stuck for 40+ picks and below boss threshold (15)
+      if (isHeaded && noProgress >= 40 && sp1 < 15) {
         try {
           await page.evaluate(() => {
-            if (typeof G !== 'undefined' && G.stageProgress && G.stageProgress[1] < 3)
+            if (typeof G !== 'undefined' && G.stageProgress && G.stageProgress[1] < 15)
               G.stageProgress[1] += 1;
           });
           log(`[repair ${tag}] pick=${picks} — sp1 nudge (was ${sp1}, stuck ${noProgress} picks)`);
