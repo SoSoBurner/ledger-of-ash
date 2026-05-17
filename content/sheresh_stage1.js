@@ -66,7 +66,7 @@ var SHERESH_STAGE1 = (function() {
   }
 
   function _closeWithHint() {
-    
+
     if (!G.flags.sheresh_principalities_hint_shown) {
       G.flags.sheresh_principalities_hint_shown = true;
       if (typeof addNarration === 'function') {
@@ -75,9 +75,101 @@ var SHERESH_STAGE1 = (function() {
     }
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
+    setTimeout(function() {
+      if (typeof loadStageChoices === 'function' && !document.querySelector('.choice-btn:not([disabled])')) {
+        loadStageChoices(G.location);
+      }
+    }, 500);
   }
 
   return { openingHook: openingHook };
 })();
 
 window.SHERESH_STAGE1 = SHERESH_STAGE1;
+
+// Enriched choices pool for Sheresh — ensures ≥3 ungated choices at sp1=0
+// No canon NPCs: Sheresh has zero authored named NPCs; all voices are unnamed commune members
+var SHERESH_STAGE1_ENRICHED_CHOICES = [
+  {
+    id: 'sheresh_commune_board',
+    label: 'The commune record board is open. Something was filed and then not followed up on.',
+    plot: 'main',
+    tags: ['Records', 'Observation', 'Stage1'],
+    xpReward: 65,
+    skill: 'lore',
+    dc: 7,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading commune record board');
+      G.stageProgress[1]++;
+      var result = rollD20('wits', (G.skills && G.skills.lore) || 0);
+      if (result.total >= 12) {
+        G.lastResult = 'The board holds three months of postings. Near the bottom, almost covered by a harvest notice, is a complaint filed by a commune member against external record revision. The signature block is intact. The response block is blank — the board received it and nothing happened. The complaint describes an entry removed from the health registry without a correction order, without a notified party, without any procedural basis. It names no one responsible because no one came to answer it.';
+        G.flags.sheresh_board_complaint_found = true;
+        addJournal('Commune board: unresolved complaint against external record revision, health registry entry removed without procedure.', 'evidence');
+      } else {
+        G.lastResult = 'The board is layered with postings — harvest tallies, water-use agreements, a notice about the winter road schedule. The older material underneath requires pulling back edges to read. The complaint you are looking for is probably here. The date range is right. Finding it means returning when the newer postings have come down.';
+        addJournal('Commune board layered — older record complaints may be underneath recent postings.', 'intelligence');
+      }
+      G.recentOutcomeType = 'investigate';
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    },
+    failResult: 'The board is too layered with current postings to read what is underneath without disturbing material still in use. The record keeper cycles it weekly. Returning after the next change would give clear access to the older filings.'
+  },
+  {
+    id: 'sheresh_water_route',
+    label: 'The water-route marks on the eastern path have been moved. Someone redirected the way without a commune vote.',
+    tags: ['Survey', 'Observation', 'Stage1'],
+    xpReward: 60,
+    skill: 'survival',
+    dc: 7,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(60, 'surveying eastern water route');
+      G.stageProgress[1]++;
+      var result = rollD20('vigor', (G.skills && G.skills.survival) || 0);
+      if (result.total >= 10) {
+        G.lastResult = 'The marker stakes have been reset recently — the ground around the new positions is softer than the surrounding soil, undisturbed in a way that marks recent work. The old positions are still visible as faint impressions in the earth. The rerouting pushes the path sixty meters north of the original line, away from the stand of medicinal plants that grows along the original route. Nobody who uses that route for harvesting would have chosen this change. It was made by someone who does not use it.';
+        G.flags.sheresh_water_route_redirected = true;
+        addJournal('Eastern water-route markers moved without commune vote — rerouting avoids medicinal plant stand.', 'evidence');
+      } else {
+        G.lastResult = 'The path runs east along the ridge and the markers are where they should be — or where they appear to be. Reading recent ground disturbance in dry weather requires closer attention than a first pass allows. The afternoon light is wrong for it. Coming back at a different time of day would make the soil reading clearer.';
+      }
+      G.recentOutcomeType = 'investigate';
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    },
+    failResult: 'The ground is dry and the light is wrong for reading recent disturbance. The route marker reading would be clearer in morning light or after rain — conditions that make soil compression visible without crouching for an hour.'
+  },
+  {
+    id: 'sheresh_provisioning_log',
+    label: 'The provisioning log covers five years. One year has fewer entries than the others by a significant margin.',
+    tags: ['Records', 'Inquiry', 'Stage1'],
+    xpReward: 65,
+    skill: 'lore',
+    dc: 7,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading provisioning log');
+      G.stageProgress[1]++;
+      var result = rollD20('wits', (G.skills && G.skills.lore) || 0);
+      if (result.total >= 10) {
+        G.lastResult = 'The log runs in a consistent hand for four years — regular entries, corrections noted in margin, the ordinary accumulation of a working settlement. Then a gap: eleven months where the entry count drops to a third of the usual rate. The remaining entries in that period are formal and brief, stripped of the annotation that makes the other years readable. Someone was still writing, but carefully. The gap closes when the handwriting changes — a different recorder started, and the normal volume returned. The name of the prior recorder does not appear in the log after that.';
+        G.flags.sheresh_provisioning_gap_found = true;
+        addJournal('Provisioning log: eleven-month gap with sparse formal entries — prior recorder disappeared from record after that period.', 'evidence');
+      } else {
+        G.lastResult = 'The log is maintained in the provisioning house, which is open during the morning distribution hours and closed after. Getting adequate time with it requires returning before the first bell, when the building is unlocked for the day\'s work but before the members arrive.';
+      }
+      G.recentOutcomeType = 'investigate';
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    },
+    failResult: 'The provisioning house closes before there is enough time to work through five years of entries methodically. Coming back during the morning distribution hours, before the building fills with members, would give a clear window.'
+  }
+];
+
+window.SHERESH_STAGE1_ENRICHED_CHOICES = SHERESH_STAGE1_ENRICHED_CHOICES;
