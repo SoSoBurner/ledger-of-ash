@@ -1911,6 +1911,7 @@ input, button, select, textarea { font-family: inherit; }
         </div>
         <div class="skill-bar-track"><div id="hud-stage-progress" class="skill-bar-fill" style="background:var(--discovery);width:0%"></div></div>
       </div>
+      <div id="hud-stage-hint" style="display:none;padding:2px 14px 6px;font-family:var(--font-body);font-size:10px;color:var(--accent-gold);letter-spacing:0.04em;"></div>
       <div class="l-divider"></div>
       <div class="l-axis">
         <div class="l-axis-row">
@@ -1949,6 +1950,7 @@ input, button, select, textarea { font-family: inherit; }
         </div>
         <div class="pressure-bar-track"><div id="hud-stage-progress" class="pressure-bar-fill" style="background:var(--discovery);width:0%"></div></div>
       </div>
+      <div id="hud-stage-hint" style="display:none;padding:2px 14px 6px;font-family:var(--font-body);font-size:10px;color:var(--accent-gold);letter-spacing:0.04em;"></div>
       <div class="l-skills">
         <div class="l-section-cap">Stats</div>
         <div id="hud-skills"></div>
@@ -12434,7 +12436,8 @@ function checkLevelUp() {
   if (G.level >= stageCap) {
     G.masteryXP = (G.masteryXP || 0) + (G.xp || 0);
     G.xp = 0;
-    if (G.stage === 'Stage I' && !G.flags.stage1_narrative_complete && !G.flags._s1cap_hint_shown) {
+    if (G.flags) G.flags.stage_cap_reached = true;
+    if (G.stage === 'Stage I' && G.flags && !G.flags.stage1_narrative_complete && !G.flags._s1cap_hint_shown) {
       G.flags._s1cap_hint_shown = true;
       if (typeof addNarration === 'function') addNarration('', '<em style="color:var(--gold-dim)">You have reached the Stage I level cap. Advancement requires completing the stage arc \u2014 find and confront the source of the institutional pressure you have been tracing.</em>');
     }
@@ -14767,15 +14770,22 @@ function showJournal() {
     return '<div class="jov-item">' + label + ' <span style="color:var(--ink-faint);font-size:11px">\xd7' + qty + '</span></div>';
   }).join('') || '<div style="color:var(--ink-faint);font-size:13px">No materials collected yet.</div>';
 
+  var _jqCount = (G.quests||[]).length;
+  var _jwCount = (G.wounds||[]).filter(function(w){return !w.healed;}).length;
+  var _jmCount = Object.keys(G.materials||{}).filter(function(k){return (G.materials[k]||0)>0;}).length;
+  var _jfCount = (G.factions||[]).length;
+  var _jrCount = (rivalClockVal > 0 ? 1 : 0) + (G.flags && G.flags.maren_oss_trail_found ? 1 : 0) + (G.rivalAdventurers||[]).length;
+  var _jlCount = (G.journal||[]).length;
+  var _badge = function(n) { return n > 0 ? ' <span style="color:var(--gold-dim);font-size:10px;font-family:var(--font-body)">(' + n + ')</span>' : ''; };
   jb.innerHTML =
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Quests</div>' + questRows + '</div>' +
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Wounds &amp; Recovery</div>' +
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Quests' + _badge(_jqCount) + '</div>' + questRows + '</div>' +
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Wounds &amp; Recovery' + _badge(_jwCount) + '</div>' +
     '<div class="jov-entry">State: <strong>' + (G.recoveryState||'stable') + '</strong> &middot; Fatigue: ' + (G.fatigue||0) + '/10</div>' +
     woundRows + '</div>' +
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Materials</div>' + matRows + '</div>' +
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Faction Relations</div>' + factionRows + '</div>' +
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Rival Adventurers</div>' + rivalRows + '</div>' +
-    '<div class="jov-section"><div class="jov-title">&#x25A0; Journal Entries</div>' + loreRows + '</div>';
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Materials' + _badge(_jmCount) + '</div>' + matRows + '</div>' +
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Faction Relations' + _badge(_jfCount) + '</div>' + factionRows + '</div>' +
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Rival Adventurers' + _badge(_jrCount) + '</div>' + rivalRows + '</div>' +
+    '<div class="jov-section"><div class="jov-title">&#x25A0; Journal Entries' + _badge(_jlCount) + '</div>' + loreRows + '</div>';
 
   showOverlay('overlay-journal');
 }
@@ -16036,13 +16046,24 @@ function updateHUD() {
   // Investigation progress bar
   var spKey = G.stage === 'Stage I' ? 1 : 2;
   var spVal = (G.stageProgress && G.stageProgress[spKey]) || 0;
-  var spMax = G.stage === 'Stage I' ? 10 : 12;
+  var spMax = G.stage === 'Stage I' ? 15 : (G.stage === 'Stage II' ? 18 : 12);
   var spEl = document.getElementById('hud-stage-progress');
   var spWrap = document.getElementById('hud-stage-progress-wrap');
   var spValEl = document.getElementById('hud-stage-progress-val');
   if (spEl) spEl.style.width = Math.min(100, (spVal / spMax) * 100) + '%';
   if (spValEl) spValEl.textContent = spVal + ' / ' + spMax;
   if (spWrap) spWrap.style.display = spVal > 0 ? 'block' : 'none';
+  // Stage gate hint (cap reached but stage not yet advanced)
+  var _hintEl = document.getElementById('hud-stage-hint');
+  if (_hintEl) {
+    var _showHint = G.flags && G.flags.stage_cap_reached && !G.flags.stage2_unlocked && G.stage === 'Stage I';
+    if (_showHint) {
+      _hintEl.textContent = 'Stage I complete \u2014 seek a faction contact to advance.';
+      _hintEl.style.display = 'block';
+    } else {
+      _hintEl.style.display = 'none';
+    }
+  }
   // Alliance credits overlay (Soreheim/Sunspire only)
   var _inSore = G.location === 'soreheim' || G.location === 'soreheim_proper' || G.location === 'sunspire' || G.location === 'sunspire_haven';
   var _pcEl = document.getElementById('hud-plotcredits');
