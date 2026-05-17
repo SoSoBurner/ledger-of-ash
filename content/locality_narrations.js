@@ -56,6 +56,12 @@ window.LOCALITY_NARRATIONS = {
 
   aurora: 'The commune is built inside a dome — blue-white filtered light from the reinforced overhead panels, layered ice walls visible through the outer access corridor, guarded thermal inlets along the main passage floor. Everything is maintained with the discipline of people who cannot afford infrastructure failure. The communal spaces carry message boards dense with records: names, decisions, the accumulated administrative memory of shared governance. A warden stands at the dome junction with a monitoring instrument. Two elders revise a document at a table near the registry hall.',
 
-  sunspire: 'The market heart is visible from the road — cart yards, workshop fronts, and counting sheds arranged around a central trading ground where sealed contracts change hands alongside grain and textiles. Syndicate marks are on the stall posts and storage doors. A patron-family retainer moves through with a ledger, noting contract status on loads awaiting convoy. The labor brokerage office has a queue. Harvest-oath banners hang above the main exchange, sun-faded from last season, not yet replaced. The smell is grain dust and horse and fresh sawdust from the workshop yards.'
+  sunspire: 'The market heart is visible from the road — cart yards, workshop fronts, and counting sheds arranged around a central trading ground where sealed contracts change hands alongside grain and textiles. Syndicate marks are on the stall posts and storage doors. A patron-family retainer moves through with a ledger, noting contract status on loads awaiting convoy. The labor brokerage office has a queue. Harvest-oath banners hang above the main exchange, sun-faded from last season, not yet replaced. The smell is grain dust and horse and fresh sawdust from the workshop yards.',
+
+  cosmouth: 'The harbor district runs on two levels: working docks below, slick with brine and cargo chains, and the counting-house street above where factors watch the cranes from behind ledger windows.',
+
+  districts: 'The administrative quarter is marked at every corner by guild seals and posted compliance notices — the buildings here process more paper than people, and the queues at the intake windows confirm it.',
+
+  nomdara: 'The caravan ground sprawls outside any fixed wall — wagon circles, drying racks, and portable shrines arranged by trade family, shifting with the season and the next departure date.'
 
 };

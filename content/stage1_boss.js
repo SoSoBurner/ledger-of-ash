@@ -134,6 +134,7 @@ function triggerStage1MainBoss() {
   var setupChoices = [
     {
       text: 'Everything here is already in her files. Read what she has read.',
+      plot: 'main',
       tag: 'safe',
       skill: 'lore',
       failResult: 'The room gives back nothing useful before she looks up. The desk is orderly, the lamp positioned toward the chair across from it — details that mean something, but not in time. She is already watching. The interview proceeds on her terms. The file she pulled before you arrived stays face-down on the corner of the desk where she put it.',
@@ -153,6 +154,7 @@ function triggerStage1MainBoss() {
     },
     {
       text: 'The detainment notice needs a signature. She has not signed it yet.',
+      plot: 'main',
       tag: 'risky',
       skill: 'combat',
       action: function() {
@@ -207,6 +209,7 @@ function _stage1MainBossResolution() {
   var resChoices = [
     {
       text: 'Those files go with me. All of them.',
+      plot: 'main',
       tag: 'safe',
       skill: 'lore',
       failResult: 'The stack resists — the files are bound under the desk lip by a registry cord you did not see. The ward lock begins its release cycle before you clear it. You take your own file and leave the rest. The desk looks orderly when you are done with it, but what was underneath stays underneath. The hall outside is already filling.',
@@ -219,6 +222,7 @@ function _stage1MainBossResolution() {
     },
     {
       text: 'Leave no trace that the files were touched.',
+      plot: 'main',
       tag: 'risky',
       skill: 'stealth',
       action: function() {
@@ -236,6 +240,7 @@ function _stage1MainBossResolution() {
     },
     {
       text: 'Someone outside this hall should know the files exist.',
+      plot: 'main',
       tag: 'risky',
       skill: 'persuasion',
       action: function() {
