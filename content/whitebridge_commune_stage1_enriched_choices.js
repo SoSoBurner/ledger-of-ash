@@ -725,6 +725,28 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     G.flags[key] = true;
     drawLocalityRumor(G.location);
   }
-}
+},
+
+  // ========== SUPPRESSION THREADING (Phase 6D) ==========
+
+  // 6D: Route listed in registry with no arrival narration
+  {
+    label: "The route is listed. No one recorded where it goes.",
+    tags: ['Records', 'Archive', 'Survey'],
+    xpReward: 60,
+    stageProgress: 1,
+    failResult: "The commune transit registry is held in the crossing station keeper's office and is accessible only during the first and third bells. The current hour falls outside that window; the office door is shut and the keeper is on the bridge.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(60, 'found route in Whitebridge registry with no arrival record');
+      G.stageProgress[1]++;
+      G.lastResult = "The Whitebridge commune transit registry lists thirty-one active routes. Thirty have standard entries: origin, destination, transit time, last passage notation, crossing fee. The thirty-first has a route designation and an origin point — the western span approach — but the destination field reads only a dash. No transit time. No fee. No passage notation, current or historical. The route was entered in the same hand as the others, on the same date the registry was last audited. Whatever it connects to on the far side of the crossing, the record treats it as a line that goes somewhere and stops before arriving.";
+      addJournal('Whitebridge commune transit registry: one of thirty-one listed routes has no destination, no transit time, no passage history — entered in the same audit cycle as all others. Source: crossing station registry.', 'evidence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    }
+  }
 ];
 window.WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES;

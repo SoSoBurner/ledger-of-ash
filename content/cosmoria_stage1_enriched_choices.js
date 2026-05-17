@@ -1039,6 +1039,28 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       text: "The barman is polite and uninformative, counting coin between each exchange. The dockworkers aren't talking where a stranger can hear — the round costs more than it should and returns nothing. The net-menders at the lower berth wall run a separate social circuit from the tavern regulars; they work through the meal hours when the barman's crowd thins and the wharf goes quiet enough to actually talk.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
+  },
+
+  // ========== SUPPRESSION THREADING (Phase 6D) ==========
+
+  // 6D: Clerk answers a different question than the one asked
+  {
+    label: "The harbor clerk answered something. Not what I asked.",
+    tags: ['NPC', 'Records', 'Inquiry'],
+    xpReward: 55,
+    stageProgress: 1,
+    failResult: "The harbor registry window closes at the third bell and the afternoon clerk has not yet arrived. A handwritten card taped to the sill gives the reopening time. Whatever was logged this morning is filed; the current shift can only access afternoon intake.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(55, 'harbor clerk deflected with a different answer');
+      G.stageProgress[1]++;
+      G.lastResult = "The harbor registry clerk listens to the question about the unlogged manifest discrepancy. Then she explains the standard manifest logging process: intake, stamp, routing code, secondary verification. The explanation is patient and complete and describes a process that has nothing to do with the specific discrepancy. When the explanation ends, she looks up as if waiting for a follow-up. The original question is still unanswered. She did not mishear it — the room was quiet, the words were plain. The process she described is correct. It simply does not apply to the thing that was asked.";
+      addJournal('Cosmoria harbor registry: clerk responded to a question about a manifest discrepancy by explaining standard intake procedure — question not addressed. Source: harbor registry window, morning shift.', 'complication');
+      G.recentOutcomeType = 'blocked';
+      maybeStageAdvance();
+    }
   }
 ];
 

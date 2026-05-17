@@ -1015,6 +1015,48 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     G.flags[key] = true;
     drawLocalityRumor(G.location);
   }
-}
+},
+
+  // ========== SUPPRESSION THREADING (Phase 6D) ==========
+
+  // 6D-A: Official cites procedure to avoid answering
+  {
+    label: "The district coordinator quoted the procedure before I asked a question.",
+    tags: ['NPC', 'Records', 'Inquiry'],
+    xpReward: 55,
+    stageProgress: 1,
+    failResult: "The district coordination office handles intake requests during morning hours only. The door is staffed but the coordinator has stepped out for an inter-office review. The wall chart lists the rotation schedule — the next available window opens at the second bell.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(55, 'procedural deflection from district coordinator');
+      G.stageProgress[1]++;
+      G.lastResult = "The district coordinator listens for approximately four seconds before citing Section 14 of the inter-office allocation framework, which governs supplemental record requests from non-registered parties. He does not pause to see if you know what Section 14 says. He does not ask what you intended to request. The citation is fast and even, the way a door closes. Behind him, on the slanted writing shelf, a stack of bound ledger copies sits open to a tabbed section. He turns back to it before you speak again. The allocation framework has apparently just become very urgent.";
+      addJournal('Soreheim district coordinator: cited procedure before hearing the request — no question asked, no alternative offered. Source: district coordination office, morning shift.', 'complication');
+      G.recentOutcomeType = 'blocked';
+      maybeStageAdvance();
+    }
+  },
+
+  // 6D-B: Missing ledger entries 441-463
+  {
+    label: "The allocation ledger skips from 440 to 464. Nothing marks the gap.",
+    tags: ['Records', 'Archive', 'Observation'],
+    xpReward: 60,
+    stageProgress: 1,
+    failResult: "The allocation ledger is signed out to an internal review party. The desk clerk has a note but not a name. The ledger returns when the review closes — no projected date given. The prior volume may be accessible through the standard stack request.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(60, 'found missing entries in allocation ledger');
+      G.stageProgress[1]++;
+      G.lastResult = "The allocation ledger runs in sequence: entries 438, 439, 440 — then 464. Twenty-three entries absent. The surrounding pages are intact; the binding shows no sign of removal. Entry 440 ends mid-column, and 464 opens with the same ink, the same hand, as if the sequence is unbroken. No notation marks the gap. No cross-reference directs to a secondary volume. Entries 441 through 463 are simply not there. The ledger is otherwise current, signed off through this week, stamped by the same coordinator who cited Section 14 at the intake window twenty minutes ago.";
+      addJournal('Soreheim allocation ledger: entries 441–463 absent with no notation, surrounding pages intact, sequence otherwise unbroken. Source: records reading room, stack access.', 'evidence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    }
+  }
 ];
 window.SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;

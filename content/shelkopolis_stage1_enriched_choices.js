@@ -1115,6 +1115,48 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'observe';
       maybeStageAdvance();
     }
+  },
+
+  // ========== SUPPRESSION THREADING (Phase 6D) ==========
+
+  // 6D-A: Redacted signatory
+  {
+    label: "The authorization stamp is there. The name underneath it is not.",
+    tags: ['Records', 'Archive', 'Observation'],
+    xpReward: 55,
+    stageProgress: 1,
+    failResult: "The records annexe opens only to credentialed parties during morning hours. The door is locked and the clerk's window is shuttered. A paper tab fixed to the frame gives a reference number for scheduling access. The number leads to a different office, two streets back toward the harbor.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(55, 'found redacted signatory in transit authorization');
+      G.stageProgress[1]++;
+      G.lastResult = "The transit authorization form is standard issue — port-stamped, date-stamped, correctly filed in the outbound packet. Every field is filled except one. The signatory line has been cut — not crossed out, cut, with scissors or a blade. The cut is clean, the edges even. Whatever name sat there was removed deliberately, after the document was complete. The form remains valid without it; the stamp above the gap is untouched and the document is still filed as processed. The clerk who handed it over did not comment. The file drawer closed with a sound of finality.";
+      addJournal('Shelkopolis transit authorization: signatory line physically excised — name removed after completion, document still filed as valid. Source: records annexe, outbound packet.', 'evidence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    }
+  },
+
+  // 6D-B: Registry denial — procedural, no explanation
+  {
+    label: "The registry clerk pulled the form before I finished the request.",
+    tags: ['Records', 'NPC', 'Inquiry'],
+    xpReward: 50,
+    stageProgress: 1,
+    failResult: "The supplemental inquiry window is already closed. A card pinned above the counter lists the hours — morning only, credentialed petitioners only, no walk-in requests. The main registry counter handles standard lookups until the fourth bell.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(50, 'blocked at supplemental registry inquiry');
+      G.stageProgress[1]++;
+      G.lastResult = "The clerk pulls the supplemental inquiry form from the slot and sets it face-down on the counter without turning around. 'The registry is closed to supplemental inquiry.' No hour given, no reopening date, no category exception. She does not look up. The stamp in her hand finds a different document — a routine one, the kind that has nothing to do with you — and strikes it twice. The inquiry form stays face-down between you. Nothing in her manner suggests the answer will be different tomorrow.";
+      addJournal('Shelkopolis registry: supplemental inquiry refused without explanation — clerk did not look up, gave no timeframe or alternative. Source: main registry counter.', 'complication');
+      G.recentOutcomeType = 'blocked';
+      maybeStageAdvance();
+    }
   }
 ];
 

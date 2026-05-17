@@ -1155,5 +1155,27 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     maybeStageAdvance();
   }
 },
+
+  // ========== SUPPRESSION THREADING (Phase 6D) ==========
+
+  // 6D-A: Factor stops mid-sentence — last words omitted
+  {
+    label: "The factor started to name the routes that don't move. Then he didn't.",
+    tags: ['NPC', 'Trade', 'Observation'],
+    xpReward: 60,
+    stageProgress: 1,
+    failResult: "The factor is in a closed session on the upper floor. The annexe clerk takes a note but cannot say when the session ends. The routing corridor board on the ground floor lists active contracts by category — publicly accessible, no session required.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(60, 'factor self-censored mid-sentence about suppressed routes');
+      G.stageProgress[1]++;
+      G.lastResult = "The factor keeps his voice low and his back to the manifest desk. He says there are routes that don't — and then he stops. The sentence doesn't trail off; it ends, the way a door closes when someone hears footsteps. He clears his throat and asks if you need a standard routing form. His hands are already moving toward the form stack. He does not look at you while he asks. Whatever the routes don't do, he has decided that saying it aloud in this building is not something he will do today.";
+      addJournal('Guildheart Hub factor: began naming suppressed routes, stopped mid-sentence on approach of desk staff. Source: transit floor, lower manifest station.', 'intelligence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    }
+  }
 ];
 window.GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES;

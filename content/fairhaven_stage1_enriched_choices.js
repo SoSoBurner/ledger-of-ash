@@ -1065,7 +1065,29 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     G.flags[key] = true;
     drawLocalityRumor(G.location);
   }
-}
+},
+
+  // ========== SUPPRESSION THREADING (Phase 6D) ==========
+
+  // 6D: Posted notice with blank date field
+  {
+    label: "The notice is current — the date field was left empty on purpose.",
+    tags: ['Records', 'Observation', 'Survey'],
+    xpReward: 55,
+    stageProgress: 1,
+    failResult: "The posting board outside the mill quarter is bare — the morning notices have been cleared and the afternoon batch is not yet pinned. The commune posts on a twice-daily rotation; whatever was there this morning is already filed.",
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(55, 'found undated official notice on Fairhaven posting board');
+      G.stageProgress[1]++;
+      G.lastResult = "The posting board outside the mill assessor's office carries twelve notices. Eleven have dates — day, month, season marker, assessor's initial. The twelfth is current: the ink is fresh, the paper is dry, the content is administrative and specific, describing a boundary survey conducted along the eastern field corridor. The date field is blank. Not faded, not water-damaged — simply not filled in. The assessor's initial appears at the bottom. The survey apparently happened on no particular day. No one has marked the omission or pulled the notice down.";
+      addJournal('Fairhaven mill quarter posting board: one current notice with deliberately blank date field — content specific, assessor-initialled, but undated. Source: mill assessor\'s office exterior board.', 'evidence');
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    }
+  }
 ];
 
 // Sideplot injection — fairhaven meadow mill displacement opening hook
