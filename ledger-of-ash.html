@@ -13280,6 +13280,7 @@ function addQuest(msg, hint, questId) {
 // ── TRAVEL ───────────────────────────────────────────────
 /** Locality transition. Stage I blocks cross-region travel. Sets G.location, ticks axis, renders arrival choices. @param {string} locId */
 function showTravelModeSelect(destId, destName, onConfirm) {
+  if (G.travelMode) { if (typeof onConfirm === 'function') onConfirm(); return; }
   var _existing = document.getElementById('travel-mode-modal');
   if (_existing) _existing.remove();
   var _costs = { foot: 0, horse: 5, cart: 3, boat: 8 };
@@ -13345,6 +13346,7 @@ function travelTo(locId) {
 }
 
 function beginJourney(fromId, toId) {
+  var _tm = document.getElementById('travel-mode-modal'); if (_tm) _tm.remove();
   const from = WORLD_LOCATIONS[fromId];
   const to = WORLD_LOCATIONS[toId];
   if (!from || !to) return;
