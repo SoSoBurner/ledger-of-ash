@@ -1133,6 +1133,24 @@ input, button, select, textarea { font-family: inherit; }
 .choice-btn--warn2  { border-left: 3px solid #7a5c1e; }
 .choice-btn--warn1  { border-left: 3px solid #c87020; }
 .choice-btn--combat { border-left: 3px solid var(--danger); }
+.choice-preview-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--coal);
+  border: 1px solid var(--accent-gold);
+  color: var(--ink-mid, #9b8fa0);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.55;
+  padding: 8px 12px;
+  z-index: 50;
+  pointer-events: none;
+  border-radius: 2px;
+}
+.choice-btn:hover .choice-preview-tooltip { display: block; }
 .ability-btn { border: 1px solid var(--accent-gold); color: var(--accent-gold); background: rgba(216,154,44,0.07); margin-top: 4px; font-family: var(--font-display); font-size: 13px; padding: 6px 14px; cursor: pointer; width: 100%; text-align: left; }
 .ability-btn--spent { opacity: 0.4; cursor: not-allowed; }
 .ability-btn-area { margin-top: 8px; border-top: 1px solid var(--char); padding-top: 8px; }
@@ -9335,12 +9353,14 @@ function _authorityRenderPhase2(authorityKey, polity, heatLevel) {
   var choices = [
     {
       text: 'Hold your ground. Make them commit.',
+      preview: 'You do not move. They have to decide whether this is worth escalating — and their hesitation is already an answer.',
       skill: 'persuasion', tag: 'bold', align: 'chaotic',
       extraClass: 'combat-lv2',
       cid: '__authority__' + ak + '__' + pk + '__2__stand_firm'
     },
     {
       text: 'There is a gap — move through it before it closes.',
+      preview: 'The corridor between them is narrow and momentary. Miss it and the situation hardens into something with no good exits.',
       skill: 'stealth', tag: 'bold', align: 'chaotic',
       extraClass: 'combat-lv1',
       cid: '__authority__' + ak + '__' + pk + '__2__attempt_escape'
@@ -9355,6 +9375,7 @@ function _authorityRenderPhase2(authorityKey, polity, heatLevel) {
   if (currentHeat >= 5) {
     choices.push({
       text: 'They are not leaving you a choice. Commit to it.',
+      preview: 'Heat 5+. The authority has escalated past negotiation. What follows will be logged, remembered, and difficult to walk back from.',
       skill: 'combat', tag: 'bold', align: 'chaotic',
       extraClass: 'combat-lv3',
       cid: '__authority__' + ak + '__' + pk + '__2__fight'
@@ -10287,7 +10308,7 @@ function triggerRivalEncounter(idx) {
   setTimeout(() => renderChoices([
     { text: 'What you know, I probably need. What I know, you might.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: '__rival__' + idx + '__exchange' },
     { text: 'I nod and keep walking. Let them think I didn\'t notice.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__rival__' + idx + '__standoff' },
-    { text: 'I want to know exactly what they have.', skill: 'lore', tag: 'bold', align: 'neutral', cid: '__rival__' + idx + '__probe' }
+    { text: 'I want to know exactly what they have.', preview: 'Pressing a rival for their intelligence is a gamble. They may tell you — or decide you are worth watching more carefully from now on.', skill: 'lore', tag: 'bold', align: 'neutral', cid: '__rival__' + idx + '__probe' }
   ]), 400);
 }
 
@@ -11448,14 +11469,18 @@ function renderChoices(choices) {
     if (c.threatLevel === 1) threatStyle = ' style="border-color:#d4a017"';
     else if (c.threatLevel === 2) threatStyle = ' style="border-color:#d47517"';
     else if (c.threatLevel === 3) threatStyle = ' style="border-color:var(--blood-bright)"';
-    html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + threatStyle + '>' +
+    var _prevRaw = c.preview || (c.result && typeof c.result === 'string' ? c.result.split(' ').slice(0, 30).join(' ') + '\u2026' : '');
+    var _prevText = _prevRaw ? _prevRaw.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+    html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + threatStyle + (_prevText ? ' data-preview="' + _prevText + '"' : '') + '>' +
       '<span class="choice-text">' + c.text + (isLocked ? ' <span style="font-size:10px;opacity:0.7">[path closed]</span>' : '') + '</span>' +
       '<span class="choice-meta">' +
       (c.skill ? '<span class="choice-skill">' + c.skill + '</span>' : '') +
       (c.tag ? '<span class="choice-tag ' + c.tag + '">' + c.tag + '</span>' : '') +
       (c.align && c.align !== 'neutral' ? '<span class="choice-align ' + c.align + '">' + alignSymbol + ' ' + c.align + '</span>' : '') +
       (c.dc ? '<span class="choice-dc">DC ' + c.dc + '</span>' : '') +
-      '</span></button>';
+      '</span>' +
+      (_prevText ? '<div class="choice-preview-tooltip">' + _prevText + '</div>' : '') +
+      '</button>';
     // Per-tier first-encounter hint
     if (c.tag && _tierHints[c.tag] && G.flags && !G.flags['taught_' + c.tag]) {
       G.flags['taught_' + c.tag] = true;
@@ -12417,6 +12442,7 @@ var BACKUP_CHOICES = {
 
   's2_collegium_4': {
     text: 'Process and force are incompatible. That incompatibility is a gap I can move through.',
+    preview: 'The Collegium documents. The Wardens enforce. Between those two functions sits a coordination delay — mandatory under Order protocol — where neither body has jurisdiction.',
     result: 'The Collegium documents. The Wardens enforce. Between those two functions is a coordination delay — mandatory under Order protocol — where neither body has jurisdiction and both assume the other is acting. That gap runs approximately four days per filing cycle. You know the cycle. The next gap opens in two days. Both threads stay alive if you use the window correctly.',
     skill: 'lore',
     tag: 'bold'
@@ -12445,6 +12471,7 @@ var BACKUP_CHOICES = {
 
   's2_wardens_4': {
     text: 'Neither thread ends here. The records exist. The path to them just changed.',
+    preview: 'The Collegium documents what the Wardens act on. Both threads are incomplete individually. But the junction — when a Collegium filing triggers an Order enforcement record — creates a corroborating document.',
     result: 'The Collegium documents what the Wardens act on. Both threads are incomplete individually. But the junction — the moment when a Collegium filing triggers an Order enforcement record — creates a corroborating document in both systems simultaneously. That corroborating moment is findable in the district reconciliation archive even when the underlying filings are suppressed. The approach changes. The destination does not.',
     skill: 'wits',
     tag: 'bold'
@@ -13781,7 +13808,7 @@ function campAction(type) {
         addNarration('Camp', 'Movement at the perimeter. Your companion wakes you before it reaches the fire. You have a moment to decide — they have not seen you clearly yet.', 'partial');
         saveGame(); updateHUD();
         setTimeout(() => renderChoices([
-          { text: 'Step out to meet them. Waiting gives up the ground.', skill: 'combat', tag: 'bold', align: 'neutral', cid: 'watch_engage',
+          { text: 'Step out to meet them. Waiting gives up the ground.', preview: 'You leave the fire behind and walk toward the sound. Whatever they are, they will see you coming — which is better than them finding you cornered.', skill: 'combat', tag: 'bold', align: 'neutral', cid: 'watch_engage',
             action: function() { G.flags.travel_warned_encounter = false; if (typeof enterCombat === 'function') enterCombat('principality_militia', { isBoss: false, context: 'night_camp' }); else if (typeof loadStageChoices === 'function') loadStageChoices(); } },
           { text: 'Pull back into the dark and let them pass.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'watch_retreat',
             action: function() { G.flags.travel_warned_encounter = false; addNarration('Camp', 'You hold still. They move through the perimeter without finding the fire. You wait until the sound is gone.', 'success'); saveGame(); updateHUD(); setTimeout(() => renderChoices([{text:'Break camp.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300); } },
