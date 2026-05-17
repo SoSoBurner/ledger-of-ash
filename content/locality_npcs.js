@@ -52,7 +52,7 @@ window.LOCALITY_NPCS = {
     npcId: 'coralyn_tideglass',
     name: 'Coralyn Tideglass',
     role: 'Archivist',
-    tell: 'keeps language exact, adjusts speech to each audience, wording is part of the custody chain',
+    tell: 'when about to say something off-record, straightens a stack of documents that is already straight — a small physical negotiation before the words come',
     agenda: 'maintain archive integrity against storm/trade vulnerability; skilled at exposing document tampering',
     triggerText: 'Tideglass is reading a manifest that does not match the one posted on the board.',
     dialogue: [
