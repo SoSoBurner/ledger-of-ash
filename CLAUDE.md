@@ -102,6 +102,9 @@ Every plan phase that adds content must expand the total content of the stage it
 - **`readG()` sp2 serialization gap**: `g.stageProgress[2]` from `readG()` can return 0 even when the live page has sp2=10+. Root cause: integer-keyed object spread loses numeric keys. When checking G state for success conditions, use `page.evaluate()` to read G directly — never rely on `readG()` for stageProgress numeric keys.
 - **Playwright multi-match `.isVisible()` strict mode**: Comma-separated locators (`#a,#b,[id*="x"]`) match multiple elements — `.isVisible()` may throw (caught as `false`). Use specific single selector (`#hud-heat-row`) instead of broad fallbacks.
 - **Char sheet traitType fallback label**: The else-branch of the `traitType` ternary at line ~14925 rendered `'Investigation — 1/scene'` for any unrecognized traitType. Correct fallback is `'Utility — 1/scene'`. If new traitTypes are added, extend the ternary explicitly.
+- **Map travel gate string "Level 6" is unreachable in Stage I**: Map overlay "Reach Level 6 to cross polity lines" — Stage I level cap is 5. Players hit cap, read Level 6 requirement, and conclude travel is impossible. Root cause of 28 unvisited localities in headed run. String must read "Advance to Stage II to unlock cross-polity travel."
+- **"Safe choices always succeed" tooltip violates Universal Roll Rule**: Any help text saying safe choices always succeed is wrong. All choices roll. Correct text: "Safe choices roll at low DC — failure redirects rather than stops you." Applies to in-game tooltips, How to Play text, and onboarding copy.
+- **`G.worldClocks` [object Object]**: Any `G.worldClocks` key initialized to `{}` or an object (not 0) renders as `[object Object]` in the sidebar. All keys in the G defaults must be integers (0). Render loop must guard: `if (typeof val !== 'number') continue;`.
 
 ## Testing Infrastructure
 
@@ -118,6 +121,7 @@ Every plan phase that adds content must expand the total content of the stage it
 ## XP and Level System
 
 - Level 1→2: 120 XP. Level N→N+1: N×60 XP.
+- **XP denominator in `updateHUD()`**: denominator must be `G.level * 60`, not hardcoded 120. Level 2→3 = 240, level 3→4 = 180. Only level 1→2 = 120. Hardcoded 120 causes "2385 / 120" display at level 2 — confirmed systemic bug across all families in headed run.
 - `STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20}`
 - At cap: XP overflow goes to `G.masteryXP`; level does not increase.
 - `equipItem(idx)` uses `item.type` ('weapon'/'armor' → matching slot; anything else → 'tool') — not `item.slot`.
@@ -298,7 +302,7 @@ Subtext: NPCs rarely say exactly what they mean. One unsaid layer per scene.
 
 ## Forbidden in Player-Facing Narrative Strings Only (not code or variable names)
 
-**Scope:** These words live in inline HTML data — choice text, result text, NPC dialogue, background copy. Check `ledger-of-ash.html` directly. `js/consequences.js` is a dead copy and does not reflect what the game runs.
+**Scope:** These words live in ALL player-facing text — choice text, result text, NPC dialogue, background copy, AND UI chrome labels (camp section headings, sidebar progress labels, tooltip strings, button text). "INVESTIGATION" as a camp section heading or sidebar label ("INVESTIGATION 15/12") is a violation even though it is not prose. Check `ledger-of-ash.html` directly. `js/consequences.js` is a dead copy and does not reflect what the game runs.
 
 * "investigation" / "investigate" — retire; use specific alternatives
 * "meaningful" — cut entirely
@@ -399,8 +403,9 @@ Run concurrently with Step 3 and again after it passes. Two layers:
 
 **During spec (milestone screenshots + text reading):**
 - At each `pickChoice`, read DOM content via `page.evaluate()` — extract narrative text and all visible choice labels. Make an informed pick based on content (prefer plot-advancing choices; apply line-editor check: ≤15 words, inner voice, no infinitives, no question marks).
-- Capture milestone screenshots via `page.screenshot()` at: character creation complete, first choice render, first result, combat entry, Stage II unlock banner, death screen, each menu open. Also capture periodic random screenshots throughout the run.
+- Capture milestone screenshots via `page.screenshot()` at: character creation complete, first choice render, first result, combat entry, Stage II unlock banner, death screen, each menu open. Also capture **periodic screenshots every 10 picks** (dedup with `lastFiredAtPick` guard per probe-dedup gotcha).
 - Apply skills to each screenshot AND to each log/report before continuing: `game-design:polish-review` (visual), `game-design:feedback-loop-review` (HUD/progress signals), `game-design:balance-review` (combat/choices), `game-design:fun-review` (engagement), `line-editor` (choice labels and result text).
+- **Per-screenshot Claude API skill dispatch model routing**: Periodic shots → Haiku (`polish-review`, `line-editor`, `humanizer`). Milestone shots → Sonnet (`balance-review`, `mechanics-review`, `feedback-loop-review`, `fun-review`). Success/fail summary → Opus (`economy-review`, `tutorial-review`, canon compliance). Dispatch is async and non-blocking; findings appended to `test-results/skill-findings-{YYYYMMDD}.md`.
 - Full menu cycle once per family — every overlay, every sub-action, every section:
   - **Journal**: open → read all 6 category sections (quest, field_note, faction, rival, companion, fact) → screenshot each → close
   - **Character sheet**: open → read `.char-skill-row` values vs HUD → read `.ability-card` names → read `.trait-section` → screenshot → close
@@ -476,6 +481,27 @@ Before fixing: check ACTIVE_PLANS_INDEX.md. If fix conflicts with an active plan
 - Magic and Spellcasting: paladin, spellthief, ranger
 - Stealth and Precision: rogue, assassin, scout_c, thief, trickster, beastmaster
 - Support and Leadership: healer, artificer, engineer, tactician, alchemist, saint, bard
+
+## Planning Session Checklist (mandatory before ExitPlanMode)
+
+**Content audit agents are proactive — run in every session touching content, not only when a bug is found:**
+- `continuity-auditor` — canon drift, NPC name/injury/timeline consistency
+- `narration-surface-scanner` — forbidden words, locality mismatches, premature "Ledger of Ash" references
+- `branch-drift-auditor` — repeated phrasing, option-set imbalance, register drift
+
+**Screenshot analysis is required before finalizing any plan:**
+After every headed spec run, read ≥10 representative screenshots (start screen, choice panel, result text, journal, character sheet, camp, map, combat, success/fail, stall/dead-end) and apply `polish-review`, `line-editor`, `humanizer` before ExitPlanMode. Skipping this is a planning failure mode — confirmed in May 2026 session.
+
+**Apply game-design skills to playtest REPORTS too:**
+Apply all game-design skills to the `.md` playtest report files (family results table, locality coverage, dead-ends log, map travels log) in addition to screenshots. Report data shows sp2-by-locality and dead-end patterns that screenshots don't reveal.
+
+**Pre-ExitPlanMode completeness checklist:**
+- [ ] Screenshots analyzed (≥10 shots across all visible family states)
+- [ ] Content agents dispatched (continuity-auditor, narration-surface-scanner, branch-drift-auditor)
+- [ ] Game-design skills applied to playtest report `.md` files
+- [ ] All backlog reports and prior plan files read
+- [ ] All skill categories applied (polish, line-editor, humanizer, balance, mechanics, fun, feedback-loop, economy, tutorial)
+- [ ] CLAUDE.md updated if new gotchas found
 
 ## Skills and Plugins
 
