@@ -108,7 +108,7 @@ const SCREENSHOT_EVERY = 20;
 // ---------------------------------------------------------------------------
 // Log — incremental writes
 // ---------------------------------------------------------------------------
-let _logPath = path.join(TEST_RESULTS, 'full-playthrough-log-headed.md');
+let _logPath = path.join(TEST_RESULTS, 'playtest-headed-log.md');
 function initLog() {
   [SCREENSHOT_DIR, VIDEO_DIR, TEST_RESULTS].forEach(d => fs.mkdirSync(d, { recursive: true }));
   fs.writeFileSync(_logPath, `# Ledger of Ash — Headed QA Run\nStarted: ${new Date().toISOString()}\n\n`, 'utf8');
@@ -1135,7 +1135,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let stuckAtLoc       = 0;
   let lastMapTravelPick = 0;
   let _lastScreenshotAtPick = -1;
-  let _menuCycleDoneForFamily = false;
+
   let _lastHudProbeAtPick = -1;
   const visitedLocalities = new Set();
   const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
@@ -1144,6 +1144,15 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
     if (pageIsClosed) break;
 
     try {
+      // Soft 2h45m threshold — exit cleanly before the 3hr hard kill fires
+      if (picks % 50 === 0 && picks > 0) {
+        var _elapsed = Date.now() - _runStartMs;
+        if (_elapsed > 2.75 * 60 * 60 * 1000) {
+          log('[run:' + tag + '] TIMEOUT: 2h45m soft threshold at pick ' + picks + ' — exiting with partial report');
+          return { success: false, reason: 'timeout-soft', picks: picks, g: g };
+        }
+      }
+
       // 60-second stall guard — no successful pick in 60s = stuck loop → failed run
       if (Date.now() - lastPickTime > 60000) {
         g = await readG(page);
@@ -1216,8 +1225,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       // Enhancement 2 — Full menu cycle once per family at pick ~20 (deduped)
       try {
-        if (picks === 20 && !_menuCycleDoneForFamily) {
-          _menuCycleDoneForFamily = true;
+        if (picks === 20 && !_exhaustiveCycleDone) {
+          _exhaustiveCycleDone = true;
           log(`[menu-cycle ${tag}] pick=${picks} — running full menu cycle`);
           await dismissOverlays(page);
 
@@ -1475,7 +1484,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 // TEST — HEADED 4-family, 8hr ceiling
 // ===========================================================================
 test.describe('Headed QA — 4 families', () => {
-  test.setTimeout(8.5 * 60 * 60 * 1000);
+  test.setTimeout(3 * 60 * 60 * 1000); // 3hr hard kill
 
   test('headed 4-family playtest with repair', async ({ browser }) => {
     initLog();
@@ -1502,6 +1511,9 @@ test.describe('Headed QA — 4 families', () => {
     const reporter = new ReportWriter('headed');
     reporter.setCeiling(ceiling);
     reporter.setWarningBaseline(291);
+
+    var _runStartMs = Date.now();
+    var _exhaustiveCycleDone = false; // declared once before family loop, never reset between families
 
     // Per-family state for round-robin
     const familyState = {};
