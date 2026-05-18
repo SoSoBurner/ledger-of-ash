@@ -79,7 +79,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Archivist revealed authorized celestial record suppression', 'evidence', `aurora-archive-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The archivist on duty stands from her chair before you finish the question. "Archive records are restricted. Administrative authorization, in writing, from the commune registry hall." She's already writing something in a log. The pen scratches across the page. Your name goes in it — you watch it happen. By the time you leave the archive room, the note is already being walked somewhere.`;
+        G.lastResult = `The archivist on duty stands from her chair before you finish the question. "Archive records are restricted. Administrative authorization, in writing, from the commune registry hall." She's already writing something in a log. The pen scratches across the page. Your name goes in it — you watch it happen. By the time you leave the archive room, the note is already being walked somewhere. The question drew scrutiny. You'll move more carefully here.`;
         G.worldClocks.watchfulness++;
         addJournal('Archive staff alerted to record inquiry', 'complication', `aurora-archive-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -207,7 +207,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Observer revealed intentional contamination field destabilization', 'evidence', `aurora-observer-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Corvus doesn't stop working while you talk. He finishes a notation, caps his pen, and turns to face you with the precise economy of someone who has decided something. "Celestial observation is technical work. You don't have the background for the questions you're asking." He opens a logbook and writes a brief entry — time, visitor, subject of inquiry. He doesn't look up again. The observation room door is behind you.`;
+        G.lastResult = `Corvus doesn't stop working while you talk. He finishes a notation, caps his pen, and turns to face you with the precise economy of someone who has decided something. "Celestial observation is technical work. You don't have the background for the questions you're asking." He opens a logbook and writes a brief entry — time, visitor, subject of inquiry. He doesn't look up again. The observation room door is behind you. The entry is dated; whatever he noticed about your interest is now part of the official record.`;
         G.worldClocks.watchfulness++;
         addJournal('Celestial observer reported inquiry to administration', 'complication', `aurora-observer-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -250,7 +250,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Monitor revealed authorized barrier protocol sabotage', 'evidence', `aurora-monitor-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kael's expression doesn't change. "Safety information is restricted to certified personnel. Questions about dome integrity from outside the certification structure get logged." He's already writing. The log is a proper commune record — numbered, dated, formally headed. He finishes the entry and caps his pen. "If you have a safety concern, submit it in writing through the registry hall." He means it as a dismissal. It works.`;
+        G.lastResult = `Kael's expression doesn't change. "Safety information is restricted to certified personnel. Questions about dome integrity from outside the certification structure get logged." He's already writing. The log is a proper commune record — numbered, dated, formally headed. He finishes the entry and caps his pen. "If you have a safety concern, submit it in writing through the registry hall." He means it as a dismissal. It works. The pressure of being logged is specific: everything you ask from this point will be read in the context of this entry.`;
         G.worldClocks.pressure++;
         addJournal('Contamination monitor flagged your inquiry as security threat', 'complication', `aurora-monitor-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -293,7 +293,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Relay keeper revealed message filtering to external communes', 'evidence', `aurora-keeper-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Nox raises a hand before you finish the question. "Relay operations aren't discussable with non-authorized personnel. Communication security." She's already at the message desk, writing something brief. It gets handed to the other relay operator, who goes out the door. You don't know where. You know it isn't good. The relay room stays closed to you after that, and the duty roster near the door has your description added to the visitor log in handwriting that isn't Nox's.`;
+        G.lastResult = `Nox raises a hand before you finish the question. "Relay operations aren't discussable with non-authorized personnel. Communication security." She's already at the message desk, writing something brief. It gets handed to the other relay operator, who goes out the door. You don't know where. You know it isn't good. The relay room stays closed to you after that, and the duty roster near the door has your description added to the visitor log in handwriting that isn't Nox's. You are now tracked as someone who asked about the secondary channel.`;
         G.worldClocks.watchfulness++;
         addJournal('Relay keeper reported your communication inquiry', 'complication', `aurora-keeper-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -336,7 +336,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Survival planner revealed deliberate evacuation protocol removal', 'evidence', `aurora-planner-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Seer picks up the emergency protocol binder before you can look at the spine. "Evacuation protocols are confidential operational security. You're not certified to review active emergency documentation." She sets it on the shelf behind her desk, spine facing the wall. "Submit a written request to the commune registry hall with your certification documentation." The registry hall is where every formal request goes to wait. She's not wrong that it's the process. She's also not going to make an exception.`;
+        G.lastResult = `Seer picks up the emergency protocol binder before you can look at the spine. "Evacuation protocols are confidential operational security. You're not certified to review active emergency documentation." She sets it on the shelf behind her desk, spine facing the wall. "Submit a written request to the commune registry hall with your certification documentation." The registry hall is where every formal request goes to wait. She's not wrong that it's the process. She's also not going to make an exception. The pressure of the refusal is harder here — she'll remember the question was asked.`;
         G.worldClocks.pressure++;
         addJournal('Survival planner blocking protocol access', 'complication', `aurora-planner-blocked-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -380,7 +380,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Structural analysis revealed intentional stress point concentration', 'evidence', `aurora-structure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Halfway through the third structural volume, a duty engineer appears at your shoulder. You didn't hear anyone come in. "Structural integrity records require authorization. These aren't in the open section." He takes the volume off the table before you can mark your page. Then asks, with his pen already out, why you wanted them. You're questioned for twenty minutes in a side room, your answers logged, and released. The structural archive is closed to you now and someone knows you tried.`;
+        G.lastResult = `Halfway through the third structural volume, a duty engineer appears at your shoulder. You didn't hear anyone come in. "Structural integrity records require authorization. These aren't in the open section." He takes the volume off the table before you can mark your page. Then asks, with his pen already out, why you wanted them. You're questioned for twenty minutes in a side room, your answers logged, and released. The structural archive is closed to you now and someone knows you tried. The watchful eyes on this section will be harder to avoid the next time.`;
         G.worldClocks.watchfulness++;
         addJournal('Structural data access triggered security review', 'complication', `aurora-structure-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -548,7 +548,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Psychological analysis revealed systematic demoralization campaign', 'evidence', `aurora-psychology-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The first person you ask about the commune's collective mood stares at you for a long moment. "Are you from the medical board?" The second person cuts the conversation short and leaves. By the third, word has preceded you: someone is asking questions that imply the population isn't coping. In a commune where stability is survival infrastructure, that reads as either diagnostic or threatening. Two reports go to the administrative office before the afternoon ends.`;
+        G.lastResult = `The first person you ask about the commune's collective mood stares at you for a long moment. "Are you from the medical board?" The second person cuts the conversation short and leaves. By the third, word has preceded you: someone is asking questions that imply the population isn't coping. In a commune where stability is survival infrastructure, that reads as either diagnostic or threatening. Two reports go to the administrative office before the afternoon ends. The attention you've drawn is wider than the conversation.`;
         G.worldClocks.isolation++;
         addJournal('Population reports your psychological inquiry as suspicious', 'complication', `aurora-psychology-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -590,7 +590,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Administrative mapping revealed external coordination of local sabotage', 'evidence', `aurora-admin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You're still at the communal records table with your authority-chain notes spread out when someone from the administrative office sits across from you and doesn't introduce themselves. "You've been pulling org documentation." Not a question. They look at your notes. "What's this for?" The session that follows is fifteen minutes of careful explanation on your part and careful listening on theirs. Your notes are photographed before you leave. You don't see it happen.`;
+        G.lastResult = `You're still at the communal records table with your authority-chain notes spread out when someone from the administrative office sits across from you and doesn't introduce themselves. "You've been pulling org documentation." Not a question. They look at your notes. "What's this for?" The session that follows is fifteen minutes of careful explanation on your part and careful listening on theirs. Your notes are photographed before you leave. You don't see it happen. The pressure of their attention will make the next inquiry harder to pursue quietly.`;
         G.worldClocks.pressure++;
         addJournal('Administrative hierarchy mapping drew direct attention', 'complication', `aurora-admin-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -751,7 +751,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Origin source of Aurora Crown sabotage identified as external coordination', 'discovery', `aurora-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The relay room is empty except for one person you haven't seen before, sitting at the secondary channel station. When you step inside, they stand. Not hostile — blocking. "This room is restricted." You back out before anything escalates, but they follow you far enough into the corridor to make the point. You didn't see what was on the station screen. They saw what you were trying to reach. Whatever the correspondence batch contains, someone is here specifically to prevent it from being read.`;
+        G.lastResult = `The relay room is empty except for one person you haven't seen before, sitting at the secondary channel station. When you step inside, they stand. Not hostile — blocking. "This room is restricted." You back out before anything escalates, but they follow you far enough into the corridor to make the point. You didn't see what was on the station screen. They saw what you were trying to reach. Whatever the correspondence batch contains, someone is here specifically to prevent it from being read. You've been noticed at the one door that matters most.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry interrupted by conspiracy operators', 'complication', `aurora-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {

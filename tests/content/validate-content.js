@@ -231,7 +231,9 @@ function run() {
 function extractResultStrings(fnSrc) {
   const src = fnSrc.replace(/\/\/[^\n]*/g, '');
   const results = [];
+  // addNarration('title', 'text') — single-quoted text arg
   const reSQ = /addNarration\s*\(\s*(?:'[^']*'|"[^"]*")\s*,\s*'((?:[^'\\]|\\.)*)'/g;
+  // addNarration('title', "text") — double-quoted text arg
   const reDQ = /addNarration\s*\(\s*(?:'[^']*'|"[^"]*")\s*,\s*"((?:[^"\\]|\\.)*)"/g;
   for (const re of [reSQ, reDQ]) {
     let m;
@@ -239,6 +241,25 @@ function extractResultStrings(fnSrc) {
       const text = m[1].replace(/\\n/g, '\n').replace(/\\'/g, "'").replace(/\\"/g, '"').trim();
       if (text.length > 0) results.push(text);
     }
+  }
+  // G.lastResult = `template literal`
+  const reTpl = /G\.lastResult\s*=\s*`((?:[^`\\]|\\[\s\S])*)`/g;
+  let m2;
+  while ((m2 = reTpl.exec(src)) !== null) {
+    const text = m2[1].replace(/\\n/g, '\n').replace(/\\`/g, '`').trim();
+    if (text.length > 0) results.push(text);
+  }
+  // G.lastResult = 'single-quoted string'
+  const reLRSQ = /G\.lastResult\s*=\s*'((?:[^'\\]|\\.)*)'/g;
+  while ((m2 = reLRSQ.exec(src)) !== null) {
+    const text = m2[1].replace(/\\n/g, '\n').replace(/\\'/g, "'").trim();
+    if (text.length > 0) results.push(text);
+  }
+  // G.lastResult = "double-quoted string"
+  const reLRDQ = /G\.lastResult\s*=\s*"((?:[^"\\]|\\.)*)"/g;
+  while ((m2 = reLRDQ.exec(src)) !== null) {
+    const text = m2[1].replace(/\\n/g, '\n').replace(/\\"/g, '"').trim();
+    if (text.length > 0) results.push(text);
   }
   return results;
 }

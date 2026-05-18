@@ -32,7 +32,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Stable Factor revealed corrupted maritime trade route system', 'evidence', `cosmoria-trade-routes-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Aurek goes still when you ask. He picks up a cargo tally from the desk and makes a show of reading it. "Dock allocation follows tidal schedules. Schedules are posted at the harbor gate." He doesn't look up. Two dockside clerks at the far end of the counting house have stopped writing. Your question landed louder than you intended.`;
+        G.lastResult = `Aurek goes still when you ask. He picks up a cargo tally from the desk and makes a show of reading it. "Dock allocation follows tidal schedules. Schedules are posted at the harbor gate." He doesn't look up. Two dockside clerks at the far end of the counting house have stopped writing. Your question landed louder than you intended, and the attention of everyone in earshot is now a problem you'll carry past this door.`;
         G.worldClocks.pressure++;
         addJournal('Stable Factor now protective of maritime trade allocation', 'complication', `cosmoria-trade-hostile-${G.dayCount}`);
       } else {
@@ -70,7 +70,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Quartermaster revealed supply chain diversion conspiracy', 'evidence', `cosmoria-supplies-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Coralyn's expression closes like a hatch. "Supply records are under Cosmouth administrative hold pending seasonal audit. Access requires a charter warrant." She covers the hold-stamp line with her thumb while she reads the form aloud, then sets the ledger down without lifting her hand from it. A document in the stack behind her bears a red ADMINISTRATIVE HOLD stamp in narrow Collegium block lettering — she shifts to block it. By evening the docks are quieter than they were this morning.`;
+        G.lastResult = `Coralyn's expression closes like a hatch. "Supply records are under Cosmouth administrative hold pending seasonal audit. Access requires a charter warrant." She covers the hold-stamp line with her thumb while she reads the form aloud, then sets the ledger down without lifting her hand from it. A document in the stack behind her bears a red ADMINISTRATIVE HOLD stamp in narrow Collegium block lettering — she shifts to block it. By evening the docks are quieter than they were this morning. The watchful silence means word has moved.`;
         G.worldClocks.watchfulness++;
         addJournal('Quartermaster spreading suspicion about supply chain inquiry', 'complication', `cosmoria-supplies-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -111,7 +111,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Shrine Caretaker revealed corrupted maritime ritual system', 'evidence', `cosmoria-rituals-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Maris draws herself up and says the rituals of the sea shrine are matters of doctrine, not public record. She says it firmly but her hands are shaking. By afternoon a harbor warden stops you on the upper street and asks your business at the shrine. Someone reported the visit within the hour. The shrine's exterior door is now latched when you pass again at dusk.`;
+        G.lastResult = `Maris draws herself up and says the rituals of the sea shrine are matters of doctrine, not public record. She says it firmly but her hands are shaking. By afternoon a harbor warden stops you on the upper street and asks your business at the shrine. Someone reported the visit within the hour. The shrine's exterior door is now latched when you pass again at dusk. The scrutiny of the warden's questions was specific enough to confirm that your presence here is now on record.`;
         G.worldClocks.reverence++;
         addJournal('Shrine Caretaker barred you from faith record access', 'complication', `cosmoria-rituals-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -153,7 +153,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Clerk of Arrivals revealed archive record falsification system', 'evidence', `cosmoria-records-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Tideon stops writing and looks at your hands, not your face. "Arrival records are Cosmouth administrative property. Requests go through the harbor registry office, third floor, Tuesdays and Thursdays." He goes back to writing before you finish the sentence. The clerk at the next desk has already stopped working. An hour later, your name appears in the harbor office's visitor log — entered by someone who wasn't you.`;
+        G.lastResult = `Tideon stops writing and looks at your hands, not your face. "Arrival records are Cosmouth administrative property. Requests go through the harbor registry office, third floor, Tuesdays and Thursdays." He goes back to writing before you finish the sentence. The clerk at the next desk has already stopped working. An hour later, your name appears in the harbor office's visitor log — entered by someone who wasn't you. Being tracked in their records before you've asked for anything makes the next approach harder.`;
         G.worldClocks.watchfulness++;
         addJournal('Archive clerks warned about your record access', 'complication', `cosmoria-records-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -193,7 +193,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Ward Mediator revealed corrupted district mediation system', 'evidence', `cosmoria-mediation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Nerissa stands, not quickly — carefully. "Mediation proceedings are protected under ward confidentiality. You'll need to file a formal observation request with the harbor district council." She holds the door open before you've said you're leaving. The district council chamber is two streets away; when you pass it an hour later, there's a warden outside who wasn't there before.`;
+        G.lastResult = `Nerissa stands, not quickly — carefully. "Mediation proceedings are protected under ward confidentiality. You'll need to file a formal observation request with the harbor district council." She holds the door open before you've said you're leaving. The district council chamber is two streets away; when you pass it an hour later, there's a warden outside who wasn't there before. The pressure of their notice is specific — someone in that building reported where you went after leaving Nerissa's office.`;
         G.worldClocks.pressure++;
         addJournal('Ward Mediator prohibited further mediation questions', 'complication', `cosmoria-mediation-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -233,7 +233,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Street Physician revealed falsified health records system', 'evidence', `cosmoria-health-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Sevrin's answer comes out rehearsed — patient records are protected under the Cosmouth health privacy charter, you'd need a public health warrant, apply at the harbor registry. He turns to his instruments and starts cleaning them with the focus of someone who wants to end a conversation. There's a notebook on the shelf behind him, tucked behind a jar of salt compress. He doesn't look at it. You don't either.`;
+        G.lastResult = `Sevrin's answer comes out rehearsed — patient records are protected under the Cosmouth health privacy charter, you'd need a public health warrant, apply at the harbor registry. He turns to his instruments and starts cleaning them with the focus of someone who wants to end a conversation. There's a notebook on the shelf behind him, tucked behind a jar of salt compress. He doesn't look at it. You don't either. This kind of isolation from a source — polite, immediate, final — is harder to overcome than open hostility.`;
         G.worldClocks.isolation++;
         addJournal('Street Physician forbade further health records inquiry', 'complication', `cosmoria-health-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -273,7 +273,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Archive Keeper revealed systematic document destruction conspiracy', 'evidence', `cosmoria-archives-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The archivist's face doesn't change but his hand moves to the edge of the reading counter, bracing. "Collection management decisions are made by the archive board. Questions about specific records go through the formal inquiry process." He produces a form — six sections, two requiring notarized seals. Your reading access is downgraded to the public catalogue before you reach the door. Someone is watching the archive for exactly this kind of question.`;
+        G.lastResult = `The archivist's face doesn't change but his hand moves to the edge of the reading counter, bracing. "Collection management decisions are made by the archive board. Questions about specific records go through the formal inquiry process." He produces a form — six sections, two requiring notarized seals. Your reading access is downgraded to the public catalogue before you reach the door. The watchful response confirms someone placed a standing alert on this collection — the question triggered it.`;
         G.worldClocks.watchfulness++;
         addJournal('Archive Keeper banned you from collection inquiry', 'complication', `cosmoria-archives-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -313,7 +313,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Shipwright revealed corrupted vessel quality system', 'evidence', `cosmoria-shipwright-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The shipwright sets his mallet down slowly. "Quality inspection isn't a public process." He says it watching your hands. By the time you leave the dry dock the other builders have gone quiet — tools still running but eyes tracking you down the walk. The pitch smell and salt air follow you up to the commercial street. Before evening one of the younger workers has asked another shipyard who you were.`;
+        G.lastResult = `The shipwright sets his mallet down slowly. "Quality inspection isn't a public process." He says it watching your hands. By the time you leave the dry dock the other builders have gone quiet — tools still running but eyes tracking you down the walk. The pitch smell and salt air follow you up to the commercial street. Before evening one of the younger workers has asked another shipyard who you were. You've been noticed in a trade where reputation travels faster than tide.`;
         G.worldClocks.watchfulness++;
         addJournal('Shipwright community warned about your quality inquiry', 'complication', `cosmoria-shipwright-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -355,7 +355,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Structure analysis revealed centralized power consolidation', 'evidence', `cosmoria-structure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The ward charter amendments are public but the archive clerk pulls the file and sets it on the counter and then stands there while you read. When you take notes, he notes that you're taking notes. Before you finish the third document, a harbor official arrives and asks your name. They write it down. They don't explain why. The file goes back to the shelf before you've read the fifth amendment.`;
+        G.lastResult = `The ward charter amendments are public but the archive clerk pulls the file and sets it on the counter and then stands there while you read. When you take notes, he notes that you're taking notes. Before you finish the third document, a harbor official arrives and asks your name. They write it down. They don't explain why. The file goes back to the shelf before you've read the fifth amendment. The scrutiny was triggered by the specific documents, not just your presence.`;
         G.worldClocks.watchfulness++;
         addJournal('House Cosmouth alerted to governance structure inquiry', 'complication', `cosmoria-structure-alert-${G.dayCount}`);
       } else {
@@ -392,7 +392,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Network analysis revealed deliberate merchant displacement', 'evidence', `cosmoria-network-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You request the trader roster comparison through the harbor registry. The clerk takes the request, goes into the back room, and returns with a Cosmouth trade officer instead of a document. The officer asks what you need the historical roster for. You give a reason. He writes it down. The document request is marked pending review. By the time you leave the building, two independent merchants you'd spoken to earlier that day have stopped being available.`;
+        G.lastResult = `You request the trader roster comparison through the harbor registry. The clerk takes the request, goes into the back room, and returns with a Cosmouth trade officer instead of a document. The officer asks what you need the historical roster for. You give a reason. He writes it down. The document request is marked pending review. By the time you leave the building, two independent merchants you'd spoken to earlier that day have stopped being available. Being tracked through the registry makes every subsequent conversation harder to trust.`;
         G.worldClocks.watchfulness++;
         addJournal('House Cosmouth alerted to network analysis', 'complication', `cosmoria-network-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -432,7 +432,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Archive analysis revealed information control system', 'evidence', `cosmoria-info-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You ask the senior archivist directly about the access list reduction. He pauses — not surprised, something flatter than surprise — and says access policy is a board matter and not open to patron comment. Before you leave the reading room, someone has noted your seat number in a separate register. Your next request to the archive catalogue returns a shorter list than the one you received this morning.`;
+        G.lastResult = `You ask the senior archivist directly about the access list reduction. He pauses — not surprised, something flatter than surprise — and says access policy is a board matter and not open to patron comment. Before you leave the reading room, someone has noted your seat number in a separate register. Your next request to the archive catalogue returns a shorter list than the one you received this morning. The scrutiny is now attached to your patron record.`;
         G.worldClocks.watchfulness++;
         addJournal('Archive authorities monitoring information restriction inquiry', 'complication', `cosmoria-info-alert-${G.dayCount}`);
       } else {
@@ -469,7 +469,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Ambition analysis revealed orchestrated power installation system', 'evidence', `cosmoria-ambition-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Requesting appointment records through the harbor registry produces a response faster than expected — a Cosmouth security clerk, not the archivist, with a question about your interest in internal administrative staffing. You give a neutral answer. He writes it down. Within the hour a notice appears at your lodging address — a reminder that harbor administrative records are protected under the Cosmouth governance charter. Nobody told you your lodging address.`;
+        G.lastResult = `Requesting appointment records through the harbor registry produces a response faster than expected — a Cosmouth security clerk, not the archivist, with a question about your interest in internal administrative staffing. You give a neutral answer. He writes it down. Within the hour a notice appears at your lodging address — a reminder that harbor administrative records are protected under the Cosmouth governance charter. Nobody told you your lodging address. The pressure of being tracked to your accommodation is not subtle.`;
         G.worldClocks.pressure++;
         addJournal('House Cosmouth security alerted to ambition analysis', 'complication', `cosmoria-ambition-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -509,7 +509,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Institution analysis revealed systematic dependency weaponization', 'evidence', `cosmoria-dependency-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The third independent merchant you speak to is interrupted mid-sentence by a Cosmouth clerk who appears at his warehouse door and tells him his quarterly compliance paperwork is overdue. The merchant goes pale and excuses himself. The clerk doesn't look at you. When the merchant comes back twenty minutes later he says he doesn't remember what he was telling you before. He's not lying. He just knows what he costs himself by remembering.`;
+        G.lastResult = `The third independent merchant you speak to is interrupted mid-sentence by a Cosmouth clerk who appears at his warehouse door and tells him his quarterly compliance paperwork is overdue. The merchant goes pale and excuses himself. The clerk doesn't look at you. When the merchant comes back twenty minutes later he says he doesn't remember what he was telling you before. He's not lying. He just knows what he costs himself by remembering. The timing of that interruption is harder to explain as coincidence than as attention.`;
         G.worldClocks.pressure++;
         addJournal('Authorities warned about institutional vulnerability analysis', 'complication', `cosmoria-dependency-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -549,7 +549,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Resource analysis revealed artificial scarcity creation', 'evidence', `cosmoria-scarcity-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Requesting the warehouse inventory records produces a quartermaster's aide, not a clerk, who asks what you need the supply figures for. You give a reason. The aide says the warehouse is under a Cosmouth fleet audit and records are temporarily restricted. By the time you reach the lower docks, two independent builders you'd been planning to approach have been told by the warehouse foreman that their pending allocation requests are under review.`;
+        G.lastResult = `Requesting the warehouse inventory records produces a quartermaster's aide, not a clerk, who asks what you need the supply figures for. You give a reason. The aide says the warehouse is under a Cosmouth fleet audit and records are temporarily restricted. By the time you reach the lower docks, two independent builders you'd been planning to approach have been told by the warehouse foreman that their pending allocation requests are under review. Being noticed asking about supplies has made their position harder.`;
         G.worldClocks.watchfulness++;
         addJournal('Quartermaster alerted to supply tracking', 'complication', `cosmoria-scarcity-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -589,7 +589,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Faith analysis revealed systematic ritual weaponization', 'evidence', `cosmoria-faith-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You ask the caretaker at the secondary shrine about blessing access. She listens to the question without expression and then tells you the blessing schedule is set by the shrine council, inquiries go through the harbor faith registry, and observers without a practitioner's standing are not permitted in the water gate area during ceremonies. She says all of it pleasantly. The next day, the secondary shrine's gate is staffed by a warden who wasn't there before.`;
+        G.lastResult = `You ask the caretaker at the secondary shrine about blessing access. She listens to the question without expression and then tells you the blessing schedule is set by the shrine council, inquiries go through the harbor faith registry, and observers without a practitioner's standing are not permitted in the water gate area during ceremonies. She says all of it pleasantly. The next day, the secondary shrine's gate is staffed by a warden who wasn't there before. Asking drew attention from someone who coordinates across the shrine network.`;
         G.worldClocks.reverence++;
         addJournal('Shrine authorities warned about faith system analysis', 'complication', `cosmoria-faith-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -687,7 +687,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Institutional corruption conspiracy documented with proof', 'evidence', `cosmoria-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A Cosmouth clerk arrives at the table while you're still sorting documents. He doesn't touch anything. He says, with no hostility at all, that administrative records taken from their respective offices without a charter warrant constitute misappropriation of public property, and that continuing to compile them in this manner will require him to escalate. He waits. You look at the documents. Some of them were given to you. Some of them weren't. He knows which are which. The proof you've built is real. It's also currently sitting in front of someone who can make it cost you.`;
+        G.lastResult = `A Cosmouth clerk arrives at the table while you're still sorting documents. He doesn't touch anything. He says, with no hostility at all, that administrative records taken from their respective offices without a charter warrant constitute misappropriation of public property, and that continuing to compile them in this manner will require him to escalate. He waits. You look at the documents. Some of them were given to you. Some of them weren't. He knows which are which. The proof you've built is real. The pressure of what he can do with it is also real — and this conversation just got harder.`;
         G.worldClocks.pressure += 2;
         addJournal('Institutional corruption inquiry directly intercepted', 'complication', `cosmoria-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
@@ -770,7 +770,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Origin source of Cosmoria institutional corruption identified as external coordination', 'discovery', `cosmoria-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You get close enough to see the courier manifest exists. Then a Cosmouth warden steps into the reading room, takes the arrival log from the table without explanation, and informs you that the harbor registry has requested the return of administrative materials currently outside their custody. He doesn't threaten. He doesn't need to. He just takes the log. You have what you remembered reading before he arrived. The manifest destination is gone with the book.`;
+        G.lastResult = `You get close enough to see the courier manifest exists. Then a Cosmouth warden steps into the reading room, takes the arrival log from the table without explanation, and informs you that the harbor registry has requested the return of administrative materials currently outside their custody. He doesn't threaten. He doesn't need to. He just takes the log. You have what you remembered reading before he arrived. The manifest destination is gone with the book. You've been noticed reaching for exactly the thing they're protecting.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry intercepted by external coordination operators', 'complication', `cosmoria-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
