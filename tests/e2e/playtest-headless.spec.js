@@ -251,11 +251,21 @@ async function closeOverlay(page) {
 }
 
 async function dismissOverlays(page) {
+  // DOM-level cleanup first: remove any id="...-modal" overlay divs
+  await page.evaluate(() => {
+    document.querySelectorAll('[id$="-modal"]').forEach(function(el) {
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    });
+    document.querySelectorAll('.overlay.active').forEach(function(el) {
+      el.classList.remove('active');
+    });
+  }).catch(() => {});
+
   for (let i = 0; i < 5; i++) {
     try {
-      const ov = page.locator('.overlay.active').first();
+      const ov = page.locator('.overlay.active, [id$="-modal"]:visible, .modal:visible').first();
       if (!await ov.isVisible({ timeout: 300 }).catch(() => false)) break;
-      const btn = ov.locator('button.overlay-close,.overlay-close,button:has-text("×"),button:has-text("Close")').first();
+      const btn = ov.locator('button.overlay-close,.overlay-close,button:has-text("×"),button:has-text("Close"),button:has-text("Cancel")').first();
       if (await btn.isVisible({ timeout: 300 }).catch(() => false)) await btn.click();
       else await page.keyboard.press('Escape');
       await page.waitForTimeout(PACE.short);
