@@ -30,7 +30,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Yard master revealed route manipulation and supply filtering', 'evidence', `sunspire-yard-routes-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Corbek turns back to the manifest board before you've finished the question. "Convoy routing is family business. I don't take that outside." He doesn't argue, doesn't elaborate. By the time you reach the yard gate, two handlers have glanced at you in the particular way that means your name is already traveling through the supply chain alongside the morning's manifest.`;
+        G.lastResult = `Corbek turns back to the manifest board before you've finished the question. "Convoy routing is family business. I don't take that outside." He doesn't argue, doesn't elaborate. By the time you reach the yard gate, two handlers have glanced at you in the particular way that means your name is already traveling through the supply chain alongside the morning's manifest. The pressure of that traveling name means the next yard gate will already know what was asked before you reach it.`;
         G.worldClocks.pressure++;
         addJournal('Yard master now wary of your inquiries', 'complication', `sunspire-yard-hostile-${G.dayCount}`);
       } else {
@@ -68,7 +68,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Broker revealed obligation system weaponization', 'evidence', `sunspire-broker-obligations-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Lysander's expression settles into practiced neutrality. "Obligation systems are internal family matters. I don't take them outside." He doesn't raise his voice or show offense. But by the next morning, two family heads have heard that an outsider was asking about obligation enforcement. The family network moves faster than the wagon routes.`;
+        G.lastResult = `Lysander's expression settles into practiced neutrality. "Obligation systems are internal family matters. I don't take them outside." He doesn't raise his voice or show offense. But by the next morning, two family heads have heard that an outsider was asking about obligation enforcement. The family network moves faster than the wagon routes. The watchful speed of that spread means your questions are now tracked across the network before you've asked the second one.`;
         G.worldClocks.watchfulness++;
         addJournal('Family brokers warned about your inquiry', 'complication', `sunspire-broker-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -144,7 +144,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Merchant revealed systematic trade preference corruption', 'evidence', `sunspire-textile-bias-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Keldan's posture changes mid-sentence. "Why are you asking about contract distribution?" He doesn't wait for the answer. The conversation ends, and by the next market bell, two other merchants near the cloth stalls have received some version of your description and the nature of your questions.`;
+        G.lastResult = `Keldan's posture changes mid-sentence. "Why are you asking about contract distribution?" He doesn't wait for the answer. The conversation ends, and by the next market bell, two other merchants near the cloth stalls have received some version of your description and the nature of your questions. The attention that a distributed description carries is harder to step out of than a single closed door.`;
         G.worldClocks.isolation++;
         addJournal('Merchants now viewing you as potential investigator', 'complication', `sunspire-textile-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -184,7 +184,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Quota keeper revealed quota system weaponization', 'evidence', `sunspire-quota-pressure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Neria closes the ledger and lifts her hand to flag the syndicate administrator across the room. "Production records aren't for outside review." The flagging is deliberate, visible, a message being sent in front of you rather than behind you. By the time you leave the quota hall, a report on your inquiry is already moving upward through the syndicate's coordination chain.`;
+        G.lastResult = `Neria closes the ledger and lifts her hand to flag the syndicate administrator across the room. "Production records aren't for outside review." The flagging is deliberate, visible, a message being sent in front of you rather than behind you. By the time you leave the quota hall, a report on your inquiry is already moving upward through the syndicate's coordination chain. The pressure of a report already in motion means the quota hall will be watched for you before the next bell.`;
         G.worldClocks.pressure++;
         addJournal('Syndicate investigating your quota system inquiry', 'complication', `sunspire-quota-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -224,7 +224,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Convoy organizer revealed external coordination channels', 'evidence', `sunspire-convoy-external-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Tholen's expression shifts fast — not anger, something quieter and more concerned. "I don't have anything to tell you about that." He steps back, puts the manifest cart between you and him, and doesn't say another word. He's not refusing because he doesn't know. He's refusing because he does.`;
+        G.lastResult = `Tholen's expression shifts fast — not anger, something quieter and more concerned. "I don't have anything to tell you about that." He steps back, puts the manifest cart between you and him, and doesn't say another word. He's not refusing because he doesn't know. He's refusing because he does. The watchful fear in that refusal means whoever runs those non-standard convoys has already made the consequences of talking harder than the consequences of silence.`;
         G.worldClocks.watchfulness++;
         addJournal('Convoy organizer frightened by external coordination inquiry', 'complication', `sunspire-convoy-alert-${G.dayCount}`);
       } else {
@@ -261,7 +261,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Elder revealed systemic family authority erosion', 'evidence', `sunspire-elder-authority-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Daven stops you with a raised hand — not a warning, a statement. "Family governance is not open to outside discussion. You're not family." He says it without cruelty, the way a boundary is stated rather than enforced. Morning light falls through the courtyard entrance at a long angle. The conversation ends there. In the courtyard, two people who were watching from doorways have already moved back inside before the last word lands. They were listening for exactly this answer.`;
+        G.lastResult = `Daven stops you with a raised hand — not a warning, a statement. "Family governance is not open to outside discussion. You're not family." He says it without cruelty, the way a boundary is stated rather than enforced. Morning light falls through the courtyard entrance at a long angle. The conversation ends there. In the courtyard, two people who were watching from doorways have already moved back inside before the last word lands. They were listening for exactly this answer — and the scrutiny of that listening means the answer travels through the family before the courtyard empties.`;
         G.worldClocks.reverence++;
         addJournal('Family leadership banned you from authority questions', 'complication', `sunspire-elder-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -301,7 +301,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Inspector revealed selective quality enforcement system', 'evidence', `sunspire-inspector-bias-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Varen turns the log face-down. "Enforcement decisions aren't for outside discussion. It's sensitive to ongoing market proceedings." He's not hostile — just flat. Three other inspectors in the room have stopped moving. The market inspection department has been briefed to be careful, and Varen has just demonstrated he received that briefing.`;
+        G.lastResult = `Varen turns the log face-down. "Enforcement decisions aren't for outside discussion. It's sensitive to ongoing market proceedings." He's not hostile — just flat. Three other inspectors in the room have stopped moving. The market inspection department has been briefed to be careful, and Varen has just demonstrated he received that briefing. The attention of three stopped inspectors means the briefing covered what kind of questions to notice and who asks them.`;
         G.worldClocks.isolation++;
         addJournal('Market inspector refused further inquiry', 'complication', `sunspire-inspector-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -343,7 +343,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Family analysis revealed systematic family restructuring', 'evidence', `sunspire-family-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A syndicate administrator intercepts you at the registry desk before you can finish pulling the second volume. The question is mild; the stillness around it isn't. "What is the purpose of this inquiry?" Your answer goes into a log. By the time you leave the registry hall, the family structure records are behind a locked cabinet they weren't in before.`;
+        G.lastResult = `A syndicate administrator intercepts you at the registry desk before you can finish pulling the second volume. The question is mild; the stillness around it isn't. "What is the purpose of this inquiry?" Your answer goes into a log. By the time you leave the registry hall, the family structure records are behind a locked cabinet they weren't in before. The watchful speed of that relocking means your registry visit was noticed and escalated before you reached the street.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate leadership alerted to family structure analysis', 'complication', `sunspire-family-alert-${G.dayCount}`);
       } else {
@@ -380,7 +380,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Resource analysis revealed engineered scarcity system', 'evidence', `sunspire-resources-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A syndicate coordinator steps between you and the harvest ledger before you can finish the column comparison. The warning arrives as a statement, not a threat: continued inquiry into resource management will result in removal from the haven's work access registry. The ledger closes. The numbers you were almost done reading disappear behind it.`;
+        G.lastResult = `A syndicate coordinator steps between you and the harvest ledger before you can finish the column comparison. The warning arrives as a statement, not a threat: continued inquiry into resource management will result in removal from the haven's work access registry. The ledger closes. The numbers you were almost done reading disappear behind it. The pressure of a formal registry removal threat means this line of inquiry is now harder to pursue without consequence.`;
         G.worldClocks.pressure++;
         addJournal('Syndicate directly warned about resource scarcity inquiry', 'complication', `sunspire-resources-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -420,7 +420,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Information analysis revealed systematic news filtering', 'evidence', `sunspire-information-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Two syndicate monitors find you at the message-posting board before your second circuit of the market lane. One asks what you're comparing; the other writes the answer down without waiting for it. The conversation that follows is brief and formal. The board is still accessible afterward. But a new name appears on the duty log beside the posting station — yours, with today's date.`;
+        G.lastResult = `Two syndicate monitors find you at the message-posting board before your second circuit of the market lane. One asks what you're comparing; the other writes the answer down without waiting for it. The conversation that follows is brief and formal. The board is still accessible afterward. But a new name appears on the duty log beside the posting station — yours, with today's date. The watchful entry in that duty log means every board station in the market will receive notice before tomorrow's posting.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate monitoring alerted to information flow tracking', 'complication', `sunspire-information-alert-${G.dayCount}`);
       } else {
@@ -457,7 +457,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Coercion analysis mapped systematic threat apparatus', 'evidence', `sunspire-coercion-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A message arrives at the waystation before you return to it — unsigned, hand-delivered, one sentence. Continued documentation of family difficulties in Sunspire Haven will result in removal from the haven's access registry. The wording is administrative. The speed of delivery is not. Whoever wrote it knew where you'd been asking and got ahead of you before you finished.`;
+        G.lastResult = `A message arrives at the waystation before you return to it — unsigned, hand-delivered, one sentence. Continued documentation of family difficulties in Sunspire Haven will result in removal from the haven's access registry. The wording is administrative. The speed of delivery is not. Whoever wrote it knew where you'd been asking and got ahead of you before you finished. The pressure of a message that arrived before you did means you are tracked more closely than you tracked the evidence.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry drawing direct coercion consequences', 'complication', `sunspire-coercion-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -497,7 +497,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Resource flow analysis revealed systematic extraction', 'evidence', `sunspire-extraction-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A syndicate coordinator is waiting at the yard gate when you come back from the second waystation. The questions are procedural — purpose of visit, who authorized access — but the log they're writing in has your name already at the top, entered before the conversation began. The outbound manifests return to the locked cabinet inside. Whatever the next column shows, it won't be visible from this side of the gate.`;
+        G.lastResult = `A syndicate coordinator is waiting at the yard gate when you come back from the second waystation. The questions are procedural — purpose of visit, who authorized access — but the log they're writing in has your name already at the top, entered before the conversation began. The outbound manifests return to the locked cabinet inside. Whatever the next column shows, it won't be visible from this side of the gate. You are tracked by a log that was open and waiting — someone knew the waystation route before you walked it.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate extraction operations alerted to tracking', 'complication', `sunspire-extraction-alert-${G.dayCount}`);
       } else {
@@ -534,7 +534,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Community analysis revealed systematic social fragmentation', 'evidence', `sunspire-community-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `By midday three people have changed their route to avoid walking near you at the communal meal area. One picks up her bowl and finishes eating beside the storage wall instead of at the table. Word precedes you here — whatever you've been asking, its subject travels faster than you do. The community isn't hostile. It's careful, and careful has a specific shape in Sunspire.`;
+        G.lastResult = `By midday three people have changed their route to avoid walking near you at the communal meal area. One picks up her bowl and finishes eating beside the storage wall instead of at the table. Word precedes you here — whatever you've been asking, its subject travels faster than you do. The community isn't hostile. It's careful, and careful has a specific shape in Sunspire. The attention of a community that has already rerouted around you means the communal spaces here are now harder to use as a way in.`;
         G.worldClocks.isolation++;
         addJournal('Community members avoiding you due to fear of scrutiny', 'complication', `sunspire-community-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -574,7 +574,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Family analysis revealed systematic kinship destruction', 'evidence', `sunspire-fragmentation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A syndicate administrator finds you at the work assignment board before you've finished the second column. The prohibition arrives in procedural language: documenting family placement details without registry authorization is a compliance matter. The board is still public, the names still visible. But the administrator stays nearby until you step away, and a note goes into the day log.`;
+        G.lastResult = `A syndicate administrator finds you at the work assignment board before you've finished the second column. The prohibition arrives in procedural language: documenting family placement details without registry authorization is a compliance matter. The board is still public, the names still visible. But the administrator stays nearby until you step away, and a note goes into the day log. The pressure of a day-log notation means the board is now watched for you specifically — every return visit will be timed and recorded.`;
         G.worldClocks.pressure++;
         addJournal('Syndicate prohibited further family fragmentation analysis', 'complication', `sunspire-fragmentation-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -614,7 +614,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Consent analysis revealed manufactured acceptance apparatus', 'evidence', `sunspire-consent-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A syndicate communication officer arrives at the communal hall before you finish the morning session. The language is measured: questions about community participation frameworks are sensitive matters affecting social cohesion. The warning is logged. So, now, is your presence in the communal hall during governance hours. The session ends by being formally closed around you.`;
+        G.lastResult = `A syndicate communication officer arrives at the communal hall before you finish the morning session. The language is measured: questions about community participation frameworks are sensitive matters affecting social cohesion. The warning is logged. So, now, is your presence in the communal hall during governance hours. The session ends by being formally closed around you. The watchful machinery that produced a communication officer before the morning session ended means governance hours here are monitored in real time.`;
         G.worldClocks.watchfulness++;
         addJournal('Syndicate aware of consent apparatus analysis', 'complication', `sunspire-consent-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -680,7 +680,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Syndicate extraction conspiracy documented with proof', 'evidence', `sunspire-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The compilation is noticed before it's finished. A syndicate coordinator arrives at the waystation before you've returned — not running, moving at the deliberate pace of someone who doesn't need to rush. The warning is delivered in administrative language: continued documentation of resource management will result in removal from Sunspire Haven's access registry. The phrasing is procedural. The speed of arrival is not. Your name is already in the syndicate's notation before you've left the room.`;
+        G.lastResult = `The compilation is noticed before it's finished. A syndicate coordinator arrives at the waystation before you've returned — not running, moving at the deliberate pace of someone who doesn't need to rush. The warning is delivered in administrative language: continued documentation of resource management will result in removal from Sunspire Haven's access registry. The phrasing is procedural. The speed of arrival is not. Your name is already in the syndicate's notation before you've left the room. The scrutiny of a notation entered before you returned means the compilation process itself was tracked, piece by piece.`;
         G.worldClocks.pressure++;
         addJournal('Syndicate directly warned about control system exposure', 'complication', `sunspire-proof-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -758,7 +758,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Origin source of Sunspire Haven extraction identified as external coordination', 'discovery', `sunspire-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `As you approach the evidence of external coordination, you're intercepted. Someone stops you directly and makes it clear that pursuing this further will result in your removal from Sunspire Haven or worse. You've discovered pieces, but the full external coordination remains hidden — and now you're marked as a direct threat.`;
+        G.lastResult = `As you approach the evidence of external coordination, you're intercepted. Someone stops you directly and makes it clear that pursuing this further will result in your removal from Sunspire Haven or worse. You've discovered pieces, but the full external coordination remains hidden — and now you're marked as a direct threat. The pressure of that marking travels ahead of you to every contact point remaining in Sunspire.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry interrupted by external coordination operators', 'complication', `sunspire-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {

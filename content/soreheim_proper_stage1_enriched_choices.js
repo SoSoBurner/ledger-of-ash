@@ -31,7 +31,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Foreman revealed coordinated quota escalation', 'evidence', `soreheim-foreman-quotas-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Thrace stops mid-stride and turns around. "Who told you to ask me about quotas?" He doesn't wait for an answer — walks back to his crew, says something short to the nearest worker. By the end of the shift change, three people have clocked that you were asking. The yard is quieter than it was when you arrived.`;
+        G.lastResult = `Thrace stops mid-stride and turns around. "Who told you to ask me about quotas?" He doesn't wait for an answer — walks back to his crew, says something short to the nearest worker. By the end of the shift change, three people have clocked that you were asking. The yard is quieter than it was when you arrived. The pressure of that passing word is the kind that moves through a shift yard before the next bell.`;
         G.worldClocks.pressure++;
         addJournal('Foreman now wary of your inquiries', 'complication', `soreheim-foreman-hostile-${G.dayCount}`);
       } else {
@@ -66,7 +66,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Clerk revealed two-level quota manipulation system', 'evidence', `soreheim-clerk-manipulation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Serin closes the ledger before you finish asking. "Those are labor administration documents. You'll need a management authorization stamp." She is already writing something down — not the authorization. Her hand moves quickly and she doesn't look up again. By the time you reach the yard, a labor coordinator is crossing toward the records building.`;
+        G.lastResult = `Serin closes the ledger before you finish asking. "Those are labor administration documents. You'll need a management authorization stamp." She is already writing something down — not the authorization. Her hand moves quickly and she doesn't look up again. By the time you reach the yard, a labor coordinator is crossing toward the records building. The watchful crossing means the ledger room will be harder to approach again.`;
         G.worldClocks.watchfulness++;
         addJournal('Labor coordinator now investigating your inquiry', 'complication', `soreheim-clerk-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -136,7 +136,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Worker revealed coordinated safety protocol neglect', 'evidence', `soreheim-repair-safety-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Eldis shakes his head and walks. "Accident talk gets you watched. I have three mouths at home." He doesn't look back. Two workers near the tool rack clock you as you stand there. They turn away and go back to work with the particular care of people who have decided not to know your name.`;
+        G.lastResult = `Eldis shakes his head and walks. "Accident talk gets you watched. I have three mouths at home." He doesn't look back. Two workers near the tool rack clock you as you stand there. They turn away and go back to work with the particular care of people who have decided not to know your name. The attention that comes with being clocked by two workers is harder to shed in a yard where everyone watches who talks to outsiders.`;
         G.worldClocks.isolation++;
         addJournal('Workers now see you as a potential threat to their employment', 'complication', `soreheim-repair-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -207,7 +207,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Broker mapped deliberate workforce displacement network', 'evidence', `soreheim-broker-displacement-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Meth sets his pen down. "Labor flows are placement business. Not public business." He stands up from behind the desk, which puts him between you and the ledgers on the wall shelf. "I'd recommend taking your questions somewhere else." He doesn't sit back down. He stays standing until you leave, and the door to the street closes firmly behind you.`;
+        G.lastResult = `Meth sets his pen down. "Labor flows are placement business. Not public business." He stands up from behind the desk, which puts him between you and the ledgers on the wall shelf. "I'd recommend taking your questions somewhere else." He doesn't sit back down. He stays standing until you leave, and the door to the street closes firmly behind you. The watchful stillness of his posture means every broker in that block will know your name and your question before tomorrow's placement session.`;
         G.worldClocks.watchfulness++;
         addJournal('Labor brokers now aware of your inquiry', 'complication', `soreheim-broker-alert-${G.dayCount}`);
       } else {
@@ -241,7 +241,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Record keeper revealed systematic worker documentation erasure', 'evidence', `soreheim-records-erasure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Parol shuts the ledger cabinet and locks it. "Employment documentation requires a labor administration request stamp. That's procedure." He picks up a form from the outbox and walks it to another desk — not in a hurry, just done with the conversation. The form he's filing has your name on it, written before you finished asking.`;
+        G.lastResult = `Parol shuts the ledger cabinet and locks it. "Employment documentation requires a labor administration request stamp. That's procedure." He picks up a form from the outbox and walks it to another desk — not in a hurry, just done with the conversation. The form he's filing has your name on it, written before you finished asking. The pressure of that pre-written form means someone anticipated this inquiry and prepared for it — you were tracked before you arrived.`;
         G.worldClocks.pressure++;
         addJournal('Labor authorities now investigating your records inquiry', 'complication', `soreheim-records-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -280,7 +280,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Craftsperson revealed deliberate quality and expertise destruction', 'evidence', `soreheim-craft-degradation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Aldren turns back to the bench. "My work is my answer." The two people working nearby both find something to look at that isn't you. The workshop carries on. You're standing slightly too far inside the door for comfort and the space makes that clear.`;
+        G.lastResult = `Aldren turns back to the bench. "My work is my answer." The two people working nearby both find something to look at that isn't you. The workshop carries on. You're standing slightly too far inside the door for comfort and the space makes that clear. The attention of a workshop that has all turned away is harder to walk back through than an empty doorway — your name moves between benches before the door closes behind you.`;
         G.worldClocks.isolation++;
         addJournal('Craftspeople now wary of external scrutiny', 'complication', `soreheim-craft-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -319,7 +319,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Labor analysis revealed deliberate workforce composition restructuring', 'evidence', `soreheim-workforce-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A labor administrator intercepts you at the intake archive. "What is your authorization for demographic review?" There isn't one. She takes your name and writes it on a form without asking you to spell it. The file she puts it in is labeled in a shorthand you don't recognize. On your way out, a second administrator is waiting at the bottom of the stairs.`;
+        G.lastResult = `A labor administrator intercepts you at the intake archive. "What is your authorization for demographic review?" There isn't one. She takes your name and writes it on a form without asking you to spell it. The file she puts it in is labeled in a shorthand you don't recognize. On your way out, a second administrator is waiting at the bottom of the stairs. You are now tracked by a filing system that already had a category prepared for this kind of inquiry.`;
         G.worldClocks.watchfulness++;
         addJournal('Labor administration alerted to workforce analysis inquiry', 'complication', `soreheim-workforce-alert-${G.dayCount}`);
       } else {
@@ -353,7 +353,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Systems analysis revealed quota architecture designed for failure', 'evidence', `soreheim-quota-system-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A management coordinator appears at the quota archive before you finish cross-referencing. "System documentation is restricted." She pulls the ledger from the table. Your name is already on a slip she leaves behind — an access restriction notice, pre-written, waiting to be filed. The archive door closes with a latch.`;
+        G.lastResult = `A management coordinator appears at the quota archive before you finish cross-referencing. "System documentation is restricted." She pulls the ledger from the table. Your name is already on a slip she leaves behind — an access restriction notice, pre-written, waiting to be filed. The archive door closes with a latch. The pressure of a pre-written restriction notice means this archive is now harder to approach by any route.`;
         G.worldClocks.pressure++;
         addJournal('Management restricted access to quota system information', 'complication', `soreheim-quota-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -390,7 +390,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Industrial analysis revealed deliberate supply chain isolation', 'evidence', `soreheim-supply-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A logistics coordinator stops you at the dispatch yard gate. "Material flow records are internal operations documents." He writes your name on the gate log — not the visitor log, the other one. Two manifests on the cart behind him are quickly covered by a tarp. He waits at the gate until you are off the yard.`;
+        G.lastResult = `A logistics coordinator stops you at the dispatch yard gate. "Material flow records are internal operations documents." He writes your name on the gate log — not the visitor log, the other one. Two manifests on the cart behind him are quickly covered by a tarp. He waits at the gate until you are off the yard. The watchful waiting means your name is on the gate log that the next shift supervisor reads at handover.`;
         G.worldClocks.watchfulness++;
         addJournal('Logistics coordinators alerted to supply chain inquiry', 'complication', `soreheim-supply-alert-${G.dayCount}`);
       } else {
@@ -424,7 +424,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Authority analysis revealed external control capture structure', 'evidence', `soreheim-authority-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Bresn's door is closed when you arrive and still closed when his assistant looks up and asks your name. It goes on a slip. "The administrator isn't receiving general visitors." On your way through the building, two people who were previously willing to speak with you find somewhere else to be.`;
+        G.lastResult = `Bresn's door is closed when you arrive and still closed when his assistant looks up and asks your name. It goes on a slip. "The administrator isn't receiving general visitors." On your way through the building, two people who were previously willing to speak with you find somewhere else to be. The pressure of your name on that slip reaches further than the administrator's corridor — it was already passed to the people you needed to see next.`;
         G.worldClocks.pressure++;
         addJournal('Local leadership now viewing you as potential threat', 'complication', `soreheim-authority-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -461,7 +461,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Communication analysis revealed systematic message interception', 'evidence', `soreheim-communication-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The relay station handler closes the window when you approach. A second one appears from the back and tells you the station isn't open to public inquiries. Walking away, you notice a third person watching from the side alley — not in courier colors. They don't follow, but they don't look away either.`;
+        G.lastResult = `The relay station handler closes the window when you approach. A second one appears from the back and tells you the station isn't open to public inquiries. Walking away, you notice a third person watching from the side alley — not in courier colors. They don't follow, but they don't look away either. The watchful set of that figure in the alley means the station knows you tried — and the next relay point on this route will know before you reach it.`;
         G.worldClocks.watchfulness++;
         addJournal('Communication network handlers now aware of monitoring attempt', 'complication', `soreheim-communication-alert-${G.dayCount}`);
       } else {
@@ -495,7 +495,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Suppression analysis revealed systematic worker intimidation apparatus', 'evidence', `soreheim-suppression-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The same afternoon, the two workers who spoke with you are both pulled for "performance review." One sends a message asking you to stop asking questions near her. The other doesn't send anything. Your presence in this part of the city now carries a cost for anyone who stands close enough to talk.`;
+        G.lastResult = `The same afternoon, the two workers who spoke with you are both pulled for "performance review." One sends a message asking you to stop asking questions near her. The other doesn't send anything. Your presence in this part of the city now carries a cost for anyone who stands close enough to talk. The pressure of those two pulled workers is a signal anyone nearby will have noticed — proximity to your questions now carries consequences.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry causing worker retaliation acceleration', 'complication', `soreheim-suppression-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -532,7 +532,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Survival analysis revealed systematic worker vulnerability weaponization', 'evidence', `soreheim-survival-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A labor administrator catches up to you at the end of the housing block — a woman with ink-blackened knuckles and a leather document case worn smooth at the corners. "Documenting workforce precarity without authorization violates operational security policy." She hands you a printed notice. The paper smells faintly of the pressroom's lampblack. The notice was already printed. It has today's date on it. She waits while you read, weight on one heel, then collects the copy back and files it in the case without writing anything. Your name wasn't needed. The notice wasn't issued to you. It was shown.`;
+        G.lastResult = `A labor administrator catches up to you at the end of the housing block — a woman with ink-blackened knuckles and a leather document case worn smooth at the corners. "Documenting workforce precarity without authorization violates operational security policy." She hands you a printed notice. The paper smells faintly of the pressroom's lampblack. The notice was already printed. It has today's date on it. She waits while you read, weight on one heel, then collects the copy back and files it in the case without writing anything. Your name wasn't needed. The notice wasn't issued to you. It was shown. The pressure of a notice that was printed before you arrived means the administration's attention was on you before you reached the housing block.`;
         G.worldClocks.pressure++;
         addJournal('Management prohibited further worker vulnerability analysis', 'complication', `soreheim-survival-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -569,7 +569,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Narrative analysis revealed constructed justification system', 'evidence', `soreheim-narrative-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A management communications officer approaches you at the notice board. "These statements represent Alliance operational updates. Characterizing them otherwise is misinformation." He has a printed form. "Please direct any further questions about operational communications to the administration office." The form is a complaint log. Your name goes in the top box.`;
+        G.lastResult = `A management communications officer approaches you at the notice board. "These statements represent Alliance operational updates. Characterizing them otherwise is misinformation." He has a printed form. "Please direct any further questions about operational communications to the administration office." The form is a complaint log. Your name goes in the top box. The watchful speed of that approach — before you finished reading — means someone is monitoring who stands at this board and how long.`;
         G.worldClocks.watchfulness++;
         addJournal('Management aware of narrative structure analysis', 'complication', `soreheim-narrative-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -633,7 +633,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Quota system failure architecture documented with proof', 'evidence', `soreheim-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Someone is waiting outside the archive when you leave. He takes the papers from under your arm without speaking — holds out his hand and waits until you give them over. "Operational documentation is Alliance property." He has a badge. He leaves with the documents. A second person appears at the corner of the building and watches you walk away.`;
+        G.lastResult = `Someone is waiting outside the archive when you leave. He takes the papers from under your arm without speaking — holds out his hand and waits until you give them over. "Operational documentation is Alliance property." He has a badge. He leaves with the documents. A second person appears at the corner of the building and watches you walk away. You are tracked now by people who knew which archive and which documents — the scrutiny was already in place before the door opened.`;
         G.worldClocks.pressure++;
         addJournal('Management directly warned about quota system analysis', 'complication', `soreheim-proof-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -709,7 +709,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Origin source of Soreheim workforce displacement identified as external coordination', 'discovery', `soreheim-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Two steps from the archive cabinet, someone takes your arm. "This area is not open to you." He doesn't raise his voice. There are two more people in the hall. You leave. On the way out, a notice has been pinned to the gate: a general restriction on archive access, dated today, with a timeframe of indefinite. It was already printed when you arrived.`;
+        G.lastResult = `Two steps from the archive cabinet, someone takes your arm. "This area is not open to you." He doesn't raise his voice. There are two more people in the hall. You leave. On the way out, a notice has been pinned to the gate: a general restriction on archive access, dated today, with a timeframe of indefinite. It was already printed when you arrived. The pressure of a gate notice printed before you reached the cabinet means the people you were about to find evidence of were already tracking your progress through this archive.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry interrupted by external coordination operators', 'complication', `soreheim-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
