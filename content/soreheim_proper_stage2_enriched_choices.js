@@ -474,7 +474,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_bren_sothwick = true;
         G.investigationProgress++;
-        G.lastResult = `Bren Sothwick is the kind of person who keeps his route log current by reflex — the habit of someone whose job depends on provable delivery times. He opens it to the relevant weeks without being asked, laying it flat on the mail bench. On the four days Decon's tower access log showed him absent, Bren ran sealed dispatches from an outer-district drop point to the council transit registry rather than the standard Wing receiving office. The drop point address is a disused commercial factor's address two streets behind the north bridge transit station — the same street block as the unlisted annex the courier's route ended at. Someone used the herald's official schedule to route correspondence through an address that doesn't carry Wing oversight.`;
+        G.lastResult = `Bren Sothwick keeps his route log current by reflex — the habit of someone whose job depends on provable delivery times. He opens it to the relevant weeks without being asked, laying it flat on the mail bench. On the four days Decon's tower access log showed him absent, Bren ran sealed dispatches from an outer-district drop point to the council transit registry rather than the standard Wing receiving office. The drop point address is a disused commercial factor's address two streets behind the north bridge transit station — the same street block as the unlisted annex the courier's route ended at. Someone used the herald's schedule to route correspondence through an address that doesn't carry Wing oversight.`;
         addJournal('Herald Bren Sothwick: 4 irregular dispatches from outer-district factor address to transit registry — same block as unlisted north bridge annex', 'evidence', `sor-herald-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -644,7 +644,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.flags.dispatch_rider_intercepted = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The dispatch rider takes the east outer-ring road rather than the transit corridor — a longer route that avoids the checkpoint logs. The sealed pouch rides inside his coat rather than the standard saddle bag, which means the contents are not subject to the transit manifest requirement. At the second rest point he stops, checks the road in both directions, and opens the pouch to read the top document before re-sealing it. The gap lasts forty seconds. The first line of the document is legible: "Second deployment — north bridge depot, loading window opens four days from today's date. Authorization: SC-4417." The second deployment of the suppression compound is already scheduled. The authorization code matches every financial record assembled so far. Four days.`;
+        G.lastResult = `The dispatch rider takes the east outer-ring road rather than the transit corridor — a longer route that avoids the checkpoint logs. The sealed pouch rides inside his coat rather than the standard saddle bag, which means the contents are not subject to the transit manifest requirement. At the second rest point he stops, checks the road in both directions, and opens the pouch to read the top document before re-sealing it. The gap lasts forty seconds. The first line of the document is legible: "Second deployment — north bridge depot, loading window opens four days from today's date. Authorization: SC-4417." The second deployment is already scheduled. The authorization code matches every financial record assembled so far. Four days.`;
         addJournal('Dispatch rider: second compound deployment authorized under SC-4417 — north bridge depot loading window opens in 4 days', 'evidence', `sor-rider-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -668,7 +668,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(112, 'Soreheim Proper Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence assembled so far doesn't carry enough weight for formal action. The council operates on documentation. More is needed before any formal step holds.`;
+        G.lastResult = `The evidence assembled so far doesn't carry enough weight for formal action. The council operates on documentation, and documentation has gaps. More is needed before any formal step holds — at least one more chain confirmed.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
@@ -712,14 +712,14 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_wardens_aware) {
-        G.lastResult = 'Nothing to act on with the Wardens yet.';
+        G.lastResult = 'The low banner is still hanging at the north gate. Nothing to act on with the Wardens yet — the signal is the invitation, not the meeting. Wait for the rotation change before standing under it.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making the Wardens command contact');
       G.flags.met_banner_master_ruven_halse = true;
       G.flags.stage2_faction_wardens_contacted = true;
-      G.lastResult = 'Banner-Master Ruven Halse walks past you at the rotation change, does not stop, and says to meet him at the third bay of the mustering yard in twenty minutes. When you get there he is alone, stripping a patrol saber for cleaning. His register is formal Roadwarden — verbs first, no pleasantries, station numbers as shorthand for places. His tell is that he lines the saber parts on the cloth in the exact order of disassembly and will not speak at all when a piece is out of sequence. He wants the patrol incident log from Station Forty-Two for a specific seven-day window — pulled from the archive room without the duty sergeant signing it out. Official channels have been instructed not to produce it. He needs it to hold a hearing that the Order has been quietly refused.' + applyTensionModifier('warden_any');
+      G.lastResult = 'Banner-Master Ruven Halse walks past you at the rotation change, does not stop, and says to meet him at the third bay of the mustering yard in twenty minutes. When you arrive he is alone, stripping a patrol saber for cleaning. His register is formal Roadwarden — verbs first, no pleasantries, station numbers as shorthand for places. His tell: he lines the saber parts in the exact order of disassembly and will not speak when a piece is out of sequence. He wants the patrol incident log from Station Forty-Two for a specific seven-day window, pulled from the archive without the duty sergeant signing it out. He needs it to hold a hearing the Order has been quietly refused.' + applyTensionModifier('warden_any');
       addJournal('Met Banner-Master Ruven Halse (Roadwardens Order) — wants Station 42 incident log for a 7-day window pulled unofficially; Order hearing has been refused through channels', 'contact_made', `sor-warden-contacted-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
     }
@@ -732,7 +732,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_wardens_contacted) {
-        G.lastResult = 'Halse hasn\'t indicated the next step.';
+        G.lastResult = 'Halse has not named the next step yet. The Station 42 archive is in the eastern duty hall, and the log is still in the filing cabinet. Moving without his timing means moving without the hearing as cover.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -745,7 +745,7 @@ const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (G.flags.stage2_faction_red_hood) {
         tension = ' Ruven closes the log with his thumb still in the page. "There is Red Hood grease on this cover. A hair of it. You are carrying things I would rather you not carry into my bay. I will keep the log. You will not be in the yard when the hearing convenes, and you will not tell me why you smell like a Kerroun broker."';
       }
-      G.lastResult = 'Ruven reads the log in order and stops at a four-day gap where the Station 42 duty sergeant entered the same weather phrase on every line — fair, light wind from the north — across forty hours of what should have been active patrol entries. "That phrase is a place-holder we train new cadets to leave in when they cannot reach the logging post. A station sergeant does not leave it four days in a row. The sergeant was pulled off rotation on the first day and ordered to write it anyway, by a name above mine that is not supposed to have that reach." He does not name the superior. He marks the gap with a saber-cleaning pin and closes the book. "The Order keeps track of what the Order cannot say out loud. Your page just made three years of that tracking admissible."' + tension;
+      G.lastResult = 'Ruven reads the log in order and stops at a four-day gap where the Station 42 duty sergeant entered the same weather phrase on every line — fair, light wind from the north — across forty hours of what should have been active patrol entries. "That phrase is a place-holder cadets use when they cannot reach the logging post. A station sergeant does not leave it four days in a row. The sergeant was ordered to write it anyway, by a name above mine not supposed to have that reach." He marks the gap with a saber-cleaning pin and closes the book. "Your page just made three years of tracking admissible."' + tension;
       addJournal('Roadwardens intel: Station 42 logs show 40-hour placeholder gap ordered by a superior officer whose authority exceeds published rank — tracking admissible', 'evidence', `sor-warden-payoff-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
