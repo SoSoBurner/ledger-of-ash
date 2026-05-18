@@ -32,7 +32,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Svala pulls you to the far end of the threshing grounds, away from the weighing station. "I've been receiving instructions — not guidelines, instructions — about how to read certain family harvests. Connected families: I'm told to log light. The grain goes on the scale the same as always, but the official number comes off the directive, not the scale." They pause. "Independent farmers get the exact opposite. Extra review. I've recorded lower counts than the scale showed because I was told the measurement was imprecise." They don't look at you while they say it. They look at the scale — and their hand moves to the counterweight beam without touching it, the way a measurer reaches to correct a reading that has already been recorded wrong.`;
+        G.lastResult = `Svala pulls you to the far end of the threshing grounds, away from the weighing station. "I've been receiving instructions — not guidelines, instructions — about how to read certain family harvests. Connected families: I'm told to log light. The grain goes on the scale the same as always, but the official number comes off the directive, not the scale." They pause. "Independent farmers get the exact opposite. Extra review. I've recorded lower counts than the scale showed because I was told the measurement was imprecise." They don't look at you while they say it. Their hand moves to the counterweight beam without touching it.`;
         G.stageProgress[1]++;
         addJournal('Grain Measurer revealed corrupted quota system', 'evidence', `harvest-quotas-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -1044,7 +1044,7 @@ const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A yield quota notice and a market stall assignment sheet from the prior day are still pinned at the center. Nothing current. The tally board at the weighing station end posts the morning count each day at first light.';
       return;
     }
     G.flags[key] = true;
