@@ -16,7 +16,7 @@
 const fs   = require('fs');
 const path = require('path');
 
-const TEST_RESULTS = path.join(__dirname, '..', '..', '..', 'test-results');
+const TEST_RESULTS = path.join(__dirname, '..', '..', 'test-results');
 
 class ReportWriter {
   constructor(mode) {
