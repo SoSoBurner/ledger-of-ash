@@ -36,7 +36,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Arbitrator revealed corrupted dispute resolution system', 'evidence', `guildheart-arbitrator-disputes-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kesh moves the open folder to the side of his desk — a deliberate motion, unhurried. "Arbitration proceedings are Category Two confidential. Inquiry without registered standing gets logged." He stamps something without looking at it. The stamp lands near the edge of the page, slightly crooked. He doesn't correct it. You're already logged.`;
+        G.lastResult = `Kesh moves the open folder to the side of his desk — a deliberate motion, unhurried. "Arbitration proceedings are Category Two confidential. Inquiry without registered standing gets logged." He stamps something without looking at it. The stamp lands near the edge of the page, slightly crooked. He doesn't correct it. You're already logged. The pressure of being in that record will make every subsequent approach to this office harder.`;
         G.worldClocks.pressure++;
         addJournal('Arbitrator now protective of guild confidentiality', 'complication', `guildheart-arbitrator-hostile-${G.dayCount}`);
       } else {
@@ -76,7 +76,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Merchant revealed trade agreement post-signing manipulation', 'evidence', `guildheart-merchant-agreements-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Ilya stops loading her manifest. "Who sent you?" Not hostile — specific. She's asking because she's already been asked before, by someone else, about her agreements. Her abacus goes into her bag. The conversation is done. By evening, three stall neighbors have been told someone is circulating questions about contract terms.`;
+        G.lastResult = `Ilya stops loading her manifest. "Who sent you?" Not hostile — specific. She's asking because she's already been asked before, by someone else, about her agreements. Her abacus goes into her bag. The conversation is done. By evening, three stall neighbors have been told someone is circulating questions about contract terms. The watchful attention of the market row is now a problem that follows you.`;
         G.worldClocks.watchfulness++;
         addJournal('Merchant representative spreading suspicion about your motives', 'complication', `guildheart-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -156,7 +156,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Hall keeper revealed membership exclusion as political tool', 'evidence', `guildheart-hall-exclusion-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Emry sets down her abacus with more care than the motion requires. "Membership policy inquiries go through the arbiter's office, Category Three. Are you filing a formal request?" She's already reaching for a blank form. The form is a dead end — you both know it. Two hall staff near the doorway have stopped their conversation.`;
+        G.lastResult = `Emry sets down her abacus with more care than the motion requires. "Membership policy inquiries go through the arbiter's office, Category Three. Are you filing a formal request?" She's already reaching for a blank form. The form is a dead end — you both know it. Two hall staff near the doorway have stopped their conversation. The isolation of this exchange — careful, procedural, witnessed — is itself a message about what asking costs.`;
         G.worldClocks.isolation++;
         addJournal('Hall keeper now wary of your presence', 'complication', `guildheart-hall-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -198,7 +198,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Ledger master revealed dual-entry financial concealment', 'evidence', `guildheart-ledger-fraud-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Toren closes the cover before you finish reading the page title. "Financial documentation is Leadership-Restricted. Unauthorized access request goes to the arbiter's log — automatically." He holds the cover flat. There's a small guild mark embossed at the corner of his cuff. He rotates it toward you deliberately, then turns back to his work. The referral has already been filed.`;
+        G.lastResult = `Toren closes the cover before you finish reading the page title. "Financial documentation is Leadership-Restricted. Unauthorized access request goes to the arbiter's log — automatically." He holds the cover flat. There's a small guild mark embossed at the corner of his cuff. He rotates it toward you deliberately, then turns back to his work. The referral has already been filed. The pressure of that automatic log entry is the point — you've been tracked into the arbitration record before you've asked anything specific.`;
         G.worldClocks.pressure++;
         addJournal('Guild arbitrator alerted to financial records inquiry', 'complication', `guildheart-ledger-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -240,7 +240,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Broker revealed warehouse diversion coordination', 'evidence', `guildheart-broker-diversion-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The broker steps back so a cart can pass, and doesn't step forward again. "Warehouse operations are Category Two guild business. Questions about routing go through the yard clerk, in writing." By the time you find the yard clerk, three brokers along the covered walkway have stopped working. They watch the cart traffic with exaggerated attention.`;
+        G.lastResult = `The broker steps back so a cart can pass, and doesn't step forward again. "Warehouse operations are Category Two guild business. Questions about routing go through the yard clerk, in writing." By the time you find the yard clerk, three brokers along the covered walkway have stopped working. They watch the cart traffic with exaggerated attention — watchful in the specific way that means word has already moved faster than you did.`;
         G.worldClocks.watchfulness++;
         addJournal('Warehouse brokers warned about your inquiry', 'complication', `guildheart-broker-alert-${G.dayCount}`);
       } else {
@@ -279,7 +279,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Initiation overseer revealed coercive membership oath system', 'evidence', `guildheart-initiation-coercion-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Drell closes the ceremony binder and stands. "Initiation records are closed to unregistered inquiry. Guild tradition protocols — Category One." He walks to the door and opens it. "Arbiter Kesh receives initiation inquiries in writing. Office hours are posted at the east annexe." The door stays open. His posture says the conversation ended before you arrived.`;
+        G.lastResult = `Drell closes the ceremony binder and stands. "Initiation records are closed to unregistered inquiry. Guild tradition protocols — Category One." He walks to the door and opens it. "Arbiter Kesh receives initiation inquiries in writing. Office hours are posted at the east annexe." The door stays open. His posture says the conversation ended before you arrived. The question drew enough attention that the corridor outside already holds someone leaning against the opposite wall, watching the door angle.`;
         G.worldClocks.reverence++;
         addJournal('Initiation overseer banned further membership questions', 'complication', `guildheart-initiation-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -321,7 +321,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Apprentice master revealed deliberate craft knowledge suppression', 'evidence', `guildheart-apprentice-suppression-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Keon turns the training ledger face-down on his desk. "Apprentice curriculum is internal to the training division. Inquiry without mentor standing isn't recognized." He walks to the other side of the bench. The apprentices at the worktable exchange a glance and go back to their tasks. The room continues without you in it.`;
+        G.lastResult = `Keon turns the training ledger face-down on his desk. "Apprentice curriculum is internal to the training division. Inquiry without mentor standing isn't recognized." He walks to the other side of the bench. The apprentices at the worktable exchange a glance and go back to their tasks. The room continues without you in it. The wall was designed to be harder to pass than it looks — whoever pressed the training changes down this corridor wanted exactly this barrier between outside eyes and the new curriculum.`;
         G.worldClocks.isolation++;
         addJournal('Apprentice master forbade further training questions', 'complication', `guildheart-apprentice-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -365,7 +365,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Structure analysis revealed centralized power consolidation', 'evidence', `guildheart-structure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A clerk intercepts you at the charter display and asks your guild registration number. When you can't provide one, he notes your physical description in a log — not your name, your description. "Organizational documentation is posted for registered members. Review of internal structure requires Category Two standing." He logs the time. You've been added to a record that has no name for you yet.`;
+        G.lastResult = `A clerk intercepts you at the charter display and asks your guild registration number. When you can't provide one, he notes your physical description in a log — not your name, your description. "Organizational documentation is posted for registered members. Review of internal structure requires Category Two standing." He logs the time. You've been added to a record that has no name for you yet. Being tracked before you've asked anything specific means the inquiry will be harder from this point forward.`;
         G.worldClocks.watchfulness++;
         addJournal('Guild leadership alerted to hierarchy analysis inquiry', 'complication', `guildheart-structure-alert-${G.dayCount}`);
       } else {
@@ -404,7 +404,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Network analysis revealed deliberate merchant displacement', 'evidence', `guildheart-network-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A commercial operations clerk asks for your authorization reference before letting you compare the roster records. When you explain your access basis, she writes something in a ledger — not the roster ledger, a different one kept under the counter. "Merchant network data is Category Two. Formal request required." She keeps the under-counter log open. It doesn't close before you leave.`;
+        G.lastResult = `A commercial operations clerk asks for your authorization reference before letting you compare the roster records. When you explain your access basis, she writes something in a ledger — not the roster ledger, a different one kept under the counter. "Merchant network data is Category Two. Formal request required." She keeps the under-counter log open. It doesn't close before you leave. You've been noticed here, and the note will move before you reach the next counter.`;
         G.worldClocks.watchfulness++;
         addJournal('Guild commercial operations alerted to network analysis', 'complication', `guildheart-network-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -446,7 +446,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Information analysis revealed systematic communication suppression', 'evidence', `guildheart-information-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A man you don't recognize falls into step with you on the covered walkway. He doesn't introduce himself. "Questions about internal guild communications go through the arbiter's registry. Just so you know the correct channel." He peels off toward the east annexe before you can respond. His pace doesn't change. He knew where you were going before you turned.`;
+        G.lastResult = `A man you don't recognize falls into step with you on the covered walkway. He doesn't introduce himself. "Questions about internal guild communications go through the arbiter's registry. Just so you know the correct channel." He peels off toward the east annexe before you can respond. His pace doesn't change. He knew where you were going before you turned. The watchful apparatus here is faster than the questions — someone knows what you're after before you finish asking.`;
         G.worldClocks.watchfulness++;
         addJournal('Guild monitoring alerted to information flow tracking', 'complication', `guildheart-information-alert-${G.dayCount}`);
       } else {
@@ -485,7 +485,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Coercion analysis mapped systematic threat apparatus', 'evidence', `guildheart-coercion-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A note arrives at your lodging before you return. No signature. "Category Three inquiries about guild conduct affect standing status. Current standing: provisional." You don't have provisional standing — you don't have standing at all. Someone assigned you a status specifically to threaten its removal. The apparatus documented itself by reaching for you.`;
+        G.lastResult = `A note arrives at your lodging before you return. No signature. "Category Three inquiries about guild conduct affect standing status. Current standing: provisional." You don't have provisional standing — you don't have standing at all. Someone assigned you a status specifically to threaten its removal. The pressure here has teeth: the apparatus documented itself by reaching for you, and it will be harder to move through this quarter without that file following every step.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry drawing direct coercion response', 'complication', `guildheart-coercion-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -527,7 +527,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Resource flow analysis revealed external resource extraction', 'evidence', `guildheart-resources-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The financial operations clerk asks three questions before answering one. When you ask about the external coordination line, she writes something and excuses herself. She comes back with a supervisor. The supervisor has the same question list. "Resource allocation inquiries — Category One, leadership authorization required." The supervisor stays until you leave the building.`;
+        G.lastResult = `The financial operations clerk asks three questions before answering one. When you ask about the external coordination line, she writes something and excuses herself. She comes back with a supervisor. The supervisor has the same question list. "Resource allocation inquiries — Category One, leadership authorization required." The supervisor stays until you leave the building. The watchful response to a single question means the external coordination line is specifically protected — someone trained the clerks to react this way.`;
         G.worldClocks.watchfulness++;
         addJournal('Guild financial operations alerted to resource flow tracking', 'complication', `guildheart-resources-alert-${G.dayCount}`);
       } else {
@@ -566,7 +566,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Trust analysis revealed systematic institutional faith destruction', 'evidence', `guildheart-trust-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Two merchants spot you speaking to a third and cross the yard to take a different walkway. They don't know you. They know what questions look like from the outside. By midafternoon, the merchant you were speaking with has moved her stall display to face the wall. Your presence here is a liability to anyone seen talking with you.`;
+        G.lastResult = `Two merchants spot you speaking to a third and cross the yard to take a different walkway. They don't know you. They know what questions look like from the outside. By midafternoon, the merchant you were speaking with has moved her stall display to face the wall. Your presence here is a liability to anyone seen talking with you. The isolation tightens around this line of inquiry — the next conversation will be harder to open, and shorter when it opens.`;
         G.worldClocks.isolation++;
         addJournal('Merchants avoiding contact due to proximity risk', 'complication', `guildheart-trust-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -608,7 +608,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Merchant analysis revealed systematic economic vulnerability weaponization', 'evidence', `guildheart-vulnerability-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A clerk intercepts you at the trade license counter. "Merchant standing assessments are Category Two, restricted access. I've flagged this inquiry." She hands you a reference number — not for the inquiry you're conducting, but for an inquiry into your own standing status. Someone already opened a file on you. The flag predates today's conversation.`;
+        G.lastResult = `A clerk intercepts you at the trade license counter. "Merchant standing assessments are Category Two, restricted access. I've flagged this inquiry." She hands you a reference number — not for the inquiry you're conducting, but for an inquiry into your own standing status. Someone already opened a file on you. The flag predates today's conversation. That pressure is already in the room before you arrived — asking further questions here will only make the file thicker.`;
         G.worldClocks.pressure++;
         addJournal('Arbitrator prohibited further merchant vulnerability analysis', 'complication', `guildheart-vulnerability-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -650,7 +650,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Authority analysis revealed deliberate decision opacity structure', 'evidence', `guildheart-opacity-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A guild officer stops you outside the decision board and asks your registered purpose. When you describe what you're reviewing, he writes a memo on the spot. "Decision process review is Category One — leadership-authorized only. I'm flagging this as an unregistered inquiry." He hands you a copy of the memo. You are now, technically, the subject of a Category One flag you generated by reading a public board.`;
+        G.lastResult = `A guild officer stops you outside the decision board and asks your registered purpose. When you describe what you're reviewing, he writes a memo on the spot. "Decision process review is Category One — leadership-authorized only. I'm flagging this as an unregistered inquiry." He hands you a copy of the memo. You are now, technically, the subject of a Category One flag you generated by reading a public board. The scrutiny attached to that flag will follow you into every subsequent inquiry at this hall.`;
         G.worldClocks.watchfulness++;
         addJournal('Guild leadership notified of decision structure review', 'complication', `guildheart-opacity-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -754,7 +754,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Arbitration corruption documented with paper evidence', 'evidence', `guildheart-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Someone takes the documents before you finish compiling them. Not the originals — your notes. A clerk apologizes: "Unregistered document reproduction from guild records — Category One violation. This has been reported." Your compiled work is gone. What you assembled from memory is accurate. What you can prove is now thinner.`;
+        G.lastResult = `Someone takes the documents before you finish compiling them. Not the originals — your notes. A clerk apologizes: "Unregistered document reproduction from guild records — Category One violation. This has been reported." Your compiled work is gone. What you assembled from memory is accurate. What you can prove is now thinner. The pressure here is measured: whoever runs this apparatus prefers to drain the evidence rather than remove the person carrying it.`;
         G.worldClocks.pressure++;
         addJournal('Compiled arbitration evidence seized and inquiry flagged', 'complication', `guildheart-proof-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -841,7 +841,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('External coordination source identified — northeast routing, matching directive language', 'discovery', `guildheart-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A courier you don't recognize stops you at the archive corridor. He hands you a folded note and leaves before you open it. Inside: "Category One inquiry. Stop or be stopped." No signature. The handwriting is precise — not a clerk's hand, someone trained in formal notation. Someone outside this building read your movements today before you entered the archive.`;
+        G.lastResult = `A courier you don't recognize stops you at the archive corridor. He hands you a folded note and leaves before you open it. Inside: "Category One inquiry. Stop or be stopped." No signature. The handwriting is precise — not a clerk's hand, someone trained in formal notation. Someone outside this building read your movements today before you entered the archive. The pressure this time isn't procedural — it's personal, and it's from a hand that doesn't need a flag form to track you.`;
         G.worldClocks.pressure += 2;
         addJournal('External party intercepted archive approach with direct warning', 'complication', `guildheart-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {

@@ -34,7 +34,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Commander flagged contradictory and weakening orders', 'evidence', `ithtananalor-commander-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The commander's posture shifts before the second question is finished. "Command decisions aren't civilian business. That is operational security." He stands and opens the office door. The inquiry is reported to garrison administration within the hour. Whatever record exists of your visit now has an official annotation attached to it.`;
+        G.lastResult = `The commander's posture shifts before the second question is finished. "Command decisions aren't civilian business. That is operational security." He stands and opens the office door. The inquiry is reported to garrison administration within the hour. Whatever record exists of your visit now has an official annotation attached to it. The pressure of that annotation compounds — every subsequent question at this garrison arrives with a file that precedes it.`;
         G.worldClocks.pressure++;
         addJournal('Military command now aware of your inquiry', 'complication', `ithtananalor-commander-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -74,7 +74,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Honor guard revealed oath language corruption', 'evidence', `ithtananalor-guard-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Elira stops mid-check. "Oaths are sacred binding. Questions about their content from someone outside the sworn line are a breach of that sanctity." She doesn't raise her voice — the stillness carries more than volume would. The conversation is over. The dishonor of the question will circulate within the guard rotation before the day is out.`;
+        G.lastResult = `Elira stops mid-check. "Oaths are sacred binding. Questions about their content from someone outside the sworn line are a breach of that sanctity." She doesn't raise her voice — the stillness carries more than volume would. The conversation is over. The dishonor of the question will circulate within the guard rotation before the day is out. The scrutiny that follows this breach of sacred protocol will make the next inquiry at the garrison harder to open without it being read as continued disrespect.`;
         G.worldClocks.reverence++;
         addJournal('Honor guard considers oath inquiry a sacred violation', 'complication', `ithtananalor-guard-hostile-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -154,7 +154,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Training master revealed systematic abuse disguised as discipline', 'evidence', `ithtananalor-trainer-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kross signals a halt the moment you step onto the observation line. "Training ground is restricted to assigned personnel." He doesn't wait for a response. Two soldiers appear at your shoulders and walk you back through the gate without acknowledgment. The session continues behind you. The training master's territorial response is its own kind of data.`;
+        G.lastResult = `Kross signals a halt the moment you step onto the observation line. "Training ground is restricted to assigned personnel." He doesn't wait for a response. Two soldiers appear at your shoulders and walk you back through the gate without acknowledgment. The session continues behind you. The training master's territorial response is its own kind of data. The pressure of being walked back in front of the full training block means your face is known at this station — returning will be harder and watched from the moment of approach.`;
         G.worldClocks.pressure++;
         addJournal('Training master banned you from training grounds', 'complication', `ithtananalor-trainer-hostile-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -193,7 +193,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Helix checks the door before pulling the second ledger from the back of the lower drawer. His hands are steady but his breath isn't. The official roster and the assignment roster don't match — soldiers listed in the second ledger don't appear anywhere in the first. No duty rotation, no supply allocation, no casualty protocol. "I maintain both," he says. "When I asked what the second one was for I was told to keep accurate records and stop asking what they were for." His voice has the flatness of someone who stopped asking months ago.`;        G.stageProgress[1]++;
         addJournal('Clerk revealed hidden roster of disappeared soldiers', 'evidence', `ithtananalor-clerk-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Helix doesn't pull anything from the desk. His hands stay still. "Garrison records require command authorization for access. In writing, signed by an officer of senior rank." He gives the answer quickly — practiced to the point of reflex. A notched quill rests in the inkwell to his left, half-used. The records exist behind the door at the back of the room. The authorization process exists on paper in the command block. Neither is going to happen today, and the speed of his answer suggests he's already decided that.`;
+        G.lastResult = `Helix doesn't pull anything from the desk. His hands stay still. "Garrison records require command authorization for access. In writing, signed by an officer of senior rank." He gives the answer quickly — practiced to the point of reflex. A notched quill rests in the inkwell to his left, half-used. The records exist behind the door at the back of the room. The authorization process exists on paper in the command block. Neither is going to happen today, and the speed of his answer suggests he's already decided that. The pressure of the bureaucratic wall is designed to make the answer harder, not impossible — which means someone expects people to keep asking.`;
         G.worldClocks.pressure++;
         addJournal('Garrison clerk refusing record access', 'complication', `ithtananalor-clerk-blocked-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -233,7 +233,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Quartermaster revealed hidden arsenal redistribution', 'evidence', `ithtananalor-quartermaster-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Sarn answers from behind the inventory board without looking up. His chalk is moving down a column of figures as he speaks. "Military logistics is confidential to the command chain. I can't discuss movements with parties outside that chain." He's not hostile — he's procedural, and the procedure is doing its job. The supply record is behind a wall that requires command authorization to pass, and authorization requires going through the same command structure that controls the movements being questioned. The board stays between you.`;
+        G.lastResult = `Sarn answers from behind the inventory board without looking up. His chalk is moving down a column of figures as he speaks. "Military logistics is confidential to the command chain. I can't discuss movements with parties outside that chain." He's not hostile — he's procedural, and the procedure is doing its job. The supply record is behind a wall that requires command authorization to pass, and authorization requires going through the same command structure that controls the movements being questioned. The board stays between you. The pressure here is the loop itself — command controls the inquiry into command, and the wall is designed to hold precisely because of that.`;
         G.worldClocks.pressure++;
         addJournal('Quartermaster refusing supply discussion', 'complication', `ithtananalor-quartermaster-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -273,7 +273,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Ritual keeper revealed sacred formula rewriting', 'evidence', `ithtananalor-ritual-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Marin's response comes before the second sentence is finished. "Sacred practice does not submit to interrogation from outside the sanctioned line." She doesn't move toward the archive — she moves toward the door and opens it. The ritual system closes behind the question. Any return approach requires a different framing or a different door.`;
+        G.lastResult = `Marin's response comes before the second sentence is finished. "Sacred practice does not submit to interrogation from outside the sanctioned line." She doesn't move toward the archive — she moves toward the door and opens it. The ritual system closes behind the question. Any return approach requires a different framing or a different door. The scrutiny attached to this breach will precede any future sacred inquiry — the sanctioned line has been noted, and you are on the wrong side of it.`;
         G.worldClocks.reverence++;
         addJournal('Ritual keeper offended by sacred practice inquiry', 'complication', `ithtananalor-ritual-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -313,7 +313,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Authority revealed spiritual validation of illegitimate command', 'evidence', `ithtananalor-authority-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Daven straightens and his tone shifts register. "The validation of authority through sacred rite is a matter of faith. Questioning that process from outside the sanctioned line constitutes a crisis of faith in the command structure." He will file an inquiry record before the hour ends. The question has been categorized and the category has consequences.`;
+        G.lastResult = `Daven straightens and his tone shifts register. "The validation of authority through sacred rite is a matter of faith. Questioning that process from outside the sanctioned line constitutes a crisis of faith in the command structure." He will file an inquiry record before the hour ends. The question has been categorized and the category has consequences. The scrutiny of that filing extends beyond this room — it becomes part of how the command structure reads your presence here.`;
         G.worldClocks.reverence++;
         addJournal('Ritual authority reported faith crisis inquiry', 'complication', `ithtananalor-authority-hostile-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -355,7 +355,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Combat analysis revealed surgical fortification sabotage', 'evidence', `ithtananalor-fortification-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A guard at the eastern wall notes the angle of your attention — not the wall, but the gap between the repositioned emplacements. He steps toward you and asks your purpose at the fortification. The question is polite. The two soldiers who appear at the corner behind him are not a coincidence. "Tactical observation of defensive positions is restricted." You're walked to the garrison gate. The report of a civilian studying the wall's coverage gap will reach the watch supervisor before you're off the street.`;
+        G.lastResult = `A guard at the eastern wall notes the angle of your attention — not the wall, but the gap between the repositioned emplacements. He steps toward you and asks your purpose at the fortification. The question is polite. The two soldiers who appear at the corner behind him are not a coincidence. "Tactical observation of defensive positions is restricted." You're walked to the garrison gate. The report of a civilian studying the wall's coverage gap will reach the watch supervisor before you're off the street. You've been noticed at the one section of the wall that matters most.`;
         G.worldClocks.watchfulness++;
         addJournal('Military security alerted to fortification analysis', 'complication', `ithtananalor-fortification-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -395,7 +395,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Military tracking revealed shadow force structure and deployment', 'evidence', `ithtananalor-shadow-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The tracking draws attention before the destination is reached. Two soldiers in unmarked coats intercept at the edge of the third supply route — no garrison insignia, no identification offered. The taller one speaks once: "This route doesn't concern you." They stay between you and the route until you move. They don't follow. The shadow force knows it's being tracked and chose to show itself rather than let the tracking continue. They want the message delivered, not a confrontation logged.`;
+        G.lastResult = `The tracking draws attention before the destination is reached. Two soldiers in unmarked coats intercept at the edge of the third supply route — no garrison insignia, no identification offered. The taller one speaks once: "This route doesn't concern you." They stay between you and the route until you move. They don't follow. The shadow force knows it's being tracked and chose to show itself rather than let the tracking continue. They want the message delivered, not a confrontation logged. The pressure of that choice is precise — they are watching, and they decided you should know it.`;
         G.worldClocks.pressure += 2;
         addJournal('Shadow force directly warned you away from the inquiry', 'complication', `ithtananalor-shadow-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -435,7 +435,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Oath law analysis revealed legal system corruption', 'evidence', `ithtananalor-law-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The pattern of records access — specifically the combination of oath language archives and the precedent council's personnel records — draws a notice from the registry oversight office. A legal authority representative meets you at the door on the way out. "Legal precedent is proprietary to the council's jurisdiction. External analysis without standing is not permitted." The notice is filed. The analysis has been logged as unauthorized.`;
+        G.lastResult = `The pattern of records access — specifically the combination of oath language archives and the precedent council's personnel records — draws a notice from the registry oversight office. A legal authority representative meets you at the door on the way out. "Legal precedent is proprietary to the council's jurisdiction. External analysis without standing is not permitted." The notice is filed. The analysis has been logged as unauthorized. The watchful response to a specific document combination means the oath-law changes are a protected line — someone anticipated this inquiry.`;
         G.worldClocks.watchfulness++;
         addJournal('Legal authorities alerted to oath law analysis', 'complication', `ithtananalor-law-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -475,7 +475,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Coercion analysis mapped oath-weaponization for compliance', 'evidence', `ithtananalor-coercion-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The first question about supplementary oaths produces a polite end to the conversation. By the second attempt, word has moved ahead. A third soldier doesn't let the question finish before stepping back. Being associated with an inquiry about oath-breaking carries its own risk — if the supplementary oath system is real, proximity to someone questioning it could mark a soldier as a potential oath-breaker themselves. The garrison has grown too careful to speak to someone with this particular set of questions.`;
+        G.lastResult = `The first question about supplementary oaths produces a polite end to the conversation. By the second attempt, word has moved ahead. A third soldier doesn't let the question finish before stepping back. Being associated with an inquiry about oath-breaking carries its own risk — if the supplementary oath system is real, proximity to someone questioning it could mark a soldier as a potential oath-breaker themselves. The garrison has grown too careful to speak to someone with this particular set of questions. The isolation is not hostility; it is a form of self-protection, and it works against you just the same.`;
         G.worldClocks.isolation++;
         addJournal('Population distancing from you due to oath-breaking inquiry', 'complication', `ithtananalor-coercion-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -515,7 +515,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Morale analysis revealed systematic military demoralization', 'evidence', `ithtananalor-morale-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Questions about unit cohesion and command confidence land wrong in the garrison commons. A soldier who's been sitting quietly at the end of the table stands and walks toward the training block. Within twenty minutes Kross appears at the commons entrance and sweeps the room. The morale questions have been classified as a diagnostic attempt — the kind that precedes formal review. Soldiers in a coercion system protect the system even when they hate it.`;
+        G.lastResult = `Questions about unit cohesion and command confidence land wrong in the garrison commons. A soldier who's been sitting quietly at the end of the table stands and walks toward the training block. Within twenty minutes Kross appears at the commons entrance and sweeps the room. The morale questions have been classified as a diagnostic attempt — the kind that precedes formal review. Soldiers in a coercion system protect the system even when they hate it. The isolation this creates is thorough — the commons is no longer a place where any soldier will speak to you without measuring the cost first.`;
         G.worldClocks.isolation++;
         addJournal('Soldiers reported your morale assessment as suspicious', 'complication', `ithtananalor-morale-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -555,7 +555,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Command conspiracy revealed external direction of internal sabotage', 'evidence', `ithtananalor-command-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The command communication mapping draws a response before it's finished. Three officers in unmarked dress appear in the records corridor — not garrison officers, shadow force. The one in front doesn't identify himself. "You're assembling a picture that doesn't belong to you." They don't touch you. They stand between you and the next set of records until you leave. The shadow command structure has read the shape of your inquiry and chosen a direct response. They now know how close the picture is to complete.`;
+        G.lastResult = `The command communication mapping draws a response before it's finished. Three officers in unmarked dress appear in the records corridor — not garrison officers, shadow force. The one in front doesn't identify himself. "You're assembling a picture that doesn't belong to you." They don't touch you. They stand between you and the next set of records until you leave. The shadow command structure has read the shape of your inquiry and chosen a direct response. They now know how close the picture is to complete. The pressure this time is not institutional — it is from the structure being documented, which means you are now watched by the thing you are watching.`;
         G.worldClocks.pressure += 2;
         addJournal('Shadow command directly confronted you about hierarchy mapping', 'complication', `ithtananalor-command-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -625,7 +625,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Military coup documentation compiled', 'evidence', `ithtananalor-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The evidence assembly draws attention before it's complete. Three shadow force operatives appear at the records station — not to detain, to interrupt. The documents in hand are taken. Not all of them, only the ones that connect multiple systems together. The pieces that remain are individually dismissible. What's been removed was the connective tissue. The conspiracy has read the assembly in progress and made a surgical cut. The picture has gaps now that weren't there an hour ago, and the people who created those gaps know you were close.`;
+        G.lastResult = `The evidence assembly draws attention before it's complete. Three shadow force operatives appear at the records station — not to detain, to interrupt. The documents in hand are taken. Not all of them, only the ones that connect multiple systems together. The pieces that remain are individually dismissible. What's been removed was the connective tissue. The conspiracy has read the assembly in progress and made a surgical cut. The picture has gaps now that weren't there an hour ago, and the people who created those gaps know you were close. The pressure from this point is personal — you are now tracked by the thing you were documenting.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry directly noticed by conspiracy operators', 'complication', `ithtananalor-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
@@ -707,7 +707,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Origin source of Ithtananalor military conspiracy identified as external Shelkopolis coordination', 'discovery', `ithtananalor-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The command records room has a guard that wasn't present yesterday. He doesn't let you reach the directory ledger. Two more appear before the question is asked. The sealed pouch — wherever it is — stays sealed. You're walked out of the command block without a formal charge and without a formal record. The origin source hasn't been reached. But the shadow command knows you came looking for it, and they've closed the room.`;
+        G.lastResult = `The command records room has a guard that wasn't present yesterday. He doesn't let you reach the directory ledger. Two more appear before the question is asked. The sealed pouch — wherever it is — stays sealed. You're walked out of the command block without a formal charge and without a formal record. The origin source hasn't been reached. But the shadow command knows you came looking for it, and they've closed the room. The pressure of this closure is a signal: whoever controls the origin point is watching closely enough to post a guard before you arrived.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry interrupted by conspiracy operators', 'complication', `ithtananalor-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
@@ -747,7 +747,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Military systems analysis revealed coordinated occupation engineering', 'evidence', `ithtananalor-pattern-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The documents spread across the reading table make the pattern visible to anyone who enters the room. A garrison intelligence officer appears at the door before the analysis is complete — not hostile, but specific about why he's here. The combination of materials pulled together has drawn a notice from military oversight. Your purposes are requested in writing. The documents are noted. The pattern you've assembled is now on someone else's desk before it finished forming on yours.`;
+        G.lastResult = `The documents spread across the reading table make the pattern visible to anyone who enters the room. A garrison intelligence officer appears at the door before the analysis is complete — not hostile, but specific about why he's here. The combination of materials pulled together has drawn a notice from military oversight. Your purposes are requested in writing. The documents are noted. The pattern you've assembled is now on someone else's desk before it finished forming on yours. The watchful response to document combination means the system anticipated this particular inquiry path.`;
         G.worldClocks.watchfulness++;
         addJournal('Your military pattern analysis drew intelligence scrutiny', 'complication', `ithtananalor-pattern-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -787,7 +787,7 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Ithtananalor military understood as proof of concept for systematic military conversion', 'discovery', `ithtananalor-understanding-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Three shadow force operatives appear at the entrance to the reading room as the final thread connects. They don't draw weapons. The one in front speaks flatly: this line of work stops here. No explanation given for why or by whose authority. They're not wearing garrison marks. The synthesis is in your head, complete enough to matter, and they're here because something in the inquiry's path told them it was almost finished. Whatever was being assembled has been interrupted at the last step.`;
+        G.lastResult = `Three shadow force operatives appear at the entrance to the reading room as the final thread connects. They don't draw weapons. The one in front speaks flatly: this line of work stops here. No explanation given for why or by whose authority. They're not wearing garrison marks. The synthesis is in your head, complete enough to matter, and they're here because something in the inquiry's path told them it was almost finished. Whatever was being assembled has been interrupted at the last step. The pressure is now explicit: you are being tracked at the level where knowledge itself becomes the threat.`;
         G.worldClocks.pressure += 2;
         addJournal('Final understanding synthesis blocked by shadow force threat', 'complication', `ithtananalor-understanding-stopped-${G.dayCount}`);
       } else if (result.total >= 14) {
