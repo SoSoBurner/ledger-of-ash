@@ -606,7 +606,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.panim_courier_located = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
-        G.lastResult = `The courier is staying at a boarding house near the civic records quarter — not the Ironspool district, where a trade courier would normally lodge. He has been visiting the Registry twice daily, carrying nothing out either time. When you approach at the corner of the lane he stops and names the Panim Deputy Civic Underwriter's office without being asked, the way someone names a thing they've been holding as leverage and have decided to spend. He wants out of the arrangement he was sent here to complete. He has one document he hasn't delivered yet: a conditional co-sign endorsement that makes the charter amendment's Panim authorization conditional on a second party's approval. That second party is not named in the amendment text.`;
+        G.lastResult = `The courier is staying at a boarding house near the civic records quarter — not the Ironspool district, where a trade courier would normally lodge. He has been visiting the Registry twice daily, carrying nothing out either time. When you approach at the corner of the lane he stops and names the Panim Deputy Civic Underwriter's office without being asked, the way someone names a thing they've been holding as leverage and decided to spend. He wants out of the arrangement he was sent here to complete. He has one document he hasn't delivered: a conditional co-sign endorsement that makes the charter amendment's Panim authorization conditional on a second party's approval. That party is not named in the amendment text.`;
         addJournal('Panim courier located — undelivered conditional co-sign endorsement; anonymous second approval required', 'evidence', `shelk-panim-courier-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
@@ -663,7 +663,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.charter_integrity_office_located = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
-        G.lastResult = `City maintenance records route a heating coal delivery to a Collegium annex building that does not appear in the civic directory — the delivery is logged under a room number the directory omits entirely. You find the building: a narrow three-story structure wedged between the civic records chamber and the guild mediation hall, its entrance set back from the lane by four feet and unmarked. The nameplate slot beside the door is present but empty. Inside the slot, still visible against the backing: the adhesive shadow of removed letters, long enough for a two-line title. The coal delivery log names the recipient: D.C.C.I. The office exists. It operates. It signs suppression orders. Nobody in the published record is supposed to know where it is.`;
+        G.lastResult = `City maintenance records route a heating coal delivery to a Collegium annex building that does not appear in the civic directory — logged under a room number the directory omits. You find the building: a narrow three-story structure wedged between the civic records chamber and the guild mediation hall, its entrance set back from the lane by four feet and unmarked. The nameplate slot beside the door is present but empty. Inside the slot, still visible against the backing: the adhesive shadow of removed letters, long enough for a two-line title. The coal delivery log names the recipient: D.C.C.I. The office exists. It operates. It signs suppression orders. Nobody in the published record is supposed to know where it is.`;
         addJournal('Director of Civic Charter Integrity office located — unmarked annex, nameplate removed, coal deliveries ongoing', 'evidence', `shelk-dcci-office-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -749,7 +749,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.surge_channel_node_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
-        G.lastResult = `The maintenance node is a brass-capped junction box set into the archival quarter's west retaining wall — the kind of infrastructure point that appears in city schematics but not in any walkable directory. The wax seal on the inspection cap has been replaced recently: the original seal was fired clay, the replacement is pressed wax over a different backing compound, and it's been set with a tool that left a faint spiral mark the original installation wouldn't have made. Inside, the routing plate has been repositioned ninety degrees off its grounded orientation — the position required to channel a surge outward rather than contain it. Someone with working knowledge of Shelkopolis ward grid infrastructure made this modification. That is a credential-gated skill. The registry of persons holding it has fewer than fourteen entries.`;
+        G.lastResult = `The maintenance node is a brass-capped junction box set into the archival quarter's west retaining wall — an infrastructure point in city schematics but not in any walkable directory. The wax seal on the inspection cap has been replaced recently: the original seal was fired clay, the replacement is pressed wax, set with a tool that left a faint spiral mark the original installation wouldn't have made. Inside, the routing plate has been repositioned ninety degrees off its grounded orientation — the position required to channel a surge outward rather than contain it. Someone with working knowledge of Shelkopolis ward infrastructure made this modification. That is a credential-gated skill. The registry of persons holding it has fewer than fourteen entries.`;
         addJournal('Ward maintenance node modified — routing plate repositioned for outward surge channeling, fourteen credentialed persons in registry', 'evidence', `shelk-node-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -777,7 +777,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.shell_proxy_chain_confirmed = true;
         G.investigationProgress++;
-        G.lastResult = `The founding signatory's estate was settled through probate two years ago and carries no active trading authorization — his registry standing was formally retired at the time of settlement. The subsidiary, however, continues drawing against a commercial credit line issued under his name, which means someone is making authorized signatory representations on behalf of a dead man's estate. Doing so requires either a fraudulent estate proxy or a living co-signatory whose name was added to the charter after the original filing. You find the co-signatory addendum, filed four months after the original charter and one week after the founding signatory's death: a name entered in a different ink from the original document. The name is a Shelkopolis notarial office — the same office that certified the cross-polity suppression order.`;
+        G.lastResult = `The founding signatory's estate was settled through probate two years ago and carries no active trading authorization — his registry standing retired at settlement. The subsidiary, however, continues drawing against a commercial credit line issued under his name, which means someone is making authorized signatory representations on behalf of a dead man's estate. Doing so requires either a fraudulent estate proxy or a living co-signatory added to the charter after the original filing. You find the co-signatory addendum, filed four months after the original charter and one week after the founding signatory's death: a name entered in a different ink. The name is a Shelkopolis notarial office — the same office that certified the cross-polity suppression order.`;
         addJournal('Shell subsidiary co-signatory addendum: Shelkopolis notarial office — same office certified cross-polity suppression order', 'evidence', `shelk-proxy-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -875,14 +875,14 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_shadowhands_aware) {
-        G.lastResult = 'Nothing to act on with the contact yet.';
+        G.lastResult = 'The chalk mark is still drying on the wall by the dye-quarter alley. Nothing to act on with this contact yet — return after the curl sets and the message has had time to find its intended reader.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making the Shadowhands intake contact');
       G.flags.met_kess_the_crossing = true;
       G.flags.stage2_faction_shadowhands_contacted = true;
-      G.lastResult = 'The boy leads you two lanes over to a back room behind a dye works. The woman waiting is short, middle years, with a working hand bandaged at the knuckle and the other hand bare. She introduces herself only as Kess the Crossing. Her register is Roazian border-trader — clipped consonants, no honorifics, a habit of naming the weather as a greeting. Her tell is that she keeps her bare hand flat on the tabletop the whole conversation, palm down, fingers spread. She does not trust her hand out of sight. She needs a manifest page — the Ironspool south-dock night-shift ledger from a specific day two weeks ago. Not copied. Removed. The Shadowhands will replace it with a forgery good enough to pass a Roadwarden count.';
+      G.lastResult = 'The boy leads you two lanes to a back room behind a dye works. The woman waiting is short, middle years, with a working hand bandaged at the knuckle and the other hand bare. She introduces herself only as Kess the Crossing. Her register is Roazian border-trader — clipped consonants, no honorifics, naming the weather as a greeting. Her tell is that she keeps her bare hand flat on the tabletop, palm down, fingers spread. She does not trust her hand out of sight. She needs a manifest page — the Ironspool south-dock night-shift ledger from a specific day two weeks ago. Not copied. Removed. The Shadowhands will replace it with a forgery good enough to pass a Roadwarden count.';
       addJournal('Met Kess the Crossing (Shadowhands intake) — wants Ironspool south-dock night-shift ledger page removed; Shadowhands will substitute forgery', 'contact_made', `shelk-shadow-contacted-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
     }
@@ -895,7 +895,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_shadowhands_contacted) {
-        G.lastResult = 'Kess hasn\'t indicated the next step.';
+        G.lastResult = 'Kess has not named the window yet. The night-shift turnover runs during the third bell, and the ledger sits unattended for those twenty minutes — but moving without her timing means moving blind. The signal comes from her side first.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -908,7 +908,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       if (G.flags.stage2_faction_collegium) {
         tension = ' Kess closes the folio halfway through and looks up. "Your boots carry chalk dust from the Arbiter alcove runner. That alcove has had an outside audit chair since last rotation. I will still give you what I said I would. But what I give will be what a Collegium filer can hear without it costing us a cell."';
       }
-      G.lastResult = 'Kess reads the page twice before she speaks. Her palm stays flat. "The night-shift ledger was forged before your copy was made. Three different hands logged the same three containers under three different freight codes across three shifts — same crate weight, same seal number, three paperwork lives. The Shadowhands have been tracking the third-code variant across six ports. It is not a shipping scheme. It is a paper screen built to hide where one specific cargo actually goes. Your page is the first one we have that names the origin officer. Not the receiver. The origin." She gives you a folded strip of rice paper with a single Roazian cipher on it. "If you are in a room and you need out, set this down where it can be seen. Someone will move."' + tension;
+      G.lastResult = 'Kess reads the page twice before she speaks. Her palm stays flat. "The night-shift ledger was forged before your copy was made. Three different hands logged the same three containers under three different freight codes across three shifts — same crate weight, same seal number, three paperwork lives. The Shadowhands have been tracking the third-code variant across six ports. It is not a shipping scheme. It is a paper screen built to hide where one specific cargo actually goes. Your page is the first one that names the origin officer. Not the receiver. The origin." She gives you a strip of rice paper with a single Roazian cipher. "Set this where it can be seen. Someone will move."' + tension;
       addJournal('Shadowhands intel: ledger forgery revealed three-code freight screen across six ports — cargo origin officer named for the first time', 'evidence', `shelk-shadow-payoff-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
