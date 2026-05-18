@@ -1042,7 +1042,11 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "The aqueduct spans are older than the garrison walls beneath them.",
     tag: 'safe · observation · DC 7',
     effects: [],
-    result: 'Water runs along the elevated channel in a steady, soundless pull, the stone so worn smooth at the joints that the seams are almost invisible. Below the main span, market stalls cluster under the shade — spice racks, bolt cloth, stacked rope coils, all oriented toward the foot traffic that flows with the canal above rather than across it. A lock gate at the far end releases pressure in a measured beat, and the sound carries down the lane like a slow pulse. Ithtananalor was built around this channel before anything else was placed.',
+    fn: function() {
+      G.lastResult = 'Water runs along the elevated channel in a steady, soundless pull, the stone so worn smooth at the joints that the seams are almost invisible. Below the main span, market stalls cluster under the shade — spice racks, bolt cloth, stacked rope coils, all oriented toward the foot traffic that flows with the canal above rather than across it. A lock gate at the far end releases pressure in a measured beat, and the sound carries down the lane like a slow pulse. Ithtananalor was built around this channel before anything else was placed.';
+      gainXp(10, 'canal observation');
+      G.recentOutcomeType = 'observe';
+    },
     failResult: 'The canal walk is too crowded to read clearly right now — carters pushing barrows against foot traffic block the main span view. The side lane below the lock gate is quieter and opens onto the same waterway from a better angle.'
   },
 
@@ -1051,7 +1055,11 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "Three flat-bottomed boats waiting at the lower lock. Nothing moving.",
     tag: 'safe · observation · DC 7',
     effects: [],
-    result: 'The boats are loaded — crates stacked to the rail line, covered in oilcloth and rope-tied. The boatmen sit at the bow ends without speaking to each other, the particular stillness of people who have been waiting long enough to stop expecting the wait to end. The lock mechanism above the gate is in its closed position, and no lock-tender is visible at the control post. The cargo is legitimate by its markings: supply tonnage for distribution inside the garrison perimeter. It has been sitting here since before dawn.',
+    fn: function() {
+      G.lastResult = 'The boats are loaded — crates stacked to the rail line, covered in oilcloth and rope-tied. The boatmen sit at the bow ends without speaking to each other, the particular stillness of people who have been waiting long enough to stop expecting the wait to end. The lock mechanism above the gate is in its closed position, and no lock-tender is visible at the control post. The cargo is legitimate by its markings: supply tonnage for distribution inside the garrison perimeter. It has been sitting here since before dawn.';
+      gainXp(10, 'water traffic observation');
+      G.recentOutcomeType = 'observe';
+    },
     failResult: 'The lock tender posts are occupied now and the boats are beginning to move through — the window for a closer read of the cargo has closed. The distribution depot at the garrison perimeter gate receives the same cargo manifests the lock records carry.'
   },
 
@@ -1060,7 +1068,11 @@ const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "The stall-holders under the aqueduct spans know when the garrison shifts change.",
     tag: 'safe · observation · DC 7',
     effects: [],
-    result: 'A cord-seller repositions his rack without prompting when a group of off-duty soldiers rounds the far corner — not hiding, just angling to face them. The timing is practiced. Three stall-holders within arm\'s reach of each other track the same group and none of them acknowledge doing it. The market beneath the aqueduct runs on garrison rhythm as much as trade rhythm: prices adjust at shift-change, popular items move forward on the table, the quieter goods slide back. The stalls are reading the garrison the way weather-readers read cloud cover.',
+    fn: function() {
+      G.lastResult = 'A cord-seller repositions his rack without prompting when a group of off-duty soldiers rounds the far corner — not hiding, just angling to face them. The timing is practiced. Three stall-holders within arm\'s reach of each other track the same group and none of them acknowledge doing it. The market beneath the aqueduct runs on garrison rhythm as much as trade rhythm: prices adjust at shift-change, popular items move forward on the table, the quieter goods slide back. The stalls are reading the garrison the way weather-readers read cloud cover.';
+      gainXp(10, 'market stall observation');
+      G.recentOutcomeType = 'observe';
+    },
     failResult: 'The mid-span stalls are packing down early — a supply cart needs the lane and the holders are clearing space. The lower market near the lock gate stays open longer and runs the same goods.'
   }
 ];
