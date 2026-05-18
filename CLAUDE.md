@@ -75,7 +75,7 @@ Every plan phase that adds content must expand the total content of the stage it
 
 ## Playwright E2E — Critical Gotchas
 
-- **E2E stall guards (full-playthrough.spec.js)**: 60s wall-clock stall → counted as failed run; 3x same-label pick → `_travelCoreTravelTo(dest)` teleport to `ESCAPE_LOCS`; 30-pick same-location → teleport. Do not remove these guards or reduce the 60s threshold.
+- **E2E stall guards (playtest-headless.spec.js)**: 60s wall-clock stall → counted as failed run; 3x same-label pick → `_travelCoreTravelTo(dest)` teleport to `ESCAPE_LOCS`; 30-pick same-location → teleport. Do not remove these guards or reduce the 60s threshold.
 - **No pipes or redirects in playwright commands**: `Bash(npx playwright test *)` in settings.json won't match `npx playwright test ... | tail` or `... > file`. Run bare: `npx playwright test tests/e2e/foo.spec.js --reporter=line` — no pipes, no output redirection.
 - **`/tmp/` doesn't exist on Windows**: Never redirect output there. Use `run_in_background:true` and let the task capture output, or redirect to an absolute Windows path.
 - **`test.use({ launchOptions })` must be file-level**: Can't use inside `test.describe()` — Playwright rejects it. Headed vs headless = separate spec files.
@@ -371,9 +371,17 @@ Before writing any prework question, check whether the code already answers it. 
 
 **Rule:** If a question can be answered by reading existing code, read it first and don't ask. Only surface genuinely ambiguous *design decisions* — things the code cannot answer — to the user. Prioritize reusing existing mechanics over proposing new ones.
 
+## Playtest System — Change Gate
+
+NEVER make changes to the Playtest system (`tests/e2e/playtest-headless.spec.js`,
+`tests/e2e/playtest-headed.spec.js`, `tests/e2e/helpers/*.js`,
+`tests/e2e/post-run-analysis.js`, or the Playtest Protocol section of CLAUDE.md)
+unless the user explicitly asks. Then: confirm **"Are you sure you want to modify
+the Playtest system?"** before making any change.
+
 ## Playtest Protocol — Triggered by "Playtest"
 
-When the user says "Playtest" (or any equivalent one-word trigger), run this full loop autonomously without further prompting. Stop only when hitting a deliberate stage gate (e.g. `canAdvanceToStage3()` hardcoded `return false`).
+When the user says "Playtest", run this full loop autonomously. Stop only at a deliberate stage gate (`canAdvanceToStage3()` hardcoded `return false`).
 
 ### Pre-flight (always, before Step 0)
 Load pinned core skills:
@@ -387,76 +395,50 @@ Load pinned core skills:
 Run: `node tests/content/validate-content.js && node tests/content/validate-flags.js && node tests/content/validate-structure.js`
 Fix all failures. Each fix = commit. Re-run until clean. Blocks Step 1.
 
-### Step 1 — Headless spec
-Run: `npx playwright test tests/e2e/full-playthrough.spec.js --reporter=line`
+### Step 1 — Headless run (1hr hard cap, 55min soft exit)
+Run: `npx playwright test tests/e2e/playtest-headless.spec.js --reporter=line`
 4 families: Classic Combat / Magic and Spellcasting / Stealth and Precision / Support and Leadership.
-Success = all 4 families reach Stage II (headless accepts `G.stage !== 'Stage I'`).
-Up to 5 fix-retry cycles. Single-file fix → commit → re-run. 3+ files → pause and ask via AskUserQuestion.
+Hard cap: 62min Playwright timeout. Soft threshold: 55min graceful exit with partial report.
+Organic progression only — no sp1/sp2 injection.
+Success per family: `G.stage !== 'Stage I'` (reached Stage II).
 
-### Step 2 — Triage + Fix loop
-Parse headless log. Classify each failure (engine bug / content bug / spec bug / narrative bug).
-Load reactive resources by type, then dispatch fix sub-agent with full context brief.
-Re-run headless after each batch of fixes until green.
+Inline triage (in spec, every 25 picks — progression blockers only):
+- Empty panel + G.dead=false → log TRIAGE_STALL, attempt `loadStageChoices()` recovery
+- sp1 unchanged for 25 picks → log TRIAGE_PROGRESSION_BLOCKED
+No style/content/narrative triage during headless.
 
-### Step 3 — Headed spec
-Run: `npx playwright test tests/e2e/full-playthrough-headed.spec.js --reporter=line`
-4 families, same order. Each retry picks a random archetype + background within the family.
-Success = all 4 families reach `climaxDone && sp2 >= 18` or Stage III.
-If sp2 is stuck below 18: treat as content bug — invoke Stage II content expansion plan, add choices, commit, re-run. Up to 5 fix-retry cycles.
-Corridor encounters: `G.flags.corridor_encounters_enabled = true` — set this before running headed spec so full travel flow is tested.
+### Step 2 — Post-headless triage and fix loop
+Parse headless log. For each STALL or TIMEOUT family:
+- Identify root cause (engine bug / content gap / missing ungated choices)
+- Fix only progression-blocking bugs. Dispatch fix sub-agent with full context brief.
+- Re-run headless after each batch. Up to 3 retry cycles. 3+ files changed → pause and ask via AskUserQuestion.
 
-### Step 3a — UI/UX review pass (both during and after spec)
-Run concurrently with Step 3 and again after it passes. Two layers:
+### Step 3 — Headed run (3hr hard cap, 2hr45min soft exit)
+Run: `npx playwright test tests/e2e/playtest-headed.spec.js --reporter=line`
+4 families, same order. Fixed first attempt per family (see spec), then random archetype+background per retry.
+Hard cap: 3hr Playwright timeout. Soft threshold: 2hr45min graceful exit with partial report.
+Success per family: `climaxDone && sp2 >= 18` or Stage III unlock.
 
-**During spec (milestone screenshots + text reading):**
-- At each `pickChoice`, read DOM content via `page.evaluate()` — extract narrative text and all visible choice labels. Make an informed pick based on content (prefer plot-advancing choices; apply line-editor check: ≤15 words, inner voice, no infinitives, no question marks).
-- Capture milestone screenshots via `page.screenshot()` at: character creation complete, first choice render, first result, combat entry, Stage II unlock banner, death screen, each menu open. Also capture **periodic screenshots every 10 picks** (dedup with `lastFiredAtPick` guard per probe-dedup gotcha).
-- Apply skills to each screenshot AND to each log/report before continuing: `game-design:polish-review` (visual), `game-design:feedback-loop-review` (HUD/progress signals), `game-design:balance-review` (combat/choices), `game-design:fun-review` (engagement), `line-editor` (choice labels and result text).
-- **Per-screenshot Claude API skill dispatch model routing**: Periodic shots → Haiku (`polish-review`, `line-editor`, `humanizer`). Milestone shots → Sonnet (`balance-review`, `mechanics-review`, `feedback-loop-review`, `fun-review`). Success/fail summary → Opus (`economy-review`, `tutorial-review`, canon compliance). Dispatch is async and non-blocking; findings appended to `test-results/skill-findings-{YYYYMMDD}.md`.
-- Full menu cycle once per family — every overlay, every sub-action, every section:
-  - **Journal**: open → read all 6 category sections (quest, field_note, faction, rival, companion, fact) → screenshot each → close
-  - **Character sheet**: open → read `.char-skill-row` values vs HUD → read `.ability-card` names → read `.trait-section` → screenshot → close
-  - **Camp**: open → click rest → screenshot result → close (rest is safe; it heals HP and advances day)
-  - **Inventory**: open → equip first item → screenshot before/after → unequip → close
-  - **Map**: open → read all location button names → screenshot → close (do NOT click a location — changes game state)
-  - **Notices**: open → read all `.notice-card` text → click first unseen card → screenshot → close
-  - **Shop**: open → read all `.shop-item` names and prices → attempt `.shop-buy-btn` on first affordable item → screenshot → close
-  - **Contacts/Party**: open → read all names and text → screenshot → close
-  - **How to Play**: open → scroll through all sections → screenshot → close
+Full game test:
+- Every overlay exercised exhaustively ONCE per run at pick 20 of family 1 (char sheet, journal, camp, inventory, map, notices, shop, contacts, party, how-to-play — all sub-options clicked)
+- After that: organic human-synth play; PROBE_EVERY=20 lightweight probes continue (HUD, charsheet, journal, quest, heat, alignment, map, notices, contacts, party)
+- Screenshots: all milestone shots (char creation, first result, combat, level-up, stage unlock, death, success) plus PROBE_EVERY=20 periodic shots
+- HUD integrity check every 20 picks via probeHUD()
+- Canon text scan after each waitForChoices(): forbidden words, "Ledger of Ash" in Stage I/II text
+- Per-screenshot Claude API skill dispatch (async, non-blocking): see post-run-analysis.js DOMAINS for model routing
 
-**HUD integrity check** (every PROBE_EVERY picks):
-- Read every HUD element and cross-check against `G` state: HP bar vs `G.hp`/`G.maxHp`, XP vs `G.xp`, level vs `G.level`, stage label vs `G.stage`, gold vs `G.gold`, supply vs `G.supply`, renown vs `G.renown`, day vs `G.day`, location name vs `G.location`.
-- Log any mismatch as VIOLATION. HUD showing wrong value = engine bug.
-- Verify level cap: Stage I capped at 5, Stage II at 10 — log VIOLATION if level exceeds cap.
-- Verify choice border colors match semantic role: `.plot-main` = blue only, `.choice-btn--warn1` = orange (Confrontation/Accusation/Ambush), `.choice-btn--combat` = red.
+Up to 5 retry cycles per family. sp2 stuck below 18 → Stage II content expansion pass, commit, retry.
 
-**Mechanics validation** (after each pick):
-- Track XP delta: log if XP did not increase after a successful non-combat choice.
-- Track HP bounds: log VIOLATION if `G.hp > G.maxHp` or `G.hp < 0`.
-- Track gold/supply: log VIOLATION if either goes negative unexpectedly.
-- Track stageProgress: log if sp1 or sp2 decreases (should only ever increase).
-
-**V33_2 canon compliance** (every narrative text read):
-- Scan for forbidden player-facing words: "investigation", "investigate", "meaningful", "you feel", "you realize", "you sense", "in a way that suggests", "precisely as". Log any hit as VIOLATION with full sentence.
-- Check NPC names appearing in text against V33_2 named_npcs — any name not in canon = log WARNING.
-- Check locality names in narration match the 53-locality V33_2 list.
-- "Ledger of Ash" must NOT appear in any Stage I or Stage II text — log as CRITICAL VIOLATION if found.
-
-**After spec (dedicated review pass):**
-- Invoke `game-design:polish-review` on character creation screen, main play surface, and all overlay screens.
-- Invoke `game-design:feedback-loop-review` on HUD layout, stage progress bar, XP/renown display.
-- Invoke `line-editor` on a sample of choice labels and result text from the run.
-- Any skill appropriate to what is visible — use judgment, do not skip.
-
-**Findings triage:**
-- Critical (canon violation, "Ledger of Ash" named early, HUD/G mismatch, level cap breach): fix immediately, block next family.
-- High-severity (broken rendering, unreadable text, wrong color role, missing UI element): fix inline during run, commit with description.
-- Low-severity (label could be tighter, panel alignment, minor color drift): log to `docs/BACKLOG.md` with P1/P2 tag.
+### Step 4 — All-skills analysis and fix plan (replaces zip rebuild)
+After headed run completes:
+1. `node tests/e2e/post-run-analysis.js [report-file] [screenshot-dir]` — runs all 10 domains (engine bugs, HUD/progression, narrative quality, balance/combat, economy, canon compliance, voice/register, branch drift, tutorial, polish/fun) across all output types (report, log, screenshots, choice text, narrative text, HUD data)
+2. When analysis writes `test-results/playtest-analysis-{YYYYMMDD-HHmm}.md`: invoke EnterPlanMode with that file as context. The planning session applies all applicable skills to build the fix plan.
+3. The fix plan is the deliverable. No zip rebuild, no publish step.
 
 ### Stage lock = done
 Deliberate stage gate reached → playtest complete.
 Run `claude-md-management:revise-claude-md` to capture any new gotchas.
-Deliver: one-paragraph summary — stages completed, bugs fixed (commit SHAs), plan conflicts noted, stage lock reason.
+Deliver: one-paragraph summary — stages completed, bugs fixed (commit SHAs), stage lock reason, path to analysis .md.
 
 ### Reactive resource loading by bug type
 
