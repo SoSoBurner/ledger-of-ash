@@ -507,6 +507,130 @@ window.LOCALITY_NPCS = {
         ]
       }
     ]
+  },
+
+  shirshal: {
+    npcId: 'tazren_coilspire',
+    name: 'Tazren Coilspire',
+    role: 'Investigator at Shirshal',
+    tell: 'when reviewing a document they already know is irregular, smooths the page with two fingers before speaking — a deliberate pause, buying a moment to decide how much to disclose',
+    agenda: 'keep Shirshal\'s investigative credibility intact while managing a magical law case whose trail leads somewhere the Magi Magistratus has not yet authorized following',
+    triggerText: 'Coilspire is at the case registry counter cross-referencing a sealed anomaly report against an open municipal log, and the two do not agree.',
+    dialogue: [
+      {
+        id: 'coilspire_anomaly',
+        text: 'The anomaly report in that sleeve is not the same case logged on the open board.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Coilspire does not look up from the documents. The anomaly registry and the municipal case board are maintained by separate desks under different filing cycles, they say. Cross-reference errors surface regularly. They smooth the page with two fingers. They add, without changing tone: the current discrepancy involves a ward-fracture incident logged three days ago in the municipal record and absent entirely from the anomaly registry. The municipal record exists. The anomaly registry shows no corresponding entry for that date. They do not say what that means.',
+        failResult: 'Coilspire closes the anomaly sleeve and says cross-reference discrepancies go through the registry desk at the second bell. If you have a specific case concern, the submission process handles that. They turn to the next document in the stack.',
+        effects: [{ type: 'journal', text: 'Coilspire identified a ward-fracture incident logged in the Shirshal municipal record three days ago — absent from the anomaly registry entirely. The two desks do not compare notes. The incident is in one record and not the other.', category: 'intelligence' }]
+      },
+      {
+        id: 'coilspire_suppression',
+        text: 'That ward-fracture incident was removed from the anomaly registry deliberately.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'A pause — the kind that fills with calculation rather than doubt. Coilspire smooths the page once more, then sets both hands flat. They say the anomaly registry requires a countersignature from the Magi Magistratus duty officer before any entry can be closed or withheld. They say the ward-fracture date in question falls in a duty cycle when the rotation officer was covering a reassigned shift. They say they have not yet filed a formal discrepancy query. They look at the document rather than at you. They say they have not yet filed it.',
+        failResult: 'Coilspire says registry discrepancies are handled through the formal review process, not corridor review. They close both documents with deliberate care and say if there is a specific concern about a Shirshal case, the submission window opens at the third bell. The documents go back into their sleeves.',
+        effects: [{ type: 'journal', text: 'Coilspire placed the ward-fracture omission in an anomaly registry cycle covered by a reassigned duty officer. A formal discrepancy query has not been filed. Coilspire said "not yet" twice. The Magi Magistratus countersignature requirement means the omission was authorized or the duty chain was broken.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  sunspire_haven: {
+    npcId: 'kael_emberthrone',
+    name: 'Kael Emberthrone',
+    role: 'Unternal Machinery Overseer at Sunspire Haven',
+    tell: 'when a conversation starts moving toward something he is not ready to confirm, picks up the nearest tool or fitting — not using it, just holding the weight of it, making time',
+    agenda: 'keep the Unternal workshop corridors producing on quota while quietly managing a predator-pressure problem in the outer yards that is larger than his current deterrent can handle',
+    triggerText: 'Emberthrone is at the workshop yard gate checking a tool inventory against a damage count that does not fit a normal equipment cycle.',
+    dialogue: [
+      {
+        id: 'emberthrone_damage',
+        text: 'That damage count is not wear. Something hit those tools from the outside.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Emberthrone does not dispute the read. He says the outer yard tool stores have taken irregular damage across four inventory cycles — not breakage patterns you get from heavy use, not rust from storage. He picks up a worn fitting from the gate ledge and turns it over once. He says the last three rotations of haul crews working the outer lanes have each reported noise from the north tree margin after dark. He says he has logged the tool losses under equipment variance. He says this the way someone states a category they chose for a specific reason.',
+        failResult: 'Emberthrone closes the inventory sheet and says tool damage cycles go through the workshop oversight register. If there is a material concern, the equipment clerk handles submissions at the morning bell. He picks up the damaged fitting and carries it inside without looking back.',
+        effects: [{ type: 'journal', text: 'Emberthrone described irregular outer-yard tool damage across four inventory cycles — not consistent with use or storage. Haul crews on the outer lanes have reported noise from the north tree margin after dark. He logged it as equipment variance.', category: 'intelligence' }]
+      },
+      {
+        id: 'emberthrone_deterrence',
+        text: 'The north tree margin problem is bigger than the workshop can hold back on its own.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Emberthrone sets the fitting down with a deliberate click. He says the Unternal overseer role covers workshop security inside the yard perimeter. Beyond the perimeter, deterrence falls under regional authority. He says he sent a formal request to the regional steward office eleven days ago for an outer-margin patrol increase. He says it has not been actioned. He says the outer lanes are staffed at the same level they were before the damage pattern started. He looks at the inventory sheet. He does not say what he thinks will happen next. He does not need to.',
+        failResult: 'Emberthrone says outer-margin security matters are above workshop jurisdiction. The regional authority handles that through proper requisition. He has a tool run starting shortly and cannot be detailed on this. He walks back through the gate.',
+        effects: [{ type: 'journal', text: 'Emberthrone filed a formal request for outer-margin patrol increase eleven days ago. The regional steward office has not actioned it. The outer lanes run at the same staffing level they did before the damage pattern began. He would not say what he expects to happen next.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  unity_square: {
+    npcId: 'vale_brokerwell',
+    name: 'Vale Brokerwell',
+    role: 'Arbitration Runner at Unity Square',
+    tell: 'when a number in a dispute does not add up, writes it in the margin of their tally sheet and circles it — not as a formal notation, just as a private mark they return to when they think no one is watching',
+    agenda: 'resolve disputes fast enough to keep Unity Square\'s arbitration confidence intact while managing a cargo-theft pattern they have mapped but cannot report without implicating a licensed guild delegate',
+    triggerText: 'Brokerwell is at the inspection shed crossing out a tally entry, rewriting it, crossing it out again.',
+    dialogue: [
+      {
+        id: 'brokerwell_tally',
+        text: 'That tally entry has been rewritten twice. The first number was the accurate one.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Brokerwell does not argue the point. They say the inspection shed tally covers declared cargo weight at intake. The number changes when the carrier submits a revised load manifest after inspection — which is permitted under guild arbitration procedure within the same trading day. They draw a small circle around the discrepancy in the margin. They say this is the fourth revised-down tally this week from carts running the eastern loading lane. Each revision is within procedure. Each revision drops the declared weight by a margin just below the threshold that triggers a secondary inspection. They say this the way someone recites a pattern they are tired of watching.',
+        failResult: 'Brokerwell closes the tally sheet and says revised manifests go through the arbitration desk at the east end of the square. If you have a specific cargo concern, there is a dispute form at the clerk counter. They do not look up when they say it.',
+        effects: [{ type: 'journal', text: 'Brokerwell flagged four revised-down tally entries this week from the eastern loading lane — each within procedure, each dropping declared weight just below the secondary-inspection threshold. The pattern is consistent. The revisions are each individually legitimate.', category: 'intelligence' }]
+      },
+      {
+        id: 'brokerwell_theft',
+        text: 'The revised tallies are covering cargo removals that happened before intake, not after.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Brokerwell goes still at the inspection ledge. They write something in the margin — a number — and circle it, then look up. They say arbitration procedure permits load revision up until the end-of-day settlement. They say the eastern lane carts are authorized through a licensed guild delegate whose inspection seal covers the entire convoy, not individual units. They say a manifest revision on a sealed convoy does not require secondary inspection — that is standard protocol. They say this without inflection, carefully, in the register of someone explaining a system they know is being used incorrectly and have no sanctioned way to stop. They say they have logged the pattern. They say the log does not yet constitute a formal dispute.',
+        failResult: 'Brokerwell says active tally disputes are handled through the arbitration desk under guild protocol. They are a runner, not a magistrate. If there is a cargo fraud concern, the sanction desk handles formal submissions and the threshold for opening a case is stated in the posted guild rules. They turn back to the ledge.',
+        effects: [{ type: 'journal', text: 'Brokerwell described a licensed guild delegate\'s convoy seal covering eastern lane carts — meaning manifest revisions on those carts skip secondary inspection entirely by protocol. They have logged the pattern. The log does not yet constitute a formal dispute. They did not name the delegate.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  whitebridge_commune: {
+    npcId: 'nyra_thawmark',
+    name: 'Arbiter Nyra Thawmark',
+    role: 'Communal Arbiter of Loss Claims at Whitebridge Commune',
+    tell: 'when a witness says something that contradicts a prior statement, does not press it immediately — sets down her pen, folds her hands on the table, and waits in silence until the speaker fills the gap or decides not to',
+    agenda: 'close a missing-expedition loss claim that the Route Warden Compact has stalled on for three cycles, without triggering a factional dispute between the two family groups whose members were on the route',
+    triggerText: 'Thawmark is at the crossing registry reviewing a route declaration that was filed after the expedition it covers was already overdue.',
+    dialogue: [
+      {
+        id: 'thawmark_declaration',
+        text: 'That route declaration was filed late. The expedition left before declaring intent.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Thawmark sets down her pen. She says crossing declaration law requires route intent to be filed before departure — the registry entry must precede the crossing, not follow it. She says the declaration in front of her was filed two days after the departure the witnesses described. She places two fingers on the date notation and does not move them. She says a post-filing is not a declaration. It is a record of absence. She says this the way a person says something that has legal weight and personal weight and she is only speaking to one of them right now.',
+        failResult: 'Thawmark caps her pen and says crossing declaration submissions go through the registry desk under commune procedure. If you have a question about a specific filing, the submission window is open at the second bell. She does not look up.',
+        effects: [{ type: 'journal', text: 'Thawmark confirmed a route declaration filed two days after departure — a post-filing, not a legal declaration under crossing law. She described it as a record of absence. She distinguished between its legal weight and its personal weight without naming what the personal weight was.', category: 'intelligence' }]
+      },
+      {
+        id: 'thawmark_expedition',
+        text: 'The missing expedition has witnesses. The Route Warden Compact has stalled on the claim anyway.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Thawmark folds her hands on the table and says nothing for a moment. She says the loss claim for this expedition has been in review for three cycles under Route Warden Compact jurisdiction. She says the Compact\'s position is that the post-filing creates ambiguity about authorized route versus actual route taken, and that ambiguity is sufficient to defer the claim. She says she has submitted a formal arbiter\'s finding that the post-filing does not void the expedition\'s membership in a declared family group — which would resolve the claim regardless of route ambiguity. She says the Compact has not yet accepted her finding. She says this without heat. She looks at the date notation on the declaration and does not look away from it.',
+        failResult: 'Thawmark says the loss claim is under Route Warden Compact jurisdiction and active arbiter findings are not discussed outside formal proceeding. She says this with the stillness of someone who has drawn exactly this boundary many times before. She opens a new document and begins reading it.',
+        effects: [{ type: 'journal', text: 'Thawmark filed an arbiter\'s finding that would resolve the missing-expedition loss claim despite the post-filing ambiguity. The Route Warden Compact has not accepted the finding after three cycles. Two family groups have members in the missing party. She has not said which Compact members are stalling or why.', category: 'evidence' }]
+      }
+    ]
   }
 
 };
