@@ -74,7 +74,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Quartermaster spreading suspicion about supply chain inquiry', 'complication', `cosmoria-supplies-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Coralyn admits provisions have been "difficult to reconcile this quarter." She shows you a single page — rope inventory, two entries that don't add up by thirty fathoms. She covers the column header with her thumb, then lifts it. "Transit loss." She covers it again. "I was told it's standard." She can't tell you what transit loss means, or who authorized that header. Her thumb stays on the line after she stops speaking. The correction appears across three consecutive pages; whoever adjusted these figures is still working through the ledger. Someone was cleaning the record ahead of you. They are still doing it. In the stack of documents behind her desk — visible for a moment as she shifts a folio — one sheet bears a red ADMINISTRATIVE HOLD stamp in narrow Collegium block lettering across its upper margin. The clerk does not acknowledge it.`;
+        G.lastResult = `Coralyn admits provisions have been "difficult to reconcile this quarter." She shows you a single page — rope inventory, two entries that don't add up by thirty fathoms. She covers the column header with her thumb, then lifts it. "Transit loss." She covers it again. "I was told it's standard." She can't tell you what transit loss means, or who authorized that header. Her thumb stays on the line after she stops speaking. The correction appears across three consecutive pages; whoever adjusted these figures is still working through the ledger. Someone was cleaning the record ahead of you. They are still doing it.`;
         addJournal('Quartermaster confirmed supply allocation ambiguity — record being cleaned ahead of inquiry', 'evidence', `cosmoria-supplies-unclear-${G.dayCount}`);
       } else {
         G.lastResult = `Coralyn says the ledgers require a Cosmouth supply warrant to access. She says it without meeting your eyes, her thumb pressed flat against the warrant procedure notice on her desk as if to keep it from speaking for her. The process takes three days minimum, routes through the harbor administration that manages dock priority, and requires a reason in writing. The clerk of arrivals, Tideon, holds a separate set of carbon copies of the supply receipts as part of the manifest filing chain — a parallel record that doesn't require the same warrant.`;
@@ -1009,7 +1009,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A cargo manifest dispute notice and two tide-schedule adjustments from yesterday are still pinned at the top. Salt air has curled the bottom edge of the older posting. Nothing worth copying down.';
       return;
     }
     G.flags[key] = true;
@@ -1031,7 +1031,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.investigationProgress = (G.investigationProgress||0) + 1;
         addJournal('Cosmoria dockside: two vessels arrived with no cargo uptake, left within a day', 'intelligence');
       } else {
-        G.lastResult = "The barman is polite and uninformative. The dockworkers aren't talking where a stranger can hear. The round costs more than it should.";
+        G.lastResult = "The barman is polite and uninformative. The dockworkers aren't talking where a stranger can hear. The Anchor's common room runs on familiarity; a new face gets service and nothing else. The round costs more than it should and returns nothing useful.";
         G.recentOutcomeType = 'neutral';
       }
     },
