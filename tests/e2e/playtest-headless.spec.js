@@ -1062,4 +1062,4 @@ test.describe('Headless QA — 4 families', () => {
   });
 });
 
-// TEST 2 (headed) lives in full-playthrough-headed.spec.js
+// TEST 2 (headed) lives in playtest-headed.spec.js
