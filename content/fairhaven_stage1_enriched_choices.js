@@ -401,7 +401,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `The shielded cave sits forty paces past the posted perimeter, screened on three sides by a natural shelf of rock. Inside: stacked crates, a grain cache, a locked document box with a broken hasp — someone left in a hurry. The shipping manifests still inside show Fairhaven quantities crossing off the expected destination and picking up a new routing mark. Contracts in two languages cover what gets stored here and where it continues. On the manifest cabinet against the far wall, a second drawer sits sealed with administrative wax — same stamp, same red, different drawer than the one left open. This isn't improvised. The shelving is fixed. The drainage channel in the floor was cut deliberately. The operation has been running long enough to build infrastructure.`;
+        G.lastResult = `The shielded cave sits forty paces past the posted perimeter, screened on three sides by a natural shelf of rock. Inside: stacked crates, a grain cache, a locked document box with a broken hasp — someone left in a hurry. The shipping manifests still inside show Fairhaven quantities crossing off the expected destination and picking up a new routing mark. Contracts in two languages cover what gets stored here and where it continues. On the manifest cabinet against the far wall, a second drawer sits sealed with administrative wax — same stamp, same red, different drawer than the one left open. This isn't improvised. The shelving is fixed. The drainage channel in the floor was cut deliberately.`;
         G.stageProgress[1]++;
         addJournal('Survival analysis located hidden supply waystation', 'evidence', `fairhaven-survival-waystation-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -1013,7 +1013,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Support') {
-        G.lastResult = `The children in Fairhaven look thinner than a seasonal lean would explain. You note the observation without being able to attach a cause to it.`;
+        G.lastResult = `The children in Fairhaven look thinner than a seasonal lean would explain. Their energy runs low by midday, faces pale in the afternoon light. The observation is clear enough — the cause is not.`;
         gainXp(30, 'noting Fairhaven child nutrition pattern');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
@@ -1059,7 +1059,7 @@ const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A drainage maintenance advisory is still posted from last week, and a quota reminder for the autumn yield period occupies the center column. Nothing that wasn\'t there an hour ago.';
       return;
     }
     G.flags[key] = true;
