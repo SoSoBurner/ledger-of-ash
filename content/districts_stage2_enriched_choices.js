@@ -155,14 +155,14 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_red_hood_aware) {
-        G.lastResult = 'Nothing to act on with the broker yet.';
+        G.lastResult = 'The pawn window is open, but there is nothing to act on with the broker yet. The listing code in the window changes by the day. Come back when the pattern has been read.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making Red Hood broker contact');
       G.flags.met_broker_anneth_torv = true;
       G.flags.stage2_faction_red_hood_contacted = true;
-      G.lastResult = 'The counter clerk disappears into the back and a different woman comes forward — the one in the red shawl, closer now. She introduces herself as Broker Anneth Torv, says it like a credential rather than a name. Her register is Kerroun market — short sentences, a small laugh before any refusal, numbers always spoken in multiples of three. Her tell is that she wears a thin iron ring on her smallest finger and turns it inward before she quotes a price, so the ring-face reads only to her. She wants a specific courier satchel recovered from a Reckoning Quarter confiscation shelf — a satchel that the Red Hood lost when a courier was picked up last week. The satchel itself, not the contents. The Guild needs to know what was read from it and what was not.';
+      G.lastResult = 'The counter clerk disappears into the back and a different woman comes forward — the one in the red shawl, closer now. She introduces herself as Broker Anneth Torv, says it like a credential rather than a name. Her register is Kerroun market — short sentences, a small laugh before any refusal, numbers always spoken in multiples of three. Her tell is that she wears a thin iron ring on her smallest finger and turns it inward before she quotes a price, so the ring-face reads only to her. She wants a specific courier satchel recovered from a Reckoning Quarter confiscation shelf — a satchel the Red Hood lost when a courier was picked up last week.';
       addJournal('Met Broker Anneth Torv (Red Hood Guild) — wants courier satchel recovered from Reckoning Quarter confiscation; Guild needs to audit what was read', 'contact_made', `iron-redhood-contacted-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
     }
@@ -175,7 +175,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_red_hood_contacted) {
-        G.lastResult = 'Anneth hasn\'t indicated the next step.';
+        G.lastResult = 'Anneth Torv indicated a specific task at the last meeting. Until that task is complete, the next step in the arrangement is not open. The confiscation shelf will still be there.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -188,7 +188,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
       if (G.flags.stage2_faction_wardens) {
         tension = ' Anneth turns the iron ring inward and laughs the small laugh. "You have Warden saber-oil on the satchel strap. That is a scent I recognize. I am going to tell you less than I meant to, and you are going to act as though I told you more. We both leave cleaner that way."';
       }
-      G.lastResult = 'Anneth takes the satchel and opens it on the counter in the specific order a courier would — outer pocket, inner flap, false base. The false base has been opened and re-closed by someone who knew it was there. "They read it. They did not copy it. There is a difference. Copying leaves press marks on the lining. Reading leaves this." She shows you a thumb-smudge of grey dust along one seam. "Collegium ink residue. The satchel was opened by an auditor with a subpoena record, and the subpoena was then withdrawn. That means someone above the Collegium pulled the audit back after the item was already seen. The Red Hood has not had a case to trace that authority signature — until today." She slides a wooden token to you. "Show this at any Kerroun-marked door. It will open once."' + tension;
+      G.lastResult = 'Anneth takes the satchel and opens it on the counter in the specific order a courier would — outer pocket, inner flap, false base. The false base has been opened and re-closed by someone who knew it was there. "They read it. They did not copy it. There is a difference. Copying leaves press marks on the lining. Reading leaves this." She shows you a thumb-smudge of grey dust along one seam. "Collegium ink residue. The satchel was opened by an auditor with a subpoena record, and the subpoena was then withdrawn. That means someone above the Collegium pulled the audit back after the item was already seen."' + tension;
       addJournal('Red Hood intel: Collegium auditor read the courier satchel under subpoena, then the subpoena was withdrawn from above — authority signature now traceable', 'evidence', `iron-redhood-payoff-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -715,7 +715,7 @@ const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.dist_stamp_origin_found = true;
         G.investigationProgress++;
-        G.lastResult = `The bindery log at the Scriptorium Steps copy house carries an order entry from eleven months ago: a commission for a single-impression seal block, custom-cut to a charter subsidiary format not in any standard catalog. The order was placed under a Mimolot Academy reference number that the bindery accepted without verification — Academy commissions bypass the standard identity check. The delivery address on the order slip is an Iron Ledger Ward box number that was closed two weeks after the stamp was collected. The craftsman who cut the block initials the entry in a hand that shakes slightly; he remembered the commission because the substrate was harder than standard and the caller never came back for a second impression. The stamp exists. Someone is carrying it.`;
+        G.lastResult = `The bindery log at the Scriptorium Steps copy house carries an order entry from eleven months ago: a commission for a single-impression seal block, custom-cut to a charter subsidiary format not in any standard catalog. The order was placed under a Mimolot Academy reference number that the bindery accepted without verification — Academy commissions bypass the standard identity check. The delivery address on the order slip is an Iron Ledger Ward box number that was closed two weeks after the stamp was collected. The craftsman who cut the block initials the entry in a hand that shakes slightly; he remembered the commission because the substrate was harder than standard and the caller never came back for a second impression.`;
         addJournal('Scriptorium bindery: custom charter subsidiary seal commissioned under false Academy reference — delivery address closed two weeks post-collection', 'evidence', `dist-stamp-origin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
