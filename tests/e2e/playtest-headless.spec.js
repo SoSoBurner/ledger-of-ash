@@ -1,6 +1,6 @@
 // @ts-check
 /**
- * full-playthrough.spec.js
+ * playtest-headless.spec.js
  * Two-mode QA harness for Ledger of Ash
  *
  * TEST 1 — Headless (1 hr cap):
@@ -126,7 +126,7 @@ const SCREENSHOT_EVERY  = 50;
 let _logPath = LOG_PATH;
 function initLog(runLabel) {
   [SCREENSHOT_DIR, VIDEO_DIR, TEST_RESULTS].forEach(d => fs.mkdirSync(d, { recursive: true }));
-  _logPath = path.join(TEST_RESULTS, `full-playthrough-log-${runLabel}.md`);
+  _logPath = path.join(TEST_RESULTS, `playtest-headless-log.md`);
   fs.writeFileSync(_logPath, `# Ledger of Ash — QA Run (${runLabel})\nStarted: ${new Date().toISOString()}\n\n`, 'utf8');
 }
 function log(entry) {
@@ -219,7 +219,7 @@ async function waitForChoices(page, ms) {
 // headless: quick-win = exiting Stage I (organic only). Headed: organic only (see headed spec).
 async function isSuccess(page, ceiling, headless) {
   if (headless) {
-    // Headless smoke-test: reaching Stage II (or higher) = pass (nuclear-assisted).
+    // Headless smoke-test: reaching Stage II (or higher) = pass (organic only).
     return page.evaluate((c) => {
       try {
         if (typeof G === 'undefined') return false;
@@ -717,12 +717,26 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   const visitedLocalities = new Set();
   const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
 
+  var _lastSp1Check = 0;
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
 
     try {
       // Soft 55-min threshold — exit cleanly before the 62-min hard kill fires
       if (picks % 25 === 0 && picks > 0) {
+        // TRIAGE 1: empty panel while alive
+        var _triageText = await page.locator('#choice-panel').innerText().catch(function() { return ''; });
+        if (_triageText.trim() === '' && !g.dead) {
+          log('[TRIAGE_STALL ' + tag + '] pick=' + picks + ' — empty panel, G.dead=false');
+          try { await page.evaluate(function() { if (typeof loadStageChoices === 'function') loadStageChoices(); }); } catch(_e) {}
+        }
+        // TRIAGE 2: sp1 frozen for 25 picks
+        var _sp1Now = (g.stageProgress && g.stageProgress[1]) || 0;
+        if (_sp1Now === _lastSp1Check) {
+          log('[TRIAGE_PROGRESSION_BLOCKED ' + tag + '] pick=' + picks + ' — sp1=' + _sp1Now + ' frozen');
+        }
+        _lastSp1Check = _sp1Now;
+
         var _elapsed = Date.now() - _runStartMs;
         if (_elapsed > 55 * 60 * 1000) {
           log('[run:' + tag + '] TIMEOUT: 55min soft threshold at pick ' + picks + ' — exiting with partial report');
@@ -956,6 +970,11 @@ async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOve
 
     log(`[family:${family}] attempt ${attemptNum} ${result.success ? 'SUCCESS ✓' : `FAILED (${result.reason})`} picks=${result.picks}`);
 
+    if (result && result.reason === 'timeout-soft') {
+      log('[family:' + family + '] timeout-soft received — ending family, no retry');
+      break;
+    }
+
     if (result.success) {
       success = true;
       return { success: true, archetypeId, backgroundId, attempts: attemptNum, picks: result.picks, sp2: result.sp2, stage: result.stage };
@@ -968,7 +987,7 @@ async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOve
 // ===========================================================================
 // TEST 1 — HEADLESS (4 families, 1 hour hard cap)
 // Dynamic stage ceiling — automatically scales when Stage III content is built.
-// Nuclear gate KEPT for speed. Coverage tracked per run.
+// Organic progression only — no sp1/sp2 injection. Coverage tracked per run.
 // ===========================================================================
 test.describe('Headless QA — 4 families', () => {
   test.setTimeout(62 * 60 * 1000); // 62 min outer ceiling
