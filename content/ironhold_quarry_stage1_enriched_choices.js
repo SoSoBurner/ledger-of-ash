@@ -760,7 +760,7 @@ const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. The weight quotas for the day shift are posted, and an outbound cart schedule is tacked beside them — standard operational notices, nothing that wasn\'t there at first light.';
       return;
     }
     G.flags[key] = true;
