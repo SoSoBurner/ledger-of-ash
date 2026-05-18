@@ -30,7 +30,7 @@ const ReportWriter    = require('./helpers/report-writer');
 const TEST_RESULTS    = path.resolve(__dirname, '../../test-results');
 const SCREENSHOT_DIR  = path.join(TEST_RESULTS, 'playthrough-screenshots');
 const VIDEO_DIR       = path.join(TEST_RESULTS, 'videos');
-const LOG_PATH        = path.join(TEST_RESULTS, 'full-playthrough-log.md');
+const LOG_PATH        = path.join(TEST_RESULTS, 'playtest-headless-log.md');
 
 // ---------------------------------------------------------------------------
 // 4-family pools (headless) — matches character creation screen categories
@@ -216,7 +216,7 @@ async function waitForChoices(page, ms) {
 }
 
 // isSuccess uses dynamic ceiling from stage-lock helper.
-// headless: quick-win = exiting Stage I (nuclear-assisted). Headed: organic only (see headed spec).
+// headless: quick-win = exiting Stage I (organic only). Headed: organic only (see headed spec).
 async function isSuccess(page, ceiling, headless) {
   if (headless) {
     // Headless smoke-test: reaching Stage II (or higher) = pass (nuclear-assisted).
@@ -721,6 +721,15 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
     if (pageIsClosed) break;
 
     try {
+      // Soft 55-min threshold — exit cleanly before the 62-min hard kill fires
+      if (picks % 25 === 0 && picks > 0) {
+        var _elapsed = Date.now() - _runStartMs;
+        if (_elapsed > 55 * 60 * 1000) {
+          log('[run:' + tag + '] TIMEOUT: 55min soft threshold at pick ' + picks + ' — exiting with partial report');
+          return { success: false, reason: 'timeout-soft', picks: picks, g: g };
+        }
+      }
+
       // 60-second stall guard — no successful pick in 60s = stuck loop → failed run
       if (Date.now() - lastPickTime > 60000) {
         g = await readG(page);
@@ -846,29 +855,6 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         lastPickLabels = [];
       }
 
-      // Headless sp1 nudge: if stuck for 40+ picks and below boss threshold (15)
-      if (!isHeaded && noProgress >= 40 && sp1 < 15) {
-        try {
-          await page.evaluate(() => {
-            if (typeof G !== 'undefined' && G.stageProgress && G.stageProgress[1] < 15)
-              G.stageProgress[1] += 1;
-          });
-          log(`[repair ${tag}] pick=${picks} — sp1 nudge (was ${sp1}, stuck ${noProgress} picks)`);
-          noProgress = 0;
-        } catch (_) {}
-      }
-
-      // Headed repair: if sp1 stuck for 40+ picks and below boss threshold (15)
-      if (isHeaded && noProgress >= 40 && sp1 < 15) {
-        try {
-          await page.evaluate(() => {
-            if (typeof G !== 'undefined' && G.stageProgress && G.stageProgress[1] < 15)
-              G.stageProgress[1] += 1;
-          });
-          log(`[repair ${tag}] pick=${picks} — sp1 nudge (was ${sp1}, stuck ${noProgress} picks)`);
-          noProgress = 0;
-        } catch (_) {}
-      }
 
       // Choice slate every 10 picks
       if (picks % 10 === 0) {
@@ -1009,6 +995,7 @@ test.describe('Headless QA — 4 families', () => {
     log(`[suite:headless] Stage ceiling detected: ${ceilingLabel(ceiling)}`);
     reporter.setCeiling(ceiling);
 
+    var _runStartMs = Date.now();
     for (const family of HEADLESS_FAMILY_ORDER) {
       if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
         log(`[suite:headless] 1hr cap reached — stopping before family:${family}`);
