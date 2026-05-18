@@ -877,6 +877,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(loc);
             else if (typeof loadStageChoices === 'function') loadStageChoices();
           }, escLoc);
+          await page.waitForTimeout(400); // Let corridor encounter setTimeout(300ms) fire + DOM settle
         } catch (_) {}
         stuckAtLoc = 0;
         lastPickLabels = [];
@@ -920,6 +921,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               else if (typeof loadStageChoices === 'function') loadStageChoices();
             }
           }, ESCAPE_LOCS);
+          await page.waitForTimeout(400); // Let corridor encounter setTimeout(300ms) fire + DOM settle
         } catch (_) {}
         lastPickLabels = [];
         stuckAtLoc = 0;
