@@ -17097,6 +17097,7 @@ document.getElementById('howto-close').addEventListener('click', function() {
     const lmEntry = window.LOCALITY_MATRIX && window.LOCALITY_MATRIX[locId];
     const loc = wloc || (lmEntry ? { name: lmEntry.display_name_raw || lmEntry.name, desc: '' } : null);
     if (!G || !loc) return;
+    if (CS !== null) CS = null; // Abort any active combat on teleport
     const prevLocation = fromId || G.location;
     G.location = locId;
     if (typeof tickAxis === 'function') tickAxis(Math.floor(Math.random() * 3) + 1);
