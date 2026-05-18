@@ -209,7 +209,8 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Her name is Hess. Forty years in the Ironspool Ward, the last twelve in the same building. She talks to you because you stood at the right angle to her window and knocked the right way — she explains this without irony. She leans against the door frame with her arms crossed, one hand loose, the other holding her own wrist — not defensive, just the posture of someone who has decided to stay put and is making that clear. "Three months back, the terminal changed," she says. "Twice a week now, late. People carrying things by hand, not contractor crews. I asked the duty officer. He said maintenance. I told him maintenance workers use trolleys and come in the morning. He stopped answering after that." She lets the silence do the rest.`;
+        G.lastResult = `Her name is Hess. Forty years in the Ironspool Ward, the last twelve in the same building. She talks to you because you stood at the right angle to her window and knocked the right way — she explains this without irony. She leans against the door frame with her arms crossed, one hand loose, the other holding her own wrist — not defensive, just the posture of someone who has decided to stay put and is making that clear. "Three months back, the terminal changed," she says. "Twice a week now, late. People carrying things by hand, not contractor crews. I asked the duty officer. He said maintenance."`;
+
         G.flags.met_hess_ironspool_resident = true;
         addJournal('Hess: dome terminal night deliveries twice weekly, unknown carriers — duty officer stopped answering questions', 'discovery', `ironspool-s1-hess-${G.dayCount}`);
         G.recentOutcomeType = 'success';
@@ -890,7 +891,7 @@ const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A patrol rotation notice and two ward maintenance postings from yesterday are still pinned at the top. The dome terminal access hours are listed on a card below them. Nothing worth copying down.';
       return;
     }
     G.flags[key] = true;
