@@ -173,7 +173,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Shrine worker revealed spiritual crisis in community', 'evidence', `soreheim-shrine-crisis-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kestra steps between you and the inner room. "Prayers spoken here stay here. That's not custom — that's the compact with everyone who comes through that door." She holds her ground and waits. The lamp behind her keeps burning. The shrine is small and she takes up most of the doorframe.`;
+        G.lastResult = `Kestra steps between you and the inner room. "Prayers spoken here stay here. That's not custom — that's the compact with everyone who comes through that door." She holds her ground and waits. The lamp behind her keeps burning. The shrine is small and she takes up most of the doorframe. The scrutiny of a breach here spreads through the community quietly — the shrine door will not open to this line of questions again.`;
         G.worldClocks.reverence++;
         addJournal('Shrine now hostile to external questioning', 'complication', `soreheim-shrine-hostile-${G.dayCount}`);
       } else {

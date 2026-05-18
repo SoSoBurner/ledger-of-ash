@@ -34,7 +34,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Case clerk flagged systematic witness statement removal', 'evidence', `shirshal-witness-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Sorren's expression closes like a shutter. "Case procedures aren't for outside discussion. That's sensitive to active proceedings." He turns back to his ledger and does not look up again. He writes something in the margin before you've reached the door. Word travels fast in a hall built for record-keeping.`;
+        G.lastResult = `Sorren's expression closes like a shutter. "Case procedures aren't for outside discussion. That's sensitive to active proceedings." He turns back to his ledger and does not look up again. He writes something in the margin before you've reached the door. Word travels fast in a hall built for record-keeping. The pressure of that margin note will reach someone before the morning session ends.`;
         G.worldClocks.pressure++;
         addJournal('Case clerk reported your inquiry to magistrates', 'complication', `shirshal-clerk-alert-${G.dayCount}`);
       } else {
@@ -72,7 +72,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Evidence handler revealed anomaly record falsification', 'evidence', `shirshal-evidence-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Thyn steps in front of the ledger shelf before you can reach it. "Anomaly records require magistrate authorization in writing. No exceptions." He keeps his hand on the shelf edge while he sends a runner. By the time you reach the hall's outer corridor, a magistrate's aide is already waiting with a short, unfriendly list of questions about your purpose in Shirshal.`;
+        G.lastResult = `Thyn steps in front of the ledger shelf before you can reach it. "Anomaly records require magistrate authorization in writing. No exceptions." He keeps his hand on the shelf edge while he sends a runner. By the time you reach the hall's outer corridor, a magistrate's aide is already waiting with a short, unfriendly list of questions about your purpose in Shirshal. The aide's questions are harder to deflect than Thyn's door — they already know more than you said.`;
         G.worldClocks.pressure++;
         addJournal('Magistrate alerted to evidence inquiry attempt', 'complication', `shirshal-evidence-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -112,7 +112,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Assistant revealed case routing manipulation', 'evidence', `shirshal-routing-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kess goes still. "Case assignment is internal procedure. That's for the magistrates to manage." Her hands drop below the counter without a sound — no shuffling of papers, no reaching for a pen, just gone. She doesn't answer the follow-up or acknowledge it. When you leave, she is writing something at the small desk behind the rotation board. Not in the assignment ledger. Somewhere else. The pen angle says it's personal, not administrative.`;
+        G.lastResult = `Kess goes still. "Case assignment is internal procedure. That's for the magistrates to manage." Her hands drop below the counter without a sound — no shuffling of papers, no reaching for a pen, just gone. She doesn't answer the follow-up or acknowledge it. When you leave, she is writing something at the small desk behind the rotation board. Not in the assignment ledger. Somewhere else. The pen angle says it's personal, not administrative — and the pressure of that private notation will track you somewhere you won't see.`;
         G.worldClocks.pressure++;
         addJournal('Assistant will report case assignment inquiry', 'complication', `shirshal-routing-alert-${G.dayCount}`);
       } else {
@@ -149,7 +149,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Record keeper revealed case-termination pattern', 'evidence', `shirshal-closure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Brother Tam straightens and sets down his pen. "Outside inquiry into closure proceedings isn't appropriate. I need to speak to a magistrate before this goes further." He walks toward the inner passage before you've finished your sentence. A door closes. The hall stays empty for longer than it should.`;
+        G.lastResult = `Brother Tam straightens and sets down his pen. "Outside inquiry into closure proceedings isn't appropriate. I need to speak to a magistrate before this goes further." He walks toward the inner passage before you've finished your sentence. A door closes. The hall stays empty for longer than it should. The watchful quiet after it means the conversation has already moved to somewhere you are not welcome.`;
         G.worldClocks.pressure++;
         addJournal('Record keeper immediately alerts magistrate to inquiry', 'complication', `shirshal-closure-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -189,7 +189,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Investigator revealed information compartmentalization', 'evidence', `shirshal-investigator-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kess stops mid-sentence and recalibrates. "Case detail discussions with outsiders can compromise proceedings. You understand that." She's not hostile — she's been trained recently. Whatever prompted that training is more recent than the paint on the hall's east corridor, which still smells of fresh lime.`;
+        G.lastResult = `Kess stops mid-sentence and recalibrates. "Case detail discussions with outsiders can compromise proceedings. You understand that." She's not hostile — she's been trained recently. Whatever prompted that training is more recent than the paint on the hall's east corridor, which still smells of fresh lime. The training also means she is already noticed this conversation and will be expected to report it.`;
         G.worldClocks.pressure++;
         addJournal('Investigator now distrustful of your questions', 'complication', `shirshal-investigator-hostile-${G.dayCount}`);
       } else {
@@ -226,7 +226,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Coordinator revealed systematic witness removal', 'evidence', `shirshal-witness-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Marsh's posture changes the moment you frame the question. "Witness management is sensitive to active proceedings. Questions like that from outside the process could compromise testimony chains." He closes the register on his desk. He won't say another word. By evening, the inquiry will have been noted somewhere.`;
+        G.lastResult = `Marsh's posture changes the moment you frame the question. "Witness management is sensitive to active proceedings. Questions like that from outside the process could compromise testimony chains." He closes the register on his desk. He won't say another word. By evening, the inquiry will have been noted somewhere — the pressure of that notation is the kind that compounds, each entry making the next approach harder.`;
         G.worldClocks.pressure++;
         addJournal('Coordinator reported witness inquiry to magistrates', 'complication', `shirshal-witness-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -266,7 +266,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Innkeeper mapped external courier network', 'evidence', `shirshal-couriers-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Noss sets the cloth down. "I don't discuss guests or their business. Twenty years running this place, that's how it stays open." She's polite about it but the warmth has gone out of the room. Next time you come in, she'll be busy with something at the other end of the counter.`;
+        G.lastResult = `Noss sets the cloth down. "I don't discuss guests or their business. Twenty years running this place, that's how it stays open." She's polite about it but the warmth has gone out of the room. Next time you come in, she'll be busy with something at the other end of the counter. The watchful distance she keeps from here on is the kind that spreads — the room will take its cue from her.`;
         G.worldClocks.watchfulness++;
         addJournal('Innkeeper now distrustful of your questions', 'complication', `shirshal-innkeeper-hostile-${G.dayCount}`);
       } else {
@@ -303,7 +303,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Magistrate revealed external authority control', 'evidence', `shirshal-magistrate-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The magistrate stands. "These questions are inappropriate directed at the magistracy without formal petition." He moves to the writing desk and begins a record of the conversation while you watch. "This inquiry is now documented. Any further approach to magistrate personnel requires a written request through the clerk's registry." The session is over. The document exists.`;
+        G.lastResult = `The magistrate stands. "These questions are inappropriate directed at the magistracy without formal petition." He moves to the writing desk and begins a record of the conversation while you watch. "This inquiry is now documented. Any further approach to magistrate personnel requires a written request through the clerk's registry." The session is over. The document exists. The pressure it carries into the clerk's registry means your name will arrive there before you do.`;
         G.worldClocks.pressure++;
         addJournal('Magistrate formally prohibits further inquiry', 'complication', `shirshal-magistrate-warning-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -345,7 +345,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Surveillance revealed magistrate-visitor coordination meetings', 'evidence', `shirshal-stealth-meeting-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A hand lands on your shoulder from behind. Two of the hall's duty wardens — not magistrates, not investigators, people you've never seen working this space before. "You're in a restricted administrative corridor without authorization." The taller one gestures toward the main exit. By the time you clear the outer gate, the east storeroom door is already closed and the meeting you missed is already over.`;
+        G.lastResult = `A hand lands on your shoulder from behind. Two of the hall's duty wardens — not magistrates, not investigators, people you've never seen working this space before. "You're in a restricted administrative corridor without authorization." The taller one gestures toward the main exit. By the time you clear the outer gate, the east storeroom door is already closed and the meeting you missed is already over. You are now tracked by people who know exactly which corridor you were in and when.`;
         G.worldClocks.pressure++;
         addJournal('You are caught conducting surveillance in restricted area', 'complication', `shirshal-stealth-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -385,7 +385,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Document access revealed directive instruction network', 'evidence', `shirshal-stealth-directives-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The wax is barely broken when the door opens. Two wardens enter without knocking. One takes the packet from your hands without touching you otherwise. "Breach of sealed documentation is a recorded offense in this jurisdiction." It's delivered without heat. The coldness of the statement is the warning. You're escorted to the outer hall, and someone somewhere is writing your description down.`;
+        G.lastResult = `The wax is barely broken when the door opens. Two wardens enter without knocking. One takes the packet from your hands without touching you otherwise. "Breach of sealed documentation is a recorded offense in this jurisdiction." It's delivered without heat. The coldness of the statement is the warning. You're escorted to the outer hall, and someone somewhere is writing your description down. The pressure of a recorded offense in Shirshal does not dissipate — it sits in the registry and makes every future door harder to open.`;
         G.worldClocks.pressure++;
         addJournal('You are caught attempting to access sealed documents', 'complication', `shirshal-stealth-arrest-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -425,7 +425,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Lore analysis revealed procedural law inversion', 'evidence', `shirshal-lore-procedure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The archive assistant flags your request before processing it — a small gesture, hand raised, pen set down. Someone senior is summoned from the inner office before the volumes are pulled. "Comparative analysis of procedural standards isn't appropriate for external review." The phrasing is specific, pre-existing. Your access level is recorded in a column that already exists for this category of inquiry. The procedural volumes are moved to the restricted section before you leave the building. The label on the shelf reads "administrative reference — restricted" in fresh ink.`;
+        G.lastResult = `The archive assistant flags your request before processing it — a small gesture, hand raised, pen set down. Someone senior is summoned from the inner office before the volumes are pulled. "Comparative analysis of procedural standards isn't appropriate for external review." The phrasing is specific, pre-existing. Your access level is recorded in a column that already exists for this category of inquiry. The procedural volumes are moved to the restricted section before you leave the building. The label on the shelf reads "administrative reference — restricted" in fresh ink. The scrutiny attached to that column will follow your access requests into every other archive room in the hall.`;
         G.worldClocks.pressure++;
         addJournal('Your legal procedure research marked as concerning', 'complication', `shirshal-lore-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -465,7 +465,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Lore analysis revealed philosophical doctrine inversion', 'evidence', `shirshal-lore-doctrine-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A senior clerk intercepts your request to compare the founding doctrine texts. "Doctrinal interpretation is the magistracy's domain. External philosophical debate isn't appropriate here." Your name goes into a log. The foundational text volumes are removed from the open shelf before the morning is out. Someone monitors what questions get asked about Shirshal's principles.`;
+        G.lastResult = `A senior clerk intercepts your request to compare the founding doctrine texts. "Doctrinal interpretation is the magistracy's domain. External philosophical debate isn't appropriate here." Your name goes into a log. The foundational text volumes are removed from the open shelf before the morning is out. Someone monitors what questions get asked about Shirshal's principles — and the pressure of being logged in that category means the hall is now watchful in the way that precedes formal action.`;
         G.worldClocks.pressure++;
         addJournal('Authority discourages your doctrine research', 'complication', `shirshal-lore-discouraged-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -505,7 +505,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Craft analysis revealed evidence forgery operation', 'evidence', `shirshal-craft-forgery-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You've held the closure notice for less than a minute when a guard steps into the evidence room. "Formal evidence isn't available for external examination." The document is lifted from your hands, replaced in its sleeve, and re-filed. You're walked to the outer corridor without ceremony. The guard doesn't explain who sent them, but the timing wasn't coincidence.`;
+        G.lastResult = `You've held the closure notice for less than a minute when a guard steps into the evidence room. "Formal evidence isn't available for external examination." The document is lifted from your hands, replaced in its sleeve, and re-filed. You're walked to the outer corridor without ceremony. The guard doesn't explain who sent them, but the timing wasn't coincidence — you are tracked by whoever watches who touches which files.`;
         G.worldClocks.pressure++;
         addJournal('You are removed from evidence area for unauthorized examination', 'complication', `shirshal-craft-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -545,7 +545,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Craft analysis revealed authority credential forgery', 'evidence', `shirshal-craft-seals-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The door opens before you've broken the seal all the way. "Protected magistrate communications." Two people this time — one takes the correspondence, one watches you. A third enters with a form already prepared. The charge is sealed correspondence breach, which carries a recorded status in Shirshal's jurisdiction. They file it efficiently. This was not the first time they've handled this.`;
+        G.lastResult = `The door opens before you've broken the seal all the way. "Protected magistrate communications." Two people this time — one takes the correspondence, one watches you. A third enters with a form already prepared. The charge is sealed correspondence breach, which carries a recorded status in Shirshal's jurisdiction. They file it efficiently. This was not the first time they've handled this — the pressure of a filed charge in the registry is harder to shed than the charge itself.`;
         G.worldClocks.pressure++;
         addJournal('You are formally charged with sealed correspondence violation', 'complication', `shirshal-craft-charged-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -621,7 +621,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Victim testimony detailed arbitrary case abandonment', 'evidence', `shirshal-victim-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Someone at the hall sees you speaking to the merchant near the dock and relays it up the chain. By the time you return to the main corridor, a clerk is waiting with a short message: soliciting grievances against magistrate determinations "undermines procedural trust." The phrase is specific and pre-written. They've handled this before.`;
+        G.lastResult = `Someone at the hall sees you speaking to the merchant near the dock and relays it up the chain. By the time you return to the main corridor, a clerk is waiting with a short message: soliciting grievances against magistrate determinations "undermines procedural trust." The phrase is specific and pre-written. They've handled this before. The watchful machinery that produced the clerk with a pre-written phrase will be monitoring who you speak to near the docks from now on.`;
         G.worldClocks.watchfulness++;
         addJournal('You are viewed as destabilizing justice by soliciting victim complaints', 'complication', `shirshal-victim-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -661,7 +661,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Investigator defected with system documentation', 'evidence', `shirshal-defection-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The investigator listens, nods once, and reports the conversation before you've left the building. The message reaches the magistracy as a formal notation: "outside party encouraging investigators to breach institutional loyalty." The language is precise and pre-existing — someone wrote that category in advance. The investigator won't meet your eyes in the corridor the next morning.`;
+        G.lastResult = `The investigator listens, nods once, and reports the conversation before you've left the building. The message reaches the magistracy as a formal notation: "outside party encouraging investigators to breach institutional loyalty." The language is precise and pre-existing — someone wrote that category in advance. The investigator won't meet your eyes in the corridor the next morning. The pressure of that formal notation means the next investigator you approach will already know your name.`;
         G.worldClocks.pressure++;
         addJournal('You are reported as attempting to recruit investigator defection', 'complication', `shirshal-defection-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -703,7 +703,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Justice weaponization conspiracy documented', 'evidence', `shirshal-conspiracy-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Before you've assembled the final piece, a sealed note arrives at your lodging. No signature. No wax mark. "Leave Shirshal. Do not return. Do not approach magistrates or their staff again. This is the single notification you will receive." Below it, in smaller script: "Shirshal's justice system responds to interference." Someone has been watching the compilation process and chose this moment to confirm it. The warning is timed and precise, which means they know exactly what you have and when you acquired it.`;
+        G.lastResult = `Before you've assembled the final piece, a sealed note arrives at your lodging. No signature. No wax mark. "Leave Shirshal. Do not return. Do not approach magistrates or their staff again. This is the single notification you will receive." Below it, in smaller script: "Shirshal's justice system responds to interference." Someone has been watching the compilation process and chose this moment to confirm it. The warning is timed and precise, which means they know exactly what you have and when you acquired it — you are tracked more closely than the evidence you've been assembling.`;
         G.worldClocks.pressure++;
         addJournal('Conspiracy orchestrators directly warn you to leave Shirshal', 'complication', `shirshal-conspiracy-threat-${G.dayCount}`);
       } else if (result.total >= 13) {

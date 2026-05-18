@@ -31,7 +31,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Innkeeper flagged unnatural guest coordination', 'intelligence', `shelkopolis-innkeeper-guests-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Marta stops polishing the counter. She doesn't answer — she moves. Refills a cup at the far end of the bar, exchanges four words with a dockworker, adjusts the lamp by the door. The Amber Fountain fills around you and your question. When you finally leave, the coal-smoke smell from the street feels cleaner than the careful silence you walked out of. Whatever she tracks in that inn, she's decided you're not safe to share it with.`;
+        G.lastResult = `Marta stops polishing the counter. She doesn't answer — she moves. Refills a cup at the far end of the bar, exchanges four words with a dockworker, adjusts the lamp by the door. The Amber Fountain fills around you and your question. When you finally leave, the coal-smoke smell from the street feels cleaner than the careful silence you walked out of. Whatever she tracks in that inn, she's decided you're not safe to share it with. The pressure of her silence is its own communication — every other ear in the common room noticed the question go unanswered.`;
         G.worldClocks.pressure++;
         addJournal('Innkeeper went silent — pushed too hard into private ground', 'complication', `shelkopolis-innkeeper-hostile-${G.dayCount}`);
       } else {
@@ -66,7 +66,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Sealed letter network mapped to chapel intermediary — routing numbers exist, shipments do not', 'evidence', `shelkopolis-letters-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Brother Aldwin receives your questions with the full warmth of the chapel's public face. He walks you to the door himself, offers a traveling blessing, wishes you safe passage. The wax-and-stone smell of the chapel follows you out. You're three streets away before you remember: there was a novice at a writing desk in the side alcove the entire time. You don't know what was recorded. The chapel didn't need to ask you to leave. It simply wrote down that you came.`;
+        G.lastResult = `Brother Aldwin receives your questions with the full warmth of the chapel's public face. He walks you to the door himself, offers a traveling blessing, wishes you safe passage. The wax-and-stone smell of the chapel follows you out. You're three streets away before you remember: there was a novice at a writing desk in the side alcove the entire time. You don't know what was recorded. The chapel didn't need to ask you to leave. It simply wrote down that you came. The watchful network of chapels in this city is how that record travels — it will precede you.`;
         G.worldClocks.watchfulness++;
         addJournal('Chapel clerk logged your inquiry — visit formally noted', 'complication', `shelkopolis-chapel-alert-${G.dayCount}`);
       } else {
@@ -133,7 +133,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Clerk revealed three-week gap in northern trade records', 'evidence', `shelkopolis-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Thom opens three volumes. He is genuinely helpful — dates, authorization codes, shipment origins, the full column of northern silkwood entries right up to where they stop. You get real information. Then you catch his eyes tracking which line you're reading. He's not helping you understand the ledger. He's cataloguing what you now know. You leave with evidence and the certainty that before the lamplight shifts in this building, someone will be told exactly which pages you stopped on.`;
+        G.lastResult = `Thom opens three volumes. He is genuinely helpful — dates, authorization codes, shipment origins, the full column of northern silkwood entries right up to where they stop. You get real information. Then you catch his eyes tracking which line you're reading. He's not helping you understand the ledger. He's cataloguing what you now know. You leave with evidence and the certainty that before the lamplight shifts in this building, someone will be told exactly which pages you stopped on. The gap in the record is a protected question — and you are now tracked as someone who found it.`;
         G.worldClocks.watchfulness++;
         addJournal('Learned real evidence — but Thom marked exactly what you found', 'complication', `shelkopolis-merchant-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -195,7 +195,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Shrine worker revealed systematic blessing degradation', 'evidence', `shelkopolis-blessing-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Sister Velda gives you an hour. Renewal cycles, protection radius, the seasonal cadence of blessings going back thirty years — she recites it with the confidence of someone who has said it many times. The wax smell of the chapel floor and the warmth of the candles make the morning pass quickly. It's only outside, in the coal-smoke of the street, that the figures settle into place: every one she cited matched the documentation from three years ago. The shrine fed you its archived baseline. The morning is gone.`;
+        G.lastResult = `Sister Velda gives you an hour. Renewal cycles, protection radius, the seasonal cadence of blessings going back thirty years — she recites it with the confidence of someone who has said it many times. The wax smell of the chapel floor and the warmth of the candles make the morning pass quickly. It's only outside, in the coal-smoke of the street, that the figures settle into place: every one she cited matched the documentation from three years ago. The shrine fed you its archived baseline. The morning is gone. The scrutiny of what you were actually looking for has been noted and neutralized in the same movement.`;
         G.worldClocks.reverence++;
         addJournal('Shrine fed false baseline data — wasted morning, window lost', 'complication', `shelkopolis-shrine-hostile-${G.dayCount}`);
       } else {
@@ -236,7 +236,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Broker mapped deliberate supply chain isolation', 'evidence', `shelkopolis-broker-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kaen sets down his chalk and looks at you directly. "I don't talk market conditions with people who ask the way you just asked." He turns back to his tally board. By the time you've reached the end of Verdant Row, two other brokers have found reasons to be busy. The market knows how to close without making a sound.`;
+        G.lastResult = `Kaen sets down his chalk and looks at you directly. "I don't talk market conditions with people who ask the way you just asked." He turns back to his tally board. By the time you've reached the end of Verdant Row, two other brokers have found reasons to be busy. The market knows how to close without making a sound. Being noticed here this way means the next approach to any broker on this row will be received with the same silent refusal before the question finishes.`;
         G.worldClocks.watchfulness++;
         addJournal('Broker warned other merchants of your inquiry', 'complication', `shelkopolis-broker-alert-${G.dayCount}`);
       } else {
@@ -277,7 +277,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Patrol captain revealed re-orchestrated garrison positioning', 'evidence', `shelkopolis-patrol-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Thorne goes still. Not angry — still, the way a gate goes still when it locks. "Garrison operations aren't a topic for this conversation." He sets his cup down and straightens his collar. Two soldiers at the next table look up. You're not threatened, exactly. But the room has shifted, and the coal-smoke smell of the street outside suddenly seems worth walking toward.`;
+        G.lastResult = `Thorne goes still. Not angry — still, the way a gate goes still when it locks. "Garrison operations aren't a topic for this conversation." He sets his cup down and straightens his collar. Two soldiers at the next table look up. You're not threatened, exactly. But the room has shifted, and the coal-smoke smell of the street outside suddenly seems worth walking toward. The pressure of those two soldiers' attention will follow this line of questioning — they have faces now to match to the inquiry.`;
         G.worldClocks.pressure++;
         addJournal('City guard now viewing you as potential threat', 'complication', `shelkopolis-patrol-hostile-${G.dayCount}`);
       } else {
@@ -316,7 +316,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Chapel worker revealed coerced faith patterns in confessions', 'evidence', `shelkopolis-faith-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Aldwin draws himself upright. The candles in the alcove behind him make his shadow large on the chapel wall. "You are asking me to describe the interior of confession. I will not. Leave, or I will bring this to the shrine master before you reach the street." The door is three steps away. The wax-sealed record book on the table beside him is already open to today's date.`;
+        G.lastResult = `Aldwin draws himself upright. The candles in the alcove behind him make his shadow large on the chapel wall. "You are asking me to describe the interior of confession. I will not. Leave, or I will bring this to the shrine master before you reach the street." The door is three steps away. The wax-sealed record book on the table beside him is already open to today's date. The scrutiny of that report will follow every future interaction with this chapel's hierarchy — your name is now in the book that describes violations.`;
         G.worldClocks.reverence++;
         addJournal('Chapel worker will report your violation of sacred space', 'complication', `shelkopolis-chapel-hostile-${G.dayCount}`);
       } else {
@@ -351,7 +351,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Combat analysis revealed deliberate garrison restructuring', 'evidence', `shelkopolis-garrison-struct-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A guard intercepts you near the second watch post. He doesn't raise his voice. He asks your business, writes something in his pocket ledger, and tells you the perimeter is restricted to authorized personnel. By the time you've backed away, two more guards have repositioned. You're logged, dated, and noted. The garrison doesn't need to detain you to make the point.`;
+        G.lastResult = `A guard intercepts you near the second watch post. He doesn't raise his voice. He asks your business, writes something in his pocket ledger, and tells you the perimeter is restricted to authorized personnel. By the time you've backed away, two more guards have repositioned. You're logged, dated, and noted. The garrison doesn't need to detain you to make the point. The watchful new post means this section of the perimeter is specifically monitored — it will be harder to approach without being identified first.`;
         G.worldClocks.watchfulness++;
         addJournal('Garrison guards alerted to reconnaissance attempt', 'complication', `shelkopolis-garrison-alert-${G.dayCount}`);
       } else {
@@ -384,7 +384,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Quartermaster revealed off-books weapons redistribution', 'evidence', `shelkopolis-supply-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The quartermaster closes the ledger before you've finished your question. He doesn't raise his voice — he picks up a writing token and sets it beside his ink pot, which is a way of saying he's about to record something. By nightfall, the garrison commander knows someone came asking about supply logs. The garrison will remember your face.`;
+        G.lastResult = `The quartermaster closes the ledger before you've finished your question. He doesn't raise his voice — he picks up a writing token and sets it beside his ink pot, which is a way of saying he's about to record something. By nightfall, the garrison commander knows someone came asking about supply logs. The garrison will remember your face. The pressure of the commander's awareness runs through every gate and post in this city — your next approach to garrison business will be received differently than this one.`;
         G.worldClocks.pressure++;
         addJournal('Garrison commander personally aware of your inquiry', 'complication', `shelkopolis-commander-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -420,7 +420,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Magic analysis revealed inverted ward architecture', 'evidence', `shelkopolis-wards-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The probe finds a watcher-thread woven into the ward surface — passive, invisible until touched. It activates the moment you press. Somewhere in the chapel network, a monitoring sigil records the contact. You pull back cleanly but the record exists. The shrine will know that someone with enough knowledge to read ward architecture tried to do so this morning, at this location.`;
+        G.lastResult = `The probe finds a watcher-thread woven into the ward surface — passive, invisible until touched. It activates the moment you press. Somewhere in the chapel network, a monitoring sigil records the contact. You pull back cleanly but the record exists. The shrine will know that someone with enough knowledge to read ward architecture tried to do so this morning, at this location. The watchful sigil exists because this section was expected to draw exactly this kind of attention.`;
         G.worldClocks.watchfulness++;
         addJournal('Shrine magical alarm triggered by ward probe', 'complication', `shelkopolis-ward-alarm-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -456,7 +456,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Magic analysis revealed systematic ritual formula corruption', 'evidence', `shelkopolis-ritual-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The shrine does not argue with you. A senior keeper steps forward, says the ritual books are consecrated property, and asks you to leave. Three junior workers position themselves between you and the reading alcove without being directed. The chapel closes like a hand. Outside, the stone steps are warm from morning sun and completely unhelpful.`;
+        G.lastResult = `The shrine does not argue with you. A senior keeper steps forward, says the ritual books are consecrated property, and asks you to leave. Three junior workers position themselves between you and the reading alcove without being directed. The chapel closes like a hand. Outside, the stone steps are warm from morning sun and completely unhelpful. The scrutiny of having approached the consecrated books will follow this inquiry to every chapel in the network — their response was too coordinated for this to be the first time someone asked.`;
         G.worldClocks.reverence++;
         addJournal('Shrine vowed to obstruct future inquiries', 'complication', `shelkopolis-ritual-blocked-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -492,7 +492,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Stealth analysis revealed systematic route closure', 'evidence', `shelkopolis-routes-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A guard steps out of a recessed doorway — not a patrol route, a stationary post in a place that had no post last month. He doesn't draw anything. He just records you: your direction, your pace, your approximate description. By the time you've cleared the block, someone in the garrison has a note with your name on it, or close enough.`;
+        G.lastResult = `A guard steps out of a recessed doorway — not a patrol route, a stationary post in a place that had no post last month. He doesn't draw anything. He just records you: your direction, your pace, your approximate description. By the time you've cleared the block, someone in the garrison has a note with your name on it, or close enough. The watchful new post was placed here specifically to catch this kind of movement — someone anticipated the route before you walked it.`;
         G.worldClocks.watchfulness++;
         addJournal('Your covert movement reported to patrol command', 'complication', `shelkopolis-route-caught-${G.dayCount}`);
       } else {
@@ -525,7 +525,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Stealth infiltration revealed suppressed information network', 'evidence', `shelkopolis-info-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Three people you approach go quiet in the same way — not rude, just finished. By evening, a dockworker you've never spoken to crosses the street to avoid you. The network didn't confront you. It simply passed a description and a recommendation. The street doesn't need to explain itself to make you irrelevant to it.`;
+        G.lastResult = `Three people you approach go quiet in the same way — not rude, just finished. By evening, a dockworker you've never spoken to crosses the street to avoid you. The network didn't confront you. It simply passed a description and a recommendation. The street doesn't need to explain itself to make you irrelevant to it. It will be harder to open any conversation in this district without this characterization arriving ahead of you.`;
         G.worldClocks.isolation++;
         addJournal('Street network now views you as hostile', 'complication', `shelkopolis-info-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -567,7 +567,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Support analysis revealed systematic social isolation', 'evidence', `shelkopolis-social-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Two people you speak with give you the same look — not hostile, measuring. A third ends the conversation by remembering somewhere to be. In a city already pulling inward, your questions about community read as surveillance. You've made yourself part of the problem you were trying to map.`;
+        G.lastResult = `Two people you speak with give you the same look — not hostile, measuring. A third ends the conversation by remembering somewhere to be. In a city already pulling inward, your questions about community read as surveillance. You've made yourself part of the problem you were trying to map. It will be harder to ask questions about trust in this city while being perceived as another reason not to trust.`;
         G.worldClocks.isolation++;
         addJournal('Community now views you with suspicion', 'complication', `shelkopolis-social-hostile-${G.dayCount}`);
       } else {
@@ -600,7 +600,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Support analysis mapped weaponized distrust network', 'evidence', `shelkopolis-trust-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `In a city already afraid of being overheard, your questions about who fears whom land exactly wrong. Three separate people end conversations quickly. By nightfall, the Iron Accord registry has a note — not a report, a note — that someone was asking unusual questions in the market district. The pressure clock moves.`;
+        G.lastResult = `In a city already afraid of being overheard, your questions about who fears whom land exactly wrong. Three separate people end conversations quickly. By nightfall, the Iron Accord registry has a note — not a report, a note — that someone was asking unusual questions in the market district. The pressure of that note is low but it accumulates: the registry adds to it each time this kind of question surfaces near you.`;
         G.worldClocks.pressure++;
         addJournal('Your fear mapping queries reported to authorities', 'complication', `shelkopolis-trust-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -668,7 +668,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Institutional conspiracy documentation compiled', 'discovery', `shelkopolis-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A sealed note arrives at your lodging before you've finished compiling. No signature. It lists three locations you visited this week and the approximate time of each. Nothing threatening — just a demonstration that someone has been keeping pace with you. The note is written on chapel-quality paper. You are being shown that the walls you're examining can see back.`;
+        G.lastResult = `A sealed note arrives at your lodging before you've finished compiling. No signature. It lists three locations you visited this week and the approximate time of each. Nothing threatening — just a demonstration that someone has been keeping pace with you. The note is written on chapel-quality paper. You are being shown that the walls you're examining can see back. The pressure in that demonstration is deliberate: they want you to know you are tracked and to make a decision about what to do with that knowledge.`;
         G.worldClocks.pressure++;
         addJournal('Operators noted which documents you compiled — they kept pace', 'complication', `shelkopolis-proof-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -742,7 +742,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Origin source of Shelkopolis corruption identified as external coordination', 'discovery', `shelkopolis-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Two men step out from the alcove before you reach the letter cache. They don't explain themselves. One takes your arm, the other opens the side door to the street, and you are outside the chapel in under a minute with nothing in your hands. The coal-smoke of the street hits you immediately. You were close enough that they moved. Whatever is in that alcove, they know you were looking for it, and now they know your face.`;
+        G.lastResult = `Two men step out from the alcove before you reach the letter cache. They don't explain themselves. One takes your arm, the other opens the side door to the street, and you are outside the chapel in under a minute with nothing in your hands. The coal-smoke of the street hits you immediately. You were close enough that they moved. Whatever is in that alcove, they know you were looking for it, and now they know your face. The pressure of that recognition is precise — you are now tracked by the people whose correspondence you were trying to trace.`;
         G.worldClocks.pressure += 2;
         addJournal('Operators moved to intercept — they know which alcove you were heading for', 'complication', `shelkopolis-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
