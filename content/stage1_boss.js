@@ -73,10 +73,17 @@ function triggerStage1MiniBoss() {
       }
     },
     {
+      cid: 'stage1_boss_confront',
+      plot: 'main',
       text: 'He will not walk away from this without a cost.',
       tag: 'bold',
       skill: 'combat',
-      action: function() { _stage1MiniBossFight(); }
+      action: function() {
+        // Fumble lock: if this choice was already fumbled, it should be locked in renderChoices
+        // On first attempt, proceed to fight — combat outcome handles narrative consequence
+        G.flags['fumble_locked_stage1_boss_confront'] = false; // cleared on new encounter
+        _stage1MiniBossFight();
+      }
     },
     {
       text: 'The alley has a second exit and he has not sealed it yet.',
