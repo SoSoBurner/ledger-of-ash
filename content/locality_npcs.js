@@ -217,6 +217,130 @@ window.LOCALITY_NPCS = {
     ]
   },
 
+  glasswake_commune: {
+    npcId: 'ilya_rimebridge',
+    name: 'Ilya Rimebridge',
+    role: 'Quartermaster at Glasswake Commune',
+    tell: 'when someone answers too quickly, picks up a nearby instrument or container — not to use it, just to hold it, resetting the pace before she decides whether to trust the answer',
+    agenda: 'keep the commune\'s supply lines intact and exposure incidents from becoming civic failures; reads trust and appetite faster than most people read words',
+    triggerText: 'Rimebridge is at the depot counter logging a shipment of ward components with an annotation she keeps revising.',
+    dialogue: [
+      {
+        id: 'rimebridge_instruments',
+        text: 'That annotation has been rewritten three times. The instruments arrived wrong.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Rimebridge sets down her pen without closing the log. She says two of the seven calibration instruments in this shipment arrived outside tolerance — not damaged, just off by enough that running them would skew the contamination readings for the entire east wing for the next exposure cycle. She taps the annotation. The supplier listed them as certified. She is deciding how to log the discrepancy so the record stays accurate without triggering a full supply chain audit that the commune cannot absorb right now. She picks up the nearest sealed canister and holds it while she thinks.',
+        failResult: 'Rimebridge folds the annotation inward and says the shipment is under review and will be logged when the review is complete. If you have a supply request, the intake window opens after the third bell. She does not look up from the counter.',
+        effects: [{ type: 'journal', text: 'Rimebridge is holding an instrument shipment discrepancy — two pieces arrived outside calibration tolerance despite certified status. She is managing the log entry to avoid triggering a supply audit the commune cannot absorb.', category: 'intelligence' }]
+      },
+      {
+        id: 'rimebridge_exposure',
+        text: 'The quarantine fatigue here is not exhaustion. Someone has been falsifying clear readings.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Rimebridge goes still. She picks up a proximity counter from the counter — the kind used to verify personal scan results — and turns it over in her hand once, twice. She says the commune runs on the principle that every breach is treated as real until cleared. She says that principle requires instruments that tell the truth. She says three of the last seven personal clearance scans in the outer labs came back clean on instruments she now has reason to question. She sets the counter down. She does not say what that means. She says she has not yet written anything down about it.',
+        failResult: 'Rimebridge says instrument integrity concerns go through the Containment Research Concord, not through depot review. She returns to the annotation without elaborating. Her hand settles on the nearest sealed canister and stays there.',
+        effects: [{ type: 'journal', text: 'Rimebridge indicated three recent personal clearance scans in the outer labs were processed on instruments she now doubts. She has not logged this. The Containment Research Concord does not yet know.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  guildheart_hub: {
+    npcId: 'guild_auditor_bren_oss',
+    name: 'Bren Oss',
+    role: 'Guild Auditor at Guildheart Hub',
+    tell: 'when he catches a contradiction, does not immediately press it — writes a single word in his margin notes and lets the silence after it do the work',
+    agenda: 'trace a quota fraud pattern he suspects crosses multiple registered merchant houses, without triggering the political alarm that would bury the evidence before he can use it',
+    triggerText: 'Oss is in the arbitration corridor reviewing a freight manifest against a sealed counter-manifest he produced himself.',
+    dialogue: [
+      {
+        id: 'oss_manifest',
+        text: 'He is comparing two documents that should match. They do not.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Oss does not look up. He says the registered freight declaration for this consignment lists forty-three sealed crates. The bonded warehouse receipt from the same intake day lists forty-one. He underlines the difference on his counter-manifest with a single precise stroke. He says two crates either passed through without registration, or were registered under a separate submission that he has not located. He says he has not yet located it. He says this in the tone of someone who expects to locate it shortly and is not pleased about what he expects to find there.',
+        failResult: 'Oss closes his counter-manifest and says freight discrepancies are handled through the Guild Sanction Board\'s formal review process. If you have a concern about a specific consignment, there is a submission form at the registry counter. He waits for you to move on.',
+        effects: [{ type: 'journal', text: 'Oss found a two-crate discrepancy between a registered freight declaration and the bonded warehouse intake receipt for the same day. He has not yet found the corresponding submission. He expects to.', category: 'intelligence' }]
+      },
+      {
+        id: 'oss_fraud',
+        text: 'The Red Hood rumors are not rumors. He has paper that connects them to the crate gap.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Oss sets his pen down. A long pause — long enough that two arbitration clerks pass in the corridor without either of them glancing his way, which means he chose this spot deliberately. He says there are three registered merchant houses in the Guildheart Hub that have each reported minor intake discrepancies in the last two quarters. He says minor is a defined term here: under six units per consignment cycle. He says the combined sum of those minor discrepancies, across those three houses, over two quarters, is not minor. He writes one word in his margin notes and does not show it to you. He says he needs the chain of custody records for the bonded warehouse\'s night intake window for the last forty days.',
+        failResult: 'Oss says active audit matters are not discussed outside formal review context. He says this without apology and without heat. He collects his documents, aligns the edges, and moves further down the corridor before you have finished processing the refusal.',
+        effects: [{ type: 'journal', text: 'Oss is tracking a combined discrepancy pattern across three registered merchant houses — individually minor, collectively significant. He needs bonded warehouse night-intake records for the last forty days. He did not say what he expects to find there.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  harvest_circle: {
+    npcId: 'elyra_mossbane',
+    name: 'Elyra Mossbane',
+    role: 'Protector of the Unternal Cultivated Wilds at Harvest Circle',
+    tell: 'when she disagrees with something but will not say so directly, looks at the nearest wagon wheel or cart axle — not the person speaking — and stays there until she has decided how much of her actual opinion to release',
+    agenda: 'keep the cultivated wilds around Harvest Circle productive enough to buffer the spoilage pressure; privately carrying a favor-feud between two patron-families that she did not start and cannot end',
+    triggerText: 'Mossbane is at the drying rack line checking a batch of field samples against a quota notice she received this morning.',
+    dialogue: [
+      {
+        id: 'mossbane_spoilage',
+        text: 'Those samples are from a field section the quota notice does not account for.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Mossbane holds one of the samples up to the light — a gesture she has done ten thousand times — and says the northern boundary sections were reclassified last cycle from communal to patron-family allocation. She says the reclassification changed whose counts those yields go into. She says the drying rack batch in front of her comes from a section whose ownership is still disputed between two families. She sets the sample back. She looks at the nearest wagon wheel. She says both families submitted their quotas showing this yield in their column. The alliance redistribution office has not yet resolved which column is correct. The grain dries regardless.',
+        failResult: 'Mossbane says the quota notice is an administrative document and questions about quota allocation go to the clerk office at the counting court. She checks another sample without looking up. The subject is closed.',
+        effects: [{ type: 'journal', text: 'Mossbane described a boundary section reclassification that placed disputed yields into competing patron-family quota columns. Both families claimed the yield. The alliance redistribution office has not resolved it. The grain is already drying.', category: 'intelligence' }]
+      },
+      {
+        id: 'mossbane_feud',
+        text: 'The two families contesting this yield have been contesting things longer than the reclassification.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Mossbane looks at a cart axle to her left. She stays there for a moment. She says she has worked the cultivated wilds boundary for eleven years and the two families whose names appear on that disputed quota have each tried, at different times, to have her position reclassified under their household rather than under the alliance protectorate. She says she has filed the required objections both times. She says the current dispute over the northern section boundary is not about grain yield. She says it never is. She looks back at the samples and begins sorting them by weight without further comment.',
+        failResult: 'Mossbane says she does not speak to patron-family relations in her capacity as protector. Boundary disputes go to the regional arbiters through the proper calendar. She turns back to the drying racks with the calm of someone who has been closing this particular conversation for years.',
+        effects: [{ type: 'journal', text: 'Mossbane indicated both contesting families have separately tried to reclassify her protectorate position under their household control. She filed objections both times. She stated plainly that the quota dispute is not about grain.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  ironhold_quarry: {
+    npcId: 'darian_ironspike',
+    name: 'Darian Ironspike',
+    role: 'Ore Officer at Ironhold Quarry',
+    tell: 'when something in a report does not add up, does not point to the error — sets two fingers on it and waits, holding the silence until whoever is across from him fills it',
+    agenda: 'keep extraction output at quota while absorbing a resource theft problem he cannot trace without exposing how long it has been going on',
+    triggerText: 'Ironspike is at the transit gate cross-referencing an ore cart manifest against the weight stamp it came in with.',
+    dialogue: [
+      {
+        id: 'ironspike_weight',
+        text: 'That cart weighed less at the gate than the manifest says it should.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Ironspike does not look up from the manifest. He says the transit weight stamp is applied at load point. The gate weight is measured on arrival. He says the difference between those two numbers is the variance field. He taps the variance column with two fingers and holds them there. He says the variance on this cart is within the tolerance range documented by the Iron Accord for road loss and settling. He says this is the fourth cart this week whose variance lands at exactly the top edge of that tolerance range. He lifts his fingers. He does not say what he thinks about that.',
+        failResult: 'Ironspike stamps the manifest with a transit clearance mark and hands it to the gate clerk. He says if you have a concern about ore transit documentation, the compliance window is open at the ore office until the fourth bell. He turns back to the next cart.',
+        effects: [{ type: 'journal', text: 'Ironspike flagged four carts this week whose transit-to-gate weight variance lands at exactly the top of Iron Accord tolerance range. He noted the pattern without stating a conclusion.', category: 'intelligence' }]
+      },
+      {
+        id: 'ironspike_theft',
+        text: 'Someone is skimming ore and they know exactly where the tolerance ceiling is.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'A pause — not surprise, the pause of someone who has been waiting for this conversation. Ironspike sets two fingers on the variance column of the manifest. He says the Iron Accord tolerance was set at three percent of load weight to cover legitimate road variance. He says he has been tracking manifest variance figures for six weeks. He says the average variance across all carts originating from the lower east face is two-point-eight percent. He says this is consistent. He says consistent variance is not road variance. He lifts his fingers. He says the lower east face loading crew has rotated three times in six weeks. The rotation schedule is managed by an overseer whose name he does not say aloud at a transit gate.',
+        failResult: 'Ironspike says ore transit discrepancies are filed through the compliance office and reviewed under Iron Accord protocol. He does not speculate about manifest patterns at an open gate. He stamps the next cart\'s manifest without looking at you again.',
+        effects: [{ type: 'journal', text: 'Ironspike has been tracking lower east face variance for six weeks — consistently at 2.8%, which he described as not road variance. The loading crew rotated three times. The rotation schedule belongs to an overseer he would not name at an open gate.', category: 'evidence' }]
+      }
+    ]
+  },
+
   soreheim_proper: {
     npcId: 'lyria_firesoul',
     name: 'Lyria Firesoul',
