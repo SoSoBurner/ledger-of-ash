@@ -817,7 +817,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
       if (!G.flags.collegium_contact_1) {
-        G.lastResult = 'The Collegium intake desk requires a certifying reference from a registered filer before opening a secondary inquiry. You do not have one yet.';
+        G.lastResult = 'The Collegium intake desk requires a certifying reference from a registered filer before opening a secondary inquiry. Fenwick\'s name carries no weight here without an active certification on file. You do not have one yet.';
         G.recentOutcomeType = 'locked';
         return;
       }
