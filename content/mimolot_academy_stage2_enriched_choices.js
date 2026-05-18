@@ -531,7 +531,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_torva_seld = true;
         G.investigationProgress++;
-        G.lastResult = `Torva Seld runs the grounds crew out of a low building near the east perimeter and keeps her own work orders filed in a wooden box by date. She tips the box out on the table between you without ceremony and points to three dates. No maintenance orders — she asked for them each time and was told by a single faculty regent that the work was pre-authorized verbally and the orders would follow. They did not follow. The work was clearing and widening the east tunnel approach: not routine, not maintenance. She knows the difference. The regent's name she gives does not appear on the faculty roster. She described him. He matches the physical description Ilys gave of the non-faculty inn guest.`;
+        G.lastResult = `Torva Seld runs the grounds crew out of a low building near the east perimeter and keeps her own work orders filed in a wooden box by date. She tips the box out on the table between you without ceremony and points to three dates. No maintenance orders — she asked for them each time and was told by a single faculty regent that the work was pre-authorized verbally and the orders would follow. They did not follow. The work was clearing and widening the east tunnel approach: not routine, not maintenance. She knows the difference. The regent's name she gives does not appear on the faculty roster.`;
         addJournal('Grounds crew: east tunnel widening, no orders — non-faculty regent matches Ilys inn guest description', 'evidence', `mim-grounds-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Torva Seld is mid-shift and her crew is visible across the east yard. She listens to the question, sets her work order binder flat, and says that grounds crew records are property of the Academy estates office and are not available for external review. She is not hostile. She is specific. The estates office is on the other side of the main building, open three mornings a week, and requires a faculty sponsor for external access requests. Her crew has gone back to work around her.`;
@@ -822,7 +822,7 @@ const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
       if (!G.flags.collegium_contact_2) {
-        G.lastResult = 'The senior review track at the Academy requires a Cosmoria cross-reference code. You do not have one yet.';
+        G.lastResult = 'The senior review track at the Academy requires a Cosmoria cross-reference code — a registry identifier from the Cosmoria Collegium linking prior access records. You do not have one yet. That chain begins elsewhere.';
         G.recentOutcomeType = 'locked';
         return;
       }
