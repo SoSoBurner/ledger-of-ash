@@ -97,6 +97,7 @@ Every plan phase that adds content must expand the total content of the stage it
 - **Travel mode buttons in spec**: `.choice-btn:visible` matches the disabled `selectTravelMode` buttons. Always use `.choice-btn:visible:not([disabled])` in `pickChoice`.
 - **`resolveCombatAction` null guard**: Always has `if (!CS) return;` as first line. Loop-detect sets `CS = null`; click handlers on already-rendered combat buttons fire after that, crashing on `CS.enemyDefMod`.
 - **Probe dedup in spec loops**: Any `picks % N === 0` condition inside a `while` loop with `continue` fires N times on the same pick during stalls. Guard with a `lastFiredAtPick` variable: `if (picks !== _lastFiredAtPick) { _lastFiredAtPick = picks; ... }`.
+- **Playwright module-scope closure trap**: Functions defined at module scope (outside `test()`) cannot close over variables declared inside `test()`. Declare shared state at module scope (`var x = 0;`), assign inside `test()` (`x = Date.now();`) — never `var x` inside `test()` for values read by module-scope functions. Symptom: the variable is `undefined` at runtime, soft-threshold / triage checks silently never fire.
 - **`readNarrativeText` reads ambient text**: Returns persistent `.narrative-text` (locality desc), not per-pick result. To capture result text for review, also query `.result-text` after `waitForChoices()` resolves.
 - **Skill review scope**: Apply all applicable skills (polish-review, feedback-loop-review, balance-review, line-editor) to BOTH screenshots AND log/report output — screenshots alone miss logic failures; logs alone miss visual/UX issues.
 - **Journal DOM structure**: Categories are `quest, field_note, faction, rival, companion, fact` — NOT evidence/intelligence/rumor/discovery. Rendered as `.jov-section` / `.jov-entry` divs by `showJournal()`, not clickable tabs. `#journal-overlay-body` holds all sections at once.
@@ -131,6 +132,7 @@ Every plan phase that adds content must expand the total content of the stage it
 - **XP denominator in `updateHUD()`**: denominator must be `G.level * 60`, not hardcoded 120. Level 2→3 = 240, level 3→4 = 180. Only level 1→2 = 120. Hardcoded 120 causes "2385 / 120" display at level 2 — confirmed systemic bug across all families in headed run.
 - `STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20}`
 - At cap: XP overflow goes to `G.masteryXP`; level does not increase.
+- **`gainXp`/`gainXP` dual alias**: Both spellings exist in `ledger-of-ash.html` (~lines 11726 and 12098). Either works; prefer `gainXp` (lowercase p) for new code.
 - `equipItem(idx)` uses `item.type` ('weapon'/'armor' → matching slot; anything else → 'tool') — not `item.slot`.
 
 ## Travel Mode System
@@ -143,7 +145,7 @@ Every plan phase that adds content must expand the total content of the stage it
 
 ## Camp System
 
-`doSleepScene()` — handles rest and healing. `campAction(type)` — available types: `'post_watches'` (converts night ambush to warned encounter), `'craft'` (craft skill action). `G.companions` — array of active companion objects. `vorath_gelden` and `mira_calden` gate on `G.flags.maren_oss_resolved`.
+`doSleepScene()` — handles rest and healing. `campAction(type)` — available types: `'rest'`, `'sleep'`, `'train'`, `'talk'`, `'recover'`, `'lay_low'`, `'review_notes'`, `'campout'`, `'craft'`, `'post_watches'`. Only `post_watches` and `craft` are fully wired in content. `G.companions` — array of active companion objects. `vorath_gelden` and `mira_calden` gate on `G.flags.maren_oss_resolved`.
 
 ## Plans Directory Warning
 
