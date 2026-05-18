@@ -26,12 +26,12 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Farlan's cross-reference confirms the routing number theft. Memorial manifests are using harvest shipment tracking numbers that allow them to pass through Roadwarden supply checkpoints without inspection — because harvest shipments have standing agricultural exemption. The memorial manifests are hijacking agricultural legitimacy.`;
         addJournal('Memorial manifests using harvest routing numbers — bypassing Roadwarden checkpoints via ag exemption', 'evidence', `har-farlan-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Farlan's records are scheduled for annual academic review this week. His cooperation would jeopardize the review's independence. He is unable to assist without compromising his institutional standing.`;
+        G.lastResult = `Farlan's records are scheduled for annual academic review this week. The timing is not incidental — the review was filed three days ago. His cooperation would jeopardize the review's independence, and he is unable to assist without compromising his institutional standing.`;
         addJournal('Quota records under annual academic review — access conflict', 'complication', `har-farlan-fail-${G.dayCount}`);
       } else {
         G.flags.met_farlan_inkshade = true;
         G.investigationProgress++;
-        G.lastResult = `Farlan identifies the routing number overlap. "These manifest numbers belong to our grain shipments. We haven't shipped grain to those destinations. Someone is borrowing our exemption credentials."`;
+        G.lastResult = `Farlan identifies the routing number overlap without needing the full context. "These manifest numbers belong to our grain shipments. We haven't shipped grain to those destinations." He closes the ledger. "Someone is borrowing our exemption credentials and they've been doing it for months."`;
         addJournal('Harvest routing numbers borrowed by non-agricultural manifests', 'evidence', `har-farlan-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -55,12 +55,12 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Harvest Circle as staging waypoint — military-credentialed compound cache transit confirmed', 'evidence', `har-valen-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The shipment Valen logged was under military exemption. His attempt to retrieve those records now triggers an automatic military exemption protection notice. The records are sealed.`;
+        G.lastResult = `The shipment Valen logged was entered under military exemption credentials. His attempt to retrieve those records now triggers an automatic military exemption protection notice — the file is flagged and sealed before the query completes.`;
         addJournal('Military exemption shipment records sealed — protection notice triggered', 'complication', `har-valen-fail-${G.dayCount}`);
       } else {
         G.flags.met_valen_crestmark = true;
         G.investigationProgress++;
-        G.lastResult = `Valen found the anomalous shipment troubling enough to note separately. "Arrived from the northwest, not from any harvest supplier I know. Heavy chemical smell on the containers. They were gone before I could request a proper manifest."`;
+        G.lastResult = `Valen found the anomalous shipment troubling enough to note separately in his own log. "Arrived from the northwest, not from any harvest supplier I know. Heavy chemical smell on the containers — not grain, not fertilizer. They were gone before I could request a proper manifest."`;
         addJournal('Chemical-smell northern shipment — rapid departure before manifest review', 'evidence', `har-valen-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -493,7 +493,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.courier_witness_found = true;
         G.investigationProgress++;
-        G.lastResult = `Fen Draal runs the pre-dawn route on foot, a lantern on a pole and a canvas bag of offering-bound parcels. He stops at each junction marker and logs arrival time in grease pencil on a strap around his wrist — transferred to the courier ledger each morning, worn away by noon. He saw four of the Compact's handlers at the Panim junction staging area before dawn: no commune insignia, no guild marks, work clothes that smelled of a chemical agent he recognized from the Soreheim processing districts — a smell that does not belong in an agricultural setting. He describes the handlers with the detail of someone who has spent years passing unnoticed: height, gait, which one held the manifest and which one never looked up.`;
+        G.lastResult = `Fen Draal runs the pre-dawn route on foot, a lantern on a pole and a canvas bag of offering-bound parcels. He stops at each junction marker and logs arrival time in grease pencil on a strap around his wrist — transferred to the courier ledger each morning, worn away by noon. He saw four of the Compact's handlers at the Panim junction staging area before dawn: no commune insignia, no guild marks, work clothes that smelled of a chemical agent he recognized from the Soreheim processing districts — a smell that does not belong in an agricultural setting. He describes the handlers with the detail of someone who has spent years passing unnoticed: height, gait, which one held the manifest.`;
         addJournal('Courier Fen Draal witnessed Compact handlers at Panim junction — Soreheim processing-district chemical scent confirmed, handler descriptions recorded', 'evidence', `har-courier-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -554,7 +554,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.flags.herbalist_witness = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Meret Osk has assembled Harvest Circle's offering bundles for eleven years. She knows the weight of each component by hand — not by scale, but by the pressure against her palm as she lifts the finished bundle for the route stamp. She sets both hands flat on the preparation table when she describes the change: three months ago, bundles sealed after the preparation room closed overnight came back to the dock weighing more than she had assembled. The excess was consistent: always between eight and twelve units above her assembly weight. "I thought the scale was off," she says. "The scale was not off." She has kept a private tally in the back of her preparation ledger, column-ruled in her own hand.`;
+        G.lastResult = `Meret Osk has assembled Harvest Circle's offering bundles for eleven years. She knows the weight of each component by hand — not by scale, but by the pressure against her palm as she lifts the finished bundle for the route stamp. She sets both hands flat on the preparation table when she describes the change: three months ago, bundles sealed after the preparation room closed overnight came back to the dock weighing more than she had assembled. The excess was consistent: always between eight and twelve units above her assembly weight. "I thought the scale was off," she says. "The scale was not off." She has kept a private tally in her preparation ledger.`;
         addJournal('Herbalist Meret Osk: offering bundles gained 8-12 units overnight — private weight tally across three months, sealed room access after hours', 'evidence', `har-herbalist-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -614,7 +614,7 @@ const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.denet_alvar_debrief = true;
         G.investigationProgress++;
-        G.lastResult = `Denet Alvar's eastern stall is positioned at an angle that gives him a direct sightline to his old route staging area. He has not moved the stall since he relocated. He names this without embarrassment — it is not nostalgia, it is habit refined into something more useful. Over eight months he has logged, in a personal notebook he does not show buyers, every shipment that moved through the staging area under the Northern Provision Compact manifest category. The arrival times, the handler count, the vehicle type. He identifies two handlers who appeared on multiple shipments and names one by a road-circuit nickname he overheard during a loading dispute. He sets the notebook on the counter between you. "I'm not going back to the route," he says. "But I'm not pretending I don't see it."`;
+        G.lastResult = `Denet Alvar's eastern stall is positioned at an angle that gives him a direct sightline to his old route staging area. He has not moved the stall since he relocated. He names this without embarrassment — it is not nostalgia, it is habit refined into something more useful. Over eight months he has logged, in a personal notebook he does not show buyers, every shipment that moved through the staging area under the Northern Provision Compact manifest category. The arrival times, the handler count, the vehicle type. He identifies two handlers who appeared on multiple shipments and names one by a road-circuit nickname he overheard during a loading dispute. He sets the notebook on the counter between you.`;
         addJournal('Denet Alvar: 8-month personal log of Compact shipment patterns — handler identity and road-circuit nickname recorded', 'evidence', `har-alvar-debrief-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
