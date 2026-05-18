@@ -983,7 +983,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A routing number change for the eastern memorial circuit and a manifest update for the next transit convoy are still pinned from the morning posting — nothing that wasn\'t common knowledge by the first bell.';
       return;
     }
     G.flags[key] = true;
