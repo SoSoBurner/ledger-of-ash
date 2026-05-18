@@ -376,7 +376,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.flags.guild_bonding_waiver_exposed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Broker Fen Callard runs the bonding desk out of a narrow office with a window that faces the canal lock gates rather than the street. He doesn't wait for the full question. The waiver forms are already on the desk — he pulled them this morning. "The three loads came through with a pre-signed waiver of bonding obligation, authorized under a Union freight council instrument I've never seen before or since." He smooths one corner of the topmost form. "If those loads were lost or seized, nobody was going to pay for them. Not the Hub, not the shipper, not my office. The instrument designated liability to a party whose name on it is a guild mark rather than a person." He taps the mark. It matches the subsidiary notation Sable flagged in the charter exemption files.`;
+        G.lastResult = `Broker Fen Callard runs the bonding desk out of a narrow office with a window that faces the canal lock gates rather than the street. He doesn't wait for the full question. The waiver forms are already on the desk — he pulled them this morning. "The three loads came through with a pre-signed waiver of bonding obligation, authorized under a Union freight council instrument I've never seen before or since." He smooths one corner of the topmost form. "If those loads were lost or seized, nobody was going to pay for them. Not the Hub, not the shipper, not my office. The instrument designated liability to a party whose name is a guild mark rather than a person."`;
         addJournal('Bonding house: charter-exempt loads carried pre-signed liability waiver — guild mark matches Sable charter subsidiary notation', 'evidence', `guild-bonding-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -517,7 +517,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.guild_labor_grievance_found = true;
         G.investigationProgress++;
-        G.lastResult = `The labor guild's grievance record is kept by a shop steward named Morwick Pen who maintains it in a worn canvas-covered book rather than the official registry, because the official registry is reviewed by the Hub charter desk. The grievance described six loading crews that were not guild-registered, working at night on the charter-exempt bays, handling cargo that matched none of the standard categories. Pen filed it. Six days later the grievance was marked withdrawn. Pen did not withdraw it. "Someone signed it with a union grievance waiver code that I've never used." He opens the book to the page. The waiver code is in a different hand. "I looked up that code afterward. It's reserved for inter-guild arbitration settlements. We never had an arbitration. There's no settlement on record." He does not close the book.`;
+        G.lastResult = `The labor guild's grievance record is kept by a shop steward named Morwick Pen who maintains it in a worn canvas-covered book rather than the official registry, because the official registry is reviewed by the Hub charter desk. The grievance described six loading crews that were not guild-registered, working at night on the charter-exempt bays, handling cargo that matched none of the standard categories. Pen filed it. Six days later the grievance was marked withdrawn. Pen did not withdraw it. "Someone signed it with a union grievance waiver code that I've never used." He opens the book to the page. The waiver code is in a different hand. "It's reserved for inter-guild arbitration settlements. We never had an arbitration."`;
         addJournal('Labor grievance withdrawn with false arbitration waiver code — steward Morwick Pen confirms no settlement, foreign handwriting', 'evidence', `guild-labor-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -546,7 +546,8 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.flags.guild_phantom_witness_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Clerk Fenara Sivault is listed in the Sanction Board formal hearing record as a witness to the procedural review that approved the charter exemption — her name, her title, and a notation that she provided testimony confirming the exemption's legal standing. She works on the tariff adjudication floor, one level below Derris Ledgermere. She is direct: she was never called to any hearing. Her name appears on no summons. Her signature appears on no testimony form. The notation in the formal record is fabricated. She has been a named witness to a proceeding that did not happen, which means if the exemption is ever challenged, her name is the procedural anchor. "If this goes to formal review, I am the evidence that it was legitimate." She has known this for three months. She does not know what to do about it.`;
+        G.lastResult = `Clerk Fenara Sivault is listed in the Sanction Board formal hearing record as a witness to the procedural review that approved the charter exemption — her name, her title, and a notation that she provided testimony confirming the exemption's legal standing. She is direct: she was never called to any hearing. Her name appears on no summons. Her signature appears on no testimony form. The notation in the formal record is fabricated. She has been a named witness to a proceeding that did not happen — her name is the procedural anchor if the exemption is ever challenged. "If this goes to formal review, I am the evidence that it was legitimate."`;
+
         addJournal('Phantom witness Fenara Sivault: named in formal charter hearing record, never summoned — fabricated testimony anchors exemption legitimacy', 'evidence', `guild-witness-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -694,14 +695,14 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_collegium_aware) {
-        G.lastResult = 'Nothing to act on with the Collegium yet.';
+        G.lastResult = 'The third chair in the Arbiter alcove is placed at an angle not visible from the registry floor. Nothing to act on with the Collegium yet — the alcove is empty, or the occupant has not made contact.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'approaching the Collegium auditor in the alcove');
       G.flags.met_auditor_peregrin_vas = true;
       G.flags.stage2_faction_collegium_contacted = true;
-      G.lastResult = 'The auditor is an older man in a plain grey coat with no guild mark and a single Collegium cipher stitched at the cuff. He does not rise. He turns the third chair so it faces you and taps the arm twice — an invitation that is also a timing cue. "Peregrin Vas. Oversight." He does not offer a title. His tell is that he keeps a folded Union registry slip between his first and second fingers like a cigarette he is not going to light. He wants the Shelk contract rider — the one Sable flagged. A certified copy, filed to Collegium intake before the next audit rotation closes in four days. Not taken. Filed. By someone whose name is not already on the registry watch.' + applyTensionModifier('collegium_any');
+      G.lastResult = 'The auditor is an older man in a plain grey coat with no guild mark and a single Collegium cipher stitched at the cuff. He does not rise. He turns the third chair so it faces you and taps the arm twice — an invitation that is also a timing cue. "Peregrin Vas. Oversight." He does not offer a title. His tell is a folded Union registry slip between his first and second fingers like a cigarette he will not light. He wants the Shelk contract rider — the one Sable flagged. A certified copy, filed to Collegium intake before the audit rotation closes in four days. Not taken. Filed. By someone not already on the registry watch.' + applyTensionModifier('collegium_any');
       addJournal('Met Auditor Peregrin Vas (Oversight Collegium) — wants certified copy of Shelk contract rider filed to Collegium intake within 4 days', 'contact_made', `guild-collegium-contacted-${G.dayCount}`);
       G.recentOutcomeType = 'investigate';
     }
@@ -714,7 +715,7 @@ const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_collegium_contacted) {
-        G.lastResult = 'The Collegium contact isn\'t ready for the next step.';
+        G.lastResult = 'The Collegium contact isn\'t ready for the next step yet. Peregrin Vas needs to be approached in the Arbiter alcove before the certified copy can be filed to Oversight intake.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
