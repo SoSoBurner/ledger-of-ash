@@ -357,7 +357,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Management restricted access to quota system information', 'complication', `soreheim-quota-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Two sets of documentation exist in the archive: one from fourteen weeks ago and one from six weeks ago. The calculation methodology in the newer version doesn't reference the older one — it starts from different source figures. The targets went up. The basis for setting them changed. No notation explains why. In the older set, entries run day by day through the full production season — then stop. They resume eleven days later with no annotation, no closing entry for the gap, no note of suspension. The ink on the resumption day is slightly different in weight from the surrounding pages, as though the pen was taken up again after a long pause and pressed harder at first. The eleven days are simply absent.`;
+        G.lastResult = `Two sets of documentation exist in the archive: one from fourteen weeks ago and one from six weeks ago. The calculation methodology in the newer version doesn't reference the older one — it starts from different source figures. The targets went up. The basis for setting them changed. No notation explains why. In the older set, entries run day by day through the full production season — then stop. They resume eleven days later with no annotation, no closing entry for the gap, no note of suspension. The ink on the resumption day is slightly different in weight, as though the pen was taken up again after a long pause. The eleven days are simply absent.`;
         addJournal('Quota system modifications confirmed', 'evidence', `soreheim-quota-modified-${G.dayCount}`);
       } else {
         G.lastResult = `The quota board outside the administration building shows this week's targets in fresh paint. The numbers are large. The methodology behind them lives inside the building, behind a desk with a stamp on it. The stamp belongs to someone who isn't available to speak with you today. The junior clerk Davel works the evening shift alone — he files documents into a system whose dating key he doesn't hold, which means someone above him does.`;
@@ -394,7 +394,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Logistics coordinators alerted to supply chain inquiry', 'complication', `soreheim-supply-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Cart wheels cut ruts into the yard's packed stone at a pace that would match a festival week, except the yard is quiet. No hailing between drivers, no teamsters calling loads. The dispatch yard is busier than a city of this quota cycle should be. Outbound carts outnumber inbound by three to one. The routing stamps on the outbound manifests face inward, away from the gate — turned so that the destinations don't read from where someone passing would see them. The cart drivers don't stop to talk. They don't look at each other either. The Iron Compact routing marks on the secondary stamps in the outbound crates — three crates not on any manifest — point toward the same northern relay.`;
+        G.lastResult = `Cart wheels cut ruts into the yard's packed stone at a pace that would match a festival week, except the yard is quiet. No hailing between drivers, no teamsters calling loads. The dispatch yard is busier than a city of this quota cycle should be. Outbound carts outnumber inbound by three to one. The routing stamps on the outbound manifests face inward — turned so that the destinations don't read from where someone passing would see them. The cart drivers don't stop to talk. They don't look at each other either. The Iron Compact routing marks on the secondary stamps in the outbound crates — three crates not on any manifest — point toward the same northern relay.`;
         addJournal('Supply chain anomalies detected but incompletely mapped', 'evidence', `soreheim-supply-partial-${G.dayCount}`);
       }
 
@@ -532,7 +532,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Survival analysis revealed systematic worker vulnerability weaponization', 'evidence', `soreheim-survival-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A labor administrator catches up to you at the end of the housing block — a woman with ink-blackened knuckles and a leather document case worn smooth at the corners. "Documenting workforce precarity without authorization violates operational security policy." She hands you a printed notice. The paper smells faintly of the pressroom's lampblack. The notice was already printed. It has today's date on it. She waits while you read, weight on one heel, then collects the copy back and files it in the case without writing anything. Your name wasn't needed. The notice wasn't issued to you. It was shown. The pressure of a notice that was printed before you arrived means the administration's attention was on you before you reached the housing block.`;
+        G.lastResult = `A labor administrator catches up to you at the end of the housing block — a woman with ink-blackened knuckles and a leather document case worn smooth at the corners. "Documenting workforce precarity without authorization violates operational security policy." She hands you a printed notice. The paper smells faintly of pressroom lampblack. The notice was already printed. It has today's date on it. She waits while you read, weight on one heel, then collects the copy back and files it without writing anything. Your name wasn't needed. The notice wasn't issued to you. It was shown. The administration's attention was on you before you reached the housing block.`;
         G.worldClocks.pressure++;
         addJournal('Management prohibited further worker vulnerability analysis', 'complication', `soreheim-survival-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -813,7 +813,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Davel talks to his food at first, not to you. He's nineteen and working the evening shift alone. Three weeks ago his supervisor told him to stop dating records by locality — use a new numerical code instead. "I asked what the code maps to. He said it's being unified across the network." He picks up a blank form from the stack beside him and sets it down again without looking at it — a habit, something to do with his hands when the answer he has is smaller than the question it belongs to. Davel hasn't been told what network. The documents he's filed since then go into a system he has no key to read. Someone above his supervisor does.`;
+        G.lastResult = `Davel talks to his food at first, not to you. He's nineteen and working the evening shift alone. Three weeks ago his supervisor told him to stop dating records by locality — use a new numerical code instead. "I asked what the code maps to. He said it's being unified across the network." He picks up a blank form and sets it down again without looking at it — a habit, something to do with his hands when the answer he has is smaller than the question it belongs to. Davel hasn't been told what network. The documents he's filed since then go into a system he has no key to read. Someone above his supervisor does.`;
         if (!G.flags) G.flags = {};
         G.flags.met_davel_clerk = true;
         addJournal('Junior clerk Davel revealed new undecipherable dating system in records', 'intelligence');
@@ -1009,7 +1009,7 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A quota cycle update from the labor administration is still pinned at the top. The safety stop schedule below it has been there since the last bell change. Nothing that changes the picture.';
       return;
     }
     G.flags[key] = true;
