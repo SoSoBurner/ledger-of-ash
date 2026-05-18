@@ -9,6 +9,13 @@
 - **Debug**: Use `console.log` / `console.error` only. Never `alert()` — it appears as an error dialog to the user.
 - **Font changes**: Always grep the TARGET element's class directly before editing. ID-selector font rules beat parent class rules. Fix the direct rule, not the parent.
 
+## Branch Workflow
+
+- **Default branch: `main`** — all development happens on `main` unless explicitly told otherwise.
+- **Feature branches**: allowed for large or risky work when explicitly requested by the user.
+- **`ledger-of-ash-itch` branch**: reserved exclusively for itch.io release builds. Only touch it when the user explicitly says "update the itch.io release" or equivalent. Never commit game development work there.
+- At session start, assume you are working on `main`. Confirm with `git branch` if uncertain.
+
 ## File Structure
 
 - `ledger-of-ash.html` — single-file game engine: all CSS, core JS, game data, and HTML

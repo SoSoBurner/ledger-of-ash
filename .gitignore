@@ -16,3 +16,26 @@ dist/test_bundle.js
 dist/index.html
 download_fonts.py
 _font_faces.css
+
+# Build/test output logs
+build-out.txt
+headed-out.txt
+headless-out*.txt
+validator-out.txt
+validators-out.txt
+test-results/
+
+# Local scratch files
+DEBUG.txt
+GAMEPLAYCLEANUP.txt
+PatriotAbbyProject_Plan.md
+V33_2_DnD_Repository.zip
+
+# Legacy working directories
+legacy/docs/
+legacy/nul
+legacy/specs/
+
+# Untracked local plan drafts
+docs/superpowers/plans/2026-05-14-stage1-2-release-polish.md
+docs/superpowers/plans/2026-05-15-itch-release-final.md
