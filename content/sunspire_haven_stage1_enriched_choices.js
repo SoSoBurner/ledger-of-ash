@@ -64,7 +64,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Lysander chooses a corner of the market hall before he speaks. He checks behind him once — not a glance, a full turn — and then sets both hands on the table, palms down, the way a person establishes ground before saying something they can't unsay. "Obligations are the structure of Sunspire — everyone knows this. What's changed is who decides what an obligation means. Families that push back on syndicate preferences get told their service obligations are being reviewed for increase. Families that comply get waivers and reductions. The registry of mutual duty now runs through syndicate preference." He doesn't call it by any larger name. He doesn't have to. The registry is a public document. This season's waivers and increases will be in the record.`;
+        G.lastResult = `Lysander chooses a corner of the market hall before he speaks. He checks behind him once — not a glance, a full turn — and sets both hands on the table. "Obligations are the structure of Sunspire — everyone knows this. What's changed is who decides what an obligation means. Families that push back on syndicate preferences get told their service obligations are being reviewed for increase. Families that comply get waivers and reductions. The registry of mutual duty now runs through syndicate preference." He doesn't call it by any larger name. He doesn't have to. The registry is a public document. This season's waivers and increases will be in the record.`;
         G.stageProgress[1]++;
         addJournal('Broker revealed obligation system weaponization', 'evidence', `sunspire-broker-obligations-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -973,7 +973,7 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A seasonal obligation schedule is still pinned at the top — same one from three days back. The waystation arrival notice beside it has not changed since the last family transit. Nothing that changes the picture.';
       return;
     }
     G.flags[key] = true;
