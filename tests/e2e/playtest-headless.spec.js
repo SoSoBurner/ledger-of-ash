@@ -738,8 +738,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       // Soft 55-min threshold — exit cleanly before the 62-min hard kill fires
       if (picks % 25 === 0 && picks > 0) {
         // TRIAGE 1: empty panel while alive
-        var _triageText = await page.locator('#choice-panel').innerText().catch(function() { return ''; });
-        if (_triageText.trim() === '' && !g.dead) {
+        var _triageCount = await page.locator('.choice-btn:visible:not([disabled])').count().catch(function() { return 0; });
+        if (_triageCount === 0 && !g.dead) {
           log('[TRIAGE_STALL ' + tag + '] pick=' + picks + ' — empty panel, G.dead=false');
           try { await page.evaluate(function() { if (typeof loadStageChoices === 'function') loadStageChoices(); }); } catch(_e) {}
         }
