@@ -13837,6 +13837,7 @@ function campAction(type) {
     G.worldClocks = G.worldClocks || {};
     G.worldClocks.watchfulness = Math.max(0, (G.worldClocks.watchfulness || 0) - 1);
     G.dayCount = (G.dayCount || 0) + 1;
+    G.supply = Math.max(0, (G.supply || 0) - 1);
     if (G.heat && typeof G.heat === 'object') {
       var _llPolity = G.currentLocality && G.currentLocality.polity ? G.currentLocality.polity.toLowerCase() : null;
       if (_llPolity && G.heat[_llPolity] > 0) G.heat[_llPolity] = Math.max(0, G.heat[_llPolity] - 1);
