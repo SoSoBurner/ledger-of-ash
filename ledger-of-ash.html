@@ -11173,7 +11173,7 @@ function loadStageChoices(locId) {
     renderChoices(choices);
     // Zero-choice fallback: prevent dead-ends when boss trigger or other path leaves panel empty
     setTimeout(function() {
-      var _activeBtns = document.querySelectorAll('#choices-panel .choice-btn:not([disabled])');
+      var _activeBtns = document.querySelectorAll('#action-content .choice-btn:not([disabled])');
       if (_activeBtns.length === 0 && G && !G.dead && G.flags && !G.flags.stage1_boss_started) {
         renderChoices([{
           id: 'fallback_pause',
