@@ -226,7 +226,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Terris keeps his tally counter on his belt — a worn brass clicker, four years of use on the thumb lever. When you ask about the count discrepancy on new-moon nights, he answers at length: the commune's traffic patterns, the difference between pedestrian crossings and loaded carts, how weather affects toll queue speed, the particular way afternoon light makes the eastern span harder to watch. He is helpful throughout. His manner is open, his tone easy. None of it addresses what you asked. Then, without transition: "My method doesn't change. Click for every crossing, total at end of shift, same as always." He clicks it once, absently. "New-moon nights my total comes out higher than Cadrin's. I reported it twice. Both times they said I'd miscounted." He doesn't say he believes them. He doesn't say he doesn't.`;
+        G.lastResult = `Terris keeps his tally counter on his belt — a worn brass clicker, four years of use on the thumb lever. When you ask about the count discrepancy on new-moon nights, he answers at length: the commune's traffic patterns, the difference between pedestrian and cart crossings, how weather affects toll speed. None of it addresses what you asked. Then, without transition: "My method doesn't change. Click for every crossing, total at end of shift, same as always." He clicks it once, absently. "New-moon nights my total comes out higher than Cadrin's. I reported it twice. Both times they said I'd miscounted." He doesn't say he believes them. He doesn't say he doesn't.`;
         if (!G.flags) G.flags = {};
         G.flags.met_terris_walker = true;
         addJournal('Duty walker Terris: confirmed count discrepancy, twice told he miscounted — discrepancy normalized through administrative dismissal', 'intelligence');
@@ -399,7 +399,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.flags.met_ashe_director = true;
-        G.lastResult = `Ashe lives on the far side of the crossing now, window facing away from the bridge. She pours water for both of you, then keeps her eyes on the window frame while she talks — not looking out, just not looking at you. You ask about the inquiry she filed. She answers with the crossing schedule: tidal windows, load weight limits, mortar review cycles, warden rotation intervals. The answer is thorough, unhurried, technically accurate, and addresses none of the questions you asked. She speaks at length about bridge maintenance culture. The closures, the new-moon nights, the ghost account that shut her own inquiry — none of it surfaces. She refills your cup when it's still half full. It's the second time she's done it without being asked. The helpfulness is the answer.`;
+        G.lastResult = `Ashe lives on the far side of the crossing now, window facing away from the bridge. She pours water for both of you, then keeps her eyes on the window frame while she talks — not looking out, just not looking at you. You ask about the inquiry she filed. She answers with the crossing schedule: tidal windows, load weight limits, mortar review cycles, warden rotation intervals. Thorough, unhurried, technically accurate, and none of it addresses what you asked. She speaks at length about bridge maintenance culture. The closures, the new-moon nights, the ghost account that shut her own inquiry — none of it surfaces. She refills your cup when it's still half full. The helpfulness is the answer.`;
         addJournal('Former bridge director Ashe: excluded from own jurisdiction by mystery authorization, resigned in protest', 'contact_made', `whitebridge-ashe-${G.dayCount}`);
       } else {
         G.lastResult = `Ashe left Whitebridge two months after handing in her post. A neighboring settlement, across the crossing — close enough that she'd see the bridge lanterns on a clear night if she faced that direction. Nobody at the commune office will say why she left, only that the departure was her choice. She isn't here. Getting to her means crossing the bridge she no longer manages.`;
@@ -719,7 +719,7 @@ const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A crossing maintenance schedule is still posted at the top, same notice from three days back. The duty walker rotation listing beside it carries last week\'s date. Nothing that changes the picture.';
       return;
     }
     G.flags[key] = true;
