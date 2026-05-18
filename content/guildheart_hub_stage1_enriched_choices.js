@@ -1109,7 +1109,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(55, 'overhearing freight counter exchange');
 
-      G.lastResult = `The Guildheart freight counter runs along the east wall of the hub yard, open on one side to the loading bays. Late morning: the yard noise fills in around conversations. Two officials stand at the far end of the counter — one with a routing folio open against his forearm, one with both hands on the counter edge. The one with the folio says: "Fourteen-ninety-two, Category D hold, same window as the Bay Seven clearance." The other glances toward where you are standing. It is a single look, no expression behind it, lasting less than a second. The folio closes. Neither official speaks again. Neither leaves. They stand where they were and do not resume the conversation. The yard noise continues. They simply stop.`;
+      G.lastResult = `The Guildheart freight counter runs along the east wall of the hub yard, open on one side to the loading bays. Late morning: the yard noise fills in around conversations. Two officials stand at the far end of the counter — one with a routing folio open against his forearm, one with both hands on the counter edge. The one with the folio says: "Fourteen-ninety-two, Category D hold, same window as the Bay Seven clearance." The other glances toward where you are standing. It is a single look, no expression behind it, lasting less than a second. The folio closes. Neither official speaks again. Neither leaves. They stand where they were and do not resume the conversation.`;
       addJournal('Overheard at Guildheart Hub freight counter, mid-morning: "Fourteen-ninety-two, Category D hold, same window as the Bay Seven clearance." Conversation ended when second party noted observer. Neither official left — they stopped in place.', 'intelligence');
 
       G.recentOutcomeType = 'observe';
@@ -1129,7 +1129,7 @@ const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A charter-hall session notice and a freight coordination advisory from the prior shift are still pinned at the center column. The clerk re-posts at close of hall each day.';
       return;
     }
     G.flags[key] = true;
