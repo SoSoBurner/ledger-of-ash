@@ -20,7 +20,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `The stockade wall throws its morning shadow across the checkpoint barrier at the track junction — the eastern track already gone soft at the shoulder, less maintained than the road in. Letha Dawnsilk has the reports stacked on the left side of her desk — a six-month column of paper, organized by date. She doesn't offer you a seat. She checks the window before she answers. Not the street outside — the reflection in the glass. "I've been sending pressure anomaly readings to central coordination for six months. Three months ago they stopped acknowledging receipt. Two months ago I was told the measurements were under review and not to share them externally." She taps the stack. She never stopped writing the reports. "If they won't use them, at least they exist."  `;
+        G.lastResult = `The stockade wall throws its morning shadow across the checkpoint barrier at the track junction — the eastern track already gone soft at the shoulder, less maintained than the road in. Letha Dawnsilk has the reports stacked on the left side of her desk — a six-month column of paper, organized by date. She doesn't offer you a seat. She checks the window before she answers. Not the street outside — the reflection in the glass. "I've been sending pressure anomaly readings to central coordination for six months. Three months ago they stopped acknowledging receipt. Two months ago I was told the measurements were under review and not to share them externally." She taps the stack.`;
         G.flags.met_letha_dawnsilk = true;
         addJournal('Commander Letha Dawnsilk met: 6 months of suppressed pressure anomaly reports, still maintaining records despite institutional silence', 'contact_made', `plumes-letha-${G.dayCount}`);
       } else {
@@ -759,7 +759,7 @@ const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A patrol assignment rotation and a note about oilcloth requisitions are still pinned from the last supply run — standard outpost notices, nothing that changed since the early watch.';
       return;
     }
     G.flags[key] = true;
