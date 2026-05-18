@@ -20,7 +20,7 @@
         addJournal('Trader contact established', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The maps look convincing — ink weight, road names, distance markers. You don't notice the divergence until you're two hours into terrain that ends at a flooded ravine. The figure in the cloak is long gone. The Ridgeway doesn't forgive poor judgment easily.`;
+        G.lastResult = `The maps look convincing — ink weight, road names, distance markers. You don't notice the divergence until you're two hours into terrain that ends at a flooded ravine. The figure in the cloak is long gone. The Ridgeway doesn't forgive poor judgment easily — the pressure of two lost hours makes every junction on the remaining route harder to read with confidence.`;
         addJournal('Misled by false information', 'complication', `false-maps-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -52,7 +52,7 @@
         addJournal('Supply cache found', 'discovery', `cache-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The terrain is active. A slope that looked solid gives way under weight and you slide forty feet before catching a root cluster. Supplies scatter. One pack goes over the edge entirely. The ankle is wrenched, not broken, but every step for the next two days will cost something.`;
+        G.lastResult = `The terrain is active. A slope that looked solid gives way under weight and you slide forty feet before catching a root cluster. Supplies scatter. One pack goes over the edge entirely. The ankle is wrenched, not broken, but every step for the next two days will cost something. The pressure of a wrenched ankle is harder to carry on unstable terrain than on flat road — the detour already demanded more than it offered.`;
         addJournal('Terrain damage', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -84,7 +84,7 @@
         addJournal('Ferry master favor', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The captain's jaw tightens at the third counter-offer. He points at the far bank and tells you to find another way across. By the time you reach the next settlement, two ferrymen there have already heard a description of you. The river trade talks to itself.`;
+        G.lastResult = `The captain's jaw tightens at the third counter-offer. He points at the far bank and tells you to find another way across. By the time you reach the next settlement, two ferrymen there have already heard a description of you. The river trade talks to itself — you are tracked by name along every crossing point between here and the confluence.`;
         addJournal('Reputation damage', 'complication', `rep-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -116,7 +116,7 @@
         addJournal('Scout network mapped', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The camp looks empty. It isn't. Three figures step out of the treeline before you're halfway across the clearing — they waited while you walked in. The next hour is loud and costs more than supplies. The darkness works against you just as much as them.`;
+        G.lastResult = `The camp looks empty. It isn't. Three figures step out of the treeline before you're halfway across the clearing — they waited while you walked in. The next hour is loud and costs more than supplies. The darkness works against you just as much as them. The pressure of a sprung ambush is that its owners noticed you approaching before you noticed them — this clearing will be harder to use as cover again.`;
         addJournal('Ambush encounter', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -148,7 +148,7 @@
         addJournal('Messenger alliance forged', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The riders are faster than you judged and more organized. The messenger goes down in the third pass. One rider wheels toward you, and by the time you've put distance between yourself and the road, they've gotten a clear look at your face. The messenger's name is something you'll hear again in worse circumstances.`;
+        G.lastResult = `The riders are faster than you judged and more organized. The messenger goes down in the third pass. One rider wheels toward you, and by the time you've put distance between yourself and the road, they've gotten a clear look at your face. The messenger's name is something you'll hear again in worse circumstances. You are now tracked by whoever commissioned those riders — they have a face to attach to the name.`;
         addJournal('Wanted status rising', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -180,7 +180,7 @@
         addJournal('Scholar joined', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The checkpoint warden separates the group for individual questioning — standard procedure that you didn't account for. The scholar's papers don't hold up to direct comparison. You spend two hours being questioned about how you met. The warden lets you go, but writes your description into the duty log before you leave.`;
+        G.lastResult = `The checkpoint warden separates the group for individual questioning — standard procedure that you didn't account for. The scholar's papers don't hold up to direct comparison. You spend two hours being questioned about how you met. The warden lets you go, but writes your description into the duty log before you leave. The scrutiny of a duty log entry means the next checkpoint on this route will have your description before you arrive.`;
         addJournal('Authority suspicion', 'complication', `authority-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -212,7 +212,7 @@
         addJournal('Safe waypoint found', 'discovery', `waypoint-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The lights pulse in a pattern that looks like a rest signal, and you move toward them. The ground between you and the source is occupied. They had a rope across the path. The next few minutes are ugly. You get clear, but you're down coin and one piece of kit that was worth more than the coin.`;
+        G.lastResult = `The lights pulse in a pattern that looks like a rest signal, and you move toward them. The ground between you and the source is occupied. They had a rope across the path. The next few minutes are ugly. You get clear, but you're down coin and one piece of kit that was worth more than the coin. The pressure of a sprung light-trap is that the people who set it noticed your approach long before the rope — this pattern will be harder to ignore on the next road.`;
         addJournal('Bandit trap', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -245,7 +245,7 @@
         addJournal('Secret passage mapped', 'discovery');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The prohibition markers aren't just legal. Something has been using this trail for longer than the restriction. You hear it before you see it. Getting out costs you an hour of bad terrain, a gashed forearm, and the pack you dropped when you ran. The markers didn't explain what they were warning about, but they weren't wrong.`;
+        G.lastResult = `The prohibition markers aren't just legal. Something has been using this trail for longer than the restriction. You hear it before you see it. Getting out costs you an hour of bad terrain, a gashed forearm, and the pack you dropped when you ran. The markers didn't explain what they were warning about, but they weren't wrong. The pressure of a lost pack and a gashed forearm means the standard route will be harder to sustain over the next two days.`;
         addJournal('Territorial encounter', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -277,7 +277,7 @@
         addJournal('Hometown connection renewed', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `His face goes still when he sees you — not recognition, something else. He nods and walks on. Two hours later you notice you're being followed by someone you don't recognize. The gap between seeing someone from home and trusting them is wider than you remembered.`;
+        G.lastResult = `His face goes still when he sees you — not recognition, something else. He nods and walks on. Two hours later you notice you're being followed by someone you don't recognize. The gap between seeing someone from home and trusting them is wider than you remembered. You are now tracked by whoever he reported to — and someone from home told them what to watch for.`;
         addJournal('Location compromised', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -309,7 +309,7 @@
         addJournal('Disaster intelligence gathered', 'intelligence', `disaster-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The crowd draws a patrol within twenty minutes. The wardens want to know who organized the aid distribution and under what authorization. They take your name and the name of anyone you were visibly speaking with. The refugees scatter. The questioning takes the rest of the afternoon.`;
+        G.lastResult = `The crowd draws a patrol within twenty minutes. The wardens want to know who organized the aid distribution and under what authorization. They take your name and the name of anyone you were visibly speaking with. The refugees scatter. The questioning takes the rest of the afternoon. The scrutiny attached to an unauthorized aid distribution means the warden network in this district now has your name alongside the names you were seen speaking with.`;
         addJournal('Official scrutiny', 'complication', `scrutiny-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -343,7 +343,7 @@
         addJournal('Alliance negotiated', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You take too long answering the first question. The envoy watches the pause like a tax assessor watching a merchant weigh coin. By the time you've found your answer, he's already decided something about you. He thanks you for your time with the specific courtesy of someone who won't be sending another envoy.`;
+        G.lastResult = `You take too long answering the first question. The envoy watches the pause like a tax assessor watching a merchant weigh coin. By the time you've found your answer, he's already decided something about you. He thanks you for your time with the specific courtesy of someone who won't be sending another envoy. The pressure of a concluded assessment travels back to the faction before you've left the room — the door this envoy closes is harder to reopen than it was to approach.`;
         addJournal('Faction hostility', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -375,7 +375,7 @@
         addJournal('Double negotiation success', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `They talk to each other — faster than you expected, through a channel you didn't know they shared. By the time you reach your next meeting, both know you've been running parallel conversations. The first faction's representative doesn't raise her voice. She just slides your proposal back across the table and says she doesn't think this is a productive relationship.`;
+        G.lastResult = `They talk to each other — faster than you expected, through a channel you didn't know they shared. By the time you reach your next meeting, both know you've been running parallel conversations. The first faction's representative doesn't raise her voice. She just slides your proposal back across the table and says she doesn't think this is a productive relationship. You are now tracked by both factions as the person who tried to play both sides — the third faction in this region will hear the same account before you reach them.`;
         addJournal('Factional suspicion', 'complication', `susp-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -407,7 +407,7 @@
         addJournal('Moral boundary upheld', 'complication');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You hedge when you should be direct. The representative listens, nods, and asks if you need more time to consider. You say no. He says he'll pass that along. The way he says it makes clear that "passing it along" means something specific within the faction, and it isn't a compliment.`;
+        G.lastResult = `You hedge when you should be direct. The representative listens, nods, and asks if you need more time to consider. You say no. He says he'll pass that along. The way he says it makes clear that "passing it along" means something specific within the faction, and it isn't a compliment. The pressure of a negative assessment passed along through faction channels is harder to reverse than a refusal delivered in person.`;
         addJournal('Faction displeasure', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -439,7 +439,7 @@
         addJournal('Safehouse intelligence', 'intelligence', `safe-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `Someone is already inside when you push the door. The next few seconds are fast and loud. You get out, but not unseen. By evening, three people in the district have your description and instructions to pass it up the faction's chain. Staying in this area stops being a reasonable option.`;
+        G.lastResult = `Someone is already inside when you push the door. The next few seconds are fast and loud. You get out, but not unseen. By evening, three people in the district have your description and instructions to pass it up the faction's chain. Staying in this area stops being a reasonable option. You are now tracked through the faction's chain with a description accurate enough to reach the next district before you do.`;
         addJournal('Active faction pursuit', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -471,7 +471,7 @@
         addJournal('Defector asset acquired', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The extraction route was watched. The faction knew she was considering it — they'd been watching her for weeks. They let the exit attempt run far enough to identify who she contacted. The connection between you and the defection attempt is now documented somewhere you can't access.`;
+        G.lastResult = `The extraction route was watched. The faction knew she was considering it — they'd been watching her for weeks. They let the exit attempt run far enough to identify who she contacted. The connection between you and the defection attempt is now documented somewhere you can't access. The watchful patience of a faction that let the attempt run means they wanted the contact's name more than they wanted to prevent the exit.`;
         addJournal('Defection traced', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -503,7 +503,7 @@
         addJournal('Internal mediation successful', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You call one side's position unreasonable in front of the other. That's the moment it breaks. The insulted group walks out, taking two other members with them. The faction leadership thanks you for your time with the particular flatness of people who will not be repeating this experiment. The internal split is now an open fracture.`;
+        G.lastResult = `You call one side's position unreasonable in front of the other. That's the moment it breaks. The insulted group walks out, taking two other members with them. The faction leadership thanks you for your time with the particular flatness of people who will not be repeating this experiment. The internal split is now an open fracture. The pressure of an open fracture attributed to outside mediation means the faction's attention now includes you as a contributing cause.`;
         addJournal('Mediation failure', 'complication', `med-fail-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -535,7 +535,7 @@
         addJournal('Operative assassination solved', 'intelligence', `death-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You're still crouched over the body when you hear movement behind you. Whoever left the operative there didn't go far. They see your face and make a calculation. You put distance between yourself and the location fast, but not before they've had enough time to decide what to do with what they saw.`;
+        G.lastResult = `You're still crouched over the body when you hear movement behind you. Whoever left the operative there didn't go far. They see your face and make a calculation. You put distance between yourself and the location fast, but not before they've had enough time to decide what to do with what they saw. You are tracked now by people who left the operative's body as bait — the location was chosen to notice whoever came to look.`;
         addJournal('Killer attention gained', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -567,7 +567,7 @@
         addJournal('Spy network established', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `One of the people you approached went directly to the regional authority. By morning, the authority has a description of your activities and a name that's connected to the faction that sent you. The region now holds something you can't take back — and they're deciding what to do with it.`;
+        G.lastResult = `One of the people you approached went directly to the regional authority. By morning, the authority has a description of your activities and a name that's connected to the faction that sent you. The region now holds something you can't take back — and they're deciding what to do with it. The pressure of a regional authority holding a connected name means every market relationship in this district is now harder to establish without that name arriving first.`;
         addJournal('Espionage discovered', 'complication', `espy-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -599,7 +599,7 @@
         addJournal('Innocence proven, loyalty gained', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The evidence trail bends back toward you — not because you're guilty but because someone structured the theft to leave traces that point at an outsider. The faction leadership listens to your explanation without expression. You can't tell whether they believe you. The questions they ask next suggest they're now trying to determine whether your guilt is practical or merely convenient.`;
+        G.lastResult = `The evidence trail bends back toward you — not because you're guilty but because someone structured the theft to leave traces that point at an outsider. The faction leadership listens to your explanation without expression. You can't tell whether they believe you. The questions they ask next suggest they're now trying to determine whether your guilt is practical or merely convenient. The watchful flatness of those questions means you are noticed as a liability until the trail points elsewhere.`;
         addJournal('Suspicion escalated', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -634,7 +634,7 @@
         addJournal('Deep trust forged', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You push harder than the moment warrants. They answer your questions in single sentences, then stop answering. By the evening meal they're physically present but unreachable — their posture closed, their eyes on the middle distance. You've put something between you that wasn't there before, and they're not going to be the one to move it.`;
+        G.lastResult = `You push harder than the moment warrants. They answer your questions in single sentences, then stop answering. By the evening meal they're physically present but unreachable — their posture closed, their eyes on the middle distance. You've put something between you that wasn't there before, and they're not going to be the one to move it. The pressure of that distance has a weight that makes every shared decision harder to reach from here.`;
         addJournal('Companion distance', 'complication', `dist-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -666,7 +666,7 @@
         addJournal('Companion convinced to stay', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You make an argument you believe in but they've already stopped listening. They pack while you're still talking. Before they go, they take the secondary provisions pack — not out of malice, they'd say, but because they need it. The group feels differently sized after they leave, and not just by one person.`;
+        G.lastResult = `You make an argument you believe in but they've already stopped listening. They pack while you're still talking. Before they go, they take the secondary provisions pack — not out of malice, they'd say, but because they need it. The group feels differently sized after they leave, and not just by one person. The pressure of a missing secondary pack makes the next supply stretch harder than the math suggests.`;
         addJournal('Companion departure', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -698,7 +698,7 @@
         addJournal('Care strengthens bond', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You push the apothecary on price when the companion is still in the chair. The apothecary stops working and looks at you. He finishes the minimum procedure — cleansing, a basic wrap — and tells you the actual treatment requires the full fee. You're outside the shop before you've worked out that you've made this worse. The companion doesn't say anything, but the injury is still there and now it's been sitting untreated for another hour.`;
+        G.lastResult = `You push the apothecary on price when the companion is still in the chair. The apothecary stops working and looks at you. He finishes the minimum procedure — cleansing, a basic wrap — and tells you the actual treatment requires the full fee. You're outside the shop before you've worked out that you've made this worse. The companion doesn't say anything, but the injury is still there and now it's been sitting untreated for another hour. The pressure of an untreated injury makes every day of travel from here harder than it needs to be.`;
         addJournal('Negotiation failure', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -730,7 +730,7 @@
         addJournal('Group harmony achieved', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You call for a decision before both sides are ready to make one. The argument sharpens under the pressure. One companion stands up from the table and walks out of the shelter. They're back by morning, but they don't speak to the other directly for the next day. The tension has a shape now that it didn't have before, and it takes up space in every shared silence.`;
+        G.lastResult = `You call for a decision before both sides are ready to make one. The argument sharpens under the pressure. One companion stands up from the table and walks out of the shelter. They're back by morning, but they don't speak to the other directly for the next day. The tension has a shape now that it didn't have before, and it takes up space in every shared silence. The pressure of a named tension makes the next decision that requires both of them harder to bring to a close.`;
         addJournal('Companion conflict', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -762,7 +762,7 @@
         addJournal('Companion healed, loyalty absolute', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The isolation protocols aren't maintained cleanly — surfaces touched, kit shared in the chaos of camp. By the third day, two others show early symptoms. The companion with the worst exposure doesn't make it past the fourth night. You're standing with a group that is smaller by one and sicker than it was, and the road ahead is the same length it's always been.`;
+        G.lastResult = `The isolation protocols aren't maintained cleanly — surfaces touched, kit shared in the chaos of camp. By the third day, two others show early symptoms. The companion with the worst exposure doesn't make it past the fourth night. You're standing with a group that is smaller by one and sicker than it was, and the road ahead is the same length it's always been. The pressure of a sicker group makes every choice point on that road harder to meet at full strength.`;
         addJournal('Companion death, contagion spreads', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -794,7 +794,7 @@
         addJournal('Family rescued, loyalty unbreakable', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The approach is spotted on the second perimeter. The alarm doesn't bring enough response to catch you, but it brings enough to lock the facility and document the attempt. The warden authority now has a description of the operation and the approximate number of people involved. The family member is still inside. Your group is now on a list.`;
+        G.lastResult = `The approach is spotted on the second perimeter. The alarm doesn't bring enough response to catch you, but it brings enough to lock the facility and document the attempt. The warden authority now has a description of the operation and the approximate number of people involved. The family member is still inside. Your group is now on a list. You are tracked as an attempted extraction party — the next approach to this facility will be watched for specifically.`;
         addJournal('Authority pursuit heightened', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -826,7 +826,7 @@
         addJournal('Sacrifice publicly honored', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You read the evidence wrong — what they gave up looks, at first glance, like they diverted resources. You confront them on it before you've checked the full picture. They don't defend themselves with the explanation you don't have yet. They just absorb it, and something in how they carry themselves after that is different. More careful. More distant. The truth comes out later, and the damage by then is already done.`;
+        G.lastResult = `You read the evidence wrong — what they gave up looks, at first glance, like they diverted resources. You confront them on it before you've checked the full picture. They don't defend themselves with the explanation you don't have yet. They just absorb it, and something in how they carry themselves after that is different. More careful. More distant. The truth comes out later, and the damage by then is already done. The pressure of an absorbed accusation sits harder than a defended one — it doesn't resolve when the truth arrives.`;
         addJournal('Misunderstood sacrifice', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -858,7 +858,7 @@
         addJournal('Betrayal forgiven, trust renewed', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You react before you've thought through what the confession actually means. What you say isn't proportionate and they know it. They pack their kit with the same calm they use for everything else, and by morning they're gone. A week later you hear they're working with a group whose interests run directly counter to yours. They're not pursuing a vendetta. They're just moving on, and they happen to be on the other side now.`;
+        G.lastResult = `You react before you've thought through what the confession actually means. What you say isn't proportionate and they know it. They pack their kit with the same calm they use for everything else, and by morning they're gone. A week later you hear they're working with a group whose interests run directly counter to yours. They're not pursuing a vendetta. They're just moving on, and they happen to be on the other side now. The pressure of a former companion on the opposite side is harder to navigate than an unknown adversary — they know your methods.`;
         addJournal('Companion becomes rival', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -892,7 +892,7 @@
         addJournal('Route maps acquired', 'intelligence', `maps-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You push down on the price twice. The scout smiles and takes what you offer. The maps he gives you are technically accurate — for a route that was closed four months ago. You don't discover this until you're standing at a checkpoint that's been decommissioned and replaced by something stricter, three hours in the wrong direction.`;
+        G.lastResult = `You push down on the price twice. The scout smiles and takes what you offer. The maps he gives you are technically accurate — for a route that was closed four months ago. You don't discover this until you're standing at a checkpoint that's been decommissioned and replaced by something stricter, three hours in the wrong direction. The pressure of three lost hours at a stricter checkpoint means the remaining daylight is harder to spend than it should have been.`;
         addJournal('Misinformed', 'complication', `misinf-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -924,7 +924,7 @@
         addJournal('Institutional strategy decoded', 'intelligence', `decode-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The cipher has a detection thread — a glyph sequence that activates on unauthorized access. You didn't see it in time. The message is now blank in your hands and whoever sent it has a notification that their communication was opened. Your position relative to the message's interception point is traceable.`;
+        G.lastResult = `The cipher has a detection thread — a glyph sequence that activates on unauthorized access. You didn't see it in time. The message is now blank in your hands and whoever sent it has a notification that their communication was opened. Your position relative to the message's interception point is traceable. You are tracked now by the people whose cipher you triggered — the detection thread exists because they expected someone to try exactly this.`;
         addJournal('Interception detected', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -956,7 +956,7 @@
         addJournal('Institutional spy asset acquired', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The institution tracks them faster than either of you expected — a movement pattern they were already watching for. The location you chose is compromised within the day. The spy gets out but barely, and they leave behind documents that connect the shelter point to your movements over the previous week. The institution has your general profile now.`;
+        G.lastResult = `The institution tracks them faster than either of you expected — a movement pattern they were already watching for. The location you chose is compromised within the day. The spy gets out but barely, and they leave behind documents that connect the shelter point to your movements over the previous week. The institution has your general profile now. The scrutiny attached to a connected shelter point means every contact point you've used this week is now under watchful review.`;
         addJournal('Accomplice status', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -988,7 +988,7 @@
         addJournal('Institutional objective revealed', 'intelligence', `obj-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `One of the group doubles back through a side lane — a counter-surveillance maneuver that works exactly as intended. You're standing still when they come around the corner behind you. They look at you with the particular attention of someone who is paid to notice people following them. Nobody says anything. They continue on. But the surveillance party now knows their route had a tail.`;
+        G.lastResult = `One of the group doubles back through a side lane — a counter-surveillance maneuver that works exactly as intended. You're standing still when they come around the corner behind you. They look at you with the particular attention of someone who is paid to notice people following them. Nobody says anything. They continue on. But the surveillance party now knows their route had a tail. The watchful pause of that professional look means your face is now noticed and catalogued by the people you were following.`;
         addJournal('Observation discovered', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -1021,7 +1021,7 @@
         addJournal('Scout network integrated', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You agree to more than you can deliver — three safe houses when you have one, protection capacity beyond your actual reach. The lead scout nods and takes the agreement at face value. Two weeks later, when the first test of your commitment comes and you can't fulfill what you promised, the word travels through the circuit faster than you do. The network closes its doors.`;
+        G.lastResult = `You agree to more than you can deliver — three safe houses when you have one, protection capacity beyond your actual reach. The lead scout nods and takes the agreement at face value. Two weeks later, when the first test of your commitment comes and you can't fulfill what you promised, the word travels through the circuit faster than you do. The network closes its doors. The pressure of a broken circuit agreement is harder to repair than no agreement at all — every scout on this network has now heard the same account.`;
         addJournal('Network broken trust', 'complication', `break-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -1053,7 +1053,7 @@
         addJournal('Conspiracy uncovered', 'intelligence', `cons-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `You spend an hour with the documents before you notice the location tag on the messenger's boot — a marking used by courier networks to note where a message was collected. Someone in the network tracks their people that way. By the time you've worked this out, you're back on the road, and by the next morning there's a second figure on your trail who wasn't there before. They don't approach. They just stay at range and watch.`;
+        G.lastResult = `You spend an hour with the documents before you notice the location tag on the messenger's boot — a marking used by courier networks to note where a message was collected. Someone in the network tracks their people that way. By the time you've worked this out, you're back on the road, and by the next morning there's a second figure on your trail who wasn't there before. They don't approach. They just stay at range and watch. The watchful distance of that figure means the network already knows where you collected the message and decided you were worth following rather than confronting.`;
         addJournal('Killer attention', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -1086,7 +1086,7 @@
         addJournal('Archives breached successfully', 'intelligence', `breach-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The breach alert triggers faster than the external pattern suggested — someone was watching the reading room specifically. The lockdown seals before you reach the secondary exit. The warden personnel who find you in the stacks take your name before they allow you to leave. You're not detained. But your name and description are now in the incident log, and the institution's security review will include you.`;
+        G.lastResult = `The breach alert triggers faster than the external pattern suggested — someone was watching the reading room specifically. The lockdown seals before you reach the secondary exit. The warden personnel who find you in the stacks take your name before they allow you to leave. You're not detained. But your name and description are now in the incident log, and the institution's security review will include you. The scrutiny of an incident log entry means the archive's secondary stacks are now harder to access by any approach the institution hasn't already considered.`;
         addJournal('Archive trap discovery', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -1118,7 +1118,7 @@
         addJournal('Protected witness status', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The testimony was supposed to be sealed. It wasn't. By the time you leave the meeting room, the summary of what you said has been routed to a duty officer whose name appears in the documents you were testifying about. Within two days, someone leaves a note at your lodging that says only: "We know what you said." The network's corruption runs deeper than the procedure that was supposed to protect you.`;
+        G.lastResult = `The testimony was supposed to be sealed. It wasn't. By the time you leave the meeting room, the summary of what you said has been routed to a duty officer whose name appears in the documents you were testifying about. Within two days, someone leaves a note at your lodging that says only: "We know what you said." The network's corruption runs deeper than the procedure that was supposed to protect you. The pressure of a note at your lodging means you are tracked by people with enough reach to find where you sleep.`;
         addJournal('Official retaliation', 'complication');
       } else {
         G.stageProgress[2]++;
