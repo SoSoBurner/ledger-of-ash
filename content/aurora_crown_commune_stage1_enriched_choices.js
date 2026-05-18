@@ -544,7 +544,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `The communal spaces built for assembly stand empty at the hours they used to fill. A long-term resident — she's been here since the dome's second decade, she mentions it without pride — sits at a table in the commons and doesn't look up when two people walk past. That's the thing you keep noticing: nobody looks up. Aurora Crown was built on collective decision-making; the record boards are everywhere, the decision logs are public. The boards are current. Nobody reads them. When you ask a group near the cooking area about the future, the answers arrive in the same register: the dome will fail. There's no way through. Not said with grief — said with the flatness of something already decided.`;
+        G.lastResult = `The communal spaces built for assembly stand empty at the hours they used to fill. A long-term resident — she's been here since the dome's second decade, she mentions it without pride — sits at a table in the commons and doesn't look up when two people walk past. That's the thing you keep noticing: nobody looks up. Aurora Crown was built on collective decision-making; the record boards are everywhere, the decision logs are public. The boards are current. Nobody reads them. When you ask a group near the cooking area about the future, the answers arrive in the same register: the dome will fail. There's no way through.`;
         G.stageProgress[1]++;
         addJournal('Psychological analysis revealed systematic demoralization campaign', 'evidence', `aurora-psychology-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -1095,7 +1095,7 @@ const AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. The amber panels above it are on their midday cycle. Two collective work assignments and a water filtration maintenance notice from yesterday still hold the top slots. Nothing worth copying down.';
       return;
     }
     G.flags[key] = true;
