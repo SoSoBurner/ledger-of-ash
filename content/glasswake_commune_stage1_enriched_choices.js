@@ -26,7 +26,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `The research annex is small and smells of ground mineral compound and old paper. Toman Iceveil is already at his worktable when you arrive, turning a shard sample in his fingers — slowly, without looking at it, the way a person handles something they've already memorized. He sets it down when you explain why you're here and studies you for a moment. "I've been waiting for someone to ask questions that weren't from the administrative committee." He won't hand over current research — too many requests have come in that direction and he's learned to read them. But he'll confirm what you already have evidence for, and he'll point you toward what the committee has spent fourteen months keeping out of print.`;
+        G.lastResult = `The research annex is small and smells of ground mineral compound and old paper. Toman Iceveil is already at his worktable when you arrive, turning a shard sample in his fingers — slowly, without looking at it, the way a person handles something they've already memorized. He sets it down when you explain why you're here and studies you for a moment. "I've been waiting for someone to ask questions that weren't from the administrative committee." He won't hand over current research — too many requests have come in that direction and he's learned to read them. But he'll confirm what you already have evidence for, and he'll point you toward what the committee has suppressed.`;
         G.flags.met_toman_iceveil = true;
         addJournal('Toman Iceveil met: suppressed researcher, cautious, will confirm evidence you bring', 'contact_made');
       } else {
@@ -441,7 +441,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
-      G.lastResult = `Community whisper: "${selected}." The commune is aware that something wrong is happening — they just don't have the full shape of it yet.`;
+      G.lastResult = `Community whisper, overheard near the water-clock tower: "${selected}." The commune is aware that something wrong is happening in the research annex — they can feel it in the committee's silences. They don't have the full shape of it yet.`;
       addJournal(`Glasswake commune rumor: "${selected}"`, 'evidence', `glasswake-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -751,7 +751,7 @@ const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A sluice maintenance schedule and a committee session date from last week still occupy the center column. The morning crier covers the commune at the second water-clock chime if the board is light.';
       return;
     }
     G.flags[key] = true;
