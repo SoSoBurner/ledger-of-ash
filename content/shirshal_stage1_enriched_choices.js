@@ -999,7 +999,7 @@ const SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A compliance schedule posting from the transit bureau is still up at the left corner. The surge witness appeal notice below it has been there since last week. Nothing that changes the picture.';
       return;
     }
     G.flags[key] = true;
