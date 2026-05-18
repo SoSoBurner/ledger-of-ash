@@ -93,6 +93,130 @@ window.LOCALITY_NPCS = {
     ]
   },
 
+  aurora_crown_commune: {
+    npcId: 'warden_sera_whiteglass',
+    name: 'Warden Sera Whiteglass',
+    role: 'Dome Stabilizer Marshal at Aurora Crown Commune',
+    tell: 'when she names a problem, her eyes go to the nearest structural joint in the dome wall — not as a check, but as a habit she never unlearned',
+    agenda: 'keep Aurora Crown Commune\'s dome reliable and its protocols unbroken; carries contamination and ration strain without letting the marshal post visibly slip',
+    triggerText: 'Whiteglass is standing at the thermal inlet gate, reading a seepage report she has already read twice.',
+    dialogue: [
+      {
+        id: 'whiteglass_seepage',
+        text: 'That report is older than this morning. She is reading it again for a reason.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Whiteglass does not look up from the document, but she stops turning pages. The seepage reading at Section Nine has been flagged three times in the last rotation cycle, she says. Each time, the repair order went out. Each time, the follow-up inspection noted it resolved. She sets the report down on the inlet ledge, smooths the edge flat with two fingers. The readings are still climbing, she adds, and the inspection forms say they are not. She does not say what that means. She does not need to.',
+        failResult: 'Whiteglass folds the seepage report against her forearm and says the inlet is operating within tolerance. If you have a technical concern, the stewards office handles dome submissions. Her eyes move to the joint overhead and stay there a moment before she walks on.',
+        effects: [{ type: 'journal', text: 'Whiteglass is tracking a Section Nine seepage reading that keeps climbing despite three repair-and-clear cycles. Inspection forms say resolved. Readings say otherwise.', category: 'intelligence' }]
+      },
+      {
+        id: 'whiteglass_records',
+        text: 'The repair forms are correct. The dome is not. Someone is managing the gap.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'A long pause. Whiteglass sets the report on the ledge and turns to face you fully — the posture of someone deciding how much to anchor to the record. She says dome maintenance submissions require a countersignature from the stewards rotation lead before closure. She says the Section Nine closures have the right signature. She says the rotation lead on two of those three cycles was covering a doubled shift. She says she has not yet filed a formal query. Her eyes go to the structural joint, then back to you. She says she has not yet.',
+        failResult: 'Whiteglass says dome maintenance is under steward jurisdiction. If there is a structural concern, the submission process exists for that purpose. She picks up the report and walks toward the inner corridor without looking back. The thermal inlet gate hisses behind her.',
+        effects: [{ type: 'journal', text: 'Whiteglass indicated the Section Nine closure forms carry a valid countersignature from a rotation lead who was covering doubled shifts during two of the three cycles. She has not filed a formal query. Not yet.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  craftspire: {
+    npcId: 'jorin_ledgermere',
+    name: 'Jorin Ledgermere',
+    role: 'Grain Measurer at Craftspire',
+    tell: 'before answering anything that costs him, runs his thumb along the edge of his ledger cover — not opening it, just confirming the spine is there',
+    agenda: 'protect his standing at Craftspire against reputational exposure he can see coming but cannot yet stop; thinks in favors owed and weeks remaining',
+    triggerText: 'Ledgermere is at the materials yard edge with a ledger he keeps closing before anyone can read the open page.',
+    dialogue: [
+      {
+        id: 'ledgermere_shortage',
+        text: 'The yard count does not match what the board says is available.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Ledgermere closes the ledger, opens it again to a different page. He says the board reflects licensed allocation — what has been formally assigned for active commissions. The physical yard count includes reserve stock and contested lots. The difference is procedural, not a discrepancy. He says this the way someone says a thing they have said many times before, with the precision of a person who stopped believing it around the third or fourth repetition. His thumb finds the spine of the ledger before he finishes the sentence.',
+        failResult: 'Ledgermere says the yard figures are updated each morning through the allocation office. If there\'s a count question, the clerks on the second level hold the current register. He closes the ledger with both hands and steps back from the yard rail.',
+        effects: [{ type: 'journal', text: 'Ledgermere described a gap between Craftspire\'s board-posted allocations and the physical yard count as procedural — reserve stock and contested lots. His manner suggested the explanation is practiced rather than settled.', category: 'intelligence' }]
+      },
+      {
+        id: 'ledgermere_obligation',
+        text: 'He is managing a loss that belongs to someone above him in this building.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Ledgermere goes still. His thumb moves along the ledger spine — once, deliberate. He says every allocation cycle carries forward obligations from the previous one. He says that is standard practice under copy-right enforcement. He says the current forward balance is within variance. He does not say whose variance he is absorbing. He selects his next words as if for the record: he has logged every measurement he has witnessed, in the sequence they were given to him, as his role requires. He does not say who gave the sequence.',
+        failResult: 'Ledgermere says ledger operations at the yard level fall under the licensed guild allocation process, not corridor review. He has a measurement run starting shortly. He closes the conversation the way he closes the ledger — with both hands, no gap left open.',
+        effects: [{ type: 'journal', text: 'Ledgermere described the current allocation gap as a forward balance within variance — absorbing obligations from a prior cycle. He logged every measurement as given. He would not say who set the sequence.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  districts: {
+    npcId: 'aelra_sunweave',
+    name: 'Aelra Sunweave',
+    role: 'Estate Liaison at Aurora Heights District',
+    tell: 'when she cannot say something directly, straightens her cuff — left hand over right, two slow pulls — and the pause after it is where the real answer lives',
+    agenda: 'keep the Aurora Heights estate network from generating public scandal while a private obligation she will not name narrows her options by the week',
+    triggerText: 'Sunweave is in the boulevard colonnade, reading a written notice she received but did not open in front of whoever delivered it.',
+    dialogue: [
+      {
+        id: 'sunweave_access',
+        text: 'That notice was handed to her privately. She read it where no one from the estate could see.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Aelra Sunweave tucks the notice into her sleeve before you are close enough to read the seal. She says she handles liaison correspondence throughout the district and most of it is administrative — property access, schedule coordination, estate maintenance requests. She names these with the rhythm of someone reciting a list they use to make space. She adds, without changing tone: the Aurora Heights estate records are reviewed through a separate office from the main Shelkopolis civic archive. Different submission calendar. Different clerk rotation. Most people do not know that.',
+        failResult: 'Sunweave folds the notice against her palm and says estate liaison correspondence is private administrative matter. If you have a formal inquiry, the district registration office accepts written submissions at the second bell. She straightens her cuff, left over right, twice, and turns back to the boulevard.',
+        effects: [{ type: 'journal', text: 'Sunweave noted that Aurora Heights estate records are maintained separately from the Shelkopolis civic archive — different submission calendar, different clerk rotation. She did not say why she mentioned it.', category: 'intelligence' }]
+      },
+      {
+        id: 'sunweave_scandal',
+        text: 'Something in that notice would reach the wrong clerks if she did not intercept it first.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'A pause — long enough that you can hear the boulevard fountain. Sunweave straightens her cuff, left over right, slow. She says estate liaison work involves managing the distance between private estate records and civic-level disclosure requirements. She says there are obligations, on both sides, to maintain that distance appropriately. She says the notice she received relates to a maintenance schedule — she names the category carefully, like a person choosing a container that will hold without spilling. She says the maintenance schedule touches a property whose civic registration has not been updated since a prior owner. She says she is managing the alignment. She does not say for whom.',
+        failResult: 'Sunweave meets your eyes with the steady attention of someone who does exactly this for a living. She says she does not discuss active liaison matters in public space. She says this without heat, without hurry. She says there is a formal process for civic inquiry and it does not begin in a colonnade. Her cuff is already straight when she walks away.',
+        effects: [{ type: 'journal', text: 'Sunweave is managing alignment between a private estate maintenance record and a civic registration that predates the current owner. She described it as her responsibility. She would not name the estate or the owner.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  fairhaven: {
+    npcId: 'corin_bloomcrest',
+    name: 'Corin Bloomcrest',
+    role: 'Watch Sergeant at Fairhaven',
+    tell: 'when he decides to answer a question he almost deflected, rolls his left shoulder once — a small physical permission he gives himself before the words come',
+    agenda: 'keep Fairhaven\'s watch credible against glyph corruption pressure that is moving faster than his authority can follow; wants outside clarity but will not say so directly',
+    triggerText: 'Bloomcrest is at the Fairhaven market gate checking a cart he has already checked, running the same tally twice.',
+    dialogue: [
+      {
+        id: 'bloomcrest_tally',
+        text: 'He ran that count twice. The first count was not wrong.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Bloomcrest does not acknowledge the observation directly. He seals the cart log with his thumb stamp and hands it back to the driver. Then he says, while still looking at the gate: there have been three carts in the last eight days carrying reagents without purification seal documentation. Standard road law requires the seal for anything bound toward Verdant Caves approach. He got all three flagged. He says this the way a person states a number they are not proud of. He says the problem is the carts that come through while he is covering the south approach.',
+        failResult: 'Bloomcrest hands the cart log back to the driver and says the gate is operating on standard rotation. If there is a market inquiry, the clerk office handles those. He rolls his left shoulder once, then turns back to the gate without looking at you.',
+        effects: [{ type: 'journal', text: 'Bloomcrest flagged three reagent carts in eight days for missing purification seals on the Verdant Caves approach road. He noted carts arriving while he covers the south approach go unlogged. He presented this as a coverage problem, not an enforcement one.', category: 'intelligence' }]
+      },
+      {
+        id: 'bloomcrest_corruption',
+        text: 'He knows where the glyph corruption is moving. He has not written it down.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Bloomcrest goes still at the gate frame. Then he rolls his left shoulder once, and turns partly toward you — not fully, in case someone from the market is watching. He says the Watcher\'s Perch readings have been moving southeast for about three weeks. He says this is not in any report because the reading markers are maintained by cave wardens, not watch, and the last warden to update them has not come back from the third passage. He says he sent a message to the Shelkopolis relay six days ago. He says he has not received a response. He says these things without inflection, in the order they happened.',
+        failResult: 'Bloomcrest says the watch handles market gate and road safety. Glyph anomaly monitoring falls under cave warden jurisdiction and any concern should be routed through the shrine office at the east end of the market. He turns back to the gate. His posture does not change.',
+        effects: [{ type: 'journal', text: 'Bloomcrest tracked glyph corruption readings moving southeast from Watcher\'s Perch for three weeks. The last cave warden to update the markers did not return from the third passage. He sent a relay message to Shelkopolis six days ago. No response.', category: 'evidence' }]
+      }
+    ]
+  },
+
   soreheim_proper: {
     npcId: 'lyria_firesoul',
     name: 'Lyria Firesoul',
