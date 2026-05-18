@@ -1037,7 +1037,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. The refectory schedule and a quarterly notice about restricted wing access hours are still pinned from the morning cycle — administrative postings, nothing from the research towers.';
       return;
     }
     G.flags[key] = true;
