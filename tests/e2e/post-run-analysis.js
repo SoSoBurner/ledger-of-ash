@@ -22,7 +22,7 @@ const ROOT           = path.join(__dirname, '..', '..');
 const TEST_RESULTS   = path.join(ROOT, 'test-results');
 const SCREENSHOTS    = path.join(TEST_RESULTS, 'playthrough-screenshots');
 const PLANS_DIR      = path.join(ROOT, 'docs', 'superpowers', 'plans');
-const LOG_FILE       = path.join(TEST_RESULTS, 'full-playthrough-log-headed.md');
+const LOG_FILE       = path.join(TEST_RESULTS, 'playtest-headed-log.md');
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -134,7 +134,7 @@ const DOMAINS = [
     id: 'coverage',
     label: 'Locality Coverage',
     focus: 'which localities were visited, which were never visited, coverage gaps (visited with 0 sp2), map travel effectiveness, dead-end hotspots',
-    skills: [],
+    skills: ['continuity-auditor'],
     logHeavy: false,
   },
   {
@@ -143,6 +143,24 @@ const DOMAINS = [
     focus: 'UI consistency, HUD integrity (HP/XP/gold vs G state), typography, color role violations, choice border color misuse, missing UI elements, overall feel',
     skills: ['game-design:polish-review', 'game-design:fun-review'],
     logHeavy: false,
+  },
+  {
+    id: 'humanizer',
+    label: 'Voice and Register Audit',
+    focus: 'AI-prose patterns in result text and NPC dialogue: "highlighting", "underscoring", "contributing to", "you realize", "you feel", "you sense". Flag any found — these must be stripped or rewritten.',
+    skills: ['humanizer', 'line-editor'],
+  },
+  {
+    id: 'branch_drift',
+    label: 'Branch Drift Audit',
+    focus: 'Repeated phrasing across choices in the same locality, option-set imbalance (safe choices outnumber bold 4:1+), result text that drifts from the locality voice register.',
+    skills: ['branch-drift-auditor'],
+  },
+  {
+    id: 'tutorial',
+    label: 'Tutorial and Onboarding Review',
+    focus: 'How to Play text, onboarding copy, tooltip strings, first-10-picks experience. Does the game explain the Universal Roll Rule? Is the faction contact hint visible when sp2>=10?',
+    skills: ['game-design:tutorial-review'],
   },
 ];
 
