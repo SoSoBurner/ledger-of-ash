@@ -1,13 +1,13 @@
 // @ts-check
 /**
- * full-playthrough-headed.spec.js
- * Headed QA harness — 4 families, 8 hr ceiling, autonomous repair loop.
+ * playtest-headed.spec.js
+ * Headed QA harness — 4 families, 3 hr ceiling, autonomous repair loop.
  *
- * Shares all utility functions with full-playthrough.spec.js (copy-owned here
+ * Shares all utility functions with playtest-headless.spec.js (copy-owned here
  * to avoid a runtime require() dependency across Playwright workers).
  *
  * Run after the headless spec:
- *   npx playwright test tests/e2e/full-playthrough-headed.spec.js
+ *   npx playwright test tests/e2e/playtest-headed.spec.js
  */
 
 const { test } = require('@playwright/test');
@@ -15,7 +15,7 @@ const fs   = require('fs');
 const path = require('path');
 
 const { getStageCeiling, isSuccess: stageLockIsSuccess, ceilingLabel } = require('./helpers/stage-lock');
-const { shouldTravelNow, openMapAndTravel } = require('./helpers/map-travel');
+const { shouldTravelNow, openMapAndTravel, resetTravelInterval } = require('./helpers/map-travel');
 const CoverageTracker = require('./helpers/coverage-tracker');
 const ReportWriter    = require('./helpers/report-writer');
 
@@ -1169,8 +1169,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       }
       if (await isSuccess(page, ceiling)) {
         g = await readG(page);
+        var sp2Live = await page.evaluate(function() {
+          return (typeof G !== 'undefined' && G.stageProgress) ? (G.stageProgress[2] || 0) : 0;
+        }).catch(function() { return 0; });
+        if (g.stageProgress) g.stageProgress[2] = sp2Live;
         await screenshot(page, `${tag}_success_p${picks}`);
-        log(`[run:${tag}] SUCCESS pick=${picks} stage=${g.stage} sp2=${(g.stageProgress && g.stageProgress[2]) || 0}`);
+        log(`[run:${tag}] SUCCESS pick=${picks} stage=${g.stage} sp2=${sp2Live}`);
         return { success: true, reason: 'stage3-gate', picks, g };
       }
 
@@ -1263,6 +1267,54 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             await page.waitForTimeout(500);
             await screenshot(page, `menu_map_${family}`);
             await page.evaluate(function() { document.querySelectorAll('.overlay.active').forEach(function(e){ e.classList.remove('active'); }); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Inventory
+          try {
+            await page.evaluate(function() { if (typeof showInventory === 'function') showInventory(); });
+            await page.waitForTimeout(500);
+            await page.evaluate(function() { if (typeof closeOverlay === 'function') closeOverlay('overlay-inventory'); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Notices (notice board)
+          try {
+            await page.evaluate(function() { if (typeof showNoticeBoard === 'function') showNoticeBoard(); });
+            await page.waitForTimeout(500);
+            await page.evaluate(function() { if (typeof closeOverlay === 'function') closeOverlay('overlay-notices'); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Shop (skip if locality has no shop — caught by try/catch)
+          try {
+            await page.evaluate(function() { if (typeof showShop === 'function') showShop(); });
+            await page.waitForTimeout(500);
+            await page.evaluate(function() { if (typeof closeOverlay === 'function') closeOverlay('overlay-shop'); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Contacts / NPCs
+          try {
+            await page.evaluate(function() { if (typeof showContacts === 'function') showContacts(); });
+            await page.waitForTimeout(500);
+            await page.evaluate(function() { if (typeof closeOverlay === 'function') closeOverlay('overlay-contacts'); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // Party
+          try {
+            await page.evaluate(function() { if (typeof showParty === 'function') showParty(); });
+            await page.waitForTimeout(500);
+            await page.evaluate(function() { if (typeof closeOverlay === 'function') closeOverlay('overlay-party'); });
+            await page.waitForTimeout(200);
+          } catch (_) {}
+
+          // How to Play
+          try {
+            await page.evaluate(function() { if (typeof showHowToPlay === 'function') showHowToPlay(); });
+            await page.waitForTimeout(500);
+            await page.evaluate(function() { if (typeof closeOverlay === 'function') closeOverlay('how-to-play-modal'); });
             await page.waitForTimeout(200);
           } catch (_) {}
 
@@ -1475,13 +1527,17 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   }
 
   g = await readG(page);
+  var sp2Live = await page.evaluate(function() {
+    return (typeof G !== 'undefined' && G.stageProgress) ? (G.stageProgress[2] || 0) : 0;
+  }).catch(function() { return 0; });
+  if (g.stageProgress) g.stageProgress[2] = sp2Live;
   await screenshot(page, `${tag}_timeout_p${picks}`);
-  log(`[run:${tag}] TIMEOUT picks=${picks} sp1=${(g.stageProgress && g.stageProgress[1]) || 0} sp2=${(g.stageProgress && g.stageProgress[2]) || 0}`);
+  log(`[run:${tag}] TIMEOUT picks=${picks} sp1=${(g.stageProgress && g.stageProgress[1]) || 0} sp2=${sp2Live}`);
   return { success: false, reason: 'max-picks', picks, g };
 }
 
 // ===========================================================================
-// TEST — HEADED 4-family, 8hr ceiling
+// TEST — HEADED 4-family, 3hr ceiling
 // ===========================================================================
 test.describe('Headed QA — 4 families', () => {
   test.setTimeout(3 * 60 * 60 * 1000); // 3hr hard kill
@@ -1490,8 +1546,8 @@ test.describe('Headed QA — 4 families', () => {
     initLog();
     const jsErrors      = [];
     const familyResults = {};
-    const HEADED_CAP    = 8 * 60 * 60 * 1000;
-    const MAX_ATTEMPTS  = 3;
+    const HEADED_CAP    = 3 * 60 * 60 * 1000;
+    const MAX_ATTEMPTS  = 5;
     const suiteStart    = Date.now();
 
     // Detect stage ceiling from live engine
@@ -1528,7 +1584,7 @@ test.describe('Headed QA — 4 families', () => {
       const pending = HEADED_FAMILY_ORDER.filter(f => !familyState[f].success && familyState[f].attemptNum < MAX_ATTEMPTS);
       if (pending.length === 0) break;
       if ((Date.now() - suiteStart) >= HEADED_CAP) {
-        log(`[suite:headed] 8hr cap at round ${round}`);
+        log(`[suite:headed] 3hr cap at round ${round}`);
         break;
       }
 
@@ -1538,7 +1594,7 @@ test.describe('Headed QA — 4 families', () => {
 
       for (const family of pending) {
         if ((Date.now() - suiteStart) >= HEADED_CAP) {
-          log(`[family:${family}] 8hr cap hit`); break;
+          log(`[family:${family}] 3hr cap hit`); break;
         }
 
         const state = familyState[family];
@@ -1554,6 +1610,7 @@ test.describe('Headed QA — 4 families', () => {
 
         log(`\n[family:${family}] round ${round} attempt ${state.attemptNum}/${MAX_ATTEMPTS} → ${archetypeId}/${backgroundId}`);
 
+        resetTravelInterval();
         const context = await browser.newContext();
         const page = await context.newPage();
         page.setDefaultTimeout(10000);
