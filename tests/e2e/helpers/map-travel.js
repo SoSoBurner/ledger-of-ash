@@ -39,6 +39,14 @@ function resetInterval() {
 }
 
 /**
+ * Public reset for inter-family isolation.
+ * Prevents travel interval bleed from one family run to the next.
+ */
+function resetTravelInterval() {
+  _nextTravelAt = MAP_TRAVEL_INTERVAL_MIN + Math.floor(Math.random() * (MAP_TRAVEL_INTERVAL_MAX - MAP_TRAVEL_INTERVAL_MIN + 1));
+}
+
+/**
  * Opens Map overlay, picks a random unvisited locality, and clicks "Travel here".
  * Returns the locId travelled to, or null if no unvisited localities remain or map fails.
  *
@@ -114,4 +122,4 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
   }
 }
 
-module.exports = { shouldTravelNow, openMapAndTravel, resetInterval };
+module.exports = { shouldTravelNow, openMapAndTravel, resetInterval, resetTravelInterval };

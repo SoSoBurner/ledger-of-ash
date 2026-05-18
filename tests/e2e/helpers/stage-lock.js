@@ -68,8 +68,8 @@ async function isSuccess(page, ceiling, opts) {
         const climaxDone = !!(flags.stage2_climax_complete || flags.maren_oss_resolved);
 
         if (ceiling === 'Stage II') {
-          // Organic: climax resolved. sp2 minimum is 1 (ensures Stage II was active).
-          return climaxDone && sp2 >= 1;
+          // Organic: climax resolved. sp2 minimum is 18 (meaningful Stage II completion).
+          return climaxDone && sp2 >= 18;
         }
         if (ceiling === 'Stage III') {
           return stage === 'Stage III' || stage === 'Stage IV' || stage === 'Stage V';
