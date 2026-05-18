@@ -32,7 +32,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Librarian flagged unauthorized research restriction authority', 'evidence', `mimolot-librarian-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Theron straightens and his voice drops into formal register. "These restrictions exist to protect the integrity of scholarship. This is not a subject I discuss with visitors." He closes the ledger on his desk and rises. By the time you reach the corridor, he's already at the archive guardian's desk. Your name goes into a log.`;
+        G.lastResult = `Theron straightens and his voice drops into formal register. "These restrictions exist to protect the integrity of scholarship. This is not a subject I discuss with visitors." He closes the ledger on his desk and rises. By the time you reach the corridor, he's already at the archive guardian's desk. Your name goes into a log. The pressure of that entry compounds — every subsequent archive request will arrive with this one attached as context.`;
         G.worldClocks.pressure++;
         addJournal('Archive staff now aware of your inquiry', 'complication', `mimolot-librarian-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -73,7 +73,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Scholar revealed systematic research topic suppression', 'evidence', `mimolot-scholar-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Dalmir goes still the moment you name the topic. "Research access is an internal institutional matter." He says it the way someone says a sentence they've rehearsed in case they needed it. He doesn't look at you again. The conversation ends. Later, a junior clerk delivers a notice to your temporary quarters — your presence on the research floors has been logged.`;
+        G.lastResult = `Dalmir goes still the moment you name the topic. "Research access is an internal institutional matter." He says it the way someone says a sentence they've rehearsed in case they needed it. He doesn't look at you again. The conversation ends. Later, a junior clerk delivers a notice to your temporary quarters — your presence on the research floors has been logged. The watchful precision of that notice means it was prepared before the conversation ended: this line was anticipated.`;
         G.worldClocks.watchfulness++;
         addJournal('Scholar filed notice of your suppression inquiry', 'complication', `mimolot-scholar-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -154,7 +154,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Archivist revealed systematic historical record falsification', 'evidence', `mimolot-archivist-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kensa crosses her arms and steps back from the document she was examining. "Archive methodology is not a subject I discuss with external parties." Her tone is neutral, deliberate. She gathers the documents from the table and returns them to their case. You have misread the approach — she needed longer to trust you, and now the door is closed. The pressure counter increments. Someone else will be watching the archive now.`;
+        G.lastResult = `Kensa crosses her arms and steps back from the document she was examining. "Archive methodology is not a subject I discuss with external parties." Her tone is neutral, deliberate. She gathers the documents from the table and returns them to their case. You have misread the approach — she needed longer to trust you, and now the door is closed. The pressure will make the archive harder to enter with any purpose that looks like this one; someone else is watching the room now, for exactly this approach.`;
         G.worldClocks.pressure++;
         addJournal('Knowledge archivist blocking historical record access', 'complication', `mimolot-archivist-blocked-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -194,7 +194,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Administrator revealed systematic student enrollment restriction', 'evidence', `mimolot-admin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Maris closes the ledger before you finish the question. "Student records are protected under the Academy's confidentiality charter. I have no standing to discuss enrollment patterns with a visitor." She says it evenly, without particular hostility — it's simply the correct procedure and she's following it. Your approach was too direct. The ledger goes into a drawer. A clerk near the window has been listening.`;
+        G.lastResult = `Maris closes the ledger before you finish the question. "Student records are protected under the Academy's confidentiality charter. I have no standing to discuss enrollment patterns with a visitor." She says it evenly, without particular hostility — it's simply the correct procedure and she's following it. Your approach was too direct. The ledger goes into a drawer. A clerk near the window has been listening. The watchful attention is now on this inquiry — the next enrollment question will be received as a continuation of this one.`;
         G.worldClocks.watchfulness++;
         addJournal('Student administrator alerted to enrollment inquiry', 'complication', `mimolot-admin-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -234,7 +234,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Keeper revealed weaponized knowledge classification system', 'evidence', `mimolot-keeper-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Vorin stops writing. "The classification status of restricted materials is itself a restricted matter." He doesn't look up from his desk. "Your questions go beyond what your standing permits." He makes a notation in the log at his elbow. You don't see what it says. By the time you're back in the corridor, a junior administrator is crossing the hall toward the senior offices with a sealed note.`;
+        G.lastResult = `Vorin stops writing. "The classification status of restricted materials is itself a restricted matter." He doesn't look up from his desk. "Your questions go beyond what your standing permits." He makes a notation in the log at his elbow. You don't see what it says. By the time you're back in the corridor, a junior administrator is crossing the hall toward the senior offices with a sealed note. It will be harder to approach any further classification inquiry without that note having preceded you.`;
         G.worldClocks.isolation++;
         addJournal('Restriction keeper reported your classification inquiry', 'complication', `mimolot-keeper-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -274,7 +274,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Curator revealed systematic ideological bias in collection development', 'evidence', `mimolot-curator-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Aldis plants both hands on the acquisition ledger and does not move them. "Acquisition policy is an internal matter determined by the faculty council. Your interest in our collection decisions is not appropriate for this conversation." You've pushed at the wrong angle. He's not hostile — he's institutional, which is more durable. The ledgers go back into their cabinet and the key goes into his coat.`;
+        G.lastResult = `Aldis plants both hands on the acquisition ledger and does not move them. "Acquisition policy is an internal matter determined by the faculty council. Your interest in our collection decisions is not appropriate for this conversation." You've pushed at the wrong angle. He's not hostile — he's institutional, which is more durable. The ledgers go back into their cabinet and the key goes into his coat. Being watchful now means he will recognize the same approach if it comes through a different door.`;
         G.worldClocks.watchfulness++;
         addJournal('Curation master offended by collection bias inquiry', 'complication', `mimolot-curator-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -314,7 +314,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Scribe revealed truth verification system weaponization', 'evidence', `mimolot-scribe-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The senior scribe sets her quill down with precision. "The verification process of this Academy represents its foundational scholarly guarantee. Your implication is an insult to this institution and to everyone working in this hall." She does not shout. She reaches for a complaint form — a preprinted document, the kind kept ready for exactly this. Your name goes into it. A copy will reach the faculty council before evening.`;
+        G.lastResult = `The senior scribe sets her quill down with precision. "The verification process of this Academy represents its foundational scholarly guarantee. Your implication is an insult to this institution and to everyone working in this hall." She does not shout. She reaches for a complaint form — a preprinted document, the kind kept ready for exactly this. Your name goes into it. A copy will reach the faculty council before evening. The scrutiny attached to that complaint will arrive ahead of you in every hall of this Academy.`;
         G.worldClocks.reverence++;
         addJournal('Verification scribe filed complaint about integrity inquiry', 'complication', `mimolot-scribe-hostile-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -356,7 +356,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Precedent analysis revealed framework manipulation', 'evidence', `mimolot-precedent-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Two senior scholars approach you in the reading room. They've noticed what you've been working from. Your interpretive framework, they explain, references criteria superseded by the current standards appendix. The conversation is collegial and correct. They suggest alternate sources. By the end of it, your research thread has been politely but thoroughly redirected, and the scholars have seen exactly what you were looking at.`;
+        G.lastResult = `Two senior scholars approach you in the reading room. They've noticed what you've been working from. Your interpretive framework, they explain, references criteria superseded by the current standards appendix. The conversation is collegial and correct. They suggest alternate sources. By the end of it, your research thread has been politely but thoroughly redirected, and the scholars have seen exactly what you were looking at. The watchful intervention was too smooth to be accidental — the same scholars will notice the same approach again.`;
         G.worldClocks.watchfulness++;
         addJournal('Senior scholars questioned your analytical framework', 'complication', `mimolot-precedent-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -396,7 +396,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Arcane analysis revealed magical knowledge weaponization', 'evidence', `mimolot-arcana-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You're two hours into the arcane classification records when a council representative arrives at the reading room. Your access to the magical research archives has been elevated to "supervised" status — meaning every document request goes through a review desk before approval. The representative is pleasant about it. Your access to the broader arcane holdings is effectively halved before you leave the room.`;
+        G.lastResult = `You're two hours into the arcane classification records when a council representative arrives at the reading room. Your access to the magical research archives has been elevated to "supervised" status — meaning every document request goes through a review desk before approval. The representative is pleasant about it. Your access to the broader arcane holdings is effectively halved before you leave the room. The pressure here is structural — supervised access means every further request draws attention before it's answered.`;
         G.worldClocks.pressure++;
         addJournal('Arcane council restricted your research access', 'complication', `mimolot-arcana-blocked-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -436,7 +436,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Inquiry analysis revealed systematic scholar surveillance', 'evidence', `mimolot-inquiry-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `An administrator arrives at your reading desk before you've finished pulling the second set of access logs. They know exactly which documents you've been requesting. "Your research pattern has triggered a review," they say — not hostile, procedural. Further access to administrative logs is suspended pending a clarification interview. You've confirmed the monitoring exists by becoming its subject.`;
+        G.lastResult = `An administrator arrives at your reading desk before you've finished pulling the second set of access logs. They know exactly which documents you've been requesting. "Your research pattern has triggered a review," they say — not hostile, procedural. Further access to administrative logs is suspended pending a clarification interview. You've confirmed the monitoring exists by becoming its subject. The pressure now runs both ways: you're being watched by the same system you were trying to trace.`;
         G.worldClocks.pressure++;
         addJournal('Administration directly warned you against monitoring inquiry', 'complication', `mimolot-inquiry-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -476,7 +476,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Intellectual autonomy analysis revealed systematic thought suppression', 'evidence', `mimolot-autonomy-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You raise the question of intellectual freedom with a scholar in the second-floor hall. They listen to the end, then look at you for a moment with an expression that has something sharp in it. "That's not a question I can discuss with someone I've just met." They gather their materials and leave. Two others who were nearby do the same, separately, in the next few minutes. Your question has made you the wrong kind of person to be near.`;
+        G.lastResult = `You raise the question of intellectual freedom with a scholar in the second-floor hall. They listen to the end, then look at you for a moment with an expression that has something sharp in it. "That's not a question I can discuss with someone I've just met." They gather their materials and leave. Two others who were nearby do the same, separately, in the next few minutes. Your question has made you the wrong kind of person to be near. It will be harder to open conversations on these floors until that impression fades — if it does.`;
         G.worldClocks.isolation++;
         addJournal('Scholars avoided you due to intellectual freedom inquiry', 'complication', `mimolot-autonomy-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -516,7 +516,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Administrative hierarchy revealed scholarly authority replacement', 'evidence', `mimolot-hierarchy-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `An administrative representative finds you in the charter room while you're cross-referencing decision records. "Academic visitors don't typically spend time in the administrative registry." The tone is neutral. The question underneath it is not. You're asked to explain your purpose. Your answer doesn't satisfy. The records you were working from are returned to a locked cabinet. The representative stays until you leave.`;
+        G.lastResult = `An administrative representative finds you in the charter room while you're cross-referencing decision records. "Academic visitors don't typically spend time in the administrative registry." The tone is neutral. The question underneath it is not. You're asked to explain your purpose. Your answer doesn't satisfy. The records you were working from are returned to a locked cabinet. The representative stays until you leave. You've been noticed at the exact junction the administration keeps watched for exactly this kind of inquiry.`;
         G.worldClocks.watchfulness++;
         addJournal('Administration noticed your hierarchy mapping', 'complication', `mimolot-hierarchy-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -556,7 +556,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('External control analysis revealed institutional coordination with outside authority', 'evidence', `mimolot-external-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You are intercepted before you reach the correspondence register. Two administrators, not the usual clerk. One asks what you've been doing in the administrative wing. The other already has a document. Your access to the wing has been revoked. If you return, it will be treated as a security matter. They let you leave. On the way out, you pass the correspondence room — its door is now locked where it was open this morning. They knew exactly what you were looking for.`;
+        G.lastResult = `You are intercepted before you reach the correspondence register. Two administrators, not the usual clerk. One asks what you've been doing in the administrative wing. The other already has a document. Your access to the wing has been revoked. If you return, it will be treated as a security matter. They let you leave. On the way out, you pass the correspondence room — its door is now locked where it was open this morning. They knew exactly what you were looking for. The pressure of this access revocation runs ahead of you now in every administrative channel in this building.`;
         G.worldClocks.pressure += 2;
         addJournal('Administration directly warned you away from external control inquiry', 'complication', `mimolot-external-caught-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -628,7 +628,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Knowledge suppression conspiracy documentation compiled', 'evidence', `mimolot-proof-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Midway through laying out the documents, someone comes through the door who wasn't invited. Not an administrator — someone with no institutional designation visible. They take in the documents on the table without looking at you directly, then speak one sentence: stop. They don't explain or threaten further. They don't need to. The evidence goes back into its scattered sources. The work you've done can't be undone, but whatever you've been building toward is going to be harder now.`;
+        G.lastResult = `Midway through laying out the documents, someone comes through the door who wasn't invited. Not an administrator — someone with no institutional designation visible. They take in the documents on the table without looking at you directly, then speak one sentence: stop. They don't explain or threaten further. They don't need to. The evidence goes back into its scattered sources. The work you've done can't be undone, but whatever you've been building toward is going to be harder now. The pressure from this point is not institutional — you are tracked by the system you are documenting.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry directly noticed by conspiracy operators', 'complication', `mimolot-proof-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
@@ -708,7 +708,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Origin source of Mimolot knowledge suppression identified as external Shelkopolis House Shelk coordination', 'discovery', `mimolot-origin-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Two people are waiting outside the administrative vault room before you reach it. They don't produce credentials. They ask you to leave the wing and not return. One of them is watching the door behind you while the other speaks. You are not going to reach what's in that room today. What you've already gathered remains yours, but you've announced yourself to whoever is watching this end of the operation. They know what you're building toward.`;
+        G.lastResult = `Two people are waiting outside the administrative vault room before you reach it. They don't produce credentials. They ask you to leave the wing and not return. One of them is watching the door behind you while the other speaks. You are not going to reach what's in that room today. What you've already gathered remains yours, but you've announced yourself to whoever is watching this end of the operation. They know what you're building toward. The pressure from this point is direct: you are tracked at the level where the origin is kept.`;
         G.worldClocks.pressure += 2;
         addJournal('Inquiry interrupted by conspiracy operators', 'complication', `mimolot-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
@@ -748,7 +748,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Knowledge systems analysis revealed coordinated truth conquest engineering', 'evidence', `mimolot-pattern-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `An administrator appears at your study desk, friendly, asking what you're working on. The documents spread out in front of you answer that question more clearly than your words do. They note the combination of materials you've gathered — verification records alongside enrollment data alongside classification logs — and the friendliness recedes slightly. Your presence on the research floors is now, they say, something they'll need to document. Your pattern is visible.`;
+        G.lastResult = `An administrator appears at your study desk, friendly, asking what you're working on. The documents spread out in front of you answer that question more clearly than your words do. They note the combination of materials you've gathered — verification records alongside enrollment data alongside classification logs — and the friendliness recedes slightly. Your presence on the research floors is now, they say, something they'll need to document. Your pattern is visible — and watchful eyes will be on this desk combination before you sit down at it again.`;
         G.worldClocks.watchfulness++;
         addJournal('Your knowledge pattern analysis drew institutional scrutiny', 'complication', `mimolot-pattern-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -788,7 +788,7 @@ const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Mimolot Academy understood as proof of concept for systematic knowledge weaponization', 'discovery', `mimolot-understanding-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `You're working through the final connections when the room shifts. Someone has come in through a door you didn't know was there. They're not from the Academy — the wrong posture, the wrong register, no institutional marks anywhere. They have read enough of what's on the table to know what it adds up to. "This is where you stop," they say. They don't explain who sent them. They don't need to. The synthesis remains incomplete in the documents, but complete enough in your head to be dangerous.`;
+        G.lastResult = `You're working through the final connections when the room shifts. Someone has come in through a door you didn't know was there. They're not from the Academy — the wrong posture, the wrong register, no institutional marks anywhere. They have read enough of what's on the table to know what it adds up to. "This is where you stop," they say. They don't explain who sent them. They don't need to. The synthesis remains incomplete in the documents, but complete enough in your head to be dangerous. The pressure from outside the Academy's walls has arrived before you finished building the case against it.`;
         G.worldClocks.pressure += 2;
         addJournal('Final understanding synthesis blocked by direct threat', 'complication', `mimolot-understanding-stopped-${G.dayCount}`);
       } else if (result.total >= 14) {

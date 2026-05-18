@@ -35,7 +35,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Shrine helper flagged offering acceptance corruption', 'evidence', `panim_haven-offerings-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Soria straightens when you ask about the offering standards. Her hands go still on the candles. "That's shrine business." She doesn't say anything else. She doesn't go back to sorting either. You've been categorized as someone who asks the kind of questions that get reported.`;
+        G.lastResult = `Soria straightens when you ask about the offering standards. Her hands go still on the candles. "That's shrine business." She doesn't say anything else. She doesn't go back to sorting either. You've been categorized as someone who asks the kind of questions that get reported. The pressure of that category follows you — the shrine network here is small, and what you asked will arrive before you do at the next candle station.`;
         G.worldClocks.pressure++;
         addJournal('Shrine helper now distrustful of inquiry', 'complication', `panim_haven-shrine-hostile-${G.dayCount}`);
       } else {
@@ -73,7 +73,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Ledger keeper revealed backdated ledger tampering', 'evidence', `panim_haven-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Brother Thenim closes the ledger cabinet before you finish the request. "These records are protected. You need permission from the ritual authority — in writing." He doesn't wait for a response before walking to the shrine master's office. The door closes. Your presence at the ledger cabinet is now a matter on record.`;
+        G.lastResult = `Brother Thenim closes the ledger cabinet before you finish the request. "These records are protected. You need permission from the ritual authority — in writing." He doesn't wait for a response before walking to the shrine master's office. The door closes. Your presence at the ledger cabinet is now a matter on record. The pressure of that record will precede every future ledger inquiry — the shrine master already knows what you were looking for.`;
         G.worldClocks.pressure++;
         addJournal('Shrine master alerted to ledger inquiry attempt', 'complication', `panim_haven-ledger-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -113,7 +113,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Memorial counselor revealed accelerated grief processing', 'evidence', `panim_haven-grief-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kaelas goes still. "You're asking me to discuss how people grieve." His tone carries the specific weight of someone who has just decided something about you. "That's not a question for outsiders. It's not a question for anyone who doesn't carry loss themselves." He doesn't raise his voice. He ends the conversation by turning toward his next appointment. Word that you asked will move through the shrine community on its own.`;
+        G.lastResult = `Kaelas goes still. "You're asking me to discuss how people grieve." His tone carries the specific weight of someone who has just decided something about you. "That's not a question for outsiders. It's not a question for anyone who doesn't carry loss themselves." He doesn't raise his voice. He ends the conversation by turning toward his next appointment. Word that you asked will move through the shrine community on its own. The scrutiny of having asked draws a circle around you in this community — it will be harder to approach any grief-related inquiry without this question preceding it.`;
         G.worldClocks.reverence++;
         addJournal('Memorial counselor reports your inquiry as culturally insensitive', 'complication', `panim_haven-grief-hostile-${G.dayCount}`);
       } else {
@@ -150,7 +150,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Coordinator revealed route diversion and authority stripping', 'evidence', `panim_haven-routes-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Elder Fareth looks at you for a moment before answering. "Route decisions belong to the ritual authority. That's the current structure." He doesn't add anything. He doesn't look comfortable having said even that much. The inquiry will likely find its way to whoever asked him to use that phrase.`;
+        G.lastResult = `Elder Fareth looks at you for a moment before answering. "Route decisions belong to the ritual authority. That's the current structure." He doesn't add anything. He doesn't look comfortable having said even that much. The inquiry will likely find its way to whoever asked him to use that phrase. The pressure of that report is quiet but specific — someone upstream will know what you asked, and through whom.`;
         G.worldClocks.pressure++;
         addJournal('Coordinator will report route inquiry to ritual authority', 'complication', `panim_haven-routes-alert-${G.dayCount}`);
       } else {
@@ -187,7 +187,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Chapel keeper revealed systematic blessing failure', 'evidence', `panim_haven-blessing-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Meryl turns from the candle rack. "You're asking me whether the blessings work." Her voice doesn't rise. "That's a question about whether this place is what it says it is." She waits for you to say something. When you don't, she tells you to leave. She stays watching the door after you're through it.`;
+        G.lastResult = `Meryl turns from the candle rack. "You're asking me whether the blessings work." Her voice doesn't rise. "That's a question about whether this place is what it says it is." She waits for you to say something. When you don't, she tells you to leave. She stays watching the door after you're through it. The scrutiny of that question will live in this chapel — the next approach here will be received as a continuation of this one.`;
         G.worldClocks.reverence++;
         addJournal('Chapel keeper now hostile to blessing inquiry', 'complication', `panim_haven-blessing-hostile-${G.dayCount}`);
       } else {
@@ -224,7 +224,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Ritual authority revealed external guidance manipulation', 'evidence', `panim_haven-authority-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Master Thiren's tone flattens. "Shrine doctrine is not open to external inquiry. This conversation is now a matter of record." He produces a notation sheet without looking away from you. "Do not approach the shrine hierarchy again without written authorization from the regional shrine council." He writes while you're still in the room. The warning is formal. You have been formally warned.`;
+        G.lastResult = `Master Thiren's tone flattens. "Shrine doctrine is not open to external inquiry. This conversation is now a matter of record." He produces a notation sheet without looking away from you. "Do not approach the shrine hierarchy again without written authorization from the regional shrine council." He writes while you're still in the room. The warning is formal. You have been formally warned. The pressure of that notation runs ahead of you — every member of the hierarchy will know of it before you finish leaving this building.`;
         G.worldClocks.pressure++;
         addJournal('Ritual authority formally prohibits further shrine inquiry', 'complication', `panim_haven-authority-warning-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -264,7 +264,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Innkeeper mapped external courier network to shrine', 'evidence', `panim_haven-couriers-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Joseline sets down the cup she was drying. "I don't discuss guests. That's not a principle I bend." She's not hostile — she's done with the conversation. The next time you come through that door she'll remember what you asked and measure everything else against it.`;
+        G.lastResult = `Joseline sets down the cup she was drying. "I don't discuss guests. That's not a principle I bend." She's not hostile — she's done with the conversation. The next time you come through that door she'll remember what you asked and measure everything else against it. She will be watchful for exactly this angle of inquiry — anything that sounds like guest traffic questions will close faster than this one did.`;
         G.worldClocks.watchfulness++;
         addJournal('Innkeeper now distrustful of your questions', 'complication', `panim_haven-innkeeper-hostile-${G.dayCount}`);
       } else {
@@ -301,7 +301,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Mediator Veth revealed systematic outcome-bias pattern across 40 cases', 'evidence', `panim_haven-mediation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Veth's posture changes before you finish the question. "Mediation records are sealed. You have no standing to review them." He writes the date at the top of a notation form. "This inquiry will be reported to the ritual authority." He doesn't look up while he writes. The formal note is already being drafted while you're still in the room.`;
+        G.lastResult = `Veth's posture changes before you finish the question. "Mediation records are sealed. You have no standing to review them." He writes the date at the top of a notation form. "This inquiry will be reported to the ritual authority." He doesn't look up while he writes. The formal note is already being drafted while you're still in the room. The pressure of that report is structural — it ties your name to this inquiry in a record that will be read by everyone above Veth in the chain.`;
         G.worldClocks.pressure++;
         addJournal('Mediation official reported inquiry breach to authority', 'complication', `panim_haven-mediation-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -343,7 +343,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Lore analysis revealed formula tampering', 'evidence', `panim_haven-lore-formula-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The archive guardian appears before you reach the relevant shelf. "Those texts are restricted." The tone is not a warning — it's a final statement. You're out of the archive room before you can press further. The door closes with the sound of a latch dropping. You didn't get close enough to see whether the copy and the original matched.`;
+        G.lastResult = `The archive guardian appears before you reach the relevant shelf. "Those texts are restricted." The tone is not a warning — it's a final statement. You're out of the archive room before you can press further. The door closes with the sound of a latch dropping. You didn't get close enough to see whether the copy and the original matched. The scrutiny of having approached this shelf will follow the inquiry — any return visit will find the guardian already positioned before you arrive.`;
         G.worldClocks.reverence++;
         addJournal('Shrine archives now restricting your access', 'complication', `panim_haven-lore-blocked-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -383,7 +383,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Lore research revealed philosophical doctrine inversion', 'evidence', `panim_haven-lore-doctrine-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A shrine messenger appears at the reading room door before you're done. "The hierarchy has noted your research focus." The message delivered, the messenger leaves. The wording is careful: not a prohibition, not a warning — a notification that you've been seen and categorized. The doctrine inquiry is now on someone's list.`;
+        G.lastResult = `A shrine messenger appears at the reading room door before you're done. "The hierarchy has noted your research focus." The message delivered, the messenger leaves. The wording is careful: not a prohibition, not a warning — a notification that you've been seen and categorized. The doctrine inquiry is now on someone's list. The scrutiny attached to that list is not passive — being categorized this way means the hierarchy will read the next research visit differently from how they read this one.`;
         G.worldClocks.reverence++;
         addJournal('Shrine hierarchy alerted to doctrine research', 'complication', `panim_haven-lore-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -423,7 +423,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Craft analysis revealed offering material corruption', 'evidence', `panim_haven-craft-offering-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The offering custodian appears at the door while you're still at the incense table. "This space is not for outside examination." She says it like a door closing, not a door opening. You're out before you can establish what the normal quality of the materials is supposed to look like. The preparation area is now off-limits and your presence in it has been noted.`;
+        G.lastResult = `The offering custodian appears at the door while you're still at the incense table. "This space is not for outside examination." She says it like a door closing, not a door opening. You're out before you can establish what the normal quality of the materials is supposed to look like. The preparation area is now off-limits and your presence in it has been noticed in the specific way that creates a record: the custodian's report will specify what you were examining when she arrived.`;
         G.worldClocks.reverence++;
         addJournal('Offering custodian expelled you from preparation area', 'complication', `panim_haven-craft-expelled-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -463,7 +463,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Craft analysis revealed professional document forgery', 'evidence', `panim_haven-craft-forgery-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Your handling of the ledger draws Thenim's attention before you've completed the second comparison. "That person is tampering with the records." He calls across the room while still moving toward you. The ritual authority arrives within minutes. You're standing in a room where the word "desecration" is being used with your name in the same sentence. Getting out cleanly requires more than you currently have available.`;
+        G.lastResult = `Your handling of the ledger draws Thenim's attention before you've completed the second comparison. "That person is tampering with the records." He calls across the room while still moving toward you. The ritual authority arrives within minutes. You're standing in a room where the word "desecration" is being used with your name in the same sentence. Getting out cleanly requires more than you currently have available. The scrutiny of that accusation will precede you in every sacred space in Panim Haven.`;
         G.worldClocks.reverence++;
         addJournal('You are accused of sacred record tampering', 'complication', `panim_haven-craft-accused-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -503,7 +503,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Survival analysis mapped hidden messenger network', 'evidence', `panim_haven-survival-routes-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A route worker intercepts you at the waystation junction. "The shrine notices when people follow the messengers." He doesn't ask your name. He doesn't need to — the report that goes in will describe what you were doing, not who you are. The surveillance attempt is logged. You've been tracked while tracking.`;
+        G.lastResult = `A route worker intercepts you at the waystation junction. "The shrine notices when people follow the messengers." He doesn't ask your name. He doesn't need to — the report that goes in will describe what you were doing, not who you are. The surveillance attempt is logged. You've been tracked while tracking. The watchful coverage of the route network means the same approach will not work twice — they know the trail you were following.`;
         G.worldClocks.watchfulness++;
         addJournal('Messenger surveillance reported to shrine hierarchy', 'complication', `panim_haven-survival-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -543,7 +543,8 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Survival analysis revealed waystation stockpile network', 'evidence', `panim_haven-survival-stockpile-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The shrine guards are waiting at the waystation exit. Someone inside reported the inspection before you finished it. "Sacred spaces aren't open for inspection without authorization." They don't touch you. They don't need to — the confrontation itself is the consequence, formal and visible, already logged by the time you reach the main road.`;        G.worldClocks.pressure++;
+        G.lastResult = `The shrine guards are waiting at the waystation exit. Someone inside reported the inspection before you finished it. "Sacred spaces aren't open for inspection without authorization." They don't touch you. They don't need to — the confrontation itself is the consequence, formal and visible, already logged by the time you reach the main road. The pressure of that log runs forward: every waystation on this route will now have your description posted before you arrive.`;
+        G.worldClocks.pressure++;
         addJournal('Shrine guards intercept you for waystation inspection', 'complication', `panim_haven-survival-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The waystations carry more than processional rest supplies. Additional storage space has been created in the back rooms — built in, not improvised. The extra stores don't match a rest facility's needs: too many document supplies, not enough food and water. The function these rooms are serving is not the function they're labeled with.`;
@@ -619,7 +620,8 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Shrine worker defected with institutional documentation', 'evidence', `panim_haven-defection-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The worker listens, nods once, and goes to find the ritual authority. Within the hour a complaint has been filed: you approached a shrine worker with the intent to undermine institutional loyalty. The phrasing in the report is precise and practiced — this worker has reported this type of approach before. You're now characterized as an active threat to shrine integrity rather than an outside observer.`;        G.worldClocks.pressure++;
+        G.lastResult = `The worker listens, nods once, and goes to find the ritual authority. Within the hour a complaint has been filed: you approached a shrine worker with the intent to undermine institutional loyalty. The phrasing in the report is precise and practiced — this worker has reported this type of approach before. You're now characterized as an active threat to shrine integrity rather than an outside observer. The pressure of that characterization will meet you at every shrine door in Panim Haven from this point forward.`;
+        G.worldClocks.pressure++;
         addJournal('You are reported as threat to shrine integrity', 'complication', `panim_haven-defection-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `One worker stops before leaving. Doesn't name the doubts directly but describes them in circumference — questions about formula changes, timing of the ledger revisions, who authorized the route adjustments. Hints at documentation without producing it. Looks at the door twice during the conversation. The fear is specific, not general. They're close to the edge of something. They're not there yet.`;
@@ -658,7 +660,7 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Victim testimony detailed predetermied mediation manipulation', 'evidence', `panim_haven-victim-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The family you approach goes quiet when you explain why you're asking. One member stands up. "You're here to find out what we know before we can use it." They've been approached before — by people who gathered their account and used it to anticipate their next move. Word moves through the docks and the notice board area that you've been asking. The characterization attached to your name is not favorable.`;
+        G.lastResult = `The family you approach goes quiet when you explain why you're asking. One member stands up. "You're here to find out what we know before we can use it." They've been approached before — by people who gathered their account and used it to anticipate their next move. Word moves through the docks and the notice board area that you've been asking. The characterization attached to your name is not favorable. The watchful community around these families will now treat the same inquiry as hostile before it finishes the first sentence.`;
         G.worldClocks.watchfulness++;
         addJournal('Victim now views you as complicit in mediation corruption', 'complication', `panim_haven-victim-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -701,7 +703,8 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Conspiracy evidence compiled and systematized', 'evidence', `panim_haven-conspiracy-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `By the time you're halfway through compiling the evidence, someone has noticed the pattern of your requests across the shrine, the waystations, and the mediation offices. A message arrives at the inn — unsigned, left with the innkeeper. "You've been asking questions in too many places at once. Stop, or you'll find out what the mediation system does to cases involving people who create problems." The warning is not general. It references specific questions you asked today.`;        G.worldClocks.pressure++;
+        G.lastResult = `By the time you're halfway through compiling the evidence, someone has noticed the pattern of your requests across the shrine, the waystations, and the mediation offices. A message arrives at the inn — unsigned, left with the innkeeper. "You've been asking questions in too many places at once. Stop, or you'll find out what the mediation system does to cases involving people who create problems." The warning is not general. It references specific questions you asked today. The pressure is explicit: you are being tracked across every institution in this town simultaneously.`;
+        G.worldClocks.pressure++;
         addJournal('Conspiracy orchestrators directly warn you off', 'complication', `panim_haven-conspiracy-warning-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The pieces align into a picture that's compelling without being conclusive. The mediation bias, the doctrine shift, the material substitutions, the waystation irregularities — they point in the same direction. What's still missing is the mechanism that connects them deliberately. Enough to know the system is compromised. Not enough to name who gave the order to compromise it.`;
