@@ -328,7 +328,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
-      G.lastResult = `Guild district whisper: "${selected}." The pattern of suppression extends further than Jorin's specific complaint.`;
+      G.lastResult = `Guild district whisper, repeated at the water basin: "${selected}." The pattern of suppression extends further than Jorin's specific complaint — whatever is driving it reaches across the whole district, and has been building for months.`;
       addJournal(`Craftspire guild rumor: "${selected}"`, 'evidence', `craftspire-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -672,7 +672,7 @@ const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A guild inspection schedule and two materials delivery notices from yesterday are still up. The cooling rack hisses somewhere across the workshop floor. Nothing worth copying down.';
       return;
     }
     G.flags[key] = true;
