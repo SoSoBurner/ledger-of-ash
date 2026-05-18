@@ -149,18 +149,21 @@ const DOMAINS = [
     label: 'Voice and Register Audit',
     focus: 'AI-prose patterns in result text and NPC dialogue: "highlighting", "underscoring", "contributing to", "you realize", "you feel", "you sense". Flag any found — these must be stripped or rewritten.',
     skills: ['humanizer', 'line-editor'],
+    logHeavy: false,
   },
   {
     id: 'branch_drift',
     label: 'Branch Drift Audit',
     focus: 'Repeated phrasing across choices in the same locality, option-set imbalance (safe choices outnumber bold 4:1+), result text that drifts from the locality voice register.',
     skills: ['branch-drift-auditor'],
+    logHeavy: false,
   },
   {
     id: 'tutorial',
     label: 'Tutorial and Onboarding Review',
     focus: 'How to Play text, onboarding copy, tooltip strings, first-10-picks experience. Does the game explain the Universal Roll Rule? Is the faction contact hint visible when sp2>=10?',
     skills: ['game-design:tutorial-review'],
+    logHeavy: false,
   },
 ];
 
@@ -197,24 +200,14 @@ function analyzeWithCLI(domain, ctx) {
 
   try {
     const result = execSync(
-      `claude -p "${tmpFile.replace(/"/g, '\\"')}" --no-stream`,
-      { encoding: 'utf8', timeout: 120000, stdio: ['pipe', 'pipe', 'pipe'] }
+      'claude -p -',
+      { input: fs.readFileSync(tmpFile, 'utf8'), encoding: 'utf8', timeout: 120000 }
     );
     fs.unlinkSync(tmpFile);
     return result.trim();
   } catch (err) {
-    // Try reading from file arg instead
-    try {
-      const result2 = execSync(
-        `type "${tmpFile}" | claude -p -`,
-        { encoding: 'utf8', timeout: 120000, shell: 'cmd.exe', stdio: ['pipe', 'pipe', 'pipe'] }
-      );
-      fs.unlinkSync(tmpFile);
-      return result2.trim();
-    } catch (_) {
-      fs.unlinkSync(tmpFile);
-      return `[analysis failed: ${String(err.message).slice(0, 200)}]`;
-    }
+    try { fs.unlinkSync(tmpFile); } catch (_) {}
+    return `[analysis failed: ${String(err.message).slice(0, 200)}]`;
   }
 }
 
@@ -225,7 +218,7 @@ async function analyzeWithSDK(domain, ctx) {
   let Anthropic;
   try { Anthropic = require('@anthropic-ai/sdk'); } catch (_) { return null; }
 
-  const client = new Anthropic.default({ apiKey: process.env.ANTHROPIC_API_KEY });
+  const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
   const systemPrompt = `You are a focused game QA analyst for "Ledger of Ash", a text-RPG browser game. Report only findings supported by the data provided. Be specific and actionable. Format findings as [P0/P1/P2] — description.`;
 
@@ -244,7 +237,7 @@ async function analyzeWithSDK(domain, ctx) {
   ].join('\n');
 
   const msg = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',
+    model: 'claude-haiku-4-5',
     max_tokens: 2048,
     system: systemPrompt,
     messages: [{ role: 'user', content: userContent }],
