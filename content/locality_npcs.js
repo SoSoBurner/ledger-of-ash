@@ -310,6 +310,130 @@ window.LOCALITY_NPCS = {
     ]
   },
 
+  ithtananalor: {
+    npcId: 'sir_velden_ironspike',
+    name: 'Sir Velden Ironspike',
+    role: 'Commander of Shadowhands at Ithtananalor',
+    tell: 'when a conversation could go two directions, picks up whatever is nearest — a ledger clasp, a gate token, a wax stamp — and sets it back down in the same spot without using it, a small delay that reads like patience but is really appraisal',
+    agenda: 'maintain covert enforcement operations under Roazian law while managing a surveillance gap he has not yet reported to the ORE command above him',
+    triggerText: 'Ironspike is reviewing a checkpoint log at the south gate corridor, standing where he can see both exits without being clearly visible from either.',
+    dialogue: [
+      {
+        id: 'ironspike_papers',
+        text: 'His inspection is slower than the line requires. He is reading something else in those documents.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Ironspike does not look up while he speaks. He says the south gate processes eighty to a hundred transit documents on a standard day. He says the transit document in his hand is not irregular. He says he reads irregular documents differently from standard ones, and that most travelers cannot tell which category they have been assigned. He hands back the papers with the clean efficiency of someone who finished reading them two minutes ago. He adds, as if noting weather: the checkpoint log has a five-minute gap recorded at the third bell. It is logged as routine patrol overlap. He did not write that entry.',
+        failResult: 'Ironspike completes the document review, stamps the transit clearance, and hands it back without comment. He says the south gate is operating on standard protocol. If there is a specific transit concern, the ORE documentation window opens at the first bell. He turns to the next document in the stack.',
+        effects: [{ type: 'journal', text: 'Ironspike flagged a five-minute checkpoint log gap at the south gate\'s third-bell rotation. It is recorded as routine patrol overlap. He did not write the entry. He mentioned this while reviewing a transit document he described as standard.', category: 'intelligence' }]
+      },
+      {
+        id: 'ironspike_shadowhands',
+        text: 'The gap in that log was made deliberately, and he knows by whom.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'A pause — not hesitation, the pause of a man deciding how much is already visible before committing to a position. Ironspike picks up the wax stamp from the ledge and sets it back without pressing it. He says the Shadowhands operate under a doctrine of compartmentalized action: each operative logs their own segment, no operative logs another\'s. He says the five-minute gap falls in a segment that was not assigned to any logged operative that cycle. He says this means either the doctrine was followed and the segment was left intentionally unassigned, or the doctrine was not followed. He says he has not yet determined which. He stamps the next document and does not look up again.',
+        failResult: 'Ironspike meets your eyes for exactly as long as it takes to assess whether you are a complication. He says Shadowhands operational records are under ORE command jurisdiction and not subject to corridor review. He says this without heat, with the practiced ease of someone who has ended exactly this conversation before. The stamp comes down on the next document.',
+        effects: [{ type: 'journal', text: 'Ironspike indicated the south gate log gap falls in an unassigned Shadowhands segment — either deliberately left empty under doctrine, or logged outside doctrine. He has not reported this finding upward. He has not said why.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  mimolot_academy: {
+    npcId: 'quenra_quillfire',
+    name: 'Quenra Quillfire',
+    role: 'Tutor-Magistrate at Mimolot Academy',
+    tell: 'when the conversation moves toward something she cannot say directly, touches the collar of her academic robe with two fingers — not a nervous gesture, a deliberate one, the way someone checks a door is still locked before deciding whether to open it',
+    agenda: 'protect her standing at the Academy while managing a tariff debt owed by a student whose family has more influence than she does',
+    triggerText: 'Quillfire is in the eastern corridor with a bound folio tucked against her ribs, re-reading the same page she has been on since the morning bell.',
+    dialogue: [
+      {
+        id: 'quillfire_folio',
+        text: 'That folio has a House Mimolot import seal on it. She is not happy about what it says.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Quillfire closes the folio before answering, but keeps her finger between the pages. She says the Academy operates on a book-tariff schedule tied to knowledge acquisition cycles — texts brought in from outside the polity require import documentation and duty clearance before entering the teaching archive. She says this is not a restriction on learning. She says this the way someone says a thing they have repeated enough times that they no longer have to believe it. She adds: the current cycle has seventeen texts still in tariff review. Eleven of those were submitted by one family\'s household library. She touches her collar once. She does not say which family.',
+        failResult: 'Quillfire closes the folio against her side and says tariff documentation is an administrative matter handled through the archive office. If you have a concern about a specific text, submissions open at the second bell. She turns back to the corridor without elaborating.',
+        effects: [{ type: 'journal', text: 'Quillfire is tracking seventeen texts still in tariff review this cycle — eleven submitted by a single household library. She would not name the family. She presented the book-tariff process as procedural while her manner suggested the current case is not.', category: 'intelligence' }]
+      },
+      {
+        id: 'quillfire_debt',
+        text: 'The family behind that tariff backlog could end her appointment here if she pressed them.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'A long pause. Quillfire opens the folio again, finds a different page, closes it. She says the Tutor-Magistrate role at Mimolot Academy carries academic authority but not institutional protection — the appointment is reviewed each cycle by the House, and House review does not require explanation. She says this the way someone quotes a rule they have turned over in their hands many times. She says a tariff dispute that embarrassed a sponsoring family would not survive review. She says she is aware of this. Her two fingers find the collar of her robe and rest there. She says she has not yet filed the tariff delinquency notice for the eleven texts. She has not yet decided if she will.',
+        failResult: 'Quillfire straightens slightly and says Tutor-Magistrate matters are handled through the Academy\'s internal review process. She is not in a position to discuss individual cases in a corridor. She turns away with the deliberate calm of someone who has already calculated the cost of this exact moment and decided the corridor version is cheaper.',
+        effects: [{ type: 'journal', text: 'Quillfire confirmed her appointment is subject to House cycle review with no explanation required. She has not filed the tariff delinquency notice for eleven texts from one household library. She has not decided if she will. The sponsoring family carries enough weight that filing the notice may cost her the post.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  panim_haven: {
+    npcId: 'elior_sepulcher',
+    name: 'Elior Sepulcher',
+    role: 'Mediator Cleric at Panim Haven',
+    tell: 'when he names a sacred obligation, exhales slowly through his nose — not as a sigh, as a measurement, the way someone checks the weight of what they are about to carry before lifting it',
+    agenda: 'maintain the ritual credibility of his mediator role while quietly managing a divine-balance account that has not been reconciled in three pilgrimage cycles',
+    triggerText: 'Sepulcher is at the offering registry beside the temple approach, logging an entry with more care than its category requires.',
+    dialogue: [
+      {
+        id: 'sepulcher_registry',
+        text: 'That offering entry has been rewritten. The original notation is still visible underneath.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Sepulcher does not look up from the registry. He says offering records are maintained to a higher standard than civic documents because their purpose is perpetual — the record is not only for this pilgrimage cycle but for every mediation that references it afterward. He sets down his pen and smooths the page with the flat of his hand. He says the original notation was incomplete. He says an incomplete sacred record is not a record at all. He says this the way a man says something he has said so many times it has become structurally true, regardless of whether he still believes the structure. He does not say what the original notation was missing.',
+        failResult: 'Sepulcher caps his pen and says the offering registry is a sacred document managed under Panim mediation protocol. If you have a question about a specific offering, the petitioner window opens after the midday observance. He does not look up when he says it.',
+        effects: [{ type: 'journal', text: 'Sepulcher is revising an offering registry entry he described as incomplete. The original notation is still visible beneath the correction. He framed the revision as procedurally necessary for perpetual record accuracy. He did not say what the original was missing.', category: 'intelligence' }]
+      },
+      {
+        id: 'sepulcher_balance',
+        text: 'Three pilgrimage cycles of unclosed accounts sit beneath the surface of this registry.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Sepulcher goes still. He exhales slowly through his nose — once, measured. He says divine balance mediation works on a principle of closed accounts: every offering made in petition must be answered with a recorded outcome, and every unresolved outcome carries forward as an obligation against the mediator who received the initial petition. He says he has thirty-seven open petitions across three pilgrimage cycles that are classified as pending divine response. He says this classification is correct — the divine response has not yet manifested in a form that satisfies the ledger. He says he is not certain the form it would need to take still exists. His hand rests flat on the registry. He does not say what he means by that.',
+        failResult: 'Sepulcher says mediation account status is a matter of sacred record and not available for corridor review. He says this gently, with the practiced patience of someone who has spent a long time translating uncomfortable truths into acceptable language. The pen goes back in his hand. The conversation is finished.',
+        effects: [{ type: 'journal', text: 'Sepulcher is carrying thirty-seven unresolved petition obligations across three pilgrimage cycles, classified as pending divine response. He indicated the form of resolution may no longer exist. He did not say what disrupted the cycle or what that means for the petitioners whose accounts are still open.', category: 'evidence' }]
+      }
+    ]
+  },
+
+  plumes_end_outpost: {
+    npcId: 'veyra_sunweave',
+    name: 'Veyra Sunweave',
+    role: 'Patrol Leader at Plume\'s End Outpost',
+    tell: 'when she decides a traveler is worth trusting, steps half a pace to the left and turns her shoulder toward them — a small positional shift she does not appear to notice, but it changes the conversation from checkpoint exchange to something else',
+    agenda: 'keep the caravan routes through Plume\'s End functional while running a private count of celestial enforcer sightings that she has not yet reported to Shelkopolis command',
+    triggerText: 'Sunweave is standing at the waystation edge with a road chart she keeps folding and unfolding at the same crease.',
+    dialogue: [
+      {
+        id: 'sunweave_routes',
+        text: 'She is counting something on that road chart. The number she arrives at bothers her.',
+        tag: 'safe · lore · DC 7',
+        skill: 'lore',
+        dc: 7,
+        result: 'Sunweave folds the chart at the crease and looks up. She says the northern segment between Plume\'s End and Fairhaven has had six caravan delays in the last twelve days — four reported as weather, two reported as missing axle hardware. She says she has run the northern route herself since taking the patrol post and she knows what weather delay looks like on a manifest. She says two of the weather delays were logged on days she was on the route. She says the sky that day was clear. She steps half a pace to the left. She says the delays are not the problem she is most concerned about.',
+        failResult: 'Sunweave folds the chart and says the waystation is operating on standard rotation. Route delays go to the Shelkopolis transit relay for tracking. If you have a specific cargo concern, the outpost log is open for review at the intake desk. She turns back to the road.',
+        effects: [{ type: 'journal', text: 'Sunweave flagged six caravan delays on the northern Plume\'s End–Fairhaven segment in twelve days — four weather, two hardware. She described two of the weather delays as logged on a clear day she witnessed personally. She indicated the delays are not her primary concern.', category: 'intelligence' }]
+      },
+      {
+        id: 'sunweave_enforcers',
+        text: 'The celestial enforcer sightings she has not reported are connected to those delays.',
+        tag: 'risky · persuasion · DC 13',
+        skill: 'persuasion',
+        dc: 13,
+        result: 'Sunweave goes still, then steps fully toward you, her shoulder turned, the chart folded tight in her hand. She says celestial enforcer sightings require a verification threshold before they can go into a formal relay report — two independent witnesses, sequential sightings within the same route segment, logged on patrol sheets. She says she has four sightings across nine days. Three of her own. One from a caravan lead whose name she trusts. She says she does not yet have the second witness for two of the four. She says she is waiting. She unfolds the chart once, at the crease, and folds it again. She says the caravans that delayed on those days were moving between the third and fifth road markers. She says that is where three of the four sightings occurred.',
+        failResult: 'Sunweave meets your eyes and says patrol intelligence matters are handled through proper relay channels. She says this without apology, with the directness of someone who has made her decision about this conversation already. She turns toward the waystation door.',
+        effects: [{ type: 'journal', text: 'Sunweave has four celestial enforcer sightings between road markers three and five on the northern route — three personal, one from a trusted caravan lead. She lacks the second-witness threshold to file a formal relay report. The sightings correlate with the delayed caravans. She is waiting for the threshold before reporting to Shelkopolis command.', category: 'evidence' }]
+      }
+    ]
+  },
+
   ironhold_quarry: {
     npcId: 'darian_ironspike',
     name: 'Darian Ironspike',
