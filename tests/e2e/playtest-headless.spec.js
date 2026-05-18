@@ -676,6 +676,9 @@ async function runFullPanelSimulation(page, tag, g, pickNum) {
   }
 }
 
+// Module-level so runPlaythrough (defined here) can read it; assigned in test body at start
+var _runStartMs = 0;
+
 // ---------------------------------------------------------------------------
 // Single playthrough — mode: 'headless' | 'headed'
 // ---------------------------------------------------------------------------
@@ -1014,7 +1017,7 @@ test.describe('Headless QA — 4 families', () => {
     log(`[suite:headless] Stage ceiling detected: ${ceilingLabel(ceiling)}`);
     reporter.setCeiling(ceiling);
 
-    var _runStartMs = Date.now();
+    _runStartMs = Date.now();
     for (const family of HEADLESS_FAMILY_ORDER) {
       if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
         log(`[suite:headless] 1hr cap reached — stopping before family:${family}`);
