@@ -10848,7 +10848,7 @@ function getChoiceDC(choice, rivalMod) {
   var stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
   var levelBonus = Math.floor(((G.level || 1) - 1) / 2);
   var effectiveDC = (choice.dc != null) ? choice.dc : baseDC;
-  return effectiveDC + stageBonus + levelBonus + (rivalMod || 0);
+  return effectiveDC + stageBonus + levelBonus + (rivalMod || 0) - ((G && G._pendingDcReduce) || 0);
 }
 
 /** Wraps enriched choice fn() in try/catch — errors are silently swallowed. Missing G defaults are the #1 cause of silent failures. @param {Object} c — enriched choice object @returns {Object} standard choice */
@@ -10875,6 +10875,7 @@ function adaptEnrichedChoice(c) {
         var _gDC = getChoiceDC(c, _rivalMod);
         var _gVal = (G.skills && G.skills[_gSk]) || 0;
         var _gRoll = Math.floor(Math.random() * 20) + 1;
+        if (G && G._pendingDcReduce) G._pendingDcReduce = 0;
         var _gTotal = _gRoll + _gVal;
         var _gFailed = _gTotal < _gDC;
         addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSk + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
