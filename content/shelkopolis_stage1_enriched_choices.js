@@ -1019,7 +1019,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading missing signatory on transit document');
 
-      G.lastResult = `The permit registry desk carries the flat smell of pressed wax and dry hemp fiber. A clerk works through the outbox tray at steady pace — stamping, dating, stacking. The third transit authorization in the row requires two signatories by Iron Accord procedure: a routing officer and a countersigning authority. The routing officer's name is present in clear, practiced script. The second signatory line is blank. Not crossed out. Not marked pending. The form has the date. It has the stamp. Only the second name is absent. The clerk who filed it is no longer posted to this office — the name placard on the desk behind hers has been removed, leaving a rectangular patch of less-faded wood where it sat.`;
+      G.lastResult = `The permit registry desk carries the flat smell of pressed wax and dry hemp fiber. A clerk works through the outbox tray at steady pace — stamping, dating, stacking. The third transit authorization in the row requires two signatories by Iron Accord procedure: a routing officer and a countersigning authority. The routing officer's name is present in clear, practiced script. The second signatory line is blank. Not crossed out. Not marked pending. The form has the date. It has the stamp. Only the second name is absent. The clerk who filed it is no longer posted to this office — the name placard on the desk behind hers has been removed.`;
       addJournal('Transit authorization at Shelkopolis registry — second signatory absent on Iron Accord form. Clerk who filed it no longer posted here.', 'evidence');
       G.recentOutcomeType = 'observe';
       maybeStageAdvance();
@@ -1049,7 +1049,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning.';
+      G.lastResult = 'The board has nothing new since this morning. A quota notice from the registry office is still pinned at the corner — same one from three days back. The archival quarter posting beside it is dated and unsigned. Nothing that changes the picture.';
       return;
     }
     G.flags[key] = true;
@@ -1079,7 +1079,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'success';
         addJournal('Maret (barkeep): manifest clerk drinking alone since the southern shipment arrived', 'intelligence');
       } else {
-        G.lastResult = "Maret refills the cup and moves on. She's not unfriendly — she just doesn't know you well enough yet to be useful.";
+        G.lastResult = "Maret refills the cup and moves on. She's not unfriendly — she just doesn't know you well enough yet to say anything worth saying. The next table needs her. She goes.";
         G.recentOutcomeType = 'neutral';
       }
     }
