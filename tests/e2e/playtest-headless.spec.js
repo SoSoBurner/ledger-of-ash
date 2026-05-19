@@ -740,7 +740,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let lastLocation       = '';
   let stuckAtLoc         = 0;
   let lastMapTravelPick  = 0;
-  let lastProbedPick     = -1;
+  let lastCharSheetPick  = -1;
+  let lastCampPick       = -1;
   const visitedLocalities = new Set();
   const ESCAPE_LOCS  = [
     'shelkopolis','cosmouth','zootia','roaz','soreheim',
@@ -808,13 +809,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       if (isHeaded) {
         await runFullPanelSimulation(page, tag, g, picks);
       } else {
-        if (picks > 0 && picks % PROBE_EVERY === 0 && picks !== lastProbedPick) {
-          lastProbedPick = picks;
+        if (picks > 0 && picks % PROBE_EVERY === 0 && picks !== lastCharSheetPick) {
+          lastCharSheetPick = picks;
           await probeCharSheet(page, tag, g);
           await probeJournal(page, tag, g);
         }
-        if (picks > 0 && picks % CAMP_EVERY === 0 && picks !== lastProbedPick) {
-          lastProbedPick = picks;
+        if (picks > 0 && picks % CAMP_EVERY === 0 && picks !== lastCampPick) {
+          lastCampPick = picks;
           await probeCamp(page, tag, g);
         }
       }
