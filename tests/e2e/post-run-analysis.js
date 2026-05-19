@@ -61,20 +61,56 @@ function listScreenshots(dir) {
 }
 
 // ---------------------------------------------------------------------------
+// Select ~20 curated screenshots: milestones + one per 50-pick interval
+// ---------------------------------------------------------------------------
+const MILESTONE_KEYWORDS = [
+  'char_creation','first_result','combat','levelup','level_up',
+  'stage_unlock','camp','climax','death','success','failure','stall',
+  'prestall',
+];
+
+function selectCuratedScreenshots(allShots) {
+  const milestones = allShots.filter(f =>
+    MILESTONE_KEYWORDS.some(kw => f.toLowerCase().includes(kw))
+  );
+
+  // One shot per 50-pick band: p000–p049, p050–p099, etc.
+  const periodicBands = {};
+  for (const f of allShots) {
+    const m = f.match(/_p(\d{3})\./);
+    if (!m) continue;
+    const band = Math.floor(parseInt(m[1]) / 50) * 50;
+    if (!periodicBands[band]) periodicBands[band] = f;
+  }
+  const periodic = Object.values(periodicBands);
+
+  // Merge, deduplicate, cap at 20
+  const seen = new Set();
+  const result = [];
+  for (const f of [...milestones, ...periodic]) {
+    if (!seen.has(f) && result.length < 20) { seen.add(f); result.push(f); }
+  }
+  return result;
+}
+
+// ---------------------------------------------------------------------------
 // Build analysis context
 // ---------------------------------------------------------------------------
 function buildContext(reportPath, ssDir, logPath) {
   const report = readSafe(reportPath);
   const log    = readSafe(logPath);
   const shots  = listScreenshots(ssDir || SCREENSHOTS);
+  const curatedShots = selectCuratedScreenshots(shots);
 
   // Extract key sections from log for focused analysis
-  const violations = (log.match(/VIOLATION[^\n]*/g) || []).slice(0, 50);
-  const jsErrors   = (log.match(/\[js-error[^\n]*/g) || []).slice(0, 30);
-  const deadEnds   = (log.match(/\[dead-end[^\n]*/g) || []).slice(0, 30);
-  const probes     = (log.match(/\[s2-probe[^\n]*/g) || []).slice(0, 20);
-  const successes  = (log.match(/\[run:[^\]]+\] SUCCESS[^\n]*/g) || []);
-  const failures   = (log.match(/\[run:[^\]]+\] (?:FAILED|DEAD|STALL|BLOCKED)[^\n]*/g) || []);
+  const violations    = (log.match(/VIOLATION[^\n]*/g) || []).slice(0, 50);
+  const jsErrors      = (log.match(/\[js-error[^\n]*/g) || []).slice(0, 30);
+  const deadEnds      = (log.match(/\[dead-end[^\n]*/g) || []).slice(0, 30);
+  const probes        = (log.match(/\[s2-probe[^\n]*/g) || []).slice(0, 20);
+  const successes     = (log.match(/\[run:[^\]]+\] SUCCESS[^\n]*/g) || []);
+  const failures      = (log.match(/\[run:[^\]]+\] (?:FAILED|DEAD|STALL|BLOCKED)[^\n]*/g) || []);
+  const hudMismatches = (log.match(/\[hud-mismatch[^\n]*/g) || []).slice(0, 30);
+  const duplicates    = (log.match(/\[DUPLICATE[^\n]*/g)    || []).slice(0, 30);
 
   return {
     report,
@@ -85,8 +121,12 @@ function buildContext(reportPath, ssDir, logPath) {
       '## S2 PROBES',  ...probes,
       '## SUCCESSES',  ...successes,
       '## FAILURES',   ...failures,
+      '## HUD MISMATCHES', ...hudMismatches,
+      '## DOM DUPLICATES', ...duplicates,
     ].join('\n'),
     screenshots: shots,
+    curatedShots,
+    ssDir: ssDir || SCREENSHOTS,
     reportPath,
   };
 }
