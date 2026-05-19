@@ -1033,4 +1033,4 @@ const PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     failResult: 'The waystation log cover is latched — a registrar is making entries and the book is on their side of the counter. The crossroads post opens the log to public reading again once the registrar finishes the morning batch.'
   }
 ];
-window.PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = PANIM_HAVEN_STAGE1_ENRICHED_CHOICES;
+window.PANIM_STAGE1_ENRICHED_CHOICES = PANIM_HAVEN_STAGE1_ENRICHED_CHOICES;

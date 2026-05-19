@@ -283,8 +283,6 @@ var SHADOWHANDS_FACTION_MODULE = (function() {
     } else {
       G.lastResult = 'The transit office clerk takes your report and routes it to a supervisor who is not in today. You receive a filing acknowledgment. The network continues its operations without apparent disruption. The chalk mark reappears at the archway two days later — a fresh V, slightly higher than the first one. They have not read the report. They do not yet know what you did with it. The window is still open.';
       G.recentOutcomeType = 'neutral';
-    }
-    if (r.success) {
       G.flags.shadowhands_arc_complete = true;
     }
     if (typeof updateHUD === 'function') updateHUD();

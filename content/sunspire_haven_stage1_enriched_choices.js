@@ -1023,4 +1023,4 @@ const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     failResult: 'The yard gate has closed for the midday count — the handlers run a manifest tally at this hour and don\'t allow observation from the lane while it\'s in progress. The yard reopens for loading in the early afternoon.'
   }
 ];
-window.SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES;
+window.SUNSPIRE_STAGE1_ENRICHED_CHOICES = SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES;

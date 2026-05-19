@@ -1100,4 +1100,4 @@ const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     failResult: 'The dock gate is closed for an inspection check — the freight coordinator is running numbers against the platform stack before the next barge loads. The processing shed side entrance stays open and the sorted output waiting for the dock is visible from there without needing dock authorization.'
   }
 ];
-window.SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;
+window.SOREHEIM_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;
