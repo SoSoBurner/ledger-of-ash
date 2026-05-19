@@ -13,10 +13,16 @@ const CONTENT_DIR = path.join(ROOT, 'content');
 const HTML_PATH   = path.join(ROOT, 'ledger-of-ash.html');
 
 let errors = 0;
+let warnings = 0;
 
 function fail(msg) {
   console.error(`  FAIL: ${msg}`);
   errors++;
+}
+
+function warn(msg) {
+  console.warn(`  WARN: ${msg}`);
+  warnings++;
 }
 
 function readFile(p) {
@@ -113,6 +119,48 @@ function checkAddJournalCategories() {
   }
 }
 
+// ─── No duplicate id= attributes in ledger-of-ash.html ───────────────────────
+
+function checkDuplicateIds() {
+  const src = readFile(HTML_PATH);
+  const freq = {};
+  const lines = src.split('\n');
+  for (const line of lines) {
+    const trimmed = line.trimStart();
+    if (trimmed.startsWith('//') || trimmed.startsWith('*')) continue;
+    const re = /\bid=["']([^"']+)["']/g;
+    let m;
+    while ((m = re.exec(line)) !== null) {
+      const id = m[1];
+      freq[id] = (freq[id] || 0) + 1;
+    }
+  }
+  for (const [id, count] of Object.entries(freq)) {
+    if (count > 1) fail(`ledger-of-ash.html: duplicate id="${id}" appears ${count} times`);
+  }
+}
+
+// ─── innerHTML += on render containers may accumulate across re-renders ───────
+
+function checkInnerHTMLAccumulation() {
+  const src = readFile(HTML_PATH);
+  const lines = src.split('\n');
+  const CONTAINERS = [
+    '#action-content', '#story-output', '.env-desc',
+    '.result-text', '.narrative-text', '#quest-list', '#journal-overlay-body',
+  ];
+  const accRe = /innerHTML\s*\+=/;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!accRe.test(line)) continue;
+    const lineNo = i + 1;
+    const isContainer = CONTAINERS.some(sel => line.includes(sel.replace(/[#.]/g, '')));
+    if (isContainer) {
+      warn(`ledger-of-ash.html:${lineNo}: innerHTML += on known render container — may accumulate across re-renders`);
+    }
+  }
+}
+
 function run() {
   console.log('Checking content file structure…\n');
 
@@ -120,11 +168,14 @@ function run() {
   checkNoWindowG();
   checkAddJournalArgOrder();
   checkAddJournalCategories();
+  checkDuplicateIds();
+  checkInnerHTMLAccumulation();
 
   if (errors > 0) {
     console.error(`\n${errors} violation(s) found.`);
     process.exit(1);
   } else {
+    if (warnings > 0) console.warn(`\n${warnings} warning(s).`);
     console.log('All structure checks passed.');
   }
 }
