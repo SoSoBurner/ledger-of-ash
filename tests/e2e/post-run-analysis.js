@@ -208,6 +208,89 @@ const DOMAINS = [
 ];
 
 // ---------------------------------------------------------------------------
+// Build a stream-json input file for: claude -p --input-format stream-json
+// Embeds base64 images alongside the analysis prompt.
+// ---------------------------------------------------------------------------
+function buildStreamJsonInput(domain, ctx, imagePaths) {
+  const systemText = [
+    `You are a focused game QA analyst for "Ledger of Ash", a text-RPG browser game.`,
+    `Report only findings supported by the data provided. Be specific and actionable.`,
+    `Format findings as [P0/P1/P2] — description.`,
+    `Domain: ${domain.label}. Focus: ${domain.focus}`,
+  ].join(' ');
+
+  const logExcerptStr = Array.isArray(ctx.logExcerpt) ? ctx.logExcerpt.join('\n') : ctx.logExcerpt;
+
+  const analysisText = [
+    `## Playtest Report`,
+    ctx.report.slice(0, 8000),
+    ``,
+    `## Log Excerpts`,
+    logExcerptStr.slice(0, 6000),
+    ``,
+    `## Instructions`,
+    `- Report findings as P0 (critical), P1 (important), P2 (nice to have)`,
+    `- Be specific: quote the exact text, log line, or describe what you see in a screenshot`,
+    `- Do NOT invent issues not supported by the data above`,
+    `- Format each finding as: [P0/P1/P2] [location if known] — description`,
+    `- End with: "N issues found (X P0, Y P1, Z P2)"`,
+  ].join('\n');
+
+  const content = [{ type: 'text', text: systemText }];
+
+  for (const imgPath of imagePaths) {
+    try {
+      const stat = fs.statSync(imgPath);
+      if (stat.size > 2 * 1024 * 1024) {
+        console.warn(`[post-run-analysis] skip oversized image: ${path.basename(imgPath)}`);
+        continue;
+      }
+      const ext = path.extname(imgPath).toLowerCase();
+      const mediaType = ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' : 'image/png';
+      const data = fs.readFileSync(imgPath).toString('base64');
+      content.push({ type: 'image', source: { type: 'base64', media_type: mediaType, data } });
+    } catch (e) {
+      console.warn(`[post-run-analysis] skip unreadable image: ${path.basename(imgPath)}: ${e.message}`);
+    }
+  }
+
+  content.push({ type: 'text', text: analysisText });
+  return JSON.stringify({ role: 'user', content }) + '\n';
+}
+
+// ---------------------------------------------------------------------------
+// Image-aware analysis: CLI stream-json primary, SDK fallback, text-only final
+// ---------------------------------------------------------------------------
+function analyzeWithImages(domain, ctx, imagePaths) {
+  if (!imagePaths || imagePaths.length === 0) {
+    return analyzeWithCLI(domain, ctx);
+  }
+
+  const tmpFile = path.join(TEST_RESULTS, `_analysis_stream_${domain.id}.jsonl`);
+  try {
+    fs.writeFileSync(tmpFile, buildStreamJsonInput(domain, ctx, imagePaths), 'utf8');
+    const result = execSync(
+      `claude -p --input-format stream-json < "${tmpFile}"`,
+      { encoding: 'utf8', timeout: 180000, shell: true }
+    );
+    try { fs.unlinkSync(tmpFile); } catch (_) {}
+    return result.trim();
+  } catch (err) {
+    try { fs.unlinkSync(tmpFile); } catch (_) {}
+
+    let Anthropic;
+    try { Anthropic = require('@anthropic-ai/sdk'); } catch (_) {}
+    if (Anthropic && process.env.ANTHROPIC_API_KEY) {
+      console.warn(`[post-run-analysis] stream-json failed for ${domain.id}, trying SDK`);
+      return null; // signals main() to use async SDK path
+    }
+
+    console.warn(`[post-run-analysis] image analysis failed for ${domain.id}, falling back to text-only`);
+    return analyzeWithCLI(domain, ctx);
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Call Claude CLI for each domain
 // ---------------------------------------------------------------------------
 function analyzeWithCLI(domain, ctx) {
@@ -254,7 +337,7 @@ function analyzeWithCLI(domain, ctx) {
 // ---------------------------------------------------------------------------
 // Anthropic SDK path (if available)
 // ---------------------------------------------------------------------------
-async function analyzeWithSDK(domain, ctx) {
+async function analyzeWithSDK(domain, ctx, imagePaths) {
   let Anthropic;
   try { Anthropic = require('@anthropic-ai/sdk'); } catch (_) { return null; }
 
@@ -262,7 +345,9 @@ async function analyzeWithSDK(domain, ctx) {
 
   const systemPrompt = `You are a focused game QA analyst for "Ledger of Ash", a text-RPG browser game. Report only findings supported by the data provided. Be specific and actionable. Format findings as [P0/P1/P2] — description.`;
 
-  const userContent = [
+  const logExcerptStr = Array.isArray(ctx.logExcerpt) ? ctx.logExcerpt.join('\n') : ctx.logExcerpt;
+
+  const textContent = [
     `## Domain: ${domain.label}`,
     `Focus: ${domain.focus}`,
     ``,
@@ -270,17 +355,34 @@ async function analyzeWithSDK(domain, ctx) {
     ctx.report.slice(0, 10000),
     ``,
     `## Log Excerpts`,
-    ctx.logExcerpt.slice(0, 8000),
+    logExcerptStr.slice(0, 8000),
     ``,
     `## Screenshots Captured (${ctx.screenshots.length} total)`,
     ctx.screenshots.slice(0, 50).join('\n'),
   ].join('\n');
 
+  const content = [];
+
+  if (imagePaths && imagePaths.length > 0) {
+    for (const imgPath of imagePaths) {
+      try {
+        const stat = fs.statSync(imgPath);
+        if (stat.size > 2 * 1024 * 1024) continue;
+        const ext = path.extname(imgPath).toLowerCase();
+        const mediaType = ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' : 'image/png';
+        const data = fs.readFileSync(imgPath).toString('base64');
+        content.push({ type: 'image', source: { type: 'base64', media_type: mediaType, data } });
+      } catch (_) {}
+    }
+  }
+
+  content.push({ type: 'text', text: textContent });
+
   const msg = await client.messages.create({
     model: 'claude-haiku-4-5',
     max_tokens: 2048,
     system: systemPrompt,
-    messages: [{ role: 'user', content: userContent }],
+    messages: [{ role: 'user', content }],
   });
 
   return msg.content[0].type === 'text' ? msg.content[0].text : '[no text response]';
@@ -307,19 +409,18 @@ async function main() {
   const ctx = buildContext(reportPath, ssArg, LOG_FILE);
   console.log(`[post-run-analysis] ${ctx.screenshots.length} screenshots found`);
 
-  // Check if Anthropic SDK is available for API calls
-  let useSDK = false;
-  try { require('@anthropic-ai/sdk'); useSDK = !!process.env.ANTHROPIC_API_KEY; } catch (_) {}
-  console.log(`[post-run-analysis] mode: ${useSDK ? 'Anthropic SDK' : 'claude CLI'}`);
-
   // Run all domains (sequentially to avoid rate limits / process conflicts)
   const findings = {};
   for (const domain of DOMAINS) {
     console.log(`[post-run-analysis] analyzing: ${domain.label}...`);
-    if (useSDK) {
-      findings[domain.id] = await analyzeWithSDK(domain, ctx).catch(e => `[sdk-error: ${e.message}]`);
+    const curatedPaths = (ctx.curatedShots || []).map(f => path.join(ctx.ssDir || SCREENSHOTS, f));
+
+    const syncResult = analyzeWithImages(domain, ctx, curatedPaths);
+    if (syncResult !== null) {
+      findings[domain.id] = syncResult;
     } else {
-      findings[domain.id] = analyzeWithCLI(domain, ctx);
+      findings[domain.id] = await analyzeWithSDK(domain, ctx, curatedPaths)
+        .catch(e => `[sdk-error: ${e.message}]`);
     }
   }
 
