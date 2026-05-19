@@ -475,6 +475,40 @@ async function probeHUD(page, tag, g) {
     if (g.gold < 0) log(`[hud-integrity ${tag}] VIOLATION: G.gold=${g.gold} is negative`);
     if (g.supply < 0) log(`[hud-integrity ${tag}] VIOLATION: G.supply=${g.supply} is negative`);
 
+    // Gold DOM vs G cross-check
+    const hudGoldNum = parseInt((hudGold || '').replace(/[^0-9]/g, '')) || 0;
+    if (g.gold !== undefined && hudGoldNum !== 0 && hudGoldNum !== g.gold)
+      log(`[hud-mismatch ${tag}] VIOLATION: gold G=${g.gold} shown=${hudGoldNum}`);
+
+    // Heat row check
+    try {
+      const heatRow = await page.locator('#hud-heat-row').innerText().catch(() => '');
+      if (heatRow && g.heat) {
+        const polities = Object.keys(g.heat || {});
+        for (const pol of polities) {
+          if ((g.heat[pol] || 0) > 0 && !heatRow.toLowerCase().includes(pol.toLowerCase())) {
+            log(`[hud-mismatch ${tag}] WARN: polity=${pol} has heat=${g.heat[pol]} but not visible in heat row`);
+          }
+        }
+      }
+    } catch (_) {}
+
+    // Alignment bar check — only when threshold ±10 met
+    try {
+      const ben = g.benevolence || 0;
+      const ord = g.orderAxis || 0;
+      if (Math.abs(ben) >= 10) {
+        const barVisible = await page.locator('.alignment-bar, [class*="alignment"]').count().catch(() => 0);
+        if (barVisible === 0)
+          log(`[hud-mismatch ${tag}] WARN: benevolence=${ben} (>= threshold) but alignment bar not visible`);
+      }
+      if (Math.abs(ord) >= 10) {
+        const barVisible = await page.locator('.order-bar, [class*="order-axis"]').count().catch(() => 0);
+        if (barVisible === 0)
+          log(`[hud-mismatch ${tag}] WARN: orderAxis=${ord} (>= threshold) but order bar not visible`);
+      }
+    } catch (_) {}
+
     log(`[hud-integrity ${tag}] hp="${hudHP}" lvl="${hudLevel}" gold="${hudGold}" renown="${hudRenown}" day="${hudDay}" loc="${hudLoc}" stage="${hudStage}" sp="${hudSPVal}" xp="${hudXP}"`);
   } catch (err) { log(`[hud-integrity ${tag}] WARN: ${err.message}`); }
 }
@@ -539,6 +573,22 @@ async function probeCharSheet(page, tag, g) {
   try {
     if (!await openOverlay(page, '#btn-charsheet', '#overlay-charsheet')) { log(`[panel:char-sheet ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_charsheet_lvl${g.level}`);
+
+    // Skill value cross-check: G.skills[key] vs rendered .char-skill-row
+    if (g && g.skills) {
+      const SKILL_KEYS = ['combat','stealth','survival','lore','persuasion','craft'];
+      for (const key of SKILL_KEYS) {
+        const expected = g.skills[key];
+        if (expected === undefined) continue;
+        try {
+          const rowText = await page.locator(`.char-skill-row[data-skill="${key}"] .skill-val`).innerText().catch(() => '');
+          const shown = parseInt(rowText) || 0;
+          if (rowText && shown !== expected)
+            log(`[hud-mismatch ${tag}] VIOLATION: skill=${key} G=${expected} shown=${shown}`);
+        } catch (_) {}
+      }
+    }
+
     const txt       = await page.locator('#sheet-body,#overlay-charsheet').first().innerText().catch(() => '');
     const objObj    = txt.includes('[object Object]');
     // Read actual section content
