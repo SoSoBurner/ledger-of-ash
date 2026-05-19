@@ -1238,7 +1238,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
   let _lastHudProbeAtPick = -1;
   const visitedLocalities = new Set();
-  const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
+  const ESCAPE_LOCS = [
+    'shelkopolis','cosmouth','zootia','roaz','soreheim',
+    'mimolot','ithtananalor','panim','sunspire','st_court',
+    'whitebridge','nomdara','sheresh','shirsh',
+    'delvingmoor','cosrin','the_plumes','veldt_crossing','harrowgate',
+  ];
+  const visitedForLog = new Set();
 
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
@@ -1278,8 +1284,18 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         return { success: true, reason: 'stage3-gate', picks, g };
       }
 
+      if (g.flags && g.flags.stage2_narrative_complete) {
+        log(`[SUCCESS ${tag}] pick=${picks} — stage complete, ending family run early`);
+        break;
+      }
+
       await handleLevelup(page, tag);
       g = await readG(page);
+
+      if (g.location && !visitedForLog.has(g.location)) {
+        visitedForLog.add(g.location);
+        log(`[first-visit ${tag}] pick=${picks} loc=${g.location}`);
+      }
 
       // Coverage tracking
       if (tracker && g.location) {
@@ -1482,6 +1498,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       if (stuckAtLoc >= 30) {
         const escLoc = ESCAPE_LOCS.find(l => l !== g.location) || 'shelkopolis';
         log(`[escape ${tag}] pick=${picks} stuck at "${g.location}" for ${stuckAtLoc} picks — teleporting to ${escLoc}`);
+        const _prestallPath = path.join(SCREENSHOT_DIR, `${tag}_prestall_stuck_p${String(picks).padStart(3,'0')}.png`);
+        await page.screenshot({ path: _prestallPath, fullPage: false }).catch(() => {});
+        log(`[escape ${tag}] pre-stall screenshot → ${path.basename(_prestallPath)}`);
         try {
           await page.evaluate((loc) => {
             if (typeof G !== 'undefined') {
@@ -1567,6 +1586,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       if (lastPickLabels.length > 3) lastPickLabels.shift();
       if (lastPickLabels.length === 3 && lastPickLabels.every(l => l === lastPickLabels[0])) {
         log(`[loop-detect ${tag}] pick=${picks} same label 3x: "${pickLabel}" — forcing tension reset + escape`);
+        const _loopPrestallPath = path.join(SCREENSHOT_DIR, `${tag}_prestall_loop_p${String(picks).padStart(3,'0')}.png`);
+        await page.screenshot({ path: _loopPrestallPath, fullPage: false }).catch(() => {});
+        log(`[loop-detect ${tag}] pre-stall screenshot → ${path.basename(_loopPrestallPath)}`);
         try {
           await page.evaluate((escLocs) => {
             if (typeof G !== 'undefined') {
