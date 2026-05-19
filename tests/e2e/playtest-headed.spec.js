@@ -1240,7 +1240,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let _lastHudProbeAtPick = -1;
   const visitedLocalities = new Set();
   const ESCAPE_LOCS = [
-    'shelkopolis','cosmouth','zootia','roaz','soreheim',
+    'shelkopolis','cosmoria','zootia','roaz','soreheim',
     'mimolot','ithtananalor','panim','sunspire','st_court',
     'whitebridge','nomdara','sheresh','shirsh',
     'delvingmoor','cosrin','the_plumes','veldt_crossing','harrowgate',

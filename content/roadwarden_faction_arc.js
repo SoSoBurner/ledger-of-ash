@@ -24,13 +24,13 @@ var ROADWARDEN_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'roadwarden_beat1_follow',
-          text: 'A warden who waits at a gate rather than sending a summons has reasons for keeping this quiet.',
+          text: 'A warden waiting at the gate without sending a summons. Wants quiet.',
           tag: 'safe',
           action: function() { beat1Follow(); }
         },
         {
           id: 'roadwarden_beat1_cautious',
-          text: 'She knew the name. She had the timing. This was planned before you arrived at the gate.',
+          text: 'She knew my name and the timing. This was already arranged.',
           tag: 'risky',
           action: function() { beat1Cautious(); }
         },

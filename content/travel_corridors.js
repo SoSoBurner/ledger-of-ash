@@ -149,7 +149,7 @@
         text: 'A freight cart is stopped in the road, wheel off. The carter is sitting on the verge with his boots off, not working on the wheel — just sitting. The horse is tied to a post and eating grass from the verge. Three crates are stacked beside the road, each sealed with a Roadwarden inspection mark from three days ago. The carter looks up when your shadow crosses him.',
         choices: [
           { text: 'What is in those crates matters more than the wheel.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_cart_inspect' },
-          { text: 'Help with the wheel and keep moving.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_cart_help' }
+          { text: "The wheel's stuck. A quick hand here and we're moving.", skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_cart_help' }
         ]
       },
       {

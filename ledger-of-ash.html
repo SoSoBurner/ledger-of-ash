@@ -5858,7 +5858,7 @@ w_garrison:{text:'The garrison bell still rings in your sleep. Three months sinc
   {text:'Read the garrison before speaking to anyone. Staffing patterns tell the real story.', skill:'combat', tag:'safe', align:'neutral', cid:'warrior_garrison_read'},
   {text:'Apply your combat background directly to gain access.', skill:'combat', tag:'bold', align:'neutral', cid:'combat_approach'},
   {text:'The garrison still reads my gait. Old contacts notice who walks toward them.', skill:'persuasion', tag:'bold', align:'lawful', cid:'garrison_contact'},
-  {text:'The east corner of Verdant Row has been occupied at the same hour every market day.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'},
+  {text:'The east corner of Verdant Row. Same hour, every market day.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'},
   {text:'The Amber Fountain Inn. Travelers pass through. Travelers know things.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival'}
 ]},
 w_roaz:{text:'Ithtananalor quarry work leaves marks that Shelkopolis merchants notice. You arrived two days ago. The extraction culture of Roaz does not translate here. What does translate: a soldier who knows how fortifications are built knows exactly how they fail.',choices:[
@@ -6105,7 +6105,7 @@ el_axis:{text:'You crossed terrain during axis inversion. You know what the forc
 ro_shelk:{text:'Information is currency in Shelkopolis. You were good at earning it. The problem is who you owe now. The Shadowhands have gone quiet for three weeks. Your drop site was cleaned within the last twelve hours. That means someone knows where it is and chose to send absence as the message.',choices:[
   {text:'Read the Ward before engaging. Three hours watching who watches whom tells you more than any contact.', skill:'stealth', tag:'bold', align:'neutral', cid:'rogue_shelk_read'},
   {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
-  {text:'If a message exists, it is at the drop site. If not, that tells me something.', skill:'stealth', tag:'risky', align:'chaotic', cid:'check_drop'},
+  {text:'A message at the drop site, or nothing. Both tell me something.', skill:'stealth', tag:'risky', align:'chaotic', cid:'check_drop'},
   {text:'There is a channel they do not know I know about.', skill:'stealth', tag:'bold', align:'chaotic', cid:'shadowhands_contact'},
   {text:'Do nothing. Let them come to you.', skill:'lore', tag:'safe', align:'neutral', cid:'wait_observe'}
 ]},
@@ -9279,6 +9279,12 @@ function updateHeatHUD() {
         }).join('');
     } else { _heatEl.style.display = 'none'; }
   }
+  var _heatRow = document.getElementById('hud-heat-row');
+  var _heatValEl = document.getElementById('hud-heat-val');
+  var _heatFillEl = document.getElementById('hud-heat-fill');
+  if (_heatRow) { _heatRow.style.display = _maxHeat > 0 ? '' : 'none'; _heatRow.style.opacity = '1'; }
+  if (_heatValEl) _heatValEl.textContent = _maxHeat;
+  if (_heatFillEl) _heatFillEl.style.width = Math.min(100, _maxHeat * 10) + '%';
 }
 
 // ── AUTHORITY CONFRONTATION SYSTEM ────────────────────
@@ -16342,7 +16348,7 @@ function updateAlignmentHUD() {
   if (!el) return;
   el.textContent = getAlignmentLabel();
   const m=G.benevolence||0, o=G.orderAxis||0;
-  el.className='align-label '+(m>20?'good':m<-20?'evil':'')+' '+(o>20?'lawful':o<-20?'chaotic':'');
+  el.className='align-label '+(m>10?'good':m<-10?'evil':'')+' '+(o>10?'lawful':o<-10?'chaotic':'');
 }
 
 function updateFactionHUD() {
