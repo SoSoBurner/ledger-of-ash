@@ -22,6 +22,9 @@ const ReportWriter    = require('./helpers/report-writer');
 // Headed mode — top-level, uses top-level key to override playwright.config.js's headless:true
 test.use({ headless: false });
 
+// Module-scope so soft-timeout closure inside runFamily() can read it (closure trap: var inside test() is invisible to module-scope functions)
+var _runStartMs = 0;
+
 // ---------------------------------------------------------------------------
 // Output dirs
 // ---------------------------------------------------------------------------
@@ -1568,7 +1571,7 @@ test.describe('Headed QA — 4 families', () => {
     reporter.setCeiling(ceiling);
     reporter.setWarningBaseline(291);
 
-    var _runStartMs = Date.now();
+    _runStartMs = Date.now();
     var _exhaustiveCycleDone = false; // declared once before family loop, never reset between families
 
     // Per-family state for round-robin
