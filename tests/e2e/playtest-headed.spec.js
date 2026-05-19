@@ -1782,6 +1782,24 @@ test.describe('Headed QA — 4 families', () => {
     const reportPath = reporter.write(coverage, 0);
     log(`[suite:headed] report written → ${reportPath}`);
 
+    // Auto-trigger post-run analysis
+    try {
+      const _reportFiles = require('fs').readdirSync(ROOT)
+        .filter(f => /^playtest-report-.*-headed\.md$/.test(f))
+        .sort()
+        .reverse();
+      const _analysisTarget = reportPath || (_reportFiles.length > 0 ? path.join(ROOT, _reportFiles[0]) : null);
+      if (_analysisTarget) {
+        log(`[auto-analysis suite] triggering post-run analysis for ${path.basename(_analysisTarget)}`);
+        require('child_process').execSync(
+          `node "${path.join(ROOT, 'tests', 'e2e', 'post-run-analysis.js')}" "${_analysisTarget}"`,
+          { timeout: 300000, stdio: 'inherit' }
+        );
+      }
+    } catch (_autoErr) {
+      log(`[auto-analysis suite] analysis error (non-fatal): ${_autoErr.message}`);
+    }
+
     // Final summary
     log('\n' + '='.repeat(60));
     log('[suite:headed] COMPLETE');

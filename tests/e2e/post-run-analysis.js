@@ -216,6 +216,7 @@ const DOMAINS = [
          + 'log entries. In screenshots, identify HUD fields that appear blank, incorrect, '
          + 'cut off, or showing a value that contradicts the log. Emit mismatches as [P0].',
     logHeavy: true,
+    model: 'claude-sonnet-4-5-20251022',
   },
   {
     id: 'ui_duplication',
@@ -228,6 +229,7 @@ const DOMAINS = [
          + 'element that appears visibly doubled or stacked. Emit as [P0] if a singleton '
          + 'is duplicated, [P1] if a choice label or quest entry repeats.',
     logHeavy: true,
+    model: 'claude-sonnet-4-5-20251022',
   },
 ];
 
@@ -293,8 +295,9 @@ function analyzeWithImages(domain, ctx, imagePaths) {
   const tmpFile = path.join(TEST_RESULTS, `_analysis_stream_${domain.id}.jsonl`);
   try {
     fs.writeFileSync(tmpFile, buildStreamJsonInput(domain, ctx, imagePaths), 'utf8');
+    const modelFlag = domain.model ? `--model ${domain.model}` : '--model claude-haiku-4-5-20251001';
     const result = execSync(
-      `claude -p --input-format stream-json < "${tmpFile}"`,
+      `claude -p ${modelFlag} --input-format stream-json < "${tmpFile}"`,
       { encoding: 'utf8', timeout: 180000, shell: true }
     );
     try { fs.unlinkSync(tmpFile); } catch (_) {}
@@ -345,9 +348,10 @@ function analyzeWithCLI(domain, ctx) {
   const tmpFile = path.join(TEST_RESULTS, `_analysis_prompt_${domain.id}.txt`);
   fs.writeFileSync(tmpFile, prompt, 'utf8');
 
+  const modelFlag = domain.model ? `--model ${domain.model}` : '--model claude-haiku-4-5-20251001';
   try {
     const result = execSync(
-      'claude -p -',
+      `claude -p ${modelFlag} -`,
       { input: fs.readFileSync(tmpFile, 'utf8'), encoding: 'utf8', timeout: 120000 }
     );
     fs.unlinkSync(tmpFile);
@@ -403,7 +407,7 @@ async function analyzeWithSDK(domain, ctx, imagePaths) {
   content.push({ type: 'text', text: textContent });
 
   const msg = await client.messages.create({
-    model: 'claude-haiku-4-5',
+    model: domain.model || 'claude-haiku-4-5-20251001',
     max_tokens: 2048,
     system: systemPrompt,
     messages: [{ role: 'user', content }],
