@@ -1953,7 +1953,7 @@ input, button, select, textarea { font-family: inherit; }
       <div class="pressure-bars" id="hud-pressure-bars">
         <div class="pressure-bar-row" id="hud-watch-row" style="display:none">
           <div class="pressure-bar-label">
-            <span>WATCHFULNESS</span><span class="pbar-val" id="hud-watch-val">0</span>
+            <span>WATCHFULNESS</span><span class="pbar-val">0</span>
           </div>
           <div class="pressure-bar-track">
             <div class="pressure-bar-fill watchfulness-fill" id="hud-watch-fill" style="width:0%"></div>
@@ -1970,13 +1970,13 @@ input, button, select, textarea { font-family: inherit; }
       </div>
       <div id="hud-fatigue" style="display:none; font-family:var(--font-body); font-size:10px; letter-spacing:0.06em; padding: 2px 14px;"></div>
       <div id="hud-trait-ready" style="display:none; font-family:var(--font-body); font-size:10px; letter-spacing:0.06em; padding: 2px 14px;"></div>
-      <div id="hud-stage-progress-wrap" style="display:none;padding:0 14px 6px;">
+      <div style="display:none;padding:0 14px 6px;">
         <div style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;margin-bottom:3px;">
-          <span>THREADS</span><span id="hud-stage-progress-val"></span>
+          <span>THREADS</span><span></span>
         </div>
-        <div class="pressure-bar-track"><div id="hud-stage-progress" class="pressure-bar-fill" style="background:var(--discovery);width:0%"></div></div>
+        <div class="pressure-bar-track"><div class="pressure-bar-fill" style="background:var(--discovery);width:0%"></div></div>
       </div>
-      <div id="hud-stage-hint" style="display:none;padding:2px 14px 6px;font-family:var(--font-body);font-size:10px;color:var(--accent-gold);letter-spacing:0.04em;"></div>
+      <div style="display:none;padding:2px 14px 6px;font-family:var(--font-body);font-size:10px;color:var(--accent-gold);letter-spacing:0.04em;"></div>
       <div class="l-skills">
         <div class="l-section-cap">Stats</div>
         <div id="hud-skills"></div>
