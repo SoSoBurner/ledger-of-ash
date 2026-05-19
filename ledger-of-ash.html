@@ -6745,7 +6745,7 @@ const C = {
   shrine_contact:{
     success:{
       text:'The Aurora Light Cathedral attendant, a measured woman named Sera, offers water and quiet without asking anything first. After a long moment she says the shrine has been receiving unusual numbers of private memorial requests this week — the kind families make when they expect not to find someone through official channels.',
-      xp:6, effects:[{type:'journal',msg:'Aurora Light Cathedral: unusual volume of private memorial requests — families expecting someone gone.'},{type:'quest',msg:'Investigate why families are filing unofficial memorials this week in Shelkopolis.'}],
+      xp:6, effects:[{type:'journal',msg:'Aurora Light Cathedral: unusual volume of private memorial requests — families expecting someone gone.'},{type:'quest',msg:'Unofficial memorials — families expecting someone gone. Why this week.'}],
       next:[
         {text:'Ask Sera who filed the most recent one.', skill:'persuasion', tag:'risky', align:'neutral', cid:'trace_missing_persons'},
         {text:'A memorial week means something happened somewhere east. The route closures connect.', skill:'lore', tag:'safe', align:'neutral', cid:'east_road'},
@@ -7303,7 +7303,7 @@ const C = {
   zootia_contact:{
     success:{
       text:'A House Zootia factor named Bress reads your field findings and sits very still. The axis inversion data affecting Zootia harvest cycles — if this is accurate, it is not natural variation. Something is drawing the inversion off-cycle. He says this like he has known it and did not want to say it out loud.',
-      xp:8, effects:[{type:'journal',msg:'Zootia factor Bress: axis inversion affecting harvests may not be natural. Something drawing it off-cycle.'},{type:'quest',msg:'Investigate the off-cycle axis inversion affecting Zootia harvest routes.'}],
+      xp:8, effects:[{type:'journal',msg:'Zootia factor Bress: axis inversion affecting harvests may not be natural. Something drawing it off-cycle.'},{type:'quest',msg:'The off-cycle axis inversion is hitting Zootia harvests. This is not natural.'}],
       next:[
         {text:'What draws an inversion? Make Bress say what he knows.', skill:'persuasion', tag:'bold', align:'neutral', cid:'probe_order_origin'},
         {text:'The axis data connects to the eastern route operation.', skill:'lore', tag:'risky', align:'neutral', cid:'east_road'},
@@ -8037,7 +8037,7 @@ const C = {
   support_craft_solve:{
     success:{
       text:'You build the solution. A modified version of your own equipment, calibrated to detect the anomaly, placed at the right waypoint. It costs materials and a full day. The result fills the gap in the official record: the cargo bypassed the main checkpoint and took the service route — which has no inspector because it officially carries only agricultural freight.',
-      xp:8, effects:[{type:'gold',n:-8},{type:'journal',msg:'Crafted detection: cargo used agricultural service route, bypassed main checkpoint.'},{type:'quest',msg:'Investigate the agricultural service route.'},{type:'renown',n:1}],
+      xp:8, effects:[{type:'gold',n:-8},{type:'journal',msg:'Crafted detection: cargo used agricultural service route, bypassed main checkpoint.'},{type:'quest',msg:'The agricultural service route bypassed the main checkpoint. Someone knew it was there.'},{type:'renown',n:1}],
       next:[
         {text:'Follow the service route to its endpoint.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'},
         {text:'Report the agricultural route breach to the Roadwardens.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'},
@@ -11620,7 +11620,7 @@ function useTrait() {
     necromancer:{bonus:{skill:'lore',n:3}, choices:[
       {text:'Read the death registry for patterns connecting the victims.',skill:'lore',tag:'bold',align:'neutral',cid:'panim_contact'},
       {text:'Identify the residue of the operation through what it left behind.',skill:'lore',tag:'risky',align:'neutral',cid:'document_depot'},
-      {text:'Use the threat of your knowledge to compel information.',skill:'persuasion',tag:'risky',align:'evil',cid:'probe_order_origin'}]},
+      {text:'This person knows what I know. That is leverage.',skill:'persuasion',tag:'risky',align:'evil',cid:'probe_order_origin'}]},
     illusionist:{bonus:{skill:'persuasion',n:3}, choices:[
       {text:'Impersonate a Shelk operations official to enter the records.',skill:'persuasion',tag:'bold',align:'chaotic',cid:'house_shelk_meeting'},
       {text:'Create a false lead that draws the operation into the open.',skill:'persuasion',tag:'risky',align:'evil',cid:'passive_intel'},
