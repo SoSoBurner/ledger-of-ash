@@ -729,7 +729,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let stuckAtLoc         = 0;
   let lastMapTravelPick  = 0;
   const visitedLocalities = new Set();
-  const ESCAPE_LOCS  = ['shelkopolis','cosmouth','zootia','roaz','soreheim'];
+  const ESCAPE_LOCS  = [
+    'shelkopolis','cosmouth','zootia','roaz','soreheim',
+    'mimolot','ithtananalor','panim','sunspire','st_court',
+    'whitebridge','nomdara','sheresh','shirsh',
+    'delvingmoor','cosrin','the_plumes','veldt_crossing','harrowgate',
+  ];
 
   var _lastSp1Check = 0;
   while (picks < MAX_PICKS) {
@@ -1051,6 +1056,29 @@ test.describe('Headless QA — 4 families', () => {
       reporter.addFamily({ family, ...r });
       if (r.success) {
         log(`[family:${family}] DONE after ${r.attempts} attempt(s) — ${r.archetypeId}/${r.backgroundId} ${r.picks} picks`);
+      }
+    }
+
+    // Second pass: retry failed families once
+    const failedFamilies = Object.entries(familyResults).filter(([, r]) => !r.success).map(([fam]) => fam);
+    if (failedFamilies.length > 0) {
+      log(`[headless] ${failedFamilies.length} famil${failedFamilies.length === 1 ? 'y' : 'ies'} failed — re-running: ${failedFamilies.join(', ')}`);
+      for (const family of failedFamilies) {
+        if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
+          log(`[suite:headless] 1hr cap reached — stopping retry for family:${family}`);
+          break;
+        }
+        const retryTag = `${family}_retry`;
+        log(`\n${'='.repeat(60)}`);
+        log(`[family:${retryTag}] re-running (headless retry)`);
+        log('='.repeat(60));
+        const remaining = HEADLESS_CAP - (Date.now() - suiteStart);
+        const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, remaining, ceiling, tracker);
+        familyResults[retryTag] = r;
+        reporter.addFamily({ family: retryTag, ...r });
+        if (r.success) {
+          log(`[family:${retryTag}] DONE after ${r.attempts} attempt(s) — ${r.archetypeId}/${r.backgroundId} ${r.picks} picks`);
+        }
       }
     }
 
