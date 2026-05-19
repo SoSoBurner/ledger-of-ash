@@ -186,7 +186,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 7. OUTER DISTRICT THRESHOLD
   {
-    label: "Shelkopolis outer district. The pressure gradient Letha Dawnsilk described is faint here but present. You feel it.",
+    label: "Shelkopolis outer district. The pressure gradient Letha Dawnsilk described is faint here but already in the air.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
     xpReward: 70,
     fn: function() {

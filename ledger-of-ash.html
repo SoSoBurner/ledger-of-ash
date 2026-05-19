@@ -3792,7 +3792,7 @@ const ARCHETYPE_TRAIT_POOLS = {
     { id:'elemental_attunement', name:'Elemental Attunement', traitType:'active', activeSkillType:'utility',
       desc:'Read the elemental state of a location for navigation or safety assessment.', minLevel:1,
       skill:'wits', bonus:0, utilityLabel:'Read the elemental current.',
-      utilityResult:'You sense what the elements are doing here. One environmental complication in the next choice becomes readable before it strikes.' },
+      utilityResult:'The air shifts — pressure, charge, or current — and its direction becomes clear. One environmental complication in the next choice becomes readable before it strikes.' },
     { id:'elemental_resilience', name:'Elemental Resilience', traitType:'passive',
       desc:'Extended contact with raw forces makes you harder to shake. Vigor checks against environmental hazards gain +2.',
       bonusSkill:'vigor', bonus:2 },
@@ -6682,7 +6682,7 @@ const C = {
       ]
     },
     failure:{
-      text:'The sleep is shallow and broken. When you are up before proper Dawnrise, you feel the toll — still tired, slightly unwell, and the stable smells precisely as bad as advertised.',
+      text:'The sleep is shallow and broken. When you are up before proper Dawnrise, your eyes burn and your legs are slow — still tired, slightly unwell, and the stable is every bit as bad as advertised.',
       xp:0, effects:[{type:'damage',n:2},{type:'journal',msg:'Poor rest. HP reduced.'}],
       next:[
         {text:'Push through it. Dawnrise market is early and good for sourcing a proper room.', skill:'survival', tag:'safe', align:'neutral', cid:'inn_arrival'},
@@ -8939,7 +8939,7 @@ const C = {
       ]
     },
     failure:{
-      text:"You read the position wrong. The phase three action happens at a different location — by the time you realize, it's already in progress elsewhere.",
+      text:"You read the position wrong. The phase three action happens at a different location — by the time the signal reaches you, it's already in progress elsewhere.",
       xp:2, effects:[{type:'damage',n:3}],
       next:[
         {text:"Move to the actual location. It's not too late to intercept.", skill:'combat', tag:'bold', align:'lawful', cid:'do_combat_patrol'},
@@ -10346,7 +10346,7 @@ function resolveRivalOutcome(idx, outcome, success) {
       addNarration('', 'You pass without incident. ' + name + ' lets you go. You do not know if that was a concession or a calculation.', 'success');
       if (typeof addWorldNotice === 'function') addWorldNotice('Brief contact with ' + name + '. No exchange. Status: watching.');
     } else {
-      addNarration('', name + ' watches you go. You feel the moment she decides to file it away rather than act on it. The gap between you is smaller than it was.', 'failure');
+      addNarration('', name + ' watches you go. Her eyes drop to a ledger on her desk before you clear the door. The gap between you is smaller than it was.', 'failure');
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       if (typeof flashStatRow === 'function') flashStatRow('watchfulness');
