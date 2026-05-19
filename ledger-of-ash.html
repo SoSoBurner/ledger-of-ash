@@ -12673,6 +12673,9 @@ function showTransitionBanner(text) {
 
 /** Stage gate: S1→S2 when stage1_narrative_complete flag set (Sera Ironveil defeated); S2→S3 via canAdvanceToStage3(). Also triggers Maren, antechamber, climax in order. Called by checkLevelUp(). */
 function checkStageAdvance() {
+  if (checkStageAdvance._running) return;
+  checkStageAdvance._running = true;
+  try {
   if (typeof SCOPE_REVEAL !== 'undefined' && SCOPE_REVEAL.trigger) SCOPE_REVEAL.trigger();
   G.flags = G.flags || {};
   // Companion gate — unlocks Vorath and Mira at mid-Stage 1
@@ -12793,6 +12796,9 @@ function checkStageAdvance() {
     addQuest('Stage V: Prevent the next inversion window from being used again.');
   }
   if (typeof checkStage1BossTriggered === 'function') checkStage1BossTriggered();
+  } finally {
+    checkStageAdvance._running = false;
+  }
 }
 
 function getNPCTone() {
