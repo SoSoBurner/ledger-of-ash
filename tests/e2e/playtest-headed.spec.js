@@ -1420,6 +1420,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         } catch (_) {}
         stuckAtLoc = 0;
         lastPickLabels = [];
+        lastMapTravelPick = picks;
+        visitedLocalities.add(escLoc);
       }
 
       // Autonomous repair: nudge sp1 if truly stuck for 40+ picks
@@ -1511,6 +1513,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         } catch (_) {}
         lastPickLabels = [];
         stuckAtLoc = 0;
+        lastMapTravelPick = picks;
+        visitedLocalities.add(ESCAPE_LOCS.find(l => l !== g.location) || 'shelkopolis');
       }
 
     } catch (loopErr) {
