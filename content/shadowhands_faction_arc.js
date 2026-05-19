@@ -28,7 +28,7 @@ var SHADOWHANDS_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'shadowhands_beat1_follow',
-          text: 'Route-side data is the half of the ledger you don\'t have. The bracket is worth lifting.',
+          text: 'Route-side data is the half of the ledger I don\'t have.',
           tag: 'safe',
           action: function() { beat1Follow(); }
         },
@@ -40,7 +40,7 @@ var SHADOWHANDS_FACTION_MODULE = (function() {
         },
         {
           id: 'shadowhands_beat1_ignore',
-          text: 'A network that uses chalk marks and wall gaps is not one that makes direct approaches. Let it wait.',
+          text: 'A network that uses chalk marks and wall gaps does not make direct approaches.',
           tag: 'bold',
           action: function() { beat1Ignore(); }
         }

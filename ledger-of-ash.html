@@ -5857,8 +5857,8 @@ const OPENING_SCENES = {
 w_garrison:{text:'The garrison bell still rings in your sleep. Three months since you handed in the tabard and walked out of Roadwardens Central Command. Shelkopolis has not changed. You have.',choices:[
   {text:'Read the garrison before speaking to anyone. Staffing patterns tell the real story.', skill:'combat', tag:'safe', align:'neutral', cid:'warrior_garrison_read'},
   {text:'Apply your combat background directly to gain access.', skill:'combat', tag:'bold', align:'neutral', cid:'combat_approach'},
-  {text:'Walk toward the garrison. Old contacts are still useful even if the uniform is off.', skill:'persuasion', tag:'bold', align:'lawful', cid:'garrison_contact'},
-  {text:'Find a quiet corner of Verdant Row and listen to what the market knows.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'},
+  {text:'The garrison still reads my gait. Old contacts notice who walks toward them.', skill:'persuasion', tag:'bold', align:'lawful', cid:'garrison_contact'},
+  {text:'The east corner of Verdant Row has been occupied at the same hour every market day.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'},
   {text:'The Amber Fountain Inn. Travelers pass through. Travelers know things.', skill:'persuasion', tag:'safe', align:'neutral', cid:'inn_arrival'}
 ]},
 w_roaz:{text:'Ithtananalor quarry work leaves marks that Shelkopolis merchants notice. You arrived two days ago. The extraction culture of Roaz does not translate here. What does translate: a soldier who knows how fortifications are built knows exactly how they fail.',choices:[
@@ -5920,7 +5920,7 @@ r_sheresh:{text:'The Sheresh dome perimeter is the most hostile terrain most ran
 // ── PALADIN ──
 p_cysur:{text:'The Aurora Light Cathedral sent you out with a blessing and a brief. Cysur demands comfort and communal bonds. The city is testing both. Families are filing private memorial requests at a rate the cathedral attendant named Sera cannot explain. You can start there.',choices:[
   {text:'Apply your combat background directly to gain access.', skill:'combat', tag:'bold', align:'neutral', cid:'combat_approach'},
-  {text:'Speak with Sera. The memorial pattern is the beginning of something.', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_contact'},
+  {text:'Sera has been watching the memorial volume. She has noticed.', skill:'persuasion', tag:'safe', align:'lawful', cid:'shrine_contact'},
   {text:'The families themselves. Grief is where truth lives.', skill:'persuasion', tag:'risky', align:'neutral', cid:'trace_missing_persons'},
   {text:'Verdant Row. If the cause is commercial, the market will know before the shrine does.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'}
 ]},
@@ -6104,21 +6104,21 @@ el_axis:{text:'You crossed terrain during axis inversion. You know what the forc
 // ── ROGUE ──
 ro_shelk:{text:'Information is currency in Shelkopolis. You were good at earning it. The problem is who you owe now. The Shadowhands have gone quiet for three weeks. Your drop site was cleaned within the last twelve hours. That means someone knows where it is and chose to send absence as the message.',choices:[
   {text:'Read the Ward before engaging. Three hours watching who watches whom tells you more than any contact.', skill:'stealth', tag:'bold', align:'neutral', cid:'rogue_shelk_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
-  {text:'Check the drop site. If there is a message, it is there. If not, you know something else.', skill:'stealth', tag:'risky', align:'chaotic', cid:'check_drop'},
-  {text:'Find a Shadowhands contact through an alternate channel.', skill:'stealth', tag:'bold', align:'chaotic', cid:'shadowhands_contact'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'If a message exists, it is at the drop site. If not, that tells me something.', skill:'stealth', tag:'risky', align:'chaotic', cid:'check_drop'},
+  {text:'There is a channel they do not know I know about.', skill:'stealth', tag:'bold', align:'chaotic', cid:'shadowhands_contact'},
   {text:'Do nothing. Let them come to you.', skill:'lore', tag:'safe', align:'neutral', cid:'wait_observe'}
 ]},
 ro_union:{text:'The sea smells like salt and plausible deniability. Guildheart Hub dock work taught you that the gap between manifest and actual cargo is where everything interesting lives. You are in Shelkopolis because a consignment you helped move three weeks ago is now the subject of a Roadwarden investigation. The investigation is not finding you yet.',choices:[
     {text:'The Union freight manifests are the most comprehensive records on the route. Read them.', skill:'lore', tag:'safe', align:'neutral', cid:'guildheart_manifest_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find out how close the investigation is before deciding what to do.', skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'},
   {text:'The Shadowhands. You need to know if they are already managing this.', skill:'stealth', tag:'bold', align:'chaotic', cid:'shadowhands_contact'},
   {text:'Distance yourself from the consignment. Change your visible activity.', skill:'lore', tag:'safe', align:'neutral', cid:'find_work'}
 ]},
 ro_nomdara:{text:'Every road between here and the Soreheim allocation halls. Some of them twice, from different sides. The Nomdara Caravan paid you off in Guildheart Hub and the next pickup is not until the Begnar market cycle. You are in Shelkopolis because the caravan captain rerouted eight days ago without explanation and you followed the original route to find out why.',choices:[
     {text:'The Union freight manifests are the most comprehensive records on the route. Read them.', skill:'lore', tag:'safe', align:'neutral', cid:'guildheart_manifest_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'The eastern gate. The original route runs that direction.', skill:'stealth', tag:'bold', align:'neutral', cid:'east_road'},
   {text:'Find other Nomdara caravan hands in the city. They will know what the captain knows.', skill:'persuasion', tag:'safe', align:'neutral', cid:'gate_travelers'},
   {text:'The inn. Gather information before committing to a direction.', skill:'lore', tag:'safe', align:'neutral', cid:'inn_arrival'}
@@ -6126,20 +6126,20 @@ ro_nomdara:{text:'Every road between here and the Soreheim allocation halls. Som
 
 // ── ASSASSIN ──
 as_shadowhands:{text:'Your employer has gone quiet for three weeks. In Shelkopolis, information services change hands without notifying the assets. You do not know if you still work for anyone. What you do know: the eastern operation is significant enough that three different parties have approached you through channels that suggest they know what you are.',choices:[
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Check the drop site. The Shadowhands will have left guidance if the silence is strategic.', skill:'stealth', tag:'risky', align:'chaotic', cid:'check_drop'},
   {text:'Let one of the three parties make their offer. Information before commitment.', skill:'persuasion', tag:'bold', align:'neutral', cid:'passive_intel'},
   {text:'Observe the eastern situation from a neutral position before aligning.', skill:'stealth', tag:'safe', align:'neutral', cid:'wait_observe'}
 ]},
 as_redhoodguild:{text:'The Red Hood Guild does not ask questions about origin. You appreciated that. Now you have a question they cannot answer: who contracted the last job, and why did the job description not match the actual work. The eastern operation was not what you were told it was. You are in Shelkopolis to find out what it actually is.',choices:[
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find the contract originator. Follow the money.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
   {text:'Find the Red Hood Guild presence in Shelkopolis. They may already be investigating.', skill:'stealth', tag:'safe', align:'chaotic', cid:'shadowhands_contact'},
   {text:'Return to the eastern depot where the job took place. The site will tell you something.', skill:'stealth', tag:'bold', align:'neutral', cid:'east_road'}
 ]},
 as_shirsh:{text:'Shirshal uses assets it does not acknowledge. You stopped waiting for acknowledgment. What you received instead was a case file: the eastern operation involves parties that House Shirsh watches but does not want to expose directly. You are the indirect approach.',choices:[
     {text:'The Shirsh evidence vault holds everything collected and never prosecuted. Look there.', skill:'lore', tag:'safe', align:'neutral', cid:'shirshal_evidence_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'The Shirsh investigator already in Shelkopolis is working the official side. Find them.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_note_sender'},
   {text:'Identify the key node in the operation and assess removal.', skill:'lore', tag:'bold', align:'neutral', cid:'probe_order_origin'},
   {text:'Observe before acting. The case file says watch first.', skill:'stealth', tag:'safe', align:'neutral', cid:'passive_intel'}
@@ -6148,13 +6148,13 @@ as_shirsh:{text:'Shirshal uses assets it does not acknowledge. You stopped waiti
 // ── SPELLTHIEF ──
 st_mimolot:{text:'The sealed packet in your coat is from a Mimolot archive you were never cleared to access. The schedule inside it is the most interesting thing you have stolen in two years. Three entries correspond to eastern route closure dates. The academic language is cover for something material.',choices:[
     {text:'The Mimolot archive holds unpublished submissions. That is where the suppressed analysis lives.', skill:'lore', tag:'safe', align:'neutral', cid:'mimolot_archive_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find whoever name is circled in the schedule. That is always where it leads.', skill:'lore', tag:'risky', align:'neutral', cid:'follow_circled_name'},
   {text:'The Gilded Archives. They buy documents. The schedule has value.', skill:'persuasion', tag:'risky', align:'chaotic', cid:'sell_intel'},
   {text:'Read the schedule again. There is something in the encoding you have not cracked.', skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'}
 ]},
 st_court:{text:'You performed for people who had things worth taking. Eventually the performance was the cover. You have three court magicians observation notebooks and a question: what were they doing in the eastern corridor on the dates you noted in the schedule? The answer has commercial value.',choices:[
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find who will pay most for the observation notebooks.', skill:'persuasion', tag:'risky', align:'chaotic', cid:'sell_intel'},
   {text:'Use the notebooks to identify the practitioners yourself.', skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
   {text:'Find a Shadowhands contact. They broker this kind of material.', skill:'stealth', tag:'bold', align:'chaotic', cid:'shadowhands_contact'}
@@ -6162,21 +6162,21 @@ st_court:{text:'You performed for people who had things worth taking. Eventually
 // ── SCOUT ──
 sc_shelk:{text:'Three seasons on the Fairhaven run. You walked ahead of the Roadwardens and knew what was coming before they did. Eight days ago something changed on the eastern route and nobody who matters has asked what a scout would notice. You are going to find out anyway.',choices:[
     {text:'The market traders know what passes through. Spend a morning with them before anything else.', skill:'persuasion', tag:'safe', align:'neutral', cid:'fairhaven_market_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'The eastern gate. Your certification gets you through. Go look.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'},
   {text:'The Roadwardens route board. Read what they are officially saying before reading what is real.', skill:'lore', tag:'safe', align:'lawful', cid:'read_notices'},
   {text:'Find the patrol captain whose circuit covers the eastern route.', skill:'persuasion', tag:'safe', align:'neutral', cid:'find_roadwarden'}
 ]},
 sc_soreheim:{text:'Giant Council forward elements go first. That is the job. You were first into a location eight days ago that nobody is officially calling an incident. You know what you found there. The question is who else knows and whether they are friends or the other thing.',choices:[
     {text:'The allocation board tracks every input. Read it before speaking to anyone.', skill:'lore', tag:'safe', align:'neutral', cid:'soreheim_allocation_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find who in Shelkopolis is tracking the eastern situation.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel'},
   {text:'Return to the site. Confirm what you found before the evidence changes.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road'},
   {text:'File your report with the Engineers Consortium. Make it official before someone else shapes the story.', skill:'persuasion', tag:'safe', align:'neutral', cid:'union_contact'}
 ]},
 sc_cosmouth:{text:'Cosmoria taught you that the sea has surveillance the land lacks. Every approach and departure follows patterns that a trained eye reads before the ships are close enough to identify. The eastern route disruption has a maritime dimension: Cosmouth cargo manifests are part of the irregular shipment chain.',choices:[
     {text:'Harbor records are specific in the way maritime law requires. Start there.', skill:'lore', tag:'safe', align:'neutral', cid:'cosmoria_harbor_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find the Cosmouth maritime representative in Shelkopolis.', skill:'persuasion', tag:'safe', align:'neutral', cid:'find_roadwarden'},
   {text:'The trade registry. Cosmouth manifests will show in the supply chain records.', skill:'lore', tag:'safe', align:'lawful', cid:'trade_registry'},
   {text:'Check the freight lanes. Maritime cargo enters through a different channel than road cargo.', skill:'stealth', tag:'risky', align:'neutral', cid:'ironspool_intel'}
@@ -6184,21 +6184,21 @@ sc_cosmouth:{text:'Cosmoria taught you that the sea has surveillance the land la
 
 // ── THIEF ──
 th_shelk:{text:'Everything has a price. Everything has an owner. The gap between those two facts is your livelihood. You are in Shelkopolis because something in the Verdant Row specialty market moved in a way that suggests the eastern route disruption is creating an artificial scarcity. Artificial scarcity is opportunity.',choices:[
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'The market. Find out what has become scarce and where it is going.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel'},
   {text:'The empty stalls in the specialty section. What was there before they left?', skill:'stealth', tag:'risky', align:'neutral', cid:'investigate_stalls'},
   {text:'Find who is managing the artificial scarcity. They are the buyer.', skill:'persuasion', tag:'bold', align:'neutral', cid:'probe_order_origin'}
 ]},
 th_cosmouth:{text:'Salt, rope tar, and ledger ink. Cosmoria teaches you all three because they are the same subject. Cargo that does not appear on manifests has a shadow life in the informal economy. You followed a shadow consignment from Cosmouth to Shelkopolis and found it had become part of the eastern operation.',choices:[
     {text:'Harbor records are specific in the way maritime law requires. Start there.', skill:'lore', tag:'safe', align:'neutral', cid:'cosmoria_harbor_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find the consignment. It will tell you who the buyer is.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
   {text:'The Cosmouth maritime representative. They may already be tracking the shadow shipment.', skill:'persuasion', tag:'safe', align:'neutral', cid:'find_roadwarden'},
   {text:'The freight lanes in Ironspool Ward. Shadow cargo enters here.', skill:'stealth', tag:'bold', align:'neutral', cid:'ironspool_intel'}
 ]},
 th_union:{text:'The sealed contract vaults of Guildheart Hub keep the important things safe. You studied how the seals work. Three trade contracts from the eastern route operation passed through Guild Sanction Board review and were approved using credentials that match the format but not the registration numbers. You know what that means.',choices:[
     {text:'The Union freight manifests are the most comprehensive records on the route. Read them.', skill:'lore', tag:'safe', align:'neutral', cid:'guildheart_manifest_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'The Guild Sanction Board auditor in Shelkopolis. They will want to know about the false credentials.', skill:'persuasion', tag:'bold', align:'neutral', cid:'union_contact'},
   {text:'Find who issued the false credentials. That is the operational origin.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
   {text:'Use the false credential knowledge as leverage. Find the buyer first.', skill:'stealth', tag:'risky', align:'neutral', cid:'wait_observe'}
@@ -6206,21 +6206,21 @@ th_union:{text:'The sealed contract vaults of Guildheart Hub keep the important 
 
 // ── TRICKSTER ──
 tr_shelk:{text:'You gave measured compliments on attire while assessing everything else. The fashion circuit of Shelkopolis is the best intelligence network in the Principalities because everyone performs for everyone else and nobody admits the performance is strategic. The eastern operation is being managed by someone who moves in this circuit.',choices:[
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find the performance. Who in the fashion circuit is acting differently since eight days ago?', skill:'persuasion', tag:'risky', align:'neutral', cid:'passive_intel'},
   {text:'The Fashion Artisans Collective event this Midlight. Everyone attends.', skill:'persuasion', tag:'bold', align:'neutral', cid:'market_intel'},
   {text:'The Shadowhands work this circuit too. Find their representative.', skill:'stealth', tag:'risky', align:'chaotic', cid:'shadowhands_contact'}
 ]},
 tr_union:{text:'Guildheart Hub is where everyone believes they are the clever one. You demonstrated otherwise repeatedly. The eastern operation is running a misdirection at scale: the false manifest is designed to look like a Union protocol so that any investigation defaults to the Union rather than Shelk. You know this technique.',choices:[
     {text:'The Union freight manifests are the most comprehensive records on the route. Read them.', skill:'lore', tag:'safe', align:'neutral', cid:'guildheart_manifest_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Tell the Union representative what you know. Watch their reaction carefully.', skill:'persuasion', tag:'bold', align:'neutral', cid:'union_contact'},
   {text:'Find the person who designed the false manifest. Professional appreciation.', skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'},
   {text:'The Shadowhands may be running counter-misdirection. Find out.', skill:'stealth', tag:'safe', align:'chaotic', cid:'shadowhands_contact'}
 ]},
 tr_nomdara:{text:'Three seasons learning what each polity wanted to believe about itself. Shelkopolis believes it has the most reliable oversight in the Principalities. The eastern operation has been running for eighteen months under that belief. You know exactly which false surface it is hiding behind.',choices:[
     {text:'The Union freight manifests are the most comprehensive records on the route. Read them.', skill:'lore', tag:'safe', align:'neutral', cid:'guildheart_manifest_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find the suppressed broadsheet. It named the pattern.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_broadsheet'},
   {text:'Introduce yourself to all sides and see who offers you what.', skill:'persuasion', tag:'bold', align:'neutral', cid:'passive_intel'},
   {text:'The Roadwardens captain who is managing the silence. You know how to find silenced people.', skill:'stealth', tag:'safe', align:'neutral', cid:'find_note_sender'}
@@ -6350,7 +6350,7 @@ el_mimolot:{text:'The Book Tariff Office has sent a notice to your research stat
 ]},
 st_shirsh:{text:'Shirshal works in lowered voices and careful language. The Magi Magistratus closed three cases you opened for them. The sealed records cite procedural grounds. You copied the parts they sealed before the sealing completed. Those copies are now valuable to several parties, including at least one who does not know the Magistratus has been watching them since before you arrived.',choices:[
     {text:'The Shirsh evidence vault holds everything collected and never prosecuted. Look there.', skill:'lore', tag:'safe', align:'neutral', cid:'shirshal_evidence_read'},
-  {text:'Find a position to observe the operation before anyone knows you are looking.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+  {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
   {text:'Find the investigator assigned to the case you know most about. They may not know what you know.', skill:'lore', tag:'safe', align:'neutral', cid:'find_note_sender'},
   {text:'The party being watched does not know. That is leverage. Decide how to use it first.', skill:'stealth', tag:'risky', align:'chaotic', cid:'shadowhands_contact'},
   {text:'The Magistratus sealed things they should not have. File a counter-inquiry through House Shirsh proper channels.', skill:'persuasion', tag:'bold', align:'lawful', cid:'garrison_contact'}
@@ -6542,7 +6542,7 @@ al_sheresh:{text:'Inside the dome the chemistry is managed. The thing you found 
   // ── BEASTMASTER SCENES ─────────────────────────────────
   bm_frontier:{text:"The animals around the eastern corridor waypoints are behaving as if a persistent stressor is operating there. You've tracked this pattern for three weeks. The stressor is not natural — it's consistent, directional, and it's getting stronger. Something is using the eastern corridor regularly enough that the local fauna has adjusted its routing patterns. You came to find what it is.",choices:[
     {text:'Follow the movement pattern backward. The fauna adapted for a reason.', skill:'survival', tag:'bold', align:'neutral', cid:'beastmaster_track'},
-    {text:'Find a position to observe before anyone knows you are there.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
+    {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
     {text:"Read the terrain from elevation before engaging. The high ground shows the full corridor pattern.", skill:'survival', tag:'bold', align:'neutral', cid:'archer_frontier_read'},
     {text:"Find Elyra Mossbane. She knows this terrain and she's been watching something similar.", skill:'persuasion', tag:'safe', align:'neutral', cid:'archer_frontier_ally'},
     {text:"Track the stressor directly. The fauna avoidance patterns will show you where to look.", skill:'survival', tag:'bold', align:'neutral', cid:'east_road'},
@@ -6580,7 +6580,7 @@ const C = {
   inn_arrival:{
     success:{
       text:'The Amber Fountain Inn is warm and occupied. A sharp-eyed innkeeper takes your coin without ceremony and points you toward a corner table where two travelers are arguing in lowered voices about a locked supply depot somewhere east of Fairhaven.',
-      xp:5, effects:[{type:'journal',msg:'Arrived at the Amber Fountain. Heard about a locked supply depot east of Fairhaven.'},{type:'quest',msg:'Investigate the supply depot east of Fairhaven.'}],
+      xp:5, effects:[{type:'journal',msg:'Arrived at the Amber Fountain. Heard about a locked supply depot east of Fairhaven.'},{type:'quest',msg:'The supply depot east of Fairhaven has been locked for longer than routine maintenance explains.'}],
       next:[
         {text:'Move closer to listen. The argument sounds like it matters.', skill:'stealth', tag:'risky', align:'neutral', cid:'overhear_travelers'},
         {text:'Ask the innkeeper directly what has happened east of here.', skill:'persuasion', tag:'safe', align:'neutral', cid:'innkeeper_intel'},
@@ -6631,7 +6631,7 @@ const C = {
   garrison_contact:{
     success:{
       text:'The duty sergeant at Roadwardens Central Command recognizes your background — garrison work carries a specific posture. He does not offer anything classified, but he tells you that three private work orders were posted this morning for individuals with route security experience. He leans slightly on the word private.',
-      xp:8, effects:[{type:'journal',msg:'Roadwardens Central: three private work orders for route security. Classified origin.'},{type:'faction',id:'roadwardens',n:5},{type:'quest',msg:'Investigate private route security work orders at the Roadwardens.'}],
+      xp:8, effects:[{type:'journal',msg:'Roadwardens Central: three private work orders for route security. Classified origin.'},{type:'faction',id:'roadwardens',n:5},{type:'quest',msg:'Three private work orders for route security with no named origin. That is not paperwork error.'}],
       next:[
         {text:'Private means House Shelk does not want its name on it. Take one of the work orders.', skill:'combat', tag:'bold', align:'neutral', cid:'take_private_contract'},
         {text:'Ask who placed the orders without taking one.', skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'},
@@ -6832,7 +6832,7 @@ const C = {
       xp:8, effects:[{type:'order',n:5},{type:'journal',msg:'House Shelk: informal meeting arranged with operations officer. Off-record.'},{type:'faction',id:'house_shelk',n:15},{type:'quest',msg:'Attend informal meeting with House Shelk operations officer.'}],
       next:[
         {text:'Prepare for tomorrow. Review everything before the meeting.', skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
-        {text:'Find out who else knows about the depot breach before you walk into that meeting.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
+        {text:'Before I walk into that meeting, I need to know who else knows.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'},
         {text:'Rest. An off-record meeting with Shelk operations requires a clear head.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'}
       ]
     },
@@ -7021,7 +7021,7 @@ const C = {
       xp:0, effects:[{type:'journal',msg:'Gate directive: access level insufficient.'}],
       next:[
         {text:'Build standing first.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact'},
-        {text:'Find an inside contact.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
+        {text:'Someone inside has decided this arrangement costs them more than it pays.', skill:'stealth', tag:'risky', align:'neutral', cid:'find_cart_driver'}
       ]
     }
   },
@@ -11584,7 +11584,7 @@ function useTrait() {
     warrior:  { bonus:{skill:'combat',n:3}, choices:[
       {text:'Force a direct confrontation with whoever is blocking progress.',skill:'combat',tag:'bold',align:'chaotic',cid:'do_combat_patrol'},
       {text:'Demonstrate combat capability to earn access.',skill:'combat',tag:'risky',align:'neutral',cid:'find_work'},
-      {text:'Use the threat of violence to extract information.',skill:'persuasion',tag:'risky',align:'evil',cid:'probe_order_origin'}]},
+      {text:'The person across from me already knows which calculation I am running.',skill:'persuasion',tag:'risky',align:'evil',cid:'probe_order_origin'}]},
     knight:   { bonus:{skill:'combat',n:3}, choices:[
       {text:'Challenge the obstacle formally in the name of your house.',skill:'persuasion',tag:'bold',align:'lawful',cid:'house_shelk_meeting'},
       {text:'Demand truth from a lying official.',skill:'persuasion',tag:'risky',align:'lawful',cid:'garrison_contact'},
@@ -16875,7 +16875,7 @@ function enterCombat(enemyKey, context) {
   const choices = [
     {text:'Press forward. Take the initiative.', skill:'combat', tag:'bold', align:'chaotic', cid:'__combat_press__'+enemyKey},
     {text:'Defend and read them. Let them come to you.', skill:'combat', tag:'safe', align:'neutral', cid:'__combat_defend__'+enemyKey},
-    {text:'Try to talk this down before it escalates.', skill:'persuasion', tag:'risky', align:'lawful', cid:'__combat_talk__'+enemyKey},
+    {text:'This does not have to be a fight. That calculation is still open.', skill:'persuasion', tag:'risky', align:'lawful', cid:'__combat_talk__'+enemyKey},
     {text:'Retreat now. This fight is not worth the cost.', skill:'stealth', tag:'safe', align:'chaotic', cid:'__combat_retreat__'}
   ].concat(getCombatAbilityChoices(enemyKey));
   setTimeout(() => renderChoices(choices), 300);

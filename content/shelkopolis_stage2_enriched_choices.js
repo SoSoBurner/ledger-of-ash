@@ -870,7 +870,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   // BEAT 2 — Commitment
   {
-    label: "Return after the curl dries. Whoever wrote it wants a reader, not a passerby.",
+    label: "Whoever wrote this expects a reader. The curl is not dry yet.",
     tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {

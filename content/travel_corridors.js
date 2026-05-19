@@ -158,7 +158,7 @@
         text: 'The league marker at the roadside has been tampered with — the Roadwarden seal is intact, but someone has scratched a secondary mark into the stone below it: a narrow vertical line bisected by two short horizontals. It is not a House Shelk symbol or a Guild mark. The scratch is recent; the stone dust has not dispersed. The same mark appears on the next post fifty meters up the road.',
         choices: [
           { text: 'Copy the mark into notes. Someone is using these posts.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'corridor_milestone_copy' },
-          { text: 'Leave it. Route markers are not my concern.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_milestone_pass' }
+          { text: 'Route markers belong to whoever is maintaining this road.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_milestone_pass' }
         ]
       },
       {
@@ -212,7 +212,7 @@
         choices: [
           { text: 'My cargo is personal goods. That classification has limits they may test.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_quota_declare' },
           { text: 'Step off the road and let the patrol pass before joining it.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'corridor_quota_avoid' },
-          { text: 'Walk through the check directly. Resistance is the signal they look for.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'corridor_quota_through' }
+          { text: 'Resistance is the signal they look for. I am not resisting.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'corridor_quota_through' }
         ]
       },
       {
