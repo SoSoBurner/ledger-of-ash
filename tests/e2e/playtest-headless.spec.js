@@ -195,6 +195,9 @@ async function readG(page) {
         masteryXP:     G.masteryXP || 0,
         companions:    (G.companions || []).length,
         flags:         G.flags ? { ...G.flags } : {},
+        skills:        G.skills ? { ...G.skills } : {},
+        traits:        G.traits ? [...G.traits] : [],
+        outcome:       G.outcome,
       };
     } catch (_) { return {}; }
   }).catch(() => ({}));
