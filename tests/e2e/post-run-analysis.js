@@ -292,19 +292,20 @@ function analyzeWithImages(domain, ctx, imagePaths) {
     return analyzeWithCLI(domain, ctx);
   }
 
-  const tmpFile = path.join(TEST_RESULTS, `_analysis_stream_${domain.id}.jsonl`);
+  const jsonlContent = buildStreamJsonInput(domain, ctx, imagePaths);
   try {
-    fs.writeFileSync(tmpFile, buildStreamJsonInput(domain, ctx, imagePaths), 'utf8');
     const modelFlag = domain.model ? `--model ${domain.model}` : '--model claude-haiku-4-5-20251001';
     const result = execSync(
-      `claude -p ${modelFlag} --input-format stream-json < "${tmpFile}"`,
-      { encoding: 'utf8', timeout: 180000, shell: true }
+      `claude -p --input-format stream-json ${modelFlag}`,
+      {
+        input: jsonlContent,
+        encoding: 'utf8',
+        timeout: 180000,
+        maxBuffer: 10 * 1024 * 1024,
+      }
     );
-    try { fs.unlinkSync(tmpFile); } catch (_) {}
     return result.trim();
   } catch (err) {
-    try { fs.unlinkSync(tmpFile); } catch (_) {}
-
     let Anthropic;
     try { Anthropic = require('@anthropic-ai/sdk'); } catch (_) {}
     if (Anthropic && process.env.ANTHROPIC_API_KEY) {
