@@ -1,3 +1,4 @@
+// DEVELOPMENT TOOL — not game code, not shipped. See tests/e2e/README.md
 // @ts-check
 /**
  * playtest-headless.spec.js
@@ -28,7 +29,7 @@ const ReportWriter    = require('./helpers/report-writer');
 // Output dirs
 // ---------------------------------------------------------------------------
 const TEST_RESULTS    = path.resolve(__dirname, '../../test-results');
-const SCREENSHOT_DIR  = path.join(TEST_RESULTS, 'playthrough-screenshots');
+const SCREENSHOT_DIR  = path.join(TEST_RESULTS, 'playthrough-screenshots', 'headless');
 const VIDEO_DIR       = path.join(TEST_RESULTS, 'videos');
 const LOG_PATH        = path.join(TEST_RESULTS, 'playtest-headless-log.md');
 

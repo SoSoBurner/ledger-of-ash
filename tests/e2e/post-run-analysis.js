@@ -1,3 +1,4 @@
+// DEVELOPMENT TOOL — post-run AI analysis harness. Not game code, not shipped.
 #!/usr/bin/env node
 'use strict';
 /**
@@ -20,7 +21,7 @@ const { execSync } = require('child_process');
 
 const ROOT           = path.join(__dirname, '..', '..');
 const TEST_RESULTS   = path.join(ROOT, 'test-results');
-const SCREENSHOTS    = path.join(TEST_RESULTS, 'playthrough-screenshots');
+const SCREENSHOTS    = path.join(TEST_RESULTS, 'playthrough-screenshots', 'headed');
 const PLANS_DIR      = path.join(ROOT, 'docs', 'superpowers', 'plans');
 const LOG_FILE       = path.join(TEST_RESULTS, 'playtest-headed-log.md');
 
