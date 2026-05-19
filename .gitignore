@@ -25,6 +25,10 @@ validator-out.txt
 validators-out.txt
 test-results/
 
+# Playtest Protocol output (generated reports — dev tool, not game code)
+playtest-report-*.md
+playtest-analysis-*.md
+
 # Local scratch files
 DEBUG.txt
 GAMEPLAYCLEANUP.txt
