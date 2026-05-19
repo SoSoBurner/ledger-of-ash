@@ -1,5 +1,5 @@
-// DEVELOPMENT TOOL — post-run AI analysis harness. Not game code, not shipped.
 #!/usr/bin/env node
+// DEVELOPMENT TOOL — post-run AI analysis harness. Not game code, not shipped.
 'use strict';
 /**
  * post-run-analysis.js — Post-playtest analysis script
