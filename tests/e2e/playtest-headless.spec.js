@@ -184,9 +184,17 @@ async function readG(page) {
         day:           G.dayCount,
         dead:          G.dead,
         hp:            G.hp,
+        maxHp:         G.maxHp || G.hp,
+        xp:            G.xp || 0,
+        gold:          G.gold || 0,
+        supply:        G.supply || 0,
+        renown:        G.renown || 0,
+        benevolence:   G.benevolence || 0,
+        orderAxis:     G.orderAxis || 0,
         heat:          G.heat ? { ...G.heat } : {},
         masteryXP:     G.masteryXP || 0,
         companions:    (G.companions || []).length,
+        flags:         G.flags ? { ...G.flags } : {},
       };
     } catch (_) { return {}; }
   }).catch(() => ({}));
