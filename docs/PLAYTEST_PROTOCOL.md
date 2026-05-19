@@ -1,3 +1,5 @@
+> **This is a development tool.** The playtest harness runs alongside Ledger of Ash to validate engine correctness and surface content bugs. It is never loaded by the game, never shipped to players, and has no effect on gameplay. See `tests/e2e/README.md` for the directory overview.
+
 # Playtest Protocol — Ledger of Ash
 
 Triggered when the user says **"Playtest"**. Run this full loop autonomously. Stop only at a deliberate stage gate (`canAdvanceToStage3()` hardcoded `return false`).
@@ -21,6 +23,10 @@ Run: `node tests/content/validate-content.js && node tests/content/validate-flag
 
 Fix all failures. Each fix = commit. Re-run until clean. Blocks Step 1.
 
+`validate-structure.js` additionally checks:
+- Duplicate HTML `id=` attributes → **FAIL**
+- `innerHTML +=` on render containers → **WARN**
+
 ---
 
 ## Step 1 — Headless run (1hr hard cap, 55min soft exit)
@@ -35,6 +41,10 @@ Success per family: `G.stage !== 'Stage I'` (reached Stage II).
 Inline triage (in spec, every 25 picks — progression blockers only):
 - Empty panel + G.dead=false → log TRIAGE_STALL, attempt `loadStageChoices()` recovery
 - sp1 unchanged for 25 picks → log TRIAGE_PROGRESSION_BLOCKED
+
+ESCAPE_LOCS expanded to 19 locality IDs (covers all known stall localities).
+
+Failed families get one automatic retry pass after first pass completes.
 
 No style/content/narrative triage during headless.
 
@@ -57,24 +67,69 @@ Run: `npx playwright test tests/e2e/playtest-headed.spec.js --reporter=line`
 Hard cap: 3hr Playwright timeout. Soft threshold: 2hr45min graceful exit with partial report.
 Success per family: `climaxDone && sp2 >= 18` or Stage III unlock.
 
+Family run exits immediately when `stage2_narrative_complete` flag is set — no need to run to MAX_PICKS.
+
 Full game test:
 - Every overlay exercised exhaustively ONCE per run at pick 20 of family 1 (char sheet, journal, camp, inventory, map, notices, shop, contacts, party, how-to-play — all sub-options clicked)
 - After that: organic human-synth play; PROBE_EVERY=20 lightweight probes continue (HUD, charsheet, journal, quest, heat, alignment, map, notices, contacts, party)
 - Screenshots: all milestone shots (char creation, first result, combat, level-up, stage unlock, death, success) plus PROBE_EVERY=20 periodic shots
-- HUD integrity check every 20 picks via probeHUD()
-- Canon text scan after each waitForChoices(): forbidden words, "Ledger of Ash" in Stage I/II text
+- Pre-stall screenshots captured before each stall-escape teleport
+- `[first-visit tag]` log entries emitted for each new locality visited
+- HUD integrity check every 20 picks via `probeHUD()`:
+  - Cross-checks gold, faction heat row, alignment bars against G-state
+  - Calls `probeCharSheet` to validate skill values against G-state
+  - Mismatches logged as `[hud-mismatch ...]`
+- `probeDuplicates()` runs every 20 picks:
+  - Checks singleton DOM elements, duplicate choice labels, quest entries, narrative text
+  - Issues logged as `[DUPLICATE ...]`
+- Canon text scan after each `waitForChoices()`: forbidden words, "Ledger of Ash" in Stage I/II text
+- ESCAPE_LOCS expanded to 19 locality IDs (was 5)
 - Per-screenshot Claude API skill dispatch (async, non-blocking): see post-run-analysis.js DOMAINS for model routing
 
 Up to 5 retry cycles per family. sp2 stuck below 18 → Stage II content expansion pass, commit, retry.
+
+### Screenshot directories
+
+Screenshots are written to separate subdirectories:
+- Headed spec: `test-results/playthrough-screenshots/headed/`
+- Headless spec: `test-results/playthrough-screenshots/headless/`
+
+Post-run analysis reads from `headed/` only — headless captures are diagnostic-only.
 
 ---
 
 ## Step 4 — All-skills analysis and fix plan
 
-After headed run completes:
-1. `node tests/e2e/post-run-analysis.js [report-file] [screenshot-dir]` — runs all 10 domains (engine bugs, HUD/progression, narrative quality, balance/combat, economy, canon compliance, voice/register, branch drift, tutorial, polish/fun) across all output types (report, log, screenshots, choice text, narrative text, HUD data)
-2. When analysis writes `test-results/playtest-analysis-{YYYYMMDD-HHmm}.md`: invoke EnterPlanMode with that file as context. The planning session applies all applicable skills to build the fix plan.
-3. The fix plan is the deliverable. No zip rebuild, no publish step.
+After each headed family run completes, post-run analysis triggers automatically — no manual invocation needed.
+
+`node tests/e2e/post-run-analysis.js [report-file] [screenshot-dir]` runs **12 domains**:
+1. Engine bugs
+2. HUD/progression
+3. Narrative quality
+4. Balance/combat
+5. Economy
+6. Canon compliance
+7. Voice/register
+8. Branch drift
+9. Tutorial
+10. Polish/fun
+11. **HUD integrity** *(new)*
+12. **UI duplication** *(new)*
+
+Model routing:
+- Domains 1–10: `claude-haiku` (fast, cost-efficient)
+- Domains 11–12 (`hud_integrity`, `ui_duplication`): `claude-sonnet-4-5-20251022` (higher reasoning for structural analysis)
+
+Screenshots are sent as actual base64 image data via `claude -p --input-format stream-json` — no API key configuration required beyond the CLI.
+
+When analysis writes `test-results/playtest-analysis-{YYYYMMDD-HHmm}.md`: invoke EnterPlanMode with that file as context. The planning session applies all applicable skills to build the fix plan.
+The fix plan is the deliverable. No zip rebuild, no publish step.
+
+---
+
+## Coverage Tracker
+
+`sp2` (Stage II progress) is extracted as a scalar inside `page.evaluate()` before serialization — avoids object-serialization bug that previously caused `sp2` to read as `[object Object]` in coverage reports.
 
 ---
 
