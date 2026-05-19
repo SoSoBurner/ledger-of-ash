@@ -205,6 +205,29 @@ const DOMAINS = [
     skills: ['game-design:tutorial-review'],
     logHeavy: false,
   },
+  {
+    id: 'hud_integrity',
+    label: 'HUD / G-State Cross-Reference',
+    focus: 'Verify that HP, XP, level, gold, stage label, location name, sp1/sp2 progress, '
+         + 'skill values (combat/stealth/survival/lore/persuasion/craft), faction heat rows, '
+         + 'and alignment bars shown on screen match the G-state values recorded in the log '
+         + 'at the same pick number. Flag any [hud-integrity] VIOLATION or [hud-mismatch] '
+         + 'log entries. In screenshots, identify HUD fields that appear blank, incorrect, '
+         + 'cut off, or showing a value that contradicts the log. Emit mismatches as [P0].',
+    logHeavy: true,
+  },
+  {
+    id: 'ui_duplication',
+    label: 'UI Duplication / Double-Render Audit',
+    focus: 'Identify DOM elements that render more than once when they should appear once: '
+         + '#hud-hp, .result-text, .stage-banner, .levelup-notice, .env-desc. '
+         + 'Flag duplicate choice labels in the action panel (same text appearing twice). '
+         + 'Flag duplicate quest entries. Scan [DUPLICATE] log entries and report each as '
+         + 'a finding. In screenshots, look for any text, stat value, button label, or UI '
+         + 'element that appears visibly doubled or stacked. Emit as [P0] if a singleton '
+         + 'is duplicated, [P1] if a choice label or quest entry repeats.',
+    logHeavy: true,
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -440,7 +463,7 @@ async function main() {
   for (const domain of DOMAINS) {
     const text = findings[domain.id] || '[no findings]';
     analysisLines.push(`## ${domain.label}`);
-    if (domain.skills.length) {
+    if (domain.skills && domain.skills.length) {
       analysisLines.push(`*Skills: ${domain.skills.join(', ')}*`);
     }
     analysisLines.push('');
