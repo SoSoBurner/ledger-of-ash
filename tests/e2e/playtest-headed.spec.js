@@ -489,6 +489,51 @@ async function probeChoiceBorders(page, tag) {
   } catch (err) { log(`[choice-borders ${tag}] WARN: ${err.message}`); }
 }
 
+async function probeDuplicates(page, tag, picks) {
+  try {
+    const singletons = [
+      '#hud-hp','#hud-level','#hud-gold','#hud-renown','#hud-day',
+      '#hud-location','#topbar-stage','.result-text',
+      '.stage-banner','.levelup-notice','.env-desc',
+    ];
+    for (const sel of singletons) {
+      const count = await page.locator(sel).count().catch(() => 0);
+      if (count > 1) log(`[DUPLICATE ${tag}] pick=${picks} element=${sel} count=${count}`);
+    }
+
+    const labels = await page.locator('.choice-btn:visible').allInnerTexts().catch(() => []);
+    const labelFreq = {};
+    for (const l of labels) {
+      const key = l.trim().slice(0, 60);
+      labelFreq[key] = (labelFreq[key] || 0) + 1;
+    }
+    for (const [label, count] of Object.entries(labelFreq)) {
+      if (count > 1) log(`[DUPLICATE ${tag}] pick=${picks} choice-label="${label}" count=${count}`);
+    }
+
+    const quests = await page.locator('.quest-entry').allInnerTexts().catch(() => []);
+    const questFreq = {};
+    for (const q of quests) {
+      const key = q.trim().slice(0, 80);
+      questFreq[key] = (questFreq[key] || 0) + 1;
+    }
+    for (const [quest, count] of Object.entries(questFreq)) {
+      if (count > 1) log(`[DUPLICATE ${tag}] pick=${picks} quest="${quest}" count=${count}`);
+    }
+
+    const narratives = await page.locator('.narrative-text, .env-desc').allInnerTexts().catch(() => []);
+    const narFreq = {};
+    for (const n of narratives) {
+      const key = n.trim().slice(0, 100);
+      if (!key) continue;
+      narFreq[key] = (narFreq[key] || 0) + 1;
+    }
+    for (const [nar, count] of Object.entries(narFreq)) {
+      if (count > 1) log(`[DUPLICATE ${tag}] pick=${picks} narrative-dup="${nar.slice(0,40)}" count=${count}`);
+    }
+  } catch (err) { log(`[DUPLICATE ${tag}] WARN: ${err.message}`); }
+}
+
 async function probeCharSheet(page, tag, g) {
   await page.waitForTimeout(PACE.beforePanel);
   try {
@@ -995,6 +1040,7 @@ async function runFullPanelSimulation(page, tag, g, picks) {
     _lastProbedAtPick = picks;
     await dismissOverlays(page);
     await probeHUD(page, tag, g);
+    await probeDuplicates(page, tag, picks);
     await probeChoiceBorders(page, tag);
     await probeCharSheet(page, tag, g);
     await probeJournal(page, tag, g);
