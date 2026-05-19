@@ -177,6 +177,7 @@ async function readG(page) {
       return {
         stage:         G.stage,
         stageProgress: G.stageProgress ? { ...G.stageProgress } : {},
+        sp2:           (G.stageProgress && typeof G.stageProgress[2] === 'number') ? G.stageProgress[2] : 0,
         location:      G.location,
         tensionLevel:  G.tensionLevel,
         level:         G.level,
