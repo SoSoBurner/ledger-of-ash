@@ -173,6 +173,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Archive reviewer initials on ghost vessel declarations — linked to restructured Cosmouth office', 'evidence');
         maybeStageAdvance();
       } else {
+        G.lastResult = `Coralyn listens to the question without moving to open anything. She squares the top form on the counter against the edge — a small, precise alignment — before answering. "Reviewer attribution is an internal archive administration record. It is not part of the public access filing." She says it without apology and without warmth. The ledger stays under the counter. The access log for this conversation is already filling in behind her, ink still wet on the date line.`;
         addNarration('The Record Stands Closed', 'Coralyn listens to the question and doesn\'t move to open anything. She squares the top form on the counter against the edge — a small, precise alignment — before she answers. "Reviewer attribution is an internal archive administration record. It\'s not part of the public access filing." She says it without apology and without particular warmth. The ledger stays under the counter. The access log for this conversation is already filling in behind her, ink still wet on the date line.');
       }
     }
@@ -195,6 +196,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Night airship berth seven weight classification painted over — bypasses secondary inspection threshold', 'evidence');
         maybeStageAdvance();
       } else {
+        G.lastResult = `A loading crew foreman intercepts before the quay markings are close enough to read. "Night platform is restricted during pre-departure staging." He does not raise his voice. He stands between you and the berths with the patient authority of someone who has moved people off this platform before and will do it again without incident. The airship's running lights are already on. The loading crew watches without turning their heads.`;
         addNarration('Platform Crew', 'A loading crew foreman intercepts before the quay markings are close enough to read. "Night platform is restricted during pre-departure staging." He doesn\'t raise his voice. He stands between you and the berths with the patient authority of someone who has moved people off this platform before and will do it again. The airship\'s running lights are already on. The crew is watching.');
       }
     }
@@ -219,6 +221,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = `The scribe notes the form error in the corrections register before explaining what the error was. The explanation is delivered clearly and without condescension, which somehow makes the register entry worse. The inquiry goes into corrections review — fourteen days minimum. The register entry includes the date, the nature of the error, and a physical description rendered in three words: height, build, clothing color. It is thorough in exactly the way it needs to be.`;
         addNarration('Logged Correction', 'The scribe notes the form error in the corrections register before explaining what the error was. The explanation is delivered clearly and without condescension, which somehow makes the register entry worse. The inquiry goes into corrections review. Fourteen days. The note in the register includes the date, the nature of the error, and a physical description rendered in three words: height, build, clothing color. It is thorough.');
       }
     }
@@ -717,6 +720,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The patron closes the volume the moment the bench across from his empties and someone sits. He does not look up. He tucks the bookmark ribbon deeper, lifts the volume, and returns it to the reshelving cart himself — a courtesy the reading room does not require. The reshelving clerk accepts it without comment and writes a short note in a pocket log that is not the patron register. You have been noticed, precisely and quietly, in a record the archive does not publish.`;
         addNarration('The Closed Page', 'The patron closes the volume the moment the bench across from his empties and someone sits. He does not look up. He tucks the bookmark ribbon deeper, lifts the volume, and returns it to the reshelving cart himself — a courtesy the reading room does not require. The reshelving clerk accepts it without comment and writes a short note in a pocket log that is not the patron register. You have been noticed, precisely and quietly, and the log that now holds your description is not one the archive publishes.');
       }
     }
@@ -737,6 +741,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Shipwright yard: apprentice on rolls 11 months with no commission — Shelkopolis-sourced dues payment', 'evidence');
         maybeStageAdvance();
       } else {
+        G.lastResult = `The yard master closes the rolls ledger before the question is finished and slides the lead weight off the cover with the flat of his hand. Apprentice registration is a trade guild record, he says, and trade guild records require a trade guild credential to review. The yard smells of pine tar and cold iron. Two apprentices near the slipway have stopped planing a hull plank and are listening without appearing to listen. The ledger goes back on the shelf, the weight placed on top of it like a seal.`;
         addNarration('Yard Protocol', 'The yard master closes the rolls ledger before the question is finished and slides the lead weight off the cover with the flat of his hand. Apprentice registration is a trade guild record, he says, and trade guild records require a trade guild credential to review. The yard smells of pine tar and cold iron. Two apprentices near the slipway have stopped planing a hull plank and are listening without appearing to listen. The ledger goes back on the shelf above the bench, and the yard master places the weight on top of it like a seal.');
       }
     }
@@ -758,6 +763,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `A tax hall monitor approaches from the side corridor before the posted glass has been read in full. Public posting review is permitted; close reading with notetaking is a separate inquiry requiring a filed form. He produces the form from a leather folio carried specifically for this purpose. The atrium's three other occupants have all found reasons to face the opposite wall. The form asks for name, purpose, and professional affiliation. The monitor waits with the patience of someone who always wins this exchange.`;
         addNarration('Atrium Protocol', 'A tax hall monitor approaches from the side corridor before the glass has been read in full. Public posting review is permitted; close reading with notetaking is a separate inquiry that requires a filed form. He produces the form from a leather folio he carries specifically for this purpose. The atrium has three other people in it, and all three have found reasons to face the opposite wall. The form asks for name, purpose, and professional affiliation. The monitor waits. The pressure in the room has shifted without anyone raising a voice.');
       }
     }
