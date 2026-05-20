@@ -750,7 +750,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.surge_channel_node_confirmed = true;
         G.investigationProgress++;
-        G.lastResult = `The inspection cap on the maintenance node has been resealed recently — the wax compound doesn't match the surrounding infrastructure's original material. You can't open it without a maintenance certification, but the cap itself tells you something was done here after the last official inspection. The city's ward maintenance schedule logs its last visit to this node as fourteen months ago. The fresh seal is newer than fourteen months.`;
+        G.lastResult = `The inspection cap on the maintenance node has been resealed recently — the wax compound doesn't match the surrounding infrastructure's original material. You can't open it without a maintenance certification, but the cap itself tells you something was done here after the last ward inspection. The city's ward maintenance schedule logs its last visit to this node as fourteen months ago. The fresh seal is newer than fourteen months.`;
         addJournal('Ward maintenance node resealed post-last-inspection — unauthorized access confirmed, contents inaccessible', 'intelligence', `shelk-node-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -909,27 +909,27 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // ── STAGE 2 DEEPENING: INSTITUTIONAL COORDINATION + NAMED NPC UNDER PRESSURE ──
 
   {
-    label: "The cross-polity drawer holds three seals on one order.",
-    tags: ['Investigation', 'Stage2', 'Lore'],
+    label: "The Ironspool crates are heavier than the intake slips say. The crane logs are independent.",
+    tags: ['Investigation', 'Stage2', 'Survival'],
     xpReward: 88,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(88, 'cross-polity suppression order');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      gainXp(88, 'reading crane load logs at Titan Tower south dock against Ironspool intake weight slips');
+      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.flags.shelk_cross_polity_order_confirmed = true;
-        G.lastResult = `The drawer is a long brass cabinet the Registry keeps behind the audit chair's station — manifests that cross polity lines file here before the city registers them. The suppression order is two sheets deep: wax seals from House Shelk, the Panim mediation oversight tier, and a Sunspire civic underwriter stamped in the same week. The language is identical across all three. The same scribe drafted them — you can tell from the way the flourish on the freight-class number breaks to the left. Three polities closing the same doorway. The coordination is not local.`;
-        addJournal('Cross-polity suppression order — Shelk/Panim/Sunspire co-signed, single drafting hand', 'evidence', `shelk-xpolity-${G.dayCount}`);
+        G.lastResult = `The Titan Tower crane operators log every lift by counterweight position — a safety requirement that produces an independent weight record for every crate that passes through the dock arm. You pull the counterweight logs for the past eight months from the crane house peg board, where they're stored on oilskin paper in date order. The Ironspool night manifest crates log between sixty and eighty stone on the crane record. The intake slips filed with the Registry list the same crates at twelve stone each. Someone declared one-sixth of the actual weight on every single night shipment. The crane operator on duty has initialed every log entry. He knows the numbers don't match what was filed.`;
+        addJournal('Titan Tower crane logs: Ironspool night crates at 60-80 stone — intake slips declare 12 stone; crane operator initialed all discrepancy entries', 'evidence', `shelk-craneweight-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The drawer is closed when you reach it. A junior clerk at the station glances at your permit and calls the audit chair over without raising his voice. The chair listens to your stated purpose with careful neutrality and then asks which charter authorized your inquiry. You do not have one. She writes your name in a small bound register and returns your permit without comment. The Registry now has a record of who came looking.`;
-        addJournal('Registry drawer access refused — name logged by audit chair', 'complication', `shelk-xpolity-fail-${G.dayCount}`);
+        G.lastResult = `The crane house is active during loading hours and the operator on duty does not leave the lever platform for non-crew. You can get to the log board from the dock level, but pulling oilskin records from an active crane station without authorization is the kind of action that brings a Roadwarden patrol within twenty minutes. The counterweight arm swings overhead. The operator at the platform has already marked the time in the duty log. He does this whenever someone lingers near the crane house records without a dock credential.`;
+        addJournal('Titan Tower crane house access refused during active loading — duty log notation made', 'complication', `shelk-craneweight-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `You read the drawer's index sheet over the shoulder of a clerk filing late returns. The cross-polity manifest references are listed by number only — no seal descriptions, no drafting notation. The index confirms the order exists and touches more than one polity's seal. It does not let you count how many, and it does not tell you whose hand drafted it.`;
-        addJournal('Cross-polity manifest index confirmed — scope and authorship withheld', 'evidence', `shelk-xpolity-partial-${G.dayCount}`);
+        G.lastResult = `The crane counterweight logs are kept in the crane house on date-ordered pegs — accessible during off-hours when the arm is locked. The weight entries for the Ironspool night crates are consistent across every run: heavier by a factor of four to six than what the intake slips declare. The variance is too uniform to be measurement drift. It is too consistent across eight months to be error. Someone set the declared weight low deliberately and the crane record preserved what the intake forms chose to omit.`;
+        addJournal('Titan Tower crane weight logs: Ironspool night crates declared at one-sixth actual weight — consistent across 8 months', 'evidence', `shelk-craneweight-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

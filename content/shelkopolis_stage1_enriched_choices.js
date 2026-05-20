@@ -51,7 +51,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Evidence', 'Mystery'],
     xpReward: 75,
     stageProgress: 1,
-    failResult: "Brother Aldwin is mid-blessing when you arrive, the chapel entry full of morning petitioners. He acknowledges you with a nod that means later, and later does not come before Sext bells ring and the chapel empties in the direction of the market. The letter alcove is visible from the nave — Thursday deposits run after vespers, which gives the rest of the day for other approaches.",
+    failResult: "Brother Aldwin is mid-blessing when you arrive, the chapel entry full of morning petitioners. He acknowledges you with a nod that means later, and later does not come before the mid-tide bell rings and the chapel empties in the direction of the market. The letter alcove is visible from the nave — deposits run after the dusk-call bell, which gives the rest of the day for other approaches.",
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -62,7 +62,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit || (result.total >= 13 && !result.isFumble)) {
-        G.lastResult = `Brother Aldwin folds his hands on the lectern before he speaks. Twice a week — Thursdays and Sundays after vespers — a veiled figure collects the letters. Northern trade-tongue. No names. The wax seals carry no house crest. He admits the letters began arriving the same month the evening blessings started requiring a second repetition to hold. "I told myself it was coincidence," he says. The wax smell still clings to the alcove where they're left. The letters reference consignment tallies that don't appear in any registered manifest. The routing numbers exist. The shipments do not.`;
+        G.lastResult = `Brother Aldwin folds his hands on the lectern before he speaks. Twice a week — second-watch and fifth-watch evenings, after the dusk-call bell — a veiled figure collects the letters. Northern trade-tongue. No names. The wax seals carry no house crest. He admits the letters began arriving the same month the evening blessings started requiring a second repetition to hold. "I told myself it was coincidence," he says. The wax smell still clings to the alcove where they're left. The letters reference consignment tallies that don't appear in any registered manifest. The routing numbers exist. The shipments do not.`;
         G.stageProgress[1]++;
         addJournal('Sealed letter network mapped to chapel intermediary — routing numbers exist, shipments do not', 'evidence', `shelkopolis-letters-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -773,7 +773,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
-        G.lastResult = `Every supply disruption follows a sealed letter by two days. The gaps in the trade registry track the same Thursday-Sunday deposit schedule Brother Aldwin described. The three-column alignment is too exact for coincidence — letter date, supply shift date, commodity code — matching across four separate commodity lines in the same eight-week window. The chapel letter system isn't incidental to the conspiracy. It is the command channel. Someone reads those deposits and moves the supply lines accordingly, and has been doing it for months.`;
+        G.lastResult = `Every supply disruption follows a sealed letter by two days. The gaps in the trade registry track the same second-watch and fifth-watch deposit schedule Brother Aldwin described. The three-column alignment is too exact for coincidence — letter date, supply shift date, commodity code — matching across four separate commodity lines in the same eight-week window. The chapel letter system isn't incidental to the conspiracy. It is the command channel. Someone reads those deposits and moves the supply lines accordingly, and has been doing it for months.`;
         addJournal('Letters confirmed as operational directives — chapel is command channel', 'evidence', `shelk-crossref-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1049,7 +1049,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A quota notice from the registry office is still pinned at the corner — same one from three days back, its edges curling from the Amber Fountain\'s warmth. The archival quarter posting beside it is dated and unsigned, which is unusual for official notices. Nothing posted today changes the picture. The board will have new postings tomorrow, or the day after, or whenever something is ready to be seen.';
+      G.lastResult = 'The board has nothing new since this morning. A quota notice from the registry office is still pinned at the corner — same one from three days back, its edges curling from the Amber Fountain\'s warmth. The archival quarter posting beside it is dated and unsigned, which is unusual for guild-registered notices. Nothing posted today changes the picture. The board will have new postings tomorrow, or the day after, or whenever something is ready to be seen.';
 
       return;
     }
@@ -1062,7 +1062,7 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Tavern', 'Social', 'NPC'],
     xpReward: 50,
     failResult: {
-      text: "The Amber Fountain is running at full press — a guild dinner in the back room, three extra tables of harbor workers in from the late shift, and Maret moving between them at a pace that leaves no opening. She catches your eye once across the bar and gives the small nod that means later, which means not now. The notice board by the door has two new postings from this week. The room will thin by the second bell.",
+      text: "The Amber Fountain is running at full press — a guild dinner in the back room, three extra tables of harbor workers in from the late shift, and Marta moving between them at a pace that leaves no opening. She catches your eye once across the bar and gives the small nod that means later, which means not now. The notice board by the door has two new postings from this week. The room will thin by the second bell.",
       xp: 0,
       effects: [],
       next: [{text: "Check the notice board and come back when the room clears.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -1073,14 +1073,14 @@ const SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       gainXp(50, 'talking to the barkeep');
       var result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3) + (typeof getTraitBonus==='function'?getTraitBonus('persuasion'):0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('persuasion'):0));
       if (result.total >= 8) {
-        G.lastResult = "Maret wipes down the counter and doesn't look at you when she talks. She mentions a manifest clerk who's been drinking alone three nights running — starting the evening the southern shipment arrived. She doesn't say what was in it. She sets down a second cup without being asked. That's the closest she comes to endorsing your line of work.";
+        G.lastResult = "Marta wipes down the counter and doesn't look at you when she talks. She mentions a manifest clerk who's been drinking alone three nights running — starting the evening the southern shipment arrived. She doesn't say what was in it. She sets down a second cup without being asked. That's the closest she comes to endorsing your line of work.";
         G.flags = G.flags || {};
         G.flags.shelk_barkeep_manifest_thread = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.recentOutcomeType = 'success';
-        addJournal('Maret (barkeep): manifest clerk drinking alone since the southern shipment arrived', 'intelligence');
+        addJournal('Marta (barkeep): manifest clerk drinking alone since the southern shipment arrived', 'intelligence');
       } else {
-        G.lastResult = "Maret refills the cup and moves on. She's not unfriendly — she just doesn't know you well enough yet to say anything worth saying. The Amber Fountain hums with the evening crowd behind you; guild workers from the harbor quarter, two estate stewards debating something over a ledger. She carries three cups in one hand without spilling. The next table needs her. She goes, and the way she goes leaves the impression that she could say more if she had a reason to. That reason hasn't arrived yet.";
+        G.lastResult = "Marta refills the cup and moves on. She's not unfriendly — she just doesn't know you well enough yet to say anything worth saying. The Amber Fountain hums with the evening crowd behind you; guild workers from the harbor quarter, two estate stewards debating something over a ledger. She carries three cups in one hand without spilling. The next table needs her. She goes, and the way she goes leaves the impression that she could say more if she had a reason to. That reason hasn't arrived yet.";
         G.recentOutcomeType = 'neutral';
       }
     }

@@ -196,8 +196,8 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Night airship berth seven weight classification painted over — bypasses secondary inspection threshold', 'evidence');
         maybeStageAdvance();
       } else {
-        G.lastResult = `A loading crew foreman intercepts before the quay markings are close enough to read. "Night platform is restricted during pre-departure staging." He does not raise his voice. He stands between you and the berths with the patient authority of someone who has moved people off this platform before and will do it again without incident. The airship's running lights are already on. The loading crew watches without turning their heads.`;
-        addNarration('Platform Crew', 'A loading crew foreman intercepts before the quay markings are close enough to read. "Night platform is restricted during pre-departure staging." He doesn\'t raise his voice. He stands between you and the berths with the patient authority of someone who has moved people off this platform before and will do it again. The airship\'s running lights are already on. The crew is watching.');
+        G.lastResult = `A loading crew foreman steps off the gangway before the quay markings are close enough to read. "Pre-departure staging. Platform's restricted." He gives his name without being asked: Oren Saltwick, night platform lead. The tide gauge bracket behind him is still dripping from the last surge cycle, salt water running down a rust-brown stain on the iron strut. Two dock hands near the mooring cleats have stopped what they were doing. Saltwick waits without moving. He has done this before and expects it to end the same way.`;
+        addNarration('Platform Crew', 'Oren Saltwick, night platform lead, steps off the gangway before the quay markings are close enough to read. "Pre-departure staging. Platform\'s restricted." The tide gauge bracket behind him drips from the last surge cycle. He waits for you to back away.');
       }
     }
   },
@@ -277,7 +277,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Night airship manifest: "Bonded Continuity Reference" column added by hand — Cosmouth admin override prefix, not in standard glossary', 'evidence', `cos-manifest-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The night platform foreman intercepts at the loading dock steps. Manifests are active operational documents during pre-departure staging — they cannot be reviewed by non-crew until the airship has cleared the harbor. He is not unkind about it. He is practiced. Two crew members on the upper platform have already noted the direction of approach and the time of day in a small pocket ledger one of them carries clipped to his belt.`;
+        G.lastResult = `Saltwick is at the loading dock steps before the manifest inquiry is finished — a brief readjustment of weight onto his back foot, no surprise. "Manifests are operational documents. Non-crew access ends when the airship moves to pre-departure staging." Same flat register as before, but there's recognition in it now: not warmth, not hostility, just awareness. One of the deck crew above writes in a small ledger clipped to his belt. Saltwick watches the notation without comment, then looks back at you.`;
         addJournal('Night manifest review blocked during pre-departure staging — crew observation logged', 'complication', `cos-manifest-fail-${G.dayCount}`);
       } else {
         G.flags.night_manifest_column_found = true;
@@ -409,30 +409,31 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The cargo insurance policy holder isn't a shipping company.",
+    label: "The gangway crew handoff leaves a thirty-second blind spot. Same positions, every run.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'pressing cargo insurance broker on sealed container policy holder identity');
+      gainXp(70, 'working the night platform dock through a full tide window to time the gangway gap');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.cargo_insurer_policy_holder_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The broker opens the policy file with the manner of someone who has been waiting for permission to open it. The policy holder for every sealed container in the past eight months is a single registered entity: the Cosmouth Administrative Continuity Trust — a semi-public body with no trade function, no public address, and no licensing requirement under current maritime law. The Trust doesn't ship cargo. It holds insurance on cargo it has no legal relationship to. The premium payments route through a Shelkopolis-domiciled accounts office. The broker has flagged the account three times internally. None of the flags were escalated.`;
-        addJournal('Sealed container insurance held by Cosmouth Administrative Continuity Trust — non-trading entity, 3 internal flags unescalated, premiums from Shelkopolis accounts', 'evidence', `cos-insurer-crit-${G.dayCount}`);
+        G.lastResult = `The outer gangway sits between two tidal struts where the platform drops half a step — the salt crust on the deck planks muffles footfall. At crew handoff the outgoing dock hand crosses to the gangway post and the incoming stops at the brake winch, same positions every run. For thirty seconds the corner angle is blind. A folio could move from staging hold to airship manifest rack without crossing either sightline. The brake winch and gangway post are the only two positions that create this gap. The handoff was built around it.`;
+        addJournal('Night platform gangway: 30-second crew-handoff blind spot — positions chosen to create sightline gap between staging hold and airship manifest rack', 'evidence', `cos-gangway-crit-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The broker listens politely and then explains that policy holder details are commercially privileged. "That's not a Cosmoria Harbor Authority category. That's private commercial law." He is correct. He is also visibly relieved to be correct. His hands rest flat on the desk and stay there while he explains, which is a posture that takes effort. The conversation ends without anything useful and with the broker's name now on a list of people who were asked.`;
-        addJournal('Cargo insurer declined to disclose policy holder — commercial privilege cited', 'complication', `cos-insurer-fail-${G.dayCount}`);
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The salt crust on the outer platform deck is drier than it looks and the step difference between the tidal struts makes for louder movement than expected. A dock hand at the brake winch turns before the handoff gap opens. He doesn't call out — he picks up a coil of mooring line he doesn't need and carries it a few steps closer to where you're standing. The crew continues loading. Nobody looks up. The proximity is the message.`;
+        addJournal('Night platform observation attempt — brake winch crew noted approach, proximity used as warning', 'complication', `cos-gangway-fail-${G.dayCount}`);
       } else {
         G.flags.cargo_insurer_policy_holder_found = true;
         G.investigationProgress++;
-        G.lastResult = `The broker confirms the policy holder is a registered administrative entity rather than a shipping company or private merchant — unusual for cargo insurance, which typically names the shipper directly. He does not give the entity's name without further prompting, but he opens the filing index to show that all eight months of sealed container policies fall under a single policy number. One account, one holder, eight months of coverage. The premiums have never lapsed.`;
-        addJournal('All sealed container policies under single account — administrative entity holder, continuous premiums over 8 months', 'intelligence', `cos-insurer-partial-${G.dayCount}`);
+        G.lastResult = `At the crew changeover the outer gangway goes unattended for a count of thirty — both dock hands occupy their transition positions and neither has a sightline to the platform corner where the staging hold meets the airship boarding rack. Moving with the crew's rhythm rather than against it, the gap is easy to time. The handoff happens the same way every run: same two positions, same interval. Someone who knew the platform routine could move a folio through that corner without appearing on either man's peripheral view.`;
+        addJournal('Night platform gangway handoff creates 30-second blind spot — staging hold to airship rack corner accessible, same positions every run', 'intelligence', `cos-gangway-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -498,30 +499,30 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The route ledger has a departure category. It doesn't appear in the public tariff schedule.",
+    label: "The sealed containers are heavier than their waiver classification allows. The dock math says so.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reviewing airship company route ledger for unlisted departure categories');
+      gainXp(68, 'calculating sealed container weight against dock platform load tolerances');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.airship_unlisted_category_found = true;
         G.investigationProgress++;
-        G.lastResult = `The station office ledger uses seven cargo categories. The public tariff schedule published at the Harbor Authority intake desk lists six. The seventh — "Administrative Transit, Category T" — does not appear in any public document. Category T departures carry a flat rate that is three times the highest standard cargo tier. They are logged in the route ledger but do not generate a receipt in the standard ticketing series. The station manager locates the Category T entries for the past eight months without assistance: seventeen departures, all night airship, all listed with a Shelkopolis administrative address as the receiving destination.`;
-        addJournal('Airship route ledger: Category T — unlisted in public tariff, 3x standard rate, no ticketing receipts, 17 night departures to Shelkopolis admin address', 'evidence', `cos-airshipcat-crit-${G.dayCount}`);
+        G.lastResult = `The tidal platform's load-distribution markers are scored into the deck planking at one-stone intervals — standard dock safety infrastructure on all float-platform airship stations. The sealed containers sit in the marked staging zone. Counting strut deflection against the scored intervals gives a weight per container between forty and fifty stone. The trade exemption waiver they're filed under caps the declared weight at twelve stone. Whatever is inside these containers, it is not twelve stone of administrative materials. The deck scoring cannot be disputed by the people who wrote the paperwork.`;
+        addJournal('Sealed container platform deflection: 40-50 stone estimated per unit — filed under waiver category capped at 12 stone', 'evidence', `cos-deckweight-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The station office keeps its route ledger in an internal operations category — available to contracted cargo agents but not open to general inquiry. The station clerk checks the counter register for an active agency credential before pulling anything from the ledger shelf. There is no agency credential. The counter register gets a notation: inquiry type, date, physical description in four words. The ledger stays on the shelf and the station door has a bell on it that sounds when it opens or closes.`;
-        addJournal('Airship station route ledger access denied — agency credential required, inquiry noted in counter register', 'complication', `cos-airshipcat-fail-${G.dayCount}`);
+        G.lastResult = `The tidal platform surface is wet from the last surge cycle and the scored load markers are filled with salt deposit. Getting close enough to read the deflection on the struts means moving past the staging area barrier, which is marked with a posted warning about unsecured platform access. A dock hand at the far end of the platform calls out before the barrier is reached. He doesn't move from his position. He just keeps watching until the barrier is clear again. The warning is posted in three languages. One of them is Cosmouth administrative standard.`;
+        addJournal('Platform weight-deflection approach blocked — dock hand observation, staging area barrier', 'complication', `cos-deckweight-fail-${G.dayCount}`);
       } else {
         G.flags.airship_unlisted_category_found = true;
         G.investigationProgress++;
-        G.lastResult = `The station manager allows a review of the departure ledger — it is technically an operational document, not a restricted one. The cargo categories visible in the ledger include one labeled Category T that does not match anything on the public tariff schedule posted at the counter. "That's an administrative billing category," the manager says. He does not explain further. The Category T entries appear seventeen times over eight months, clustered around night departures.`;
-        addJournal('Airship station ledger contains Category T — absent from public tariff schedule, 17 appearances on night departures', 'intelligence', `cos-airshipcat-partial-${G.dayCount}`);
+        G.lastResult = `The tidal platform uses scored load markers in the deck planking for safety compliance — one-stone intervals, plainly visible. A sealed container resting in the staging zone compresses the platform struts by an amount the scoring makes readable. The compression is consistent across all four visible containers: between forty and fifty stone each. The trade exemption waiver on file for sealed containers in this category declares a maximum of twelve stone. The discrepancy is not marginal. It is not explained by documentation drift.`;
+        addJournal('Platform load-scoring: sealed containers at 40-50 stone each — waiver category declared maximum is 12 stone, undeclared mass consistent across all units', 'intelligence', `cos-deckweight-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -542,15 +543,15 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.weighmaster_zero_entries_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The weighmaster pulls the intake log from a peg on the wall above his scale — it hangs there, open to the current month. Every cargo arrival gets a weight in stone, recorded in the weighmaster's hand. The sealed containers are logged at zero. Not estimated, not flagged as unweighed — zero, in a column that cannot legally read zero for physical goods. The weighmaster's initials appear next to each zero entry. He reads the entries without speaking for a long moment, then turns the log around to face you. He has been initialing zeroes for eight months. He did not refuse because he does not know what was in the containers, and zero seemed safer than asking.`;
+        G.lastResult = `The weighmaster pulls the intake log from a peg on the wall above his scale — it hangs there, open to the current month, the pages warped at the corner from salt humidity. Every cargo arrival gets a weight in stone, recorded in the weighmaster's hand. The sealed containers are logged at zero. Not estimated, not flagged as unweighed — zero, in a column that cannot legally read zero for physical goods. The weighmaster's initials appear next to each zero entry. He reads the entries without speaking for a long moment, his free hand resting on the scale's iron counterweight arm, then turns the log around to face you. He has been initialing zeroes for eight months. He did not refuse because he does not know what was in the containers, and zero seemed safer than asking.`;
         addJournal('Harbor weighmaster log: sealed containers entered at zero weight for 8 months — weighmaster initialed entries without weighing, chose zero over inquiry', 'evidence', `cos-weighmaster-crit-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The weighmaster's intake area is active staging during pre-departure hours — a foreman redirects before the log is reached. The foreman is the same one who manages the night platform, and he uses the same patient, practiced tone to explain why this area is not accessible. He notes the time in the pocket ledger clipped to his belt without breaking eye contact. The note takes three seconds. He writes quickly.`;
+        G.lastResult = `Saltwick is moving before the approach reaches the weighmaster's intake table, cutting the angle at the salt-encrusted staging barrier. This time he doesn't explain policy. "I know why you're here. Same rule as the platform." Then, without hostility: "You've been around the dock three times today. Whatever you're looking for, the Harbor Authority intake form gets you further than I do." The pocket ledger stays clipped to his belt. He's moved past recording to something closer to advice.`;
         addJournal('Weighmaster area blocked during pre-departure — same night foreman, time logged in pocket ledger', 'complication', `cos-weighmaster-fail-${G.dayCount}`);
       } else {
         G.flags.weighmaster_zero_entries_found = true;
         G.investigationProgress++;
-        G.lastResult = `The weighmaster shows the intake log without being asked twice. The sealed container entries stand out immediately: the weight column reads zero where every other entry carries a figure in stone. "Trade exemption category C — waiver says no secondary inspection. I logged them through." He points to the waiver authorization notation beside each zero. The notation is correct procedure. The zero weight is not. Cargo passing through a harbor station cannot legally weigh nothing.`;
+        G.lastResult = `The weighmaster shows the intake log without being asked twice, setting it on the scale platform next to the brass calibration disc he uses to check the balance each morning — a habit so routine he doesn't seem to notice he's done it. The sealed container entries stand out immediately: the weight column reads zero where every other entry carries a figure in stone. "Trade exemption category C — waiver says no secondary inspection. I logged them through." He points to the waiver authorization notation beside each zero. The notation is correct procedure. The zero weight is not. Cargo passing through a harbor station cannot legally weigh nothing.`;
         addJournal('Weighmaster log: sealed containers logged at zero weight per waiver — weight zero notation not legally valid for physical goods', 'intelligence', `cos-weighmaster-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -571,7 +572,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.warehouse_watchman_log_found = true;
         G.investigationProgress++;
-        G.lastResult = `The watchman is not difficult to find — he is sitting at his post at the bonded warehouse entrance, shift log open on the table in front of him. When the log is laid flat and compared page to page, the signature on the sealed container arrival nights is a convincing forgery of his name but does not match the hand he uses to sign every other shift. He looks at both signatures for a long moment without speaking. "I was told my logs would be administered on those nights." He does not say who told him. His hands are steady. He has been waiting to say this to someone who was not his employer.`;
+        G.lastResult = `The watchman is not difficult to find — he is sitting at his post at the bonded warehouse entrance, shift log open on the table in front of him. A coil of wet mooring line hangs on the post bracket beside him, drying; the harbor work bleeds into bonded warehouse perimeter duty the way it always does near a tidal dock. When the log is laid flat and compared page to page, the signature on the sealed container arrival nights is a convincing forgery of his name but does not match the hand he uses to sign every other shift. He looks at both signatures for a long moment without speaking. "I was told my logs would be administered on those nights." He does not say who told him. His hands are steady. He has been waiting to say this to someone who was not his employer.`;
         addJournal('Warehouse watchman shift log: arrival nights signed in different hand — watchman confirms logs were "administered" on those nights by unnamed party', 'evidence', `cos-watchman-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The bonded warehouse entrance has two people at it during daylight hours and the watchman is not one of them. A warehouse administrator in a guild-marked coat asks for business purpose before allowing past the gate. The purpose given does not match any of the categories on the visitor register form she produces. She fills in the date and a physical description while explaining that non-bonded visitors require a cargo agent escort. The form goes into a tray that is not the standard log.`;
@@ -600,7 +601,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.dock_factor_wax_seal_found = true;
         G.investigationProgress++;
-        G.lastResult = `The dock factor keeps a correspondence ledger as a professional habit — incoming letters logged by sender, date, and method of seal, because seal method indicates the sender's expectation of confidentiality. One agent has sent forty-one letters over eight months, all sealed with wax rather than paper tape, all arriving two to three days before a sealed container departure. The factor opens the last three letters in the file — he kept them, which is unusual; most correspondence gets returned or destroyed after action. The return address on each letter is a Shelkopolis administrative post box registered to the Cosmouth Administrative Continuity Trust.`;
+        G.lastResult = `The dock factor keeps a correspondence ledger as a professional habit — incoming letters logged by sender, date, and method of seal, because seal method indicates the sender's expectation of confidentiality. He works at a sloped desk positioned to watch the cargo processing lane below; a small tide-table is pinned to the board above the desk, the current tidal window circled in red so he knows when the platform access schedule changes. One agent has sent forty-one letters over eight months, all sealed with wax rather than paper tape, all arriving two to three days before a sealed container departure. The factor opens the last three letters in the file — he kept them, which is unusual; most correspondence gets returned or destroyed after action. The return address on each letter is a Shelkopolis administrative post box registered to the Cosmouth Administrative Continuity Trust.`;
         addJournal('Dock factor ledger: 41 wax-sealed letters from agent, all pre-dating sealed departures — return address: Cosmouth Administrative Continuity Trust, Shelkopolis post box', 'evidence', `cos-dockfactor-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -609,7 +610,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.dock_factor_wax_seal_found = true;
         G.investigationProgress++;
-        G.lastResult = `The dock factor shows the correspondence ledger without strong objection — the ledger records method of seal as a professional notation, not content. One agent's entries stand out immediately: forty-one letters, all wax-sealed, spanning eight months. "Wax seal means they expect it not to be opened in transit," the factor says. "Paper tape means they don't much care either way." He notes the dates without being asked. Every wax-sealed letter precedes a sealed container departure by two to three days.`;
+        G.lastResult = `The dock factor shows the correspondence ledger without strong objection — the ledger records method of seal as a professional notation, not content. He talks while keeping half his attention on the cargo processing lane below, tracking the bell-count for the next tide window change without looking at the table on the board above him. One agent's entries stand out immediately: forty-one letters, all wax-sealed, spanning eight months. "Wax seal means they expect it not to be opened in transit," the factor says. "Paper tape means they don't much care either way." He notes the dates without being asked. Every wax-sealed letter precedes a sealed container departure by two to three days.`;
         addJournal('Dock factor correspondence: 41 wax-sealed letters from single agent, each 2-3 days before sealed container departure', 'intelligence', `cos-dockfactor-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -737,7 +738,7 @@ const COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.cos_shipwright_apprentice_found = true;
         G.investigationProgress++;
-        addNarration('The Unassigned Hand', 'The apprentice rolls are kept in a salt-stained ledger on the yard master\'s bench, held open with a lead weight shaped like a fish. One name has been on the rolls for eleven months without a commission assignment, which is structurally impossible — unassigned apprentices rotate through berth maintenance every three weeks. The yard master scratches the side of his jaw while he looks at the entry, a habit he falls into when he is about to say something he has already decided not to say. The name pays yard dues promptly. The dues come from a Shelkopolis account.');
+        addNarration('The Unassigned Hand', 'The apprentice rolls are kept in a salt-stained ledger on the yard master\'s bench, held open with a lead weight shaped like a fish. One name has been on the rolls for eleven months without a commission assignment, which is structurally impossible — unassigned apprentices rotate through berth maintenance every three weeks. The yard master scratches the side of his jaw while he looks at the entry, a habit he falls into when he is about to say something he has already decided not to say. He does it while reaching past the caulking mallet on the corner of the bench to pull the ledger closer, and his hand brushes the mallet handle without registering it — this is a workspace he knows in his sleep. The name pays yard dues promptly. The dues come from a Shelkopolis account.');
         addJournal('Shipwright yard: apprentice on rolls 11 months with no commission — Shelkopolis-sourced dues payment', 'evidence');
         maybeStageAdvance();
       } else {

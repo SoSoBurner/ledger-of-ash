@@ -12923,7 +12923,7 @@ function showLevelUpScreen() {
   function renderStatStep() {
     const pickNum = totalStatPicks - remainingPicks + 1;
     const block = document.createElement('div');
-    block.className = 'scene-block levelup-block';
+    block.className = 'scene-block levelup-block choice-block';
     let html = '<div class="lu-title">Choose a stat to improve' + (totalStatPicks > 1 ? ' (' + pickNum + ' of ' + totalStatPicks + ')' : '') + ':</div><div class="lu-options lu-stat-grid">';
     STAT_DISPLAY.forEach(stat => {
       const cur = G.skills[stat.key] || 0;
@@ -12965,7 +12965,7 @@ function showLevelUpScreen() {
       : ARCHETYPE_TRAIT_POOLS._default.filter(t => !(G.unlockedTraits||[]).includes(t.id)).slice(0, 4);
 
     const block = document.createElement('div');
-    block.className = 'scene-block levelup-block';
+    block.className = 'scene-block levelup-block choice-block';
 
     if (options.length === 0) {
       block.innerHTML = '<div class="lu-title">Your abilities are at their peak.</div>' +
@@ -13046,7 +13046,7 @@ function showLevelUpScreen() {
     var stepLabel = actives.length > 0 ? 'ACTIVE ABILITY' : (passives.length > 0 ? 'PASSIVE ABILITY' : '');
 
     var block = document.createElement('div');
-    block.className = 'scene-block levelup-block';
+    block.className = 'scene-block levelup-block choice-block';
 
     if (options.length === 0) {
       block.innerHTML = '<div class="lu-title">All abilities unlocked for your archetype.</div>' +
@@ -16293,7 +16293,7 @@ function updateWorldTab() {
            '<div class="clock-track"><div class="clock-fill" style="' + fillStyle + '"></div></div>' +
            '<span class="clock-val"' + labelStyle + '>' + val + '</span></div>';
   }).join('');
-  var notices = (G.worldNotices || []).slice(-3).map(function(n){ return '<p class="world-notice">' + n + '</p>'; }).join('');
+  var notices = (G.worldNotices || []).slice(-3).map(function(n){ return '<p class="world-notice">' + (n.text || n) + '</p>'; }).join('');
   el.innerHTML = '<h4 style="margin:0 0 8px;font-size:0.8em;color:var(--ink-dim)">WORLD CLOCKS</h4>' + html + notices;
 }
 window.updateWorldTab = updateWorldTab;

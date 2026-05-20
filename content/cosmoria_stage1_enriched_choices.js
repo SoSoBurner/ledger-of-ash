@@ -66,7 +66,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Coralyn pulls a ledger from the lower stack — not the one on top. She opens it to a page where three lines have been crossed out. "Sailcloth, forty bolts, crew maintenance." She covers the original entry with her thumb, then lifts it. "Twenty bolts. Listed for independent merchants." She covers the correction, lifts it. "Forty. Listed for Cosmouth brig crews." Same handwriting across five more pages. "I didn't write those corrections," she says. She keeps her thumb on the line she's practiced not speaking aloud.`;
+        G.lastResult = `Coralyn Foamglass pulls a ledger from the lower stack — not the one on top. She opens it to a page where three lines have been crossed out. "Sailcloth, forty bolts, crew maintenance." She covers the original entry with her thumb, then lifts it. "Twenty bolts. Listed for independent merchants." She covers the correction, lifts it. "Forty. Listed for Cosmouth brig crews." Same handwriting across five more pages. "I didn't write those corrections," she says. She keeps her thumb on the line she's practiced not speaking aloud.`;
         G.stageProgress[1]++;
         addJournal('Quartermaster revealed supply chain diversion conspiracy', 'evidence', `cosmoria-supplies-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -153,7 +153,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Clerk of Arrivals revealed archive record falsification system', 'evidence', `cosmoria-records-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Tideon stops writing and looks at your hands, not your face. "Arrival records are Cosmouth administrative property. Requests go through the harbor registry office, third floor, Tuesdays and Thursdays." He goes back to writing before you finish the sentence. The clerk at the next desk has already stopped working. An hour later, your name appears in the harbor office's visitor log — entered by someone who wasn't you. Being tracked in their records before you've asked for anything makes the next approach harder.`;
+        G.lastResult = `Tideon stops writing and looks at your hands, not your face. "Arrival records are Cosmouth administrative property. Requests go through the harbor registry office, third floor, second and fifth watch-days of the tide-week." He goes back to writing before you finish the sentence. The clerk at the next desk has already stopped working. An hour later, your name appears in the harbor office's visitor log — entered by someone who wasn't you. Being tracked in their records before you've asked for anything makes the next approach harder.`;
         G.worldClocks.watchfulness++;
         addJournal('Archive clerks warned about your record access', 'complication', `cosmoria-records-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -161,14 +161,14 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         addJournal('Clerk of Arrivals confirmed non-standard record practices', 'evidence', `cosmoria-records-evasive-${G.dayCount}`);
       } else {
         G.lastResult = `Tideon points you to the public summary board at the harbor gate — vessel names, declared cargo class, arrival date, no details. The full registry requires an archivist credential issued by the harbor authority. The harbor authority reports to House Cosmouth. The process is circular and Tideon knows it. He fills out a request form for you and hands it over without comment.`;
-        addJournal('Archive records blocked without official authorization', 'evidence', `cosmoria-records-blocked-${G.dayCount}`);
+        addJournal('Archive records blocked — harbor authority credential required, routes to House Cosmouth', 'evidence', `cosmoria-records-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
     failResult: {
-      text: "The registry office closes on Tuesdays and Thursdays — you arrived on a Wednesday. Tideon's desk is unoccupied; a clerk's aide says the credential process runs through the harbor authority, which means the path circles back. The public summary board at the harbor gate lists vessel names and arrival dates without detail, but the summary alone shows three manifests with identical cargo descriptions across different dates. That much doesn't require a credential.",
+      text: "The registry office closes on the second and fourth watch-days of the tide-week — you arrived between cycles. Tideon's desk is unoccupied; a clerk's aide says the credential process runs through the harbor authority, which means the path circles back. The public summary board at the harbor gate lists vessel names and arrival dates without detail, but the summary alone shows three manifests with identical cargo descriptions across different dates. That much doesn't require a credential.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     }
   },
@@ -726,7 +726,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
       const npcOptions = [
         { name: 'Quartermaster Coralyn Foamglass', role: 'resource keeper', fear: 'They threatened to have me reassigned to merchant crew service if I spoke out. My family depends on my position.' },
-        { name: 'Archive Keeper Marvin', role: 'historical guardian', fear: 'They made it clear that exposing document destruction would result in my dismissal and blacklisting from all scholarly work in Cosmouth.' },
+        { name: 'Joss Pell', role: 'salt archive clerk', fear: 'They made it clear that exposing document destruction would result in my dismissal and blacklisting from all scholarly work in Cosmouth.' },
         { name: 'Clerk Tideon Anchorlight', role: 'record keeper', fear: 'I wanted to resist but they said if I exposed falsified records, they\'d accuse me of the falsification itself.' }
       ];
 
@@ -957,7 +957,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
         if (!G.flags) G.flags = {};
         G.flags.met_kavan_sailor = true;
-        addJournal('Sailor Kavan: Shelf Islands delivery, sealed uniform cases, private mooring, no official presence — triple rate', 'contact_made', `cosmoria-kavan-${G.dayCount}`);
+        addJournal('Sailor Kavan: Shelf Islands delivery, sealed uniform cases, private mooring, no harbor authority — triple rate', 'contact_made', `cosmoria-kavan-${G.dayCount}`);
       } else {
         G.lastResult = `The harbor is quieter than yesterday in certain pockets — the tavern by berth three, the rope-mender's bench near the lower gate, the usual spots. A net-mender says the crews from berths four and six haven't been around since midmorning. Word moves fast in a working harbor. Someone on those crews knows questions are circulating and has decided today isn't a good day to be findable. The empty stools do the answering for them.`;
       }
