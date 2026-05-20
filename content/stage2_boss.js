@@ -132,13 +132,13 @@ function _pell_phase2() {
       action: function() { _pell_resolve_expose(); }
     },
     {
-      text: 'Give him a clean exit. He closes the file; I keep working beneath his notice.',
+      text: 'A clean exit for him means I keep working beneath his notice.',
       tag: 'risky',
       skill: 'persuasion',
       action: function() { _pell_resolve_negotiate(); }
     },
     {
-      text: 'Leave Shelkopolis. Let his inquiry window expire without a target.',
+      text: 'His inquiry window expires without a target if I leave now.',
       tag: 'safe',
       skill: 'survival',
       failResult: 'This path is closed here, but the inquiry window has days left in it — and Pell filed a pursuit notation the moment the routes went quiet. The transit posts closer to the city boundary are less watched. Working from there while the window runs is still a form of distance.',

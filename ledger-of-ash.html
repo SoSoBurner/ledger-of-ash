@@ -5913,7 +5913,7 @@ r_soreheim:{text:'Giant Council survey work takes you far from anything named. Y
 r_sheresh:{text:'The Sheresh dome perimeter is the most hostile terrain most rangers ever work. You are in Shelkopolis because the dome stewards sent you south to investigate what is happening on the trade routes that supply their settlements. The axis data you carry tells part of the story.',choices:[
   {text:'Apply your combat background directly to gain access.', skill:'combat', tag:'bold', align:'neutral', cid:'combat_approach'},
   {text:'The Roadwardens. Axis corridor closures are their jurisdiction.', skill:'survival', tag:'safe', align:'neutral', cid:'map_office'},
-  {text:'Find a scholar who studies axis inversion cycles.', skill:'lore', tag:'risky', align:'neutral', cid:'gilded_archives'},
+  {text:'A scholar who studies axis inversion cycles would have answers.', skill:'lore', tag:'risky', align:'neutral', cid:'gilded_archives'},
   {text:'The trade registry. Supply disruptions to the domes will show in shipment records.', skill:'lore', tag:'safe', align:'lawful', cid:'trade_registry'}
 ]},
 
@@ -6770,7 +6770,7 @@ const C = {
       next:[
         {text:'Follow the tracks. They are fresh enough.', skill:'survival', tag:'bold', align:'neutral', cid:'follow_tracks'},
         {text:'Document the depot first. Evidence matters if this escalates.', skill:'lore', tag:'safe', align:'neutral', cid:'document_depot'},
-        {text:'Return to Shelkopolis. This is bigger than one morning.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'}
+        {text:'This is bigger than one morning. Shelkopolis is where the answers are.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'}
       ]
     },
     failure:{
@@ -10091,9 +10091,13 @@ function _beginLegendCore() {
   G.caseCode = _makeCaseCode(G.runId);
   G.lastUsedSlot = 'loa_slot_1';
   G.choiceCount = G.choiceCount || 0;
-  G.skills = Object.assign({}, G.archetype.skills || {});
+  var _SK_NORM_INIT = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+  var _rawArchSkills = G.archetype.skills || {};
+  G.skills = {};
+  Object.keys(_rawArchSkills).forEach(function(k){ G.skills[_SK_NORM_INIT[k]||k] = _rawArchSkills[k]; });
   if (G._createStatBoost) {
-    G.skills[G._createStatBoost] = (G.skills[G._createStatBoost] || 0) + 1;
+    var _boostKey = _SK_NORM_INIT[G._createStatBoost] || G._createStatBoost;
+    G.skills[_boostKey] = (G.skills[_boostKey] || 0) + 1;
   }
   G.maxHp = G.archetype.hp; G.hp = G.maxHp;
   G.gold = G.archetype.startGold;
@@ -12908,7 +12912,7 @@ function showLevelUpScreen() {
     { key:'combat',     name:'Might',   hint:'Governs combat rolls, forced entry, and feats of physical strength.' },
     { key:'stealth',    name:'Finesse', hint:'Governs stealth, picking locks, sleight of hand, and precision strikes.' },
     { key:'survival',   name:'Vigor',   hint:'Governs endurance, resistance to wounds, and survival checks.' },
-    { key:'lore',       name:'Wits',    hint:'Governs investigation, lore, trap disarmament, and tactical reads.' },
+    { key:'lore',       name:'Wits',    hint:'Governs research, lore, trap disarmament, and tactical reads.' },
     { key:'persuasion', name:'Charm',   hint:'Governs persuasion, deception, social maneuvering, and first impressions.' },
     { key:'craft',      name:'Spirit',  hint:'Governs healing, crafting, ritual knowledge, and attunement to the unseen.' },
   ];
@@ -13402,7 +13406,7 @@ function showTravelModeSelect(destId, destName, onConfirm) {
   _modal.innerHTML = '<div style="background:var(--coal);border:1px solid var(--char);padding:28px;max-width:360px;width:90%;text-align:center">'
     + '<div style="font-family:var(--font-display);font-size:15px;margin-bottom:16px;color:var(--accent-gold)">Travel to ' + destName + '</div>'
     + _btns
-    + '<button onclick="document.getElementById(\'travel-mode-modal\').remove()" style="margin-top:12px;padding:6px 14px;font-family:var(--font-display);font-size:12px;cursor:pointer;color:var(--ink-dim);background:none;border:1px solid var(--char)">Cancel</button>'
+    + '<button onclick="var _m=document.getElementById(\'travel-mode-modal\');if(_m)_m.remove();" style="margin-top:12px;padding:6px 14px;font-family:var(--font-display);font-size:12px;cursor:pointer;color:var(--ink-dim);background:none;border:1px solid var(--char)">Cancel</button>'
     + '</div>';
   document.body.appendChild(_modal);
   window._travelModeCallback = onConfirm;
@@ -13583,7 +13587,7 @@ function enterDistrict(distId) {
   updateHUD(); updateEnvironmentPanel(); buildLivingDesc(G.location, G); saveGame();
   setTimeout(() => renderChoices([
     { text: 'Observe the district and read its rhythms.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' },
-    { text: 'Look for work or leads here.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel' },
+    { text: 'There is work here, or there are leads — one or the other.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel' },
     { text: 'Return to ' + parentName + '.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover' }
   ]), 300);
 }
