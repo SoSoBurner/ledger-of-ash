@@ -78,7 +78,7 @@ window.LOCALITY_NPCS = {
       },
       {
         id: 'tideglass_exposure',
-        text: 'The name she has not written is the one the document was waiting for her to write.',
+        text: 'The missing name is the one she chose not to write.',
         tag: 'bold · persuasion · DC 16',
         skill: 'persuasion',
         dc: 16,
