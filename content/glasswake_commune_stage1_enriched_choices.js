@@ -5,7 +5,7 @@
  * Named NPC: Toman Iceveil (the researcher whose work is being suppressed)
  */
 
-const GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
+var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: TOMAN ICEVEIL
   {

@@ -4,7 +4,7 @@
  * NPCs: Vale Brokerwell (Clerk of Arrivals), Vale Ledgermere (Ward Mediator), Vale Tinmarch (Street Physician)
  */
 
-const UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
+var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Diplomatic transit arrivals not logged in the main registry. Only in a shadow sub-register.",

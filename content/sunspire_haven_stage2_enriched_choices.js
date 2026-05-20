@@ -6,7 +6,7 @@
  *       Taldan Veyst (Magical Knowledge Overseer)
  */
 
-const SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
+var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Suppression requests citing a non-existent regulatory authority. The registry keeps receiving them.",

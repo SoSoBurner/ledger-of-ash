@@ -5,7 +5,7 @@
  *       Cadrin Sealwater (Market Clerk), Liora Sealwater (Shrine Attendant), Theron Sealwater (Porter)
  */
 
-const AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
+var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sensors were changed. The dome still reads safe.",

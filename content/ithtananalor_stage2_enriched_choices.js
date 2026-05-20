@@ -5,7 +5,7 @@
  *       Harlan Ironspike (Innkeeper), Ivena Ironspike (Market Clerk), Brenn Ironspike (Shrine Attendant)
  */
 
-const ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
+var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Iron Ledger Ward has three ghost accounts that were flagged and then left alone.",

@@ -4,7 +4,7 @@
  * NPCs: Darian Ironspike (Ore Officer), Velka Ironspike (Quarry Overseer)
  */
 
-const IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
+var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Six months of 'special mineral assessment' entries. No assay reports back any of them.",

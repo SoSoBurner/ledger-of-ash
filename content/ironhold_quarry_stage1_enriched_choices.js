@@ -5,7 +5,7 @@
  * Named NPCs: Darian (the operations lead), Velka Ironspike (the veteran mine overseer who knows something is wrong)
  */
 
-const IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
+var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: VELKA IRONSPIKE
   {

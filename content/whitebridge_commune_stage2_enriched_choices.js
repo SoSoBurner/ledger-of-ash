@@ -5,7 +5,7 @@
  *       Aster Starice (Night-Lantern Inspector), Thora Snowveil (Grain Measurer)
  */
 
-const WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
+var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A twelve-day crossing pattern matching the northern courier schedule Vaelis identified in Fairhaven.",

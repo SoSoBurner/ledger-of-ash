@@ -5,7 +5,7 @@
  *       Saryna Sepulcher (Market Clerk), Velune Sepulcher (Shrine Attendant), Ithren Sepulcher (Porter)
  */
 
-const PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
+var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The afterlife ledger has irregular entries. The clustering is not administrative error.",

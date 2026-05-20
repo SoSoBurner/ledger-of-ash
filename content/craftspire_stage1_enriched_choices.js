@@ -5,7 +5,7 @@
  * Named NPC: Jorin (the guild workshop master who first noticed the chemical input anomalies)
  */
 
-const CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
+var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: JORIN
   {

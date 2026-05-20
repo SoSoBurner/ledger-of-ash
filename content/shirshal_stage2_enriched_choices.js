@@ -5,7 +5,7 @@
  *       Khalis Coilspire (Market Clerk), Sivren Coilspire (Shrine Attendant), Luneth Coilspire (Porter)
  */
 
-const SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
+var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tazren's case file touches every thread I've followed. He's been at this longer.",

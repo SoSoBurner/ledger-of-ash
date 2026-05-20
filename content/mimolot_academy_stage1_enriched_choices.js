@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in specific NPC perspective, layered wrongness reveal
  */
 
-const MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
+var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. SENIOR LIBRARIAN: RESEARCH RESTRICTIONS TIGHTENING

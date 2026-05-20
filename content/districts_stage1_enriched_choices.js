@@ -6,7 +6,7 @@
  */
 
 // ——— CANON DISTRICT: AURORA HEIGHTS (elite courts, formal archives) ———
-const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
+var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "The Aurora Heights notice board carries formal announcements. Worth reading.",
@@ -118,7 +118,7 @@ const AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— CANON DISTRICT: IRONSPOOL WARD (industrial, labor, contraband) ———
-const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
+var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "The Ironspool shift change. Workers moving between stations, talking without guards around.",
@@ -228,7 +228,7 @@ const IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— CANON DISTRICT: VERDANT ROW (botanical, healing, social fabric) ———
-const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
+var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "Visit the Verdant Row botanical station — public research space for atmospheric and plant science.",
@@ -301,7 +301,7 @@ const VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— CANON DISTRICT: GRANARY STEPS (grain trade, Zootia polity flavor) ———
-const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
+var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "The Granary Steps distribution floor at morning intake. Where Harvest Circle's chain ends.",
@@ -382,7 +382,7 @@ const GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— CANON DISTRICT: IRON LEDGER WARD (financial records, debt leverage) ———
-const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
+var IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "Three shell entities in the transaction registry, each below the audit threshold on its own.",
@@ -470,7 +470,7 @@ const IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— CANON DISTRICT: RECKONING QUARTER (justice, dangerous intel) ———
-const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
+var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "Three cases against northern bloc aliases. Transferred to administrative review. All frozen.",
@@ -554,7 +554,7 @@ const RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— CANON DISTRICT: SCRIPTORIUM STEPS (scholarly, forbidden texts) ———
-const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
+var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "One text in the atmospheric section has a pencil note: 'See Iceveil for updated findings.'",
@@ -641,7 +641,7 @@ const SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— SYNTHETIC POOL: HIGH QUARTER (formal power, high-skill choices) ———
-const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
+var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "The High Quarter administrative hearing. District authority and resource allocation in dispute.",
@@ -728,7 +728,7 @@ const HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— SYNTHETIC POOL: COMMON QUARTER (trade, social, survival-tagged) ———
-const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
+var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "The Common Quarter market. Open stalls, loud, the genuine center of the district.",
@@ -800,7 +800,7 @@ const COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
 ];
 
 // ——— SYNTHETIC POOL: LOW WARD (labor, contraband, combat-adjacent) ———
-const LOW_WARD_STAGE1_ENRICHED_CHOICES = [
+var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
 
   {
     label: "Low Ward dock workers move freight the manifests don't fully describe.",

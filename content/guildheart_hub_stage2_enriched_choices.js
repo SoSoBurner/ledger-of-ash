@@ -5,7 +5,7 @@
  *       Nyra Ledgermere (Shrine Attendant), Luthen Ledgermere (Porter), Sable Ledgermere (Scribe)
  */
 
-const GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
+var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sealed charter pattern appears in three filed freight exemptions. Not once by accident.",

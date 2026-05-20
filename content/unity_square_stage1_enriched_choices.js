@@ -5,7 +5,7 @@
  * Named NPC: Vale Brokerwell (the senior arbiter whose legitimacy is in question)
  */
 
-const UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
+var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: VALE BROKERWELL
   {

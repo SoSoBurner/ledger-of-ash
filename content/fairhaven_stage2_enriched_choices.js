@@ -5,7 +5,7 @@
  *       Vaelis Sunweave (Innkeeper), Maris Sunweave (Market Clerk)
  */
 
-const FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
+var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A sealed-charter buyer and a northwest staging coordinate circled in red. Thalen's ledger.",

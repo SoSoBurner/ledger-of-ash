@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in shift work and industrial pressure, layered wrongness reveal
  */
 
-const SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
+var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. FOREMAN: QUOTA ESCALATION PATTERN

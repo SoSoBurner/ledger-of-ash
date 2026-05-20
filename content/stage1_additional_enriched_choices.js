@@ -13,7 +13,7 @@
  * - Safe haven establishment (non-combat discovery)
  */
 
-const STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
+var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== PERSONAL CONNECTION PATHS (Non-investigation) ==========
   {
     label: "Sit at the edge of a market or tavern and listen without asking anything.",

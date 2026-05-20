@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in floating intellectual metropolis politics and maritime hierarchy
  */
 
-const COSMORIA_STAGE1_ENRICHED_CHOICES = [
+var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. STABLE FACTOR: TRADE ROUTES MANIPULATION

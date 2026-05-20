@@ -6,7 +6,7 @@
  *       Valen Crestmark (Harvest Assessor)
  */
 
-const HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
+var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Panim memorial manifests have been using harvest shipment routing numbers. The records prove it.",

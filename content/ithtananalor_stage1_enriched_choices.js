@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in specific NPC perspective, layered wrongness reveal
  */
 
-const ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
+var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. MARTIAL COMMANDER: COMMAND STRUCTURE FRACTURING

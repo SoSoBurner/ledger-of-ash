@@ -5,7 +5,7 @@
  * Named NPC: Letha Dawnsilk (the outpost commander whose pressure measurement records have been suppressed)
  */
 
-const PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
+var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: LETHA DAWNSILK
   {

@@ -5,7 +5,7 @@
  * Named NPC: Cadrin (the bridge keeper whose records have started showing anomalies)
  */
 
-const WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
+var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 1. FIRST ENCOUNTER: CADRIN
   {

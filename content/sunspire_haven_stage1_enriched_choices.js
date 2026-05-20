@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in family politics and resource networks, layered wrongness reveal
  */
 
-const SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
+var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. SYNDICATE YARD MASTER: CONVOY ROUTE CHANGES

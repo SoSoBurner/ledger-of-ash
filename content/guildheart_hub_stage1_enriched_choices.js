@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in guild politics and merchant coordination, layered wrongness reveal
  */
 
-const GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
+var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. GUILD ARBITRATOR: DISPUTE RESOLUTION FAILURES

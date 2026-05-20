@@ -4,7 +4,7 @@
  * NPCs: Researcher Toman Iceveil (Contamination Research Lead), Lenna Bannerhold (Commune Research Clerk)
  */
 
-const GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
+var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Shard output tracks against external glyph pressure events. The shards respond to engineered surges.",

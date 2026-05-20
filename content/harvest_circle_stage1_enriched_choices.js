@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in grain steward politics and patron-family hierarchy
  */
 
-const HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
+var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. GRAIN MEASURER: QUOTA MANIPULATION

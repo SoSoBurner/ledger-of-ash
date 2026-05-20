@@ -5,7 +5,7 @@
  *       High Priestess Lyara Dawnlight, Innkeeper Aelra Velvetmere
  */
 
-const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
+var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   // ── INVESTIGATION ARC ──────────────────────────────────────────────────
 

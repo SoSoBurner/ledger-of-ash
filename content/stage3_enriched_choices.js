@@ -2,7 +2,7 @@
 // 20 choices split into Group A (faction pressure) and Group B (deep evidence).
 // Ready to splice into the stage3 enriched choices array.
 
-const STAGE3_ENRICHED_CHOICES = [
+var STAGE3_ENRICHED_CHOICES = [
 
 // ─── GROUP A: FACTION PRESSURE ───────────────────────────────────────────────
 

@@ -4,7 +4,7 @@
  * NPCs: Patrol Leader (Patrol Leader), Shrine Keeper Cysur (Shrine Keeper), Letha Dawnsilk (Hazard Reader)
  */
 
-const PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
+var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Persistent glyph pressure gradient pointing northwest. It points toward the staging location.",

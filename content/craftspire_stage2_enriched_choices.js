@@ -5,7 +5,7 @@
  *       Copy Warden (Copy Legitimacy Warden)
  */
 
-const CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
+var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Specialty chemical inputs appear in the ledgers. No purchase orders exist for them.",

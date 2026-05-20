@@ -6,7 +6,7 @@
  *       Decon Von Reckshem (Wizard Advisor and Relic Strategist)
  */
 
-const SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
+var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Relic Wing requisitions under 'northern defense assessment' match suppression compound precursor profiles.",

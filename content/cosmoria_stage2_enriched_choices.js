@@ -5,7 +5,7 @@
  *       Selka Tideglass (Innkeeper), Tavian Tideglass (Market Clerk), Nerissa Tideglass (Shrine Attendant)
  */
 
-const COSMORIA_STAGE2_ENRICHED_CHOICES = [
+var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Seventeen cargo declarations. One vessel name. The vessel has been decommissioned for twelve years.",

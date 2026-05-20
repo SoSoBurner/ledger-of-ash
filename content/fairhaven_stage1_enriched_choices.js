@@ -5,7 +5,7 @@
  * Each choice: 65-80 XP, grounded in specific NPC perspective, layered wrongness reveal
  */
 
-const FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
+var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
   // 1. CHAPEL WORKER: BLESSING EFFICIENCY DEMANDS

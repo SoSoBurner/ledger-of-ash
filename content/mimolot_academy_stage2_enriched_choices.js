@@ -5,7 +5,7 @@
  *       Sarith Quillfire (Market Clerk), Velis Quillfire (Shrine Attendant), Myra Quillfire (Porter)
  */
 
-const MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
+var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression compound formula appears in theoretical texts three years before it was commissioned.",

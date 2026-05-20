@@ -8,7 +8,7 @@
 
 /* ========== CANON DISTRICTS ========== */
 
-const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
+var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sealed charter-period correspondence sits in Aurora Heights archive. The noble registry controls access.",
     tags: ['Investigation', 'Lore', 'Stage2'],
@@ -82,7 +82,7 @@ const AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
+var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Workers who touched the container modifications end their shifts at the ward taverns.",
     tags: ['Investigation', 'Stealth', 'Stage2'],
@@ -195,7 +195,7 @@ const IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
+var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Botanical healers have been quietly documenting suppression compound exposure cases.",
     tags: ['Investigation', 'Lore', 'Stage2'],
@@ -271,7 +271,7 @@ const VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
+var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The routing number theft is in the manifests right now. Catch it before it clears.",
     tags: ['Investigation', 'Craft', 'Stage2'],
@@ -316,7 +316,7 @@ const GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
+var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The suppression compound payments are filed as routine asset transfers in the financial records.",
     tags: ['Investigation', 'Lore', 'Stage2'],
@@ -363,7 +363,7 @@ const IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
+var RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A memorial service provider filed a fraud complaint, then withdrew it. Pressure was applied.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
@@ -410,7 +410,7 @@ const RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
+var SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Scriptorium Steps has a back-channel that bypasses Academy mail. The evidence needs that route.",
     tags: ['Craft', 'Lore', 'Stage2'],
@@ -463,7 +463,7 @@ const SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
 
 /* ========== SYNTHETIC DISTRICT TYPE POOLS ========== */
 
-const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
+var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Charter and contract files in the high quarter hall. The credentials may open the gate.",
     tags: ['Investigation', 'Lore', 'Stage2'],
@@ -513,7 +513,7 @@ const HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
+var COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Market stall traders track every unusual shipment. They share freely.",
     tags: ['Survival', 'Stage2'],
@@ -562,7 +562,7 @@ const COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
   }
 ];
 
-const LOW_WARD_STAGE2_ENRICHED_CHOICES = [
+var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The low ward tracks contraband movement. Someone here knows the suppression compound edge.",
     tags: ['Stealth', 'Stage2'],
