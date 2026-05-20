@@ -12969,7 +12969,7 @@ function showLevelUpScreen() {
 
     if (options.length === 0) {
       block.innerHTML = '<div class="lu-title">Your abilities are at their peak.</div>' +
-        '<button class="btn btn-ghost btn-sm" id="btn-lu-done" style="margin-top:12px">Continue</button>';
+        '<button class="btn btn-ghost btn-sm choice-btn" id="btn-lu-done" style="margin-top:12px">Continue</button>';
       el.appendChild(block);
       scrollNarrative();
       block.querySelector('#btn-lu-done').addEventListener('click', function() {
@@ -13050,7 +13050,7 @@ function showLevelUpScreen() {
 
     if (options.length === 0) {
       block.innerHTML = '<div class="lu-title">All abilities unlocked for your archetype.</div>' +
-        '<button class="btn btn-ghost btn-sm" id="btn-lu-ability-done" style="margin-top:12px">Continue</button>';
+        '<button class="btn btn-ghost btn-sm choice-btn" id="btn-lu-ability-done" style="margin-top:12px">Continue</button>';
       el.appendChild(block);
       scrollNarrative();
       block.querySelector('#btn-lu-ability-done').addEventListener('click', function() {
