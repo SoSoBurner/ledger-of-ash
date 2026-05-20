@@ -33,7 +33,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Investigation noticed at chapel', 'complication', `shelk-chapel-burn-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The intermediary confirms a northern connection and stops there. When you press for a name, her hands go still on the prayer cloth. She says: "Not today." She said it like someone who said yes last week and has been paying for it since. The refusal has shape. That shape is more useful than a name would have been.`;
+        G.lastResult = `The intermediary confirms a northern connection and stops there. When you press for a name, her hands go still on the prayer cloth. She says: "Not today." The wax smell of the chapel alcove sits heavy in the space between you. She says it like someone who said yes last week and has been paying for it since. The refusal has shape — a name she knows, a reason she won't share it here. That shape is more useful than a name given reluctantly to the wrong audience.`;
         addJournal('Chapel contact confirms northern link', 'evidence', `shelk-chapel-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -55,12 +55,12 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glyph-letter pattern correlation confirmed', 'evidence', `shelk-glyph-corr-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The archive clerk who logged the surge incidents was reassigned three days ago. No reason on file, no forwarding desk. The surge records are sealed under a Roadwarden review notation — a review with no assigned officer and no scheduled completion date. Someone moved the clerk and locked the door in the same week.`;
+        G.lastResult = `The archive clerk who logged the surge incidents was reassigned three days ago. No reason on file, no forwarding desk. The surge records are sealed under a Roadwarden review notation — a review with no assigned officer and no scheduled completion date. The door the records sit behind is new: the hinges show no dust and the lock mechanism hasn't worn. Someone moved the clerk and locked the door in the same week, and both moves were planned before you arrived to ask.`;
         drawSocialMisstep(G.location);
         addJournal('Glyph records sealed during investigation', 'complication', `shelk-glyph-sealed-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `Three of the five surges align with letter arrival dates. The other two don't. You spread the records on the reading table and check the math twice. Either the letter network only coordinated some of the surges, or a second operation is using the same chapel cover for different business. Both possibilities are worse than a clean pattern.`;
+        G.lastResult = `Three of the five surges align with letter arrival dates. The other two don't. You spread the records on the reading table and check the math twice, then a third time. Either the letter network only coordinated some of the surges, or a second operation is using the same chapel cover for different business. The reading room smells of pressed wax and old hemp fiber. Both possibilities are worse than a clean pattern, and the two that don't align refuse to resolve into coincidence.`;
         addJournal('Partial glyph-letter correlation', 'evidence', `shelk-glyph-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -89,7 +89,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Registered as trade inquiry person of interest', 'complication', `shelk-noble-register-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The beneficiaries aren't hidden — three families whose names appear in the chapel letter records are the only ones gaining ground as the disruption runs. You can name them. What you can't show yet is who gave the order and when. The direction is clear. The proof of intent is still a step away.`;
+        G.lastResult = `The beneficiaries aren't hidden — three families whose names appear in the chapel letter records are the only ones gaining ground as the disruption runs. The Verdant Row tally board shows their purchase volume climbing while competitors go quiet. You can name them and place them in the record. What you can't show yet is who gave the order and when: benefiting from a disruption and directing it are not the same thing, and the proof of intent is still a step away.`;
         addJournal('Noble beneficiary pattern identified', 'evidence', `shelk-noble-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -106,7 +106,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       // Only meaningful when investigation has some progress
       const progress = G.investigationProgress;
       if (progress < 3) {
-        G.lastResult = `You lay out what you have on the table: partial dates, two names with unconfirmed roles, a pattern that holds in three of five cases. It isn't enough. Sharing this now hands someone a half-built case they can dismantle or absorb. The picture needs more before it can be moved.`;
+        G.lastResult = `You lay out what you have on the table: partial dates, two names with unconfirmed roles, a pattern that holds in three of five cases and won't hold under scrutiny in the other two. The lamp beside the table burns steady. It isn't enough. Sharing this now hands someone a half-built case they can dismantle, absorb, or redirect against you. The picture needs more before it can be moved. Come back when the gaps are closed.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
@@ -114,11 +114,11 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.stage2_evidence_shared = true;
         G.flags.stage2_evidence_shared_crit = true;
         G.worldClocks.omens = (G.worldClocks.omens||0) + 1;
-        G.lastResult = `You spread the documents across the table and let the archivist read without speaking. They finish, tap one entry, and name a third party you hadn't placed yet — someone who bridges the chapel network and the guild records. They slide the papers back: "Keep going. Carefully." The work is shared now. So is the exposure.`;
+        G.lastResult = `You spread the documents across the table and let the archivist read without speaking. They finish, tap one entry, and name a third party you hadn't placed yet — someone who bridges the chapel network and the guild records, a name that appears twice in the margin notations and nowhere in the body text. They slide the papers back and say: "Keep going. Carefully." The reading room smells of old hemp and pressed wax. The work is shared now. So is the exposure.`;
         addJournal('Evidence shared — investigation expanded', 'evidence', `shelk-evidence-shared-${G.dayCount}`);
       } else {
         G.stage2_evidence_shared = false;
-        G.lastResult = `You folder the documents and put them back in your coat. The advantage of what you know stays yours — no one else's read on it, no one else's agenda shaping where it goes next. The risk stays yours too. That's the same thing said twice.`;
+        G.lastResult = `You folder the documents and put them back in your coat. The advantage of what you know stays yours — no one else's read on it, no one else's agenda shaping where it goes next, no one else's exposure attached to yours. The lamp in the reading room burns without comment. The risk stays yours too. That's the same thing said twice, and both versions are accurate: you are alone in this, and alone is a choice you've made.`;
         addJournal('Evidence withheld — solo investigation continues', 'evidence', `shelk-evidence-held-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -149,7 +149,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Estate entry refused — flagged', 'complication', `shelk-isabella-fail-${G.dayCount}`);
       } else {
         G.flags.met_lady_isabella = true;
-        G.lastResult = `The audience runs seven minutes. Lady Isabella confirms she is aware of irregularities and cannot speak to specifics on record. When you finish your question, her eyes move — not toward the door, toward the window that faces the guild quarter. She doesn't say anything else. She doesn't need to.`;
+        G.lastResult = `The audience runs seven minutes. Lady Isabella confirms she is aware of irregularities and cannot speak to specifics on record. The east sitting room is furnished for brevity — no tea, no second chair for a companion, no art on the wall behind her. When you finish your question, her eyes move — not toward the door, toward the window that faces the guild quarter. The coal smoke from the harbor reaches even this floor. She doesn't say anything else. She doesn't need to.`;
         addJournal('Lady Isabella points toward guild — indirect', 'evidence', `shelk-isabella-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -180,7 +180,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Windrider briefing backfired — logged', 'complication', `shelk-windrider-fail-${G.dayCount}`);
       } else {
         G.flags.met_captain_windrider = true;
-        G.lastResult = `The pattern is confirmed as familiar — the Roadwardens are working it through sanctioned channels. Report new developments. No commitment offered in return; the table stays between the two parties when it's said. The conversation has the texture of someone still deciding what category this belongs in.`;
+        G.lastResult = `The pattern is confirmed as familiar — the Roadwardens are working it through sanctioned channels and have been for some weeks. Report new developments. No commitment offered in return; the table stays between the two parties when it's said. Windrider pours nothing, offers nothing, leaves no pause that invites a counter. The conversation has the texture of someone still deciding what category you belong in, which means you are not yet a problem or a resource. That classification is open.`;
         addJournal('Windrider aware — cautious contact made', 'evidence', `shelk-windrider-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -239,11 +239,11 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.warden_order = (G.factionHostility.warden_order||0) + 2;
-        G.lastResult = `The meeting breaks down at the third question. Something you say — the phrasing, the hesitation — reads to the representative as concealment. They straighten in their chair and stop asking questions. They leave with a formal note already half-written. The Warden Order's posture toward you has shifted: not unaffiliated, not neutral. A risk to be managed.`;
+        G.lastResult = `The meeting breaks down at the third question. Something you say — the phrasing, the hesitation — reads to the representative as concealment. They straighten in their chair and stop asking questions. The inn common room continues its evening noise behind the silence. They leave with a formal note already half-written, not turned toward you. The Warden Order's posture toward you has shifted: not unaffiliated, not neutral. A risk to be managed, and they have the tools for it.`;
         addJournal('Warden Order now treating player as risk', 'complication', `shelk-warden-hostile-${G.dayCount}`);
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
-        G.lastResult = `The meeting ends without commitment from either side. The representative thanks you for your time in the register tone of someone completing an administrative task. You've been assessed. What the assessment produced stays on their side of the table.`;
+        G.lastResult = `The meeting ends without commitment from either side. The representative thanks you for your time in the register tone of someone completing an administrative task — formal, correct, and empty of anything that might be held against either party later. The inn common room goes back to its evening noise behind them. You've been assessed. What the assessment produced stays on their side of the table, filed where you can't read it.`;
         addJournal('Warden Order assessment — neutral', 'contact_made', `shelk-warden-neutral-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
@@ -258,7 +258,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'managing named rival encounter');
       if ((G.worldClocks.rival||0) < 2 && !G.flags.stage2_rival_forced) {
-        G.lastResult = `Multiple sources have confirmed the same description: someone asking the same questions, at the same addresses, one day behind your movements. You haven't shared the same room yet. The gap is real but hasn't closed. The moment to act or avoid hasn't arrived — but it's been scheduled by someone else's timeline.`;
+        G.lastResult = `Multiple sources have confirmed the same description: someone asking the same questions, at the same addresses, one day behind your movements. The herbalist. The archive clerk. The duty board at the garrison. All of them recognize the pattern. You haven't shared the same room yet. The gap is real but hasn't closed. The moment to act or avoid hasn't arrived — but it's been scheduled by someone else's timeline, and that someone is precise.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
       const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
@@ -277,7 +277,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Rival now actively hostile — Stage 3 impact', 'complication', `shelk-rival-hostile-${G.dayCount}`);
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
-        G.lastResult = `The encounter lasts less than a minute. Neither party extends it. You both leave with the same information you arrived with, plus one new fact: the other is active, present, and not going to stop. The gap between you stays one day.`;
+        G.lastResult = `The encounter lasts less than a minute. Neither party extends it. The street between you at the south market gate is quiet at this hour — a fish-salt smell off the harbor, a guild clerk crossing thirty feet away. You both leave with the same information you arrived with, plus one new fact: the other is active, present, and not going to stop. The gap between you stays one day. That day is getting shorter.`;
         addJournal('Rival encountered — neutral outcome', 'evidence', `shelk-rival-neutral-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -307,7 +307,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Warden enrollment accepted — archive access gained', 'contact_made', `shelk-warden-join-${G.dayCount}`);
       } else {
         G.flags.warden_invitation_seen = true;
-        G.lastResult = `You decline for now. The recruiter writes "pending consideration" in the intake log, which is a Roadwarden courtesy phrase that means the offer expires when their patience does. The door stays open. That's a resource you've chosen to hold rather than spend.`;
+        G.lastResult = `You decline for now. The recruiter writes "pending consideration" in the intake log, which is a Roadwarden courtesy phrase that means the offer expires when their patience does. He does not press. He closes the log with the same motion he opened it — no change in expression, no adjustment in posture. The coal-smoke smell of the garrison precinct hangs in the air. The door stays open. That's a resource you've chosen to hold rather than spend, and holding it costs nothing yet.`;
         addJournal('Warden invitation deferred', 'contact_made', `shelk-warden-defer-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
@@ -336,7 +336,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The archive attendant denies access before you finish presenting your credentials. The refusal is polite and immediate — she's done this recently. She writes your name in the access attempt log while you're still standing there. The log is already open to the page. Three other names above yours, from the past two weeks. You're not the first, and the pattern of failures is its own kind of intelligence.`;
         addJournal('Archive access denied and logged', 'complication', `shelk-archive-fail-${G.dayCount}`);
       } else {
-        G.lastResult = `Limited supervised access: the public reading room, a selection of pre-approved texts, forty-five minutes. Nothing sensitive surfaces in what you're given. But when you ask the attendant about the protocol revision records, she pauses before redirecting you. The pause is the answer. What you need is in the restricted section. It's there.`;
+        G.lastResult = `Limited supervised access: the public reading room, a selection of pre-approved texts, forty-five minutes. The cathedral reading room smells of incense-oiled stone and dry hemp. Nothing sensitive surfaces in what you're given. But when you ask the attendant about the protocol revision records, she pauses before redirecting you — a half-second hesitation, controlled immediately. The pause is the answer. What you need is in the restricted section. It's there, and she knows you now know that.`;
         addJournal('Cathedral archive — restricted section confirmed', 'evidence', `shelk-archive-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -366,7 +366,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Verdant Row network challenge — failed', 'complication', `shelk-verdant-fail-${G.dayCount}`);
       } else {
         G.flags.verdant_row_network_partial = true;
-        G.lastResult = `Two of three protocols land. The network accepts you at low-trust level — rumors only, no primary source access, no names confirmed. The rumor they give you is specific enough to act on: a courier running between the Silkweaver's Chapel and the north gate, consistent schedule, every Thursday, same departure window. Partial access. Useful partial access.`;
+        G.lastResult = `Two of three protocols land. The network accepts you at low-trust level — rumors only, no primary source access, no names confirmed. The fish-salt smell of the harbor end of the row drifts through while the contact speaks. The rumor they give you is specific enough to act on: a courier running between the Silkweaver's Chapel and the north gate, consistent schedule, every Thursday, same departure window. Partial access. Useful partial access. The third protocol will be available once the trust is earned.`;
         addJournal('Verdant Row partial access — courier tracked', 'evidence', `shelk-verdant-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -426,7 +426,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Innkeeper log refused — relationship burned', 'complication', `shelk-inn-log-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `Two months of entries come across with several pages folded back — the fold is deliberate, not accidental. What's visible confirms unusual guest coordination: shared timing, shared rooms, inconsistent names. The folded sections are where the record gets specific. This isn't a refusal to help. It's a choice about what help looks like.`;
+        G.lastResult = `Two months of entries come across with several pages folded back — the fold is deliberate, not accidental. The old wood and coal smoke smell of the inn fills the back room. What's visible confirms unusual guest coordination: shared timing, shared rooms, inconsistent names across three separate arrival clusters. The folded sections are where the record gets specific. This isn't a refusal to help. It's a choice about what help looks like: what's shared, and what stays between the innkeeper and whoever might read those pages next.`;
         addJournal('Innkeeper partial log — edited entries noted', 'evidence', `shelk-inn-log-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -451,7 +451,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glyph analysis error — credibility at risk', 'complication', `shelk-glyph-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The scorch pattern suggests external channeling — the lean is there, but the street angle and the tannery smoke stain on the north wall make the direction ambiguous. You document what you can confirm: the surge came from outside the market perimeter. The direction of origin is probable, not certain. Probable is enough to enter as evidence.`;
+        G.lastResult = `The scorch pattern suggests external channeling — the lean is there, visible in the heavier damage on the northwest-facing surfaces, but the street angle and the tannery smoke stain on the north wall introduce enough ambiguity to argue against. You document what you can confirm: the surge came from outside the market perimeter, generated and directed in, not triggered within. The direction of origin is probable, not certain. Probable is enough to enter as evidence if the next read confirms it.`;
         addJournal('Glyph surge — external origin probable', 'evidence', `shelk-glyph-probable-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -493,7 +493,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(95, 'tracing to operation authorization');
       if ((G.investigationProgress) < 6) {
-        G.lastResult = `The evidence on the table points in a direction but doesn't reach the origin. The authorization chain requires more links before the terminal point becomes visible. The shape of the operation is clear. The name at the top is not.`;
+        G.lastResult = `The evidence on the table points in a direction but doesn't reach the origin. Each document names a link; each link points to another that isn't yet in reach. The authorization chain requires more links before the terminal point becomes visible. The tallow smell of the registry table is patient. The shape of the operation is clear. The name at the top is not, and without it the rest is a pattern waiting for its anchor.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 2));
@@ -821,7 +821,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(120, 'Stage 2 investigation resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The picture is not complete. The evidence chain has gaps, and presenting it now hands someone an incomplete case they can absorb or redirect. Stage III requires the full picture. More ground to cover before this can move.`;
+        G.lastResult = `The picture is not complete. The evidence chain has gaps, and presenting it now hands someone an incomplete case they can absorb, redirect, or use to close doors against you. Stage III requires the full picture: authorization confirmed, network mapped, and no missing links that a well-briefed opponent could exploit. The lamp on the table burns steady. More ground to cover before this can move forward.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
@@ -867,7 +867,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_shadowhands_aware) {
-        G.lastResult = 'The chalk mark is still drying on the wall by the dye-quarter alley. Nothing to act on with this contact yet — return after the curl sets and the message has had time to find its intended reader.';
+        G.lastResult = 'The chalk mark is still drying on the wall by the dye-quarter alley. The Ironspool district carries its smell of coal smoke and old tanning vats. Nothing to act on with this contact yet — the mark is a signal, and a signal before its time is just a mark on a wall. Return after the curl sets and the message has had time to find its intended reader. Acting now means arriving before trust is possible.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -887,7 +887,7 @@ const SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_shadowhands_contacted) {
-        G.lastResult = 'Kess has not named the window yet. The night-shift turnover runs during the third bell, and the ledger sits unattended for those twenty minutes — but moving without her timing means moving blind. The signal comes from her side first.';
+        G.lastResult = 'Kess has not named the window yet. The night-shift turnover runs during the third bell, and the ledger sits unattended for those twenty minutes — but moving without her timing means moving blind into a dock station with at least two guards on rotation. The dye-works back room carries the sharp smell of cloth treatment and old wood. The signal comes from her side first. Moving early doesn\'t shorten the wait; it removes the option entirely.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

@@ -115,10 +115,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Shrine Caretaker barred you from faith record access', 'complication', `cosmoria-rituals-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Maris says the communion form was updated at the start of this tide cycle — new language in the tide-oath, a different sequence for the water-sealing at the end. "Doctrine evolves," she says. She recites it like something she rehearsed. When you ask who authorized the change she names a Cosmouth administrative body you haven't heard of before. The same body name appears in the ward charter amendments from the past eight months.`;
+        G.lastResult = `Maris says the communion form was updated at the start of this tide cycle — new language in the tide-oath, a different sequence for the water-sealing at the end. "Doctrine evolves," she says. She recites it like something she rehearsed. When you ask who authorized the change she names a Cosmouth administrative body you haven't heard of before. The same body name appears on three of the ward charter amendments filed in the past eight months. A body with that name and that kind of reach doesn't authorize ritual changes by accident.`;
         addJournal('Shrine Caretaker confirmed recent ritual modifications', 'evidence', `cosmoria-rituals-changed-${G.dayCount}`);
       } else {
-        G.lastResult = `Maris says ritual records are restricted to initiated caretakers. Her answer is polite and complete and tells you nothing. The ritual text you need is written on a board inside the water gate — visible from the threshold but not from outside it. You are standing outside it.`;
+        G.lastResult = `Maris says ritual records are restricted to initiated caretakers. Her answer is polite and complete and tells you nothing. The ritual text you need is written on a board inside the water gate — visible from the threshold but not from outside it. You are standing outside it. A caretaker apprentice sweeping the threshold steps between you and the board before you finish reading. The step is not accidental. The board is not meant to be read from where you are.`;
         addJournal('Shrine rituals blocked without ceremonial access', 'evidence', `cosmoria-rituals-blocked-${G.dayCount}`);
       }
 
@@ -396,7 +396,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('House Cosmouth alerted to network analysis', 'complication', `cosmoria-network-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The public trader registry shows turnover — names dropping off, new names appearing. Without the historical roster for comparison you can only see the current state, not the shape of what changed. What's visible: four of the seven newest registrations share an address in the Cosmouth merchant quarter. That much is in the public record.`;
+        G.lastResult = `The public trader registry shows turnover — names dropping off, new names appearing. Without the historical roster for comparison you can only see the current state, not the shape of what changed. What's visible: four of the seven newest registrations share an address in the Cosmouth merchant quarter. A fifth registration was filed by the same notary who certified two of the ward charter amendments. The connections are in the public record if you know which columns to line up.`;
         addJournal('Merchant network composition changes confirmed', 'evidence', `cosmoria-network-modified-${G.dayCount}`);
       } else {
         G.lastResult = `The current trader registry shows who's active, not who isn't. Without access to the decline records or the historical roster, you can map what's present but not what was removed. Two independent merchants you speak to on the lower docks confirm departures — "Essad left in the fourth month, Corl three weeks after" — and name the dock allocation denials that preceded each departure. Dock allocation decisions are logged by berth date in the stable factor's public scheduling record.`;
@@ -436,7 +436,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Archive authorities monitoring information restriction inquiry', 'complication', `cosmoria-info-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The access list is shorter than it should be for an archive this size. Several categories are marked with a new classification stamp — a red border around the entry — that wasn't in use last season. The stamp says "administrative hold, pending review." The review has no listed completion date and no listed reviewer.`;
+        G.lastResult = `The access list is shorter than it should be for an archive this size. Several categories are marked with a new classification stamp — a red border around the entry — that wasn't in use last season. The stamp says "administrative hold, pending review." The review has no listed completion date and no listed reviewer. The patron seated across from you glances at the entries you're reading, then angles his own copy away. He has noticed what you're looking at. He does not appear surprised by it.`;
         addJournal('Archive access restriction changes confirmed', 'evidence', `cosmoria-info-restricted-${G.dayCount}`);
       }
 
@@ -473,10 +473,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('House Cosmouth security alerted to ambition analysis', 'complication', `cosmoria-ambition-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The public appointment records show the names and the positions. What they don't show is the promotion history — how these individuals advanced from their prior roles, what qualifications were assessed, who recommended them. Without the internal files, you have the outcome but not the mechanism. The outcome is clear enough: all three newly powerful positions were created and filled within a single administrative session.`;
+        G.lastResult = `The public appointment records show the names and the positions. What they don't show is the promotion history — how these individuals advanced from their prior roles, what qualifications were assessed, who recommended them. Without the internal files, you have the outcome but not the mechanism. The outcome is clear enough: all three newly powerful positions were created and filled within a single administrative session. The same session that amended the ward charter twice without a public hearing.`;
         addJournal('Power advancement pattern changes confirmed', 'evidence', `cosmoria-ambition-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `The public record confirms unusual appointment timing but not the coordination behind it. You can see that three people were elevated simultaneously into newly created positions. You can't see who created those positions, what criteria were applied, or whether the appointments were connected — that documentation is in the internal administrative files, not the public registry.`;
+        G.lastResult = `The public record confirms unusual appointment timing but not the coordination behind it. You can see that three people were elevated simultaneously into newly created positions. You can't see who created those positions, what criteria were applied, or whether the appointments were connected — that documentation is in the internal administrative files, not the public registry. Three positions created at once, filled at once. The coincidence requires an explanation that the public filing does not provide.`;
         addJournal('Individual power tracking incomplete', 'evidence', `cosmoria-ambition-partial-${G.dayCount}`);
       }
 
@@ -553,7 +553,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Quartermaster alerted to supply tracking', 'complication', `cosmoria-scarcity-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Three independent builders confirm their allocation requests came back short this quarter. All three used the word "shortage" and all three were told the shortage was seasonal. The seasonal shortage explanation doesn't account for why the Cosmouth brig that launched yesterday had full-weight rope fittings. You saw the fittings. They weren't short on anything.`;
+        G.lastResult = `Three independent builders confirm their allocation requests came back short this quarter. All three used the word "shortage" and all three were told the shortage was seasonal. The seasonal shortage explanation doesn't account for why the Cosmouth brig that launched yesterday had full-weight rope fittings — bright new cordage, heavy gauge, no splice or repair. You saw the fittings from the upper berth walk. The builders who need that same rope are still waiting on their allocation requests, still being told to expect seasonal delays.`;
         addJournal('Resource distribution modifications detected', 'evidence', `cosmoria-scarcity-modified-${G.dayCount}`);
       } else {
         G.lastResult = `You can see that independent builders are receiving less than they ordered. You can't see the warehouse inventory or the allocation orders that determine who gets what. The builders themselves don't have that documentation — they only have the shortage. The Iron Compact's cargo projections include inbound supplier manifests as part of their routing data; the same documents the harbor warehouse controls appear in the Compact's commercial intake log as a separate filing.`;
@@ -774,10 +774,10 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Inquiry intercepted by external coordination operators', 'complication', `cosmoria-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
-        G.lastResult = `The financial transfer records show an external origin — a northern harbor address appearing in three separate documents across different institutions. Whether those transfers purchased the charter amendments, the supply diversions, or something else isn't yet clear. The address exists. The payments were made. Whatever is being done to Cosmoria was funded from somewhere that is not Cosmoria.`;
+        G.lastResult = `The financial transfer records show an external origin — a northern harbor address appearing in three separate documents across different institutions. Whether those transfers purchased the charter amendments, the supply diversions, or something else isn't yet clear. The address exists. The payments were made. Whatever is being done to Cosmoria was funded from somewhere that is not Cosmoria. The funding predates the first ward charter amendment by six weeks. Whoever initiated this started paying before the structural changes began.`;
         addJournal('External coordination of Cosmoria confirmed', 'discovery', `cosmoria-origin-external-${G.dayCount}`);
       } else {
-        G.lastResult = `The trail ends at a gap: the courier manifest Tideon mentioned is in a section of the arrival log that's under administrative hold. The financial transfer records reference an account number without a registered owner. There's enough to know the coordination is external. Not enough to trace it further. The gap is deliberate — it's been left exactly here, at the point where the thread would connect to a name.`;
+        G.lastResult = `The trail ends at a gap: the courier manifest Tideon mentioned is in a section of the arrival log that's under administrative hold. The financial transfer records reference an account number without a registered owner. There's enough to know the coordination is external. Not enough to trace it further. The gap is deliberate — it's been left exactly here, at the point where the thread would connect to a name. That precision is itself a kind of answer. Someone knew this was the point to protect.`;
         addJournal('External coordination suspected but source not yet identified', 'evidence', `cosmoria-origin-unclear-${G.dayCount}`);
       }
 
@@ -812,7 +812,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_ghost_vessel_evidence = true;
         addJournal('Ghost vessels: seven without return manifests, flags manually cleared by single administrator on irregular schedule', 'evidence', `cosmoria-ghost-vessels-${G.dayCount}`);
       } else {
-        G.lastResult = `The departure registry shows vessels without return entries — that much is in the public log. The clearance records that explain why no follow-up was issued are in the harbor administration files, restricted to maritime inspector credential holders. You can see the gap in the registry. You can't yet see who filled it in.`;
+        G.lastResult = `The departure registry shows vessels without return entries — that much is in the public log. The clearance records that explain why no follow-up was issued are in the harbor administration files, restricted to maritime inspector credential holders. You can see the gap in the registry. You can't yet see who filled it in. Seven gaps, the same shape. The harbor clerk at the summary window replaces the ledger on the shelf without comment when you lean in to count the entries. He noticed you counting.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
@@ -891,7 +891,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_iron_compact_cosmoria = true;
         G.factionHostility.iron_compact += 1;
-        addJournal('faction', 'Iron Compact agent Sull Crenn: ghost vessels disrupt routing data, willing to exchange cargo pattern information', `cosmoria-iron-${G.dayCount}`);
+        addJournal('Iron Compact agent Sull Crenn: ghost vessels disrupt routing data, willing to exchange cargo pattern information', 'contact_made', `cosmoria-iron-${G.dayCount}`);
       } else {
         G.lastResult = `The Iron Compact office is mid-transaction when you arrive — two cargo agents negotiating a crane priority slot, a third waiting with a manifest folder. Sull Crenn is visible through the office window but his clerk intercepts you at the door. Appointments only. Submit your purpose in writing. You can see the departure schedule board on the wall behind Crenn. The seven ghost vessel dates are visible on it — noted in a different ink than the surrounding entries. He's tracking them already.`;
         if (!G.flags) G.flags = {};
@@ -957,7 +957,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
         if (!G.flags) G.flags = {};
         G.flags.met_kavan_sailor = true;
-        addJournal('contact', 'Sailor Kavan: Shelf Islands delivery, sealed uniform cases, private mooring, no official presence — triple rate', `cosmoria-kavan-${G.dayCount}`);
+        addJournal('Sailor Kavan: Shelf Islands delivery, sealed uniform cases, private mooring, no official presence — triple rate', 'contact_made', `cosmoria-kavan-${G.dayCount}`);
       } else {
         G.lastResult = `The harbor is quieter than yesterday in certain pockets — the tavern by berth three, the rope-mender's bench near the lower gate, the usual spots. A net-mender says the crews from berths four and six haven't been around since midmorning. Word moves fast in a working harbor. Someone on those crews knows questions are circulating and has decided today isn't a good day to be findable. The empty stools do the answering for them.`;
       }
@@ -998,7 +998,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative investigated Cosmoria ghost vessels before you — multi-source triangulation approach', `cosmoria-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative investigated Cosmoria ghost vessels before you — multi-source triangulation approach', 'intelligence', `cosmoria-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -1009,7 +1009,7 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A cargo manifest dispute notice and two tide-schedule adjustments from yesterday are still pinned at the top. Salt air has curled the bottom edge of the older posting. Nothing worth copying down.';
+      G.lastResult = 'The board has nothing new since this morning. A cargo manifest dispute notice and two tide-schedule adjustments from yesterday are still pinned at the top. Salt air has curled the bottom edge of the older posting. Below the tide adjustments, a handwritten card — undated, unsigned — gives a berth number and a time. Someone wants a meeting that does not need a name attached to it. The card was not there this morning.';
       return;
     }
     G.flags[key] = true;
@@ -1026,12 +1026,12 @@ const COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(55, 'at the dockside tavern');
       var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getTraitBonus==='function'?getTraitBonus('lore'):0));
       if (result.total >= 11) {
-        G.lastResult = "The barman at the Anchor counts his coin between every exchange — a habit, not suspicion. He mentions that the southern berths have been rotating faster than seasonal demand explains. Two vessels arrived, took on no cargo, and left within a day. He doesn't know what that means. He knows it isn't nothing.";
+        G.lastResult = "The barman at the Anchor counts his coin between every exchange — a habit, not suspicion. He mentions that the southern berths have been rotating faster than seasonal demand explains. Two vessels arrived, took on no cargo, and left within a day. He doesn't know what that means. He knows it isn't nothing. A dockworker at the far end of the bar sets down his cup when the barman says it. He doesn't look up. He doesn't have to. The barman switches topics.";
         G.recentOutcomeType = 'success';
         G.investigationProgress = (G.investigationProgress||0) + 1;
         addJournal('Cosmoria dockside: two vessels arrived with no cargo uptake, left within a day', 'intelligence');
       } else {
-        G.lastResult = "The barman is polite and uninformative. The dockworkers aren't talking where a stranger can hear. The Anchor's common room runs on familiarity; a new face gets service and nothing else. The round costs more than it should and returns nothing useful.";
+        G.lastResult = "The barman is polite and uninformative. The dockworkers aren't talking where a stranger can hear. The Anchor's common room runs on familiarity; a new face gets service and nothing else. The round costs more than it should and returns nothing useful. Salt and pitch smell off the men at the far end of the bar — berth workers, not sailors. They're talking in the low register used by people who have already decided what not to say out loud.";
         G.recentOutcomeType = 'neutral';
       }
     },
