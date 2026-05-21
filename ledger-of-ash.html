@@ -4183,10 +4183,10 @@ function showStrategyCalls() {
   if (!CS) return;
   var flavor = (G.orderAxis||0) > 20 ? 'tactical precision' : (G.benevolence||0) > 15 ? 'protective urgency' : 'cold assessment';
   (window._rawRenderChoices || window.renderChoices)([
-    { text: 'Focus minions — eliminate support first', action: function(){ CS.strategyActive = 'focus_minions'; CS.strategyRoundsLeft = 2; addNarration('Strategy','You call with ' + flavor + ': eliminate their support. Companions shift focus.'); renderCombatRound(); } },
+    { text: 'Focus minions — eliminate support first', action: function(){ CS.strategyActive = 'focus_minions'; CS.strategyRoundsLeft = 2; CS._focusMinionOrigAtk = CS.enemy ? CS.enemy.attack : undefined; addNarration('Strategy','You call with ' + flavor + ': eliminate their support. Companions shift focus.'); renderCombatRound(); } },
     { text: 'Focus boss — all pressure on the primary target', action: function(){ CS.strategyActive = 'focus_boss'; CS.strategyRoundsLeft = 2; addNarration('Strategy','You point at the center. Every companion understands.'); renderCombatRound(); } },
     { text: 'Defensive line — hold position, protect wounded', action: function(){ CS.strategyActive = 'defensive'; CS.strategyRoundsLeft = 2; addNarration('Strategy','Hold. You make the word sound like a wall.'); renderCombatRound(); } },
-    { text: 'Hold range — maintain distance, let ranged attack', action: function(){ CS.strategyActive = 'hold_range'; CS.strategyRoundsLeft = 2; CS.rangeTier = 'medium'; addNarration('Strategy','Back. Give yourself room. The companions spread.'); renderCombatRound(); } }
+    { text: 'Hold range — maintain distance, let ranged attack', action: function(){ CS.strategyActive = 'hold_range'; CS.strategyRoundsLeft = 2; CS.rangeTier = 'medium'; CS.rangeLocked = true; addNarration('Strategy','Back. Give yourself room. The companions spread.'); renderCombatRound(); } }
   ]);
 }
 
@@ -4636,7 +4636,13 @@ function resolveCombatAction(action, abilityId) {
       CS.rangeLocked = true;
     }
     CS.strategyRoundsLeft--;
-    if (CS.strategyRoundsLeft <= 0) CS.strategyActive = null;
+    if (CS.strategyRoundsLeft <= 0) {
+      if (CS.strategyActive === 'focus_minions' && CS._focusMinionOrigAtk !== undefined) {
+        if (CS.enemy) CS.enemy.attack = CS._focusMinionOrigAtk;
+        CS._focusMinionOrigAtk = undefined;
+      }
+      CS.strategyActive = null;
+    }
   } else {
     // Clear range lock when strategy expires
     CS.rangeLocked = false;
