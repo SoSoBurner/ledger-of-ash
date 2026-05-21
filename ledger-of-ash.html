@@ -1589,6 +1589,8 @@ input, button, select, textarea { font-family: inherit; }
 .shop-item-cost { font-family: var(--font-display); font-size: 12.1px; color: var(--gold); font-weight: 700; white-space: nowrap; }
 .shop-buy-btn { background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); padding: 5px 10px; cursor: pointer; font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
 .shop-buy-btn:hover { background: var(--ember); color: var(--white); box-shadow: 0 2px 10px var(--ember-glow); }
+.sell-item-btn { background: #7a3a1e; color: #e8d5b0; border: 1px solid #c17f3a; border-radius: 3px; padding: 2px 8px; cursor: pointer; font-size: 0.85em; flex-shrink: 0; margin-left: 4px; }
+.sell-item-btn:hover { background: #a04d28; }
 .train-btn { background: var(--storm-lo); border: 1px solid var(--storm); color: var(--storm-hi); padding: 6px 12px; cursor: pointer; font-family: var(--font-display); font-size: 9.9px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
 .train-btn:hover { border-color: var(--gold-lo); color: var(--gold-bright); }
 
@@ -12417,6 +12419,24 @@ function unequipItem(slot) {
   showToast('Unequipped: ' + (item ? item.name : slot));
 }
 
+function sellItem(idx) {
+  if (!G.inventory || !G.inventory[idx]) return;
+  var item = G.inventory[idx];
+  if (item.equipped) return; // cannot sell equipped items
+
+  // Fence Network trait: sell at full price; otherwise 50%
+  var hasFence = G.traits && G.traits.some(function(t) {
+    return (t.id === 'fence_network' || t.traitId === 'fence_network');
+  });
+  var sellPrice = hasFence ? (item.cost || 0) : Math.floor((item.cost || 0) * 0.5);
+
+  modGold(sellPrice);
+  G.inventory.splice(idx, 1);
+  showToast('Sold ' + item.name + ' for ' + sellPrice + ' gold');
+  saveGame();
+  showCharSheetTab('inventory'); // refresh and stay on inventory tab
+}
+
 // ── WOUNDS AND RECOVERY ───────────────────────────────────
 function updateRecoveryState() {
   const pct = G.hp / G.maxHp;
@@ -15248,11 +15268,15 @@ function showCharSheet() {
                 ? '<button class="btn btn-ghost btn-xs" onclick="unequipItem(\'' + (item.type === 'weapon' ? 'weapon' : item.type === 'armor' ? 'armor' : 'tool') + '\');showCharSheetTab(\'inventory\')" style="flex-shrink:0">Unequip</button>'
                 : (isEquippable ? '<button class="btn btn-ghost btn-xs" onclick="equipItem(' + idx + ');showCharSheetTab(\'inventory\')" style="flex-shrink:0">Equip</button>'
                 : (isConsumable ? '<button class="btn-use-item" onclick="useConsumable(' + idx + ')">USE</button>' : ''));
+              const atShop = typeof SHOP_INVENTORY !== 'undefined' && SHOP_INVENTORY && SHOP_INVENTORY[G.location];
+              const sellBtn = (!item.equipped && atShop)
+                ? '<button class="sell-item-btn" onclick="sellItem(' + idx + ')">Sell</button>'
+                : '';
               return '<div class="char-stat-row" style="align-items:center">' +
                 '<span class="char-stat-key" style="flex:1">' + item.name +
                 (item.equipped ? ' <span style="color:var(--jade-bright);font-size:9px;font-family:Cinzel,serif;letter-spacing:1px">EQUIPPED</span>' : '') +
                 (item.skillBonus ? ' <span style="color:var(--ink-faint);font-size:11px">+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'}[item.skillBonus] || item.skillBonus) + '</span>' : '') +
-                '</span>' + btn +
+                '</span>' + btn + sellBtn +
               '</div>';
             }).join('')) +
         '</div>';
