@@ -157,7 +157,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Coralyn's secondary ledger has a third column. She didn't show it.",
-    tags: ['stage2', 'cosmoria'],
+    tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -181,7 +181,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The night platform uses different quay markings. Someone painted over the originals.",
-    tags: ['stage2', 'cosmoria'],
+    tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -204,7 +204,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The archive staff read the form, not the question. They noticed the wrong thing.",
-    tags: ['stage2', 'cosmoria'],
+    tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -229,7 +229,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The decommission file has a witness signature. No current Harbor Authority officer owns it.",
-    tags: ['Stage2', 'NPC'],
+    tags: ['Stage2', 'NPC', 'Evidence'],
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -260,7 +260,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The night manifest has a column the day manifest doesn't. Someone added it.",
-    tags: ['Stage2', 'NPC'],
+    tags: ['Stage2', 'NPC', 'Evidence'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -625,7 +625,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Cosmoria Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence chain has gaps. Marrow's departure logs, Coralyn's secondary ledger, Selka's booking record — each documents a piece. The piece that links the transit route to the Shelkopolis surge mechanism isn't assembled yet. Presenting an incomplete case to either the Harbor Authority or the airship network risks the whole thread being dismissed or buried before the key documents can be pulled. More time in Cosmoria first.`;
+        G.lastResult = `The evidence chain has gaps. The vessel departure logs, the secondary ledger from the harbor clerk, the airship booking record — each documents a piece. The piece that links the transit route to the Shelkopolis surge mechanism isn't assembled yet. Presenting an incomplete case to either the Harbor Authority or the airship network risks the whole thread being dismissed or buried before the key documents can be pulled. More time in Cosmoria first.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -707,7 +707,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The reading room patron closes the same volume to the same page every afternoon.",
-    tags: ['stage2', 'cosmoria'],
+    tags: ['Stage2'],
     xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -729,7 +729,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "An apprentice name sits on the yard rolls without a commission assignment.",
-    tags: ['stage2', 'cosmoria'],
+    tags: ['Stage2'],
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -750,7 +750,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The tax hall posting runs one column short this quarter.",
-    tags: ['stage2', 'cosmoria'],
+    tags: ['Stage2'],
     xpReward: 38,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -772,7 +772,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'A sealed filing in the wrong stack. Collegium seal, not guild',
-    tags: ['Records', 'Evidence'],
+    tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -787,7 +787,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The administrator checks the same folder before answering anything',
-    tags: ['NPC', 'Intelligence'],
+    tags: ['Stage2', 'NPC', 'Intelligence'],
     xpReward: 15,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -801,7 +801,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The hold stamp is dated three weeks after the document was filed',
-    tags: ['Records', 'Evidence'],
+    tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

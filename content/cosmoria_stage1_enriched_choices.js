@@ -229,7 +229,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Sevrin keeps his own records in a salt-warped notebook that he doesn't leave at the clinic. He opens it on his knee rather than on the desk. "Three families in the lower ward, respiratory. I listed it as acute. The harbor health roll came back listing it as seasonal minor." He shows you his entry. Shows you the official copy. The official copy has a different date and a different severity category. "I haven't corrected it," he says quietly. "Because I don't know who's reading my corrections." He closes the notebook.`;
+        G.lastResult = `Sevrin keeps his own records in a salt-warped notebook that he doesn't leave at the clinic. He opens it on his knee rather than on the desk. "Three families in the lower ward, respiratory. I listed it as acute. The harbor health roll came back listing it as seasonal minor." He shows you his entry. Shows you the filed copy. The filed copy has a different date and a different severity category. "I haven't corrected it," he says quietly. "Because I don't know who's reading my corrections." He closes the notebook.`;
         G.stageProgress[1]++;
         addJournal('Street Physician revealed falsified health records system', 'evidence', `cosmoria-health-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -655,7 +655,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const rumor = ['historical records are being destroyed to hide precedent for merchant independence', 'archive access is being restricted to control what citizens can learn', 'documents proving House Cosmouth overreach are being sealed permanently', 'the archive keeper is being forced to cooperate with document destruction', 'Cosmoria\'s entire historical foundation is being deliberately rewritten'];
       const selected = rumor[Math.floor(Math.random() * rumor.length)];
 
-      G.lastResult = `In the reading room above the harbor, between shelves of salt-stiffened ledgers: "${selected}." A scholar says it while refiling a document, not quite to you. Another nods without looking up from his work. A third glances at the archivist's office door before saying she'd heard the same. They share it the way people share something they've decided not to be caught investigating — quietly, plausibly deniable, already accepted.`;
+      G.lastResult = `In the reading room above the harbor, between shelves of salt-stiffened ledgers: "${selected}." A scholar says it while refiling a document, not quite to you. Another nods without looking up from his work. A third glances at the archivist's office door before saying she'd heard the same. They share it the way people share something they've decided not to be caught with their hands on it — quietly, plausibly deniable, already accepted.`;
       addJournal(`Archive rumor gathered: "${selected}"`, 'evidence', `cosmoria-rumor-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
@@ -914,7 +914,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading Cosmoria tide markers');
 
-      G.lastResult = `The tide markers at the harbor mouth are worn smooth by three hundred years of hands and salt spray. Names and dates run up both sides — the oldest near the base, faded to bare suggestion, the recent ones still sharp. The most recent carved entry is dated two years and four months ago. The stone above it is unmarked. There's no official prohibition. No locked gate. No sign. The tradition just stopped. A sailor you pass on the walk back says he knows about the markers but he wouldn't carve his name there now. He doesn't say why.`;
+      G.lastResult = `The tide markers at the harbor mouth are worn smooth by three hundred years of hands and salt spray. Names and dates run up both sides — the oldest near the base, faded to bare suggestion, the recent ones still sharp. The most recent carved entry is dated two years and four months ago. The stone above it is unmarked. There's no posted restriction. No locked gate. No sign. The tradition just stopped. A sailor you pass on the walk back says he knows about the markers but he wouldn't carve his name there now. He doesn't say why.`;
       addJournal('Harbor tide markers: departure tradition stopped two years ago without explanation — harbor culture shifted', 'discovery', `cosmoria-tides-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
@@ -998,7 +998,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('Rival-adjacent operative investigated Cosmoria ghost vessels before you — multi-source triangulation approach', 'intelligence', `cosmoria-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative traced Cosmoria ghost vessels before you — multi-source triangulation approach', 'intelligence', `cosmoria-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

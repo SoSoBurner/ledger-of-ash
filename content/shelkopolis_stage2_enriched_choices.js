@@ -366,7 +366,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Verdant Row network challenge — failed', 'complication', `shelk-verdant-fail-${G.dayCount}`);
       } else {
         G.flags.verdant_row_network_partial = true;
-        G.lastResult = `Two of three protocols land. The network accepts you at low-trust level — rumors only, no primary source access, no names confirmed. The fish-salt smell of the harbor end of the row drifts through while the contact speaks. The rumor they give you is specific enough to act on: a courier running between the Silkweaver's Chapel and the north gate, consistent schedule, every Thursday, same departure window. Partial access. Useful partial access. The third protocol will be available once the trust is earned.`;
+        G.lastResult = `Two of three protocols land. The network accepts you at low-trust level — rumors only, no primary source access, no names confirmed. The fish-salt smell of the harbor end of the row drifts through while the contact speaks. The rumor they give you is specific enough to act on: a courier running between the Silkweaver's Chapel and the north gate, the same departure window, every mid-week watch. Partial access. Useful partial access. The third protocol will be available once the trust is earned.`;
         addJournal('Verdant Row partial access — courier tracked', 'evidence', `shelk-verdant-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -521,7 +521,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elowen Shelk hasn't stopped auditing. She's reached a name she won't say out loud.",
-    tags: ['stage2', 'shelkopolis'],
+    tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -542,7 +542,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sub-level seal archive dates don't match what was filed above.",
-    tags: ['stage2', 'shelkopolis'],
+    tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -563,7 +563,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The House Shelk token marks the wrong quarter. The room has already clocked it.",
-    tags: ['stage2', 'shelkopolis'],
+    tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

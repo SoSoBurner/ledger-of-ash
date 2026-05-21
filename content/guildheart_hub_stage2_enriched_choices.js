@@ -267,7 +267,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Shelk notary cipher is pre-reform dead-notary seal — valid only through unclosed Guildheart procedural window', 'evidence', `guild-notary-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Cross-polity seal verification requires a formal authentication request routed through the Shelkopolis Consular Bureau at Guildheart Hub. The request window is open Tuesday and Thursday mornings. The duty clerk takes the inquiry and logs the date and time. The Consular Bureau log is shared with the Shelk Roadwarden coordination desk. Asking this question officially is putting the question where the Roadwarden captain Nyra described can see it.`;
+        G.lastResult = `Cross-polity seal verification requires a formal authentication request routed through the Shelkopolis Consular Bureau at Guildheart Hub. The request window is open second and fourth tide-turn mornings. The duty clerk takes the inquiry and logs the date and time. The Consular Bureau log is shared with the Shelk Roadwarden coordination desk. Asking this question officially is putting the question where the Roadwarden captain Nyra described can see it.`;
         addJournal('Notary seal verification request logged — Shelk Consular Bureau shares log with Roadwarden coordination desk', 'complication', `guild-notary-fail-${G.dayCount}`);
       } else {
         G.flags.guild_notary_cipher_exposed = true;
