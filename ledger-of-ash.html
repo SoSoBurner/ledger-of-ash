@@ -1433,6 +1433,7 @@ input, button, select, textarea { font-family: inherit; }
 .hud-companion-passive { font-size: 11px; color: var(--ink-faint, #5a5570); font-family: var(--font-body); margin-bottom: 4px; }
 .combat-actions-label { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--gold-lo); text-transform: uppercase; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
 .combat-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.strategy-active { color: #c8b87a; font-size: 0.85em; margin: 4px 0 6px; text-align: center; font-family: var(--font-display); letter-spacing: 1px; }
 .combat-title { font-family: var(--font-display); font-size: 15.4px; font-weight: 700; color: var(--blood-bright); letter-spacing: 2px; text-transform: uppercase; }
 .combat-enemy { background: linear-gradient(180deg, rgba(110,16,16,.10), rgba(110,16,16,.05)); border: 1px solid rgba(110,16,16,.4); padding: 14px; border-radius: 2px; margin-bottom: 12px; }
 .enemy-name { font-family: var(--font-display); font-size: 14.3px; font-weight: 700; color: var(--blood-bright); letter-spacing: 2px; margin-bottom: 6px; }
@@ -4125,6 +4126,8 @@ function startCombat(enemyTemplateId, context) {
     rangeTier: _startRangeTier,
     isBossFight: !!(scaledTpl && scaledTpl.boss),
     strategyActive: null,
+    strategyRoundsLeft: 0,
+    rangeLocked: false,
     companionAbilitiesUsed: [],
     nextAttackBonus: 0,
     enemyDefMod: 0,
@@ -4180,10 +4183,10 @@ function showStrategyCalls() {
   if (!CS) return;
   var flavor = (G.orderAxis||0) > 20 ? 'tactical precision' : (G.benevolence||0) > 15 ? 'protective urgency' : 'cold assessment';
   (window._rawRenderChoices || window.renderChoices)([
-    { text: 'Focus minions — eliminate support first', action: function(){ CS.strategyActive = 'focus_minions'; addNarration('Strategy','You call with ' + flavor + ': eliminate their support. Companions shift focus.'); renderCombatRound(); } },
-    { text: 'Focus boss — all pressure on the primary target', action: function(){ CS.strategyActive = 'focus_boss'; addNarration('Strategy','You point at the center. Every companion understands.'); renderCombatRound(); } },
-    { text: 'Defensive line — hold position, protect wounded', action: function(){ CS.strategyActive = 'defensive'; addNarration('Strategy','Hold. You make the word sound like a wall.'); renderCombatRound(); } },
-    { text: 'Hold range — maintain distance, let ranged attack', action: function(){ CS.strategyActive = 'hold_range'; CS.rangeTier = 'medium'; addNarration('Strategy','Back. Give yourself room. The companions spread.'); renderCombatRound(); } }
+    { text: 'Focus minions — eliminate support first', action: function(){ CS.strategyActive = 'focus_minions'; CS.strategyRoundsLeft = 2; addNarration('Strategy','You call with ' + flavor + ': eliminate their support. Companions shift focus.'); renderCombatRound(); } },
+    { text: 'Focus boss — all pressure on the primary target', action: function(){ CS.strategyActive = 'focus_boss'; CS.strategyRoundsLeft = 2; addNarration('Strategy','You point at the center. Every companion understands.'); renderCombatRound(); } },
+    { text: 'Defensive line — hold position, protect wounded', action: function(){ CS.strategyActive = 'defensive'; CS.strategyRoundsLeft = 2; addNarration('Strategy','Hold. You make the word sound like a wall.'); renderCombatRound(); } },
+    { text: 'Hold range — maintain distance, let ranged attack', action: function(){ CS.strategyActive = 'hold_range'; CS.strategyRoundsLeft = 2; CS.rangeTier = 'medium'; addNarration('Strategy','Back. Give yourself room. The companions spread.'); renderCombatRound(); } }
   ]);
 }
 
@@ -4204,6 +4207,9 @@ function renderCombatRound() {
   var _rangeLabelMap = {close:'Close', medium:'Medium', long:'Long', veryfar:'Very Far'};
   var _rangeLabel = _rangeLabelMap[CS.rangeTier||'close'] || 'Close';
   let html = '<div id="combat-range-display" style="text-align:center;font-size:12px;color:var(--ink-dim);margin-bottom:8px;font-family:var(--font-display);letter-spacing:1px">RANGE: <span id="combat-range-tier">' + _rangeLabel + '</span></div>';
+  if (CS.strategyActive && CS.strategyRoundsLeft > 0) {
+    html += '<div class="strategy-active">Strategy: ' + CS.strategyActive.replace(/_/g,' ') + ' (' + CS.strategyRoundsLeft + ' round' + (CS.strategyRoundsLeft !== 1 ? 's' : '') + ')</div>';
+  }
   html += '<div class="combat-header">' +
     '<div class="combat-title">&#x2694; COMBAT &#x2014; Round ' + CS.round + '</div>' +
     '<div class="combat-enemy">' +
@@ -4424,9 +4430,10 @@ function resolveCombatAction(action, abilityId) {
     const compAtkBonus = getCompanionPassiveBonus('combat');
     const nextAtkBonus = CS.nextAttackBonus || 0;
     const enemyDefAdj = CS.enemyDefMod || 0;
+    const stratAtkBonus = (CS.strategyActive === 'focus_boss' && CS.strategyRoundsLeft > 0) ? 2 : 0;
     CS.nextAttackBonus = 0;
     CS.enemyDefMod = 0;
-    const total = roll + combatSkill + traitCombatBonus + rangeBonus + compAtkBonus + nextAtkBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
+    const total = roll + combatSkill + traitCombatBonus + rangeBonus + compAtkBonus + nextAtkBonus + stratAtkBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
     if (G._traitBonus && G._traitBonus.skill === 'combat') G._traitBonus = null;
     const hit = total >= (CS.enemy.defense + enemyDefAdj) + 5;
     const baseDmg = hit ? Math.floor(Math.random() * 6) + combatSkill + 1 : 0;
@@ -4437,7 +4444,7 @@ function resolveCombatAction(action, abilityId) {
     enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 : 0;
     enemyDamage = Math.max(0, enemyDamage);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + Might ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + (compAtkBonus ? ' + companion ' + compAtkBonus : '') + (nextAtkBonus ? ' + bonus ' + nextAtkBonus : '') + ' = <strong>' + total + '</strong><br>';
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + Might ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + (compAtkBonus ? ' + companion ' + compAtkBonus : '') + (nextAtkBonus ? ' + bonus ' + nextAtkBonus : '') + (stratAtkBonus ? ' + strategy ' + stratAtkBonus : '') + ' = <strong>' + total + '</strong><br>';
 
     if (hit) {
       CS.enemy.hp = Math.max(0, CS.enemy.hp - baseDmg);
@@ -4457,14 +4464,15 @@ function resolveCombatAction(action, abilityId) {
   } else if (action === 'defend') {
     CS.enemyDefMod = 0; // debuffs expire at action resolution
     const roll = d20();
-    const total = roll + survSkill;
+    const stratDefBonus = (CS.strategyActive === 'defensive' && CS.strategyRoundsLeft > 0) ? 3 : 0;
+    const total = roll + survSkill + stratDefBonus;
     const defended = total >= 10;
     // Enemy still attacks but reduced
     const eRoll = d20();
     const eBase = Math.floor(Math.random() * 4) + CS.enemy.attack - 3;
     enemyDamage = defended ? Math.max(0, Math.floor(eBase * 0.4)) : Math.max(0, eBase);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + Vigor ' + survSkill + ' = <strong>' + total + '</strong><br>';
+    resultText = '<strong>d20 roll: ' + roll + '</strong> + Vigor ' + survSkill + (stratDefBonus ? ' + strategy ' + stratDefBonus : '') + ' = <strong>' + total + '</strong><br>';
     resultText += defended ? 'You take a defensive stance. ' : 'Your guard is pushed.';
     if (enemyDamage > 0) {
       resultText += ' You take ' + enemyDamage + ' damage.';
@@ -4531,6 +4539,18 @@ function resolveCombatAction(action, abilityId) {
     addNarration('Round ' + CS.round, resultText, resultType);
     CS.round++;
     setTimeout(function() { renderCombatRound(); }, 500);
+    return;
+
+  } else if (action === 'move') {
+    if (CS.rangeLocked) {
+      addNarration('Strategy', 'Range locked by strategy — you hold position.', 'neutral');
+    } else {
+      showRangeOptions();
+    }
+    return;
+
+  } else if (action === 'strategy') {
+    showStrategyCalls();
     return;
 
   } else if (action === 'flee') {
@@ -4602,6 +4622,24 @@ function resolveCombatAction(action, abilityId) {
   if (_regenAmt > 0 && G.hp < G.maxHp) {
     G.hp = Math.min(G.maxHp, G.hp + _regenAmt);
     updateHUD();
+  }
+
+  // Apply active strategy end-of-round effects
+  if (CS.strategyActive && CS.strategyRoundsLeft > 0) {
+    if (CS.strategyActive === 'focus_minions') {
+      // Reduce secondary enemy attack if group combat is active
+      if (CS.enemyGroupCount > 1 && CS.enemyGroupDefeated < CS.enemyGroupCount - 1) {
+        CS.enemy.attack = Math.max(0, (CS.enemy.attack || 2) - 1);
+      }
+    } else if (CS.strategyActive === 'hold_range') {
+      // Lock range tier next round
+      CS.rangeLocked = true;
+    }
+    CS.strategyRoundsLeft--;
+    if (CS.strategyRoundsLeft <= 0) CS.strategyActive = null;
+  } else {
+    // Clear range lock when strategy expires
+    CS.rangeLocked = false;
   }
 
   CS.round++;
