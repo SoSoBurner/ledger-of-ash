@@ -486,10 +486,12 @@
         var _biomeEnc = _biomePool[Math.floor(Math.random() * _biomePool.length)];
         var _insertAt = Math.floor(Math.random() * (selected.length + 1));
         selected.splice(_insertAt, 0, _biomeEnc);
-        // Long tier: add up to 1 more biome encounter (must differ if pool large enough)
+        // Long tier: add up to 1 more biome encounter (deduplicated)
         if (tier === 'long' && _biomePool.length > 1) {
-          var _biomeEnc2 = _biomePool[Math.floor(Math.random() * _biomePool.length)];
-          selected.push(_biomeEnc2);
+          var _biomePool2 = _biomePool.filter(function(e) { return e.id !== _biomeEnc.id; });
+          if (_biomePool2.length > 0) {
+            selected.push(_biomePool2[Math.floor(Math.random() * _biomePool2.length)]);
+          }
         }
       }
 
