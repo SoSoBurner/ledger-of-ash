@@ -123,7 +123,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 5. MIDPOINT: COURIER CONTACT ON THE SOUTHERN ROAD
   {
-    label: "A courier heading north tries to press a sealed letter into your hands. Wrong person, or testing you?",
+    label: "A northbound courier presses a sealed letter forward — wrong recipient, or a deliberate test.",
     tags: ['ArcDeepening', 'Investigation', 'Risk'],
     xpReward: 75,
     fn: function() {

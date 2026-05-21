@@ -156,7 +156,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Find the Shelkopolis handler who can decode the cipher and translate the shard data into formal atmospheric chemistry terms.",
+    label: "The Shelkopolis handler knows the cipher. Shard data needs formal atmospheric chemistry terms.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

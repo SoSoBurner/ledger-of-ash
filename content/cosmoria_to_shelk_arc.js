@@ -168,7 +168,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "Find the Shelkopolis maritime handler — they'll know Aldeth from the port registry.",
+    label: "The Shelkopolis maritime handler — port registry will have Aldeth on file.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

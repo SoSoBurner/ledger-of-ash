@@ -159,7 +159,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Find Sana at the Verdant Row textile factor. Sera said she's been holding Case 4-Reckoning since the Bureau dismissed it.",
+    label: "Sana at Verdant Row has been holding Case 4-Reckoning since the Bureau dismissed it.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

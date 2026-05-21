@@ -168,7 +168,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   },
 
   {
-    label: "Find Maret Voss's financial arbitrator contact in Shelkopolis — the one who operates outside the Compact's review structure.",
+    label: "Maret's arbitrator operates outside the Compact's review structure — Shelkopolis is where to look.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

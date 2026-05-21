@@ -10,7 +10,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The dome additive substitution documentation from Aurora Crown is the clearest evidence yet of what was done and how. Move it south to Shelkopolis.",
+    label: "Dome substitution documentation — clearest evidence yet. South to Shelkopolis.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -193,7 +193,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Aurora Crown was exposed deliberately. Shelkopolis's dome uses the same architecture. The documentation you carry explains how it was done and confirms it can be done here.",
+    label: "Aurora Crown was deliberate. Shelkopolis uses the same dome architecture — same method, same risk.",
     tags: ['ArcGate', 'Decision'],
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.aurora_arc_departing); },

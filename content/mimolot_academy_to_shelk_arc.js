@@ -155,7 +155,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   },
 
   {
-    label: "Find Doss in Shelkopolis before Ashe does. The scholar who first flagged the formula is either a critical witness or a liability depending on his current status.",
+    label: "Doss flagged the formula first. Ashe is already moving — Shelkopolis, before she gets there.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
