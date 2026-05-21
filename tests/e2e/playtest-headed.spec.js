@@ -322,29 +322,42 @@ async function createCharacter(page, archetypeId, backgroundId) {
 // Level-up handler
 // ---------------------------------------------------------------------------
 async function handleLevelup(page, tag) {
+  let stepNum = 0;
   try {
     const modal = page.locator('#levelup-modal.active').first();
     if (await modal.isVisible({ timeout: 400 }).catch(() => false)) {
-      const pick = modal.locator('.lu-option').first();
-      if (await pick.isVisible({ timeout: 500 }).catch(() => false)) {
+      // Multi-step level-up: click all .lu-option steps until modal closes
+      for (let _step = 0; _step < 5; _step++) {
+        const pick = modal.locator('.lu-option,.levelup-option').first();
+        if (!await pick.isVisible({ timeout: 500 }).catch(() => false)) break;
+        await screenshot(page, `${tag}_levelup_step${stepNum}`);
         await pick.click();
+        stepNum++;
         await page.waitForTimeout(PACE.afterLevelup);
-        const g = await readG(page);
-        log(`[panel:level-up ${tag}] lvl=${g.level} modal-pick — PASS`);
-        return true;
+        // Check if modal closed after this step
+        const stillOpen = await modal.isVisible({ timeout: 800 }).catch(() => false);
+        if (!stillOpen) break;
       }
+      const g = await readG(page);
+      log(`[panel:level-up ${tag}] steps-completed=${stepNum} lvl=${g.level} modal-pick — PASS`);
+      return true;
     }
     const block = page.locator('.levelup-block:visible').first();
     if (await block.isVisible({ timeout: 400 }).catch(() => false)) {
-      const optBtn = block.locator('.levelup-option button,.levelup-btn').first();
-      if (await optBtn.isVisible({ timeout: 400 }).catch(() => false)) {
+      for (let _step = 0; _step < 5; _step++) {
+        const optBtn = block.locator('.levelup-option button,.levelup-btn,.lu-option').first();
+        if (!await optBtn.isVisible({ timeout: 400 }).catch(() => false)) break;
+        await screenshot(page, `${tag}_levelup_step${stepNum}`);
         await optBtn.click();
+        stepNum++;
         await page.waitForTimeout(PACE.afterLevelup);
-        const g = await readG(page);
-        await screenshot(page, `${tag}_levelup_lvl${g.level}`);
-        log(`[panel:level-up ${tag}] lvl=${g.level} — PASS`);
-        return true;
+        const stillOpen = await block.isVisible({ timeout: 800 }).catch(() => false);
+        if (!stillOpen) break;
       }
+      const g = await readG(page);
+      await screenshot(page, `${tag}_levelup_lvl${g.level}`);
+      log(`[panel:level-up ${tag}] steps-completed=${stepNum} lvl=${g.level} — PASS`);
+      return true;
     }
   } catch (_) {}
   return false;
@@ -710,6 +723,78 @@ async function probeCamp(page, tag, g) {
     } else {
       log(`[panel:camp ${tag}] craft: not visible`);
     }
+    // sleep
+    const sleepVisible = await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').isVisible({ timeout: 600 }).catch(() => false);
+    const sleepEnabled = sleepVisible && await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').first().isEnabled({ timeout: 400 }).catch(() => false);
+    if (sleepEnabled) {
+      await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').first().click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_sleep_result`);
+      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] sleep-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] sleep: ${sleepVisible ? 'visible but disabled (gated)' : 'not visible'}`);
+    }
+    // post_watches
+    const postWatchesVisible = await page.locator('button.camp-action[data-camp="post_watches"],[data-camp="post_watches"]').isVisible({ timeout: 600 }).catch(() => false);
+    const postWatchesEnabled = postWatchesVisible && await page.locator('button.camp-action[data-camp="post_watches"],[data-camp="post_watches"]').first().isEnabled({ timeout: 400 }).catch(() => false);
+    if (postWatchesEnabled) {
+      await page.locator('button.camp-action[data-camp="post_watches"],[data-camp="post_watches"]').first().click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_post_watches_result`);
+      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] post_watches-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] post_watches: ${postWatchesVisible ? 'visible but disabled (gated)' : 'not visible'}`);
+    }
+    // lay_low
+    const layLowVisible = await page.locator('button.camp-action[data-camp="lay_low"],[data-camp="lay_low"]').isVisible({ timeout: 600 }).catch(() => false);
+    const layLowEnabled = layLowVisible && await page.locator('button.camp-action[data-camp="lay_low"],[data-camp="lay_low"]').first().isEnabled({ timeout: 400 }).catch(() => false);
+    if (layLowEnabled) {
+      await page.locator('button.camp-action[data-camp="lay_low"],[data-camp="lay_low"]').first().click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_lay_low_result`);
+      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] lay_low-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] lay_low: ${layLowVisible ? 'visible but disabled (gated)' : 'not visible'}`);
+    }
+    // recover
+    const recoverVisible = await page.locator('button.camp-action[data-camp="recover"],[data-camp="recover"]').isVisible({ timeout: 600 }).catch(() => false);
+    const recoverEnabled = recoverVisible && await page.locator('button.camp-action[data-camp="recover"],[data-camp="recover"]').first().isEnabled({ timeout: 400 }).catch(() => false);
+    if (recoverEnabled) {
+      await page.locator('button.camp-action[data-camp="recover"],[data-camp="recover"]').first().click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_recover_result`);
+      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] recover-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] recover: ${recoverVisible ? 'visible but disabled (gated)' : 'not visible'}`);
+    }
+    // review_notes — being disabled is NOT a WARN
+    const reviewNotesVisible = await page.locator('button.camp-action[data-camp="review_notes"],[data-camp="review_notes"]').isVisible({ timeout: 600 }).catch(() => false);
+    const reviewNotesEnabled = reviewNotesVisible && await page.locator('button.camp-action[data-camp="review_notes"],[data-camp="review_notes"]').first().isEnabled({ timeout: 400 }).catch(() => false);
+    if (reviewNotesEnabled) {
+      await page.locator('button.camp-action[data-camp="review_notes"],[data-camp="review_notes"]').first().click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_review_notes_result`);
+      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] review_notes-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] review_notes: ${reviewNotesVisible ? 'visible but disabled (gated)' : 'not visible'}`);
+    }
+    // talk — being disabled is NOT a WARN
+    const talkVisible = await page.locator('button.camp-action[data-camp="talk"],[data-camp="talk"]').isVisible({ timeout: 600 }).catch(() => false);
+    const talkEnabled = talkVisible && await page.locator('button.camp-action[data-camp="talk"],[data-camp="talk"]').first().isEnabled({ timeout: 400 }).catch(() => false);
+    if (talkEnabled) {
+      await page.locator('button.camp-action[data-camp="talk"],[data-camp="talk"]').first().click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_talk_result`);
+      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] talk-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] talk: ${talkVisible ? 'visible but disabled (gated)' : 'not visible'}`);
+    }
     await closeSpecificOverlay(page, 'overlay-camp');
   } catch (err) {
     log(`[panel:camp ${tag}] WARN: ${err.message}`);
@@ -752,12 +837,30 @@ async function probeMap(page, tag, g) {
     if (!await openOverlay(page, '#btn-map', '#overlay-map')) { log(`[panel:map ${tag}] SKIP`); return; }
     await screenshot(page, `${tag}_map_loc${g.location}`);
     const txt      = await page.locator('#map-body,#overlay-map').first().innerText().catch(() => '');
-    // Read all location button names (do NOT click — would change game state)
     const locBtns  = await page.locator('#map-body button,[data-locid]').allInnerTexts().catch(() => []);
     const objObj   = txt.includes('[object Object]');
     log(`[panel:map ${tag}] loc=${g.location} destinations=${locBtns.length} objObj=${objObj} locs="${locBtns.slice(0,6).join(', ')}"`);
     if (locBtns.length === 0) log(`[panel:map ${tag}] WARN: no destination buttons found`);
-    await closeSpecificOverlay(page, 'overlay-map');
+    // Click a destination — find first enabled button that is not the current location
+    const travelBtns = await page.locator('#map-body button[data-locid]:not([disabled]), .map-travel-btn[data-locid]:not([disabled])').all().catch(() => []);
+    const currentLoc = g.location;
+    let travelBtn = null;
+    for (const btn of travelBtns) {
+      const locid = await btn.evaluate(el => el.getAttribute('data-locid')).catch(() => '');
+      if (locid && locid !== currentLoc) { travelBtn = btn; break; }
+    }
+    if (travelBtn) {
+      const destLocId = await travelBtn.evaluate(el => el.getAttribute('data-locid')).catch(() => '');
+      await travelBtn.click();
+      await page.waitForTimeout(1500); // allow travel to resolve
+      await waitForChoices(page, 3000);
+      await screenshot(page, `${tag}_map_travel_arrival_${destLocId}`);
+      const gAfter = await readG(page);
+      log(`[panel:map ${tag}] clicked dest=${destLocId} new-loc=${gAfter.location} (was=${currentLoc})`);
+    } else {
+      log(`[panel:map ${tag}] WARN: no enabled travel destinations (currentLoc=${currentLoc})`);
+      await closeSpecificOverlay(page, 'overlay-map');
+    }
   } catch (err) {
     log(`[panel:map ${tag}] WARN: ${err.message}`);
     await closeOverlay(page).catch(() => {});
@@ -798,6 +901,25 @@ async function probeContacts(page, tag) {
     log(`[panel:contacts ${tag}] contacts=${npcNames.length} objObj=${objObj} names="${npcNames.slice(0,5).join(', ')}"`);
     if (txt.length > 10) log(`[panel:contacts ${tag}] text: "${txt.slice(0,150).replace(/\n/g,' ')}"`);
     probeCanonText(txt, tag, 'contacts');
+    // Click all visible contact cards
+    const contactCards = await page.locator('#npc-overlay-body .npc-entry, #npc-overlay-body .contact-card, [data-npcid], .npc-card').all().catch(() => []);
+    log(`[panel:contacts ${tag}] clicking ${contactCards.length} contact cards`);
+    for (const card of contactCards) {
+      try {
+        const cardName = await card.evaluate(el => el.textContent.trim().slice(0, 40)).catch(() => '');
+        await card.click();
+        await page.waitForTimeout(PACE.panelDwell);
+        await screenshot(page, `${tag}_contact_${cardName.replace(/[^a-z0-9]/gi,'_').slice(0,20)}`);
+        const dialogTxt = await page.locator('.npc-dialog-text,.contact-dialog,.npc-bio,.npc-detail').first().innerText().catch(() => '');
+        log(`[panel:contacts ${tag}] contact="${cardName.slice(0,30)}" dialog="${dialogTxt.slice(0,120).replace(/\n/g,' ')}"`);
+        // Close dialog: try close button or Escape
+        const closeBtn = page.locator('button:has-text("×"),button:has-text("Close"),[data-close],.npc-close').first();
+        if (await closeBtn.isVisible({ timeout: 400 }).catch(() => false)) await closeBtn.click();
+        else await page.keyboard.press('Escape');
+        await page.waitForTimeout(PACE.short);
+      } catch (_) {}
+    }
+    if (contactCards.length === 0) log(`[panel:contacts ${tag}] WARN: no contact cards visible`);
     await closeSpecificOverlay(page, 'overlay-npcs');
   } catch (err) {
     log(`[panel:contacts ${tag}] WARN: ${err.message}`);
@@ -815,6 +937,26 @@ async function probeParty(page, tag) {
     const members   = await page.locator('#party-overlay-body .companion-name,.party-member,.companion-card').count().catch(() => 0);
     log(`[panel:party ${tag}] members=${members} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
     probeCanonText(txt, tag, 'party');
+    // Click each companion card
+    const compCards = await page.locator('#party-overlay-body .companion-card, .party-member-card, [data-companion], .companion-entry').all().catch(() => []);
+    log(`[panel:party ${tag}] clicking ${compCards.length} companion cards`);
+    for (const card of compCards) {
+      try {
+        const compName = await card.evaluate(el => el.textContent.trim().slice(0, 30)).catch(() => '');
+        await card.click();
+        await page.waitForTimeout(PACE.panelDwell);
+        await screenshot(page, `${tag}_companion_${compName.replace(/[^a-z0-9]/gi,'_').slice(0,20)}`);
+        const profileTxt = await page.locator('.companion-bio,.companion-dialog,.companion-profile,.companion-detail').first().innerText().catch(() => '');
+        if (!profileTxt) log(`[panel:party ${tag}] WARN: no profile text for "${compName}"`);
+        else log(`[panel:party ${tag}] companion="${compName}" profile="${profileTxt.slice(0,120).replace(/\n/g,' ')}"`);
+        // Close
+        const closeBtn = page.locator('button:has-text("×"),button:has-text("Close"),[data-close],.companion-close').first();
+        if (await closeBtn.isVisible({ timeout: 400 }).catch(() => false)) await closeBtn.click();
+        else await page.keyboard.press('Escape');
+        await page.waitForTimeout(PACE.short);
+      } catch (_) {}
+    }
+    if (compCards.length === 0) log(`[panel:party ${tag}] WARN: no companions — expected empty at early play`);
     await closeSpecificOverlay(page, 'overlay-party');
   } catch (err) {
     log(`[panel:party ${tag}] WARN: ${err.message}`);
@@ -834,6 +976,7 @@ async function probeShop(page, tag, g) {
     const itemCount = await page.locator('.shop-item').count().catch(() => 0);
     log(`[panel:shop ${tag}] loc=${g.location} items=${itemCount} gold=${g.gold} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
     // Attempt to buy first affordable item
+    const goldBefore = (await readG(page)).gold;
     const buyBtns = await page.locator('.shop-buy-btn').all().catch(() => []);
     let bought = false;
     for (const buyBtn of buyBtns.slice(0, 3)) {
@@ -843,8 +986,32 @@ async function probeShop(page, tag, g) {
         await buyBtn.click();
         await page.waitForTimeout(PACE.short);
         await screenshot(page, `${tag}_shop_buy`);
-        log(`[panel:shop ${tag}] buy-attempt: "${itemLabel.slice(0,40)}" — post-gold=${g.gold}`);
-        bought = true; break;
+        const gAfterBuy = await readG(page);
+        log(`[panel:shop ${tag}] buy-attempt: "${itemLabel.slice(0,40)}" gold-before=${goldBefore} gold-after=${gAfterBuy.gold}`);
+        bought = true;
+        // Sell flow: open inventory and attempt to sell
+        try {
+          const invBtn = page.locator('#btn-inventory,button:has-text("Inventory")').first();
+          if (await invBtn.isVisible({ timeout: 600 }).catch(() => false)) {
+            await invBtn.click();
+            await page.waitForTimeout(PACE.panelDwell);
+            const sellBtn = page.locator('.sell-btn[data-idx],button:has-text("Sell")').first();
+            if (await sellBtn.isVisible({ timeout: 800 }).catch(() => false)) {
+              const goldBeforeSell = (await readG(page)).gold;
+              await sellBtn.click();
+              await page.waitForTimeout(PACE.short);
+              await screenshot(page, `${tag}_shop_sell`);
+              const goldAfterSell = (await readG(page)).gold;
+              log(`[panel:shop ${tag}] sell gold-before=${goldBeforeSell} gold-after=${goldAfterSell} delta=${goldAfterSell - goldBeforeSell}`);
+            } else {
+              log(`[panel:shop ${tag}] WARN: sell button not found after buy`);
+            }
+            await closeOverlay(page);
+          }
+        } catch (sellErr) {
+          log(`[panel:shop ${tag}] WARN: sell flow error: ${sellErr.message}`);
+        }
+        break;
       }
     }
     if (!bought && itemCount > 0) log(`[panel:shop ${tag}] WARN: ${itemCount} items but no enabled buy buttons (gold=${g.gold})`);
@@ -889,6 +1056,30 @@ async function probeAlignmentBars(page, tag, g) {
       log(`[panel:alignment ${tag}] benevolence=${g.benevolence} order=${g.orderAxis} (bars hidden — threshold ±10 not reached)`);
     }
   } catch (err) { log(`[panel:alignment ${tag}] WARN: ${err.message}`); }
+}
+
+async function probeHUDAbilityBadge(page, tag) {
+  try {
+    const badge = page.locator('#hud-trait-ready,[id*="trait-ready"],[class*="trait-ready"]').first();
+    if (!await badge.isVisible({ timeout: 600 }).catch(() => false)) {
+      log(`[hud-ability-badge ${tag}] SKIP: badge not visible`); return;
+    }
+    const badgeTxt = await badge.innerText().catch(() => '');
+    const m = badgeTxt.match(/\d+/);
+    const count = m ? parseInt(m[0]) : 0;
+    log(`[hud-ability-badge ${tag}] badge="${badgeTxt}" count=${count}`);
+    if (count === 0) { log(`[hud-ability-badge ${tag}] WARN: count=0`); return; }
+    // Click badge — should open char sheet to traits tab
+    await badge.click();
+    await page.waitForTimeout(PACE.panelDwell);
+    await screenshot(page, `${tag}_hud_badge_click`);
+    const sheetOpen = await page.locator('#overlay-charsheet').isVisible({ timeout: 1500 }).catch(() => false);
+    log(`[hud-ability-badge ${tag}] click-opens-sheet=${sheetOpen}`);
+    const traitsText = await page.locator('.trait-section,.ability-card').first().innerText().catch(() => '');
+    if (!traitsText) log(`[hud-ability-badge ${tag}] WARN: no trait/ability cards after badge click`);
+    else log(`[hud-ability-badge ${tag}] traits-sample: "${traitsText.slice(0,100).replace(/\n/g,' ')}"`);
+    await closeSpecificOverlay(page, 'overlay-charsheet');
+  } catch (err) { log(`[hud-ability-badge ${tag}] WARN: ${err.message}`); }
 }
 
 async function probeHowToPlay(page, tag) {
@@ -1097,6 +1288,7 @@ async function runFullPanelSimulation(page, tag, g, picks) {
     await probeDuplicates(page, tag, picks);
     await probeChoiceBorders(page, tag);
     await probeCharSheet(page, tag, g);
+    await probeHUDAbilityBadge(page, tag);
     await probeJournal(page, tag, g);
     await probeQuestHUD(page, tag);
     await probeHeatHUD(page, tag, g);
