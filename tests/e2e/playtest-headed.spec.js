@@ -25,6 +25,7 @@ test.use({ headless: false });
 
 // Module-scope so soft-timeout closure inside runFamily() can read it (closure trap: var inside test() is invisible to module-scope functions)
 var _runStartMs = 0;
+var lastDeadEndPick = -1;
 
 // ---------------------------------------------------------------------------
 // Output dirs
@@ -1135,7 +1136,10 @@ async function handleDeadEndRepair(page, tag, pickNum) {
   const g    = await readG(page);
   const html = await actionHTML(page);
   await screenshot(page, `${tag}_deadend_p${pickNum}`);
-  log(`[dead-end ${tag}] pick=${pickNum} loc=${g.location} tension=${g.tensionLevel} sp=${JSON.stringify(g.stageProgress)} html="${html.slice(0,200)}"`);
+  if (pickNum !== lastDeadEndPick) {
+    lastDeadEndPick = pickNum;
+    log(`[dead-end ${tag}] pick=${pickNum} loc=${g.location} tension=${g.tensionLevel} sp=${JSON.stringify(g.stageProgress)} html="${html.slice(0,200)}"`);
+  }
 
   // R1: Escape
   await page.keyboard.press('Escape');
