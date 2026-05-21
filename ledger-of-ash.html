@@ -9668,7 +9668,7 @@ function getDefaultG() {
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
     discoveries:{}, contacts:{}, suspects:{},
-    investigationProgress:0, flags:{recovery_thread_available:false}, rivalId:null,
+    investigationProgress:0, flags:{recovery_thread_available:false, stage2_faction_contact_made:false}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
     nomdara_last_visit_locality:null,
@@ -10109,6 +10109,11 @@ function _beginLegendCore() {
   }
   G.location = BG_LOCATION_MAP[G.background.region] || 'shelkopolis';
   G.startingLocality = G.location;
+  // Shelkopolis-native characters are already embedded in the investigation network —
+  // grant stage2_faction_contact_made immediately so Stage II antechamber/climax can fire.
+  if (G.background.region === 'Shelkopolis') {
+    G.flags.stage2_faction_contact_made = true;
+  }
   buildLivingDesc(G.location, G);
   // Companions follow the player to their starting locality
   if (window.COMPANION_DEFS) {
