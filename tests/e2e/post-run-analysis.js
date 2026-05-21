@@ -20,7 +20,7 @@ const path         = require('path');
 const { execSync } = require('child_process');
 
 const ROOT           = path.join(__dirname, '..', '..');
-const TEST_RESULTS   = path.join(ROOT, 'test-results');
+const TEST_RESULTS   = path.join(ROOT, 'tests', 'test-results');
 const SCREENSHOTS    = path.join(TEST_RESULTS, 'playthrough-screenshots', 'headed');
 const PLANS_DIR      = path.join(ROOT, 'docs', 'superpowers', 'plans');
 const LOG_FILE       = path.join(TEST_RESULTS, 'playtest-headed-log.md');
@@ -216,7 +216,7 @@ const DOMAINS = [
          + 'log entries. In screenshots, identify HUD fields that appear blank, incorrect, '
          + 'cut off, or showing a value that contradicts the log. Emit mismatches as [P0].',
     logHeavy: true,
-    model: 'claude-sonnet-4-5-20251022',
+    model: 'claude-opus-4-7',
   },
   {
     id: 'ui_duplication',
@@ -229,7 +229,7 @@ const DOMAINS = [
          + 'element that appears visibly doubled or stacked. Emit as [P0] if a singleton '
          + 'is duplicated, [P1] if a choice label or quest entry repeats.',
     logHeavy: true,
-    model: 'claude-sonnet-4-5-20251022',
+    model: 'claude-opus-4-7',
   },
 ];
 
