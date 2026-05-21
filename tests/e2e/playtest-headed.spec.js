@@ -1230,6 +1230,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   await screenshot(page, `${tag}_start`);
 
   let picks            = 0;
+  lastDeadEndPick      = -1;  // reset per family — picks restart at 0 each family
   let deadStreak       = 0;
   let lastSP1          = 0;
   let noProgress       = 0;
