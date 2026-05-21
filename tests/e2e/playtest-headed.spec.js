@@ -30,6 +30,7 @@ var _runStartMs = 0;
 // Output dirs
 // ---------------------------------------------------------------------------
 const TEST_RESULTS   = path.resolve(__dirname, '../../test-results');
+const ROOT           = path.resolve(__dirname, '../..');
 const SCREENSHOT_DIR = path.join(TEST_RESULTS, 'playthrough-screenshots', 'headed');
 const VIDEO_DIR      = path.join(TEST_RESULTS, 'videos');
 
@@ -484,7 +485,7 @@ async function probeHUD(page, tag, g) {
 
     // Heat row check
     try {
-      const heatRow = await page.locator('#hud-heat-row').innerText().catch(() => '');
+      const heatRow = await page.locator('#hud-heat').innerText().catch(() => '');
       if (heatRow && g.heat) {
         const polities = Object.keys(g.heat || {});
         for (const pol of polities) {
