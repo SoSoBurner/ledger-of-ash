@@ -12260,6 +12260,8 @@ function resolveConsequence(cid, success, partial) {
   // renderChoices setTimeout(0) cancelled by a racing call.
   setTimeout(function() {
     if (!document.querySelector('.choice-block,.levelup-block,.move-block') && G && !G.dead) {
+      // Dead-end moment: set recovery thread so camp review_notes becomes available
+      if (G.flags && !G.flags.recovery_thread_available) G.flags.recovery_thread_available = true;
       if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
     }
   }, 800);
