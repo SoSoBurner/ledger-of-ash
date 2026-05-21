@@ -9668,7 +9668,7 @@ function getDefaultG() {
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
     discoveries:{}, contacts:{}, suspects:{},
-    investigationProgress:0, flags:{}, rivalId:null,
+    investigationProgress:0, flags:{recovery_thread_available:false}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
     nomdara_last_visit_locality:null,
@@ -10895,6 +10895,11 @@ function adaptEnrichedChoice(c) {
           G.recentOutcomeType = 'complication';
           addNarration('', _frTxt, 'complication');
           addJournal(_frTxt, 'complication');
+          // Set recovery thread on investigation-type failed choices — enables camp review_notes action
+          var _investTags = ['Investigation','Inquiry','Archive','Records','Lore','Intelligence','Discovery','Observation','Survey'];
+          var _choiceTags = Array.isArray(c.tags) ? c.tags : (c.tag ? [c.tag] : []);
+          var _isInvestFail = _choiceTags.some(function(t){ return _investTags.indexOf(t) !== -1; }) || (c.skill === 'lore');
+          if (_isInvestFail && G.flags && !G.flags.recovery_thread_available) G.flags.recovery_thread_available = true;
           if (typeof updateHUD === 'function') updateHUD();
           if (typeof saveGame === 'function') saveGame();
           setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
@@ -11179,6 +11184,42 @@ function loadStageChoices(locId) {
         return !c.condition || c.condition();
       }).map(adaptEnrichedChoice);
       if (_shadowArc.length) adapted.unshift.apply(adapted, _shadowArc);
+    }
+    // Inject background-origin transition arc for non-Shelkopolis players arriving at Shelkopolis
+    if (loc === 'shelkopolis' && G.background && G.background.region) {
+      var _ARC_BY_REGION = {
+        'Cosmoria':              { arc: window.COSMORIA_TO_SHELK_ARC,             flag: 'arrived_from_cosmoria' },
+        'House Cosmouth':        { arc: window.COSMORIA_TO_SHELK_ARC,             flag: 'arrived_from_cosmoria' },
+        'Ithtananalor':          { arc: window.ITHTANANALOR_TO_SHELK_ARC,         flag: 'arrived_from_ithtananalor' },
+        'Principality of Roaz':  { arc: window.ITHTANANALOR_TO_SHELK_ARC,         flag: 'arrived_from_ithtananalor' },
+        'Panim Haven':           { arc: window.PANIM_HAVEN_TO_SHELK_ARC,          flag: 'arrived_from_panim_haven' },
+        'House Panim':           { arc: window.PANIM_HAVEN_TO_SHELK_ARC,          flag: 'arrived_from_panim_haven' },
+        'Mimolot Academy':       { arc: window.MIMOLOT_ACADEMY_TO_SHELK_ARC,      flag: 'arrived_from_mimolot_academy' },
+        'House Mimolot':         { arc: window.MIMOLOT_ACADEMY_TO_SHELK_ARC,      flag: 'arrived_from_mimolot_academy' },
+        'Sunspire Haven':        { arc: window.SUNSPIRE_HAVEN_TO_SHELK_ARC,       flag: 'arrived_from_sunspire_haven' },
+        'Duneshade Outpost':     { arc: window.SUNSPIRE_HAVEN_TO_SHELK_ARC,       flag: 'arrived_from_sunspire_haven' },
+        'Aurora Crown Commune':  { arc: window.AURORA_CROWN_COMMUNE_TO_SHELK_ARC, flag: 'arrived_from_aurora_crown' },
+        'Sheresh Communes':      { arc: window.AURORA_CROWN_COMMUNE_TO_SHELK_ARC, flag: 'arrived_from_aurora_crown' },
+        'Soreheim Proper':       { arc: window.SOREHEIM_PROPER_TO_SHELK_ARC,      flag: 'arrived_from_soreheim_proper' },
+        'Soreheim Alliance':     { arc: window.SOREHEIM_PROPER_TO_SHELK_ARC,      flag: 'arrived_from_soreheim_proper' },
+        'Zootian Expanse':       { arc: window.SOREHEIM_PROPER_TO_SHELK_ARC,      flag: 'arrived_from_soreheim_proper' },
+        'Guildheart Hub':        { arc: window.GUILDHEART_HUB_TO_SHELK_ARC,       flag: 'arrived_from_guildheart_hub' },
+        'The Union':             { arc: window.GUILDHEART_HUB_TO_SHELK_ARC,       flag: 'arrived_from_guildheart_hub' },
+        'Shirshal':              { arc: window.SHIRSHAL_TO_SHELK_ARC,             flag: 'arrived_from_shirshal' },
+        'House Shirsh':          { arc: window.SHIRSHAL_TO_SHELK_ARC,             flag: 'arrived_from_shirshal' },
+        'Glasswake':             { arc: window.GLASSWAKE_COMMUNE_TO_SHELK_ARC,    flag: 'arrived_from_glasswake' },
+        'Harvest Circle':        { arc: window.HARVEST_CIRCLE_TO_SHELK_ARC,       flag: 'arrived_from_harvest_circle' },
+        'Whitebridge':           { arc: window.WHITEBRIDGE_COMMUNE_TO_SHELK_ARC,  flag: 'arrived_from_whitebridge' }
+      };
+      var _bgRegion = G.background.region;
+      var _arcEntry = _ARC_BY_REGION[_bgRegion];
+      if (_arcEntry && _arcEntry.arc && !(G.flags && G.flags[_arcEntry.flag])) {
+        var _arcChoices = _arcEntry.arc.filter(function(c) {
+          if (!c.condition) return true;
+          try { return c.condition(); } catch(e) { return false; }
+        }).map(adaptEnrichedChoice);
+        if (_arcChoices.length) adapted.unshift.apply(adapted, _arcChoices);
+      }
     }
     const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8).filter(function(c){ return passesAlignGate(c); });
     renderChoices(choices);
