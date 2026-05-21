@@ -478,6 +478,21 @@
 
       var selected = pickRandom(pool, encounterCount);
 
+      // Biome-specific encounters: insert 1 from TRAVEL_ENCOUNTER_POOLS if available
+      var _biomeKey = window.getBiomeForRoute ? window.getBiomeForRoute(dest, from) : null;
+      var _biomePool = _biomeKey && window.TRAVEL_ENCOUNTER_POOLS && window.TRAVEL_ENCOUNTER_POOLS[_biomeKey];
+      if (_biomePool && _biomePool.length > 0) {
+        // Pick 1 random biome encounter and insert at a random position in the queue
+        var _biomeEnc = _biomePool[Math.floor(Math.random() * _biomePool.length)];
+        var _insertAt = Math.floor(Math.random() * (selected.length + 1));
+        selected.splice(_insertAt, 0, _biomeEnc);
+        // Long tier: add up to 1 more biome encounter (must differ if pool large enough)
+        if (tier === 'long' && _biomePool.length > 1) {
+          var _biomeEnc2 = _biomePool[Math.floor(Math.random() * _biomePool.length)];
+          selected.push(_biomeEnc2);
+        }
+      }
+
       // Fast pace: +1 encounter chance — roll one extra biome encounter if pace is fast
       // Knight Mounted Discipline skips this extra roll (handled inside _travelFastPaceExtraEncounter)
       if (G && G.pace === 'fast' && Math.random() < 0.5) {
@@ -555,6 +570,16 @@
         window.CORRIDOR_ENCOUNTERS.medium || [],
         window.CORRIDOR_ENCOUNTERS.long || []
       );
+      // Also search TRAVEL_ENCOUNTER_POOLS so biome encounters queued by triggerEncounters
+      // can be found by ID during nextEncounter chain resolution.
+      if (window.TRAVEL_ENCOUNTER_POOLS) {
+        var _tep = window.TRAVEL_ENCOUNTER_POOLS;
+        for (var _bk in _tep) {
+          if (Object.prototype.hasOwnProperty.call(_tep, _bk) && Array.isArray(_tep[_bk])) {
+            allTiers = allTiers.concat(_tep[_bk]);
+          }
+        }
+      }
       var encounter = null;
       for (var i = 0; i < allTiers.length; i++) {
         if (allTiers[i].id === nextId) { encounter = allTiers[i]; break; }
