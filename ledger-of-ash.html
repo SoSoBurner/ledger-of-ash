@@ -12214,6 +12214,14 @@ function resolveConsequence(cid, success, partial) {
   saveGame(); updateHUD();
   checkWorldClockThresholds();
   if (!_awaitingLevelUp && res.next) setTimeout(() => renderChoices(res.next), 400);
+  // Fallback: if nothing rendered choices within 800ms, recover via loadStageChoices.
+  // Guards against: _awaitingLevelUp true with no level-up UI, missing res.next, or
+  // renderChoices setTimeout(0) cancelled by a racing call.
+  setTimeout(function() {
+    if (!document.querySelector('.choice-block,.levelup-block,.move-block') && G && !G.dead) {
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+    }
+  }, 800);
 }
 
 function applyEffect(fx) {
