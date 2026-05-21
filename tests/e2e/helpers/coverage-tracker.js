@@ -39,7 +39,9 @@ class CoverageTracker {
   onPick(g) {
     this._pickCount++;
     const loc = g.location || 'unknown';
-    const sp2 = (typeof g.sp2 === 'number') ? g.sp2 : ((g.stageProgress && g.stageProgress[2]) || 0);
+    const sp2 = (typeof g.sp2 === 'number') ? g.sp2
+      : (typeof g.investigationProgress === 'number' ? g.investigationProgress
+      : ((g.stageProgress && g.stageProgress[2]) || 0));
 
     if (!this._localities[loc]) {
       this._localities[loc] = {
