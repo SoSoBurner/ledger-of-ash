@@ -27,6 +27,7 @@ test.use({ headless: false });
 var _runStartMs = 0;
 var lastDeadEndPick = -1;
 var _combatProbeModeCounter = 0; // even=defend+flee, odd=strike; increments per family run; module-scope for runPlaythrough closure
+var _combatMode = 'defend'; // module-scope so runFullPanelSimulation can access it (closure trap)
 
 // ---------------------------------------------------------------------------
 // Output dirs
@@ -1516,7 +1517,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   ceiling = ceiling || 'Stage II';
   const tag = `${family}_${archetypeId}_a${attemptNum}`;
   _combatProbeModeCounter++;
-  const _combatMode = (_combatProbeModeCounter % 2 === 0) ? 'defend' : 'strike';
+  _combatMode = (_combatProbeModeCounter % 2 === 0) ? 'defend' : 'strike';
   log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family} ceiling=${ceiling}`);
 
   let pageIsClosed = false;
