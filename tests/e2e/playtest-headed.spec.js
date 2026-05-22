@@ -1440,6 +1440,11 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let _lastScreenshotAtPick = -1;
 
   let _lastHudProbeAtPick = -1;
+  let _lastKnownStage  = '';
+  let _lastBenevolence = 0;
+  let _lastOrderAxis   = 0;
+  let _benThresholdHit = false;
+  let _ordThresholdHit = false;
   const visitedLocalities = new Set();
   const ESCAPE_LOCS = [
     'shelkopolis','cosmoria','zootia','roaz','soreheim',
@@ -1448,6 +1453,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
     'delvingmoor','cosrin','the_plumes','veldt_crossing','harrowgate',
   ];
   const visitedForLog = new Set();
+  _lastKnownStage = g.stage || '';
 
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
@@ -1541,6 +1547,45 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           if (picks % PROBE_EVERY !== 0) {
             await probeHUD(page, tag, g);
           }
+
+          // D5: Stage advance screenshot
+          try {
+            const _curStage = g.stage || '';
+            if (_lastKnownStage && _curStage && _curStage !== _lastKnownStage) {
+              const _oldLabel = _lastKnownStage.replace(/\s+/g, '_');
+              const _newLabel = _curStage.replace(/\s+/g, '_');
+              await screenshot(page, `${tag}_stage_advance_${_oldLabel}_to_${_newLabel}`);
+              const _sp2D5 = await page.evaluate(function(){ return (G && G.stageProgress && G.stageProgress[2]) || 0; }).catch(() => 0);
+              const _sp1D5 = (g.stageProgress && g.stageProgress[1]) || 0;
+              log(`[stage-advance ${tag}] pick=${picks} old="${_lastKnownStage}" new="${_curStage}" sp1=${_sp1D5} sp2=${_sp2D5}`);
+              _lastKnownStage = _curStage;
+            } else if (_curStage && !_lastKnownStage) {
+              _lastKnownStage = _curStage;
+            }
+          } catch (_) {}
+
+          // D6: Alignment drift tracking
+          try {
+            const _curBen = g.benevolence || 0;
+            const _curOrd = g.orderAxis   || 0;
+            const _dBen   = _curBen - _lastBenevolence;
+            const _dOrd   = _curOrd - _lastOrderAxis;
+            if (_dBen !== 0 || _dOrd !== 0) {
+              log(`[alignment-drift ${tag}] pick=${picks} ben=${_curBen}(${_dBen >= 0 ? '+' : ''}${_dBen}) order=${_curOrd}(${_dOrd >= 0 ? '+' : ''}${_dOrd})`);
+            }
+            if (!_benThresholdHit && Math.abs(_curBen) >= 10) {
+              _benThresholdHit = true;
+              await screenshot(page, `${tag}_alignment_ben_threshold_p${picks}`);
+              log(`[alignment-drift ${tag}] pick=${picks} THRESHOLD: benevolence=${_curBen}`);
+            }
+            if (!_ordThresholdHit && Math.abs(_curOrd) >= 10) {
+              _ordThresholdHit = true;
+              await screenshot(page, `${tag}_alignment_ord_threshold_p${picks}`);
+              log(`[alignment-drift ${tag}] pick=${picks} THRESHOLD: orderAxis=${_curOrd}`);
+            }
+            _lastBenevolence = _curBen;
+            _lastOrderAxis   = _curOrd;
+          } catch (_) {}
         }
       } catch (_) {}
 
