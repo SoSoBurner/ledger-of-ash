@@ -688,6 +688,86 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW SP2 CHOICES — direct stageProgress increment ──
+
+  {
+    label: "The Hammer Company extraction quota sheet shows a different ceiling than the Iron Accord copy.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'quota sheet discrepancy');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.sor_hammer_quota_discrepancy = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The Hammer Company posts its extraction quota ceilings on a board inside the forge-floor entrance — a public-facing requirement of the Iron Accord. The Iron Accord registry copy, filed at the Giant Council administrative desk, shows a different ceiling figure for the same category: lower by eleven percent. The Hammer Company board shows what it wants workers to accept as the limit. The Iron Accord registry shows what the limit actually is. Eleven percent of monthly extraction volume moves outside the Accord\'s oversight entirely. The discrepancy has been posted on that board for eight months.';
+        addJournal('Hammer Company quota board ceiling differs from Iron Accord registry by 11% — 8 months of extraction operating above the Accord-registered limit', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The Hammer Company quota board is inside the forge-floor entrance, which requires a work assignment seal to access during active production hours. The Iron Accord registry copy at the Giant Council desk is accessible, but the category codes on the registry form use a Soreheim internal abbreviation system that requires a cross-reference table the Council desk clerk does not have at her station. The cross-reference table is in the central registry annex, a different building.';
+        addJournal('Hammer Company quota board inaccessible — work seal required; Iron Accord registry abbreviations require separate cross-reference table', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "Decommodification prohibition records list exactly the goods currently moving under the Wing seal.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'decommodification prohibition cross-reference');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('spirit', G.skills.craft);
+      if (roll.total >= 13) {
+        G.flags.sor_decom_prohibition_match = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The Decommodification prohibition register lists goods that are forbidden from open trade under the Soreheim economic transition agreements — items that cannot be bought, sold, or shipped commercially without treaty exception. The register is a public document, printed annually and posted at the Giant Council intake desk. Three of the compound categories moving under the Relic Strategy Wing operational seal appear on the prohibition register without any listed treaty exception. The Wing seal is being used to move goods that no commercial operator could legally touch. The operational seal is functioning as a decommodification bypass.';
+        addJournal('Decommodification prohibition register: 3 compound categories moving under Relic Strategy Wing seal have no listed treaty exception — Wing seal used as prohibition bypass', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The Decommodification prohibition register is a posted document at the Giant Council intake desk — one large sheet, updated annually, printed in columns too small to read at a distance. Getting close enough to read the specific compound categories requires standing at the intake desk for several minutes, which the intake clerk notices. She asks what category you are checking. The question is not hostile. It is the opening of a logged interaction.';
+        addJournal('Decommodification register access requires standing at logged intake desk — compound category check creates interaction record', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "Iron Accord arbitration records show three disputes involving the same shipment reference, all dismissed.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'Iron Accord arbitration dismissals');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('charm', G.skills.persuasion);
+      if (roll.total >= 13) {
+        G.flags.sor_arbitration_dismissals = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The Iron Accord arbitration records are kept in a public register at the Soreheim trade hall — disputes filed, hearings held, outcomes recorded. Three separate disputes reference the same shipment identifier: two filed by independent forge contractors whose quota allotments were reduced, one filed by a transit worker whose route documentation was altered after the fact. All three were dismissed. Each dismissal cites a different procedural ground — standing, jurisdiction, timing. The grounds are legally distinct. The dismissal pattern is not: three disputes about the same shipment, three different procedural walls, zero hearings on the merits.';
+        addJournal('Iron Accord arbitration: 3 disputes on same shipment identifier all dismissed on different procedural grounds — no hearing on the merits across any of the three', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = 'The arbitration register index requires the specific shipment identifier to pull the relevant case entries — a general search by date or party name takes a full working day and produces a queue ticket. Without the identifier, the register does not surface the pattern. The trade hall clerk writes down the inquiry and notes that Iron Accord arbitration records are administered by the council arbiter\'s office, which has a separate access protocol. She provides the form. The form routes to the same desk as Cron\'s office.';
+        addJournal('Arbitration register search requires specific shipment identifier — general search creates queue ticket routed through Cron\'s office', 'complication');
+        G.recentOutcomeType = 'complication';
+        maybeStageAdvance();
+      }
+    }
+  },
+
   // ── ROAD WARDENS FACTION CONTACT PLOT (3-beat sequence) ───────────
 
   // BEAT 1 — Hook
@@ -815,4 +895,4 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
 ];
 
-window.SOREHEIM_STAGE2_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES;
+window.SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES;

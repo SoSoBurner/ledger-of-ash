@@ -846,6 +846,136 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW SP2 CHOICES — direct stageProgress increment ──
+
+  {
+    label: "The Tower Authority log continues below the waterline. Category 6 permit required.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'tower foundation log below waterline');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.cos_tower_foundation_log = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The registry office on the Titan Wharf keeps two sets of foundation records: the civic survey, which ends at the waterline, and the Tower Authority log, which continues below it. The clerk processes the lower-section request and sets a Category 6 permit form on the counter. The blank page has a watermark. The watermark is a House Shelk secondary seal — the same seal that appears on three of the Pallmark Reach decommissioning override stamps. Someone wrote the permit requirement after the records were already sealed.';
+        addJournal('Tower Authority sub-waterline log requires Category 6 permit — permit form carries House Shelk secondary seal, same mark as decommissioning overrides', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = 'The clerk processes the access request — logs it, stamps it, writes the permit requirement in a careful hand. Category 6 requires a Transit Authority countersignature. The countersignature queue runs three to five days. The inquiry form goes into the daily bundle that reaches the Harbor Captain\'s administrative desk by the second bell. Your name is now in a document that Marrow Tideglass will receive by end of day.';
+        addJournal('Tower Authority log access blocked — Category 6 permit required, inquiry routed to Harbor Captain', 'complication');
+        G.recentOutcomeType = 'complication';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "Titan Wharf seawall inscriptions were re-chiseled within the last two seasons.",
+    tags: ['Stage2', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'seawall inscription re-chiseling');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('vigor', G.skills.survival);
+      if (roll.total >= 13) {
+        G.flags.cos_seawall_inscriptions = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The original Titan-period seawall inscriptions on the lower wharf face are carved deep into the stone — centuries of salt weathering have rounded the edges and filled the cuts with mineral deposit. A section twelve meters long near the third anchorage berth has been freshly re-chiseled over the original marks. The new cuts are sharp, the deposit absent, the chisel angle different from the Titan toolwork above it. The re-chiseled section covers the original load-limit notation for berth seven. The weight classification that was painted over has an older stone record beneath it that someone decided also needed changing.';
+        addJournal('Titan Wharf seawall: berth seven original load-limit inscription re-chiseled within two seasons — Titan stonework altered to match painted-over weight reclassification', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The lower wharf face is accessible at low tide only, and the tide window is shorter than expected — a salt-water channel between the third anchorage stone and the base of the seawall fills within forty minutes of the turn. The inscriptions along the foundation course are visible but not close enough to read in the available window before the water closes over the access path.';
+        addJournal('Seawall inscription survey incomplete — tide window closed before foundation course accessible', 'complication');
+        G.recentOutcomeType = 'complication';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "The Amber Trade Authority quarterly post uses a cipher key that changed two seasons ago.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'Amber Trade Authority cipher change');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 14) {
+        G.flags.cos_ata_cipher_change = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The public Amber Trade Authority quarterly posts are filed in the municipal reading room, twelve issues deep in a cedar rack behind the periodicals desk. The cipher notation used for trade volume figures changed two seasons ago — the new notation encodes differently, which is normal for a routine cipher refresh. What is not normal: the old cipher, applied retroactively to the figures in the current issue, produces a different set of numbers. The variance matches the bonded transit volume Tavian identified at the Floating Market. Someone changed the cipher to prevent a simple backward comparison from showing what moved.';
+        addJournal('Amber Trade Authority cipher changed two seasons ago — retroactive decoding of current issue with old cipher matches suppressed bonded transit volume', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The quarterly posts are in the cedar rack, twelve issues accessible. The cipher notation difference is visible between the older and newer issues — the formatting changed. Without the decoding key for the old cipher the comparison cannot be run. The reading room archivist confirms the cipher was refreshed two seasons ago and that the key for the prior version is held by the Trade Authority administrative office, not the reading room.';
+        addJournal('Amber Trade Authority cipher change noted — prior-version key held by Trade Authority admin, not accessible through reading room', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "The House Shelk secondary seal appears on three separate Cosmoria documents.",
+    tags: ['Stage2', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'House Shelk secondary seal cross-reference');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 12) {
+        G.flags.cos_shelk_seal_confirmed = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The Pallmark Reach decommissioning waiver, the Tower Authority Category 6 permit form, and the transit exemption waiver filed with the Harbor Captain\'s office all carry the same secondary seal: a small mark in the lower margin, House Shelk administrative format, sub-bureau designation readable under magnification. The sub-bureau mark does not appear in the current Shelk polity directory — it was dissolved fourteen months ago as part of a Shelk administrative restructuring. A dissolved sub-bureau cannot issue new documents. These three documents were all produced before the dissolution or by someone with access to the dissolved bureau\'s seal materials after it closed.';
+        addJournal('House Shelk sub-bureau secondary seal on three Cosmoria documents — sub-bureau dissolved 14 months ago, seal use post-dissolution implies seal retention after closure', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The secondary seal mark appears on two documents laid side by side — the decommissioning waiver and the permit form. The House Shelk sub-bureau designation requires a polity directory to identify, and the current directory is a paid-access reference at the maritime law reading room three streets from the archive. The comparison is started but not finished before the reading room closes for the midday meal.';
+        addJournal('House Shelk secondary seal matched on two documents — sub-bureau identification incomplete, polity directory access needed', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "Cosmouth Administrative Continuity Trust holds insurance and bonds on the same shipments.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'Cosmouth Administrative Continuity Trust self-dealing');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('spirit', G.skills.craft);
+      if (roll.total >= 13) {
+        G.flags.cos_continuity_trust_exposed = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The entity name on the cargo insurance policy, the customs bond surety account, and the charter exemption authorization form is the same: Cosmouth Administrative Continuity Trust. One entity is insuring its own cargo, posting surety against its own customs risk, and providing its own exemption authorization. Each function is technically held by a separate administrative designation within the Trust — but the Trust\'s registered principal, traceable through the Cosmouth commercial registry, is a single name. The operation is self-certified at every financial control point. There is no external oversight layer.';
+        addJournal('Cosmouth Administrative Continuity Trust is insurer, customs surety, and exemption authority on all 41 sealed shipments — single-principal self-certification, no external oversight', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The Cosmouth Administrative Continuity Trust is a registered entity in the Cosmouth commercial registry — public record, accessible. The connection between the insurance policy holder, the customs bond account, and the exemption authorization requires cross-referencing three separate registry systems. The Cosmouth commercial registry is accessible here. The customs bond account registry and the exemption authorization registry both sit in Cosmouth administrative jurisdiction, not Cosmoria\'s.';
+        addJournal('Cosmouth Administrative Continuity Trust confirmed in commercial registry — full cross-reference requires Cosmouth registry access', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      }
+    }
+  },
+
 ];
 
 // Sideplot injection — cosmoria harbor weight fraud rung2 hook

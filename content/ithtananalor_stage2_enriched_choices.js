@@ -766,6 +766,86 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW SP2 CHOICES — direct stageProgress increment ──
+
+  {
+    label: "The forest compact boundary marker was moved. The archive still shows the old position.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'forest compact boundary discrepancy');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.ith_forest_compact_boundary = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The forest compact boundary is a legal demarcation that establishes which arcane activities require forest-authority licensing — anything within the boundary requires approval from the compact\'s oversight body. The archive map shows the boundary running along the eastern ridge. The physical markers in the ground run two hundred meters east of the ridge, which places the enforcement quarter\'s anti-magic statute coverage area inside the compact zone. Operations that need compact oversight have been conducted without it. The discrepancy is not new: the markers were moved six years ago. The archive map was never updated. Someone left both records to coexist.';
+        addJournal('Forest compact boundary markers moved 200m east of archive map position — enforcement quarter operations in compact zone without required oversight for 6 years', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The compact boundary map is a large-format document that requires the reading room\'s extended table to lay flat. The reading room extended table is reserved for the morning session — afternoon walk-in access requires a confirmed booking. The booking register for this week is full. The compact boundary position can be verified physically by walking the marker line, which takes two hours and produces no written record.';
+        addJournal('Compact boundary archive map inaccessible afternoon — extended table reserved; physical marker survey possible but produces no record', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "The magical licensing register shows approvals issued against applications that were never filed.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'magical licensing register ghost approvals');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.ith_licensing_ghost_approvals = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The magical licensing register and the application log are two separate documents that are supposed to match — each approval in the register should correspond to a filed application. Cross-referencing the two reveals seven approvals in the register with no corresponding application: the approval was issued, the license number assigned, and the fee collected, but the originating application form does not exist in the log. The fee collection dates cluster around the same months the ghost ore accounts were active. The license fees went somewhere. The applications they purchased do not exist.';
+        addJournal('Magical licensing register: 7 approvals issued with no corresponding applications — fee collection dates match ghost account activity period', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = 'The application log is kept by the licensing bureau, and the register by the enforcement administration — they are not maintained in the same office or cross-referenced as a matter of routine. Pulling both documents together requires a formal records reconciliation request filed jointly to both offices. The reconciliation request goes to both administrators simultaneously and takes three working days. Both offices will know the comparison is being made before the comparison is done.';
+        addJournal('Licensing register and application log cross-reference requires joint formal request — both offices notified simultaneously, 3-day window', 'complication');
+        G.recentOutcomeType = 'complication';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "The suppression knowledge is being withheld systematically. The gaps in the archive confirm it.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'knowledge suppression archive pattern');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 13) {
+        G.flags.ith_knowledge_suppression_pattern = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The subject index for arcane research materials runs from A to W. There is no X, Y, or Z section — the binding is intact on both sides of the gap, which means the sections were removed before the index was bound, not after. The removed sections covered research classifications beginning with the prefix "xen-" — a categorization used exclusively for cross-boundary arcane transfer, the class of activity the ghost accounts were funding. The removal was planned, not reactive. Whoever structured this archive knew what knowledge would need to be inaccessible before the accounts were ever opened.';
+        addJournal('Arcane research index: xen- classification sections removed before binding — cross-boundary transfer research excised in advance of ghost account activity', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The subject index gaps are visible — sections missing from the binding — but the categories they covered are not labeled on any adjacent page. The archive attendant, when asked about the gaps, consults a procedure card taped inside the reference desk drawer. "Classification restructuring," she says. "Some categories were consolidated." The procedure card she consulted is dated two weeks ago. The restructuring explanation is recent enough to be a prepared response.';
+        addJournal('Arcane research index gaps noted — attendant cited "classification restructuring" per procedure card dated 2 weeks ago', 'complication');
+        G.recentOutcomeType = 'complication';
+        maybeStageAdvance();
+      }
+    }
+  },
+
 ];
 
 window.ITHTANANALOR_STAGE2_ENRICHED_CHOICES = ITHTANANALOR_STAGE2_ENRICHED_CHOICES;

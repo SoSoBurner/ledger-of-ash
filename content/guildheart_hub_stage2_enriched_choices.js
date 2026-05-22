@@ -873,6 +873,87 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW SP2 CHOICES — direct stageProgress increment ──
+
+  {
+    label: "Guildmaster Marchant filed an inquiry about the charter exemption. It was marked received and never answered.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'Guildmaster Marchant unanswered inquiry');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('charm', G.skills.persuasion);
+      if (roll.total >= 13) {
+        G.flags.guild_marchant_inquiry_found = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The Guild Council correspondence archive keeps outbound inquiries in a bound register by session date. Guildmaster Selene Marchant filed a formal charter exemption inquiry four months ago — the entry is in her hand, sealed with her council mark, addressed to the charter desk for response within ten working days. The response copy that should be filed behind it is absent. The acknowledgment stamp on the original shows it was received. It was never answered. A formal inquiry from the Guildmaster of the Guild Council sat unaddressed for four months, and the charter desk that received it processed two new exemption renewals in the same period.';
+        addJournal('Guildmaster Marchant\'s formal charter exemption inquiry: received 4 months ago, never answered — charter desk processed 2 renewals during same window without responding', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = 'The correspondence archive is open for member review, but the register for Guildmaster correspondence is kept at the council secretary\'s desk rather than the general archive — a procedural distinction that requires a signed authorization from the council secretary before the register is produced. The secretary\'s office is closed for the afternoon session. The inquiry goes into a callback list. The callback list is reviewed by the charter desk clerk on Monday mornings.';
+        addJournal('Guildmaster correspondence archive access blocked — council secretary authorization required; callback list reviewed by charter desk', 'complication');
+        G.recentOutcomeType = 'complication';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "The trade record for that charter category runs double the registered capacity for six months.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'charter category capacity overage');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('spirit', G.skills.craft);
+      if (roll.total >= 13) {
+        G.flags.guild_charter_capacity_overage = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'The charter category\'s registered capacity is a number set at the time of original exemption filing — a figure that caps the total volume of goods that can move under the exemption annually without triggering a mandatory review. The trade record for the past six months runs at double that figure. The mandatory review threshold was crossed in month three. The charter desk\'s own compliance calendar has a flagged entry for it: REVIEW REQUIRED — CAPACITY OVERAGE. The flag was marked DEFERRED with no date. DEFERRED has no defined status in the charter desk procedural manual. It is not a recognized disposition code.';
+        addJournal('Charter category running at 2x registered capacity for 6 months — mandatory review flagged then marked DEFERRED with no date; DEFERRED is not a valid disposition code', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.lastResult = 'The trade record volume for the charter category is accessible at the public tariff summary board — a monthly poster pinned near the registry entrance. The figures confirm the category is active and large. Whether the volume exceeds a registered capacity ceiling requires access to the original exemption filing to find the ceiling figure, and the filing is in the subsidiary archive where access requires a pre-submitted research credential.';
+        addJournal('Charter category trade volume confirmed large at public tariff board — capacity ceiling comparison requires original exemption filing access', 'intelligence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      }
+    }
+  },
+
+  {
+    label: "The Guild Council meeting minutes from the exemption week have a page removed.",
+    tags: ['Stage2', 'Records', 'Evidence'],
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'Guild Council minutes missing page');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var roll = rollD20('wits', G.skills.lore);
+      if (roll.total >= 12) {
+        G.flags.guild_council_minutes_gap = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.lastResult = 'Guild Council meeting minutes are bound quarterly and shelved in the public record wing — open access, no research credential required. The bound volume for the relevant quarter has a visible stitch gap between pages 34 and 37: two pages removed after binding, leaving a clean cut at the thread line. Pages 35 and 36 would cover the session date when the charter exemption was initially approved. The table of contents entry for that session reads: "Charter Exemption Review — Agenda Item 4 (see attached)." The attached document is absent. The table of contents was printed before the pages were removed.';
+        addJournal('Guild Council minutes: pages 35-36 removed after binding — covers charter exemption approval session; table of contents references attached document now absent', 'evidence');
+        G.recentOutcomeType = 'investigate';
+        maybeStageAdvance();
+      } else {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = 'The minutes volume is in the public record wing. You find the correct quarter and begin reading. A council record clerk stops at the shelf before the relevant pages are reached — she is shelving a return, she says, and takes the volume from you before you can decline. She shelves it spine-in rather than spine-out, which is not how the other volumes are oriented. The record wing closes for the day in twenty minutes.';
+        addJournal('Guild Council minutes access interrupted — record clerk reversed spine orientation when re-shelving', 'complication');
+        G.recentOutcomeType = 'complication';
+        maybeStageAdvance();
+      }
+    }
+  },
+
 ];
 
 // Sideplot injection — guildheart union testimony gap (Stage II only)
@@ -883,4 +964,4 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   if (_gapRung2) GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES.push(_gapRung2);
 })();
 
-window.GUILDHEART_STAGE2_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES;
+window.GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES;
