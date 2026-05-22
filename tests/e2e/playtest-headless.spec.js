@@ -755,6 +755,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   var _bossWatchEmitted   = false;
   var _headlessLastStage = '';
   var _lastLoggedSP2 = -1;
+  var _lastSp2AtTriage        = -1;
+  var _sp2FrozenCount         = 0;
+  var _lastStage2EnrichedPick = 0;
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
 
@@ -802,6 +805,31 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           }
         }
         if (g.stage) _headlessLastStage = g.stage;
+
+        // TRIAGE 5+6: Stage II sp2 stall + enriched-choice absence detection
+        if (g.stage !== 'Stage I') {
+          var _sp2Triage = 0;
+          try { _sp2Triage = await page.evaluate(function(){ return (G && G.stageProgress && G.stageProgress[2]) || 0; }); } catch(_e) {}
+          if (_sp2Triage === _lastSp2AtTriage) {
+            _sp2FrozenCount++;
+            if (_sp2FrozenCount >= 3) { // 3 cycles = 75 picks
+              log('[TRIAGE_PROGRESSION_BLOCKED_SP2 ' + tag + '] pick=' + picks + ' sp2=' + _sp2Triage + ' frozen for ' + (_sp2FrozenCount * 25) + ' picks');
+            }
+          } else {
+            _sp2FrozenCount = 0;
+          }
+          _lastSp2AtTriage = _sp2Triage;
+
+          // TRIAGE 6: No Stage II enriched choices appearing
+          var _enrichedCount = 0;
+          try { _enrichedCount = await page.locator('.choice-btn[data-cid^="stage2_"]').count(); } catch(_e2) {}
+          if (_enrichedCount > 0) {
+            _lastStage2EnrichedPick = picks;
+          } else if (_lastStage2EnrichedPick > 0 && (picks - _lastStage2EnrichedPick) >= 75) {
+            log('[TRIAGE_STAGE_II_NO_ENRICHED_CHOICES ' + tag + '] pick=' + picks + ' loc=' + g.location + ' — no Stage II choices in 75 picks');
+            _lastStage2EnrichedPick = picks; // reset to avoid spam
+          }
+        }
 
         var _elapsed = Date.now() - _runStartMs;
         if (_elapsed > 55 * 60 * 1000) {
