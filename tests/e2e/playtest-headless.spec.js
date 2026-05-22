@@ -789,7 +789,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         }
         if (_sp1Reached15AtPick !== -1 && !_bossWatchEmitted) {
           var _bossLag = picks - _sp1Reached15AtPick;
-          if (_bossLag >= 35 && !(g.flags && g.flags.stage1_boss_started)) {
+          if (_bossLag >= 35 && !(g.flags && g.flags.stage1_boss_started) && g.stage === 'Stage I') {
             log('[TRIAGE_BOSS_NOT_FIRING ' + tag + '] pick=' + picks + ' sp1=' + _sp1ForBoss + ' lag=' + _bossLag + ' picks since sp1=15');
             _bossWatchEmitted = true;
           }
