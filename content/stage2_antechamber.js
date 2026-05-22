@@ -23,7 +23,7 @@ window.STAGE2_ANTECHAMBER = (function() {
       'One initial. Collegium ink \u2014 the specific blue-gray of institutional correspondence. Whoever wrote this has access to that supply.'
     );
 
-    window.renderChoices([
+    (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'antechamber_accelerate',
         text: 'They warned me because I\u2019m close. That changes what pressing harder costs.',
