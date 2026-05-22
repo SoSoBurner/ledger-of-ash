@@ -230,10 +230,9 @@ async function waitForChoices(page, ms) {
 
 // isSuccess uses dynamic ceiling from stage-lock helper.
 // headless: quick-win = exiting Stage I (organic only). Headed: organic only (see headed spec).
-async function isSuccess(page, ceiling, headless) {
+async function isSuccess(page, ceiling, headless, sp2, localitiesCount) {
   if (headless) {
-    // Headless smoke-test: reaching Stage II (or higher) = pass (organic only).
-    return page.evaluate((c) => {
+    const stageOk = await page.evaluate((c) => {
       try {
         if (typeof G === 'undefined') return false;
         if (c === 'Stage II') return G.stage !== 'Stage I';
@@ -242,6 +241,12 @@ async function isSuccess(page, ceiling, headless) {
         return G.stage === 'Stage V';
       } catch (_) { return false; }
     }, ceiling).catch(() => false);
+    if (!stageOk) return false;
+    // H5: Stage II strict threshold — sp2 >= 12 + 3 localities visited
+    if (ceiling === 'Stage II') {
+      if ((sp2 || 0) < 12 || (localitiesCount || 0) < 3) return false;
+    }
+    return true;
   }
   return stageLockIsSuccess(page, ceiling);
 }
@@ -852,7 +857,15 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         log(`[run:${tag}] DEAD pick=${picks} level=${g.level}`);
         return { success: false, reason: 'death', picks, g };
       }
-      if (await isSuccess(page, ceiling, !isHeaded)) {
+      const _sp2ForSuccess = await page.evaluate(function(){ try{ return G.stageProgress[2]||0; } catch(_){return 0;} }).catch(()=>0);
+      // H5: log thin Stage II (reached Stage II but sp2 too low)
+      if (!isHeaded) {
+        const _stageForH5 = await page.evaluate(function(){ try{ return G.stage||''; } catch(_){ return ''; } }).catch(()=>'');
+        if (_stageForH5 !== 'Stage I' && _sp2ForSuccess < 12) {
+          log('[TRIAGE_THIN_STAGE_II ' + tag + '] pick=' + picks + ' sp2=' + _sp2ForSuccess + ' locs=' + visitedLocalities.size + ' — in Stage II but below sp2=12, continuing');
+        }
+      }
+      if (await isSuccess(page, ceiling, !isHeaded, _sp2ForSuccess, visitedLocalities.size)) {
         g = await readG(page);
         await screenshot(page, `${tag}_success_p${picks}`);
         const sp2Final = (g.stageProgress && g.stageProgress[2]) || 0;
