@@ -26,7 +26,7 @@ const ALL_LOCALITIES = [
 
 class CoverageTracker {
   constructor() {
-    this._localities = {};   // locId → { visits, sp2Start, sp2End, deadEnds, mapTravels }
+    this._localities = {};   // locId → { visits, sp2Start, sp2End, deadEnds, mapTravels, stageVisitedIn }
     this._currentLoc = null;
     this._currentSp2 = 0;
     this._deadEnds = [];
@@ -42,12 +42,13 @@ class CoverageTracker {
     const sp2 = (typeof g.sp2 === 'number') ? g.sp2
       : (typeof g.investigationProgress === 'number' ? g.investigationProgress
       : ((g.stageProgress && g.stageProgress[2]) || 0));
+    const stage = g.stage || 'Stage I';  // Track which stage we're in
 
     if (!this._localities[loc]) {
       this._localities[loc] = {
         visits: 0, firstVisitPick: this._pickCount,
         sp2OnArrival: sp2, sp2OnDeparture: sp2,
-        deadEnds: 0, mapTravels: 0,
+        deadEnds: 0, mapTravels: 0, stageVisitedIn: stage,
       };
     }
 
@@ -58,6 +59,7 @@ class CoverageTracker {
       }
       this._localities[loc].visits++;
       this._localities[loc].sp2OnArrival = sp2;
+      this._localities[loc].stageVisitedIn = stage;  // Record stage at arrival
       this._currentLoc = loc;
     }
 
@@ -88,11 +90,18 @@ class CoverageTracker {
   getSummary() {
     const visited = Object.keys(this._localities);
     const gaps = [];  // localities visited with 0 sp2 contribution
+    const zeroSp2Stage2 = [];  // Stage II localities with 0 sp2 contribution
 
     const localityRows = visited.map(locId => {
       const d = this._localities[locId];
       const sp2Contributed = d.sp2OnDeparture - d.sp2OnArrival;
-      if (sp2Contributed <= 0 && d.visits > 0) gaps.push(locId);
+      if (sp2Contributed <= 0 && d.visits > 0) {
+        gaps.push(locId);
+        // Track Stage II zero-contributor localities separately
+        if (d.stageVisitedIn === 'Stage II') {
+          zeroSp2Stage2.push(locId);
+        }
+      }
       return {
         locId,
         visits: d.visits,
@@ -110,6 +119,7 @@ class CoverageTracker {
       localitiesVisited: visited.length,
       localityRows,
       coverageGaps: gaps,
+      zeroSp2Stage2Localities: zeroSp2Stage2,
       unvisited,
       deadEnds: this._deadEnds,
       mapTravels: this._mapTravels,

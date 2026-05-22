@@ -108,6 +108,12 @@ class ReportWriter {
       lines.push('');
     }
 
+    if ((coverage.zeroSp2Stage2Localities || []).length) {
+      lines.push('## [stage2-coverage-gaps] zero-sp2-locs');
+      lines.push(`\`\`\`\n${coverage.zeroSp2Stage2Localities.join(', ')}\n\`\`\``);
+      lines.push('');
+    }
+
     if ((coverage.deadEnds || []).length) {
       lines.push('## Dead-ends Log');
       lines.push('| Pick | Locality | HTML Snippet |');
