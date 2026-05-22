@@ -876,7 +876,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   // ── NEW SP2 CHOICES — direct stageProgress increment ──
 
   {
-    label: "Guildmaster Marchant filed an inquiry about the charter exemption. It was marked received and never answered.",
+    label: "Marchant's inquiry about the charter exemption was marked received. Never answered.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
