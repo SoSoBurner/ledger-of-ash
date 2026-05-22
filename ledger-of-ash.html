@@ -5325,6 +5325,19 @@ const FACTIONS_BASE = [
   {id:'principality_of_roaz',name:'Principality of Roaz',rep:0}
 ];
 
+// All story-reachable localities share the 'principalities' macroregion.
+// This lets travelTo() allow cross-polity travel when sameMacro = true,
+// fixing dead-ends at single-locale polities (guildheart, panim, ithtananalor).
+window.LOCALITY_MACROREGION = {
+  shelkopolis:'principalities', fairhaven:'principalities',
+  guildheart:'principalities', panim:'principalities',
+  ithtananalor:'principalities', mimolot:'principalities',
+  soreheim:'principalities', aurora:'principalities',
+  cosmoria:'principalities', shirshal:'principalities',
+  sunspire:'principalities', brineland:'principalities',
+  amber_fountain_inn:'principalities', whitebridge:'principalities'
+};
+
 const TIMES = ['Dawnrise','Midlight','Duskcall','Nightwatch'];
 
 // ── ARCHETYPE ABILITY TREES ─────────────────────────────
@@ -14658,7 +14671,10 @@ function showMap() {
   const curRegion = cur ? cur.region : '';
   const locs = Object.values(WORLD_LOCATIONS);
   const stage1Locs = locs.filter(l => l.region === curRegion);
-  const stage2Locs = G.stage !== 'Stage I' ? locs.filter(l => l.region !== curRegion) : [];
+  // If current polity has only the current locality (stranded at guildheart/panim/etc. via story choice),
+  // show all cross-polity destinations so the player isn't dead-ended.
+  const stranded = stage1Locs.every(l => l.id === settlementId);
+  const stage2Locs = (G.stage !== 'Stage I' || stranded) ? locs.filter(l => l.region !== curRegion) : [];
 
   let html = '<div style="color:var(--ink-dim);font-size:13px;margin-bottom:16px">' +
     (G.stage === 'Stage I' ?
@@ -14711,7 +14727,7 @@ function showMap() {
   html += '<div class="map-locations">' +
     stage1Locs.concat(stage2Locs).map(l => {
       const isCur = l.id === settlementId;
-      const locked = G.stage === 'Stage I' && l.region !== curRegion;
+      const locked = G.stage === 'Stage I' && l.region !== curRegion && !stranded;
       return '<div class="map-loc' + (isCur?' current':'') + (locked?' locked':'') + '">' +
         '<div class="map-loc-name">' + l.name + (isCur?' &#x2605;':'') + (locked?' &#x1F512;':'') + '</div>' +
         '<div class="map-loc-region">' + l.region + '</div>' +
