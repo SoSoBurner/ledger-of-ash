@@ -645,6 +645,22 @@ async function probeCharSheet(page, tag, g) {
       }
     }
 
+    // D3: Ability card click probe
+    try {
+      const _abilityCard = page.locator('.ability-card').first();
+      const _abilVis = await _abilityCard.isVisible({ timeout: 500 }).catch(() => false);
+      if (_abilVis) {
+        await _abilityCard.click();
+        await page.waitForTimeout(PACE.short || 300);
+        const _cardTxt    = await _abilityCard.innerText().catch(() => '');
+        const _cardObjObj = _cardTxt.includes('[object Object]');
+        await screenshot(page, `${tag}_ability_card_p${g.level}`);
+        log(`[panel:char-sheet ${tag}] ability-card-click: interactive=true objObj=${_cardObjObj} text="${_cardTxt.slice(0, 60).replace(/\n/g, ' ')}"`);
+      } else {
+        log(`[panel:char-sheet ${tag}] ability-card-click: no .ability-card visible`);
+      }
+    } catch (_d3err) {}
+
     await closeSpecificOverlay(page, 'overlay-charsheet');
   } catch (err) {
     log(`[panel:char-sheet ${tag}] FAIL: ${err.message}`);
@@ -716,11 +732,34 @@ async function probeCamp(page, tag, g) {
     const craftVisible = await page.locator('button.camp-action[data-camp="craft"],[data-camp="craft"],#btn-craft').isVisible({ timeout: 600 }).catch(() => false);
     if (craftVisible) {
       const craftBtn = page.locator('button.camp-action[data-camp="craft"],[data-camp="craft"],#btn-craft').first();
-      await craftBtn.click();
-      await page.waitForTimeout(PACE.short);
-      await screenshot(page, `${tag}_camp_craft_result`);
-      const craftTxt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
-      log(`[panel:camp ${tag}] craft-result: "${craftTxt.slice(0,100).replace(/\n/g,' ')}"`);
+      try {
+        const _lvlForCraft = (g && g.level) || 1;
+        await craftBtn.click();
+        await page.waitForTimeout(PACE.short || 300);
+
+        // D4: Check for recipe selection UI
+        const _recipeCount = await page.locator('.choice-btn[data-cid^="craft_"]').count().catch(() => 0);
+        if (_recipeCount > 0 && _lvlForCraft >= 2) {
+          await screenshot(page, `${tag}_camp_craft_recipes`);
+          log(`[panel:camp ${tag}] craft-recipes=${_recipeCount}`);
+          const _firstRecipe = page.locator('.choice-btn[data-cid^="craft_"]').first();
+          const _recipeLabel = await _firstRecipe.innerText().catch(() => '?');
+          await _firstRecipe.click();
+          await page.waitForTimeout(PACE.short || 300);
+          const _craftResultTxt = await page.locator('.result-text,.narrative-text').first().innerText().catch(() => '');
+          const _craftObjObj    = _craftResultTxt.includes('[object Object]');
+          await screenshot(page, `${tag}_camp_craft_recipe_result`);
+          log(`[panel:camp ${tag}] craft-recipe-clicked: "${_recipeLabel.slice(0, 40).replace(/\n/g,' ')}" result="${_craftResultTxt.slice(0, 80).replace(/\n/g,' ')}" objObj=${_craftObjObj}`);
+        } else {
+          const craftTxt = await page.locator('.result-text,.narrative-text').first().innerText().catch(() => '');
+          await screenshot(page, `${tag}_camp_craft_result`);
+          log(`[panel:camp ${tag}] craft-result: "${craftTxt.slice(0,100).replace(/\n/g,' ')}"`);
+        }
+      } catch (_d4err) {
+        log(`[panel:camp ${tag}] craft FAIL: ${_d4err.message}`);
+      } finally {
+        await closeOverlay(page).catch(() => {});
+      }
     } else {
       log(`[panel:camp ${tag}] craft: not visible`);
     }
