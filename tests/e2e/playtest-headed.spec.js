@@ -723,18 +723,6 @@ async function probeCamp(page, tag, g) {
     } else {
       log(`[panel:camp ${tag}] craft: not visible`);
     }
-    // sleep
-    const sleepVisible = await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').isVisible({ timeout: 600 }).catch(() => false);
-    const sleepEnabled = sleepVisible && await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').first().isEnabled({ timeout: 400 }).catch(() => false);
-    if (sleepEnabled) {
-      await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').first().click();
-      await page.waitForTimeout(PACE.short);
-      await screenshot(page, `${tag}_camp_sleep_result`);
-      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
-      log(`[panel:camp ${tag}] sleep-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
-    } else {
-      log(`[panel:camp ${tag}] sleep: ${sleepVisible ? 'visible but disabled (gated)' : 'not visible'}`);
-    }
     // post_watches
     const postWatchesVisible = await page.locator('button.camp-action[data-camp="post_watches"],[data-camp="post_watches"]').isVisible({ timeout: 600 }).catch(() => false);
     const postWatchesEnabled = postWatchesVisible && await page.locator('button.camp-action[data-camp="post_watches"],[data-camp="post_watches"]').first().isEnabled({ timeout: 400 }).catch(() => false);
@@ -794,6 +782,18 @@ async function probeCamp(page, tag, g) {
       log(`[panel:camp ${tag}] talk-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
     } else {
       log(`[panel:camp ${tag}] talk: ${talkVisible ? 'visible but disabled (gated)' : 'not visible'}`);
+    }
+    // sleep — ordered last to avoid stale button locators after rest fires
+    const sleepVisible = await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').isVisible({ timeout: 600 }).catch(() => false);
+    const sleepEnabled = sleepVisible && await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').first().isEnabled({ timeout: 400 }).catch(() => false);
+    if (sleepEnabled) {
+      await page.locator('button.camp-action[data-camp="sleep"],[data-camp="sleep"]').first().click();
+      await page.waitForTimeout(PACE.short);
+      await screenshot(page, `${tag}_camp_sleep_result`);
+      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
+      log(`[panel:camp ${tag}] sleep-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
+    } else {
+      log(`[panel:camp ${tag}] sleep: ${sleepVisible ? 'visible but disabled (gated)' : 'not visible'}`);
     }
     await closeSpecificOverlay(page, 'overlay-camp');
   } catch (err) {
@@ -855,6 +855,7 @@ async function probeMap(page, tag, g) {
       await page.waitForTimeout(1500); // allow travel to resolve
       await waitForChoices(page, 3000);
       await screenshot(page, `${tag}_map_travel_arrival_${destLocId}`);
+      await dismissOverlays(page).catch(() => {});
       const gAfter = await readG(page);
       log(`[panel:map ${tag}] clicked dest=${destLocId} new-loc=${gAfter.location} (was=${currentLoc})`);
     } else {
@@ -989,6 +990,9 @@ async function probeShop(page, tag, g) {
         const gAfterBuy = await readG(page);
         log(`[panel:shop ${tag}] buy-attempt: "${itemLabel.slice(0,40)}" gold-before=${goldBefore} gold-after=${gAfterBuy.gold}`);
         bought = true;
+        // Close shop before opening inventory
+        await closeOverlay(page);
+        await page.waitForTimeout(PACE.short);
         // Sell flow: open inventory and attempt to sell
         try {
           const invBtn = page.locator('#btn-inventory,button:has-text("Inventory")').first();
