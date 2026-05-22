@@ -12886,11 +12886,13 @@ function checkStageAdvance() {
     }
     if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) { window.STAGE2_BOSS_MODULE.checkTrigger(); return; }
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
-    // Stage 2 faction arcs
-    if (typeof COLLEGIUM_FACTION_MODULE !== 'undefined' && COLLEGIUM_FACTION_MODULE.shouldTrigger && COLLEGIUM_FACTION_MODULE.shouldTrigger()) { COLLEGIUM_FACTION_MODULE.trigger(); return; }
-    if (typeof ROADWARDEN_FACTION_MODULE !== 'undefined' && ROADWARDEN_FACTION_MODULE.shouldTrigger && ROADWARDEN_FACTION_MODULE.shouldTrigger()) { ROADWARDEN_FACTION_MODULE.trigger(); return; }
-    if (typeof SHADOWHANDS_FACTION_MODULE !== 'undefined' && SHADOWHANDS_FACTION_MODULE.shouldTrigger && SHADOWHANDS_FACTION_MODULE.shouldTrigger()) { SHADOWHANDS_FACTION_MODULE.trigger(); return; }
-    if (typeof REDHOOD_FACTION_MODULE !== 'undefined' && REDHOOD_FACTION_MODULE.shouldTrigger && REDHOOD_FACTION_MODULE.shouldTrigger()) { REDHOOD_FACTION_MODULE.trigger(); return; }
+    // Stage 2 faction arcs — only run while no arc has completed (faction_contact_made gates antechamber)
+    if (!G.flags.stage2_faction_contact_made) {
+      if (typeof COLLEGIUM_FACTION_MODULE !== 'undefined' && COLLEGIUM_FACTION_MODULE.shouldTrigger && COLLEGIUM_FACTION_MODULE.shouldTrigger()) { COLLEGIUM_FACTION_MODULE.trigger(); return; }
+      if (typeof ROADWARDEN_FACTION_MODULE !== 'undefined' && ROADWARDEN_FACTION_MODULE.shouldTrigger && ROADWARDEN_FACTION_MODULE.shouldTrigger()) { ROADWARDEN_FACTION_MODULE.trigger(); return; }
+      if (typeof SHADOWHANDS_FACTION_MODULE !== 'undefined' && SHADOWHANDS_FACTION_MODULE.shouldTrigger && SHADOWHANDS_FACTION_MODULE.shouldTrigger()) { SHADOWHANDS_FACTION_MODULE.trigger(); return; }
+      if (typeof REDHOOD_FACTION_MODULE !== 'undefined' && REDHOOD_FACTION_MODULE.shouldTrigger && REDHOOD_FACTION_MODULE.shouldTrigger()) { REDHOOD_FACTION_MODULE.trigger(); return; }
+    }
     if ((G.stageProgress[2] || 0) === 10 && !G.flags.antechamber_signal_shown) {
       addWorldNotice('The pattern is starting to resolve. Someone at the center of it is still moving.');
       G.flags.antechamber_signal_shown = true;
@@ -15247,6 +15249,9 @@ function showCharSheet() {
         const cabs = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
         (G.unlockedCombatAbilities||[]).forEach(id => { const a=cabs.find(x=>x.id===id); if(a) passiveAbs.push({name:a.name,type:'combat',gameEffect:a.effect}); });
       }
+      (G.unlockedTraits||[]).filter(t => t.source === 'levelup_ability').forEach(t => {
+        if (!passiveAbs.find(a => a.id === t.id)) passiveAbs.push({id:t.id, name:t.name, type:t.type||t.traitType||'active', gameEffect:t.desc||t.description||''});
+      });
       if (!passiveAbs.length) return '';
       return '<div style="margin-top:16px"><div class="char-section-title">Unlocked Abilities</div>' +
         passiveAbs.map(a => '<div class="ability-card"><div class="ability-card-name">'+a.name+'</div><div class="ability-card-type">'+a.type+'</div><div class="ability-card-effect">'+a.gameEffect+'</div></div>').join('') + '</div>';
@@ -17082,6 +17087,7 @@ document.getElementById('btn-notices').addEventListener('click', showNoticesOver
 document.getElementById('btn-party').addEventListener('click', showPartyOverlay);
 document.getElementById('btn-camp').addEventListener('click', showCamp);
 document.getElementById('btn-charsheet').addEventListener('click', showCharSheet);
+document.getElementById('hud-trait-ready').addEventListener('click', showCharSheet);
 document.getElementById('btn-end-legend').addEventListener('click', confirmDeath);
 document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('click', () => closeOverlay(btn.dataset.close)));
 document.querySelectorAll('[data-camp]').forEach(btn => btn.addEventListener('click', () => campAction(btn.dataset.camp)));
