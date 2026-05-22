@@ -26,6 +26,7 @@ test.use({ headless: false });
 // Module-scope so soft-timeout closure inside runFamily() can read it (closure trap: var inside test() is invisible to module-scope functions)
 var _runStartMs = 0;
 var lastDeadEndPick = -1;
+var _combatProbeModeCounter = 0; // even=defend+flee, odd=strike; increments per family run; module-scope for runPlaythrough closure
 
 // ---------------------------------------------------------------------------
 // Output dirs
@@ -1186,7 +1187,8 @@ async function probeForcedStateChecks(page, tag) {
 // ---------------------------------------------------------------------------
 // Combat branch probe — enter, read actions, click Talk/Defend, exit
 // ---------------------------------------------------------------------------
-async function probeCombatBranches(page, tag) {
+async function probeCombatBranches(page, tag, combatMode) {
+  combatMode = combatMode || 'defend';
   try {
     // Capture current G state snapshot so we can restore if needed
     const preG = await readG(page);
@@ -1223,6 +1225,74 @@ async function probeCombatBranches(page, tag) {
     // Read all visible combat action button labels
     const combatBtns = await page.locator('.combat-btn:visible,.choice-btn:visible:not([disabled])').allInnerTexts().catch(() => []);
     log(`[combat-probe ${tag}] combat-entry actions: ${combatBtns.slice(0,6).map(t=>t.replace(/\n/g,' ').slice(0,40)).join(' | ')}`);
+
+    // D1: Strike probe — odd-indexed families
+    if (combatMode === 'strike') {
+      let _hpBefore = -1;
+      try { _hpBefore = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
+      if (_hpBefore >= 10) {
+        const _strikeBtn = page.locator('[data-action="attack"]:visible').first();
+        const _strikeBtnVis = await _strikeBtn.isVisible({ timeout: 800 }).catch(() => false);
+        if (_strikeBtnVis) {
+          await _strikeBtn.click();
+          await page.waitForTimeout(PACE.betweenCombat || 500);
+          let _hpAfter = -1;
+          try { _hpAfter = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
+          await screenshot(page, `${tag}_combat_probe_strike`);
+          log(`[combat-probe ${tag}] strike: hp_before=${_hpBefore} hp_after=${_hpAfter} delta=${_hpAfter - _hpBefore}`);
+
+          // Check for death screen
+          const _deathVisible = await page.locator('#overlay-death').isVisible({ timeout: 1000 }).catch(() => false);
+          if (_deathVisible) {
+            log(`[combat-probe ${tag}] DEATH: hp reached 0 during strike probe`);
+            await screenshot(page, `${tag}_combat_probe_death`);
+            const _loadBtn    = page.locator('button:has-text("Load Last Save"),button:has-text("Continue")').first();
+            const _restartBtn = page.locator('button:has-text("Restart"),button:has-text("New Game")').first();
+            const _endBtn     = page.locator('button:has-text("End Legend")').first();
+            const _loadVis    = await _loadBtn.isVisible({ timeout: 1000 }).catch(() => false);
+            const _restartVis = await _restartBtn.isVisible({ timeout: 1000 }).catch(() => false);
+            const _endVis     = await _endBtn.isVisible({ timeout: 1000 }).catch(() => false);
+            log(`[combat-probe ${tag}] death-screen: load=${_loadVis} restart=${_restartVis} endLegend=${_endVis}`);
+            // Verify save before clicking Load
+            const _hasSave = await page.evaluate(function(){
+              try { return !!(localStorage.getItem('ledgerSave') || localStorage.getItem('loaSave') || localStorage.getItem('saveData')); }
+              catch(_) { return false; }
+            }).catch(() => false);
+            if (_hasSave && _loadVis) {
+              await _loadBtn.click();
+              await page.waitForTimeout(1500);
+              log(`[combat-probe ${tag}] death-resume: Load clicked — save restored`);
+            } else if (_restartVis) {
+              await _restartBtn.click();
+              await page.waitForTimeout(1500);
+              log(`[combat-probe ${tag}] death-resume: Restart clicked (no save found)`);
+            }
+            await screenshot(page, `${tag}_combat_probe_death_resume`);
+            return; // Exit probeCombatBranches — run state was reset, continue from wherever we are
+          }
+        } else {
+          log(`[combat-probe ${tag}] strike: [data-action="attack"] not visible — skipping`);
+        }
+      } else {
+        log(`[combat-probe ${tag}] strike: SKIP hp_low=${_hpBefore}`);
+      }
+    }
+
+    // D1: Defend sub-probe — even-indexed families
+    if (combatMode === 'defend') {
+      let _hpBeforeD = -1;
+      try { _hpBeforeD = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
+      const _defendBtn = page.locator('[data-action="defend"]:visible').first();
+      const _defendVis = await _defendBtn.isVisible({ timeout: 800 }).catch(() => false);
+      if (_defendVis) {
+        await _defendBtn.click();
+        await page.waitForTimeout(PACE.betweenCombat || 500);
+        let _hpAfterD = -1;
+        try { _hpAfterD = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
+        log(`[combat-probe ${tag}] defend: hp_before=${_hpBeforeD} hp_after=${_hpAfterD}`);
+        await screenshot(page, `${tag}_combat_probe_defend`);
+      }
+    }
 
     // Prefer Talk or Defend — avoid Press (attacks) which could kill character
     const SAFE_LABELS = ['Talk', 'Retreat', 'Defend'];
@@ -1321,7 +1391,7 @@ async function runFullPanelSimulation(page, tag, g, picks) {
   // Combat branch probe — once per family at pick 50 (after initial progression)
   if (picks === 50) {
     await dismissOverlays(page);
-    await probeCombatBranches(page, tag);
+    await probeCombatBranches(page, tag, _combatMode);
   }
 }
 
@@ -1406,6 +1476,8 @@ async function handleDeadEndRepair(page, tag, pickNum) {
 async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNum, jsErrors, ceiling, tracker) {
   ceiling = ceiling || 'Stage II';
   const tag = `${family}_${archetypeId}_a${attemptNum}`;
+  _combatProbeModeCounter++;
+  const _combatMode = (_combatProbeModeCounter % 2 === 0) ? 'defend' : 'strike';
   log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family} ceiling=${ceiling}`);
 
   let pageIsClosed = false;
@@ -1944,6 +2016,7 @@ test.describe('Headed QA — 4 families', () => {
 
     _runStartMs = Date.now();
     var _exhaustiveCycleDone = false; // declared once before family loop, never reset between families
+    _combatProbeModeCounter = 0; // reset at test start; module-scope var (runPlaythrough closure needs it)
 
     // Per-family state for round-robin
     const familyState = {};
