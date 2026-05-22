@@ -876,7 +876,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       const sp1 = (g.stageProgress && g.stageProgress[1]) || 0;
       if (sp1 !== lastLoggedSP1) {
-        log(`[G ${tag}] pick=${picks} sp1=${sp1} sp2=${(g.stageProgress && g.stageProgress[2]) || 0} stage=${g.stage} loc=${g.location} lvl=${g.level}`);
+        const _heatShelk = (g.heat && g.heat.shelk) || 0;
+        log(`[G ${tag}] pick=${picks} sp1=${sp1} sp2=${(g.stageProgress && g.stageProgress[2]) || 0} stage=${g.stage} loc=${g.location} lvl=${g.level} heat_shelk=${_heatShelk} ben=${g.benevolence || 0} order=${g.orderAxis || 0}`);
         lastLoggedSP1 = sp1;
       }
       if (sp1 === lastSP1) { noProgress++; } else { noProgress = 0; lastSP1 = sp1; }
