@@ -1517,6 +1517,11 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let _lastOrderAxis   = 0;
   let _benThresholdHit = false;
   let _ordThresholdHit = false;
+  // D2: Stage II antechamber/climax organic probe vars
+  const _climaxBranch = (['negotiate', 'deflect', 'refuse', 'auto'])[attemptNum % 4] || 'auto';
+  let _climaxPhasesSeen   = 0;
+  let _antechamberLogged  = false;
+  let _climaxComplete     = false;
   const visitedLocalities = new Set();
   const ESCAPE_LOCS = [
     'shelkopolis','cosmoria','zootia','roaz','soreheim',
@@ -1658,6 +1663,58 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             _lastBenevolence = _curBen;
             _lastOrderAxis   = _curOrd;
           } catch (_) {}
+
+          // D2: Stage II organic probe — antechamber + climax interception
+          try {
+            const _f = g.flags || {};
+
+            // Antechamber entry screenshot (once)
+            if (!_antechamberLogged && _f.stage2_antechamber_started && !_f.stage2_antechamber_done) {
+              _antechamberLogged = true;
+              await screenshot(page, `${tag}_stage2_antechamber_active_p${picks}`);
+              const _sp2Ante = await page.evaluate(function(){ return (G && G.stageProgress && G.stageProgress[2]) || 0; }).catch(() => 0);
+              log(`[stage2-antechamber ${tag}] pick=${picks} ACTIVE — sp2=${_sp2Ante} faction_contact=${!!_f.stage2_faction_contact_made}`);
+            }
+
+            // Climax phase interception
+            if (_f.stage2_climax_started && !_climaxComplete && _climaxPhasesSeen < 5) {
+              // Keywords matched against actual choice label text (case-insensitive contains)
+              // Phase 1: negotiate="version of me", deflect="Play the clerk", refuse="Answering their summons"
+              // Phase 3: expose="city doesn't know", align="Orveth wants", withdraw="record is yet"
+              const _BRANCH_LABELS = {
+                negotiate: ['version of me', 'Orveth wants', 'cooperate'],
+                deflect:   ['Play the clerk', 'city doesn', 'evade'],
+                refuse:    ['Answering their', 'record is yet', 'reject'],
+                auto:      []
+              };
+              const _branchKws = _BRANCH_LABELS[_climaxBranch] || [];
+
+              if (_branchKws.length > 0) {
+                for (const kw of _branchKws) {
+                  try {
+                    const _btn = page.locator(`.choice-btn:visible`).filter({ hasText: kw }).first();
+                    const _vis = await _btn.isVisible({ timeout: 400 }).catch(() => false);
+                    if (_vis) {
+                      const _label = await _btn.innerText().catch(() => kw);
+                      log(`[stage2-climax ${tag}] phase=${_climaxPhasesSeen + 1} intercept: branch=${_climaxBranch} choice="${_label.replace(/\n/g,' ').slice(0,60)}"`);
+                      await screenshot(page, `${tag}_stage2_climax_phase${_climaxPhasesSeen + 1}`);
+                      await _btn.click();
+                      await page.waitForTimeout(PACE.short || 300);
+                      _climaxPhasesSeen++;
+                      break;
+                    }
+                  } catch (_btnErr) {}
+                }
+              }
+
+              // Climax complete detection
+              if (_f.stage2_climax_complete || _f.maren_oss_resolved) {
+                _climaxComplete = true;
+                await screenshot(page, `${tag}_stage2_climax_complete`);
+                log(`[stage2-climax ${tag}] COMPLETE pick=${picks} flags: climax_complete=${!!_f.stage2_climax_complete} maren_resolved=${!!_f.maren_oss_resolved}`);
+              }
+            }
+          } catch (_d2err) {}
         }
       } catch (_) {}
 
