@@ -751,6 +751,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   ];
 
   var _lastSp1Check = 0;
+  var _sp1Reached15AtPick = -1;
+  var _bossWatchEmitted   = false;
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
 
@@ -769,6 +771,19 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           log('[TRIAGE_PROGRESSION_BLOCKED ' + tag + '] pick=' + picks + ' — sp1=' + _sp1Now + ' frozen');
         }
         _lastSp1Check = _sp1Now;
+
+        // TRIAGE 3: boss-fire watch — flag if sp1 reached 15 but boss hasn't started in 35 picks
+        var _sp1ForBoss = (g.stageProgress && g.stageProgress[1]) || 0;
+        if (_sp1ForBoss >= 15 && _sp1Reached15AtPick === -1) {
+          _sp1Reached15AtPick = picks;
+        }
+        if (_sp1Reached15AtPick !== -1 && !_bossWatchEmitted) {
+          var _bossLag = picks - _sp1Reached15AtPick;
+          if (_bossLag >= 35 && !(g.flags && g.flags.stage1_boss_started)) {
+            log('[TRIAGE_BOSS_NOT_FIRING ' + tag + '] pick=' + picks + ' sp1=' + _sp1ForBoss + ' lag=' + _bossLag + ' picks since sp1=15');
+            _bossWatchEmitted = true;
+          }
+        }
 
         var _elapsed = Date.now() - _runStartMs;
         if (_elapsed > 55 * 60 * 1000) {
