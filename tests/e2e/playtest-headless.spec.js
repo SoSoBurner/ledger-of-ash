@@ -753,6 +753,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   var _lastSp1Check = 0;
   var _sp1Reached15AtPick = -1;
   var _bossWatchEmitted   = false;
+  var _headlessLastStage = '';
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
 
@@ -784,6 +785,22 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             _bossWatchEmitted = true;
           }
         }
+
+        // TRIAGE 4: Stage I→II flag chain validation
+        if (_headlessLastStage === 'Stage I' && g.stage === 'Stage II') {
+          var _f = g.flags || {};
+          var _mainbossOk   = !!_f.stage1_mainboss_complete;
+          var _narrativeOk  = !!_f.stage1_narrative_complete;
+          var _sp1AtAdvance = (g.stageProgress && g.stageProgress[1]) || 0;
+          var _sp2AtAdvance = 0;
+          try { _sp2AtAdvance = await page.evaluate(function(){ return (G && G.stageProgress && G.stageProgress[2]) || 0; }); } catch(_e) {}
+          if (_mainbossOk && _narrativeOk) {
+            log('[stage-advance:I→II ' + tag + '] pick=' + picks + ' sp1=' + _sp1AtAdvance + ' sp2=' + _sp2AtAdvance + ' flags: mainboss_complete=true narrative_complete=true');
+          } else {
+            log('[TRIAGE_STAGE_ADVANCE_BAD_FLAGS ' + tag + '] pick=' + picks + ' mainboss_complete=' + _mainbossOk + ' narrative_complete=' + _narrativeOk);
+          }
+        }
+        if (g.stage) _headlessLastStage = g.stage;
 
         var _elapsed = Date.now() - _runStartMs;
         if (_elapsed > 55 * 60 * 1000) {
