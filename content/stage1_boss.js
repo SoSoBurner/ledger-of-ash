@@ -47,7 +47,7 @@ window.STAGE1_MINIBOSS_SEED_CHOICES = [
 function triggerStage1MiniBoss() {
   if (!G || G.flags.stage1_miniboss_complete) return;
 
-  addNarration('Roadwarden Lieutenant Perrin Gleam', 'He is waiting at the end of the alley, not blocking it — standing just off the line of foot traffic, arms loose, close enough that stepping around him would be deliberate. His road-coat is dry despite the weather. He watched you come in from the south gate and he did not follow you; he arrived here first. His thumb finds the edge of his belt-buckle and runs along it, back and forth, without pressure. "You have been busy," he says. The road behind you has emptied.');
+  addNarration('Roadwarden Lieutenant Perrin Gleam', 'You found him before he expected to be found. The alley at the end of Copper Lane — the one your notes placed as his off-roster post — and he is there, road-coat dry despite the weather, positioned off the foot traffic line. He watched you come in from the south gate and did not follow; he arrived here first because this circuit end is his habit, not because he knew you were coming. The recognition crosses his face a half-second before he controls it. His thumb finds the edge of his belt-buckle and runs along it, back and forth, without pressure. "You have been busy," he says. The road behind you has already emptied — the kind of emptying that happens when people who know him see where this is going.');
 
   var choices = [
     {
@@ -136,7 +136,7 @@ function triggerStage1MainBoss() {
   G.flags.stage1_mainboss_started = true;
   G.flags.stage1_advance_deferred = true;
 
-  addNarration('Marshal Sera Ironveil', 'The Intake Hall at the Iron Ledger Ward is not busy but it feels full — the presence of procedural weight, every surface marked, every shelf ordered. Marshal Sera Ironveil is at the central desk when you arrive, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She reaches to the desk edge, picks up a short marking rod — bone-handled, the kind used to underline registry entries — and holds it in her left hand without looking at it. She does not write anything. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
+  addNarration('Marshal Sera Ironveil', 'You came here on purpose. The Intake Hall at the Iron Ledger Ward — every surface marked, every shelf ordered, the procedural weight of it pressing from all sides — and you walked through the front door carrying four weeks of notes about what this hall has been doing. Marshal Sera Ironveil is at the central desk when you enter, and she looks up once and back down before you have reached the rail. Her inspection lamp sits on the corner of the desk at a precise angle. Her silver-scale insignia has not been polished recently but the leather beneath it has been. She reaches to the desk edge, picks up a short marking rod — bone-handled, the kind used to underline registry entries — and holds it in her left hand without looking at it. She does not write anything. When she speaks, she does not raise her voice and she does not look up from the page. "Close the door behind you. There is no window in this interview."');
 
   var setupChoices = [
     {

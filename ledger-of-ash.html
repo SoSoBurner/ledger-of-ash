@@ -2914,7 +2914,7 @@ function renderChoicesWeighted(choices) {
 // ── ENEMY TEMPLATES ─────────────────────────────────────
 const ENEMY_TEMPLATES = {
   patrol_guard:{
-    name:'Roadwarden Patrol Guard', hp:18, maxHp:18,
+    name:'Roadwarden Patrol Guard', hp:15, maxHp:15,
     attack:4, defense:6, morale:10,
     desc:'Armored and disciplined. Follows procedure until procedure fails.',
     loot:{gold:8, item:'Patrol Report (evidence)', materials:[{id:'patrol_insignia',qty:1,chance:0.5},{id:'stamped_paper',qty:1,chance:0.7}]},
@@ -2922,7 +2922,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Formation Block', effect:'defense+2 if allies present'}]
   },
   private_security:{
-    name:'Private Security Agent', hp:14, maxHp:14,
+    name:'Private Security Agent', hp:11, maxHp:11,
     attack:5, defense:5, morale:8,
     desc:'Well paid and poorly motivated. Fights until it is no longer worth it.',
     loot:{gold:12, item:'Sealed House Crest (evidence)', materials:[{id:'house_crest_brass',qty:1,chance:0.4},{id:'stamped_paper',qty:1,chance:0.6}]},
@@ -2930,7 +2930,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Paid Aggression', effect:'first attack+2'}]
   },
   iron_accord_enforcer:{
-    name:'Iron Accord Enforcer', hp:20, maxHp:20,
+    name:'Iron Accord Enforcer', hp:16, maxHp:16,
     attack:6, defense:7, morale:14,
     desc:'Roazian law and stone. Does not negotiate. Does not retreat easily.',
     loot:{gold:6, item:'Iron Accord Papers (access)', materials:[{id:'enforcement_resin',qty:1,chance:0.5},{id:'iron_shard',qty:1,chance:0.6}]},
@@ -2938,7 +2938,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Iron Stance', effect:'cannot be pushed back'}]
   },
   red_hood_operative:{
-    name:'Red Hood Guild Operative', hp:12, maxHp:12,
+    name:'Red Hood Guild Operative', hp:10, maxHp:10,
     attack:7, defense:4, morale:7,
     desc:'Fast, experienced, professionally pragmatic.',
     loot:{gold:20, item:'Contract Fragment (intel)', materials:[{id:'shadow_residue',qty:1,chance:0.6},{id:'contract_fragment',qty:1,chance:0.4}]},
@@ -2946,7 +2946,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Dirty Strike', effect:'on hit 50% chance target loses next action'}]
   },
   frontier_militia:{
-    name:'Frontier Hammer Militia', hp:22, maxHp:22,
+    name:'Frontier Hammer Militia', hp:18, maxHp:18,
     attack:5, defense:5, morale:12,
     desc:'Built for brutal terrain work. Hits harder when cornered.',
     loot:{gold:5, item:'Frontier Survey Map', materials:[{id:'iron_shard',qty:1,chance:0.7},{id:'frontier_fiber',qty:1,chance:0.5}]},
@@ -2954,7 +2954,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Hammer Down', effect:'attack+3 when below half HP'}]
   },
   shadowhands_watcher:{
-    name:'Shadowhands Watcher', hp:10, maxHp:10,
+    name:'Shadowhands Watcher', hp:8, maxHp:8,
     attack:6, defense:6, morale:6,
     desc:'Prefers not to be seen at all. Fights only when exposure is inevitable.',
     loot:{gold:15, item:'Shadowhands Drop Key', materials:[{id:'shadow_residue',qty:2,chance:0.5},{id:'carved_seal',qty:1,chance:0.3}]},
@@ -2962,7 +2962,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Vanish', effect:'may disengage without attack of opportunity'}]
   },
   hostile_debtor:{
-    name:'Desperate Debtor', hp:8, maxHp:8,
+    name:'Desperate Debtor', hp:7, maxHp:7,
     attack:3, defense:2, morale:4,
     desc:'Nothing to lose. Dangerous for exactly that reason.',
     loot:{gold:2, item:null, materials:[{id:'debt_ledger_scraps',qty:1,chance:0.8},{id:'ash_compound',qty:1,chance:0.3}]},
@@ -2970,7 +2970,7 @@ const ENEMY_TEMPLATES = {
     abilities:[]
   },
   road_bandit:{
-    name:'Road Bandit', hp:12, maxHp:12,
+    name:'Road Bandit', hp:10, maxHp:10,
     attack:4, defense:3, morale:6,
     desc:'Opportunist. Works the gaps between checkpoints.',
     loot:{gold:10, item:null, materials:[{id:'iron_shard',qty:1,chance:0.6},{id:'frontier_fiber',qty:1,chance:0.4}]},
@@ -2978,7 +2978,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Ambush', effect:'first attack+3 if player has not yet acted'}]
   },
   hired_muscle:{
-    name:'Hired Muscle', hp:14, maxHp:14,
+    name:'Hired Muscle', hp:11, maxHp:11,
     attack:5, defense:4, morale:7,
     desc:'Contracted for the job. Leaves when the pay stops making sense.',
     loot:{gold:14, item:null, materials:[{id:'house_crest_brass',qty:1,chance:0.3},{id:'stamped_paper',qty:1,chance:0.5}]},
@@ -2986,7 +2986,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Controlled Aggression', effect:'attack+2 when enemy HP above 50%'}]
   },
   house_shelk_operative:{
-    name:'House Shelk Operative', hp:16, maxHp:16,
+    name:'House Shelk Operative', hp:13, maxHp:13,
     attack:5, defense:4, morale:9,
     desc:'Direct agent of House Shelk. Operates with noble authority.',
     loot:{gold:18, item:'Shelk Authorization Token (evidence)', materials:[{id:'carved_seal',qty:1,chance:0.5},{id:'stamped_paper',qty:1,chance:0.6}]},
@@ -2994,7 +2994,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Noble Authority', effect:'morale check on player at round start'}]
   },
   border_enforcer:{
-    name:'Border Enforcer', hp:14, maxHp:14,
+    name:'Border Enforcer', hp:11, maxHp:11,
     attack:4, defense:4, morale:9,
     desc:'Roaz border checkpoint security. Documents first, weapons second.',
     loot:{gold:7, item:'Border Transit Papers (access)', materials:[{id:'enforcement_resin',qty:1,chance:0.4},{id:'stamped_paper',qty:1,chance:0.7}]},
@@ -3002,7 +3002,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Checkpoint Protocol', effect:'defense+2 when holding position'}]
   },
   village_thug:{
-    name:'Village Thug', hp:10, maxHp:10,
+    name:'Village Thug', hp:8, maxHp:8,
     attack:4, defense:2, morale:5,
     desc:'Local muscle. Knows the terrain and the people who look the other way.',
     loot:{gold:4, item:null, materials:[{id:'debt_ledger_scraps',qty:1,chance:0.5},{id:'ash_compound',qty:1,chance:0.2}]},
@@ -3010,7 +3010,7 @@ const ENEMY_TEMPLATES = {
     abilities:[]
   },
   guild_enforcer:{
-    name:'Guild Enforcer', hp:18, maxHp:18,
+    name:'Guild Enforcer', hp:15, maxHp:15,
     attack:5, defense:5, morale:10,
     desc:'Union guild enforcement. Carries documentation as a weapon.',
     loot:{gold:16, item:'Guild Sanction Notice (evidence)', materials:[{id:'enforcement_resin',qty:1,chance:0.5},{id:'stamped_paper',qty:2,chance:0.7}]},
@@ -3018,7 +3018,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Documented Authority', effect:'+2 morale check vs persuasion attempts'}]
   },
   veteran_mercenary:{
-    name:'Veteran Mercenary', hp:20, maxHp:20,
+    name:'Veteran Mercenary', hp:16, maxHp:16,
     attack:6, defense:4, morale:11,
     desc:'Experienced hired sword. Reads opponents before engaging.',
     loot:{gold:22, item:null, materials:[{id:'iron_shard',qty:2,chance:0.6},{id:'frontier_fiber',qty:1,chance:0.4}]},
@@ -3026,7 +3026,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Combat Read', effect:'reduces player attack bonus by 1 each round'}]
   },
   iron_accord_soldier:{
-    name:'Iron Accord Soldier', hp:22, maxHp:22,
+    name:'Iron Accord Soldier', hp:18, maxHp:18,
     attack:5, defense:6, morale:13,
     desc:'Roazian military. Disciplined, defensive posture.',
     loot:{gold:8, item:'Iron Accord Dispatch (intelligence)', materials:[{id:'enforcement_resin',qty:1,chance:0.6},{id:'iron_shard',qty:1,chance:0.5}]},
@@ -3034,7 +3034,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Defensive Drill', effect:'defense+1 each round until broken'}]
   },
   shadowhands_operative:{
-    name:'Shadowhands Operative', hp:14, maxHp:14,
+    name:'Shadowhands Operative', hp:11, maxHp:11,
     attack:7, defense:3, morale:7,
     desc:'Shadow network field agent. Fast, precise, retreats if outnumbered.',
     loot:{gold:25, item:'Shadowhands Cipher Token (intel)', materials:[{id:'shadow_residue',qty:2,chance:0.6},{id:'carved_seal',qty:1,chance:0.4}]},
@@ -3042,7 +3042,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Vanish Strike', effect:'on hit, may disengage without opportunity attack'}]
   },
   warden_lieutenant:{
-    name:'Warden Lieutenant', hp:24, maxHp:24,
+    name:'Warden Lieutenant', hp:20, maxHp:20,
     attack:6, defense:5, morale:13,
     desc:'Senior Warden Order officer. Commands the scene.',
     loot:{gold:14, item:'Warden Order Commission (evidence)', materials:[{id:'enforcement_resin',qty:2,chance:0.5},{id:'stamped_paper',qty:1,chance:0.6}]},
@@ -3050,7 +3050,7 @@ const ENEMY_TEMPLATES = {
     abilities:[{name:'Command Presence', effect:'enemy morale check at round 3 if player has not landed a hit'}]
   },
   faction_agent:{
-    name:'Faction Agent', hp:16, maxHp:16,
+    name:'Faction Agent', hp:13, maxHp:13,
     attack:5, defense:4, morale:8,
     desc:'Unnamed operative. Allegiance unclear until they move.',
     loot:{gold:12, item:'Unmarked Dispatch (intelligence)', materials:[{id:'shadow_residue',qty:1,chance:0.4},{id:'stamped_paper',qty:1,chance:0.5}]},
@@ -3060,32 +3060,32 @@ const ENEMY_TEMPLATES = {
 
   // ── COASTAL / MARITIME ───────────────────────────────────
   dock_enforcer:{
-    name:'Dock Enforcer', hp:14, maxHp:14, attack:4, defense:2, morale:7,
+    name:'Dock Enforcer', hp:11, maxHp:11, attack:4, defense:2, morale:7,
     desc:'Guild bruiser who collects late fees with his fists.',
     region:['shelk','cosmouth','whitebridge'],
     loot:{gold:8, materials:[{id:'guild_token',qty:1,chance:0.6}]}, fleeThreshold:0.35
   },
   smuggler_lookout:{
-    name:'Smuggler Lookout', hp:10, maxHp:10, attack:3, defense:3, morale:5,
+    name:'Smuggler Lookout', hp:8, maxHp:8, attack:3, defense:3, morale:5,
     desc:'Nervous, fast, and quick to bolt if the odds shift.',
     region:['cosmouth','whitebridge','shelk'],
     loot:{gold:6, materials:[{id:'contraband_note',qty:1,chance:0.5}]}, fleeThreshold:0.6,
     abilities:[{name:'Fleet Escape', effect:'50% chance to disengage before retaliation'}]
   },
   harbor_warden:{
-    name:'Harbor Warden', hp:18, maxHp:18, attack:5, defense:4, morale:9,
+    name:'Harbor Warden', hp:15, maxHp:15, attack:5, defense:4, morale:9,
     desc:'Authorized to use force at the waterfront. He knows it.',
     region:['cosmouth','shelk'],
     loot:{gold:10, item:'Warden Seal (authority)', materials:[{id:'stamped_paper',qty:1,chance:0.7}]}, fleeThreshold:0.2
   },
   tide_wrecker:{
-    name:'Tide Wrecker', hp:22, maxHp:22, attack:6, defense:3, morale:8,
+    name:'Tide Wrecker', hp:18, maxHp:18, attack:6, defense:3, morale:8,
     desc:'Salvage crew that decided theft was more reliable than waiting for shipwrecks.',
     region:['cosmouth','whitebridge'],
     loot:{gold:14, materials:[{id:'rope_coil',qty:1,chance:0.8},{id:'salt_iron',qty:1,chance:0.4}]}, fleeThreshold:0.3
   },
   manifest_thief:{
-    name:'Manifest Thief', hp:12, maxHp:12, attack:4, defense:2, morale:6,
+    name:'Manifest Thief', hp:10, maxHp:10, attack:4, defense:2, morale:6,
     desc:'Specialists in cargo documentation fraud. Dangerous only when cornered.',
     region:['shelk','cosmouth','whitebridge'],
     loot:{gold:15, item:'Forged Manifest', materials:[{id:'stamped_paper',qty:2,chance:0.8}]}, fleeThreshold:0.5
@@ -3093,26 +3093,26 @@ const ENEMY_TEMPLATES = {
 
   // ── HIGHLAND / SOREHEIM ──────────────────────────────────
   highland_raider:{
-    name:'Highland Raider', hp:20, maxHp:20, attack:6, defense:3, morale:8,
+    name:'Highland Raider', hp:16, maxHp:16, attack:6, defense:3, morale:8,
     desc:'Operates above the frost line. Hardened by altitude and privation.',
     region:['soreheim'],
     loot:{gold:9, materials:[{id:'cold_iron',qty:1,chance:0.6},{id:'highland_cloth',qty:1,chance:0.4}]}, fleeThreshold:0.25
   },
   soreheim_debt_collector:{
-    name:'Soreheim Debt Collector', hp:16, maxHp:16, attack:5, defense:3, morale:8,
+    name:'Soreheim Debt Collector', hp:13, maxHp:13, attack:5, defense:3, morale:8,
     desc:'The Soreheim labor allocation system produces arrears. He collects them.',
     region:['soreheim'],
     loot:{gold:18, materials:[{id:'allocation_chit',qty:1,chance:0.7}]}, fleeThreshold:0.3,
     abilities:[{name:'Authority Pressure', effect:'Target loses 1 to next persuasion roll'}]
   },
   mountain_patrol:{
-    name:'Mountain Patrol', hp:19, maxHp:19, attack:5, defense:5, morale:9,
+    name:'Mountain Patrol', hp:16, maxHp:16, attack:5, defense:5, morale:9,
     desc:'Soreheim border enforcement. They check allocation papers at altitude.',
     region:['soreheim'],
     loot:{gold:8, item:'Patrol Log Entry', materials:[{id:'cold_iron',qty:1,chance:0.5}]}, fleeThreshold:0.2
   },
   highland_poacher:{
-    name:'Highland Poacher', hp:13, maxHp:13, attack:4, defense:2, morale:6,
+    name:'Highland Poacher', hp:11, maxHp:11, attack:4, defense:2, morale:6,
     desc:'Works outside the allocation grid. Useful sometimes; hostile when threatened.',
     region:['soreheim'],
     loot:{gold:7, materials:[{id:'highland_cloth',qty:1,chance:0.6},{id:'bone_pin',qty:1,chance:0.5}]}, fleeThreshold:0.5
@@ -3120,32 +3120,32 @@ const ENEMY_TEMPLATES = {
 
   // ── URBAN / SHELKOPOLIS ──────────────────────────────────
   guild_enforcer:{
-    name:'Guild Enforcer', hp:17, maxHp:17, attack:5, defense:4, morale:8,
+    name:'Guild Enforcer', hp:14, maxHp:14, attack:5, defense:4, morale:8,
     desc:'The Union deploys these when arbitration fails. Which is often.',
     region:['shelk','guildheart'],
     loot:{gold:12, item:'Guild Arbitration Notice', materials:[{id:'guild_token',qty:1,chance:0.8}]}, fleeThreshold:0.25
   },
   levy_collector:{
-    name:'Levy Collector', hp:13, maxHp:13, attack:4, defense:2, morale:7,
+    name:'Levy Collector', hp:11, maxHp:11, attack:4, defense:2, morale:7,
     desc:'Guild tax agent. Backed by authority he barely understands.',
     region:['shelk','guildheart','fairhaven'],
     loot:{gold:20, materials:[{id:'stamped_paper',qty:2,chance:0.7}]}, fleeThreshold:0.4
   },
   street_press_gang:{
-    name:'Street Press Gang', hp:15, maxHp:15, attack:4, defense:2, morale:6,
+    name:'Street Press Gang', hp:12, maxHp:12, attack:4, defense:2, morale:6,
     desc:'Labor recruiters who stopped asking permission.',
     region:['shelk','cosmouth'],
     loot:{gold:6, materials:[{id:'rope_coil',qty:1,chance:0.7}]}, fleeThreshold:0.45,
     abilities:[{name:'Mob Tactics', effect:'+2 attack when outnumbering target'}]
   },
   corrupt_checkpoint_guard:{
-    name:'Corrupt Checkpoint Guard', hp:15, maxHp:15, attack:4, defense:4, morale:7,
+    name:'Corrupt Checkpoint Guard', hp:12, maxHp:12, attack:4, defense:4, morale:7,
     desc:'On someone else\'s payroll. Difficult to tell whose until he moves.',
     region:['shelk','roaz','fairhaven'],
     loot:{gold:16, item:'Stamped Travel Papers', materials:[{id:'stamped_paper',qty:1,chance:0.8}]}, fleeThreshold:0.3
   },
   archive_thug:{
-    name:'Archive Thug', hp:14, maxHp:14, attack:4, defense:3, morale:7,
+    name:'Archive Thug', hp:11, maxHp:11, attack:4, defense:3, morale:7,
     desc:'Someone hired muscle to keep certain records inaccessible.',
     region:['shelk','mimolot','guildheart'],
     loot:{gold:10, materials:[{id:'stamped_paper',qty:1,chance:0.5},{id:'shadow_residue',qty:1,chance:0.3}]}, fleeThreshold:0.4
@@ -3153,81 +3153,81 @@ const ENEMY_TEMPLATES = {
 
   // ── WILDERNESS / ROADS ───────────────────────────────────
   road_ambusher:{
-    name:'Road Ambusher', hp:14, maxHp:14, attack:5, defense:2, morale:7,
+    name:'Road Ambusher', hp:11, maxHp:11, attack:5, defense:2, morale:7,
     desc:'Works trade routes. Patient, practiced, and fast.',
     region:['shelk','soreheim','fairhaven'],
     loot:{gold:11, materials:[{id:'rope_coil',qty:1,chance:0.6}]}, fleeThreshold:0.4,
     abilities:[{name:'Ambush Strike', effect:'+3 on first attack if target unaware'}]
   },
   deserter:{
-    name:'Deserter', hp:16, maxHp:16, attack:5, defense:3, morale:5,
+    name:'Deserter', hp:13, maxHp:13, attack:5, defense:3, morale:5,
     desc:'Former soldier. The skills stayed; the discipline did not.',
     region:['roaz','soreheim','fairhaven'],
     loot:{gold:8, materials:[{id:'cold_iron',qty:1,chance:0.5},{id:'highland_cloth',qty:1,chance:0.3}]}, fleeThreshold:0.55
   },
   city_thug:{
-    name:'City Thug', hp:13, maxHp:13, attack:4, defense:2, morale:6,
+    name:'City Thug', hp:11, maxHp:11, attack:4, defense:2, morale:6,
     desc:'Works the lower wards. Knows which faces belong and which don\'t.',
     region:['shelk','cosmouth','guildheart'],
     loot:{gold:9, materials:[{id:'allocation_chit',qty:1,chance:0.3}]}, fleeThreshold:0.5
   },
   ratcatcher:{
-    name:'Ratcatcher', hp:11, maxHp:11, attack:3, defense:2, morale:5,
+    name:'Ratcatcher', hp:9, maxHp:9, attack:3, defense:2, morale:5,
     desc:'Scavenger with tools that cut. Works the margins of the city.',
     region:['shelk','cosmouth','nomdara'],
     loot:{gold:5, materials:[{id:'rope_coil',qty:1,chance:0.4}]}, fleeThreshold:0.6
   },
   bandit:{
-    name:'Bandit', hp:13, maxHp:13, attack:4, defense:2, morale:6,
+    name:'Bandit', hp:11, maxHp:11, attack:4, defense:2, morale:6,
     desc:'Opportunist. Works isolated roads and transit gaps.',
     region:['soreheim','roaz','psanan'],
     loot:{gold:10, materials:[{id:'rope_coil',qty:1,chance:0.5}]}, fleeThreshold:0.5
   },
   border_wolf:{
-    name:'Border Wolf', hp:18, maxHp:18, attack:6, defense:2, morale:8,
+    name:'Border Wolf', hp:15, maxHp:15, attack:6, defense:2, morale:8,
     desc:'Large pack predator from the Soreheim frontier. Coordinated and patient.',
     region:['soreheim'],
     loot:{gold:0, materials:[{id:'highland_cloth',qty:1,chance:0.4}]}, fleeThreshold:0.3,
     abilities:[{name:'Pack Tactics', effect:'+2 attack when another wolf is present'}]
   },
   marsh_creature:{
-    name:'Marsh Creature', hp:15, maxHp:15, attack:5, defense:3, morale:7,
+    name:'Marsh Creature', hp:12, maxHp:12, attack:5, defense:3, morale:7,
     desc:'Native to Sheresh wetlands. Slow until it isn\'t.',
     region:['sheresh'],
     loot:{gold:0, materials:[{id:'swamp_resin',qty:1,chance:0.6}]}, fleeThreshold:0.4
   },
   swamp_stalker:{
-    name:'Swamp Stalker', hp:12, maxHp:12, attack:5, defense:2, morale:6,
+    name:'Swamp Stalker', hp:10, maxHp:10, attack:5, defense:2, morale:6,
     desc:'Ambush predator. Uses the water as cover until the last moment.',
     region:['sheresh'],
     loot:{gold:0, materials:[{id:'swamp_resin',qty:1,chance:0.5}]}, fleeThreshold:0.45
   },
   feral_hound:{
-    name:'Feral Hound', hp:10, maxHp:10, attack:4, defense:1, morale:5,
+    name:'Feral Hound', hp:8, maxHp:8, attack:4, defense:1, morale:5,
     desc:'Abandoned or bred for aggression. Fast and difficult to discourage.',
     region:['sheresh','cosmouth','shelk'],
     loot:{gold:0, materials:[]}, fleeThreshold:0.6
   },
   plains_predator:{
-    name:'Plains Predator', hp:16, maxHp:16, attack:6, defense:2, morale:7,
+    name:'Plains Predator', hp:13, maxHp:13, attack:6, defense:2, morale:7,
     desc:'Open terrain hunter from the Psanan flats. Relies on speed over concealment.',
     region:['psanan'],
     loot:{gold:0, materials:[{id:'rope_coil',qty:1,chance:0.3}]}, fleeThreshold:0.35
   },
   dust_crawler:{
-    name:'Dust Crawler', hp:9, maxHp:9, attack:3, defense:3, morale:8,
+    name:'Dust Crawler', hp:7, maxHp:7, attack:3, defense:3, morale:8,
     desc:'Armored scavenger from the dry flats. Hard to damage, slow to give up.',
     region:['psanan'],
     loot:{gold:0, materials:[]}, fleeThreshold:0.2
   },
   caravan_raider:{
-    name:'Caravan Raider', hp:17, maxHp:17, attack:5, defense:3, morale:8,
+    name:'Caravan Raider', hp:14, maxHp:14, attack:5, defense:3, morale:8,
     desc:'Organized. Hits supply lines and vanishes into transit corridors.',
     region:['shelk','cosmouth','nomdara'],
     loot:{gold:13, materials:[{id:'rope_coil',qty:1,chance:0.7},{id:'contraband_note',qty:1,chance:0.4}]}, fleeThreshold:0.3
   },
   toll_extortionist:{
-    name:'Toll Extortionist', hp:15, maxHp:15, attack:4, defense:3, morale:7,
+    name:'Toll Extortionist', hp:12, maxHp:12, attack:4, defense:3, morale:7,
     desc:'Not authorized, but hard to argue with on a narrow road.',
     region:['shelk','soreheim','guildheart'],
     loot:{gold:15, materials:[{id:'allocation_chit',qty:1,chance:0.5}]}, fleeThreshold:0.35
@@ -3235,20 +3235,20 @@ const ENEMY_TEMPLATES = {
 
   // ── INSTITUTIONAL / ACADEMIC ─────────────────────────────
   academy_security:{
-    name:'Academy Security', hp:15, maxHp:15, attack:4, defense:4, morale:8,
+    name:'Academy Security', hp:12, maxHp:12, attack:4, defense:4, morale:8,
     desc:'Mimolot\'s private security wing. Their authority ends at the fence.',
     region:['mimolot'],
     loot:{gold:9, item:'Academy Access Pass', materials:[{id:'stamped_paper',qty:1,chance:0.7}]}, fleeThreshold:0.25
   },
   suppression_agent:{
-    name:'Suppression Agent', hp:18, maxHp:18, attack:6, defense:4, morale:9,
+    name:'Suppression Agent', hp:15, maxHp:15, attack:6, defense:4, morale:9,
     desc:'Institutional compliance enforcement. No insignia. Always present.',
     region:['mimolot','shelk','guildheart'],
     loot:{gold:14, item:'Suppression Order (intelligence)', materials:[{id:'shadow_residue',qty:2,chance:0.6}]}, fleeThreshold:0.2,
     abilities:[{name:'Authority Presence', effect:'Target must pass DC 10 composure or lose first action'}]
   },
   hired_investigator:{
-    name:'Hired Investigator', hp:14, maxHp:14, attack:4, defense:3, morale:7,
+    name:'Hired Investigator', hp:11, maxHp:11, attack:4, defense:3, morale:7,
     desc:'Someone else is paying for answers. He\'s working backward from you.',
     region:['shelk','guildheart','mimolot'],
     loot:{gold:18, item:'Investigation Brief (intelligence)', materials:[{id:'stamped_paper',qty:1,chance:0.8}]}, fleeThreshold:0.45
@@ -3256,19 +3256,19 @@ const ENEMY_TEMPLATES = {
 
   // ── AGRICULTURAL / HARVEST CIRCLE ───────────────────────
   quota_enforcer:{
-    name:'Quota Enforcer', hp:16, maxHp:16, attack:5, defense:3, morale:8,
+    name:'Quota Enforcer', hp:13, maxHp:13, attack:5, defense:3, morale:8,
     desc:'Harvest Circle labor compliance. Numbers must balance regardless of weather.',
     region:['harvest_circle','fairhaven'],
     loot:{gold:10, materials:[{id:'allocation_chit',qty:1,chance:0.7},{id:'stamped_paper',qty:1,chance:0.5}]}, fleeThreshold:0.3
   },
   family_retainer:{
-    name:'Family Retainer', hp:17, maxHp:17, attack:5, defense:4, morale:8,
+    name:'Family Retainer', hp:14, maxHp:14, attack:5, defense:4, morale:8,
     desc:'Old service to one of the consolidating families. Loyal past reason.',
     region:['harvest_circle','fairhaven'],
     loot:{gold:11, materials:[{id:'highland_cloth',qty:1,chance:0.5}]}, fleeThreshold:0.25
   },
   field_overseer:{
-    name:'Field Overseer', hp:15, maxHp:15, attack:4, defense:3, morale:7,
+    name:'Field Overseer', hp:12, maxHp:12, attack:4, defense:3, morale:7,
     desc:'Manages labor allocation at sector level. Uses fists to clarify quotas.',
     region:['harvest_circle'],
     loot:{gold:8, materials:[{id:'allocation_chit',qty:2,chance:0.6}]}, fleeThreshold:0.4
@@ -3276,19 +3276,19 @@ const ENEMY_TEMPLATES = {
 
   // ── GLASSWAKE / INDUSTRIAL ───────────────────────────────
   warehouse_guard:{
-    name:'Warehouse Guard', hp:16, maxHp:16, attack:4, defense:4, morale:7,
+    name:'Warehouse Guard', hp:13, maxHp:13, attack:4, defense:4, morale:7,
     desc:'Protects inventory that isn\'t on the manifest. Paid not to look.',
     region:['glasswake','shelk'],
     loot:{gold:9, materials:[{id:'rope_coil',qty:1,chance:0.6},{id:'salt_iron',qty:1,chance:0.4}]}, fleeThreshold:0.35
   },
   material_thief:{
-    name:'Material Thief', hp:11, maxHp:11, attack:3, defense:2, morale:5,
+    name:'Material Thief', hp:9, maxHp:9, attack:3, defense:2, morale:5,
     desc:'Takes what can be resold. Faster than expected when cornered.',
     region:['glasswake','shelk','cosmouth'],
     loot:{gold:12, materials:[{id:'salt_iron',qty:1,chance:0.7},{id:'bone_pin',qty:1,chance:0.5}]}, fleeThreshold:0.6
   },
   compound_enforcer:{
-    name:'Compound Enforcer', hp:19, maxHp:19, attack:6, defense:4, morale:8,
+    name:'Compound Enforcer', hp:16, maxHp:16, attack:6, defense:4, morale:8,
     desc:'The Glasswake processing compounds have their own security hierarchy.',
     region:['glasswake'],
     loot:{gold:13, materials:[{id:'salt_iron',qty:2,chance:0.5},{id:'shadow_residue',qty:1,chance:0.3}]}, fleeThreshold:0.25
@@ -3296,7 +3296,7 @@ const ENEMY_TEMPLATES = {
 
   // ── ROAZ / MILITARY ──────────────────────────────────────
   iron_accord_veteran:{
-    name:'Iron Accord Veteran', hp:22, maxHp:22, attack:7, defense:5, morale:9,
+    name:'Iron Accord Veteran', hp:18, maxHp:18, attack:7, defense:5, morale:9,
     desc:'Decorated, disciplined, and difficult. Roaz field service leaves marks.',
     region:['roaz'],
     loot:{gold:15, item:'Iron Accord Service Record', materials:[{id:'cold_iron',qty:2,chance:0.6}]}, fleeThreshold:0.15,
@@ -16905,6 +16905,7 @@ function useCombativeSkill(skillId) {
     if (r.isFumble) trait.used = false;
   }
   G.lastResult = resultText;
+  addNarration(trait.name, resultText, r.isCrit ? 'success' : (r.total >= 12 ? 'success' : 'failure'));
   addJournal(resultText, 'evidence');
   if (typeof updateHUD === 'function') updateHUD();
 }

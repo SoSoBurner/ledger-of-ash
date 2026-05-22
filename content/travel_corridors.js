@@ -660,16 +660,17 @@
   // BIOME_ENCOUNTER_POOLS — fast-pace extra encounter source by biome.
   // Keys must exist in window.ENEMY_STATS (data/bestiary_lookup.js).
   // ---------------------------------------------------------------------------
-  // Enemy keys remapped to valid ENEMY_TEMPLATES entries (road_bandit, hired_muscle,
-  // border_enforcer, patrol_guard, house_shelk_operative, village_thug, hostile_debtor)
+  // Enemy keys must exist in ENEMY_TEMPLATES (ledger-of-ash.html).
+  // patrol_guard and border_enforcer are law enforcement — they route through
+  // enterAuthorityConfrontation(), not enterCombat(). Excluded here.
   window.BIOME_ENCOUNTER_POOLS = {
-    plains:       ['patrol_guard', 'road_bandit', 'house_shelk_operative'],
-    highland:     ['border_enforcer', 'patrol_guard', 'road_bandit'],
-    coastal:      ['hired_muscle', 'road_bandit', 'patrol_guard'],
-    mountain:     ['border_enforcer', 'village_thug', 'road_bandit'],
+    plains:       ['shadowhands_watcher', 'road_bandit', 'house_shelk_operative'],
+    highland:     ['frontier_militia', 'road_bandit', 'shadowhands_watcher'],
+    coastal:      ['hired_muscle', 'road_bandit', 'shadowhands_watcher'],
+    mountain:     ['frontier_militia', 'village_thug', 'road_bandit'],
     forest:       ['road_bandit', 'village_thug', 'hired_muscle'],
-    'ash-zone':   ['road_bandit', 'border_enforcer', 'hostile_debtor'],
-    'ice-locked': ['road_bandit', 'border_enforcer', 'patrol_guard']
+    'ash-zone':   ['road_bandit', 'frontier_militia', 'hostile_debtor'],
+    'ice-locked': ['road_bandit', 'frontier_militia', 'shadowhands_watcher']
   };
 
   // ---------------------------------------------------------------------------
