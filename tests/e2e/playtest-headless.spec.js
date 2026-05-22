@@ -754,6 +754,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   var _sp1Reached15AtPick = -1;
   var _bossWatchEmitted   = false;
   var _headlessLastStage = '';
+  var _lastLoggedSP2 = -1;
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
 
@@ -911,6 +912,27 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         const _heatShelk = (g.heat && g.heat.shelk) || 0;
         log(`[G ${tag}] pick=${picks} sp1=${sp1} sp2=${(g.stageProgress && g.stageProgress[2]) || 0} stage=${g.stage} loc=${g.location} lvl=${g.level} heat_shelk=${_heatShelk} ben=${g.benevolence || 0} order=${g.orderAxis || 0}`);
         lastLoggedSP1 = sp1;
+      }
+      // H3: Stage II G2-snapshot — fires when sp2 changes (sp1 frozen in Stage II)
+      if (g.stage !== 'Stage I') {
+        var _sp2Live = 0;
+        try { _sp2Live = await page.evaluate(function(){ return (G && G.stageProgress && G.stageProgress[2]) || 0; }); } catch(_e) {}
+        if (_sp2Live !== _lastLoggedSP2) {
+          var _f2 = g.flags || {};
+          // Determine active faction arc — four arcs: collegium, shadowhands, wardens, redhood
+          var _arc = 'none';
+          if (_f2.stage2_collegium_contact)               _arc = 'collegium';
+          else if (_f2.shadowhands_contacted || _f2.shadowhands_contact || _f2.stage2_faction_shadowhands_contacted) _arc = 'shadowhands';
+          else if (_f2.stage2_wardens_contact)            _arc = 'wardens';
+          else if (_f2.red_hood_contact)                  _arc = 'redhood';
+          log('[G2 ' + tag + '] pick=' + picks + ' sp2=' + _sp2Live + ' arc=' + _arc
+            + ' faction_contact=' + !!_f2.stage2_faction_contact_made
+            + ' miniboss=' + !!_f2.stage2_miniboss_complete
+            + ' antechamber=' + !!_f2.stage2_antechamber_done
+            + ' climax_started=' + !!_f2.stage2_climax_started
+            + ' climax_done=' + !!(_f2.stage2_climax_complete || _f2.maren_oss_resolved));
+          _lastLoggedSP2 = _sp2Live;
+        }
       }
       if (sp1 === lastSP1) { noProgress++; } else { noProgress = 0; lastSP1 = sp1; }
       if (noProgress === 20) {
