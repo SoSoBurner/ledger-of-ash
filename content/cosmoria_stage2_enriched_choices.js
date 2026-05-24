@@ -10,6 +10,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Seventeen cargo declarations. One vessel name. The vessel has been decommissioned for twelve years.",
     tags: ['Investigation', 'Stage2'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -41,6 +43,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Harbor Captain received an order. He filed an objection. The order stood.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 76,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -70,6 +74,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The market is just a stamp. The containers never touch the floor.",
     tags: ['NPC', 'Craft', 'Stage2'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -98,6 +103,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The agent books the room, receives a letter, leaves on the night airship. Never stays.",
     tags: ['NPC', 'Stealth', 'Stage2'],
+    tag: 'risky',
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -126,6 +132,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The surge schedule matches the tide windows. The operation runs on a natural clock.",
     tags: ['NPC', 'Lore', 'Stage2'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 74,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -230,6 +238,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The decommission file has a witness signature. No current Harbor Authority officer owns it.",
     tags: ['Stage2', 'NPC', 'Evidence'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -261,6 +270,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The night manifest has a column the day manifest doesn't. Someone added it.",
     tags: ['Stage2', 'NPC', 'Evidence'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -292,6 +303,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Nerissa's observation sheets reference a Cosmouth tide calendar discontinued two years ago.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 72,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -322,6 +335,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Selka's second booking register doesn't go to Harbor Authority inspectors.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -351,6 +365,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The bonded transit column has been audited three times. Same auditor. Always inconclusive.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -380,6 +395,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Every registered vessel has an approach chart. The Pallmark Reach has one. It shouldn't.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -411,6 +428,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The gangway crew handoff leaves a thirty-second blind spot. Same positions, every run.",
     tags: ['Stage2', 'NPC'],
+    tag: 'bold',
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -442,6 +460,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The night platform roster shows the same crew every time. That's not how rosters work.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -472,6 +491,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The bond surety covers every waived container. It has never once been called.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 72,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -501,6 +522,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The sealed containers are heavier than their waiver classification allows. The dock math says so.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -531,6 +553,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The weighmaster logs every cargo weight at intake. The sealed containers are logged at zero.",
     tags: ['Stage2', 'NPC'],
+    tag: 'bold',
+    plot: 'main',
     xpReward: 66,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -561,6 +585,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Eight months of shift log entries. Not one is in the night watchman's hand.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
     xpReward: 64,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -590,6 +615,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Wax seal means they expect it unopened. Forty-one letters. All before a departure.",
     tags: ['Stage2', 'NPC'],
+    tag: 'risky',
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -620,6 +646,8 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The transit laundering route is confirmed. The tidal window is the trigger. Time to act.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
+    tag: 'bold',
+    plot: 'main',
     xpReward: 108,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -650,6 +678,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A sealed Collegium filing sits in the public index — clerk glances at the cabinet.",
     tags: ['Collegium', 'Stage2', 'Evidence'],
+    tag: 'risky',
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -679,6 +708,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Peldan tracks Collegium authorization cadence — forty-one same-day approvals, never the same signature twice.",
     tags: ['Collegium', 'Stage2', 'Intelligence'],
+    tag: 'risky',
     xpReward: 74,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -708,6 +738,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The reading room patron closes the same volume to the same page every afternoon.",
     tags: ['Stage2'],
+    tag: 'risky',
     xpReward: 36,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -730,6 +761,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "An apprentice name sits on the yard rolls without a commission assignment.",
     tags: ['Stage2'],
+    tag: 'risky',
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -751,6 +783,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The tax hall posting runs one column short this quarter.",
     tags: ['Stage2'],
+    tag: 'risky',
     xpReward: 38,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -773,6 +806,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'A sealed filing in the wrong stack. Collegium seal, not guild',
     tags: ['Stage2', 'Records', 'Evidence'],
+    tag: 'risky',
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -819,6 +853,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Collegium intake form asks for a certifying reference. Fenwick's name opens one door.",
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
+    tag: 'risky',
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -851,6 +886,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Tower Authority log continues below the waterline. Category 6 permit required.",
     tags: ['Stage2', 'Records', 'Evidence'],
+    tag: 'risky',
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -878,6 +914,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Titan Wharf seawall inscriptions were re-chiseled within the last two seasons.",
     tags: ['Stage2', 'Evidence'],
+    tag: 'risky',
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -904,6 +941,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Amber Trade Authority quarterly post uses a cipher key that changed two seasons ago.",
     tags: ['Stage2', 'Records', 'Evidence'],
+    tag: 'risky',
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -929,6 +967,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The House Shelk secondary seal appears on three separate Cosmoria documents.",
     tags: ['Stage2', 'Evidence'],
+    tag: 'risky',
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -954,6 +993,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Cosmouth Administrative Continuity Trust holds insurance and bonds on the same shipments.",
     tags: ['Stage2', 'Records', 'Evidence'],
+    tag: 'risky',
     xpReward: 20,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

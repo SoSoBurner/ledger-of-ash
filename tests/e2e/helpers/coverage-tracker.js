@@ -30,6 +30,7 @@ class CoverageTracker {
     this._currentLoc = null;
     this._currentSp2 = 0;
     this._deadEnds = [];
+    this._deadEndSeen = new Set(); // dedup by "pick:loc"
     this._mapTravels = [];
     this._pickCount = 0;
     this._nuclearGateFired = 0;
@@ -69,6 +70,9 @@ class CoverageTracker {
 
   /** Call when dead-end detected */
   onDeadEnd(loc, pick, html) {
+    const key = `${pick}:${loc}`;
+    if (this._deadEndSeen.has(key)) return;
+    this._deadEndSeen.add(key);
     this._deadEnds.push({ loc, pick, htmlSnippet: (html || '').slice(0, 120) });
     if (this._localities[loc]) this._localities[loc].deadEnds++;
   }

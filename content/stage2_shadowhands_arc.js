@@ -83,7 +83,7 @@ const STAGE2_SHADOWHANDS_ARC = [
   },
 
   {
-    label: "The Shadowhands know who authorized the Ironhold quota suppression. Ilve will tell you — if you've earned it.",
+    label: "Ilve knows who ordered the Ironhold quota suppression. She'll say it.",
     tags: ['ArcFinale', 'Investigation', 'Decision'],
     xpReward: 110,
     condition: function() { return !!(G.flags && G.flags.shadowhands_ironhold_ledger && !G.flags.shadowhands_finale_done); },

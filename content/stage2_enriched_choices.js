@@ -3,6 +3,7 @@
   {
     label: "The cloaked trader on the Ridgeway has maps she isn't selling to everyone.",
     tags: ['Travel', 'Mystery', 'Negotiation', 'Risk', 'Meaningful'],
+    tag: 'risky',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -35,6 +36,7 @@
   {
     label: "The northern route is blocked. The detour is unstable. Both cost something.",
     tags: ['Travel', 'Risk', 'Decision', 'Route', 'Meaningful'],
+    tag: 'risky',
     xpReward: 72,
     stageProgress: 2,
     fn: function() {
@@ -67,6 +69,7 @@
   {
     label: "The ferry captain's toll is not the listed one. The alternative is worse.",
     tags: ['Travel', 'Negotiation', 'Pressure', 'Choice', 'Meaningful'],
+    tag: 'risky',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -131,6 +134,7 @@
   {
     label: "The messenger is being run down. The riders are organized.",
     tags: ['Travel', 'Moral', 'Combat', 'Consequence', 'Meaningful'],
+    tag: 'bold',
     xpReward: 73,
     stageProgress: 2,
     fn: function() {
@@ -195,6 +199,7 @@
   {
     label: "The lights on the horizon pulse at equal intervals. That regularity means something.",
     tags: ['Travel', 'Mystery', 'Danger', 'Investigation', 'Meaningful'],
+    tag: 'risky',
     xpReward: 69,
     stageProgress: 2,
     fn: function() {
@@ -228,6 +233,7 @@
   {
     label: "The forbidden trail saves three days. The prohibition markers don't say why.",
     tags: ['Travel', 'Route', 'Risk', 'Temptation', 'Meaningful'],
+    tag: 'bold',
     xpReward: 72,
     stageProgress: 2,
     fn: function() {
@@ -260,6 +266,7 @@
   {
     label: "Someone from home is on this road. They're nervous for a reason.",
     tags: ['Travel', 'Past', 'Connection', 'Caution', 'Meaningful'],
+    tag: 'risky',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -292,6 +299,7 @@
   {
     label: "The refugees' stories don't match each other. Something was done to their district.",
     tags: ['Travel', 'Moral', 'Intelligence', 'Consequence', 'Meaningful'],
+    tag: 'bold',
     xpReward: 71,
     stageProgress: 2,
     fn: function() {
@@ -326,6 +334,7 @@
   {
     label: "The faction envoy's offer is specific. What he wants in return is not fully stated.",
     tags: ['Faction', 'Negotiation', 'Pressure', 'Alliance', 'Meaningful'],
+    tag: 'risky',
     xpReward: 72,
     stageProgress: 2,
     fn: function() {
@@ -358,6 +367,7 @@
   {
     label: "Two factions want the same thing from me. They're watching which one I answer first.",
     tags: ['Faction', 'Choice', 'Power', 'Consequence', 'Meaningful'],
+    tag: 'risky',
     xpReward: 74,
     stageProgress: 2,
     fn: function() {
@@ -388,8 +398,9 @@
     }
   },
   {
-    label: "The faction's request is not one I can walk back from if I say yes.",
+    label: "Yes to this is permanent. The faction knows that when they ask.",
     tags: ['Faction', 'Moral', 'Violence', 'Pressure', 'Meaningful'],
+    tag: 'bold',
     xpReward: 75,
     stageProgress: 2,
     fn: function() {
@@ -422,6 +433,7 @@
   {
     label: "The faction safehouse is unguarded at the wrong hour. That might not be an accident.",
     tags: ['Faction', 'Discovery', 'Risk', 'Intelligence', 'Meaningful'],
+    tag: 'risky',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -454,6 +466,7 @@
   {
     label: "She's been watched long enough to know the gaps in the rotation. She wants out.",
     tags: ['Faction', 'Risk', 'Defection', 'Moral', 'Meaningful'],
+    tag: 'bold',
     xpReward: 73,
     stageProgress: 2,
     fn: function() {
@@ -484,8 +497,9 @@
     }
   },
   {
-    label: "The faction's internal split has reached the point where they need someone outside it.",
+    label: "Their internal split needs someone with no stake in either side.",
     tags: ['Faction', 'Politics', 'Trust', 'Authority', 'Meaningful'],
+    tag: 'risky',
     xpReward: 72,
     stageProgress: 2,
     fn: function() {
@@ -518,6 +532,7 @@
   {
     label: "The operative didn't make the meeting. The body was left where I'd find it.",
     tags: ['Faction', 'Mystery', 'Danger', 'Moral', 'Meaningful'],
+    tag: 'bold',
     xpReward: 71,
     stageProgress: 2,
     fn: function() {
@@ -550,6 +565,7 @@
   {
     label: "The faction wants eyes in a region I don't know. Saying no has a cost.",
     tags: ['Faction', 'Espionage', 'Network', 'Pressure', 'Meaningful'],
+    tag: 'risky',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -580,7 +596,7 @@
     }
   },
   {
-    label: "The faction's resources are gone and my name is on the access log.",
+    label: "Empty coffers and my name on the access record. Both problems, both mine now.",
     tags: ['Faction', 'Suspicion', 'Investigation', 'Pressure', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -615,7 +631,7 @@
 
   // ========== COMPANION DYNAMICS: Loyalty Tests & Moral Stands ==========
   {
-    label: "The companion's past isn't what they said. The deception was specific and sustained.",
+    label: "She told a specific lie, sustained across weeks. That takes planning.",
     tags: ['Companion', 'Trust', 'Deception', 'Loyalty', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -647,8 +663,9 @@
     }
   },
   {
-    label: "The companion's vendetta has a name now. Staying and leaving both have consequences.",
+    label: "His vendetta has a name now. The consequences come either way.",
     tags: ['Companion', 'Choice', 'Loyalty', 'Consequence', 'Meaningful'],
+    tag: 'bold',
     xpReward: 71,
     stageProgress: 2,
     fn: function() {
@@ -681,6 +698,7 @@
   {
     label: "The companion needs medicine that costs more than the road budget allows.",
     tags: ['Companion', 'Moral', 'Sacrifice', 'Care', 'Meaningful'],
+    tag: 'risky',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -713,6 +731,7 @@
   {
     label: "The two companions are at an impasse. Both are right about different things.",
     tags: ['Companion', 'Moral', 'Conflict', 'Leadership', 'Meaningful'],
+    tag: 'risky',
     xpReward: 71,
     stageProgress: 2,
     fn: function() {
@@ -743,7 +762,7 @@
     }
   },
   {
-    label: "The companion is sick and knows what the contagion means for anyone near them.",
+    label: "Sick, and she knows exactly what that means for everyone in camp.",
     tags: ['Companion', 'Sacrifice', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 74,
     stageProgress: 2,
@@ -777,6 +796,7 @@
   {
     label: "A companion's family inside a facility I can reach. The window won't stay open.",
     tags: ['Companion', 'Moral', 'Consequence', 'Risk', 'Meaningful'],
+    tag: 'bold',
     xpReward: 73,
     stageProgress: 2,
     fn: function() {
@@ -809,6 +829,7 @@
   {
     label: "A companion gave something up for the group quietly. They haven't said anything about it.",
     tags: ['Companion', 'Sacrifice', 'Revelation', 'Loyalty', 'Meaningful'],
+    tag: 'risky',
     xpReward: 72,
     stageProgress: 2,
     fn: function() {
@@ -839,7 +860,7 @@
     }
   },
   {
-    label: "The companion was hired to watch me. They stopped. That gap is the only question.",
+    label: "She was paid to watch me. She stopped. The reason matters more than the fact.",
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -875,6 +896,8 @@
   {
     label: "A scout with checkpoint maps. The price is still undecided.",
     tags: ['Intelligence', 'Route', 'Information', 'Cost', 'Meaningful'],
+    tag: 'safe',
+    failResult: 'The scout moved on before the price was settled — route intelligence is still available through other channels in this district.',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -907,6 +930,7 @@
   {
     label: "Intercepted messages between institutions, discussing transit restrictions — the cipher is the first problem.",
     tags: ['Intelligence', 'Espionage', 'Information', 'Power', 'Meaningful'],
+    tag: 'risky',
     xpReward: 71,
     stageProgress: 2,
     fn: function() {
@@ -920,7 +944,7 @@
 
       if (result.isCrit) {
         G.stageProgress[2]++;
-        G.lastResult = `The cipher is institutional — a format used across multiple administrative bodies rather than a personal code. Once you have the register key, the messages read clearly: a coordinated tightening of three transit routes, timed to a fiscal quarter. Not a response to any threat. Pre-planned. The restriction isn't reactive — it's a mechanism. The messages lay out the schedule across the next two months.`;
+        G.lastResult = `The cipher is institutional — a format used across multiple administrative bodies rather than a personal code. Once you have the register key, the messages confirm it: a coordinated tightening of three transit routes, timed to a fiscal quarter. Not a response to any threat. Pre-planned. The restriction isn't reactive — it's a mechanism. The messages lay out the schedule across the next two months.`;
         addJournal('Institutional strategy decoded', 'intelligence', `decode-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
@@ -939,6 +963,7 @@
   {
     label: "An institutional spy wants shelter. What they carry outweighs turning them in.",
     tags: ['Intelligence', 'Spy', 'Moral', 'Pressure', 'Meaningful'],
+    tag: 'risky',
     xpReward: 72,
     stageProgress: 2,
     fn: function() {
@@ -969,8 +994,9 @@
     }
   },
   {
-    label: "You observe institutional officials moving through your region. Follow them covertly to learn their objectives.",
-    tags: ['Intelligence', 'Observation', 'Espionage', 'Risk', 'Meaningful'],
+    label: "Institutional officials on a route they don't want mapped. Their destination is the question.",
+    tags: ['Intelligence', 'Observation', 'Espionage', 'Risk'],
+    tag: 'risky',
     xpReward: 69,
     stageProgress: 2,
     fn: function() {
@@ -1004,6 +1030,7 @@
   {
     label: "A scout network offers route data. The price is protection I may not deliver.",
     tags: ['Intelligence', 'Network', 'Alliance', 'Commitment', 'Meaningful'],
+    tag: 'risky',
     xpReward: 70,
     stageProgress: 2,
     fn: function() {
@@ -1036,6 +1063,7 @@
   {
     label: "A dead messenger. Encrypted documents still sealed. Someone needs these not to arrive.",
     tags: ['Intelligence', 'Investigation', 'Mystery', 'Consequence', 'Meaningful'],
+    tag: 'bold',
     xpReward: 71,
     stageProgress: 2,
     fn: function() {
@@ -1069,6 +1097,7 @@
   {
     label: "The archive is breached. The secondary stacks are unguarded. The window won't stay open.",
     tags: ['Intelligence', 'Opportunity', 'Moral', 'Risk', 'Meaningful'],
+    tag: 'bold',
     xpReward: 73,
     stageProgress: 2,
     fn: function() {
@@ -1101,6 +1130,7 @@
   {
     label: "They need my testimony against institutional officers. Their protection may not outlast my usefulness.",
     tags: ['Intelligence', 'Corruption', 'Legal', 'Risk', 'Meaningful'],
+    tag: 'risky',
     xpReward: 72,
     stageProgress: 2,
     fn: function() {
@@ -1138,6 +1168,7 @@
     cid: 'stage2_collegium_contact',
     label: 'Seld has been building the same picture from the other side.',
     tags: ['stage2', 'faction_contact', 'Faction', 'Collegium', 'Social'],
+    tag: 'risky',
     xpReward: 60,
     fn: function() {
       var roll = rollD20('wits', G.skills.wits);
@@ -1154,7 +1185,7 @@
         }
         maybeStageAdvance();
       } else {
-        addNarration('Archive Meeting — No Exchange', 'Seld reads your hesitation before you say anything. She closes the folder and tucks it back under her arm. The offer stands, she says, but only until end of the third week. After that the files rotate to deep storage and she loses access. She leaves through the staff corridor. The archive reading room empties around you.');
+        addNarration('Archive Meeting — No Exchange', 'Seld reads your hesitation before you say anything. He closes the folder and tucks it back under his arm. The offer stands, he says, but only until end of the third week. After that the files rotate to deep storage and he loses access. He leaves through the staff corridor. The archive reading room empties around you.');
       }
     }
   },
@@ -1164,6 +1195,7 @@
     cid: 'stage2_shadowhands_contact',
     label: 'The question in that note could only come from someone tracking the same routes.',
     tags: ['stage2', 'faction_contact', 'Faction', 'Shadowhands', 'Stealth'],
+    tag: 'risky',
     xpReward: 60,
     fn: function() {
       var roll = rollD20('finesse', G.skills.finesse);
@@ -1190,6 +1222,7 @@
     cid: 'stage2_wardens_contact',
     label: 'The Warden flagged my transit pattern — she already knows what I\'ve been tracking.',
     tags: ['stage2', 'faction_contact', 'Faction', 'Wardens', 'Social'],
+    tag: 'risky',
     xpReward: 60,
     fn: function() {
       var roll = rollD20('charm', G.skills.charm);
@@ -1425,6 +1458,7 @@
     id: 's2_routing_crossref',
     text: 'The district numbers and the route numbers share a column they shouldn\'t.',
     tags: ['Investigation', 'Lore'],
+    tag: 'risky',
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
@@ -1475,6 +1509,7 @@
     id: 's2_sealed_archive_loophole',
     text: 'A procedural appeal is not the same as an access request. The rule doesn\'t cover it.',
     tags: ['Investigation', 'Lore'],
+    tag: 'risky',
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
@@ -1523,6 +1558,7 @@
     id: 's2_recurring_name',
     text: 'That name has appeared in four separate documents from three different offices.',
     tags: ['Investigation', 'Lore'],
+    tag: 'risky',
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
@@ -1596,6 +1632,7 @@
     id: 's2_district_night_records',
     text: 'The night shift desk doesn\'t log visitors. That\'s a known feature, not an oversight.',
     tags: ['Stealth', 'Investigation'],
+    tag: 'risky',
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
@@ -1669,6 +1706,7 @@
     id: 's2_warden_patrol_gap',
     text: 'There\'s a patrol gap that stays consistent. Gaps don\'t stay consistent by accident.',
     tags: ['Stealth', 'Investigation'],
+    tag: 'risky',
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
@@ -1693,6 +1731,7 @@
     id: 's2_ledger_ward_anomaly',
     text: 'The Iron Ledger Ward has a transaction that predates the institution\'s founding.',
     tags: ['Investigation', 'Lore'],
+    tag: 'risky',
     plot: 'side',
     result: function() {
       if (!G.flags) G.flags = {};
@@ -1813,6 +1852,115 @@
     }
   },
 
+  // ========== ARCHETYPE-EXCLUSIVE: Stealth Family (additional sp2 paths) ==========
+
+  {
+    id: 's2_stealth_courier_intercept',
+    label: "The courier's route crosses a blind spot. Three minutes, no witness.",
+    tags: ['Stealth', 'Investigation', 'Evidence'],
+    tag: 'risky',
+    xpReward: 88,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth' &&
+        !(G.flags && G.flags.s2_stealth_courier_done);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(88, 'intercepting restricted document courier in transit');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      if (r.total >= 13) {
+        G.flags.s2_stealth_courier_done = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'The courier walks the same route every third day, same pause at the Eastgate arch to check the weather, same side-step when the gutter overflows. The blind spot is real. You have the satchel open, the relevant document copied in longhand, and the latch re-sealed before he reaches the far end of the alley. The copied text: a re-routing authorization bearing three seals, one of which does not appear on any official Collegium document you have seen. Whoever signed it did not want it attributed.';
+        addJournal('Unauthorized document seal identified — re-routing authorization bearing unregistered Collegium seal', 'evidence');
+        G.recentOutcomeType = 'success';
+      } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness||0) + 1);
+        G.lastResult = 'The courier stops at the arch a beat early — something in the sound of the alley, or just a variation in his routine. You clear the blind spot without the satchel. He continues. He does not look behind him, but he adjusts his grip on the case in a way that means he noticed something. The route will shift. You will not have this particular window again.';
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 's2_stealth_ledger_copy',
+    label: "The registry clerk steps away. The ledger is open to exactly the right page.",
+    tags: ['Stealth', 'Investigation', 'Evidence'],
+    tag: 'risky',
+    xpReward: 85,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth' &&
+        !(G.flags && G.flags.s2_stealth_ledger_done);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(85, 'copying restricted ledger page during clerk absence');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      if (r.total >= 13) {
+        G.flags.s2_stealth_ledger_done = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'Forty-two seconds. The ledger page shows quarterly transit summaries for the restricted corridor — tonnage, declared contents, authorizing clerk, date. Three entries in the past eight months show the same declaring party on overnight shipments that do not appear in the public transit index. The same three entries each have a handwritten asterisk in the margin. You have the page copied and the ledger closed before the clerk returns from the records alcove with whatever he went to find.';
+        addJournal('Restricted transit ledger: three overnight shipments absent from public index — same declaring party, marginal asterisk', 'evidence');
+        G.recentOutcomeType = 'success';
+      } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness||0) + 1);
+        G.lastResult = 'The clerk returns faster than expected — there was a second person in the alcove who handed him the document directly. The ledger is not where it was. He squares it against the counter edge and places both hands flat on the cover. He says nothing. You say something about a public records request and he hands you the correct form. The form requires a countersignature and a three-day processing window.';
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 's2_stealth_shadow_official',
+    label: "The liaison's second meeting is with someone who doesn't appear on any official roster.",
+    tags: ['Stealth', 'Surveillance', 'Evidence'],
+    tag: 'risky',
+    xpReward: 92,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth' &&
+        !(G.flags && G.flags.s2_stealth_shadow_done);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(92, 'trailing liaison officer to off-roster contact meeting');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      if (r.isCrit) {
+        G.flags.s2_stealth_shadow_done = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.flags.stage2_faction_contact_made = true;
+        G.lastResult = 'The second meeting is in a cooperage basement off the lower transit district — three casks moved to make room, a single lamp. The person the liaison meets does not introduce himself. He carries a document case embossed with the same unregistered seal you noted on the re-routing authorization. They exchange two rolls of parchment. When the meeting ends he takes a route that avoids every public street. You follow him three blocks before he steps into a doorway and does not come out. The door belongs to a storage annex registered to a Cosmouth administrative bureau that has not filed a public activity report in fourteen months.';
+        addJournal('Liaison met unregistered contact carrying embossed seal — same mark as unauthorized re-routing authorization; contact enters Cosmouth bureau annex', 'evidence');
+        G.recentOutcomeType = 'success';
+      } else if (r.total >= 13) {
+        G.flags.s2_stealth_shadow_done = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = 'The basement meeting is brief. You hold position in the loading bay above long enough to see the document exchange but not to read markings or hear names. The contact leaves by a service door you cannot follow through without crossing open ground. What you have: a face, a document case, a cooperage address. The cooperage address is not in any business registry you have access to.';
+        addJournal('Liaison document exchange in off-registry cooperage — contact unidentified, location unregistered', 'intelligence');
+        G.recentOutcomeType = 'success';
+      } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness||0) + 2);
+        G.lastResult = 'The liaison doubles back once before the second meeting — a practiced check, not paranoia. You break off before the cooperage. Following further would mean compromising everything you have already gathered. He knows someone was on his route. He will change it.';
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
   // ========== ARCHETYPE-EXCLUSIVE: Combat Family (5 choices) ==========
 
   {
@@ -1880,6 +2028,7 @@
     id: 's2_arch_combat_patrol_pattern',
     text: 'Warden deployment shifted three days ago. Someone gave an order they didn\'t write down.',
     tags: ['Combat', 'Observation', 'Tactics'],
+    tag: 'risky',
     plot: 'side',
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
@@ -1970,6 +2119,7 @@
   {
     label: "The courier ledger has gaps. Someone pulled the delivery records before archiving.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1999,6 +2149,7 @@
   {
     label: "Three polities. Three different clerks. The same name crossed out in each intake log.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2028,6 +2179,7 @@
   {
     label: "The Collegium has a liaison in every major locality. None file the same report.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2056,6 +2208,7 @@
   {
     label: "Someone moved through this waystation without being logged. The dust says otherwise.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2084,6 +2237,7 @@
   {
     label: "The supply manifest lists weights that don't match the cargo dimensions. Someone trained did this.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2114,6 +2268,7 @@
   {
     label: "The courier route changed three months ago. The posted notice is still the old one.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2143,6 +2298,7 @@
   {
     label: "The Collegium's outer-tier seals appear on documents that predate the tier's existence.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2172,6 +2328,7 @@
   {
     label: "The night archivist's log shows entries written during hours she wasn't rostered to work.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2229,6 +2386,7 @@
   {
     label: "The transit warden stamped fourteen crates without opening one. The cargo list says dry goods.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'bold',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2285,6 +2443,7 @@
   {
     label: "The person who processed these clearances left two months ago. No one replaced her.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2313,6 +2472,7 @@
   {
     label: "The duty roster pins identical shifts for three weeks. No one keeps identical shifts.",
     tags: ['Stage2', 'Investigation'],
+    tag: 'risky',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -2343,6 +2503,7 @@
     cid: 'stage2_redhood_contact',
     label: 'She knows about the unmarked cargo — that phrase wasn\'t an accident.',
     tags: ['stage2', 'faction_contact', 'Faction', 'RedHood', 'Stealth'],
+    tag: 'risky',
     xpReward: 60,
     fn: function() {
       var roll = rollD20('charm', G.skills.charm);

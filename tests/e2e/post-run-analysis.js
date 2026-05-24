@@ -295,8 +295,8 @@ function analyzeWithImages(domain, ctx, imagePaths) {
   const jsonlContent = buildStreamJsonInput(domain, ctx, imagePaths);
   try {
     const modelFlag = domain.model ? `--model ${domain.model}` : '--model claude-haiku-4-5-20251001';
-    const result = execSync(
-      `claude -p --input-format stream-json ${modelFlag}`,
+    const raw = execSync(
+      `claude -p --input-format stream-json --output-format stream-json ${modelFlag}`,
       {
         input: jsonlContent,
         encoding: 'utf8',
@@ -304,7 +304,19 @@ function analyzeWithImages(domain, ctx, imagePaths) {
         maxBuffer: 10 * 1024 * 1024,
       }
     );
-    return result.trim();
+    // Parse stream-json output: extract text_delta events
+    const textParts = [];
+    for (const line of raw.split('\n')) {
+      if (!line.trim()) continue;
+      try {
+        const obj = JSON.parse(line);
+        if (obj.type === 'content_block_delta' && obj.delta && obj.delta.type === 'text_delta') {
+          textParts.push(obj.delta.text);
+        }
+      } catch (_) {}
+    }
+    const extracted = textParts.join('').trim();
+    return extracted || raw.trim();
   } catch (err) {
     let Anthropic;
     try { Anthropic = require('@anthropic-ai/sdk'); } catch (_) {}

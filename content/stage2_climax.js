@@ -151,7 +151,7 @@ var STAGE2_CLIMAX = (function() {
   }
 
   function _closeClimax() {
-
+    if (!G.lastResult) G.lastResult = '';
     G.flags.stage2_climax_complete = true;
     G.flags.maren_oss_resolved = true;
     G.flags.companion_gate_open = true;

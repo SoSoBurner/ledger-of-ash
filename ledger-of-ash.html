@@ -2060,7 +2060,7 @@ input, button, select, textarea { font-family: inherit; }
       <p class="camp-intro">The fire is low. The road can wait.</p>
       <div class="camp-grid">
         <div class="camp-group-label">Recover</div>
-        <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x2665;</div><div class="ca-title">Rest</div><div class="ca-desc">Recover HP. Advances Watchfulness by 1. Limit 2 per day.</div></button>
+        <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x2665;</div><div class="ca-title">Rest</div><div class="ca-desc">Recover HP. Refreshes traits. Limit 2 per day.</div></button>
         <button class="camp-action" data-camp="sleep"><div class="ca-icon">&#x263D;</div><div class="ca-title">Sleep</div><div class="ca-desc">Find a place to rest for the night. Settlements offer inn lodging — cheap or comfortable.</div></button>
         <button class="camp-action" data-camp="recover"><div class="ca-icon">&#x2726;</div><div class="ca-title">Seek Care</div><div class="ca-desc">Pay a healer to remove wound penalties. Costs gold.</div></button>
         <div class="camp-group-label">Act</div>
@@ -4887,8 +4887,6 @@ const BACKGROUNDS = {
   paladin:[
     {id:'p_cysur',name:'Servant of Cysur',region:'Shelkopolis',desc:'Cysur demands comfort and communal bonds. You carry that mandate through a world that tests it.',bonus:'Cysur Temple Standing. Shrines provide free healing once per day.',opening:'The Aurora Light Cathedral blessed you and sent you out. What you find will confirm or complicate that blessing.',mechNote:'Begins with Persuasion advantage. The courts trained your every word.',factionMods:[{id:'house_shelk',n:5}]},
     {id:'p_eloljaro',name:'Instrument of Eloljaro',region:'Ithtananalor',desc:'Eloljaro demands that what has gone wrong be corrected. You are that correction.',bonus:'Eloljaro Mandate. When correcting an injustice, persuasion gains +2.',opening:'You were sent to Ithtananalor to correct something. Whether you succeeded or not, you are now unsent.',mechNote:'Begins with Combat advantage. The discipline of war shapes every confrontation.',factionMods:[{id:'iron_accord',n:5},{id:'office_of_roazian_enforcement',n:5}]},
-    
-  ,
     {id:'p_gwybodaeth',name:'Scholar of Gwybodaeth',region:'Mimolot Academy',desc:'Gwybodaeth demands that everything be chronicled. You carry that mandate through a world that destroys knowledge as fast as it creates it.',bonus:'Archive Access. Shrine of Gwybodaeth recognition. Lore rolls gain +1 permanently.',opening:'The academy treats knowledge as property. You treat it as obligation. That distinction has made you difficult to place.',mechNote:'Begins with Lore advantage. Years of study sharpen your reading of evidence.',factionMods:[{id:'house_mimolot',n:15},{id:'guild_sanction_board',n:5}]}
   ],
   archer:[
@@ -4953,8 +4951,6 @@ const BACKGROUNDS = {
   spellthief:[
     {id:'st_mimolot',name:'Archive Access Violator',region:'Mimolot Academy',desc:'You entered restricted Mimolot archive sections and took what you found.',bonus:'Stolen Formula Notebook. One copied magical technique in inventory.',opening:'You delivered things that could not be sent through official channels. Some of those things were knowledge.',mechNote:'Begins with Stealth advantage. The city\'s hidden paths are second nature.',factionMods:[{id:'house_mimolot',n:-5},{id:'shadowhands',n:5}]},
     {id:'st_court',name:'Shelk Court Acquisitions',region:'Shelkopolis',desc:'Noble courts have magical practitioners. You studied them from uninvited proximity.',bonus:'Court Observation Notes. Know magical capabilities of three named Principalities practitioners.',opening:'You performed for people who had things worth taking. Eventually the performance was the cover.',mechNote:'Begins with Stealth advantage. The city\'s hidden paths are second nature.',factionMods:[{id:'house_shelk',n:-5},{id:'shadowhands',n:10}]},
-    
-  ,
     {id:'st_shirsh',name:'Magi Magistratus Informant',region:'Shirshal',desc:'House Shirsh tracks magical anomalies. You helped — until your methods diverged from their procedures.',bonus:'Shirsh Evidence Contacts. Know the location of one restricted magical incident file.',opening:'The Magi Magistratus closed three cases you opened. You kept copies of the parts they sealed.',mechNote:'Begins with Stealth advantage. The city\'s hidden paths are second nature.',factionMods:[{id:'house_shirsh',n:10},{id:'shadowhands',n:5}]}
   ],
   scout_c:[
@@ -9735,6 +9731,7 @@ function getDefaultG() {
     startingLocality:'shelkopolis',
     _campoutPenalty:0, campoutDay:-1,
     trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
+    lastResult:'',
     masteryXP:0, masteryPurchased:[], masteryBonuses:{}, traitProgress:{}, unlockedTraits:[], spentAbilities:{},
     archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
     shopCreditBoost:0, statCap:10,
@@ -9958,7 +9955,7 @@ function selectArchetype(id) {
 
 function selectBackground(bgId, archId) {
   document.querySelectorAll('#background-grid .card').forEach(c => c.classList.toggle('selected', c.dataset.id === bgId));
-  G.background = (BACKGROUNDS[archId] || []).find(b => b.id === bgId);
+  G.background = (BACKGROUNDS[archId] || []).find(b => b && b.id === bgId);
   updateCreateNarrative();
   checkBeginReady();
 }
@@ -10955,7 +10952,7 @@ function adaptEnrichedChoice(c) {
         addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSk + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
         _gateShown = true;
         if (_gFailed) {
-          var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : String(c.failResult));
+          var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : (c.failResult ? String(c.failResult) : ''));
           G.recentOutcomeType = 'complication';
           addNarration('', _frTxt, 'complication');
           addJournal(_frTxt, 'complication');
@@ -15273,10 +15270,10 @@ function showCharSheet() {
     '</div>' +
     (function() {
       var _badges = [];
-      if ((G.benevolence||0) > 10) _badges.push('Benevolent');
-      else if ((G.benevolence||0) < -10) _badges.push('Cruel');
-      if ((G.orderAxis||0) > 10) _badges.push('Order');
-      else if ((G.orderAxis||0) < -10) _badges.push('Anarchy');
+      if ((G.benevolence||0) >= 10) _badges.push('Benevolent');
+      else if ((G.benevolence||0) <= -10) _badges.push('Cruel');
+      if ((G.orderAxis||0) >= 10) _badges.push('Order');
+      else if ((G.orderAxis||0) <= -10) _badges.push('Anarchy');
       return _badges.length ? '<div style="margin-top:8px;font-family:var(--font-display);font-size:11px;color:var(--accent-gold);letter-spacing:0.08em">' + _badges.join(' · ') + '</div>' : '';
     })() +
     '</div>' +
@@ -16293,12 +16290,12 @@ function updateHUD() {
   // Investigation progress bar
   var spKey = G.stage === 'Stage I' ? 1 : 2;
   var spVal = (G.stageProgress && G.stageProgress[spKey]) || 0;
-  var spMax = G.stage === 'Stage I' ? 15 : (G.stage === 'Stage II' ? 18 : 12);
+  var spMax = G.stage === 'Stage I' ? 20 : (G.stage === 'Stage II' ? 18 : 12);
   var spEl = document.getElementById('hud-stage-progress');
   var spWrap = document.getElementById('hud-stage-progress-wrap');
   var spValEl = document.getElementById('hud-stage-progress-val');
   if (spEl) spEl.style.width = Math.min(100, (spVal / spMax) * 100) + '%';
-  if (spValEl) spValEl.textContent = spVal + ' / ' + spMax;
+  if (spValEl) spValEl.textContent = Math.min(spVal, spMax) + ' / ' + spMax;
   if (spWrap) spWrap.style.display = spVal > 0 ? 'block' : 'none';
   // Stage gate hint (cap reached but stage not yet advanced)
   var _hintEl = document.getElementById('hud-stage-hint');
@@ -16488,11 +16485,11 @@ function updateStageProgressBar() {
       stageNum = roman[raw.toUpperCase()] || 1;
     }
   }
-  var threshold = (stageNum === 1) ? 20 : (stageNum === 2) ? 15 : 20;
+  var threshold = (stageNum === 1) ? 20 : (stageNum === 2) ? 18 : 20;
   var progress  = (G.stageProgress && G.stageProgress[stageNum]) ? G.stageProgress[stageNum] : 0;
   fill.style.width = Math.min(100, Math.round((progress / threshold) * 100)) + '%';
   var _pLabel = document.getElementById('stage-progress-label');
-  if (_pLabel) _pLabel.textContent = progress + ' / ' + threshold;
+  if (_pLabel) _pLabel.textContent = Math.min(progress, threshold) + ' / ' + threshold;
 }
 
 function updateAlignmentHUD() {

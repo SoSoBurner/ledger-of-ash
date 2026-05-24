@@ -109,8 +109,41 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
     }
 
     resetInterval();
-    await page.waitForTimeout(400);
-    return target;
+    // Wait for choices to appear at destination (up to 5s)
+    await page.waitForSelector('.choice-btn:visible', { timeout: 5000 }).catch(() => {});
+    await page.waitForTimeout(200);
+
+    // Travel assertion: verify G.location changed to target
+    const arrivedLoc = await page.evaluate(() => {
+      try { return G.location; } catch (_) { return null; }
+    }).catch(() => null);
+    const arrivedDay = await page.evaluate(() => {
+      try { return G.day; } catch (_) { return 0; }
+    }).catch(() => 0);
+
+    if (arrivedLoc === target) {
+      log(`[map-travel] pick=${picks} → arrived at ${target} day=${arrivedDay} — location confirmed`);
+    } else {
+      log(`[map-travel] pick=${picks} → WARN: expected ${target} but G.location=${arrivedLoc}`);
+    }
+
+    // Arc-choice presence: at Shelkopolis, check that at least one choice renders (bg-locality arcs inject on arrival)
+    if (target === 'shelkopolis') {
+      const choiceCount = await page.locator('.choice-btn:visible:not([disabled])').count().catch(() => 0);
+      const hasArcChoice = await page.evaluate(() => {
+        try {
+          const btns = document.querySelectorAll('.choice-btn:not([disabled])');
+          for (const b of btns) {
+            const cls = b.className || '';
+            if (cls.includes('plot-main') || b.textContent.length > 20) return true;
+          }
+          return false;
+        } catch (_) { return false; }
+      }).catch(() => false);
+      log(`[map-travel] shelkopolis arrival: choiceCount=${choiceCount} hasArcChoice=${hasArcChoice}`);
+    }
+
+    return arrivedLoc || target;
   } catch (err) {
     log(`[map-travel] pick=${picks} — error: ${String(err).slice(0, 80)}`);
     // Try to close any open overlay

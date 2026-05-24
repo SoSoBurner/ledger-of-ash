@@ -330,7 +330,7 @@ async function handleLevelup(page, tag) {
     if (await modal.isVisible({ timeout: 400 }).catch(() => false)) {
       // Multi-step level-up: click all .lu-option steps until modal closes
       for (let _step = 0; _step < 5; _step++) {
-        const pick = modal.locator('.lu-option,.levelup-option').first();
+        const pick = modal.locator('.lu-option-btn,.lu-option,.levelup-option').first();
         if (!await pick.isVisible({ timeout: 500 }).catch(() => false)) break;
         await screenshot(page, `${tag}_levelup_step${stepNum}`);
         await pick.click();
@@ -347,7 +347,7 @@ async function handleLevelup(page, tag) {
     const block = page.locator('.levelup-block:visible').first();
     if (await block.isVisible({ timeout: 400 }).catch(() => false)) {
       for (let _step = 0; _step < 5; _step++) {
-        const optBtn = block.locator('.levelup-option button,.levelup-btn,.lu-option').first();
+        const optBtn = block.locator('.levelup-option button,.levelup-btn,.lu-option-btn,.lu-option').first();
         if (!await optBtn.isVisible({ timeout: 400 }).catch(() => false)) break;
         await screenshot(page, `${tag}_levelup_step${stepNum}`);
         await optBtn.click();
@@ -1638,6 +1638,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           if (tracker) tracker.onMapTravel(fromLoc, travelled, picks);
           await screenshot(page, `${tag}_map_travel_p${picks}`);
           g = await readG(page);
+          // P1-H: flag dead-on-arrival localities (no choices after map travel)
+          const _postTravelChoices = await page.locator('.choice-btn:visible:not([disabled])').count().catch(() => 0);
+          if (_postTravelChoices === 0) {
+            log(`[map-travel P1-H] pick=${picks} DEAD-ON-ARRIVAL at ${travelled} — 0 choices after travel`);
+            if (tracker) tracker.onDeadEnd(travelled, picks, 'dead-on-arrival');
+          }
         }
       }
 
@@ -1997,6 +2003,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       lastPickTime = Date.now();
       await page.waitForTimeout(PACE.betweenCombat);
 
+      // P1-G: capture result text for per-family narrative transcript
+      try {
+        const _resultTxt = await page.locator('.result-text').first().innerText({ timeout: 1500 }).catch(() => '');
+        if (_resultTxt && reporter) reporter.addTranscriptEntry(tag, picks, result.text, _resultTxt);
+      } catch (_) {}
+
       // Same-label loop detection: 3 identical picks in a row = stuck in tension loop
       const pickLabel = result.text.slice(0, 60);
       lastPickLabels.push(pickLabel);
@@ -2194,10 +2206,12 @@ test.describe('Headed QA — 4 families', () => {
       }
     }
 
-    // Write playtest report
+    // Write playtest report and per-family transcripts
     const coverage  = tracker.getSummary();
     const reportPath = reporter.write(coverage, 0);
     log(`[suite:headed] report written → ${reportPath}`);
+    const transcriptPaths = reporter.writeTranscripts();
+    for (const tp of transcriptPaths) log(`[suite:headed] transcript written → ${tp}`);
 
     // Auto-trigger post-run analysis
     try {

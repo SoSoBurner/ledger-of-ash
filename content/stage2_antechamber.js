@@ -6,8 +6,7 @@ window.STAGE2_ANTECHAMBER = (function() {
     return (
       !G.flags.stage2_climax_started &&
       !G.flags.stage2_antechamber_done &&
-      (G.stageProgress[2] || 0) >= 12 &&
-      !!G.flags.stage2_faction_contact_made
+      (G.stageProgress[2] || 0) >= 12
     );
   }
 

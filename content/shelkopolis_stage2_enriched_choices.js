@@ -12,6 +12,9 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The chapel intermediary knows the name behind the northern route. She hasn't said it yet.",
     tags: ['Investigation', 'Stage2'],
+    tag: 'safe',
+    plot: 'main',
+    failResult: "The intermediary's expression closes before you finish the question. She's heard this framing before, recently, and whoever asked it last left a mark that hasn't faded. The prayer cloth goes back on the altar. The chapel alcove smells of cold wax. Nothing is shared today.",
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -19,6 +22,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
+        G.stageProgress[2]++;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = arch === 'magic'
@@ -32,6 +36,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The face at the chapel is wrong. The original intermediary is gone — this one has a fresh guild mark and the careful stillness of someone recently briefed. She listens to your first question, sets down the prayer cloth she's folding, and walks to the shrine desk. You are out the door before the notice is filed, but not before she marks your coat.`;
         addJournal('Investigation noticed at chapel', 'complication', `shelk-chapel-burn-${G.dayCount}`);
       } else {
+        G.stageProgress[2]++;
         G.investigationProgress++;
         G.lastResult = `The intermediary confirms a northern connection and stops there. When you press for a name, her hands go still on the prayer cloth. She says: "Not today." The wax smell of the chapel alcove sits heavy in the space between you. She says it like someone who said yes last week and has been paying for it since. The refusal has shape — a name she knows, a reason she won't share it here. That shape is more useful than a name given reluctantly to the wrong audience.`;
         addJournal('Chapel contact confirms northern link', 'evidence', `shelk-chapel-partial-${G.dayCount}`);
@@ -43,12 +48,16 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Every south market glyph surge broke within thirty-six hours of a sealed letter. Eleven times.",
     tags: ['Investigation', 'Stage2', 'Lore'],
+    tag: 'safe',
+    plot: 'main',
+    failResult: "The archive numbers won't hold. The cross-reference produces three cases that contradict the correlation, and the reading room lamp isn't bright enough to resolve whether the discrepancy is data or error. The pattern is there but it won't stand up today.",
     xpReward: 75,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'correlating glyph and letter patterns');
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
+        G.stageProgress[2]++;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `The dates line up exactly. Every major glyph surge in the south market broke within thirty-six hours of a sealed letter arriving at the chapel — without exception, across eleven incidents. The letters are either triggering the surges or confirming them after the fact. Either reading puts the chapel at the center of both. You have a physical timeline now, and the timeline holds. Someone has made a second record of your transit today — the handwriting on the secondary ledger is not Collegium standard. Red Hood keeps its own accounting.`;
@@ -59,6 +68,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         drawSocialMisstep(G.location);
         addJournal('Glyph records sealed during investigation', 'complication', `shelk-glyph-sealed-${G.dayCount}`);
       } else {
+        G.stageProgress[2]++;
         G.investigationProgress++;
         G.lastResult = `Three of the five surges align with letter arrival dates. The other two don't. You spread the records on the reading table and check the math twice, then a third time. Either the letter network only coordinated some of the surges, or a second operation is using the same chapel cover for different business. The reading room smells of pressed wax and old hemp fiber. Both possibilities are worse than a clean pattern, and the two that don't align refuse to resolve into coincidence.`;
         addJournal('Partial glyph-letter correlation', 'evidence', `shelk-glyph-partial-${G.dayCount}`);
@@ -70,6 +80,8 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The shortages are too surgical for a family dispute. The rivalry is scaffolding.",
     tags: ['Investigation', 'Stage2', 'Faction'],
+    tag: 'risky',
+    plot: 'main',
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -77,6 +89,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
+        G.stageProgress[2]++;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = arch === 'support'
@@ -88,6 +101,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Your question about trade disruption timing lands on the desk of a House Shelk factor who has been waiting for someone to ask it. He doesn't answer. He copies your guild travel permit number into his personal ledger and thanks you for your time. By evening your name is registered at the civic records counter as a person of interest in an active trade inquiry.`;
         addJournal('Registered as trade inquiry person of interest', 'complication', `shelk-noble-register-${G.dayCount}`);
       } else {
+        G.stageProgress[2]++;
         G.investigationProgress++;
         G.lastResult = `The beneficiaries aren't hidden — three families whose names appear in the chapel letter records are the only ones gaining ground as the disruption runs. The Verdant Row tally board shows their purchase volume climbing while competitors go quiet. You can name them and place them in the record. What you can't show yet is who gave the order and when: benefiting from a disruption and directing it are not the same thing, and the proof of intent is still a step away.`;
         addJournal('Noble beneficiary pattern identified', 'evidence', `shelk-noble-partial-${G.dayCount}`);
@@ -99,6 +113,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The picture is close enough to share. Sharing it means sharing the exposure.",
     tags: ['Investigation', 'Consequence', 'Stage2'],
+    tag: 'risky',
     xpReward: 85,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -130,6 +145,9 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Lady Isabella Shelk knows the disruption doesn't originate in this city. She may say so.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
+    tag: 'safe',
+    plot: 'main',
+    failResult: "The gate staff takes your name and returns without offering anything further. Lady Isabella is not available to persons without standing in the Iron Accord registry. The household visitor log records the attempt. The coal smoke from the harbor reaches even this terrace.",
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -137,6 +155,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
+        G.stageProgress[2]++;
         G.flags.met_lady_isabella = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = arch === 'support'
@@ -148,6 +167,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The gate staff takes your name, disappears inside for three minutes, and returns with the same expression they left with. Lady Isabella is unavailable to persons without standing in the Iron Accord registry. Your name goes into the household visitor log — the kind that gets shared with Roadwarden Command during courtesy briefings. You walk back down the hill more visible than you came up. Isabella's public record filing with the South Market Commerce House is another route — one that doesn't require an appointment.`;
         addJournal('Estate entry refused — flagged', 'complication', `shelk-isabella-fail-${G.dayCount}`);
       } else {
+        G.stageProgress[2]++;
         G.flags.met_lady_isabella = true;
         G.lastResult = `The audience runs seven minutes. Lady Isabella confirms she is aware of irregularities and cannot speak to specifics on record. The east sitting room is furnished for brevity — no tea, no second chair for a companion, no art on the wall behind her. When you finish your question, her eyes move — not toward the door, toward the window that faces the guild quarter. The coal smoke from the harbor reaches even this floor. She doesn't say anything else. She doesn't need to.`;
         addJournal('Lady Isabella points toward guild — indirect', 'evidence', `shelk-isabella-partial-${G.dayCount}`);
@@ -159,6 +179,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Windrider has noticed the same pattern. The conditions for sharing it haven't been agreed yet.",
     tags: ['NPC', 'Combat', 'Authority', 'Stage2'],
+    tag: 'bold',
     xpReward: 82,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -190,6 +211,8 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Lyara Dawnlight filed three formal objections. All stamped received. None answered.",
     tags: ['NPC', 'Lore', 'Religion', 'Stage2'],
+    tag: 'safe',
+    failResult: "The cathedral anteroom is cold and the attendant who receives you is precise: the High Priestess is not available for unsolicited consultations on chapel operational matters. The formal declination goes into the liturgical visitor record. The cathedral door is heavier on the way out.",
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -197,6 +220,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
+        G.stageProgress[2]++;
         G.flags.met_high_priestess = true;
         if (!G.rivalId && arch === 'magic') G.rivalId = 'archivist_veld';
         G.lastResult = arch === 'magic'
@@ -208,6 +232,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Your second question lands wrong. Lyara Dawnlight sets down her liturgical register and looks at you with the particular precision of someone who has heard what she considers an accusation wrapped in courtesy. She formally declines to discuss chapel operational matters and directs you to civic administration. The conversation ends with her still seated and you still standing. The cathedral door feels heavier on the way out.`;
         addJournal('Cathedral relationship strained', 'complication', `shelk-priestess-fail-${G.dayCount}`);
       } else {
+        G.stageProgress[2]++;
         G.flags.met_high_priestess = true;
         G.lastResult = `Lyara Dawnlight acknowledges unusual chapel usage without elaborating on what she's seen. She speaks like someone choosing every word from a smaller set than she has available. At the end she offers one thing unprompted: the pattern began three weeks before the first recorded glyph surge in the south market. She says it looking at the altar, not at you.`;
         addJournal('Priestess confirms timing link — cautious', 'evidence', `shelk-priestess-partial-${G.dayCount}`);
@@ -221,6 +246,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A Warden Order representative is waiting at the inn. The assessment has already begun.",
     tags: ['Faction', 'Antagonist', 'Stage2'],
+    tag: 'bold',
     xpReward: 85,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -253,6 +279,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Same questions, same locations, one day behind. The gap is closing.",
     tags: ['Rival', 'Stage2', 'Combat'],
+    tag: 'bold',
     xpReward: 88,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -289,6 +316,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The Roadwarden invitation comes with a records access chit. The uniform opens the archive.",
     tags: ['Personal', 'Combat', 'Stage2'],
+    tag: 'risky',
     xpReward: 88,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -317,6 +345,8 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Aurora Light Cathedral's restricted archive holds the protocol revision records. The credentials gate is real.",
     tags: ['Personal', 'Magic', 'Lore', 'Stage2'],
+    tag: 'safe',
+    failResult: "The archive attendant denies access before the credentials are fully presented. She writes your name in the access attempt log while you are still standing at the counter. The log is already open. You are not the first this week.",
     xpReward: 84,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -324,6 +354,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
+        G.stageProgress[2]++;
         if (!G.rivalId && arch === 'magic') G.rivalId = 'archivist_veld';
         G.flags.cathedral_archive_accessed = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -346,6 +377,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Verdant Row runs on three handshake protocols. Getting the sequence wrong has a cost.",
     tags: ['Personal', 'Stealth', 'Stage2'],
+    tag: 'risky',
     xpReward: 82,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -353,6 +385,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
       const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
+        G.stageProgress[2]++;
         if (!G.rivalId && arch === 'stealth') G.rivalId = 'shadow_broker';
         G.flags.verdant_row_network = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -365,6 +398,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The second protocol is wrong. The third never gets attempted. The challenge comes fast and the escalation faster — two men who were watching from across the lane close the gap while you're still processing the first response. You exit Verdant Row with a bruised shoulder, a torn coat lining, and a clear understanding of what the wrong handshake sequence costs in this district.`;
         addJournal('Verdant Row network challenge — failed', 'complication', `shelk-verdant-fail-${G.dayCount}`);
       } else {
+        G.stageProgress[2]++;
         G.flags.verdant_row_network_partial = true;
         G.lastResult = `Two of three protocols land. The network accepts you at low-trust level — rumors only, no primary source access, no names confirmed. The fish-salt smell of the harbor end of the row drifts through while the contact speaks. The rumor they give you is specific enough to act on: a courier running between the Silkweaver's Chapel and the north gate, the same departure window, every mid-week watch. Partial access. Useful partial access. The third protocol will be available once the trust is earned.`;
         addJournal('Verdant Row partial access — courier tracked', 'evidence', `shelk-verdant-partial-${G.dayCount}`);
@@ -376,6 +410,9 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Elowen's audit needs a facilitator. The revenue gaps point the same direction.",
     tags: ['Personal', 'Support', 'Stage2'],
+    tag: 'safe',
+    plot: 'main',
+    failResult: "Elowen's administrative staff processes credentials before any meeting is confirmed. The review finds an inconsistency. The meeting is cancelled by note. Your name goes into the guild visitor record at the front desk.",
     xpReward: 80,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -383,6 +420,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
       if (result.isCrit) {
+        G.stageProgress[2]++;
         if (!G.rivalId && arch === 'support') G.rivalId = 'provost_lenn';
         G.flags.guild_chairwoman_contact = true;
         G.flags.stage2_faction_contact_made = true;
@@ -396,6 +434,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elowen's administrative staff runs credentials before any meeting happens. They find an inconsistency — a registration gap, a date that doesn't align. The meeting is cancelled by note. Your name goes into the guild visitor record at the front desk, which is the kind of record that gets shared with Iron Accord registry clerks during quarterly audit cycles. You leave without having seen the Chairwoman's office.`;
         addJournal('Guild meeting cancelled — credentials flagged', 'complication', `shelk-guild-fail-${G.dayCount}`);
       } else {
+        G.stageProgress[2]++;
         G.flags.guild_chairwoman_contact = true;
         G.lastResult = `Elowen agrees to limited consultation: two contracts, read-only, no notes. You find the gap in the first one — a revenue absence that the audit trail routes around rather than through. The gap is real. Elowen reads your expression and says, "Don't document it yet. Not until I know the scope of what I'm holding." She closes the contract folder herself.`;
         addJournal('Guild contract gap found — deferred documentation', 'evidence', `shelk-guild-partial-${G.dayCount}`);
@@ -1103,6 +1142,221 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.lastResult = `The tea cools untouched. The signet ring turns once, stops, and does not start again. "There are conversations I cannot have until a matter concludes. I am told it will conclude soon. I am told this by people who do not usually tell me things." No names offered. The admission of being told at all is the substance of what this audience will carry.`;
         addJournal('Elowen confirms institutional pressure — speakers unnamed', 'evidence', `shelk-elowen-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NEW sp2-ADVANCING CHOICES (7 fresh angles) ───────────────────────────
+
+  // Choice A — Tollgate records
+  {
+    label: "The south gate tollbook shows the same names arriving twice monthly. Different goods each time.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    tag: 'safe',
+    plot: 'main',
+    failResult: "The gate warden pulls the tollbook before the first page is finished and sets an access request form on the counter. Visitor review of active gate records requires a Civic Registry authorization. Your name goes into the gate inquiry log.",
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'reading south gate tollbook arrival patterns');
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The tollbook clerk lets you work the register unattended for twenty minutes — a courtesy that feels like a small act of defiance against something he can't name. You count the names. Eleven recurrences over four months, each arrival logged under a different goods classification: hemp cordage, dye powder, preserved meat. The weights never match the category. A second route runs parallel to the chapel network, using the south gate as its entry point and legitimate freight categories as its cover. The clerk comes back to the desk and straightens the register without looking at your notes.`;
+        addJournal('South gate tollbook — second parallel route confirmed, goods classifications do not match declared weights', 'evidence', `shelk-toll-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The gate warden pulls the tollbook before you finish the first page and slides a formal access request form across the counter. Visitor review of active gate records requires a Civic Registry authorization — a process that takes four business days and notifies the Roadwarden records desk when submitted. Your name goes into the gate inquiry log in the warden's own hand. The tollbook goes back under the counter. The warden's expression carries the specific flatness of someone who has done this recently and expects to do it again.`;
+        addJournal('South gate tollbook access refused — inquiry log entry made', 'complication', `shelk-toll-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The tollbook opens to the correct month without resistance. The names repeat — that part is visible at a glance. What takes time is the goods column: the same names paired with different freight classifications across four arrivals. Either the cargo genuinely changes each visit, or the manifest changes to keep the pattern from becoming obvious under a single category review. The smell of coal smoke and damp stone fills the gatehouse. The timing of the arrivals clusters within forty-eight hours of the chapel letter windows. That correspondence is exact enough to enter as evidence.`;
+        addJournal('South gate tollbook — recurring names, shifting freight codes, timing aligns with chapel windows', 'evidence', `shelk-toll-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // Choice B — Sealed letter interception
+  {
+    label: "The letter is in transit. The relay house is unattended for eighteen minutes.",
+    tags: ['Investigation', 'Stage2', 'Stealth'],
+    tag: 'bold',
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'intercepting sealed letter at unattended relay house');
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The relay house back door is latched, not locked. The letter is on the sorting ledge in a bundle of four — the sealed one with the chapel wax mark is third from the bottom. You read it in the stairwell light: a set of coordinates for a north-gate pickup window, the name of a contact, and a phrase that cross-references against the noble quarter records office. The relay house smells of candle wax and old rope. The letter goes back into the bundle in the same position. The contents are now on both sides of the seal.`;
+        addJournal('Sealed letter contents read at relay house — north-gate pickup window, contact name, noble quarter reference', 'evidence', `shelk-letter-inter-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The relay house is not as unattended as the window suggested. A courier coming off a late run enters through the front door while you are at the sorting ledge. He clocks the bundle's position, clocks you, and says nothing. He goes to the duty board and marks his delivery without looking back. The look he gave the bundle was precise — he knows the position you moved it from. The report goes in when he hands off at shift change. The chapel network knows a hand reached into the relay house.`;
+        addJournal('Relay house interception observed — network alerted, watchfulness+2', 'complication', `shelk-letter-inter-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The seal breaks cleaner than expected — a brittle wax formula that suggests the letter wasn't meant for long transit. The contents are partial: a pickup time and a district reference, nothing more. The sender's identity is absent. The recipient line carries only a cipher mark that matches nothing in your current records. The letter goes back into the bundle with a crease in the paper that wasn't there before. The information gained is narrow. The crease is a residue that may or may not be noticed.`;
+        addJournal('Sealed letter partially read — pickup time and district reference, sender absent, cipher mark unresolved', 'evidence', `shelk-letter-inter-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // Choice C — Guild registry cross-reference
+  {
+    label: "Every suppressed contract flows through the same notary office. The clerk there is overworked.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    tag: 'safe',
+    failResult: "The cross-reference requires a registry authorization level above standard access. The senior clerk reads the request carefully and declines it under a trade inquiry confidentiality hold. The hold was filed this week. Your name goes into the flagged inquiry log.",
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'cross-referencing suppressed contracts at guild registry');
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.flags.notary_office_identified = true;
+        G.lastResult = `The guild registry cross-reference takes three hours. The overworked clerk processes your request forms without reading them, which is the advantage the workload provides. The pattern is unambiguous: every suppressed contract in the past eight months carries a notarial certification mark from the same office — a single-desk operation in the charter quarter that handles only high-volume institutional clients. The notary's name appears on the shell subsidiary addendum, the chapel correspondence authorization, and the civic suppression order filed under the noble quarter records. One notary. Three separate operations. The clerk stamps the last form and looks up. "Next."`;
+        addJournal('Guild registry cross-reference — single notary office certifies suppressed contracts, shell addendum, and civic suppression order', 'evidence', `shelk-notary-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The cross-reference request requires a registry authorization level above standard access. The overworked clerk flags it and sends the form to the senior desk. The senior clerk reads it carefully, which the overworked clerk never does. She asks two questions about the purpose of the cross-reference before declining it under a trade inquiry confidentiality hold. The hold was filed this week. Your name goes into the flagged inquiry log. The notary office, wherever it is, will receive a courtesy notification that its records were the subject of an external request.`;
+        addJournal('Guild registry cross-reference declined — confidentiality hold filed this week, notary notification triggered', 'complication', `shelk-notary-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `Two contracts surface with the same notarial certification mark — a single-desk office in the charter quarter. The third contract from the audit set isn't accessible at this access level. Two is enough to establish the pattern as non-coincidental. The notary's mark appears on both the chapel correspondence authorization and on a shell subsidiary filing from four years ago. The registry smells of tallow candles and cold stone floor. The connection between the two documents is documentary now, not inferential.`;
+        addJournal('Guild registry — two suppressed contracts share notary certification mark, chapel auth and shell subsidiary linked', 'evidence', `shelk-notary-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // Choice D — Red Hood surveillance
+  {
+    label: "Four times this week at that table. Red Hood, or a tail on Red Hood.",
+    tags: ['Investigation', 'Stage2', 'Stealth', 'Faction'],
+    tag: 'risky',
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'approaching the recurring figure at the far table');
+      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.flags.red_hood_contact_made = true;
+        G.lastResult = `The figure doesn't register your approach until you're already seated across from him. That's deliberate — he chose not to react. He's a Red Hood courier runner, not Red Hood itself; his job is to watch the table where Red Hood's handler operates and report who sits near it. When you name the chapel letter network, he sets down his cup. He gives you one thing: the pickup window runs every mid-week watch from a lamp-oil shop at the north end of the Ironspool district. He doesn't explain how he knows. He leaves the table first.`;
+        addJournal('Red Hood courier runner — chapel letter pickup window confirmed at north Ironspool lamp-oil shop, mid-week watch', 'evidence', `shelk-red-hood-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The approach breaks the watcher's composure for exactly two seconds before his expression resets. He leaves the table without acknowledgment, crossing through the tavern's back corridor before you reach his seat. He was noting your face and your direction of approach before you were halfway across the room. By the time you're at the table his tea is cold and his chair is already angled back in — a practiced exit, not an improvised one. The follow is broken. Pressure on the investigation increases by one.`;
+        addJournal('Red Hood surveillance approach detected — watcher exited, follow broken', 'complication', `shelk-red-hood-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `You sit near the figure rather than across from him. He doesn't leave. After four minutes he shifts his chair a quarter-turn toward you and says, without preamble: "You've been at the archive twice this week. The second visit, you were followed from the south gate." He doesn't confirm or deny Red Hood. What he confirms is that your movements in this district have been observed by at least two parties, and that he is one of them, and that he has chosen to tell you this rather than simply watch.`;
+        addJournal('Recurring tavern figure — confirms player surveillance by two parties, identity withheld', 'intelligence', `shelk-red-hood-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // Choice E — Innkeeper's second cipher
+  {
+    label: "Aelra left a second margin notation. Later dates. Smaller hand.",
+    tags: ['NPC', 'Stage2', 'Lore'],
+    tag: 'safe',
+    failResult: "Aelra shows the second notation and closes the ledger in the same motion. The ledger goes under the counter. The inn smells of old wood and coal smoke. That door is closed until trust is rebuilt.",
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'reading Aelra\'s second margin cipher in the room ledger');
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The second notation is in a different hand than the primary cipher — smaller, tighter, written when the ink was running low and the writer wasn't stopping to refill. Aelra translates it without expression. Three guests visited three weeks ago under names she'd seen before, but with different guild marks. The second cipher names the pickup window: the fourth watch, after the Roadwarden rotation changes and before the north gate morning log opens. It names the route handler by description only: a woman with a Roazian coat clasp and a linen carrier bag. The description is specific enough to place her at the lamp-oil shop.`;
+        addJournal('Aelra second cipher — pickup window confirmed fourth watch, route handler described: Roazian coat clasp, linen carrier', 'evidence', `shelk-aelra-cipher2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Aelra shows you the second notation and then closes the ledger in the same motion. Her jaw settles in a way that was not settled before. "The first time was curiosity. The second time is a pattern." The ledger goes under the counter. Her posture toward you has shifted — not hostile, but closed. She runs an inn and keeps records because records are useful to her and only to her. The second cipher stays in the margin where it was. The door to that information will require a different kind of approach.`;
+        addJournal('Aelra closed second cipher — relationship cooled, second approach required', 'complication', `shelk-aelra-cipher2-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The second notation confirms the same three guests returned three weeks after the initial cluster — different names, same rooms, same departure sequence. The date falls inside the window the tollbook arrival pattern suggested. The inn smells of old wood and coal smoke. Aelra reads it out and folds the page back without comment. The confirmation is there: the guests are on a scheduled return cycle, and the schedule aligns with two separate documentary records now.`;
+        addJournal('Aelra second cipher — same three guests returned on cycle, timing aligns with tollbook window', 'evidence', `shelk-aelra-cipher2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // Choice F — Warden Order second contact
+  {
+    label: "The Warden Order sent a second representative. Different face, same questions.",
+    tags: ['Faction', 'Antagonist', 'Stage2'],
+    tag: 'risky',
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'meeting the Warden Order second representative');
+      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
+        G.lastResult = `The second representative asks the same questions in a different sequence. The variation is the tell — she's checking whether your answers change with a new face asking them. They don't. When you give her the same responses in the same order, she leans back and stops writing. "The first one wasn't authorized to share this. You've seen the Panim co-sign documentation." It is a statement, not a question. You have just confirmed something she already knew. She gives you, in exchange, the name of the party who holds the Panim authorization block — a name you haven't reached through any other channel.`;
+        addJournal('Warden Order second rep — Panim authorization holder named in exchange for confirmation of existing intel', 'evidence', `shelk-warden2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
+        G.lastResult = `The second representative's note-taking is faster than the first one's. By the third question something in your framing contradicts the previous session's record — a detail that has changed between the two encounters. She underlines something without comment. The meeting ends with her standing before you finish your last answer. The Warden Order now has a documented inconsistency attached to your name in their inquiry record. The rival clock advances by two.`;
+        addJournal('Warden Order second rep — documented inconsistency recorded, rival+2', 'complication', `shelk-warden2-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
+        G.lastResult = `The second representative confirms, by her questions alone, that the Warden Order is actively tracking the same operation you are. Neither party states this. The confirmation comes from the specificity of what she asks about — the tollgate, the relay house, the charter amendment deadline. Each question names something you've found. She is establishing that the Order's record matches yours, without sharing what their record contains. Both sides have confirmed the other is active. The rival clock advances.`;
+        addJournal('Warden Order second contact — mutual confirmation of parallel inquiries, no intelligence exchanged', 'intelligence', `shelk-warden2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // Choice G — Charter amendment archive
+  {
+    label: "The chapel oversight amendment runs three paragraphs. The third one came later.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    tag: 'safe',
+    failResult: "The amendment is held under a sealed access classification one level above standard registry credentials. Your name goes into the request log. The log is reviewed by the Director of Civic Charter Integrity — precisely the office that most needs to not know you are looking.",
+    xpReward: 77,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(77, 'analyzing the chapel oversight amendment for retroactive additions');
+      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.flags.amendment_author_identified = true;
+        G.lastResult = `The parchment is original — the first two paragraphs are in a single hand, consistent ink saturation, no variance. The third paragraph is the same hand but different ink: the saturation is deeper and the quill cut is marginally wider, the kind of difference visible only when two sections of the same document are compared under direct lamplight. The third paragraph was written later, after the first two were dry, and it is the paragraph that strips the chapel's public oversight access and routes all formal complaints through the noble quarter records office. The scrivener's initials in the margin match those on the Collegium cross-polity suppression order. The same hand authorized both.`;
+        addJournal('Charter amendment third paragraph retroactive addition confirmed — scrivener initials match Collegium suppression order', 'evidence', `shelk-amendment-para3-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The amendment is held in the civic charter repository under a sealed access classification — one level above standard registry credentials. The repository clerk notes the access attempt in the request log and names the oversight authority: the Director of Civic Charter Integrity, whose office reviews all restricted-access requests within forty-eight hours. You leave with the amendment unread and your name in a log that reaches exactly the office you have been trying to place on the institutional map.`;
+        addJournal('Charter amendment access refused — request log reviewed by Director of Civic Charter Integrity within 48 hours', 'complication', `shelk-amendment-para3-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2]++;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.lastResult = `The amendment is accessible under standard credentials in the public charter reading room. The third paragraph reads differently from the first two — the syntax is tighter, the framing more specific, in a way that suggests a different author or a different moment of composition. The provision it contains, routing all chapel complaints through the noble quarter records office, is the operational move that made the entire operation possible. The paragraph that enables everything was not part of the original document. Confirming that is a matter of comparing ink and hand — a process that requires a closer look at the original under better light.`;
+        addJournal('Charter amendment third paragraph — syntactic and compositional variance noted, retroactive addition probable, confirmation pending', 'evidence', `shelk-amendment-para3-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

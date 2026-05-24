@@ -26,12 +26,39 @@ class ReportWriter {
     this._warnBaseline = 291;
     this._jsErrors = [];
     this._startTime = new Date();
+    this._transcripts = {};  // family → [{pick, choice, result}]
   }
 
   setCeiling(ceiling)          { this._ceiling = ceiling; }
   setWarningBaseline(n)        { this._warnBaseline = n; }
   addFamily(result)            { this._families.push(result); }
   addJsError(err)              { this._jsErrors.push(err); }
+
+  addTranscriptEntry(family, pick, choiceText, resultText) {
+    if (!this._transcripts[family]) this._transcripts[family] = [];
+    this._transcripts[family].push({ pick, choice: (choiceText || '').slice(0, 200), result: (resultText || '').slice(0, 400) });
+  }
+
+  writeTranscripts() {
+    const stamp = _stamp(this._startTime);
+    const written = [];
+    for (const family of Object.keys(this._transcripts)) {
+      const entries = this._transcripts[family];
+      if (!entries || !entries.length) continue;
+      const filename = `playtest-transcript-${stamp}-${family}.md`;
+      const outPath  = path.join(TEST_RESULTS, filename);
+      const lines = [`# Narrative Transcript — ${family} — ${stamp}`, ''];
+      for (const e of entries) {
+        lines.push(`## Pick ${e.pick}`);
+        lines.push(`**Choice:** ${e.choice}`);
+        if (e.result) { lines.push(''); lines.push(`> ${e.result.replace(/\n/g, '\n> ')}`); }
+        lines.push('');
+      }
+      fs.writeFileSync(outPath, lines.join('\n'), 'utf8');
+      written.push(outPath);
+    }
+    return written;
+  }
 
   /**
    * Writes the report to disk.
