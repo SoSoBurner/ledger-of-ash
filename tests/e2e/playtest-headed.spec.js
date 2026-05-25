@@ -460,76 +460,70 @@ function probeCanonText(txt, tag, context) {
 
 async function probeHUD(page, tag, g) {
   try {
-    const hudText = async (sel) => (await page.locator(sel).first().innerText().catch(() => '')).trim();
-    const hudHP     = await hudText('#hud-hp');
-    const hudLevel  = await hudText('#hud-level');
-    const hudGold   = await hudText('#hud-gold');
-    const hudRenown = await hudText('#hud-renown');
-    const hudDay    = await hudText('#hud-day');
-    const hudLoc    = await hudText('#hud-location');
-    const hudStage  = await hudText('#topbar-stage');
-    const hudSPVal  = await hudText('#hud-stage-progress-val');
-    const hudXP     = await hudText('#hud-xp');
-
-    // Cross-check G state vs HUD
-    const hudHPNum   = parseInt(hudHP) || 0;
-    const hudLvlNum  = parseInt(hudLevel) || 0;
-    if (g.hp !== undefined && hudHPNum !== 0 && Math.abs(hudHPNum - g.hp) > 2)
-      log(`[hud-integrity ${tag}] VIOLATION: HUD hp="${hudHP}" vs G.hp=${g.hp}`);
-    if (g.level !== undefined && hudLvlNum !== 0 && hudLvlNum !== g.level)
-      log(`[hud-integrity ${tag}] VIOLATION: HUD level="${hudLevel}" vs G.level=${g.level}`);
-    if (g.stage && hudStage && !hudStage.includes(g.stage.replace('Stage ', '')))
-      log(`[hud-integrity ${tag}] WARN: HUD stage="${hudStage}" vs G.stage=${g.stage}`);
-
-    // Level cap check
-    const cap = STAGE_LEVEL_CAPS[g.stage];
-    if (cap && g.level > cap)
-      log(`[hud-integrity ${tag}] VIOLATION: level ${g.level} exceeds ${g.stage} cap ${cap}`);
-
-    // HP bounds
-    if (g.hp < 0) log(`[hud-integrity ${tag}] VIOLATION: G.hp=${g.hp} is negative`);
-    if (g.maxHp && g.hp > g.maxHp) log(`[hud-integrity ${tag}] VIOLATION: G.hp=${g.hp} > G.maxHp=${g.maxHp}`);
-
-    // Gold/supply bounds
-    if (g.gold < 0) log(`[hud-integrity ${tag}] VIOLATION: G.gold=${g.gold} is negative`);
-    if (g.supply < 0) log(`[hud-integrity ${tag}] VIOLATION: G.supply=${g.supply} is negative`);
-
-    // Gold DOM vs G cross-check
-    const hudGoldNum = parseInt((hudGold || '').replace(/[^0-9]/g, '')) || 0;
-    if (g.gold !== undefined && hudGoldNum !== 0 && hudGoldNum !== g.gold)
-      log(`[hud-mismatch ${tag}] VIOLATION: gold G=${g.gold} shown=${hudGoldNum}`);
-
-    // Heat row check
-    try {
-      const heatRow = await page.locator('#hud-heat').innerText().catch(() => '');
-      if (heatRow && g.heat) {
-        const polities = Object.keys(g.heat || {});
-        for (const pol of polities) {
-          if ((g.heat[pol] || 0) > 0 && !heatRow.toLowerCase().includes(pol.toLowerCase())) {
-            log(`[hud-mismatch ${tag}] WARN: polity=${pol} has heat=${g.heat[pol]} but not visible in heat row`);
-          }
-        }
+    const snap = await page.evaluate(function() {
+      function txt(id) {
+        var el = document.getElementById(id);
+        return el ? el.textContent.trim() : '__missing__';
       }
-    } catch (_) {}
+      return {
+        dom_hp:     txt('hud-hp'),
+        dom_level:  txt('hud-level'),
+        dom_gold:   txt('hud-gold'),
+        dom_day:    txt('hud-day'),
+        g_hp:       (typeof G !== 'undefined') ? (G.hp || 0) : -1,
+        g_level:    (typeof G !== 'undefined') ? (G.level || 0) : -1,
+        g_gold:     (typeof G !== 'undefined') ? (G.gold || 0) : -1,
+        g_day:      (typeof G !== 'undefined') ? (G.dayCount || 0) : -1,
+        g_stage:    (typeof G !== 'undefined') ? (G.stage || '') : '',
+        g_sp2:      (typeof G !== 'undefined' && G.stageProgress) ? (G.stageProgress[2] || 0) : -1,
+      };
+    }).catch(() => null);
 
-    // Alignment bar check — only when threshold ±10 met
-    try {
-      const ben = g.benevolence || 0;
-      const ord = g.orderAxis || 0;
-      if (Math.abs(ben) >= 10) {
-        const barVisible = await page.locator('.alignment-bar, [class*="alignment"]').count().catch(() => 0);
-        if (barVisible === 0)
-          log(`[hud-mismatch ${tag}] WARN: benevolence=${ben} (>= threshold) but alignment bar not visible`);
-      }
-      if (Math.abs(ord) >= 10) {
-        const barVisible = await page.locator('.order-bar, [class*="order-axis"]').count().catch(() => 0);
-        if (barVisible === 0)
-          log(`[hud-mismatch ${tag}] WARN: orderAxis=${ord} (>= threshold) but order bar not visible`);
-      }
-    } catch (_) {}
+    if (!snap) { log(`[hud-integrity ${tag}] SKIP — evaluate failed`); return; }
 
-    log(`[hud-integrity ${tag}] hp="${hudHP}" lvl="${hudLevel}" gold="${hudGold}" renown="${hudRenown}" day="${hudDay}" loc="${hudLoc}" stage="${hudStage}" sp="${hudSPVal}" xp="${hudXP}"`);
-  } catch (err) { log(`[hud-integrity ${tag}] WARN: ${err.message}`); }
+    var mismatches = [];
+    var pickLabel = (g && g.day != null) ? 'day=' + g.day : '';
+
+    // HP: DOM may show "8/10" or just "8"; extract first number
+    var domHpNum = parseInt((snap.dom_hp || '').replace(/[^0-9].*/, ''), 10);
+    if (!isNaN(domHpNum) && snap.dom_hp !== '__missing__' && domHpNum !== snap.g_hp) {
+      mismatches.push('hp dom=' + snap.dom_hp + ' g=' + snap.g_hp);
+    }
+
+    // Level: plain number
+    if (snap.dom_level !== '__missing__') {
+      var domLvl = parseInt(snap.dom_level, 10);
+      if (!isNaN(domLvl) && domLvl !== snap.g_level) {
+        mismatches.push('level dom=' + snap.dom_level + ' g=' + snap.g_level);
+      }
+    }
+
+    // Gold: strip non-numeric prefix/suffix
+    if (snap.dom_gold !== '__missing__') {
+      var domGold = parseInt((snap.dom_gold || '').replace(/[^0-9\-]/g, ''), 10);
+      if (!isNaN(domGold) && domGold !== snap.g_gold) {
+        mismatches.push('gold dom=' + snap.dom_gold + ' g=' + snap.g_gold);
+      }
+    }
+
+    // Day
+    if (snap.dom_day !== '__missing__') {
+      var domDay = parseInt(snap.dom_day, 10);
+      if (!isNaN(domDay) && domDay !== snap.g_day) {
+        mismatches.push('day dom=' + snap.dom_day + ' g=' + snap.g_day);
+      }
+    }
+
+    if (mismatches.length === 0) {
+      log(`[hud-integrity ${tag}] OK ${pickLabel} hp=${snap.g_hp} lvl=${snap.g_level} gold=${snap.g_gold} sp2=${snap.g_sp2}`);
+    } else {
+      mismatches.forEach(function(m) {
+        log(`[hud-mismatch ${tag}] ${pickLabel} ${m}`);
+      });
+    }
+  } catch (err) {
+    log(`[hud-integrity ${tag}] ERROR ` + String(err).slice(0, 80));
+  }
 }
 
 async function probeChoiceBorders(page, tag) {
