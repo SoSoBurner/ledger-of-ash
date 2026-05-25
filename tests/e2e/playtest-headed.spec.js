@@ -156,7 +156,10 @@ async function screenshot(page, tag) {
     const p = path.join(SCREENSHOT_DIR, `${_ssCounter}_${tag.replace(/[^a-z0-9_-]/gi,'_')}.png`);
     await page.screenshot({ path: p, fullPage: false });
     return p;
-  } catch (_) { return null; }
+  } catch (err) {
+    log('[screenshot-err] ' + tag + ': ' + String(err).slice(0, 120));
+    return null;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -1529,6 +1532,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
   let g = await readG(page);
   log(`[run:${tag}] game-started level=${g.level} location=${g.location}`);
+  // Diagnostic: verify screenshot() works at boot
+  const _diagPath = await screenshot(page, 'diagnostic_boot');
+  log('[screenshot-diag] boot screenshot: ' + (_diagPath || 'null — see [screenshot-err] above'));
   await screenshot(page, `${tag}_start`);
 
   let picks            = 0;
