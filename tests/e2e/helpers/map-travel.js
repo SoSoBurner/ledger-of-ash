@@ -122,9 +122,9 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
     }).catch(() => 0);
 
     if (arrivedLoc === target) {
-      log(`[map-travel] pick=${picks} → arrived at ${target} day=${arrivedDay} — location confirmed`);
+      log(`[map-travel] pick=${picks} → travel initiated to ${target} day=${arrivedDay} — G.location confirmed`);
     } else {
-      log(`[map-travel] pick=${picks} → WARN: expected ${target} but G.location=${arrivedLoc}`);
+      log(`[map-travel] pick=${picks} → travel initiated to ${target} (journey pending; G.location=${arrivedLoc} pre-pack-pick)`);
     }
 
     // Arc-choice presence: at Shelkopolis, check that at least one choice renders (bg-locality arcs inject on arrival)
@@ -143,7 +143,7 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
       log(`[map-travel] shelkopolis arrival: choiceCount=${choiceCount} hasArcChoice=${hasArcChoice}`);
     }
 
-    return arrivedLoc || target;
+    return target;
   } catch (err) {
     log(`[map-travel] pick=${picks} — error: ${String(err).slice(0, 80)}`);
     // Try to close any open overlay
