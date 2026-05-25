@@ -176,13 +176,26 @@ var STAGE2_CLIMAX = (function() {
 
   // Public trigger — called from checkStageAdvance when conditions are met
   function trigger() {
-    
+
     if (!G || G.flags.stage2_climax_complete || G.flags.stage2_climax_started) return;
     G.flags.stage2_climax_started = true;
     phase1();
   }
 
-  return { trigger: trigger };
+  // Public resume — called by loadStageChoices when climax is in progress but choices were lost
+  // (e.g. escape teleport fired renderChoices() inside page.evaluate(), deferring DOM update,
+  //  then pickChoice ran against stale DOM — handleChoice(undefined) silently fails and dead-end
+  //  repair calls loadStageChoices which would overwrite climax choices without this guard)
+  function resume() {
+    if (!G || !G.flags || G.flags.stage2_climax_complete) return;
+    if (!G.flags.stage2_revelation_received) {
+      phase1();
+    } else {
+      phase3();
+    }
+  }
+
+  return { trigger: trigger, resume: resume };
 
 })();
 

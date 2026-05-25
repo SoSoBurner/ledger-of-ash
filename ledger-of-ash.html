@@ -11111,6 +11111,10 @@ function prioritizeChoices(choices, maxCount) {
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
 function loadStageChoices(locId) {
   if (G.dead) { confirmDeath(); return; }
+  if (G && G.stage === 'Stage II' && G.flags && G.flags.stage2_climax_started && !G.flags.stage2_climax_complete) {
+    if (window.STAGE2_CLIMAX && typeof window.STAGE2_CLIMAX.resume === 'function') window.STAGE2_CLIMAX.resume();
+    return;
+  }
   if (G && !G.flags) G.flags = {};
   // Faction contact hint — fires once when sp2>=10 and no contact made yet
   if (G.stageProgress && G.stageProgress[2] >= 10 && G.flags && !G.flags.stage2_faction_contact_made && !G.flags.faction_hint_shown) {
@@ -11284,6 +11288,10 @@ function loadStageChoices(locId) {
     }
     const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8).filter(function(c){ return passesAlignGate(c); });
     renderChoices(choices);
+    // Fire stage-gate checks (antechamber, climax) when player stays at the same location between picks
+    if (G.stage === 'Stage II' || G.stage === 'Stage III') {
+      setTimeout(function() { if (typeof checkStageAdvance === 'function') checkStageAdvance(); }, 50);
+    }
     // Zero-choice fallback: prevent dead-ends when boss trigger or other path leaves panel empty
     setTimeout(function() {
       var _activeBtns = document.querySelectorAll('#action-content .choice-btn:not([disabled])');
@@ -11374,6 +11382,9 @@ function loadStageChoices(locId) {
   if (typeof renderChoices === 'function') {
     const choices = _injectBossSeedChoices(prioritizeChoices(base, 8)).slice(0, 8);
     renderChoices(choices);
+    if (G.stage === 'Stage II' || G.stage === 'Stage III') {
+      setTimeout(function() { if (typeof checkStageAdvance === 'function') checkStageAdvance(); }, 50);
+    }
   }
 }
 

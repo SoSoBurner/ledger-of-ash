@@ -1,7 +1,7 @@
 window.STAGE2_ANTECHAMBER = (function() {
 
   function shouldTrigger() {
-    
+
     if (!G || !G.flags || !G.stageProgress) return false;
     return (
       !G.flags.stage2_climax_started &&
@@ -11,16 +11,17 @@ window.STAGE2_ANTECHAMBER = (function() {
   }
 
   function trigger() {
-    
+
     if (!G) return;
 
-    G.flags.stage2_antechamber_started = true;
-
-    addJournal('Someone has been watching you for three days. This morning, a Collegium courier left a note at your lodging: ', 'evidence');
-
-    window.addWorldNotice(
-      'One initial. Collegium ink \u2014 the specific blue-gray of institutional correspondence. Whoever wrote this has access to that supply.'
-    );
+    // Side effects only on first trigger call; subsequent calls (race-condition re-renders) skip them
+    if (!G.flags.stage2_antechamber_started) {
+      G.flags.stage2_antechamber_started = true;
+      addJournal('Someone has been watching you for three days. This morning, a Collegium courier left a note at your lodging: ', 'evidence');
+      window.addWorldNotice(
+        'One initial. Collegium ink \u2014 the specific blue-gray of institutional correspondence. Whoever wrote this has access to that supply.'
+      );
+    }
 
     (window._rawRenderChoices || window.renderChoices)([
       {
