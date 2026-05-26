@@ -708,6 +708,142 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "Tavian's sealed manifest column has a running total. He never stopped keeping it.",
+    tags: ['Stage2', 'NPC'],
+    tag: 'risky',
+    failResult: "Tavian directs the request to the exchange's formal inquiry process — a form, a two-week queue, a response window he describes without looking up. He has the sealed column right beside him. The form is already on the counter before the question finishes.",
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'pressing Tavian Silkgate on sealed manifest column totals');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_tavian_silkgate = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Tavian opens the sealed column ledger to the running total page and sets it flat without being asked twice. Eighteen entries, all carrying the Panim memorial classification. He has been cross-referencing the weight totals against the chapel's published receiving records each quarter — the gap has grown. The last four entries together outweigh the chapel's annual declared intake by a factor of three. He circles the total in pencil. "I did not file a discrepancy report," he says. "I was not certain who would receive it."`;
+        addJournal('Market Overseer Tavian Silkgate — sealed manifest running total three times chapel intake, discrepancy not reported', 'evidence', `fair-tavian-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The question lands and Tavian's pen stops. He does not look at the sealed column — he looks at the door behind you, then back. "Exchange manifest records are an internal administrative instrument." He closes the ledger that was open beside him and places both hands on the cover. The conversation has ended and something has been noted. His pen finds the contact-slip pad before you reach the exit.`;
+        addJournal('Tavian Silkgate closed — manifest access refused, contact-slip filed', 'complication', `fair-tavian-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_tavian_silkgate = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Tavian shares the column total without the individual entries — he flips to the summary page and angles it so the running figure is visible. Eighteen sealed manifests under the Panim memorial classification. He does not say the total is wrong. He says he has been noting it. The distinction is deliberate and precise.`;
+        addJournal('Market Overseer confirms sealed manifest running total — eighteen entries, noting pattern without filing', 'intelligence', `fair-tavian-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Elandra's commodity ledger has a line for glyph-suppression grade. She priced it herself.",
+    tags: ['Stage2', 'NPC'],
+    tag: 'bold',
+    failResult: "Elandra's expression does not change, but her pen cap comes off and goes back on twice before she answers. 'Commodity classification is proprietary to the brokerage.' She does not deny a glyph-suppression grade line. She says the classification is proprietary and means every subsequent question has the same answer.",
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'confronting Elandra Velvetmere on glyph-suppression commodity pricing');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('persuasion', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_elandra_velvetmere = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Elandra sets her pen down and folds both hands on the desk before answering. The glyph-suppression grade line was added to her commodity ledger fourteen months ago at the request of a buyer who provided a sealed charter reference for the pricing authorization. She priced it herself, using three comparable compound classes as benchmarks. The price she set was not the price the buyer paid — a separate authorization adjusted the final figure downward by forty percent. That adjustment came through a document she did not originate. She shows the ledger open to the line. Her thumb rests on the adjustment notation.`;
+        addJournal('Elandra Velvetmere — glyph-suppression commodity line, 40% discount via external authorization, sealed charter sourced', 'evidence', `fair-elandra-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Elandra stands up. The movement is not dramatic — she simply stands, as if the conversation has moved to the standing portion. "Commodity pricing is covered under the brokerage confidentiality provision." She walks to the window and looks at the market square. Her posture says she will not move back to the desk until the room is empty.`;
+        addJournal('Elandra Velvetmere — brokerage confidentiality invoked, interview ended', 'complication', `fair-elandra-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_elandra_velvetmere = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Elandra confirms a glyph-suppression grade commodity line in her ledger and confirms she priced it. She will not show the pricing page. What she does say: the line was added at a buyer's request fourteen months ago and the authorization for it came from outside the standard commodity commission process. She taps the desk once. "The buyer knew what grade they needed before they asked me."`;
+        addJournal('Elandra confirms glyph-suppression commodity line — buyer-specified grade, non-standard authorization', 'intelligence', `fair-elandra-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Corin's checkpoint notes match the twelve-day window, but predate his awareness of it.",
+    tags: ['Stage2', 'NPC'],
+    tag: 'risky',
+    failResult: "Corin listens past the first sentence and then straightens in his chair. 'Checkpoint logs are district property. Any cross-reference request goes to the post commander in writing.' He sets his hands flat on the desk. His tone is not hostile — it's the register of a man who has been told what to do with questions like this one.",
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'cross-referencing Roadwarden Sergeant Corin Bloomcrest checkpoint notes');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_corin_bloomcrest = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Corin pulls his personal duty notes rather than the official log — a habit he developed because the official log entries get reviewed quarterly and his notes do not. Seventeen months of his own patrol annotations show a clustering pattern he noticed but never named: transit activity above baseline on specific days, always followed by a nine-to-twelve day quiet stretch. He counted three such cycles before he stopped counting, because there was nothing to do with the count. He didn't know he was watching a schedule. He was watching a schedule.`;
+        addJournal('Roadwarden Sergeant Corin Bloomcrest duty notes — 3 documented transit clusters matching twelve-day courier cycle, noted without being recognized', 'evidence', `fair-corin-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Corin's posture goes flat in the way of someone who has been given instructions about a category of visitor. He does not say what the instructions are. He says checkpoint records are district property and the post commander handles external review. His hand is already on the notepad for a visitor-contact entry. His pen cap is off.`;
+        addJournal('Roadwarden Sergeant deflected — visitor-contact entry filed, post commander gate cited', 'complication', `fair-corin-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_corin_bloomcrest = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Corin shares three duty-note entries marking above-baseline transit days without being told why you're asking. He noticed the pattern but filed nothing formal — "Nothing to file. More traffic isn't a report." Cross-referencing his dates with the twelve-day window confirms the match. He did not know the pattern had a schedule behind it.`;
+        addJournal('Corin Bloomcrest duty notes — three transit-cluster dates match twelve-day window, not reported', 'intelligence', `fair-corin-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Aelric's forge work stopped for six weeks. The gap lines up with the cave modifications.",
+    tags: ['Stage2', 'NPC'],
+    tag: 'risky',
+    failResult: "Aelric says he takes time away from the forge when the season turns. He says it plainly, without embellishment, and the plainness is the door closing. He has given the answer before. The forge behind him has a six-week dust line on the top shelf that contradicts the season explanation and he does not acknowledge it.",
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining Aelric Sunweave forge gap against cave modification timeline');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_aelric_sunweave = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Aelric does not deny the gap. He sets down the piece he's working and turns fully before answering. Six weeks at the Watchers Perch cave, commissioned through a sealed charter reference he was given in person, at the forge, by a factor who arrived without a guild introduction. The work: iron anchor pins and a fitted bracket system for ceramic transport racking. He describes the bracket dimensions from memory — they match the suppression compound amphorae profile exactly. He was not told what they were for. He did not ask. He shows his hands, which have the scar line of someone who handles restraint ironwork regularly.`;
+        addJournal('Aelric Sunweave — six-week cave commission for anchor pins and ceramic racking, sealed charter, matches amphorae profile', 'evidence', `fair-aelric-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `Aelric reads the question before it finishes and his answer is already at the surface. Six weeks is a standard seasonal forge rest. He says this with the stillness of someone who has decided it's the only thing worth saying. Behind him, the forge ash is cold in the way of a hearth that was not in use — cold ash, not rested ash. The difference is visible and he knows it's visible and he does not move.`;
+        addJournal('Aelric Sunweave — forge gap denied, seasonal rest cited, ash pattern inconsistent', 'complication', `fair-aelric-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_aelric_sunweave = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = `Aelric confirms the gap and confirms he was away from Fairhaven for the six weeks in question. He will not say where. What he offers: the commission came through a factor with a sealed document, the work was ironmongery, and he was paid in advance. The timeline places his departure ten days before the first documented cave tool marks.`;
+        addJournal('Aelric Sunweave confirms six-week absence, sealed factor commission, timeline aligns with cave modification window', 'intelligence', `fair-aelric-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "The northern staging location is confirmed. The threads are tight enough to act on.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
