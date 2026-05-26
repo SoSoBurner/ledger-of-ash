@@ -830,6 +830,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The clustering in the afterlife ledger is geographic, not administrative error.",
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
+    failResult: "The district breakdown map is not posted for public use — Marrowen says this without apology and removes it from its peg before the question is fully formed. A formal records access request routes through the mediation hall intake, which routes to the oversight tier. The path forward exists. It requires more time and a different approach.",
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
