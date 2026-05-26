@@ -85,10 +85,12 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
       return null;
     }
 
-    // Prefer unvisited localities; fall back to all if all visited
-    const unvisited = locIds.filter(id => !visitedLocalities.has(id));
-    const pool = unvisited.length > 0 ? unvisited : locIds;
-    const target = pool[Math.floor(Math.random() * pool.length)];
+    // Prefer unvisited localities; fall back to fewest-visits if all visited
+    const unvisited = locIds.filter(l => !visitedLocalities.has(l));
+    const candidate = unvisited.length > 0
+      ? unvisited[Math.floor(Math.random() * unvisited.length)]
+      : locIds.slice().sort((a, b) => (visitedLocalities[a] || 0) - (visitedLocalities[b] || 0))[0];
+    const target = candidate;
 
     log(`[map-travel] pick=${picks} → travelling to ${target} (${unvisited.length} unvisited available)`);
 
