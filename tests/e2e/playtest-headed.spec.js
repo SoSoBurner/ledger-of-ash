@@ -153,11 +153,13 @@ async function screenshot(page, tag) {
   try {
     _ssCounter++;
     fs.mkdirSync(SCREENSHOT_DIR, { recursive: true });
+    const isAlive = await page.evaluate(() => true).catch(() => false);
+    if (!isAlive) { log(`[screenshot-err] ${tag}: page not alive, skipping`); return null; }
     const p = path.join(SCREENSHOT_DIR, `${_ssCounter}_${tag.replace(/[^a-z0-9_-]/gi,'_')}.png`);
     await page.screenshot({ path: p, fullPage: false });
     return p;
-  } catch (err) {
-    log('[screenshot-err] ' + tag + ': ' + String(err).slice(0, 120));
+  } catch (e) {
+    log(`[screenshot-err] ${tag}: ${e.message} | stack: ${(e.stack||'').split('\n')[1]||''}`);
     return null;
   }
 }
