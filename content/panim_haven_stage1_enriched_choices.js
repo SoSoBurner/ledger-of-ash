@@ -39,7 +39,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Shrine helper now distrustful of inquiry', 'complication', `panim_haven-shrine-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Soria admits the offering standards have loosened. "The ritual authority said we need to be more practical about what people can bring." She says it in a flat register that doesn't match the words. Her eyes stay on the table. The reasoning she's repeating is not her own.`;
+        G.lastResult = `Soria admits the offering standards have loosened. "The ritual authority said we need to be more practical about what people can bring." She says it in a flat register that doesn't match the words. Her eyes stay on the table. A beeswax candle gutters at the end of the rack — she doesn't straighten it. The reasoning she's repeating is not her own, and the space where her own reasoning would go has gone quiet.`;
         addJournal('Shrine helper noted offering standard relaxation', 'evidence', `panim_haven-offerings-relaxed-${G.dayCount}`);
       }
 
@@ -117,7 +117,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Memorial counselor reports your inquiry as culturally insensitive', 'complication', `panim_haven-grief-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Kaelas admits the timeline has compressed. "The ritual authority wants families moving forward faster. They say it's pastoral care." He says it like a man repeating a phrase he finds inadequate. He doesn't elaborate further. The discomfort is visible in how long he waits before saying anything else.`;
+        G.lastResult = `Kaelas admits the timeline has compressed. "The ritual authority wants families moving forward faster. They say it's pastoral care." He says it like a man repeating a phrase he finds inadequate. He doesn't elaborate further. The cedar smoke from the processional candles thickens in the hallway. His hands stay in his lap, and the discomfort is visible in how long he waits before saying anything else — the silence is the part he can't fill with borrowed language.`;
         addJournal('Memorial counselor confirmed accelerated grieving timeline', 'evidence', `panim_haven-grief-rushed-${G.dayCount}`);
       }
 
@@ -170,7 +170,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: "The chapel is closed for the morning blessing preparation — Meryl's work schedule runs against the visiting window today. The outer hall has a returns ledger where parishioners note when a blessing renewal is needed; it's open on the lectern and several recent entries describe the same concern: renewed sooner than the blessing cycle was supposed to require. The ledger is unsigned and publicly placed.",
+      text: "The chapel is closed for the morning blessing preparation — Meryl's work schedule runs against the visiting window today. The outer hall has a returns ledger where parishioners note when a blessing renewal is needed; it's open on the lectern and several recent entries describe the same concern: renewed sooner than the blessing cycle was supposed to require. Stone floors, beeswax residue, the low sound of preparation behind a closed door. The ledger is unsigned and publicly placed.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     },
     fn: function() {
@@ -191,7 +191,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Chapel keeper now hostile to blessing inquiry', 'complication', `panim_haven-blessing-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Meryl acknowledges that people have returned with complaints. "Some say the protection didn't hold. Maybe their faith wasn't strong going in." She uses the phrase like a door she's holding half-closed. The explanation is the one she was given, not the one she arrived at herself. The failures are real. The rationalization is layered over them.`;
+        G.lastResult = `Meryl acknowledges that people have returned with complaints. "Some say the protection didn't hold. Maybe their faith wasn't strong going in." She uses the phrase like a door she's holding half-closed, one hand resting on the candle rack. The explanation is the one she was given, not the one she arrived at herself. The chapel smells of beeswax and cedar smoke. The failures are real. The rationalization is layered over them.`;
         addJournal('Chapel keeper acknowledged blessing effectiveness concerns', 'evidence', `panim_haven-blessing-concern-${G.dayCount}`);
       }
 
@@ -228,10 +228,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Ritual authority formally prohibits further shrine inquiry', 'complication', `panim_haven-authority-warning-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Thiren acknowledges that doctrine has shifted under "spiritual necessity." He offers that phrase and holds it there, not adding to it. He confirms the changes are deliberate, not a drift — chosen, implemented, monitored. The source of the necessity is not something he names. He knows you noticed that he didn't.`;
+        G.lastResult = `Thiren acknowledges that doctrine has shifted under "spiritual necessity." He offers that phrase and holds it there, not adding to it. He confirms the changes are deliberate, not a drift — chosen, implemented, monitored. The sealed guidance documents from outside are real; he doesn't dispute it. The source of the necessity is not something he names. He knows you noticed that he didn't, and he lets that knowledge sit between you without filling it.`;
         addJournal('Ritual authority confirmed deliberate doctrine modification', 'evidence', `panim_haven-authority-deliberate-${G.dayCount}`);
       } else {
-        G.lastResult = `Thiren looks at you the way you'd look at a door that opened from the wrong direction. "Doctrine belongs to the hierarchy. Changes are appropriate." He returns to his papers. The door to his office is open, which means the conversation is over. Nothing came back from this except the shape of a wall where a door should be.`;
+        G.lastResult = `Thiren looks at you the way you'd look at a door that opened from the wrong direction. "Doctrine belongs to the hierarchy. Changes are appropriate." He returns to his papers without waiting for a response. The incense on the corner shelf burns to nothing while you stand there. The door to his office is open, which means the conversation is over. Nothing came back from this except the shape of a wall where a door should be.`;
         addJournal('Ritual authority blocked further questioning', 'evidence', `panim_haven-authority-blocked-${G.dayCount}`);
       }
 
@@ -268,7 +268,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Innkeeper now distrustful of your questions', 'complication', `panim_haven-innkeeper-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Joseline says northern visitors have been regular lately, and says it with slightly more certainty than the question required. "Business traffic." She doesn't elaborate. The word "regular" carries weight she isn't explaining. The pattern is there. She's not ready to describe its edges to a stranger.`;
+        G.lastResult = `Joseline says northern visitors have been regular lately, and says it with slightly more certainty than the question required. "Business traffic." She doesn't elaborate. She refills a cup at the far end of the bar without being asked, putting distance between herself and the answer. The word "regular" carries weight she isn't explaining. The pattern is there. She's not ready to describe its edges to a stranger, not today.`;
         addJournal('Innkeeper acknowledged increased external visitor traffic', 'evidence', `panim_haven-innkeeper-traffic-${G.dayCount}`);
       }
 
@@ -305,10 +305,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Mediation official reported inquiry breach to authority', 'complication', `panim_haven-mediation-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `You review a selection Veth permits and track outcome by party type. The decisions carry valid mediation reasoning in each case. But across the set, the same party types win at a rate that the individual case records don't explain. Someone with access to the scheduling system is touching something upstream of the decisions themselves.`;
+        G.lastResult = `You review a selection Veth permits and track outcome by party type. The decisions carry valid mediation reasoning in each case — the written rationale is clean, the precedent citations correct. But across the set, the same party types win at a rate that the individual case records don't explain. Someone with access to the scheduling system is touching something upstream of the decisions themselves, before the mediators even enter the room.`;
         addJournal('Case review revealed possible systematic outcome bias', 'evidence', `panim_haven-mediation-bias-${G.dayCount}`);
       } else {
-        G.lastResult = `The case folders stay on the shelf — close enough to read the spine labels, not close enough to open without standing Veth doesn't appear ready to grant. "Formal authorization, in writing, from the ritual authority." He's already back at his desk by the time the sentence ends. The authorization requirement isn't a hurdle he's inviting you to clear. It's a door he's closed from the inside. Nothing about his posture suggests it has another side.`;
+        G.lastResult = `The case folders stay on the shelf — close enough to read the spine labels, not close enough to open without standing Veth doesn't appear ready to grant. "Formal authorization, in writing, from the ritual authority." He's already back at his desk by the time the sentence ends. Cedar smoke drifts in from the processional corridor. The authorization requirement isn't a hurdle he's inviting you to clear. It's a door he's closed from the inside, and the silence of this office is the sound of it staying closed.`;
         addJournal('Mediation case records blocked without authorization', 'evidence', `panim_haven-mediation-blocked-${G.dayCount}`);
       }
 
@@ -387,10 +387,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Shrine hierarchy alerted to doctrine research', 'complication', `panim_haven-lore-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Tracing the doctrine from primary texts to recent commentary shows a gradual shift in the interpretation layer. The primary texts haven't changed. The weight placed on specific passages has. Recent commentary emphasizes the hierarchy of needs in a way the original texts don't support. The doctrinal foundation is being used to justify outcomes the doctrine itself doesn't mandate.`;
+        G.lastResult = `Tracing the doctrine from primary texts to recent commentary shows a gradual shift in the interpretation layer. The primary texts haven't changed. The weight placed on specific passages has, quietly, across several revisions. Recent commentary emphasizes the hierarchy of needs in a way the original texts don't support. The doctrinal foundation is being used to justify outcomes the doctrine itself doesn't mandate — the justification is built into the reading, not the text.`;
         addJournal('Lore research confirmed doctrine interpretation shift', 'evidence', `panim_haven-lore-shift-${G.dayCount}`);
       } else {
-        G.lastResult = `The theological texts are dense and the interpretive tradition is layered enough that distinguishing deliberate corruption from philosophical evolution requires a reference point you don't yet have. The shift is visible. Whether it was imposed or emerged is still open. That distinction matters for what it means to act on it. The name keeps appearing in unrelated offices — the doctrine commentary and the sealed courier guidance arrive through the same shrine messenger channel.`;
+        G.lastResult = `The theological texts are dense and the interpretive tradition is layered enough that distinguishing deliberate corruption from philosophical evolution requires a reference point you don't yet have. The reading room smells of old paper and cedar oil. The shift is visible. Whether it was imposed or emerged is still open. That distinction matters for what it means to act on it. The doctrine commentary and the sealed courier guidance arrive through the same shrine messenger channel — someone with access to both could tell which came first.`;
         addJournal('Doctrine interpretation analysis inconclusive', 'evidence', `panim_haven-lore-unclear-${G.dayCount}`);
       }
 
@@ -427,10 +427,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Offering custodian expelled you from preparation area', 'complication', `panim_haven-craft-expelled-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The preparation area shows recent substitution — the incense mix has been adjusted, the cloth supply replaced with a batch that reads close but not identical to the previous standard. The changes were made to maintain appearance while altering underlying composition. The spiritual properties of the offering materials are affected in ways the visible form doesn't reveal.`;
+        G.lastResult = `The preparation area shows recent substitution — the incense mix has been adjusted, the cloth supply replaced with a batch that reads close but not identical to the previous standard. The changes were made to maintain appearance while altering underlying composition. Beeswax residue on the preparation stones is a different color than it should be at this stage of the season. The spiritual properties of the offering materials are affected in ways the visible form doesn't reveal.`;
         addJournal('Craft analysis noted material quality degradation', 'evidence', `panim_haven-craft-quality-${G.dayCount}`);
       } else {
-        G.lastResult = `The offering materials read as standard on surface examination. The incense burns within normal parameters. The cloth is the right color. But the preparation sequence shows minor variations from the documented protocol — small enough to explain away, consistent enough to be a pattern. Precise analysis would need reference samples from before the doctrine revision period.`;
+        G.lastResult = `The offering materials read as standard on surface examination. The incense burns within normal parameters. The cloth is the right color. But the preparation sequence shows minor variations from the documented protocol — small enough to explain away, consistent enough to be a pattern. The preparation hall smells of cedar smoke and something slightly off beneath it. Precise analysis would need reference samples from before the doctrine revision period.`;
         addJournal('Offering material analysis inconclusive', 'evidence', `panim_haven-craft-unclear-${G.dayCount}`);
       }
 
@@ -467,10 +467,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('You are accused of sacred record tampering', 'complication', `panim_haven-craft-accused-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Pages have been removed and replaced with skill — the binding repair is clean, the page edges trimmed to match surrounding stock. The work is above the level of a forger working under time pressure. Someone with sustained access and document craft removed sections and substituted new ones. The result survives a visual inspection. It doesn't survive this one.`;
+        G.lastResult = `Pages have been removed and replaced with skill — the binding repair is clean, the page edges trimmed to match surrounding stock. The work is above the level of a forger working under time pressure. Someone with sustained access and document craft removed sections and substituted new ones, then returned the volume to the shelf where it would age alongside the authentic pages. The result survives a visual inspection. It doesn't survive this one.`;
         addJournal('Craft analysis confirmed expert document manipulation', 'evidence', `panim_haven-craft-manipulation-${G.dayCount}`);
       } else {
-        G.lastResult = `The ledger construction requires reference materials you don't have on hand — comparative paper stock from the same period, ink aging charts, original binding thread samples. The inconsistencies are present: fiber texture variation, thread gauge differences at the spine. Enough to suspect substitution. Not enough to document it as forgery without the reference baseline.`;
+        G.lastResult = `The ledger construction requires reference materials you don't have on hand — comparative paper stock from the same period, ink aging charts, original binding thread samples. The inconsistencies are present: fiber texture variation, thread gauge differences at the spine, a faint smell of iron-gall where the original would have used oak. Enough to suspect substitution. Not enough to document it as forgery without the reference baseline.`;
         addJournal('Document authenticity analysis inconclusive', 'evidence', `panim_haven-craft-unclear-${G.dayCount}`);
       }
 
@@ -507,10 +507,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Messenger surveillance reported to shrine hierarchy', 'complication', `panim_haven-survival-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The messenger routes don't align with formal shrine business destinations. Main roads are consistently avoided in favor of secondary paths between the waystations. The avoidance is practiced, not incidental — same paths, same timings, across different messengers. Whatever is being moved through these routes is being moved carefully.`;
+        G.lastResult = `The messenger routes don't align with formal shrine business destinations. Main roads are consistently avoided in favor of secondary paths between the waystations — paths where foot traffic reads as mourners and pilgrims, not couriers. The avoidance is practiced, not incidental: same paths, same timings, across different messengers. Whatever is being moved through these routes is being moved carefully and has been for some time.`;
         addJournal('Survival analysis noted unusual messenger route patterns', 'evidence', `panim_haven-survival-pattern-${G.dayCount}`);
       } else {
-        G.lastResult = `The messengers move without pattern observable from a single position — route variation, timing variation, delivery window spread across the full day. Tracking them would require more positions than you can hold simultaneously, or a longer sustained observation period than today's window allows. The waystation network the messengers use is a fixed structure — the back rooms are accessible through the maintenance path the route workers use.`;
+        G.lastResult = `The messengers move without pattern observable from a single position — route variation, timing variation, delivery window spread across the full day. The dust on the secondary paths shows heavy foot traffic and fresh boot impressions going north, but no single messenger holds to the same path twice. Tracking them would require more positions than you can hold simultaneously, or a longer sustained observation period than today's window allows. The waystation network the messengers use is a fixed structure — the back rooms are accessible through the maintenance path the route workers use.`;
         addJournal('Messenger route surveillance inconclusive', 'evidence', `panim_haven-survival-unclear-${G.dayCount}`);
       }
 
@@ -547,10 +547,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Shrine guards intercept you for waystation inspection', 'complication', `panim_haven-survival-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The waystations carry more than processional rest supplies. Additional storage space has been created in the back rooms — built in, not improvised. The extra stores don't match a rest facility's needs: too many document supplies, not enough food and water. The function these rooms are serving is not the function they're labeled with.`;
+        G.lastResult = `The waystations carry more than processional rest supplies. Additional storage space has been created in the back rooms — built in, not improvised, the shelving fixed into the stone with mortared brackets. The extra stores don't match a rest facility's needs: too many document supplies, currency in wrapped bundles, not enough food and water. The function these rooms are serving is not the function they're labeled with.`;
         addJournal('Survival analysis found unauthorized waystation storage', 'evidence', `panim_haven-survival-storage-${G.dayCount}`);
       } else {
-        G.lastResult = `The waystation supplies read as standard: water, basic food, candles, spare sandals. Nothing surfaces that contradicts the stated function. If there's a secondary purpose here, the concealment is better than a visual sweep will penetrate. This requires a different approach or a longer window.`;
+        G.lastResult = `The waystation supplies read as standard: water, basic food, candles, spare sandals, the smell of beeswax and old cedar beams. Nothing surfaces that contradicts the stated function on a first pass. If there's a secondary purpose here, the concealment is better than a visual sweep will penetrate. The back-room door is latched from inside. This requires a different approach or a longer window than today allows.`;
         addJournal('Waystation inspection found no anomalies', 'evidence', `panim_haven-survival-clear-${G.dayCount}`);
       }
 
@@ -587,7 +587,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumor[Math.floor(Math.random() * rumor.length)];
 
-      G.lastResult = `At the offering hall: "${selected}." Three different people, different tones — one certain, one hedging, one who said it and then walked away quickly. The specific claim varies. The direction of it doesn't. Panim Haven is circling something that's changed in the shrine, and the circling has a shape even when the words don't land cleanly.`;
+      G.lastResult = `At the offering hall: "${selected}." Three different people, different tones — one certain, one hedging, one who said it and then walked away quickly into the cedar-smoke haze of the colonnade. The specific claim varies. The direction of it doesn't. Panim Haven is circling something that's changed in the shrine, and the circling has a shape even when the words don't land cleanly.`;
       addJournal(`Street rumor gathered: "${selected}"`, 'evidence', `panim_haven-rumor-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
@@ -627,7 +627,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `One worker stops before leaving. Doesn't name the doubts directly but describes them in circumference — questions about formula changes, timing of the ledger revisions, who authorized the route adjustments. Hints at documentation without producing it. Looks at the door twice during the conversation. The fear is specific, not general. They're close to the edge of something. They're not there yet.`;
         addJournal('Shrine worker shows defection potential but hesitates', 'evidence', `panim_haven-defection-close-${G.dayCount}`);
       } else {
-        G.lastResult = `Every worker you approach gives the same answer in slightly different words: the shrine is functioning correctly, changes are pastoral responses to community need, external inquiry is not welcome. The consistency is trained, not spontaneous. No one will break from the institutional position today, even alone.`;
+        G.lastResult = `Every worker you approach gives the same answer in slightly different words: the shrine is functioning correctly, changes are pastoral responses to community need, external inquiry is not welcome. The consistency is trained, not spontaneous — each person pauses in the same place before the phrase "pastoral care," a beat long enough to notice. No one will break from the institutional position today, even alone, even away from the hearing of the hierarchy.`;
         addJournal('Shrine workers remain publicly loyal to institution', 'evidence', `panim_haven-defection-blocked-${G.dayCount}`);
       }
 
@@ -664,10 +664,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Victim now views you as complicit in mediation corruption', 'complication', `panim_haven-victim-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The family describes the case in detail: the evidence presented, the mediator's response, the outcome, and the timing of what happened to their property afterward. The account is coherent and specific. What it can't show is the mechanism — they can trace what happened to them but not the instruction that produced it. Compelling testimony. Incomplete proof.`;
+        G.lastResult = `The family describes the case in detail: the evidence presented, the mediator's response, the outcome, and the timing of what happened to their property afterward. They speak quietly, across a table in a borrowed room. The account is coherent and specific. What it can't show is the mechanism — they can trace what happened to them but not the instruction that produced it. Compelling testimony. Incomplete proof, but the kind that doesn't need much more to hold.`;
         addJournal('Victim testimony gathered but proof remains circumstantial', 'evidence', `panim_haven-victim-testimony-${G.dayCount}`);
       } else {
-        G.lastResult = `The families you approach aren't hostile — they're careful. The shrine's authority over dispute resolution means disputing its outcomes publicly carries its own risks. Each person you speak with gives you the shape of the conversation without the substance: "Things didn't go as expected." None of them will go further today, in daylight, in the village.`;
+        G.lastResult = `The families you approach aren't hostile — they're careful. The shrine's authority over dispute resolution means disputing its outcomes publicly carries its own risks. The stone steps of the guesthouse are warm in the afternoon, and everyone watches from open windows. Each person gives you the shape of the conversation without the substance: "Things didn't go as expected." None of them will go further today, in daylight, in the village.`;
         addJournal('Victims remain silent about mediation failures', 'evidence', `panim_haven-victim-silent-${G.dayCount}`);
       }
 
@@ -707,10 +707,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Conspiracy orchestrators directly warn you off', 'complication', `panim_haven-conspiracy-warning-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The pieces align into a picture that's compelling without being conclusive. The mediation bias, the doctrine shift, the material substitutions, the waystation irregularities — they point in the same direction. What's still missing is the mechanism that connects them deliberately. Enough to know the system is compromised. Not enough to name who gave the order to compromise it.`;
+        G.lastResult = `The pieces align into a picture that's compelling without being conclusive. The mediation bias, the doctrine shift, the material substitutions, the waystation irregularities — they point in the same direction, all of them, like roads built to serve the same destination. What's still missing is the mechanism that connects them deliberately. Enough to know the system is compromised. Not enough to name who gave the order to compromise it, or when that order first arrived.`;
         addJournal('Substantial corruption evidence compiled', 'evidence', `panim_haven-conspiracy-substantial-${G.dayCount}`);
       } else {
-        G.lastResult = `The individual pieces are present but the connections between them are circumstantial at this stage. The pattern is visible — same direction, consistent pressure, same beneficiaries — but the thread that ties them to a single coordinating source isn't in hand yet. More ground needs covering before the picture can be assembled into something that withstands challenge.`;
+        G.lastResult = `The individual pieces are present but the connections between them are circumstantial at this stage. The pattern is visible — same direction, consistent pressure, same beneficiaries — but the thread that ties them to a single coordinating source isn't in hand yet. The incense in this part of the city is cheap and burns fast. More ground needs covering before the picture can be assembled into something that withstands challenge, or that anyone would be willing to act on.`;
         addJournal('Evidence pattern visible but incomplete', 'evidence', `panim_haven-conspiracy-partial-${G.dayCount}`);
       }
 
@@ -742,7 +742,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_bureau_ghost_cases = true;
         addJournal('Bureau register: 43 cases closed via circular doctrine citation — no records, no parties', 'evidence', `panim-bureau-${G.dayCount}`);
       } else {
-        G.lastResult = `The register shows a cluster of cases with resolution codes you can't fully interpret without doctrine reference access. The closures are fast — significantly faster than the surrounding case set — and they cluster by time period rather than by case type. The pattern of fast closures is documentable even without knowing what the codes mean.`;
+        G.lastResult = `The register shows a cluster of cases with resolution codes you can't fully interpret without doctrine reference access. The closures are fast — significantly faster than the surrounding case set — and they cluster by time period rather than by case type. The archive room smells of old leather and cedar oil, familiar and indifferent. The pattern of fast closures is documentable even without knowing what the codes mean; the shape of it is visible in the dates alone.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -788,11 +788,11 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The Bureau guards position themselves for coverage, not for assistance — near the entrances, angled toward the approaches. They're not hostile. They're watching. Their eyes track complainants entering the building the way you'd track someone whose intentions you haven't established. Whatever role they were originally assigned, they've been redirected to a different one.`;
+        G.lastResult = `The Bureau guards position themselves for coverage, not for assistance — near the entrances, angled toward the approaches. They're not hostile. They're watching. Their eyes track complainants entering the building the way you'd track someone whose intentions you haven't established. Their boots are worn in on the outside edge: long hours on stone floors, not patrol routes. Whatever role they were originally assigned, they've been redirected to a different one.`;
       } else if (arch === 'magic') {
-        G.lastResult = `The quarter's architecture channels sound toward the Bureau's upper windows — designed for public transparency, so proceedings could carry to the street. The windows are shuttered today. The acoustic geometry still works; there's simply nothing coming through it. The building was built to be heard. Someone decided it shouldn't be anymore and closed it from within.`;
+        G.lastResult = `The quarter's architecture channels sound toward the Bureau's upper windows — designed for public transparency, so proceedings could carry to the street. The windows are shuttered today, thick cedar panels drawn flush against the stone. The acoustic geometry still works; there's simply nothing coming through it. The building was built to be heard. Someone decided it shouldn't be anymore and closed it from within, one shutter at a time.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not Bureau guards. The pattern is a patrol. Civilian watchers running surveillance coverage outside the sanctioned perimeter, on a rotation that someone scheduled. The informal layer and the formal layer are being run separately.`;
+        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not Bureau guards. The pattern is a patrol. Civilian watchers running surveillance coverage outside the sanctioned perimeter, on a rotation that someone scheduled. They both wear the same style of worn-heel sandal, the kind sold at a specific stall in the eastern market. The informal layer and the formal layer are being run separately.`;
       } else {
         G.lastResult = `The queue outside the Bureau hasn't moved in three hours. People sit on the steps or stand against the wall with the posture of people who have stopped expecting to be called. No one exits. No clerk appears. The wait is the answer — not a delay, a mechanism. People who come here enough times without result eventually stop coming. The Bureau's accessibility is managed through attrition.`;
       }
@@ -819,7 +819,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium observer Tren Callow: Bureau complaint review deliberately delayed, collecting supporting evidence', `panim-collegium-${G.dayCount}`);
       } else {
-        G.lastResult = `Callow is professionally correct in every sentence. He can receive written complaints and issue receipt confirmations. He cannot discuss the status of ongoing review processes. He produces the complaint form without being asked. The Collegium process exists and is accessible. It is not currently producing anything.`;
+        G.lastResult = `Callow is professionally correct in every sentence. He can receive written complaints and issue receipt confirmations. He cannot discuss the status of ongoing review processes. He produces the complaint form without being asked, sliding it across the table with the practiced motion of someone who does this several times a day. The Collegium process exists and is accessible. It is not currently producing anything, and the gap between those two facts is wider than it should be.`;
         if (!G.flags) G.flags = {};
         G.flags.located_oversight_collegium_panim = true;
       }
@@ -859,7 +859,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_tazren = true;
         addJournal('Tazren found: former Bureau head, has pre-reform doctrine, willing to assist conditionally', 'contact_made', `panim-tazren-found-${G.dayCount}`);
       } else {
-        G.lastResult = `Tazren's neighbors confirm he's in the quarter but say he doesn't receive strangers. One of them says it the way people say things they've been asked to say. He's there. He's not accessible without an introduction — someone from the Bureau era who can place you as trustworthy. That introduction needs to be found first.`;
+        G.lastResult = `Tazren's neighbors confirm he's in the quarter but say he doesn't receive strangers. One of them says it the way people say things they've been asked to say — the phrasing smooth from repetition, the eye contact steady in the way of someone holding a line. He's there. He's not accessible without an introduction — someone from the Bureau era who can place you as trustworthy. That introduction needs to be found first.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -882,7 +882,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_sera_complainant = true;
         addJournal('Complainant Sera: Bureau forged her signature on a release of claim form, case closed without her consent', 'contact_made', `panim-sera-${G.dayCount}`);
       } else {
-        G.lastResult = `The address takes time to locate, and the time matters. By the time you reach it, Sera is gone — she left Panim Haven the same morning the letter was delivered. The Bureau's closure process was fast enough to close the window before you or anyone else could reach her. She's outside the jurisdiction now. So is her testimony.`;
+        G.lastResult = `The address takes time to locate, and the time matters. By the time you reach it, Sera is gone — she left Panim Haven the same morning the letter was delivered, her few things cleared from the guesthouse room before the midday bell. The Bureau's closure process was fast enough to close the window before you or anyone else could reach her. She's outside the jurisdiction now. So is her testimony.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -902,11 +902,11 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       if (arch === 'combat') {
         G.lastResult = `"They asked which senior mediators left voluntarily versus were pushed out," Tazren says. "Specifically who kept their retirement packages and who walked away with nothing. They were building a list of people with legitimate grievances." He looks at the Bureau building through the window. "A recruitment map. They were mapping the people who might be willing to work against the current structure."`;
       } else if (arch === 'magic') {
-        G.lastResult = `"They asked about the pre-reform doctrine text," Tazren says. "How many copies. Whether any were held outside institutional archives." He taps the volume on the shelf. "They weren't studying the doctrine. They were counting how many copies of the evidence exist and where they're held. A document inventory, not a research visit."`;
+        G.lastResult = `"They asked about the pre-reform doctrine text," Tazren says. "How many copies. Whether any were held outside institutional archives." He taps the volume on the shelf — his hand rests there a moment before he pulls it back. "They weren't studying the doctrine. They were counting how many copies of the evidence exist and where they're held. A document inventory. Not a research visit. Someone sent them to map what could be used against them."`;
       } else if (arch === 'stealth') {
         G.lastResult = `"They asked almost nothing," Tazren says. "Mostly listened. Let silences sit until I filled them. By the end I'd told them everything I know without being asked directly." He doesn't look embarrassed — he looks like a man who has had time to analyze what happened. "That's a practiced technique. Not improvised. Someone trained them to harvest information without leaving a record of what they were after."`;
       } else {
-        G.lastResult = `"They offered to help," Tazren says. "Restoration of my name in Bureau records. Formal recognition of my service." He turns his cup. "Two years ago that would have been enough to close the conversation." He pauses. "I said no. It felt like the kind of gift that becomes a debt the moment you take it." Someone identified exactly what he wanted most and offered it. He recognized the shape of the offer for what it was.`;
+        G.lastResult = `"They offered to help," Tazren says. "Restoration of my name in Bureau records. Formal recognition of my service." He turns his cup on the table, one full rotation. "Two years ago that would have been enough to close the conversation." He pauses. The pre-reform doctrine text sits on the shelf behind him. "I said no. It felt like the kind of gift that becomes a debt the moment you take it." Someone identified exactly what he wanted most and offered it. He recognized the shape of the offer for what it was.`;
       }
 
       G.lastResult += ` They were here before you. They got what you came for.`;
@@ -943,7 +943,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Support') {
-        G.lastResult = `The blessing materials distributed at Panim Haven's processionals have changed in composition — the practitioners mention it as a doctrinal refinement. Without specific knowledge of how blessing materials function, the change reads as administrative.`;
+        G.lastResult = `The blessing materials distributed at Panim Haven's processionals have changed in composition — the practitioners mention it as a doctrinal refinement, something handed down from the ritual authority in a sealed notice. The incense is different: thinner smoke, faster burning, a sharper undertone where the old cedar blend used to sit. Without specific knowledge of how blessing materials function, the change reads as administrative. The families queuing for the morning processional don't appear to notice.`;
         gainXp(30, 'noting blessing material change');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
@@ -983,7 +983,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A routing number change for the eastern memorial circuit and a manifest update for the next transit convoy are still pinned from the morning posting — nothing that wasn\'t common knowledge by the first bell.';
+      G.lastResult = 'The board has nothing new since this morning. A routing number change for the eastern memorial circuit and a manifest update for the next transit convoy are still pinned from the morning posting — nothing that wasn\'t common knowledge by the first bell. The cedar-framed board is damp along the lower edge from the night air. Two pins have worked loose and dangle without holding anything.';
       return;
     }
     G.flags[key] = true;
