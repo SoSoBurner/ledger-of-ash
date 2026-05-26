@@ -32,7 +32,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ledger access revoked — oversight alerted', 'complication', `panim-ledger-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `Three entries stand out clearly. You document them and note what they share: all three involve memorial service dates that cluster within a four-day window, twice in six months. Single irregular entries can be administrative error. The clustering is not. Whatever produced these entries ran on a schedule.`;
+        G.lastResult = `Three entries stand out clearly under the lamplight of the records room. You document them and note what they share: all three involve memorial service dates that cluster within a four-day window, twice in six months. The smell of old paper and cold stone fills the narrow reading space. Single irregular entries can be administrative error. The clustering is not. Whatever produced these entries ran on a schedule, and schedules leave traces.`;
         addJournal('Ledger clustering pattern identified', 'evidence', `panim-ledger-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -82,7 +82,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The rerouted streets form a pattern: they all pass a single building in the memorial district that has no registered purpose in the civic records. The building receives foot traffic at predictable hours that do not correspond to any scheduled service. Someone is using the procession reroutes to create a predictable gap in civic visibility.`;
+        G.lastResult = `The rerouted streets form a pattern: they all pass a single building in the memorial district that has no registered purpose in the civic records. The building's shuttered facade gives nothing away, its threshold worn smooth by use that predates the reroutes by years. It receives foot traffic at predictable hours that do not correspond to any scheduled service. The rigging creak of the harbor carries through the district, but no one enters or leaves during the processions. Someone is using the procession reroutes to create a predictable gap in civic visibility.`;
         addJournal('Processional reroute — cover building identified', 'evidence', `panim-process-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -90,7 +90,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Processional crush — logged without intelligence gain', 'complication', `panim-process-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The reroutes are real and recent. Three specific streets have been systematically deprioritized in official processional scheduling. The reason given in each case is "ritual traffic management" — a designation that requires no further documentation.`;
+        G.lastResult = `The reroutes are real and recent. Three specific streets have been systematically deprioritized in official processional scheduling across the last three months. The reason given in each case is "ritual traffic management" — a designation that requires no further documentation and carries no review requirement. The salt-and-pitch smell of the harbor reaches even here, carried on the morning air through the open corridor window. Whatever changed the scheduling had access to the notation system and knew exactly which label to apply.`;
         addJournal('Processional reroutes confirmed — ritual traffic cover', 'evidence', `panim-process-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -110,7 +110,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_saryna_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Saryna has kept a personal copy of every suppressed flag. The flags describe coin entering the market in memorial offering form and leaving through a purchasing pattern that corresponds to no registered buyer. The exits are clean on paper. The entries show a single repeating source — a northern account attached to a subsidiary charter.`;
+        G.lastResult = `Saryna has kept a personal copy of every suppressed flag, stored separately from the stall's certified ledgers in a worn cloth binding she does not label. The flags describe coin entering the market in memorial offering form and leaving through a purchasing pattern that corresponds to no registered buyer. The offering queue moves around you both without slowing. The exits are clean on paper. The entries show a single repeating source — a northern account attached to a subsidiary charter. She taps the column twice with one finger and does not speak again.`;
         addJournal('Saryna personal flags — northern account identified', 'evidence', `panim-saryna-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The specific transaction names land and something behind Saryna's expression closes. She sets down the ledger she was holding, not quickly but with care, the way someone sets down something they no longer want to be seen holding. A warning came from above her role. She cannot name the source and will not try. The stall resumes around her as if the question had never arrived.`;
@@ -118,7 +118,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_saryna_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Saryna confirms the irregularities and shows you three flagged entries. The suppression chain stops at the mediation oversight level — one rank above Elior. That rank is not accountable to civic review without a formal inquest.`;
+        G.lastResult = `Saryna confirms the irregularities and produces three flagged entries from the copy she keeps beneath the market stall's supply shelf — the originals never came back. Her thumb keeps the corner of each page flat while you read. The suppression chain stops at the mediation oversight level, one rank above Elior. That rank is not accountable to civic review without a formal inquest, and a formal inquest requires standing that neither of them holds. The stall's offering candles gutter in the harbor draft.`;
         addJournal('Saryna flags confirmed — oversight suppression chain', 'evidence', `panim-saryna-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -147,7 +147,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_velune_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Velune confirms unusual evening visits but describes them vaguely. "Someone who knows how to use the shrine without being known here." That is specific enough to tell you the person is trained.`;
+        G.lastResult = `Velune confirms unusual evening visits with her back to the shrine's offering shelf, not looking at you directly — the attendant's habit of maintaining witness distance from difficult disclosures. The lamplight in the shrine catches the mineral dust that settles on every surface near the harbor. "Someone who knows how to use the shrine without being known here." She pauses and adds nothing further. That phrasing is specific enough to tell you the person is trained, and trained in this particular tradition rather than a neighboring one.`;
         addJournal('Velune confirms unusual shrine visits — trained visitor', 'evidence', `panim-velune-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -167,7 +167,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_ithren_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Ithren has a porter's memory: he names three sealed containers that arrived under memorial service manifests but did not match standard offering weight profiles. Two were light. One was significantly heavy — heavy enough that he noted it in the unofficial cargo log he keeps for his own records.`;
+        G.lastResult = `Ithren has a porter's memory: he names three sealed containers that arrived under memorial service manifests but did not match standard offering weight profiles. Two were light — empty where a full offering case should sit. One was significantly heavy, heavy enough that he braced for it wrong the first time and had to reset his grip. He noted it in the unofficial cargo log he keeps in the back of his gate register, a habit from ten years of work at the freight lane. The entry is still there.`;
         addJournal('Ithren cargo log — weight anomalies confirmed', 'evidence', `panim-ithren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The answer arrives without hesitation, which means it was prepared. Processional gate protocols cover cargo details — he cannot discuss them. The practiced firmness in his voice is the kind that comes from a specific prior warning, not from general policy. He holds eye contact for a beat longer than the refusal required, then looks back at the gate register. What he knows is behind a door he has been told to keep closed. The weight anomalies he logged still exist in the general cargo ledger, which runs on a different protocol.`;
@@ -175,7 +175,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_ithren_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Ithren confirms unusual cargo movement without details. "Some things arrive as one type and leave as another. I don't ask. That's not my role." He holds eye contact long enough for you to understand this is an answer.`;
+        G.lastResult = `Ithren confirms unusual cargo movement without details. The harbor smell — salt, cured rope, old wood — is strong near the porter's gate where he stands, and he does not step away from it to continue the conversation. "Some things arrive as one type and leave as another. I don't ask. That's not my role." He sets his hand on the gate register with a flat, decisive weight and holds eye contact long enough for you to understand this is as much of an answer as the role permits him to give.`;
         addJournal('Ithren confirms cargo irregularity — no details given', 'evidence', `panim-ithren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -197,7 +197,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.flags.stage2_faction_contact_made = true;
-        G.lastResult = `The Collegium observer presents as a theological scholar. Your training reads the cover correctly. You match their doctrinal citations with precision that establishes mutual recognition. The conversation shifts: they confirm the Collegium is aware of the Panim operations and is conducting a parallel inquiry. They offer to share specific findings in exchange for what you have gathered.`;
+        G.lastResult = `The Collegium observer presents as a theological scholar working from a desk in the mediation hall's public reading alcove. Your training reads the cover correctly. You match their doctrinal citations with precision that establishes mutual recognition — the specific fluency that signals shared institutional background. The lamplight between you steadies and the conversation shifts: they confirm the Collegium is aware of the Panim operations and is conducting a parallel inquiry. They offer to share specific findings in exchange for what you have gathered so far.`;
         addJournal('faction', 'Oversight Collegium contact — parallel inquiry confirmed', `panim-collegium-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
@@ -206,7 +206,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Collegium treating investigation as competing operation', 'complication', `panim-collegium-fail-${G.dayCount}`);
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
-        G.lastResult = `The observer's doctrinal citations are precise and the conversation stays on that surface — two scholars discussing archival practice in a memorial hall. No names exchanged. No intent declared. When it ends, there is a beat of shared understanding that the exchange was not about archives. The Collegium has taken a note. The note carries no category yet. That window is still open.`;
+        G.lastResult = `The observer's doctrinal citations are precise and the conversation stays on that surface — two scholars discussing archival practice in a memorial hall, the lamplight steady on the stone table between you. The harbor gulls are audible even here, through the thick walls of the mediation building. No names exchanged. No intent declared. When it ends, there is a beat of shared understanding that the exchange was not about archives. The Collegium has taken a note. The note carries no category yet. That window is still open.`;
         addJournal('faction', 'Oversight Collegium — neutral first assessment', `panim-collegium-neutral-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
@@ -226,7 +226,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The registry at night is unguarded but sealed. Your method bypasses the seals without triggering the alert mechanism. Inside: 31 suppressed inquest files, each connecting a phantom memorial contract to a specific coin destination in the northern districts. The transaction chain is complete.`;
+        G.lastResult = `The registry at night is unguarded but sealed, the stone floor cold underfoot and the only light a single lamp left burning at the duty station. Your method bypasses the seals without triggering the alert mechanism. Inside: 31 suppressed inquest files stacked in three bound groups, each connecting a phantom memorial contract to a specific coin destination in the northern districts. The salt-draft from the harbor reaches even this inner room through the vent slats above the shelves. The transaction chain is complete.`;
         addJournal('Registry accessed — 31 suppressed files obtained', 'evidence', `panim-registry-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -255,7 +255,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_merev_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Merev has been keeping notes. Three guests in the past month used the inn as a meeting point and paid in memorial coin — an unusual denominator for secular transactions. Their conversations centered on "completion schedules" and "verification windows." Memorial language used for non-memorial logistics.`;
+        G.lastResult = `Merev has been keeping notes in a small ledger she keeps under the counter beside the candle tin — her own system, separate from the inn's official guest register. Three guests in the past month used the Memorial Inn as a meeting point and paid in memorial coin, an unusual denominator for secular transactions in a harbor town where silver and trade script are standard. Their conversations centered on "completion schedules" and "verification windows." Memorial language applied to non-memorial logistics. Merev sets the ledger on the counter without opening it again.`;
         addJournal('Memorial coin transaction pattern — Merev log', 'evidence', `panim-merev-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The question about guests lands and a particular stillness settles over the counter. Memorial facility innkeepers in Panim Haven carry the same confidentiality obligation as shrine attendants — it's a civic compact, not a personal choice. The decline is without apology and without softening. There is a cup of cold tea on the counter. It gets refilled without the conversation resuming. The arrival and departure times are still visible in the public facing transit log posted outside the gate.`;
@@ -283,7 +283,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The backlog is not accidental — it is managed. Specific cases have been routinely deferred to keep the mediation hall's formal review capacity saturated. A saturated hall cannot pursue new anomalies. The backlog is the cover for the phantom memorial contracts to operate undetected.`;
+        G.lastResult = `The backlog is not accidental — it is managed. Specific cases have been routinely deferred at the scheduling stage, each one individually unremarkable, the combined effect a mediation hall whose formal review capacity remains permanently saturated. The halls carry the particular quiet of a place processing too much and resolving too little, the sealed document stacks grown taller than the clerks who filed them. A saturated hall cannot pursue new anomalies. The backlog is the operational cover that allows the phantom memorial contracts to move without triggering review.`;
         addJournal('Mediation backlog is deliberate operational cover', 'evidence', `panim-backlog-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The analysis builds on a misread of the scheduling notation system — a local convention that differs from the standard mediation calendar. The error surfaces when two clerks compare what you've concluded against their own records. The correction is polite and public. Standing in the district as a credible outside presence has taken a quiet but measurable hit; the clerks' exchange carries further than the voices that made it.`;
@@ -335,7 +335,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Unregistered building — pre-reform accounting mark confirms active storage use', 'discovery');
         maybeStageAdvance();
       } else {
-        addNarration('Stone and Silence', 'The threshold marks are worn and you cannot place them without better light or a reference text you do not have to hand. The building gives nothing else — no sound from inside, no visible entry wear, no posted notice. You have confirmed it exists and is used. You have not confirmed what it holds.');
+        addNarration('Stone and Silence', 'The threshold marks are worn and you cannot place them without better light or a reference text you do not have to hand. The afternoon shadow falls across the foot of the doorway, obscuring the cut lines. The building gives nothing else — no sound from inside, no visible entry wear, no posted notice on the grey painted door. The harbor gulls carry over the rooftops, audible but distant. You have confirmed the building exists and is used. You have not confirmed what it holds or by whom.');
       }
     }
   },
@@ -375,7 +375,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Sanctuary protections holding 27 unclaimed entries — frame repurposed as custody', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('A Wall of Names', 'You read the rolls twice before the shrine attendant near the entrance begins to watch you openly. The names remain only names. Without the mediation-hall cross-index you cannot tell protected sanctuary entries from ordinary delayed-claim cases. You step away before the attention becomes a correction.');
+        addNarration('A Wall of Names', 'You read the rolls twice before the shrine attendant near the entrance begins to watch you openly. The posted boards are mounted on the outer wall of the mediation hall where the morning light hits them full — names in clerk-hand, ink weathered to grey by the harbor damp. The names remain only names without context. Without the mediation-hall cross-index you cannot distinguish protected sanctuary entries from ordinary delayed-claim cases. You step away before the attendant\'s attention becomes a formal correction.');
       }
     }
   },
@@ -400,7 +400,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_nemeia_sepulcher = true;
         G.investigationProgress++;
-        G.lastResult = `Nemeia confirms the unsealed shipments without naming count. "More than one. Less than ten. All in the last season. All cleared above my head." She taps the bench with two knuckles and returns to her crew. The confirmation is all she will give today.`;
+        G.lastResult = `Nemeia confirms the unsealed shipments without naming count. The coffin bench smell is close here — pine pitch, linen, the mineral cold of worked stone — and she does not step away from her work to answer. "More than one. Less than ten. All in the last season. All cleared above my head." She taps the bench surface twice with two knuckles, a foreman's punctuation, and returns to her crew without further eye contact. The confirmation is all she will give today, and she has given it clearly.`;
         addJournal('Nemeia confirms unsealed shipment pattern — count withheld', 'evidence', `panim-nemeia-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -422,11 +422,11 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Third-hour visitor egress via porter gate — oversight-tier seal on cart', 'evidence', `panim-egress-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `You misread the courtyard sight lines. A shrine-keeper on the upper walk notices your position and the duration of your wait. The figure crosses and leaves without once turning toward you, which means the figure was warned the moment you were spotted. By dawn the porter's gate has a new watch posted.`;
+        G.lastResult = `You misread the courtyard sight lines. A shrine-keeper on the upper walk notices your position and the duration of your wait — a still figure in a courtyard where movement marks legitimate purpose. The lamp oil smell and cold stone of the night vigil hour make the wait feel longer than the clock says it is. The figure crosses and leaves without once turning toward you, which means the figure was warned the moment you were spotted. By dawn the porter's gate has a new watch posted.`;
         addJournal('Egress watch reinforced — observation position compromised', 'complication', `panim-egress-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The figure emerges, crosses, and exits through the porter's gate as Velune said. You catch the shape of a covered cart beyond the arch but cannot reach a position to read the axle plate before it rolls. The route is confirmed. The seal is not.`;
+        G.lastResult = `The figure emerges at exactly the third hour, crosses the courtyard on a line that keeps to the shadow of the colonnade, and exits through the porter's gate as Velune described. The night carries the smell of low tide and cured fish from the harbor below. You catch the shape of a covered cart waiting beyond the arch, the driver's face turned away, but cannot reach a position to read the axle plate before it rolls. The route is confirmed. The seal is not yet.`;
         addJournal('Egress route confirmed — cart seal unread', 'evidence', `panim-egress-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -457,7 +457,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.northern_charter_traced = true;
         G.investigationProgress++;
-        G.lastResult = `The registration address is real on paper and wrong on the ground. A note in the margin of the third renewal says "address under civic review" — a designation that has sat unchanged for seven years. The entity's account activity is current; the address is not. Whatever administrative mechanism should have caught this gap, it did not run.`;
+        G.lastResult = `The registration address is real on paper and wrong on the ground. A note in the margin of the third renewal says "address under civic review" — a designation that has sat unchanged for seven years without triggering any suspension of the charter's active status. The district archive carries the smell of old wax and damp stone through its reading room. The entity's account activity is current; the address is not. Whatever administrative mechanism should have caught this gap and closed the charter, it did not run.`;
         addJournal('Northern charter — valid accounts, unresolvable civic address', 'intelligence', `panim-charter-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -964,7 +964,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(110, 'Panim Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence chain in Panim Haven is not yet complete. What exists points in the right direction but carries gaps that a prepared counter-argument could exploit. Presenting now hands the operation a half-built case it can absorb. More ground needs to be covered before this can move.`;
+        G.lastResult = `The evidence chain in Panim Haven is not yet complete. What exists points in the right direction but carries gaps — missing links between the coin trail and the cargo anomalies, an authorization chain that needs one more document to close. The mediation halls are quiet in the early afternoon, clerks at their counters, the smell of sealed wax and harbor damp settling through the stone corridors. Presenting now hands the operation a half-built case it can absorb without difficulty. More ground needs to be covered before this can move.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};

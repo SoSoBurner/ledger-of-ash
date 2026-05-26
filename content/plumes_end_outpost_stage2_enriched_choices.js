@@ -21,16 +21,16 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_letha_dawnsilk = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Letha's readings are unambiguous. The pressure gradient has been building for four months, emanating from a fixed point northwest at approximately three days' travel on foot. The gradient matches Watchers Perch cave output calculations exactly. She has mapped the pressure cone and can identify the source point within a half-day's travel radius. She gives you the map.`;
+        G.lastResult = `Letha's readings are unambiguous. The pressure gradient has been building for four months, emanating from a fixed point northwest at approximately three days' travel on foot — and it has not shifted or weakened in any of her logged readings. The gradient matches Watchers Perch cave output calculations exactly, which she notes in the margin of her field chart before setting it aside. She has mapped the pressure cone and can identify the source point within a half-day's travel radius. She gives you the map without ceremony.`;
         addJournal("Letha's hazard map pinpoints pressure source within half-day radius northwest — staging location identified", 'evidence', `plumes-letha-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `A gesture toward the instrument array catches one of the calibration weights — the scale tips, the needle swings, and Letha's hand shoots out to stabilize it before she even looks up. The false reading is already in her log by the time the needle settles. She marks it with a red pencil and writes the time. "Six months of clean data." She doesn't raise her voice. She closes the instrument housing with both hands and turns back to her desk. The consultation is over.`;
+        G.lastResult = `A gesture toward the instrument array catches one of the calibration weights — the scale tips, the needle swings, and Letha's hand shoots out to stabilize it before she even looks up. The false reading is already in her log by the time the needle settles. She marks it with a red pencil and writes the time, and the scratch of the pencil on the page is the only sound in the station for a long moment. The woodsmoke from the stovepipe drifts across the workbench. "Six months of clean data." She doesn't raise her voice. She closes the instrument housing with both hands, latches the cover, and turns back to her desk. The consultation is over.`;
         addJournal('Hazard instrument disrupted — false reading logged, consultation closed', 'complication', `plumes-letha-fail-${G.dayCount}`);
       } else {
         G.flags.met_letha_dawnsilk = true;
         G.investigationProgress++;
-        G.lastResult = `Letha confirms the persistent northwest pressure gradient. She has been filing hazard elevation reports for four months. The reports were acknowledged but no action was taken. "The gradient is not natural. Natural gradients don't hold position for four months."`;
+        G.lastResult = `Letha confirms the persistent northwest pressure gradient, tracing its bearing on the instrument scale with a finger she keeps just short of touching the glass. She has been filing hazard elevation reports for four months — each one logged, each one acknowledged by the Warden Order referral desk, none answered. The cold that comes off the northern window makes the instruments creak in their housings. "The gradient is not natural. Natural gradients don't hold position for four months." She writes the day's reading in her log and doesn't look up again.`;
         addJournal('Persistent northwest pressure gradient — non-natural duration, reports unacted upon', 'evidence', `plumes-letha-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -85,12 +85,12 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal("Shrine traveler account: pressure management compound dispensing at cave + second cache confirmed — worker missing", 'evidence', `plumes-cysur-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `The shrine's traveler accounts are protected under Cysur's doctrinal confidentiality. The shrine is a place of sanctuary; what is spoken here stays here. She does not explain further. The lantern above the offering ledger burns without sound.`;
+        G.lastResult = `The shrine's traveler accounts are protected under Cysur's doctrinal confidentiality. The shrine is a place of sanctuary; what is spoken here stays here. She does not explain further, does not gesture toward the door, does not shift her expression by any measurable degree. The lantern above the offering ledger burns without sound, the pine resin in its wick putting out a thin thread of scent. The packed-earth floor between the two of you is exactly as wide as it needs to be. Outside, the wind off the high route moves through the eaves.`;
         addJournal('Shrine traveler accounts protected under Cysur doctrine — not investigative records', 'complication', `plumes-cysur-fail-${G.dayCount}`);
       } else {
         G.flags.met_shrine_keeper_cysur = true;
         G.investigationProgress++;
-        G.lastResult = `The shrine keeper shares that travelers have described the structure in account fragments across four months. Collectively they describe a fortified operation focused on something in the northwestern hills. "They come through here afraid of what they know. That's unusual."`;
+        G.lastResult = `The shrine keeper shares that travelers have described the structure in account fragments across four months — never a complete account, always pieces arriving separately, like a map assembled from scraps passed by different hands. Collectively they describe a fortified operation focused on something in the northwestern hills. The offering ledger sits open on the bench beside her, its entries recent. She closes it before continuing. "They come through here afraid of what they know. That's unusual. Pilgrims carry guilt. These travelers are carrying something else."`;
         addJournal('Shrine traveler fragments describe northwestern fortified operation — witnesses arrive afraid', 'evidence', `plumes-cysur-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -116,7 +116,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Cysur's expression closes the moment you press. A Roadwarden steps into the shrine doorway behind you — routine patrol timing, but the coincidence reads badly. She gestures toward the door. "This is a place of passage. Not of questions."`;
+        G.lastResult = `Cysur's expression closes the moment you press — not anger, something quieter, a door swung shut by familiar practice. A Roadwarden steps into the shrine doorway behind you with the creak of boot leather on the threshold — routine patrol timing, but the coincidence reads badly. Woodsmoke from the road follows him in. She gestures toward the door with a movement that includes both of you equally. "This is a place of passage. Not of questions." The Roadwarden hasn't moved yet. The three of you wait in a silence that has a shape to it.`;
         addJournal('Cysur closed second meeting — Roadwarden presence noted, shrine relationship strained', 'complication', `plumes-cysur2-fail-${G.dayCount}`);
       } else {
         G.flags.cysur_second_meeting = true;
@@ -176,12 +176,12 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal('Roadwarden checkpoint: three prior travelers asked about northern road — none returned through the gate', 'intelligence', `plumes-checkpoint-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The Roadwarden flags your transit record for a secondary hold — your stated purpose doesn't match the route you came in on. You spend two hours in the waystation anteroom while a second Roadwarden cross-checks your documents. The delay is noted in the outpost log, keyed to your name and arrival date.`;
+        G.lastResult = `The Roadwarden flags your transit record for a secondary hold — your stated purpose doesn't match the route you came in on. The waystation anteroom is a narrow room with a supply wagon platform visible through the single window, its boards worn pale by years of stacked crates. You spend two hours there while a second Roadwarden cross-checks your documents against the inbound manifest ledger, his pen moving column by column without hurry. The delay is noted in the outpost log, keyed to your name and arrival date. A notation that will still be there when the next inquiry comes through.`;
         addJournal('Flagged at Roadwarden checkpoint — secondary hold, name logged against northern road inquiry', 'complication', `plumes-checkpoint-fail-${G.dayCount}`);
       } else {
         G.flags.roadwarden_checkpoint_passed = true;
         G.investigationProgress++;
-        G.lastResult = `The gate Roadwarden is satisfied with your stated purpose but adds a note to the transit log regardless — standard procedure for anyone heading north of the outpost boundary. The stamp goes in. He doesn't look up when he says it: "Route law applies past the marker. Anything you find out there, you're responsible for documenting through us."`;
+        G.lastResult = `The gate Roadwarden is satisfied with your stated purpose but adds a note to the transit log regardless — standard procedure for anyone heading north of the outpost boundary. The stamp goes in with a sound that carries across the checkpoint planks. Cold air moves off the high route and through the gap where the gate stands open, carrying the smell of pine and packed earth from the road ahead. He doesn't look up when he says it: "Route law applies past the marker. Anything you find out there, you're responsible for documenting through us." He turns the log back to face him and draws a line under the entry.`;
         addJournal('Roadwarden checkpoint passed — northern transit logged, route law reminder issued', 'intelligence', `plumes-checkpoint-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -232,7 +232,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal('Outpost remote-station requisitions: Warden Order standing auth, Shelkopolis countersign, 18-month northern routing', 'evidence', `plumes-manifest-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The manifest is a Roadwarden operational document — access requires a Roadwarden administrative credential or formal audit request through Fairhaven post command. The duty officer at the intake desk is polite about it: "That's not a public register." Your name goes into the inquiry log as standard procedure. The manifest stays behind the desk.`;
+        G.lastResult = `The manifest is a Roadwarden operational document — access requires a Roadwarden administrative credential or a formal audit request through Fairhaven post command. The duty officer at the intake desk is polite about it in the manner of someone who has had this conversation before and found that politeness ends it faster. "That's not a public register." The manifest cover is worn at the corners from handling, its binding reinforced with riveted leather tape that suggests it has been repaired rather than replaced. Your name goes into the inquiry log as standard procedure, written in a clear hand. The manifest stays behind the desk.`;
         addJournal('Outpost manifest access denied — Roadwarden credential required, inquiry logged', 'complication', `plumes-manifest-fail-${G.dayCount}`);
       } else {
         G.flags.phantom_requisition_traced = true;
@@ -460,12 +460,12 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal('Traveler Molk Breyen: chemical exposure from northern camp — annex with cycling vent pipes on structure north face confirmed', 'evidence', `plumes-infirm-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The medic intercepts you at the infirmary threshold. "He's not fit for visitors." She holds the door with one hand and her case notes with the other. "Whatever he knows about the northern hills, it'll keep until he's not running a fever." The door closes. You can hear her talking to him through the wood but not the words.`;
+        G.lastResult = `The medic intercepts you at the infirmary threshold, her case notes already in hand as though she anticipated the visit. "He's not fit for visitors." She holds the door with the practised ease of someone accustomed to blocking it. "Whatever he knows about the northern hills, it'll keep until he's not running a fever." The door closes on a smell of fever-sweat and fresh linen. You can hear her talking to him through the wood — her voice at the register of reassurance — but not the words themselves.`;
         addJournal('Infirmary traveler access denied — medic blocking visitors pending fever resolution', 'complication', `plumes-infirm-fail-${G.dayCount}`);
       } else {
         G.flags.met_traveler_molk_breyen = true;
         G.investigationProgress++;
-        G.lastResult = `Molk Breyen describes two nights camped near the northern structure before the smell got bad enough to drive him back. Burning eyes on the second morning, hands unsteady since. He doesn't know what caused it. He mentions the venting pipes on the north face of the structure — three of them, positioned low, near ground level — because the steam from them was the first sign he had that anyone was inside.`;
+        G.lastResult = `Molk Breyen describes two nights camped near the northern structure before the smell got bad enough to drive him back. Burning eyes on the second morning, hands unsteady ever since — he holds one out briefly to show, and it is. The infirmary cot creak when he shifts. He doesn't name what caused it; the medic hasn't either. He mentions the venting pipes on the north face of the structure — three of them, positioned low, near ground level, in a row that was clearly added after the main walls went up — because the steam cycling out of them was the first sign he had that anyone was inside at all.`;
         addJournal('Infirmary traveler: chemical exposure near staging structure, ground-level vent pipes observed on north face', 'intelligence', `plumes-infirm-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -573,12 +573,12 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal('Trapper Aldus Ferch: fauna displacement 3-mile radius around staging structure — two preserved dead martens from drainage line, no external injury', 'evidence', `plumes-trapper-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Aldus Ferch is not a man who explains himself to strangers. He gives you a long look, picks up his pack, and takes a different route out of the waystation yard. The trapper community at the outpost is small enough that by the next morning he will have mentioned the conversation to someone who knows someone.`;
+        G.lastResult = `Aldus Ferch is not a man who explains himself to strangers. He gives you a long look — unhurried, the kind that measures — picks up his pack from the waystation bench, and takes a different route out of the yard without saying where he is going. The wind off the high route moves through the gap where the supply wagon platform meets the wall. The trapper community at an outpost this size is small enough that by the next morning he will have mentioned the conversation to someone who knows someone who will be watching.`;
         addJournal('Trapper declined — brief exchange, departure noted, small-community ripple likely', 'complication', `plumes-trapper-fail-${G.dayCount}`);
       } else {
         G.flags.met_trapper_aldus_ferch = true;
         G.investigationProgress++;
-        G.lastResult = `Aldus Ferch confirms the northern spruce line went dead eight months ago. His traps came up empty for three straight weeks and then he stopped checking. He found the drainage line from the staging structure on his last run — an outflow channel that hadn't been there the season before, cutting east through the timber toward a seasonal creek. "Whatever they're putting down the drain, the animals smelled it before I did."`;
+        G.lastResult = `Aldus Ferch confirms the northern spruce line went dead eight months ago. His traps came up empty for three straight weeks and then he stopped checking — a trapper who stops checking his lines has already drawn his conclusion. He found the drainage line from the staging structure on his last run, an outflow channel that hadn't been there the season before, cutting east through the timber toward a seasonal creek. The channel bed was discolored where it ran between the roots. "Whatever they're putting down the drain, the animals smelled it before I did." He has not worked that territory since.`;
         addJournal('Trapper: northern fauna displacement 8 months ago, new drainage outflow channel from staging structure toward seasonal creek', 'intelligence', `plumes-trapper-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -601,12 +601,12 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         addJournal('Woodcutter Doss Halvart: 16 kiln-grade fuel deliveries to Warden Order atmospheric station — sustained-temperature processing implied', 'evidence', `plumes-wood-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Doss Halvart is mid-split on a large birch round when you arrive and doesn't stop. "Delivery records are between me and the buyer." She flips the round and sets up the next strike. "Same as any other trade." The axe comes down. The conversation is finished before it starts.`;
+        G.lastResult = `Doss Halvart is mid-split on a large birch round when you arrive and doesn't stop, doesn't slow, doesn't look up. The yard smells of fresh sawdust and pine resin and the cold that follows the elevation. "Delivery records are between me and the buyer." She flips the round and sets it on the block for the next strike. "Same as any other trade." The axe comes down with the flat authority of a decision already made. The conversation is finished before it starts, and she has three more rounds to go through before the daylight runs out.`;
         addJournal('Woodcutter declined delivery record access — trade privacy, conversation closed', 'complication', `plumes-wood-fail-${G.dayCount}`);
       } else {
         G.flags.woodcutter_records_found = true;
         G.investigationProgress++;
-        G.lastResult = `Doss Halvart mentions the northern deliveries without prompting when you ask about volume patterns — they stand out because the order size is large and the destination is a long haul. She won't show the ledger, but she confirms the recipient name from memory: "Atmospheric station, something northern, Warden Order account." The kiln-grade specification on the order has stuck with her because she doesn't usually stock that grade for outpost customers.`;
+        G.lastResult = `Doss Halvart mentions the northern deliveries without prompting when you ask about volume patterns — they stand out because the order size is large and the haul is long, past the outpost boundary on a road she'd rather not run in deep cold. The splitting block behind her has a day's work stacked beside it, birch rounds in the particular bright white of recently cut wood. She won't show the ledger, but she confirms the recipient name from memory: "Atmospheric station, something northern, Warden Order account." The kiln-grade specification has stuck with her because she doesn't usually stock that grade for outpost customers — it's fuel for sustained heat, not warmth.`;
         addJournal('Woodcutter confirms kiln-grade northern delivery to Warden Order atmospheric station — unusual grade for outpost customers', 'intelligence', `plumes-wood-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -621,7 +621,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(112, "Plume's End Outpost Stage 2 resolution");
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `More evidence is needed before approaching the staging location. The threads are not tight enough yet — the Patrol Leader's account, Letha's readings, and the compound cache reports each point the same direction, but the chain requires one more confirmed link before the approach holds weight.`;
+        G.lastResult = `More evidence is needed before approaching the staging location. The threads are not tight enough yet — the Patrol Leader's account, Letha's readings, and the compound cache reports each point the same direction, but without a confirmed link tying the structure to an active operation, the approach holds no weight. The waystation feels smaller than it did an hour ago. Wind off the high route moves through the eaves of the supply wagon platform overhead, and the cold that follows it is the particular cold of elevation. There is more to find here. Go find it.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -630,12 +630,12 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You brief the Patrol Leader with the full evidence chain and request an official scouting operation. The Patrol Leader formally escalates to Roadwarden Fairhaven post command. A joint patrol is authorized. The staging structure is officially confirmed, documented, and its coordinates submitted to Shelkopolis command. Stage III opens with confirmed staging location on the institutional record.`;
+        G.lastResult = `You brief the Patrol Leader with the full evidence chain at the patrol desk, the documents spread across the surface under the lamp. He reads without interrupting. When he is done he stacks them squarely and formally escalates to Roadwarden Fairhaven post command — a written request, signed and witnessed, sent by express courier before the gate closes for the night. The joint patrol is authorized within two days. The staging structure is confirmed, documented, and its coordinates submitted to Shelkopolis command under a Roadwarden chain-of-custody seal. The institutional record now holds what was hidden.`;
         addJournal("Plumes End S2 finale: official patrol documents staging location — submitted to Shelkopolis command", 'evidence', `plumes-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `You use Letha's precise map to approach the staging structure alone, document its contents and the second compound cache, and transmit the documentation to the Verdant Row network from a position outside the guard perimeter. The structure's existence and contents are public before dawn.`;
+        G.lastResult = `Letha's map is precise enough to navigate by starlight. You approach the staging structure alone, staying to the tree line until the guard rotation opens the gap the survey camp notes described. Inside the perimeter, the woodsmoke from the interior vents mixes with something sharper — the chemical smell the trapper noticed, the one the apothecary named. You document what is there: structure layout, compound cache, the Warden Order markings on the lower-level tanks. From a position outside the guard perimeter you transmit everything to the Verdant Row network. The structure's existence and contents are distributed and public before dawn.`;
         addJournal("Plumes End S2 finale: solo infiltration, staging structure documented and distributed", 'evidence', `plumes-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;

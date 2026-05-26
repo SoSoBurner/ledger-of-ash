@@ -52,7 +52,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_ivena_ironspike = true;
         G.investigationProgress++;
-        G.lastResult = `Ivena has been waiting for someone to ask. She has documented 34 transactions routed through accounts she cannot trace to any registered owner. Each transaction is within the legal threshold that would trigger an automatic audit — by exactly one unit below that threshold. Someone calculated the maximum invisible transaction size.`;
+        G.lastResult = `Ivena has been waiting for someone to ask. The lamp oil smell of the Licensed Goods Counter thickens as she pulls a folded sheet from beneath the stamp rack — her own document, kept separate from the official log. She has recorded 34 transactions routed through accounts she cannot trace to any registered owner. Each transaction is within the legal threshold that would trigger an automatic audit — by exactly one unit below that threshold. Someone calculated the maximum invisible transaction size and built a system around it.`;
         addJournal('Ivena documents — calibrated threshold evasion confirmed', 'evidence', `ith-ivena-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -114,7 +114,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_brenn_ironspike = true;
         G.investigationProgress++;
-        G.lastResult = `Brenn speaks at the shrine threshold where conversations are protected by civic ritual. Three times in the past two months, enforcement officers conducted unscheduled processing procedures at the quarter after the civic compliance cycle ended. The procedures were logged as "containment review" — a classification that bypasses normal oversight.`;
+        G.lastResult = `Brenn speaks at the shrine threshold where conversations are protected by civic ritual, the cold stone underfoot and the faint smell of lamp resin the only constants in the exchange. Three times in the past two months, enforcement officers conducted unscheduled processing procedures at the quarter after the civic compliance cycle ended — arriving after the watch bell, leaving before the next one. The procedures were logged as "containment review," a classification that bypasses normal oversight and leaves no recoverable record of what was reviewed or who authorized it.`;
         addJournal('Brenn confirms after-hours containment reviews — oversight bypass', 'evidence', `ith-brenn-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The shrine threshold carries ritual protection under Ithtananalor's civic code, but that protection only holds while the conversation stays inside it. A Shadowhands officer pauses at the outer edge of the grounds, and whatever he hears is enough — he steps forward with the particular deliberateness of someone who has the authority to interrupt a civil proceeding and knows it. Brenn falls silent mid-sentence. The exchange closes before it opens.`;
@@ -142,7 +142,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_harlan_ironspike = true;
         G.investigationProgress++;
-        G.lastResult = `You position at the inn's edge table and observe four hours of off-duty officer conversation. One conversation is significant: two officers discuss a "verification window closing" at the ore registry in terms that make clear they know the ghost accounts exist and have a timeline for extracting value before the next formal audit.`;
+        G.lastResult = `The edge table at Harlan's quarter inn carries the particular smell of old armor grease and spilled barley malt — the scent of officers who stop removing their gear before they drink. Four hours of off-duty conversation wash past. One exchange is significant: two officers, backs turned and voices low, discuss a "verification window closing" at the ore registry in terms that make clear they know the ghost accounts exist and carry a working estimate of how much time remains before the next formal audit cycle forces a reckoning.`;
         addJournal('Inn observation — extraction timeline overheard', 'evidence', `ith-harlan-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -171,7 +171,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The shadow market uses the illicit magic trade as cover. The ghost account endpoints are purchasing suppressed arcane materials — specifically materials classified under the anti-magic statute that would be unusable without enforcement-level access to bypass the containment protocols. The accounts are moving contraband through the enforcement system itself.`;
+        G.lastResult = `The shadow market runs beneath a legitimate parts exchange near the foundry dock, the garrison stone of the quarter cold under the narrow fortification windows where cold light cuts through at low angles. The ghost account endpoints are purchasing suppressed arcane materials — specifically materials classified under the anti-magic statute that would be unusable without enforcement-level access to bypass the containment protocols. The accounts are moving contraband through the enforcement system itself, using the apparatus as both the conduit and the cover. The enforcement imprimatur is not incidental; it is the mechanism.`;
         addJournal('Ghost accounts purchasing contraband through enforcement bypass', 'evidence', `ith-shadow-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 2;
@@ -232,7 +232,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ivena filed a discrepancy report — returned without routing, marked resolved', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Ivena — Closed Door', 'She sees you coming this time. By the time you reach the counter she has a queue citation form ready and her eyes fixed on the seal press. The practiced statement surfaces again, word for word, same cadence. Whatever opened briefly last time has closed.');
+        addNarration('Ivena — Closed Door', 'She sees you coming this time. By the time you reach the counter she has a queue citation form ready and her eyes fixed on the seal press, the stamp rack between you like a wall she built while you were still crossing the floor. The practiced statement surfaces again, word for word, same cadence as before — the particular blankness of a sentence rehearsed until it carries no expression at all. Whatever opened briefly in the first exchange has closed, and nothing in her posture suggests it will open again.');
       }
     }
   },
@@ -252,7 +252,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Foundry night manifest — unregistered weight class, one entry physically excised', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Foundry Dock — Watched', 'A labor foreman notices you at the manifest board before you can copy anything. He does not ask what you are doing. He simply stands beside the board until you move away, one hand resting on the quota stamp rack, his expression the particular blankness of someone who has learned not to witness things.');
+        addNarration('Foundry Dock — Watched', 'A labor foreman notices you at the manifest board before you can copy anything. He does not ask what you are doing. He simply stands beside the board until you move away, one hand resting on the quota stamp rack, garrison stone cold through the soles of boots that have been standing here long enough to feel it. His expression carries the particular blankness of someone who has learned not to witness things — not innocence, not compliance, just the flat professional absence of a man who has decided that his eyes are not a reliable instrument in this particular workplace.');
       }
     }
   },
@@ -274,7 +274,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addNarration('Checkpoint — Secondary Notation', 'The pause before answering is half a second too long. The officer does not escalate but his stylus adds a line to the log beneath your entry. Secondary notation: purpose unclear. In Ithtananalor that line follows your credentials to every checkpoint you pass today.');
+        addNarration('Checkpoint — Secondary Notation', 'The pause before answering is half a second too long — long enough for the officer to mark it, short enough that there is nothing overt to object to. Cold light through the narrow fortification window catches the stylus as it adds a second line beneath the entry. Secondary notation: purpose unclear. In Ithtananalor, a military installation where orders have stopped making complete sense to the people executing them, that notation follows the credentials to every checkpoint downstream today and sits in the enforcement record indefinitely.');
       }
     }
   },
@@ -294,11 +294,11 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Archive seam: four oath-breaker dispositions redacted under one authorization', 'evidence', `ith-archive-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The cross-reference request triggers the archive's internal flag. A senior registrar arrives at the reading carrel without being summoned, which tells you the flag reaches further than the reading room. Your query slip is retained and noticed. The entries you were pulling are not, and you leave under new watchful attention.`;
+        G.lastResult = `The cross-reference request triggers the archive's internal flag. A senior registrar arrives at the reading carrel without being summoned — no knock, no announcement, just the sound of deliberate footsteps on garrison stone stopping at precisely the right shelf. The flag reaches further than the reading room; that much is clear from the route the registrar took to get here without being called. The query slip is retained and noted. The entries that triggered it are not produced. The exit from the reading room is unhurried and watched every step of the way.`;
         addJournal('Archive cross-reference flagged — registrar intervention', 'complication', `ith-archive-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The indexes intersect, but the access tier you have grants headers only. Four case numbers appear in both catalogues. The headers are benign. The bodies require a clearance you cannot invent from a public seal. Enough to know the seam is real. Not enough to open it.`;
+        G.lastResult = `The indexes intersect, but the access tier available here grants headers only — case titles, dates, and classification marks, nothing below that surface. Four case numbers appear in both catalogues, the binding-law index and the enforcement catalogue sharing the same numeric spine at one point where the classification systems were never cleanly separated. The headers are benign. The case bodies require a clearance that a public seal cannot approximate. Enough to know the seam is real, and that someone had reason to let it stay unsealed. Not enough to open what sits behind it.`;
         addJournal('Archive seam located — four cross-referenced cases behind higher access', 'evidence', `ith-archive-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -320,11 +320,11 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Second perimeter is query-reactive, not ward-reactive — surveillance targets you', 'intelligence', `ith-perimeter-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The balcony is covered from an angle you did not check. An officer below lifts a gloved hand and taps twice against his thigh — signal to a partner you cannot see. You leave before the partner closes. Whatever pattern existed has now been redrawn around the knowledge that you saw it.`;
+        G.lastResult = `The balcony is covered from an angle that did not register during the approach — a gap between roof parapet and wall corbel that opens exactly the right sightline from the courtyard below. An officer lifts a gloved hand and taps twice against his thigh, the signal precise and unhurried. The exit from the balcony comes before the partner closes the gap. Whatever rotation pattern existed has now been redrawn around the fact of being seen. The second perimeter is still there. The version that was just observed is gone.`;
         addJournal('Perimeter observation burned — rotation reconfigured', 'complication', `ith-perimeter-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `The rotation is there. Forty-minute intervals, pair-based, unmarked. You confirm the pattern exists before leaving the balcony. What you cannot confirm from this vantage is whether the pairs are watching the ward or watching a specific class of visitor. The distinction matters. Both need different responses.`;
+        G.lastResult = `The rotation is there — forty-minute intervals, pair-based, all markings absent from their gear. The pattern resolves before the balcony position becomes conspicuous and the exit is clean. What cannot be confirmed from this vantage is whether the pairs are watching the ward itself or watching a specific class of visitor to the terminals where the recent queries landed. The distinction matters considerably for what comes next. A ward-watch and a query-watch require entirely different responses, and the evidence from here is not enough to distinguish between them.`;
         addJournal('Second perimeter confirmed — targeting unclear', 'intelligence', `ith-perimeter-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -346,11 +346,11 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Brenn under standing-surveillance — shrine sanctuary being revoked by presence', 'evidence', `ith-brenn-pressure-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Brenn sees you approach and turns to face the inner altar, which is the shrine's signal that a keeper is in private devotion and cannot be disturbed. The officer at the threshold watches the exchange. Brenn's withdrawal protects them for today and closes the door to you for longer than that.`;
+        G.lastResult = `Brenn sees the approach from twenty feet out and turns to face the inner altar — the shrine's signal that a keeper is in private devotion and cannot be disturbed under civic ritual protection. The cold stone of the threshold is between the officer and the altar, but the officer's line of sight covers both. Brenn's withdrawal is a correct and legal move; it protects them from the exchange being recorded as a breach. It also closes the channel completely. The shrine is not accessible as a route while that officer is present, and the officer has been present three mornings running.`;
         addJournal('Brenn withdrew into ritual cover — shrine channel cold', 'complication', `ith-brenn-pressure-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `Brenn offers a ceremonial blessing, which is their cover for a brief exchange at the altar rail. The officer has been there three mornings. Brenn will not say what the officer said, only that the phrasing was constructed to be remembered and repeated. Whatever the sentence was, it was meant to travel. Brenn is choosing not to carry it.`;
+        G.lastResult = `Brenn offers a ceremonial blessing — the shrine's standard cover for a brief exchange at the altar rail, low voices underneath the ritual words, the lamp oil smell of the side nave keeping the cold at arm's length. The officer has been at the threshold three mornings running. Brenn will not repeat what the officer said, only that the phrasing arrived already finished, built to be remembered and passed on. Whatever the sentence was, it was constructed to travel from one mouth to another. Brenn is choosing not to be the mouth that carries it forward.`;
         addJournal('Brenn confirms officer is seeding a message — refusing to transmit', 'evidence', `ith-brenn-pressure-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -521,12 +521,12 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Assay records fraudulent — Grade IV declared on Grade II ore, registrar number unverifiable', 'evidence', `ith-assay-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The assay archive desk requires a craft certification to pull technical records, and the certification level presented does not clear the threshold for the consignment grade range in question. The inquiry goes into a pending queue behind an assessor review. Pending queue access logs route to the same enforcement monitoring channel as the ledger queries. The wait is indefinite.`;
+        G.lastResult = `The assay archive desk sits behind a narrow fortification window where cold light falls across the certification ledger at an angle that makes the access tier markings easy to read. The certification level presented does not clear the threshold for the consignment grade range in question — a single classification tier short, which might as well be ten. The inquiry goes into a pending queue behind an assessor review. Pending queue access logs route to the same enforcement monitoring channel as the ledger queries, the wait is indefinite, and there is now a name attached to a record of interest in technical assay data.`;
         addJournal('Assay archive access denied — certification threshold, inquiry logged', 'complication', `ith-assay-fail-${G.dayCount}`);
       } else {
         G.flags.assay_discrepancy_confirmed = true;
         G.investigationProgress++;
-        G.lastResult = `The assay records for the three-consignment window are accessible at the summary level. The declared grade is IV across all three — a high-purity designation that carries significant quota value above Grade II material. The foundry vent deposit color visible from the service walkway runs dark and sulfurous, which is a Grade II indicator. The chemistry does not match the paper. Confirming the discrepancy precisely requires access to the technical intake records, a tier above what is available here.`;
+        G.lastResult = `The assay records for the three-consignment window are accessible at the summary level, the garrison stone of the service walkway cold through the boot soles as the vent deposits come into view above. The declared grade is IV across all three — a high-purity designation carrying significant quota value above Grade II material. The foundry vent deposit color visible from the walkway runs dark and sulfurous, a Grade II chemistry indicator, unambiguous to anyone who has spent time near a working smelter. The chemistry does not match the paper. Confirming the discrepancy precisely requires the technical intake records, a tier above what is available here.`;
         addJournal('Assay grade declared vs foundry vent chemistry mismatched — technical records inaccessible', 'intelligence', `ith-assay-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -744,7 +744,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(115, 'Ithtananalor Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence map on the table has empty columns where the critical links should be. The ghost account chain requires full documentation across every step — origin authorization, routing, endpoint activity, and the chain of oversight that permitted it — before any formal action will hold. A presentation now gives the apparatus room to discredit each piece individually. The chain needs closing first.`;
+        G.lastResult = `The evidence map on the table has empty columns where the critical links should be — gaps that an enforcement apparatus practiced at self-protection will exploit the moment the package is presented. The ghost account chain requires full documentation across every step: origin authorization, routing, endpoint activity, and the chain of oversight that permitted it to run without intervention. A presentation now gives the apparatus room to discredit each piece individually, detaching them from the chain they form together until none of them carry enough weight alone. The chain needs closing before it goes anywhere.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -753,7 +753,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You present to Captain Roaz directly with the full chain of evidence. He receives it with the gravity it warrants. A formal internal affairs review opens under his command authority — which carries the weight to bypass the Shadowhands layer. Stage III opens with Roazian enforcement backing and maximum Shadowhands visibility.`;
+        G.lastResult = `The presentation to Captain Roaz takes place across a desk cleared of everything except the documentation. He reads without speaking, each page turned deliberately, the particular quiet of a garrison building where the chain of command has become uncertain holding around the room. When the last page goes face-down he holds it there for a moment with one hand flat. A formal internal affairs review opens under his command authority within the hour — broad enough to bypass the Shadowhands administrative layer entirely. Stage III opens with Roazian enforcement backing and the Shadowhands fully aware that they are being watched.`;
         addJournal('Ithtananalor S2 finale: Roaz enforcement path', 'evidence', `ith-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
