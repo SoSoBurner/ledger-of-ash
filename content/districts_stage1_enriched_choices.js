@@ -137,7 +137,7 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
         addJournal('Ironspool maintenance worker: dome vent pressure cycle changed 3 months ago, unanswered query', 'discovery', `ironspool-s1-shift-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Shift change in the Ironspool Ward is a physical process — bodies moving in opposite directions through narrow corridors, everyone with somewhere specific to be. You're standing in it wrong. Nobody has time to stop and talk, and trying to redirect someone mid-stride earns you a look and nothing else.`;
+        G.lastResult = `Shift change in the Ironspool Ward is a physical process — bodies moving in opposite directions through narrow stone-floored corridors, the smell of machine grease and coal dust thick in the air, everyone with somewhere specific to be. The ward bells mark the interval with a flat iron clang that carries the length of the facility. You're standing in it wrong. Nobody has time to stop and talk, and trying to redirect someone mid-stride earns you a look and nothing else.`;
         G.recentOutcomeType = 'neutral';
       }
     },
@@ -484,7 +484,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `The docket includes three cases that were formally filed, assigned to a magistrate, and then transferred to "administrative review" — a category that removes them from the public docket without formal dismissal. Cases in administrative review are effectively frozen. All three were filed against commercial entities whose names match the alias variations of the northern bloc.`;
+        G.lastResult = `The docket includes three cases that were formally filed, assigned to a magistrate, and then transferred to "administrative review" — a category that removes them from the public docket without formal dismissal. Cases in administrative review are effectively frozen: no hearing date, no dismissal stamp, no public record of their status. The justice hall corridor smells of lamp oil and old paper. All three cases were filed against commercial entities whose names match the alias variations of the northern bloc.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
         addJournal('Reckoning Quarter docket: 3 cases against northern bloc aliases frozen in administrative review', 'discovery', `reckoning-s1-docket-${G.dayCount}`);
@@ -541,7 +541,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Three exits over two hours. Two standard administrative staff. One — in the third exit — is Oversight Collegium, identified by the standard Collegium notation on their satchel clasp. The Collegium has regular access to the administrative review office. They're not just monitoring the frozen cases — they have authorized access to the unit that holds them.`;
+        G.lastResult = `Three exits over two hours, the stone lane between the justice hall wings carrying every footstep clearly. Two standard administrative staff, each carrying the flat leather case of routine paperwork. One — in the third exit — is Oversight Collegium, identified by the standard notation stamped on their satchel clasp. The Collegium has regular access to the administrative review office. They're not just monitoring the frozen cases — they have authorized access to the unit that holds them.`;
         addJournal('Administrative review office: Collegium has authorized regular access — not just monitoring, actively controlling frozen cases', 'discovery', `reckoning-s1-surveillance-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
@@ -682,7 +682,7 @@ var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
-        G.lastResult = `The formal library's restricted section contains administrative records going back thirty years. The pre-Union charter fragment from Guildheart appears in a cross-reference index here — it was renewed through this library's administrative arm, not the central registry. The library served as a filing location specifically because it's considered a sub-registry, below the threshold of formal registry monitoring.`;
+        G.lastResult = `The formal library's restricted section contains administrative records going back thirty years, the shelves dense with permit folio spines stamped in faded district ink. The pre-Union charter fragment from Guildheart appears in a cross-reference index here — it was renewed through this library's administrative arm, not the central registry. The library served as a filing location specifically because it's considered a sub-registry, sitting below the threshold of formal registry monitoring and the scrutiny that comes with it.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
         addJournal('High Quarter library: pre-Union charter renewed through here as sub-registry to avoid formal monitoring', 'discovery', `high-quarter-s1-library-${G.dayCount}`);
@@ -769,7 +769,7 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `The broker knows you're asking about something before you ask it. "Someone else was asking about the dome terminals three weeks ago," he says. "Not investigator — operational. They were asking which terminals are least observed, not what's going into them. I told them nothing. I'm telling you: they know this district as well as I do."`;
+        G.lastResult = `The broker knows you're asking about something before you ask it — the tavern fills with the low noise of the Common Quarter supper crowd, iron lamp smoke drifting from the wall brackets. "Someone else was asking about the dome terminals three weeks ago," he says, refilling his cup without looking up. "Not inquiry — operational. They were asking which terminals are least observed, not what's going into them. I told them nothing. I'm telling you: they know this district as well as I do."`;
         addJournal('Common Quarter broker: operational survey of dome terminals 3 weeks ago — adversary mapped low-observation access points', 'discovery', `common-quarter-s1-broker-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
@@ -814,7 +814,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `An older dock worker remembers the containers. "Heavy for their size and wrong balance," he says. "Normal sealed containers have their weight low and center. These ones were distributed evenly — like liquid or loose fill. Industrial standard. Not grain, not equipment parts. Something that moves."`;
+        G.lastResult = `An older dock worker remembers the containers — he sets down his hook and wipes his hands on his work apron before he answers, the Low Ward dock smell of rope tar and wet stone board around you both. "Heavy for their size and wrong balance," he says. "Normal sealed containers have their weight low and center. These ones were distributed evenly — like liquid or loose fill. Industrial standard. Not grain, not equipment parts. Something that moves."`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
         addJournal('Low Ward dock worker: containers had even weight distribution — liquid or loose fill, industrial standard', 'discovery', `low-ward-s1-docks-${G.dayCount}`);
@@ -891,7 +891,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A patrol rotation notice and two ward maintenance postings from yesterday are still pinned at the top. The dome terminal access hours are listed on a card below them. Nothing worth copying down.';
+      G.lastResult = 'The board has nothing new since this morning. A patrol rotation notice and two ward maintenance postings from yesterday are still pinned at the top, curling at the corners from the damp air off the district lane. The dome terminal access hours are listed on a card below them, printed in the flat administrative hand of the ward clerk. The lamp bracket overhead gutters in a draft from the passage to the west. Nothing worth copying down.';
       return;
     }
     G.flags[key] = true;

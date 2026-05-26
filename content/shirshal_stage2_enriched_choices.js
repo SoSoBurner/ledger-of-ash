@@ -31,7 +31,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_tazren_coilspire = true;
         G.investigationProgress++;
-        G.lastResult = `Tazren confirms the case and stops there. "I can't share an archived file without a reinstatement order." He pauses. "The charter pattern you described is in it. I'll confirm that much." He straightens the papers on his desk. "An archived case doesn't mean the subject stopped moving. It means the oversight stopped."`;
+        G.lastResult = `Tazren confirms the case and stops there. "I can't share an archived file without a reinstatement order." He pauses. "The charter pattern you described is in it. I'll confirm that much." He straightens the papers on his desk — the dry air of the records hall keeps them flat, no warping, the ink precise after eight months. "An archived case doesn't mean the subject stopped moving. It means the oversight stopped."`;
         addJournal('Bureau archived case confirmed — investigation moved off-record', 'evidence', `shir-tazren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -59,7 +59,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_luneth_coilspire = true;
         G.investigationProgress++;
-        G.lastResult = `Luneth cross-checks the delivery confirmation against the destination branch's receipt log. Three packages out, zero arrivals recorded. He turns the ledger toward you. "That's a clerical error or the branch isn't a branch." He says it evenly, but he writes both options down before he hands the log back.`;
+        G.lastResult = `Luneth cross-checks the delivery confirmation against the destination branch's receipt log. The ledger is tanned leather, the pages dry and flat — Shirshal's archive air preserves everything. Three packages out, zero arrivals recorded. He turns the ledger toward you. "That's a clerical error or the branch isn't a branch." He says it evenly, but he writes both options down in his transfer log before he hands it back.`;
         addJournal('Evidence delivery gap confirmed — receiving party unknown or unlisted', 'evidence', `shir-luneth-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -88,7 +88,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_khalis_coilspire = true;
         G.investigationProgress++;
-        G.lastResult = `Khalis pulls the import volume figures without argument. The classification reads ceremonial; the volume is twelve times what ceremonial use across all registered institutions would account for. He's already done the math. "I flagged it. Multiple times." He closes the ledger. "Nothing happened to the flags. The imports continued."`;
+        G.lastResult = `Khalis pulls the import volume figures without argument. The classification reads ceremonial; the volume is twelve times what ceremonial use across all registered institutions would account for. He's already done the math — the market counter smells of tanned hide and the wind off the steppe carries dust across the entry ledger as he closes it. "I flagged it. Multiple times." He looks up. "Nothing happened to the flags. The imports continued."`;
         addJournal('Arcane import volumes 12x ceremonial threshold — flags ignored', 'evidence', `shir-khalis-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -117,7 +117,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_mirae_coilspire = true;
         G.investigationProgress++;
-        G.lastResult = `Mirae won't give names — she doesn't have them — but she has the rest: height, build, the particular way each one carries themselves when they think they're not being watched. Third day of the ten-day cycle, always before noon, north road departure. "I notice patterns. It's the work." She refills your cup and doesn't comment further.`;
+        G.lastResult = `Mirae won't give names — she doesn't have them — but she has the rest: height, build, the particular way each one carries themselves when they think they're not being watched. Third day of the ten-day cycle, always before noon, north road departure. The inn is quiet in the morning heat, the desert air holding the smell of old wood and cold tea. "I notice patterns. It's the work." She refills your cup and doesn't comment further.`;
         addJournal('Bureau off-roster visitors on fixed 10-day cycle — north road departures', 'evidence', `shir-mirae-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -143,12 +143,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Collegium override dismissed 7 glyph petitions before commission — inverts official timeline', 'evidence', `shir-sivren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The petition archive is sealed — Collegium ruling, cited on the cover page. Sivren explains this before you can frame the request fully: accessing sealed petition records without Collegium authorization is a compliance violation. A formal notice goes out before the hour is up. Whatever standing you have in this jurisdiction now carries a notation.`;
+        G.lastResult = `The petition archive is sealed — Collegium ruling, cited on the cover page. Sivren explains this before you can frame the request fully: accessing sealed petition records without Collegium authorization is a compliance violation. The shrine hall is quiet, the dry desert air keeping the stacked record boards straight and still. A formal notice goes out before the hour is up. Whatever standing you have in this jurisdiction now carries a notation, and it will remain in the compliance log long after you leave Shirshal.`;
         addJournal('Petition records sealed — compliance violation notice issued', 'complication', `shir-sivren-fail-${G.dayCount}`);
       } else {
         G.flags.met_sivren_coilspire = true;
         G.investigationProgress++;
-        G.lastResult = `Sivren confirms the facts without elaborating on their implications. Seven petitions, one ruling, no standard review period. She pulls the ruling reference number and pauses on it. "This administrative category code — I've processed shrine records for six years. I've never seen this code applied to petitions." She writes it down and slides the paper across without further comment.`;
+        G.lastResult = `Sivren confirms the facts without elaborating on their implications. Seven petitions, one ruling, no standard review period. She pulls the ruling reference number and pauses on it — her hand resting flat on the record board, the old ink of the compliance shrine's ledgers carrying the particular dry smell of Shirshal's desert air baked into every page. "This administrative category code — I've processed shrine records for six years. I've never seen this code applied to petitions." She writes it down and slides the paper across without further comment.`;
         addJournal('Mass petition dismissal via unusual Collegium category — no standard review', 'evidence', `shir-sivren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -193,7 +193,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Bureau warding stone deliberately misaligned — archive wing monitoring pulses shed without logging', 'discovery');
         maybeStageAdvance();
       } else {
-        addNarration('Routine Inspection', 'The maintenance notation on the stone reads current. The calibration marks are worn but present. Whatever the stones are doing, it reads as standard operation to anyone without a reason to look closer — and closer requires knowing what the mount notch is for in the first place.');
+        addNarration('Routine Inspection', 'The maintenance notation on the stone reads current. The calibration marks are worn but present. The corridor is quiet, the stone holding the dry warmth of the desert air that settles into Shirshal\u2019s administrative wing by midmorning, the smell of rock dust faint along the baseboard. Whatever the stones are doing, it reads as standard operation to anyone without a reason to look closer \u2014 and closer requires knowing what the mount notch is for in the first place.');
       }
     }
   },
@@ -651,7 +651,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(110, 'Shirshal Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The threads are there but the evidence chain has gaps. Acting now would produce a record, not a result. The Bureau director would ask questions you don't yet have answers for, and the gaps would be used to file the matter rather than pursue it.`;
+        G.lastResult = `The threads are there but the evidence chain has gaps. Acting now would produce a record, not a result. The Bureau director would ask questions you don't yet have answers for, and the gaps would be used to file the matter rather than pursue it. The Shirshal administrative wing will not be moved by an incomplete picture — this polity runs on documentation, and the documentation is not yet complete enough to force a response.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};

@@ -938,13 +938,13 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The commune runs emergency rotations — watchers on the dome perimeter in eight-hour shifts. Not structural engineers: commune members in work gear taking turns. They've organized their own defense response without leadership direction. The formal structure has failed and the community is running security laterally. This is a population that's stopped trusting its institutions.`;
+        G.lastResult = `The commune runs emergency rotations — watchers on the dome perimeter in eight-hour shifts. Not structural engineers: commune members in work gear taking turns. Woodsmoke from the communal heating drifts through the corridor as the shift changes. They've organized their own defense response without leadership direction, passing watch duties hand to hand through a chain the administration didn't build. The formal structure has failed and the community is running security laterally. This is a population that's stopped trusting its institutions.`;
       } else if (arch === 'magic') {
-        G.lastResult = `The atmospheric contamination is creating cognitive pressure — you can feel it in the way conversations lose their thread, the way people forget what they were doing mid-sentence. It's below thresholds that would trigger formal medical protocol. Whoever designed this wanted degradation, not crisis. They're not trying to kill Aurora Crown. They're trying to make it impossible to think clearly.`;
+        G.lastResult = `The atmospheric contamination is creating cognitive pressure — conversations lose their thread, people forget what they were doing mid-sentence. The cold coming through the dome's high-latitude panels doesn't help; the mind works slower in it. The pressure sits below thresholds that would trigger formal medical protocol. Whoever designed this wanted degradation, not crisis. They're not trying to kill Aurora Crown. They're trying to make it impossible to think clearly.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `Three commune members circle the commons in irregular patterns. Not guards — their body language is too casual. Information couriers, using movement as cover for message passing. The commune has a parallel communication network operating below its visible structure. They're organizing in the spaces between official sight.`;
+        G.lastResult = `Three commune members circle the commons in irregular patterns. Not guards — their body language is too casual. Information couriers, using movement as cover for message passing. The woodsmoke from the far heating bank gives them cover: stop near the fire, exchange a word, move on. The commune has a parallel communication network operating below its visible structure. They're organizing in the spaces between official sight.`;
       } else {
-        G.lastResult = `The communal meal distribution is off. Portions are slightly smaller in the outer residential blocks than in the central sector. Not a conscious decision — a symptom of a logistics breakdown that's been ongoing long enough to become normalized. The resource pressure is being absorbed unequally and no one has named it yet.`;
+        G.lastResult = `The communal meal distribution is off. Portions are slightly smaller in the outer residential blocks than in the central sector. The northern light coming through the dome panels is the same for everyone — but what goes on the plates is not. Not a conscious decision — a symptom of a logistics breakdown that's been ongoing long enough to become normalized. The resource pressure is being absorbed unequally and no one has named it yet.`;
       }
       addJournal('Aurora Crown commons: parallel security structure, cognitive contamination, unequal resource distribution', 'evidence', `aurora-commons-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -1067,13 +1067,13 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `"Asked about the commune's security response to the dome degradation. Not the engineering — the community response. How organized. How coordinated." Someone was assessing whether Aurora Crown could mount a coordinated defense of its own internal records.`;
+        G.lastResult = `A maintenance worker you've spoken with twice already stops you near the dome corridor. "Asked about the commune's security response to the dome degradation. Not the engineering — the community response. How organized. How coordinated. Whether the watch rotations were documented." The cold coming off the dome panels makes the corridor feel smaller than it is. Someone was assessing whether Aurora Crown could mount a coordinated defense of its own internal records. The question about documentation is the part that matters.`;
       } else if (arch === 'magic') {
-        G.lastResult = `"Claimed to be from a material sciences faculty. But her questions were about the additive compound specifically — not the failure pattern, not the dome design. She knew what compound to ask about before she'd seen the records." Someone already has the technical answer. They were verifying it.`;
+        G.lastResult = `An archivist from the morning record shift pulls you aside near the open reference stacks. "Claimed to be from a material sciences faculty. But her questions were about the additive compound specifically — not the failure pattern, not the dome design. She knew what compound to ask about before she'd seen the records." The woodsmoke smell from the hall heating carries in under the archive door. Someone already has the technical answer. They were verifying it against Aurora Crown's own documentation.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `"Didn't ask Orren anything directly. Just asked for a tour of the maintenance areas, took notes, and left. But Orren noticed the notes were in code — not a private shorthand, an actual cipher." Someone is documenting the dome failure in a format that can't be read if intercepted. Professional compartmentalization.`;
+        G.lastResult = `Someone Orren trusts enough to mention it approaches you near the lower maintenance bay, voice low enough to be swallowed by the ambient pressure-check hum. "Didn't ask Orren anything directly. Just asked for a tour of the maintenance areas, took notes, and left. But Orren noticed the notes were in code — not a private shorthand, an actual cipher." The amber dome panels above give the corridor a deceptive warmth. Someone is documenting the dome failure in a format that can't be read if intercepted. Professional compartmentalization.`;
       } else {
-        G.lastResult = `"Said they were from an external support organization. Wanted to know which commune members had tried to organize a collective response to the dome issue. Names, positions, who was coordinating with whom." Someone is mapping the commune's leadership structure. Not to help it — to understand its vulnerabilities.`;
+        G.lastResult = `A commune member you don't recognize by name flags you down outside the registry hall, speaking quickly. "Said they were from an external support organization. Wanted to know which commune members had tried to organize a collective response to the dome issue. Names, positions, who was coordinating with whom." The pine-cold draft through the hall's upper vents carries the smell of the forest outside the dome perimeter. Someone is mapping the commune's leadership structure. Not to help it — to understand its vulnerabilities.`;
       }
 
       G.lastResult += ` Whoever this person is, they're a step ahead on the Aurora Crown thread.`;
@@ -1095,7 +1095,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. The amber panels above it are on their midday cycle. Two collective work assignments and a water filtration maintenance notice from yesterday still hold the top slots. Nothing worth copying down.';
+      G.lastResult = 'The board has nothing new since this morning. The amber panels above it are on their midday cycle, and the cold draft from the dome wall gives the posted sheets a faint curl at the corners. Two collective work assignments and a water filtration maintenance notice from yesterday still hold the top slots. The woodsmoke from the communal heating drifts past without anyone stopping to read. Nothing worth copying down.';
       return;
     }
     G.flags[key] = true;
