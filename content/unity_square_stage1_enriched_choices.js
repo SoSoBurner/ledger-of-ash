@@ -93,9 +93,9 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.flags.investigated_deleted_case = true;
         addJournal('Deleted case: routing rights decision against northern commercial bloc removed — deletion removes legal obstacle to bloc\'s route use', 'discovery', `unity-deleted-case-${G.dayCount}`);
       } else if (result.total >= 11) {
-        G.lastResult = `The case number pulls no public record. Two parties who were present for the proceedings won't discuss the outcome directly — their advocates have instructed them to say nothing while they pursue a parallel review. From the documentation around the case, it was significant: routing rights, multiple appellate filings, a seventeen-page interim decision summary. Whatever the outcome was, someone decided it shouldn't be publicly accessible. The specific terms and the reason for deletion stay out of reach.`;
+        G.lastResult = `The case number pulls no public record. Two parties who were present for the proceedings won't discuss the outcome directly — their advocates have instructed them to say nothing while they pursue a parallel review. From the documentation around the case, it was significant: routing rights, multiple appellate filings, a seventeen-page interim decision summary. Whatever the outcome was, someone decided it shouldn't be publicly accessible. The specific terms and the reason for deletion stay out of reach. The smell of ink and sealed wax from the archive shelf carries through the corridor. The clerk closes the ledger without asking why you came.`;
       } else {
-        G.lastResult = `The public register has no gap where the case should be — no struck-through number, no blank field, no forwarding note. The deletion was thorough enough that the register's pagination closes over it without a seam. Without the private outcome copy to establish the case number, there is nothing here to confirm a case ever existed.`;
+        G.lastResult = `The public register has no gap where the case should be — no struck-through number, no blank field, no forwarding note. The deletion was thorough enough that the register's pagination closes over it without a seam. Without the private outcome copy to establish the case number, there is nothing here to confirm a case ever existed. The smell of ink and sealed wax from the records shelf carries through the archive corridor. The thread back to the original case ends at a number that produces nothing.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -155,7 +155,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_brokerwell_appointment_irregularity = true;
         addJournal('Brokerwell appointment: emergency succession protocol improperly invoked — bypassed third confirmation, predecessor retired not incapacitated', 'evidence', `unity-appointment-${G.dayCount}`);
       } else {
-        G.lastResult = `The public appointment record shows Brokerwell's name, the date, and the required three signature blocks. The review documentation — the deliberation notes, the confirmation correspondence, the council meeting record — is filed with the coordination council under sealed session protocol. Reading those documents requires council authorization. The appointment's paperwork exists; the reasoning behind it stays sealed.`;
+        G.lastResult = `The public appointment record shows Brokerwell's name, the date, and the required three signature blocks. The review documentation — the deliberation notes, the confirmation correspondence, the council meeting record — is filed with the coordination council under sealed session protocol. Reading those documents requires council authorization. The appointment's paperwork exists; the reasoning behind it stays sealed. The stone floor of the registry room holds the cold of morning even into afternoon. Whatever produced that stamp, it produced it in a chamber the public record doesn't open.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -184,7 +184,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium observer Nance Tarn: previous complaints self-reviewed without finding — needs private outcome documents for independent comparison', `unity-collegium-${G.dayCount}`);
       } else {
-        G.lastResult = `Tarn listens without writing anything down, then slides a printed form across the corner of her desk. "Informal conversations don't produce anything I can file. If you have a complaint, it goes in writing through the formal intake channel — dated, signed, with supporting documentation attached." She doesn't say she can't help. She says this is the form.`;
+        G.lastResult = `Tarn listens without writing anything down, then slides a printed form across the corner of her desk. "Informal conversations don't produce anything I can file. If you have a complaint, it goes in writing through the formal intake channel — dated, signed, with supporting documentation attached." She doesn't say she can't help. She says this is the form. The announcement board behind her carries today's coordination schedule, posted squarely over yesterday's without removing it. The intake tray beside her is empty. She has been here a long time and learned exactly how much the procedure allows.`;
         if (!G.flags) G.flags = {};
         G.flags.located_oversight_collegium_unity = true;
       }
@@ -369,7 +369,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
-      G.lastResult = `Three factors share a bench in the waiting hall, each with a different case number on their intake slip. One of them, while the other two aren't listening, says it directly: "${selected}." He doesn't lower his voice. Nobody at the desk reacts. The waiting hall has heard enough of these remarks that they've stopped registering as unusual.`;
+      G.lastResult = `Three factors share a bench in the waiting hall, each with a different case number on their intake slip. One of them, while the other two aren't listening, says it directly: "${selected}." He doesn't lower his voice. Nobody at the desk reacts. The waiting hall has heard enough of these remarks that they've stopped registering as unusual. A runner calls a new case number from the doorway. The two other factors check their slips and look away. Whatever the hall knows, it has learned to keep to the benches.`;
       addJournal(`Unity Square rumor: "${selected}"`, 'evidence', `unity-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -524,7 +524,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_shelkopolis_connection = true;
         addJournal('Unity Square → Shelkopolis: arbitration advantages translate to commercial leverage inside Shelkopolis market — peripheral capture feeding central one', 'evidence', `unity-shelk-connection-${G.dayCount}`);
       } else {
-        G.lastResult = `The connection between Unity Square's arbitration outcomes and Shelkopolis's commercial conditions is visible in outline — shared parties, overlapping routes, contracts that reference Shelkopolis district access. Mapping the downstream implications of specific decisions requires reading the contracts in detail and cross-referencing against Shelkopolis trade data. That work takes time and access that isn't available here.`;
+        G.lastResult = `The connection between Unity Square's arbitration outcomes and Shelkopolis's commercial conditions is visible in outline — shared parties, overlapping routes, contracts that reference Shelkopolis district access. Mapping the downstream implications of specific decisions requires reading the contracts in detail and cross-referencing against Shelkopolis trade data. That work takes time and access that isn't available here. The coordination ruling documents on the public reference shelf carry the weight of sealed wax and formal procedure. The numbers that give them meaning are filed somewhere else, in a city two days north.`;
       }
       addHeat('union', 1);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -584,13 +584,13 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Support') {
-        G.lastResult = `The coordination chamber puts the petitioner's bench lower than the arbitration table — a small elevation difference, easy to miss. The light comes from behind the arbiter's position. You note the setup is tilted without being able to fully articulate why it matters.`;
+        G.lastResult = `The coordination chamber puts the petitioner's bench lower than the arbitration table — a small elevation difference, easy to miss. The light comes from behind the arbiter's position, leaving the arbiter's face in partial shadow while the petitioner's is fully lit. The cold of the stone floor sits heaviest in the petitioner's corner. The room is designed to work before any argument begins, and the design is doing its work.`;
         gainXp(30, 'observing chamber layout');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
       gainXp(70, 'analyzing coordination chamber positioning');
       G.stageProgress[1]++;
-      G.lastResult = `The chamber is a controlled environment: petitioner bench set eight inches lower than the arbitration table, lighting angled to put the petitioner's face in full illumination while the arbiter's expression is in partial shadow, a four-second acoustic delay from the petitioner's position to the record-clerk station that creates an unconscious speaking-lag pressure. These aren't accidental design choices. This is a space built to extract concessions through environmental pressure before a single argument is made. The system runs on the layout before Brokerwell says anything.`;
+      G.lastResult = `The chamber is a controlled environment: petitioner bench set eight inches lower than the arbitration table, lighting angled to put the petitioner's face in full illumination while the arbiter's expression is in partial shadow, a four-second acoustic delay from the petitioner's position to the record-clerk station that creates an unconscious speaking-lag pressure. These aren't accidental design choices. This is a space built to extract concessions through environmental pressure before a single argument is made. The cold of the stone floor settles fastest in the petitioner’s corner — the wall there holds no heating flue. The system runs on the layout before Brokerwell says anything.`;
       if (!G.flags) G.flags = {};
       G.flags.unity_chamber_analysis = true;
       addJournal('Unity Square chamber: deliberate positional and acoustic pressure design — systematic disadvantage built into room before proceedings begin', 'evidence', `unity-chamber-${G.dayCount}`);
@@ -632,7 +632,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.flags.unity_sponsor_pattern = true;
         addJournal('Coordination outcomes: 11 of 15 recent decisions favor parties sharing single sponsor code — Northern Commercial Compact Sub-registry Seven', 'evidence', `unity-sponsor-${G.dayCount}`);
       } else {
-        G.lastResult = `The intake affiliation forms and the outcome records are filed separately — different desks, different clerks, different administrative categories. Pulling both for the same set of cases requires either authorization to access both administrative areas simultaneously or two separate requests with a waiting period between them. The correlation is in the gap between the two filing systems.`;
+        G.lastResult = `The intake affiliation forms and the outcome records are filed separately — different desks, different clerks, different administrative categories. Pulling both for the same set of cases requires either authorization to access both administrative areas simultaneously or two separate requests with a waiting period between them. The correlation is in the gap between the two filing systems. A clerk closes a ledger at the far desk and sets it on a shelf without annotation. The administrative structure keeps the pattern invisible to anyone working from one side of the room.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -693,7 +693,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_tena_observer = true;
         addJournal('Collegium observer Tena: 6 months of unacknowledged reports, filing to create a record rather than expecting a response', 'evidence', `unity-tena-${G.dayCount}`);
       } else {
-        G.lastResult = `The Collegium observer's desk is in the documentation area, marked with a small institutional placard. The current occupant is absent — the schedule on the placard shows she visits on a rotating basis, three days per week. Today isn't one of her posted days. The desk has papers on it and a half-completed form face-down. She's been here recently.`;
+        G.lastResult = `The Collegium observer's desk is in the documentation area, marked with a small institutional placard. The current occupant is absent — the schedule on the placard shows she visits on a rotating basis, three days per week. Today isn't one of her posted days. The desk has papers on it and a half-completed form face-down, the ink still sharp. A coordination announcement runner pins a fresh posting to the board above her desk without glancing at what she left behind. She's been here recently, and she'll be back, but not today.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -738,14 +738,14 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
   tags: ['social'],
   xpReward: 5,
   failResult: {
-    text: `The notice board outside the coordination hall is fresh-posted from this morning's runner circuit — vendor license renewals, a coordination schedule update, a lost property notice with neat lettering. Nothing that surfaces anything about the routing dispute or the record irregularities. The board changes by midday when the second runner circuit comes through. What the square knows publicly and what it knows privately run on different posting schedules.`,
+    text: `The notice board outside the coordination hall is fresh-posted from this morning's runner circuit — vendor license renewals, a coordination schedule update, a lost property notice with neat lettering. Nothing that surfaces anything about the routing dispute or the record irregularities. The board changes by midday when the second runner circuit comes through. A runner pauses to straighten a curling corner, then walks on without reading the text. What the square knows publicly and what it knows privately run on different posting schedules, posted side by side without touching.`,
     xp: 0, effects: [],
     next: [{text: 'The vendors closer to the arbitration hall carry fresher word.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
   },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A coordination schedule update from the hall is still pinned at the center — posted two days ago, no updates since. The routing dispute notice beside it carries a date from last week. Nothing that changes the picture.';
+      G.lastResult = 'The board has nothing new since this morning. A coordination schedule update from the hall is still pinned at the center — posted two days ago, no updates since. The routing dispute notice beside it carries a date from last week. A runner from the hall walks past without pausing, carrying a fresh stack of announcements for a different board entirely. Whatever the square is posting today, it is not posting it here. Nothing on this board changes the picture.';
       return;
     }
     G.flags[key] = true;

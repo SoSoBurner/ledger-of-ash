@@ -24,7 +24,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_letha_dawnsilk = true;
         addJournal('Commander Letha Dawnsilk met: 6 months of suppressed pressure anomaly reports, still maintaining records despite institutional silence', 'contact_made', `plumes-letha-${G.dayCount}`);
       } else {
-        G.lastResult = `The outpost runs on a posted schedule — Letha Dawnsilk's available periods are listed on the board by the supply cache, and she's currently in a briefing with the patrol rotation. The clerk at the supply desk is polite and unhelpful. Come back at the posted time. She runs this place to a clock and she keeps to it.`;
+        G.lastResult = `The outpost runs on a posted schedule — Letha Dawnsilk's available periods are listed on the board by the supply cache, and she's currently in a briefing with the patrol rotation. The clerk at the supply desk is polite and unhelpful. The supply platform outside creaks as a wagon shifts its load in the wind. Come back at the posted time. She runs this place to a clock and she keeps to it, even when the wind off the high route smells wrong.`;
         G.flags.located_letha_dawnsilk = true;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
@@ -151,9 +151,9 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       if (arch === 'combat') {
         G.lastResult = `The outpost's defensive positioning was chosen for threat visibility — you can see approaches from three directions clearly. The northeastern quadrant, where the pressure is coming from, has the worst visibility. Whoever chose this site chose it for the threats they expected. The gradient is coming from the direction nobody planned to defend against because nobody thought anything dangerous lived there. The defensive blind spot is exactly aligned with the atmospheric event's origin.`;
       } else if (arch === 'magic') {
-        G.lastResult = `At the northeastern edge of the patrol perimeter, the air has a slightly different quality — not taste, not smell, but a consistency. The gradient isn't just pressure: there's a compound element in it, faint but consistent. This isn't natural atmospheric variation. There's chemistry in this gradient. Something is being released into the atmosphere and traveling this far.`;
+        G.lastResult = `At the northeastern edge of the patrol perimeter, the air has a slightly different quality — not taste, not smell, but a consistency, the way air feels when cold comes off standing water. The gradient isn't just pressure: there's a compound element in it, faint but consistent, more distinct when the wind drops. This isn't natural atmospheric variation. There's chemistry in this gradient. Something is being released into the atmosphere and traveling this far from the northeast.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `The wildlife evacuation has created clear trails in the soil — large animal movements that would normally be distributed are now concentrated along specific corridors. The corridors point away from the northeast. The landscape is showing you the direction and pace of something's advance through the accumulated evidence of everything that's moving away from it.`;
+        G.lastResult = `The wildlife evacuation has created clear trails in the packed earth — large animal movements that would normally be distributed are now concentrated along specific corridors heading south. The corridors point away from the northeast with a consistency that has nothing to do with season or water source. The pine resin smell thins out as you move toward that quadrant. The landscape is showing you the direction and pace of something's advance through the accumulated evidence of everything that's moving away from it.`;
       } else {
         G.lastResult = `Three frontier families who maintained small holdings in the northeast quadrant have abandoned them in the past two months. Their abandoned plots still have late-season crops unharvested. People don't leave their harvest unless something made staying feel worse than losing the food. The human exit matches the animal exit. The zone is becoming uninhabitable and the people inside it feel it before they can explain it.`;
       }
@@ -557,11 +557,11 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       if (arch === 'combat') {
         G.lastResult = `"Military cadence," the runner says. "Moving with purpose, not urgency. Dressed for field conditions but not patrol standard. And they were moving south-southwest — away from the gradient, toward Shelkopolis, on a direct line." Someone is carrying field intelligence from the northeast zone to a central location. The same direction you're headed. They're ahead of you on the same road.`;
       } else if (arch === 'magic') {
-        G.lastResult = `"Carried sealed tubes," the runner says. "Heavy ones, the kind you use for atmospheric sample transport. But not labeled — no collection markings. Samples taken without formal collection protocol." Someone has been collecting material from the affected zone for their own analysis. The samples they're carrying could confirm everything Letha has measured, or reveal something additional.`;
+        G.lastResult = `"Carried sealed tubes," the runner says. "Heavy ones, the kind you use for atmospheric sample transport. But not labeled — no collection markings. Samples taken without formal collection protocol." The runner pauses to spit out the taste the northeast wind leaves in the back of the throat. Someone has been collecting material from the affected zone for their own analysis. The samples they're carrying could confirm everything Letha has measured, or reveal something additional she hasn't been equipped to detect.`;
       } else if (arch === 'stealth') {
         G.lastResult = `"They asked what I'd seen on the northeast route," the runner says. "I told them about the air quality. They listened carefully, didn't take notes in front of me. When they thought I wasn't watching, they made a single mark on a document they kept folded inside their coat." A field intelligence collection operation using casual conversation. They're building a picture from multiple sources without any one informant knowing they're being used.`;
       } else {
-        G.lastResult = `"They were troubled," the runner says. "Not frightened — troubled. Like someone who has seen something they didn't want to see and is now deciding what to do about it." Someone was in the northeast zone personally. They saw what's happening at source. And they're now moving toward Shelkopolis with that knowledge.`;
+        G.lastResult = `"They were troubled," the runner says. "Not frightened — troubled. Like someone who has seen something they didn't want to see and is now deciding what to do about it." He pulls his collar up against the cold that follows travelers down from the high route. Someone was in the northeast zone personally. They saw what's happening at source, walked out through the woodsmoke and the strange air, and are now moving toward Shelkopolis with that knowledge still fresh.`;
       }
 
       G.lastResult += ` Someone else has been working this same ground and they're ahead of you.`;
@@ -599,7 +599,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype || '';
       const isMounted = (arch === 'Knight') || (G.archetype && G.archetype.name === 'Knight');
       if (!isMounted) {
-        G.lastResult = `The patrol coverage maps at Plumes End show routes that stop short of where the older maps show them continuing. Someone reduced the patrol depth into the northeast three months ago. You note the discrepancy in the posted vs. archived maps without being able to determine whether the decision was operational or institutional.`;
+        G.lastResult = `The patrol coverage maps at Plumes End show routes that stop short of where the older maps show them continuing — a ridge line cut drawn across the northeast approach in fresh ink. Someone reduced the patrol depth into the northeast three months ago, quietly, without annotating the reason. The supply platform creaks outside and the cold comes in under the map room door. The discrepancy in the posted versus archived maps is clear; the decision behind it, operational or institutional, is not.`;
         gainXp(32, 'noting patrol route discrepancy');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
@@ -668,7 +668,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.plumes_order_modified = true;
         addJournal('Suppression order comparison: Plumes End version missing emergency exemption clause present in all other archived orders — targeted modification', 'evidence', `plumes-order-${G.dayCount}`);
       } else {
-        G.lastResult = `Comparing the suppression order's language against the standard template requires access to the archive of similar directives, which Letha keeps but is currently reviewing. Getting the specific version sent here alongside the template requires that review to complete first, or her authorization to access the archive directly. The comparison is a half-hour task once the materials are in hand.`;
+        G.lastResult = `Comparing the suppression order's language against the standard template requires access to the archive of similar directives, which Letha keeps but is currently reviewing. The archive cabinet stands against the north wall of her office, smelling of packed paper and pine-resin sealer. Getting the specific version sent here alongside the template requires that review to complete first, or her authorization to access the archive directly. The comparison is a half-hour task once the materials are in hand and the door is open.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -712,7 +712,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.flags.plumes_oversight_gap = true;
         addJournal('Compact oversight absent 8 months: quarterly reviews cancelled, return acknowledgments signed by different people each time — oversight structure deliberately disrupted', 'evidence', `plumes-oversight-${G.dayCount}`);
       } else {
-        G.lastResult = `Administrative records of the Compact review schedule live in the duty station's external correspondence folder — posted visits, cancellation notices, acknowledgment logs. The duty station is staffed but the correspondence folder is under Letha's administrative access. This is a request she'd need to authorize. Given her established cooperation, it's a request she'd authorize. The conversation needs to happen first.`;
+        G.lastResult = `Administrative records of the Compact review schedule live in the duty station's external correspondence folder — posted visits, cancellation notices, acknowledgment logs. The duty station is staffed; the wind off the high route pushes through the gap under the supply station door and the clerk keeps a woodsmoke fire going against it. The correspondence folder is under Letha's administrative access. This is a request she'd need to authorize. Given her established cooperation, it's one she'd authorize without hesitation. The conversation needs to happen first.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -759,7 +759,8 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A patrol assignment rotation and a note about oilcloth requisitions are still pinned from the last supply run — standard outpost notices, nothing that changed since the early watch.';
+      G.lastResult = 'The board has nothing new since this morning. A patrol assignment rotation and a note about oilcloth requisitions are still pinned from the last supply run, curling at the corners in the draft from the northeast door. Standard outpost notices — the kind of paperwork that stays up until the next supply circuit arrives and gives the board something worth reading. The woodsmoke from the overnight hearth has settled into the paper.';
+
       return;
     }
     G.flags[key] = true;
