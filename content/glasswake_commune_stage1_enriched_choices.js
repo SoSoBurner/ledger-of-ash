@@ -89,7 +89,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.obtained_amplification_data = true;
         addJournal('Shard amplification data obtained: dome filtration additives in resonance range — compound substitution creates exponential feedback loop', 'discovery', `glasswake-amplification-${G.dayCount}`);
       } else {
-        G.lastResult = `The official channels for accessing unpublished research data require the author's cooperation or an administrative override that the committee controls. Without Toman's trust, neither route opens. He's visible in the research annex during formal hours, giving official statements. You need to earn the version of this conversation that happens after the committee leaves for the day.`;
+        G.lastResult = `The pathway to unpublished research data runs through the author's cooperation or an administrative override that the committee controls. Without Toman's trust, neither route opens. His name appears on the research annex door during formal hours, and during those hours he gives statements that match the committee's position. The conversation that holds the actual data happens elsewhere — after the committee leaves for the day, the estuary path behind the annex is where his real working hours are.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -142,13 +142,13 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The researchers move their materials after hours. Not all of them — the ones with suppressed work. It's a distributed cache strategy: split sensitive documents across multiple personal locations so no single raid neutralizes everything. Someone advised them how to do this. Someone with experience in material security.`;
+        G.lastResult = `The researchers move their materials after hours. Not all of them — the ones with suppressed work. It's a distributed cache strategy: split sensitive documents across multiple personal locations so no single raid neutralizes everything. Someone advised them how to do this — the pattern is too deliberate, too coordinated for spontaneous caution. Someone with experience in material security passed this method on. The question is who taught it to them and when.`;
       } else if (arch === 'magic') {
-        G.lastResult = `The shard samples in the open research lab have been systematically reduced — fewer shards on display, simpler specimens. The complex, high-resonance samples have been moved. The lab presents itself as studying something less interesting than it actually is. The real research has gone underground.`;
+        G.lastResult = `The shard samples in the open research lab have been systematically reduced — fewer shards on display, simpler specimens. The complex, high-resonance samples have been moved. The lab presents itself as studying something less interesting than it actually is, the way a practitioner presents a diminished version of their work when observed. The real research has gone underground, somewhere the committee's daily visibility doesn't reach. Low-resonance specimens are cover, not curriculum.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `A researcher you watched enter the main archive an hour ago exits from a side door on the opposite side of the building. The building doesn't have a connecting corridor on the ground floor — they went up, over, and down. There are paths through this building that aren't on any diagram. Glasswake's researchers know the building's unofficial architecture.`;
+        G.lastResult = `A researcher you watched enter the main archive an hour ago exits from a side door on the opposite side of the building. The building doesn't have a connecting corridor on the ground floor — they went up, over, and down through some path not reflected in the posted floor plan. There are routes through this building that exist only in practice. Glasswake's researchers know the unofficial architecture. The building has two versions: the one visitors see and the one the researchers move through.`;
       } else {
-        G.lastResult = `Two researchers are clearly not speaking. They pass within arm's reach without acknowledgment. But fifteen minutes later, a page appears on one's desk that wasn't there before. They've developed a non-verbal exchange system. Whatever divided them publicly, they're still communicating.`;
+        G.lastResult = `Two researchers are clearly not speaking to each other. They pass within arm's reach without acknowledgment, the mist off the estuary canal still clinging to the walkway planks between them. But fifteen minutes later, a page appears on one's desk that wasn't there before — no hand delivering it, no exchange visible. They've developed a non-verbal exchange system that runs below the threshold of observation. Whatever divided them publicly, they're still communicating. The suppression hasn't separated them. It's only changed their methods.`;
       }
       addJournal('Research quarter evening: distributed material caching, simplified public display, unofficial building paths, covert communication', 'evidence', `glasswake-quarter-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -328,7 +328,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `A mineral trader who moves between Glasswake and Shelkopolis monthly agrees to carry a sealed document case. The case is inside a sample kit — unremarkable in her cargo. Toman's amplification data is now in transit to Shelkopolis without passing through the commune's administrative channels. Whatever happens to Toman or the archive, the data survives.`;
+        G.lastResult = `A mineral trader who moves between Glasswake and Shelkopolis monthly agrees to carry a sealed document case. The case is tucked inside a sample kit among the bulk of her regular cargo — the kind of thing a canal-gate clerk flips past without reading. Toman's amplification data is now in transit to Shelkopolis without passing through the commune's administrative channels or the sluice authority's cargo log. Whatever happens to Toman or the archive after this, the data survives the route.`;
         G.flags.glasswake_data_secured = true;
         addJournal('Shard amplification data secured via mineral trader — offsite copy en route to Shelkopolis', 'evidence', `glasswake-data-secure-${G.dayCount}`);
       } else {
@@ -441,7 +441,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
-      G.lastResult = `Community whisper, overheard near the water-clock tower: "${selected}." The commune is aware that something wrong is happening in the research annex — they can feel it in the committee's silences. They don't have the full shape of it yet.`;
+      G.lastResult = `Community whisper, overheard near the water-clock tower at the sluice channel junction: "${selected}." The commune is aware that something wrong is happening in the research annex — the committee's silences carry weight, the careful pauses before certain names come up in the communal hall, the way the fishing nets get repaired in groups now instead of alone. The full shape of it hasn't surfaced yet. But the shape of what isn't being said has its own contour.`;
       addJournal(`Glasswake commune rumor: "${selected}"`, 'evidence', `glasswake-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -572,13 +572,13 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `"They asked about security," Toman says. "How the research was stored, whether I had guards, how quickly the administrative committee could be notified if someone accessed the archive after hours. Not research questions — site assessment questions." Someone was mapping the security environment for future access. The visit was reconnaissance.`;
+        G.lastResult = `"They asked about security," Toman says. "How the research was stored, whether I had guards, how quickly the administrative committee could be notified if someone accessed the archive after hours. Not research questions — site assessment questions." He picks up a shard sample, sets it down. "I answered some of them before I understood what I was answering." Someone was mapping the security environment for future access. The visit was reconnaissance. The data they collected is still in use.`;
       } else if (arch === 'magic') {
-        G.lastResult = `"They understood the amplification mechanism immediately," Toman says. "Before I'd fully explained it. They completed my sentences. That's not someone who came to learn — that's someone who came to verify what they already know." Someone already has the data independently. They came to confirm Toman's version matches theirs — or differs from it.`;
+        G.lastResult = `"They understood the amplification mechanism immediately," Toman says. "Before I'd fully explained it. They completed my sentences." He stares at the reed-paper on his desk. "That's not someone who came to learn — that's someone who came to verify what they already know. To see if my numbers matched a different set of numbers." Someone already has the data independently, sourced from somewhere else. They came to confirm Toman's version matches theirs — or to find out exactly where and why it differs.`;
       } else if (arch === 'stealth') {
         G.lastResult = `"They left nothing," Toman says. "No name, no institutional mark, no record of arrival I could point to. I couldn't tell you what they looked like well enough to describe them to someone else." He turns a stylus in his fingers, staring at the desk. "They came in, they listened, they left. The algae-smell from the sluice tanks was stronger that morning — I remember that more clearly than I remember them." Whoever visited understood how to move through a place without accumulating a presence. The absence of trace is itself the trace.`;
       } else {
-        G.lastResult = `"They offered institutional backing," Toman says. "A research fellowship, publication support, legal protection. Everything I've needed for fourteen months. I almost took it." He pauses. "The terms required transferring data ownership to an unnamed oversight body before the fellowship would be finalized. I read the fine print." Someone tried to acquire the suppressed data through a fabricated rescue operation.`;
+        G.lastResult = `"They offered institutional backing," Toman says. "A research fellowship, publication support, legal protection. Everything I've needed for fourteen months." He looks at the lamp on the worktable, not at you. "I almost took it. I had the agreement in front of me." He pauses. "The terms required transferring data ownership to an unnamed oversight body before the fellowship would be finalized. I read the fine print twice to be sure I was reading it correctly." Someone tried to acquire the suppressed data through a fabricated rescue operation. The terms were the tell.`;
       }
 
       G.lastResult += ` Toman doesn't know who they were. But they knew everything about his situation.`;
@@ -616,7 +616,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Craft-heavy') {
-        G.lastResult = `Toman's shard samples react to reagent exposure in ways he can't fully explain — the results are outside his reference framework. You understand that this is unusual without being able to characterize what's unusual about it.`;
+        G.lastResult = `Toman's shard samples react to reagent exposure in ways he can't fully explain — the results fall outside his reference framework, and he knows it. He points at the measurement column in his notebook: the output values don't follow the curve that material science would predict. Something is happening in the reaction that the standard model doesn't account for. The specific mechanism is beyond what you can characterize from here, but the anomaly itself is unmistakable. These samples are doing something they shouldn't be able to do.`;
         gainXp(30, 'noting shard anomalous reaction profile');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
@@ -732,7 +732,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_dissenting_committee = true;
         addJournal('Dissenting committee members Arven and Missa: 2 years of parallel documentation — their notes vs. edited official minutes', 'evidence', `glasswake-dissent-${G.dayCount}`);
       } else {
-        G.lastResult = `The two dissenting members are in the chamber for the current committee session — observable from the public gallery. They take notes in notebooks they carry personally, not on the committee's standard documentation forms. The session ends in forty minutes. The corridor outside the chamber is where people linger afterward.`;
+        G.lastResult = `The two dissenting members are in the chamber for the current committee session — both visible from the public gallery, at the far end of the long table, notebooks open. They write in their own notebooks, not the committee's standard forms; whatever they document stays in their possession rather than entering the official record. The session ends in forty minutes. The corridor outside the chamber smells of floor wax and old reed matting. That's where people linger after adjournment, away from the formal record.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -751,7 +751,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A sluice maintenance schedule and a committee session date from last week still occupy the center column. The morning crier covers the commune at the second water-clock chime if the board is light.';
+      G.lastResult = 'The board has nothing new since this morning. A sluice maintenance schedule and a committee session date from last week still occupy the center column, their ink dry and their corners lifting at the edges where the estuary mist has reached them. The reed-thatch overhang keeps the newer postings dry, but there are none today. The morning crier covers the commune at the second water-clock chime if the board is light.';
       return;
     }
     G.flags[key] = true;
