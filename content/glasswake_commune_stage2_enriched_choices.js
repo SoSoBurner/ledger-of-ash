@@ -48,7 +48,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_lenna_bannerhold = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Lenna reads the four suppressed conclusions aloud: shard amplification mechanics, tidal window optimal surge timing, suppression compound delivery efficacy, and staged exposure dosing effects. Together they form a complete operational manual. The suppression order was not preventing harmful research — it was preventing the documentation of a crime.`;
+        G.lastResult = `Lenna reads the four suppressed conclusions aloud, her voice low, the peat smoke from the corridor heater thickening the air behind her: shard amplification mechanics, tidal window optimal surge timing, suppression compound delivery efficacy, and staged exposure dosing effects. Damp from the lake channel seeps under the archive door. Together the four topics form a complete operational manual. The suppression order was not preventing harmful research — it was preventing the documentation of a crime already in progress.`;
         addJournal('Four suppressed conclusions form complete operation manual — suppression order was evidence concealment', 'evidence', `glass-lenna-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -57,7 +57,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_lenna_bannerhold = true;
         G.investigationProgress++;
-        G.lastResult = `Lenna sets her clerk's index on the desk and opens it to the suppression order entry. She can describe the document's structure without reading its classified sections aloud. Four research conclusions are named in the order's scope: shard amplification mechanics, timing window analysis, compound delivery methodology, and population exposure modeling. She reads each topic heading once, then closes the index. The four topics are not from four separate fields. They describe the same operation from four different angles.`;
+        G.lastResult = `Lenna sets her clerk's index on the desk and opens it to the suppression order entry. The archive room is cold at this hour, morning mist still threading through the reed-lined window gaps from the estuary side. She can describe the document's structure without reading its classified sections aloud. Four research conclusions are named in the order's scope: shard amplification mechanics, timing window analysis, compound delivery methodology, and population exposure modeling. She reads each topic heading once, then closes the index without comment. The four topics are not from four separate fields — they describe the same operation from four different angles.`;
         addJournal('Four suppression topics identified — shard, timing, compounds, population dosing', 'evidence', `glass-lenna-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -75,7 +75,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.met_toman_iceveil && !G.flags.met_lenna_bannerhold) {
-        G.lastResult = `The routing channel requires both researchers' cooperation — Toman's data and Lenna's access to the suppression order's structure. Without both threads confirmed, the package that reaches the archive will be incomplete, and an incomplete submission won't carry the weight needed to protect it. The groundwork here isn't done yet.`;
+        G.lastResult = `The routing channel requires both researchers' cooperation — Toman's data and Lenna's access to the suppression order's structure. The fishing nets off the commune's east dock creak against their bollards in the morning wind, a sound that carries all the way to this corridor at low tide. Without both threads confirmed, the package that reaches the archive will be incomplete, and an incomplete submission won't carry the weight needed to protect it from the mechanism that killed the original publications. The groundwork here is not done yet.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
@@ -83,7 +83,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.flags.stage2_evidence_shared = true;
-        G.lastResult = `You route the research through the Mimolot Academy's Velis Quillfire shrine archive — a channel that bypasses commercial publication suppression because shrine records have doctrinal protection. The research is now preserved in a location that cannot be legally suppressed. The operation's mechanism is documented and protected.`;
+        G.lastResult = `The research routes through the Mimolot Academy's Velis Quillfire shrine archive — a channel that bypasses commercial publication suppression because shrine records carry doctrinal protection under Academy law. The peat-smoke smell of the commune's corridors gives way to the cold clarity of a completed action. The research is now preserved in a location the suppression order cannot legally reach. The full mechanism — shard amplification, tidal timing, compound delivery — is documented, protected, and held somewhere the operation's architects cannot quietly withdraw it.`;
         addJournal('Glasswake research preserved in shrine archive — legally suppression-proof via Mimolot', 'evidence', `glass-route-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -123,7 +123,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.toman_second_meeting = true;
         G.investigationProgress++;
-        G.lastResult = `Toman shows one chart — the most recent clear-sky window. The resonance spike is narrow, precise, and two hours after solar peak. "I have two more that match." He won't produce them here, but he confirms the interval is consistent. "Forty-three days. Every time." He folds the chart and pockets it before anyone passes the doorway.`;
+        G.lastResult = `Toman shows one chart — the most recent clear-sky window. The observation gallery smells of cold stone and damp wool, the estuary light flat and pale through the narrow window slats. The resonance spike is narrow, precise, and two hours after solar peak. "I have two more that match." He won't produce them here, but he confirms the interval is consistent across all three events. "Forty-three days. Every time." He folds the chart along its original crease and pockets it before anyone passes the doorway.`;
         addJournal('One confirmed spike — 43-day interval, Iceveil has two more matching charts', 'evidence', `glass-toman2-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -149,12 +149,12 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Shard formation draws pressure inward — collector behavior, not natural venting', 'evidence', `glass-site-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `A pylon activates early — the sensor grid runs a sweep cycle that doesn't match the posted schedule. The light sweeps the trench edge and catches movement. A containment warden is at the dome entrance within minutes, citation board in hand. Your presence at the perimeter outside observation hours goes into the formal log.`;
+        G.lastResult = `A pylon activates early — the sensor grid runs a sweep cycle that does not match the posted schedule. The light sweeps the trench edge and catches movement against the pale winter glare off the estuary surface. Reed smell and cold mud rise from the formation trench. A containment warden is at the dome entrance within minutes, citation board in hand, her boots leaving wet prints on the concrete approach. Presence at the perimeter outside observation hours goes into the formal log with the precise time recorded.`;
         addJournal('Caught at shard perimeter — pylon sweep early, formal citation logged', 'complication', `glass-site-fail-${G.dayCount}`);
       } else {
         G.flags.shard_site_observed = true;
         G.investigationProgress++;
-        G.lastResult = `The shards are denser at the formation center than the quarantine maps show. The pressure gradient at the trench edge runs counter to what the posted data boards list — inward pull where the readings claim neutral. The discrepancy is measurable with bare attention. Whether it was misread or misreported is a different question.`;
+        G.lastResult = `The shards are denser at the formation center than the quarantine maps show. The trench holds cold air even at midday, the sluice-channel sound from the commune's water intake carrying across the open ground. The pressure gradient at the trench edge runs counter to what the posted data boards list — inward pull where the readings claim neutral. The discrepancy is measurable with bare attention from this distance. Whether it was misread or deliberately misreported is a question the formation itself cannot answer.`;
         addJournal('Pressure gradient counter to posted readings — inward pull at shard center', 'evidence', `glass-site-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -180,12 +180,12 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Lenna countersigned access — process breach resolved, trust established', 'contact_made', `glass-lenna2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Lenna files the citation before the conversation ends. "I understand you have reasons. So does everyone who skips scanning." She is not hostile — she is procedurally obligated and says so plainly. The citation goes to the Containment Research Concord. It will attach to any future access request.`;
+        G.lastResult = `Lenna files the citation before the conversation ends. The commune archive is cold in the morning, peat smoke from the corridor drifting faintly under the door. "I understand you have reasons. So does everyone who skips scanning." She is not hostile — she is procedurally obligated and says so plainly, her pen moving without pause. The citation goes to the Containment Research Concord by end of week. It will attach to any future access request submitted under this name.`;
         addJournal('Citation filed with Concord — future access requests flagged', 'complication', `glass-lenna2-fail-${G.dayCount}`);
       } else {
         G.flags.lenna_trust_built = true;
         G.investigationProgress++;
-        G.lastResult = `Lenna accepts the explanation but logs a formal note rather than dismissing the breach. "I can mark this as remediated, not absent." She hands over a blank scan form. "Submit this before any further perimeter access. The Concord reads absences as intent." It is not a threat. It is the actual rule, stated without editorial.`;
+        G.lastResult = `Lenna accepts the explanation but logs a formal note rather than dismissing the breach. The archive room holds the smell of lake water and old paper, the winter light off the estuary thin and grey through the high window. "I can mark this as remediated, not absent." She hands over a blank scan form, the paper slightly damp from the room's humidity. "Submit this before any further perimeter access. The Concord reads absences as intent." Not a threat — the actual rule, stated plainly and without editorial weight added to it.`;
         addJournal('Breach marked remediated — scan form required for further perimeter access', 'intelligence', `glass-lenna2-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -355,7 +355,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mimolot_visitor_traced = true;
         G.investigationProgress++;
-        G.lastResult = `"Verath Dunnell, Mimolot Academy, glyph properties study." Departure date, no completion note. The commune's equipment request records are stored separately and accessible to researchers — Dunnell's name appears twice: containment-grade sample jar requests, both approved. The equipment was returned on the departure date. Where the samples went is not in the commune's records.`;
+        G.lastResult = `"Verath Dunnell, Mimolot Academy, glyph properties study." Departure date, no completion note. The visitor log sits on the intake desk, the pages stiffened slightly from the estuary damp that works into everything at this end of the building. The commune's equipment request records are stored separately and accessible to researchers — Dunnell's name appears twice: containment-grade sample jar requests, both approved, both returned on the departure date. The samples those jars held are not logged anywhere in the commune's records.`;
         addJournal('Dunnell requested containment-grade sample jars, returned equipment on departure — sample destination unrecorded', 'intelligence', `glass-mimolot-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
