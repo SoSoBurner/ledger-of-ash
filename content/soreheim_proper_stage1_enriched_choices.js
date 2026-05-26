@@ -51,7 +51,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Bureaucracy', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
-    failResult: 'This path is closed here, but Clerk Serin rotates to the secondary archive desk on odd-numbered afternoons when the labor coordinator is off-floor — that desk sits outside the range of the main stamp counter.',
+    failResult: 'This path is closed here, but Clerk Serin rotates to the secondary archive desk on odd-numbered afternoons when the labor coordinator is off-floor — that desk sits outside the range of the main stamp counter. She brings her own lamp oil on those shifts, which means she stays past the standard close. The side corridor to that desk passes the correction log cabinet, which is a separate filing system from the one behind the authorization window.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -70,10 +70,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Labor coordinator now investigating your inquiry', 'complication', `soreheim-clerk-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `Serin lets you hold the ledger but keeps her hand on the edge of it. Quota increases are recorded in clean ink. Worker replacements follow within a week of each shortfall. Some entries have been crossed out and rewritten in a different hand — dates adjusted, performance figures altered. She watches you notice. She doesn't say anything about it.`;
+        G.lastResult = `Serin lets you hold the ledger but keeps her hand on the edge of it. Quota increases are recorded in clean ink. Worker replacements follow within a week of each shortfall. Some entries have been crossed out and rewritten in a different hand — dates adjusted, performance figures altered. She watches you notice. She doesn't say anything about it. The smell of the room is dry paper and cold lamp oil. She has been sitting with this ledger for a long time.`;
         addJournal('Quota records show signs of alteration', 'evidence', `soreheim-clerk-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `Serin's eyes go flat. "Those are management documents." She straightens the stack of papers on her desk until the edges are perfectly aligned, then waits for you to leave. The window to the shift yard shows the same quota board it always has. The numbers are large.`;
+        G.lastResult = `Serin's eyes go flat. "Those are management documents." She straightens the stack of papers on her desk until the edges are perfectly aligned, then waits for you to leave. The window to the shift yard shows the same quota board it always has. The numbers are large. Behind her, the correction column runs to the bottom of the open page — she turned the ledger face-down before you finished the first sentence, but not before the column was visible. All corrections in black ink. All recent.`;
         addJournal('Quota records blocked without management authorization', 'evidence', `soreheim-clerk-blocked-${G.dayCount}`);
       }
 
@@ -88,7 +88,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Craft', 'Equipment', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
-    failResult: 'This path is closed here, but Halden posts his workshop schedule on the side door — the late-shift cleaning window runs without oversight and he works long past the bell when a repair is behind.',
+    failResult: 'This path is closed here, but Halden posts his workshop schedule on the side door — the late-shift cleaning window runs without oversight and he works long past the bell when a repair is behind. The door stays propped open during those hours to clear the solvent fumes. The parts shelf he mentioned is against the back wall, visible from the doorway without entering. A count of what is stocked against what the repair log shows pending would be readable from there.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -106,7 +106,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Halden sets down his wrench and squares up to face you. "Maintenance records are internal. I don't give tours of the workshop to people I don't know." He picks the wrench back up and turns to the bench. Someone else in the workshop is watching. They go back to their work when you make eye contact. The door out is behind you.`;
         addJournal('Mechanic refuses future equipment inquiry', 'complication', `soreheim-mechanic-silent-${G.dayCount}`);
       } else {
-        G.lastResult = `Halden glances at the parts shelf before answering. "Failures have been up lately. Availability's been spotty from the supplier end." He says it the way someone says a thing they've already decided not to think about too hard. He goes back to the coupling on the bench.`;
+        G.lastResult = `Halden glances at the parts shelf before answering. "Failures have been up lately. Availability's been spotty from the supplier end." He says it the way someone says a thing they've already decided not to think about too hard. He goes back to the coupling on the bench. The shelf behind him carries parts that match three open repair orders pinned to the board above it. The parts are there. The orders are pending. The approval column on each order is blank.`;
         addJournal('Mechanic confirmed increased equipment failures', 'evidence', `soreheim-mechanic-failures-${G.dayCount}`);
       }
 
@@ -121,7 +121,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Safety', 'Labor', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
-    failResult: 'This path is closed here, but the repair crew takes its water break at the stone trough behind the grinding shed — away from the yard supervisors, away from the quota board, twelve minutes no one documents.',
+    failResult: 'This path is closed here, but the repair crew takes its water break at the stone trough behind the grinding shed — away from the yard supervisors, away from the quota board, twelve minutes no one documents. The trough is set into the back wall of the shed, below the sound of the equipment; anything said there stays there. Eldis fills his cup slowly when he has something to say and quickly when he does not. Arriving before the bell gives a read of which it will be.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -140,10 +140,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.isolation++;
         addJournal('Workers now see you as a potential threat to their employment', 'complication', `soreheim-repair-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Eldis keeps his hands moving while he talks. "Accidents are up. Safety complaints go into the coordinator's box and come back stamped 'reviewed.'" He loads a crate. "There's nothing wrong with the box. Nobody knows what 'reviewed' means." He moves on before you can ask the next question.`;
+        G.lastResult = `Eldis keeps his hands moving while he talks. "Accidents are up. Safety complaints go into the coordinator's box and come back stamped 'reviewed.'" He loads a crate. "There's nothing wrong with the box. Nobody knows what 'reviewed' means." He moves on before you can ask the next question. The complaint box itself is mounted to the wall above the quota board, which means every worker who drops something in it does it in full view of the shift count. That placement is not accidental.`;
         addJournal('Worker confirmed increased accidents and ignored safety', 'evidence', `soreheim-repair-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Eldis watches you for a moment, then picks up the nearest thing — a length of chain — and starts coiling it. "Nothing to report on injuries. Shift hazards are posted on the board." He points at the board. The hazard notices are three months old. He keeps coiling.`;
+        G.lastResult = `Eldis watches you for a moment, then picks up the nearest thing — a length of chain — and starts coiling it. "Nothing to report on injuries. Shift hazards are posted on the board." He points at the board. The hazard notices are three months old. He keeps coiling. The chain is already coiled. He knows it. He needs something in his hands that isn't conversation. The tool rack behind him carries nothing with blood on it, which means the last incident didn't happen in this section of the yard.`;
         addJournal('Workplace injury information inaccessible without worker trust', 'evidence', `soreheim-repair-blocked-${G.dayCount}`);
       }
 
@@ -158,7 +158,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Faith', 'Community', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
-    failResult: 'This path is closed here, but the shrine takes an oil delivery at midmorning when the inner room is empty — Kestra carries the canisters herself and the outer door stays propped open for the full half-hour.',
+    failResult: 'This path is closed here, but the shrine takes an oil delivery at midmorning when the inner room is empty — Kestra carries the canisters herself and the outer door stays propped open for the full half-hour. She sets them in sequence along the base of the offering shelf before filling the reserve lamp, which means both hands are occupied and the conversation can run without her needing to end it. The side alcove by the candle supply is out of sight from the road.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -177,7 +177,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Shrine now hostile to external questioning', 'complication', `soreheim-shrine-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Kestra nods without stopping what she's doing — trimming candle wicks, one after the next. "Traffic's up. Morning queue before the shift bell now." She drops the trimmed wicks into a clay dish. "People are in a hurry when they come. In a hurry when they leave. Used to linger more."`;
+        G.lastResult = `Kestra nods without stopping what she's doing — trimming candle wicks, one after the next. "Traffic's up. Morning queue before the shift bell now." She drops the trimmed wicks into a clay dish. "People are in a hurry when they come. In a hurry when they leave. Used to linger more." A half-burned taper near the offering shelf has been left to gutter on its own — someone came and left before it went out. The wax has pooled on the stone and hardened in a shape that says they were here for less than five minutes.`;
         addJournal('Shrine worker confirmed increased prayer volume and desperation', 'evidence', `soreheim-shrine-strain-${G.dayCount}`);
       }
 
@@ -226,7 +226,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Documentation', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
-    failResult: 'This path is closed here, but Record Keeper Parol submits his weekly corrections log to the external audit board every fifth day — that submission is a matter of guild charter and cannot be withheld, and the audit board holds a copy.',
+    failResult: 'This path is closed here, but Record Keeper Parol submits his weekly corrections log to the external audit board every fifth day — that submission is a matter of guild charter and cannot be withheld, and the audit board holds a copy. The audit board office is in the trade registration annex, two buildings north of the records room, staffed by a different clerk under a different chain of authority. A corrections log that cannot be suppressed at the source may still be readable at the receiving end.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -245,7 +245,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Labor authorities now investigating your records inquiry', 'complication', `soreheim-records-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The intake ledger has two different inks in the correction column — original entries in brown, alterations in black. Four workers listed as "transferred" have no destination recorded. One entry for a worker named Grett has a line drawn through it and nothing written underneath. Parol watches you notice. He doesn't explain.`;
+        G.lastResult = `The intake ledger has two different inks in the correction column — original entries in brown, alterations in black. Four workers listed as "transferred" have no destination recorded. One entry for a worker named Grett has a line drawn through it and nothing written underneath. Parol watches you notice. He doesn't explain. The alteration ink is consistent across six weeks of corrections — the same pen, the same hand, always after the fact. This is not clerical error. This is a second author working the ledger systematically.`;
         addJournal('Worker records show signs of deliberate alteration', 'evidence', `soreheim-records-altered-${G.dayCount}`);
       } else {
         G.lastResult = `The records room smells of dry ink and the dust of old intake forms. Parol straightens the stack on his counter until the edges are perfectly aligned, corrects a form that was already flush. "Employment documentation is restricted to authorized labor administration access." He sets a small stamped card on the counter — the request form for authorization. Two weeks to process, the card says, in print already worn soft from handling. Behind him, the cabinet is locked. The key is on a pull cord around his neck, and he does not look at the cabinet while he speaks.`;
@@ -263,7 +263,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Craft', 'Integrity', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
-    failResult: 'This path is closed here, but Craftsperson Aldren enters his standards complaints in the guild grievance log, which is a charter-protected public document — the log desk is in the guild hall annex, not the administration building.',
+    failResult: 'This path is closed here, but Craftsperson Aldren enters his standards complaints in the guild grievance log, which is a charter-protected public document — the log desk is in the guild hall annex, not the administration building. The annex clerk has no standing order to restrict access to grievance entries. A log that records the specific pieces Aldren flagged, dated, would show which tolerances were failing and when the complaints stopped being filed. That gap would be its own record.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -284,7 +284,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.isolation++;
         addJournal('Craftspeople now wary of external scrutiny', 'complication', `soreheim-craft-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Aldren runs his thumb along a finished edge and shows you the result — a burr that shouldn't be there. "Quota demands speed. Speed produces this." He drops the piece back onto the bench. "I don't set the targets." He picks up a file and starts correcting the burr himself, off the clock.`;
+        G.lastResult = `Aldren runs his thumb along a finished edge and shows you the result — a burr that shouldn't be there. "Quota demands speed. Speed produces this." He drops the piece back onto the bench. "I don't set the targets." He picks up a file and starts correcting the burr himself, off the clock. The filing sound is slow and even — he's correcting at the pace the work deserves, not the pace the quota requires. Nobody tells him not to. The workshop is too loud to hear the difference.`;
         addJournal('Craftsperson confirmed craft standard compromise', 'evidence', `soreheim-craft-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `The workshop smells of limestone dust and oil-blackened chisel steel. Aldren keeps both hands on the piece he's working — a corbel block, three-quarters rough, the finished face turned away from the door. "Standards are set by the quota office." He doesn't look up. Near the window, two other workers have gone quiet; their hammers strike in the same slow cadence Aldren sets, slower than quota pace. The workshop is loud with tools and none of it is conversation. A newer apprentice looks up once and remembers not to.`;
@@ -409,7 +409,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Authority', 'Structure', 'Power', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
-    failResult: 'This path is closed here, but the morning briefing is open to floor supervisors, and supervisors are permitted to bring a registered trade observer — the guild hall issues observer tokens at the front desk, no authorization stamp required.',
+    failResult: 'This path is closed here, but the morning briefing is open to floor supervisors, and supervisors are permitted to bring a registered trade observer — the guild hall issues observer tokens at the front desk, no authorization stamp required. A token holder seated in the back row of the briefing room would hear every directive read aloud, including which ones carry the northern header stamp and which are still originating from Bresn. The directives are numbered. The gaps in that numbering would show which ones never get read out in full.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -428,7 +428,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Local leadership now viewing you as potential threat', 'complication', `soreheim-authority-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The directive board outside the administration hall has two stamp marks on every notice — Soreheim Alliance standard, and a second mark in the upper right corner. That second mark wasn't on the board two months ago. The workers passing it don't look at it.`;
+        G.lastResult = `The directive board outside the administration hall has two stamp marks on every notice — Soreheim Alliance standard, and a second mark in the upper right corner. That second mark wasn't on the board two months ago. The workers passing it don't look at it. They looked at it the first week. Now they walk past without breaking stride, the way people walk past a thing they have decided to accept. The second mark has become part of the wallpaper. That transition took less than four weeks.`;
         addJournal('Authority structure reorganization confirmed', 'evidence', `soreheim-authority-modified-${G.dayCount}`);
       } else {
         G.lastResult = `The administration building runs its posted schedule down to the quarter-hour. Meetings at the posted times, staff at the posted desks, the corridor lamps trimmed to an even burn. A clerk carries a stamped folio across the hall, another passes the opposite direction; neither looks at the other. Who sets the agenda behind the posted schedule is a question that requires someone on the inside of those meetings to answer. The door to the administrator's office is closed. A clerk at a desk outside it notes the time of every knock and the name of everyone who waits.`;
@@ -480,7 +480,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Resistance', 'Suppression', 'Fear', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
-    failResult: 'This path is closed here, but the reassignment notices themselves are filed in the personnel board record, which is posted by guild charter at the annex entrance — the pattern is readable in the dates without requiring anyone to speak.',
+    failResult: 'This path is closed here, but the reassignment notices themselves are filed in the personnel board record, which is posted by guild charter at the annex entrance — the pattern is readable in the dates without requiring anyone to speak. A reassignment dated within three days of a quota objection is not random correlation when it happens four times running. The board shows names and dates. The grievance log shows names and dates. The overlap is arithmetic, not inference.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -499,7 +499,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Inquiry causing worker retaliation acceleration', 'complication', `soreheim-suppression-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `In the common housing block, no one eats near the door. Groups of three or more don't stay together after the meal. Anyone who meets your eyes looks away and doesn't look back. The space between people is practiced — wide enough to not be part of whatever conversation you're about to have.`;
+        G.lastResult = `In the common housing block, no one eats near the door. Groups of three or more don't stay together after the meal. Anyone who meets your eyes looks away and doesn't look back. The space between people is practiced — wide enough to not be part of whatever conversation you're about to have. The benches are long enough to seat eight. Nobody sits beside someone they don't already know. The hall has enough room and not enough safety, and the workers have done the arithmetic on both.`;
         addJournal('Worker suppression confirmed through behavioral patterns', 'evidence', `soreheim-suppression-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `The meal hall smells of boiled barley and damp wool. Every conversation ends when it reaches a certain threshold. Workers talk freely about weather, quotas, sore backs — a thumbnail split under a chisel edge, a leaking bootseam — the ordinary griefs that make a day's labor sayable. Then you ask about objections or organizing and the words stop coming. Not hostility — stoppage. As though that part of the conversation simply doesn't exist. A man across the table reaches for the salt crock instead of answering, and holds it a little too long.`;
@@ -517,7 +517,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Survival', 'Vulnerability', 'Pressure', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
-    failResult: 'This path is closed here, but the housing allocation ledger is posted at the residential block entrance by district ordinance — names, dependency counts, and tenure status in a single column, no authorization required to read the board.',
+    failResult: 'This path is closed here, but the housing allocation ledger is posted at the residential block entrance by district ordinance — names, dependency counts, and tenure status in a single column, no authorization required to read the board. Cross-referencing those names against the displacement log shows which workers with children or elderly dependents were cut first. The tenure column shows how long each person had worked here before removal. That sequence is a map of who was most exposed and who got targeted first.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -539,7 +539,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The ration queue at the central market runs past forty people and nobody in it is talking. They stand with the particular stillness of people who have been standing in queues like this long enough to stop expecting them to move faster. Three of the people near the back have work gloves still on — came straight from the shift yard, afraid to lose their place.`;
         addJournal('Worker vulnerability and fear patterns confirmed', 'evidence', `soreheim-survival-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Workers at the meal hall eat quickly and don't linger. A table of four breaks up as soon as the plates are cleared. The windows are on the north side — facing the quota board on the administration building across the yard. The board is visible from where they sit.`;
+        G.lastResult = `Workers at the meal hall eat quickly and don't linger. A table of four breaks up as soon as the plates are cleared. The windows are on the north side — facing the quota board on the administration building across the yard. The board is visible from where they sit. Nobody has closed the shutters. Nobody talks about the board. They eat with their backs to the window, which is the most information that window has to give without words.`;
         addJournal('Worker vulnerability analysis incomplete without deeper interviews', 'evidence', `soreheim-survival-blocked-${G.dayCount}`);
       }
 
@@ -618,7 +618,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Proof', 'Systems', 'Exposure', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
-    failResult: 'This path is closed here, but the two-year-old capacity survey was submitted to the guild council as part of a public works assessment — that report is bound and filed at the council clerk office, available on request without labor administration authorization.',
+    failResult: 'This path is closed here, but the two-year-old capacity survey was submitted to the guild council as part of a public works assessment — that report is bound and filed at the council clerk office, available on request without labor administration authorization. The survey recorded sustainable daily output under normal conditions: crew size, equipment state, seasonal adjustment. Placed next to the current quota baseline and this month\'s actual output, those three numbers produce a comparison that requires no interpretation. The arithmetic does the work.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -640,7 +640,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The baseline figures don't cite a source document — they appear as given, handed down from somewhere upstream. The current workforce's monthly output, when plotted against those baselines, fails every week without exception. Either the workforce is collectively failing by the same margin simultaneously, or the baselines were chosen to produce that result. Both can't be true at once. The entries for the third week of last season stop mid-page and resume four days later; the gap carries no closing notation, no suspension mark, nothing.`;
         addJournal('Quota system rigging strongly suggested by data analysis', 'evidence', `soreheim-proof-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The quota documentation references a capacity survey as its source material. The capacity survey is in a separate archive. That archive is authorized access only. The person who holds that authorization is currently in a review meeting that began this morning and has no posted end time.`;
+        G.lastResult = `The quota documentation references a capacity survey as its source material. The capacity survey is in a separate archive. That archive is authorized access only. The person who holds that authorization is currently in a review meeting that began this morning and has no posted end time. On the public-access shelf, one volume down from where the capacity survey should be, there is a gap. Something was there and was removed. The gap is three fingers wide and the shelf dust shows the outline of what it held.`;
         addJournal('Quota system proof incomplete without capacity documentation', 'evidence', `soreheim-proof-incomplete-${G.dayCount}`);
       }
 
@@ -694,7 +694,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
-    failResult: 'This path is closed here, but the administration archive has a secondary entrance through the north corridor that is unstaffed after second bell — the courier receipts are filed in the outer cabinet, not the locked interior stacks.',
+    failResult: 'This path is closed here, but the administration archive has a secondary entrance through the north corridor that is unstaffed after second bell — the courier receipts are filed in the outer cabinet, not the locked interior stacks. The outer cabinet is a two-drawer lateral chest beside the window. The receipts inside are sorted by week, not by origin, which means finding the northern correspondence requires reading headers by lamplight rather than pulling a specific index. The corridor lamp stays lit through the night shift.',
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -713,10 +713,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Inquiry interrupted by external coordination operators', 'complication', `soreheim-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
-        G.lastResult = `The courier routing stamps in the dispatch log reference an intermediary station that doesn't appear in Soreheim's standard trade network — a northern relay point. Three separate documents carry a header mark that doesn't match any Soreheim Alliance bureau. Something is signing orders here that didn't originate here.`;
+        G.lastResult = `The courier routing stamps in the dispatch log reference an intermediary station that doesn't appear in Soreheim's standard trade network — a northern relay point. Three separate documents carry a header mark that doesn't match any Soreheim Alliance bureau. Something is signing orders here that didn't originate here. The station code is a three-letter abbreviation: NKV. It appears on documents dated across six weeks — consistent enough to be structural, not occasional. Whatever NKV is, it has been part of this from the start.`;
         addJournal('External coordination of Soreheim displacement confirmed', 'discovery', `soreheim-origin-external-${G.dayCount}`);
       } else {
-        G.lastResult = `One notice on the administration wall has a stamp in the upper corner that doesn't match the others — different proportions, different border. You copy it down before the hall empties for shift change. You don't know what it means yet. You know it doesn't belong.`;
+        G.lastResult = `One notice on the administration wall has a stamp in the upper corner that doesn't match the others — different proportions, different border, the ink slightly darker than the Soreheim Alliance standard. You copy it down before the hall empties for shift change. You don't know what it means yet. You know it doesn't belong. The notices around it are routine: quota cycles, maintenance schedules. This one concerns personnel transfers. Of course it does.`;
         addJournal('External coordination suspected but source not yet identified', 'evidence', `soreheim-origin-unclear-${G.dayCount}`);
       }
 
@@ -732,7 +732,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "Three outbound crates carry a stamp not in the Soreheim registry. No manifest entry.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
-    failResult: 'This path is closed here, but the Iron Compact arbiter Keln Vare holds office inside the shift administration building — the anomalous freight marks fall inside his stated area of oversight.',
+    failResult: 'This path is closed here, but the Iron Compact arbiter Keln Vare holds office inside the shift administration building — the anomalous freight marks fall inside his stated area of oversight. A neutral trade arbiter has standing to request manifest clarification from the dispatch yard without triggering the same authorization chain a private party would face. Whether Vare would use that standing on your behalf is a different question. He already knows the marks are there. He has been choosing not to act on them.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reading shipment routing evidence');
@@ -748,7 +748,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_iron_compact_routing = true;
         addJournal('Shipment routing anomalies linked to Iron Compact relay marks', 'evidence', `soreheim-routing-${G.dayCount}`);
       } else {
-        G.lastResult = `The freight marks run six lines deep on each crate — origin, classification, handler, route, priority, destination. Most match the Soreheim Alliance format you know. Two marks on the third row don't. Different border geometry, different abbreviation set. The anomaly is present. Reading it is a different problem.`;
+        G.lastResult = `The freight marks run six lines deep on each crate — origin, classification, handler, route, priority, destination. Most match the Soreheim Alliance format you know. Two marks on the third row don't. Different border geometry, different abbreviation set. The anomaly is present. Reading it is a different problem. The crate itself is sealed with the standard cord-and-wax closure. The secondary mark is pressed into the wax below the main seal, small enough to miss unless the light is right. Someone put it there deliberately, below eye level.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -781,7 +781,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "Shoulders loose, weight back, eyes on the gate. This yard is paused, not tired.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 70,
-    failResult: 'This path is closed here, but the shift yard is most readable at the bell change when supervisors are occupied with the handover count — the workers move freely for four minutes before the new shift coordinator reaches the gate.',
+    failResult: 'This path is closed here, but the shift yard is most readable at the bell change when supervisors are occupied with the handover count — the workers move freely for four minutes before the new shift coordinator reaches the gate. In those four minutes, the posture of the yard changes. Groups form that don\'t form at any other time. Words get exchanged that don\'t get exchanged under supervision. The yard\'s real social structure is visible in those four minutes more clearly than in any other window of the shift.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reading crowd pressure');
@@ -794,7 +794,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'stealth') {
         G.lastResult = `Three figures near the shift gate without work gloves. One adjusts position every twenty minutes, tracking the yard without appearing to track it. The second watches the meal hall door. The third is mobile — moves when someone lingers. They don't speak to each other. The coverage is continuous and the workers know it. They don't look at the three men directly either.`;
       } else {
-        G.lastResult = `A foreman's eye meets a worker's across the yard and both look down at the same speed. Not quick — practiced. The timing of the look-away is identical, which means it's happened before. They both know something and have both decided, separately or together, to perform not knowing it. The performed ignorance is synchronized. That takes time to develop.`;
+        G.lastResult = `A foreman's eye meets a worker's across the yard and both look down at the same speed. Not quick — practiced. The timing of the look-away is identical, which means it's happened before. They both know something and have both decided, separately or together, to perform not knowing it. The performed ignorance is synchronized. That takes time to develop. The yard has been rehearsing this. Six weeks, based on when the quota cycle changed. The behavior and the timeline match.`;
       }
       addJournal('Shift yard pressure patterns read — coordinated suppression confirmed', 'evidence', `soreheim-pressure-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -806,7 +806,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "The youngest clerk asked why they changed the dating system. Nobody told him.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
-    failResult: 'This path is closed here, but Davel is still at the evening shift tomorrow — bringing something that shows what the dating code maps to may give him a reason to talk.',
+    failResult: 'This path is closed here, but Davel is still at the evening shift tomorrow — bringing something that shows what the dating code maps to may give him a reason to talk. He filed documents for three weeks without knowing what the new system was indexing. He would recognize a translation key if he saw one. He\'s nineteen and working alone in a building that smells of wax and old paper, and he has been waiting for someone to offer him a reason to ask the question he has been not asking.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'building low-pressure rapport');
@@ -818,7 +818,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_davel_clerk = true;
         addJournal('Junior clerk Davel revealed new undecipherable dating system in records', 'intelligence');
       } else {
-        G.lastResult = `Davel takes the food and keeps his hands around the bowl. He was warned — his posture says so. The meal helps. He doesn't leave. He doesn't speak either, not yet. He chews slowly and watches the door. A second visit might be worth more than this one.`;
+        G.lastResult = `Davel takes the food and keeps his hands around the bowl. He was warned — his posture says so. The meal helps. He doesn't leave. He doesn't speak either, not yet. He chews slowly and watches the door. The lamp above the desk behind him is turned low, which means someone told him not to draw attention tonight. A second visit, when whoever warned him is not on shift, might open a different conversation.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -829,7 +829,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "The Compact arbiter's office is inside the shift administration building. Unusual for a neutral party.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
-    failResult: 'This path is closed here, but Vare said even-numbered afternoons during shift administrator reviews — the office runs a posted schedule and the secretary records every name that waits.',
+    failResult: 'This path is closed here, but Vare said even-numbered afternoons during shift administrator reviews — the office runs a posted schedule and the secretary records every name that waits. The waiting area is a bench in the corridor outside the Iron Compact door. Anyone sitting there is visible from the administration hall end of the building. Being seen waiting to speak with the arbiter carries its own signal. Whether that signal is a cost or a useful one depends on what comes out of the meeting.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'making Iron Compact contact');
@@ -843,7 +843,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.iron_compact += 1;
         addJournal('Iron Compact arbiter Keln Vare made first contact — offered registry placement', 'contact_made');
       } else {
-        G.lastResult = `The Iron Compact office door is closed. The secretary looks up, writes down your name without being asked for it, and tells you the arbiter is in quota review meetings. Even-numbered afternoons, shift administrators. The office runs a full schedule. Vare is accessible. He's just not available today.`;
+        G.lastResult = `The Iron Compact office door is closed. The secretary looks up, writes down your name without being asked for it, and tells you the arbiter is in quota review meetings. Even-numbered afternoons, shift administrators. The office runs a full schedule. Vare is accessible. He's just not available today. The secretary's ledger is already open to a page with other names on it — names written today, all in the same time window. The arbiter has been in demand this week.`;
         if (!G.flags) G.flags = {};
         G.flags.located_iron_compact_arbiter = true;
       }
@@ -883,7 +883,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         G.flags.evidence_secured_soreheim = true;
         addJournal('Evidence distributed across three secure caches in Soreheim', 'evidence', `soreheim-cache-${G.dayCount}`);
       } else {
-        G.lastResult = `One location: a loose stone behind the meal hall hearth, dry and recessed enough to hold a folded bundle. Not ideal — a single cache is one search away from gone. But it's tonight's answer and tonight is what matters. The documentation is out of your hands and off your person.`;
+        G.lastResult = `One location: a loose stone behind the meal hall hearth, dry and recessed enough to hold a folded bundle. Not ideal — a single cache is one search away from gone. But it's tonight's answer and tonight is what matters. The documentation is out of your hands and off your person. The hearth smells of wood ash and scorched barley. The stone is loose because the mortar cracked two winters back and no repair order was ever filed. Nobody looks at that corner. That's the best that can be said for it.`;
         G.flags.evidence_secured_soreheim = true;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
@@ -895,7 +895,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "The courier's route doubles back before heading north. Two seals — one I don't recognize.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 78,
-    failResult: 'This path is closed here, but the courier Fess loads his pre-dawn batch from the side window before the relay station supervisor arrives — that window has no standing order to check observer credentials.',
+    failResult: 'This path is closed here, but the courier Fess loads his pre-dawn batch from the side window before the relay station supervisor arrives — that window has no standing order to check observer credentials. Fess is already running by the time the supervisor clocks in; the load manifest gets signed in absentia on a hook by the door. A figure standing near that hook while the batch loads would be close enough to read the seal colors on the outbound packets without needing to touch them.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'intercepting strategic correspondence');
@@ -915,7 +915,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.tracked_courier_destination = true;
       } else {
-        G.lastResult = `The courier glances back once, two streets from the administration building, and changes direction cleanly. The trail ends there. You didn't get the letter. You know the seal color — Relic Strategy Wing red — and that someone thought it was important enough to run a checking route. That's something.`;
+        G.lastResult = `The courier glances back once, two streets from the administration building, and changes direction cleanly. The trail ends there. You didn't get the letter. You know the seal color — Relic Strategy Wing red — and that someone thought it was important enough to run a checking route. That's something. The doubled-back route adds time to a delivery that didn't need time added. The only reason to run it is to check for followers. They know someone is watching. They have known for a while.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       }
@@ -940,9 +940,9 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'magic') {
         G.lastResult = `"Older. Carries a sealed archive case, never sets it down." The organizer mimes the grip — two-handed, close to the body. "Asks which records have been altered, specifically. Doesn't ask about the workers. Asks about the documents." Someone moving through the same evidence trail, interested in the paper, not the people. One day ahead or one day behind — the organizer can't tell.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `"Doesn't ask questions," the organizer says. "Watches. But the day after you talk to someone, that person gets a visit from a stranger with sharper questions than yours." The pattern is clean: you open the door, someone else walks through it. They're harvesting your network from one step behind. Every name you surface becomes a target the next morning.`;
+        G.lastResult = `"Doesn't ask questions," the organizer says. "Watches. But the day after you talk to someone, that person gets a visit from a stranger with sharper questions than yours." The pattern is clean: you open the door, someone else walks through it. They're harvesting your network from one step behind. Every name you surface becomes a target the next morning. The organizer describes the watcher's position: always near the meal hall side, never the yard. Someone who knows where the candid conversations happen.`;
       } else {
-        G.lastResult = `"Well-dressed, speaks to administrators only. Never the workers." The organizer folds her arms. "Claims to be a neutral party auditing for compliance. But the administrators he visits are always the ones you spoke to first." Someone is using your trail to map the soft points in the administration — the people already willing to talk.`;
+        G.lastResult = `"Well-dressed, speaks to administrators only. Never the workers." The organizer folds her arms. "Claims to be a neutral party auditing for compliance. But the administrators he visits are always the ones you spoke to first." Someone is using your trail to map the soft points in the administration — the people already willing to talk. The organizer has seen him twice: once at the records building, once outside the quota archive. Both times, the day after you were there.`;
       }
 
       G.lastResult += ` Operating the same route. Not the same purpose.`;
@@ -1005,11 +1005,11 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
-  failResult: 'This path is closed here, but the board is refreshed at the morning bell — the posting clerk pins the new notices before the yard fills and the crowd has not yet gathered to read them.',
+  failResult: 'This path is closed here, but the board is refreshed at the morning bell — the posting clerk pins the new notices before the yard fills and the crowd has not yet gathered to read them. That window, before the shift bell and before the crowd, is also when the board is closest to the administration window — the clerk walks the notices from the window directly. A second pair of eyes on what gets pinned, and what gets removed, before either the crowd or the supervisors arrive.',
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A quota cycle update from the labor administration is still pinned at the top. The safety stop schedule below it has been there since the last bell change. Nothing that changes the picture.';
+      G.lastResult = 'The board has nothing new since this morning. A quota cycle update from the labor administration is still pinned at the top. The safety stop schedule below it has been there since the last bell change. Nothing that changes the picture. What has changed is the corner of the board where private notices used to go — handwritten, worker to worker, shift availability swaps, tool loans. That corner is empty. It has been empty for six weeks. Someone took those notices down and did not put up a policy explaining why.';
       return;
     }
     G.flags[key] = true;

@@ -76,7 +76,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Magistrate alerted to evidence inquiry attempt', 'complication', `shirshal-evidence-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Thyn grants access to the current logs but not the archived originals. What's here has been edited — incident descriptions revised toward clinical neutrality, three entries stamped resolved with no supporting documentation. The edits are careful enough to survive a casual review. A systematic one would catch them.`;
+        G.lastResult = `Thyn grants access to the current logs but not the archived originals. What's here has been edited — incident descriptions revised toward clinical neutrality, three entries stamped resolved with no supporting documentation. He keeps his hands near the shelf edge as you read, ready to close the cabinet. The edits are careful enough to survive a clerk's casual review. A systematic comparison against original field notes would catch them — and the field notes are in the restricted section.`;
         addJournal('Evidence logs show signs of careful alteration', 'evidence', `shirshal-evidence-altered-${G.dayCount}`);
       } else {
         G.lastResult = `Thyn shakes his head before you finish the request, a small motion, preemptive. "Anomaly records aren't open access. Bring magistrate authorization and I'll set aside time." He's not hostile — just practiced. The refusal has been rehearsed recently; the phrasing is too complete, too unbothered. He's had this conversation before, probably more than once in the past few weeks, and the answer came back the same each time.`;
@@ -156,7 +156,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The resolved stack runs twice the usual depth for this quarter. Cases that should carry months of documentation close in a week, two weeks. The verification steps — witness confirmation, final evidence log, family notification — appear on the form template but the boxes beneath them are empty. The signature at the bottom is always there. Everything above it is missing.`;
         addJournal('Record review confirmed case-closure acceleration', 'evidence', `shirshal-closure-accelerated-${G.dayCount}`);
       } else {
-        G.lastResult = `The closure records are dense with cross-references you'd need the procedural code index to parse. Patterns are in there — you can see the acceleration in the dates — but matching them to violations requires a reference guide Brother Tam keeps locked in the inner office.`;
+        G.lastResult = `The closure records are dense with cross-references you'd need the procedural code index to parse. Patterns are in there — you can see the acceleration in the dates, cases folding closed in days where months of process used to run — but matching specific entries to procedural violations requires a reference guide Brother Tam keeps locked in the inner office. The lamp oil smell in the records room is strong; someone works late in here. The dust on the restricted shelf has been disturbed recently.`;
         addJournal('Closure pattern analysis inconclusive', 'evidence', `shirshal-closure-unclear-${G.dayCount}`);
       }
 
@@ -307,7 +307,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Magistrate formally prohibits further inquiry', 'complication', `shirshal-magistrate-warning-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The magistrate chooses words with visible care. "Shirshal serves within a broader system. Decisions at that level involve considerations I'm not positioned to detail." He offers nothing further. But his posture — shoulders drawn in, eyes tracking toward the passage door — says something he didn't.`;
+        G.lastResult = `The magistrate chooses words with visible care. "Shirshal serves within a broader system. Decisions at that level involve considerations I'm not positioned to detail." He offers nothing further. But his posture — shoulders drawn in, eyes tracking toward the passage door — says something he didn't. The lamp on his desk is unlit despite the dim stone corridor; the morning packet sits at the corner of his writing table, unfolded and already read. He knows what the day holds before it arrives.`;
         addJournal('Magistrate hinted at external authority influence', 'evidence', `shirshal-magistrate-hint-${G.dayCount}`);
       } else {
         G.lastResult = `"Magistrate operations are internal to this hierarchy." He's civil, professionally so — the kind of civil that has been practiced until it produces no friction and no opening. The conversation ends without ceremony: he turns to the writing desk, and the session closes itself. On the way out, you pass three other magistrates in the corridor. None of them meet your eyes. Someone told them you'd be coming, or told them enough that your arrival required no introduction.`;
@@ -349,10 +349,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('You are caught conducting surveillance in restricted area', 'complication', `shirshal-stealth-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The meeting lasts less than twenty minutes. Documents change hands twice — once arriving, once departing. The visitors initiate and close the exchange; the magistrate waits between their movements. You can't hear the words from this distance, but the posture of the room is legible: one side gives instructions, the other receives them.`;
+        G.lastResult = `The meeting lasts less than twenty minutes. Documents change hands twice — once arriving, once departing. The visitors initiate and close the exchange; the magistrate waits between their movements, hands folded on the table in front of him, not reaching. You can't hear the words from this distance, but the posture of the room is legible: one side gives instructions, the other receives them. The magistrate doesn't open the packet until the visitors have left. He reads it without sitting down.`;
         addJournal('Surveillance confirmed magistrate-external coordination', 'evidence', `shirshal-stealth-coordination-${G.dayCount}`);
       } else {
-        G.lastResult = `The magistrates and their visitors are deliberate about location and timing — never the same corridor twice, never the same hour. You get glimpses: a sealed packet pressed into a hand, a nod across the archive threshold. Enough to know the meetings are happening. Not enough to document what passes in them.`;
+        G.lastResult = `The magistrates and their visitors are deliberate about location and timing — never the same corridor twice, never the same hour. The archive access rotates. The back storerooms are used once then abandoned for a week. You get glimpses: a sealed packet pressed into a hand, a nod across the archive threshold, the particular angle of a door held for someone departing quickly. Enough to know the meetings are happening with regularity and intent. Not enough to document what passes in them or who initiates.`;
         addJournal('Surveillance inconclusive', 'evidence', `shirshal-stealth-unclear-${G.dayCount}`);
       }
 
@@ -389,10 +389,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('You are caught attempting to access sealed documents', 'complication', `shirshal-stealth-arrest-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Two sheets before you have to pull back: case numbers with notations beside them — "defer," "witness to be managed" — and a reference code at the top of the page that doesn't match any administrative category you've encountered in Shirshal's public registers. Whoever authored these documents didn't intend them for this hall's filing system.`;
+        G.lastResult = `Two sheets before you have to pull back: case numbers with notations beside them — "defer," "witness to be managed," "outcome established" — and a reference code at the top of the page that doesn't match any administrative category you've encountered in Shirshal's public registers. The paper smells of travel — ink and foreign parchment, not the chalk-and-stone dust of the archive. Whoever authored these documents didn't intend them for this hall's filing system; they arrived from somewhere else and were placed here by someone who already knew where they'd land.`;
         addJournal('Partial document access revealed case direction patterns', 'evidence', `shirshal-stealth-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The packets are never left unattended. Whoever handles them in this hall does so in view of at least one other person at all times. This is not standard practice — it's a protocol someone specifically designed. Getting to the documents would require a distraction you don't currently have a way to arrange.`;
+        G.lastResult = `The packets are never left unattended. Whoever handles them in this hall does so in view of at least one other person at all times — the handoff always witnessed, the sleeve always sealed before it moves. This is not standard practice for administrative correspondence in any hall you've seen; it's a protocol someone specifically designed to prevent exactly what you're attempting. The corridor has fresh chalk marks on the stone at the archive entry — footfall counting, or a spacing guide. Getting to the documents would require a distraction you don't currently have a way to arrange.`;
         addJournal('Document access impossible', 'evidence', `shirshal-stealth-blocked-${G.dayCount}`);
       }
 
@@ -432,7 +432,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The procedures have been updated in the last six weeks — evidence standards relaxed, witness thresholds lowered, closure criteria broadened. Each change has a justification note attached in the margin: "modernization of process," "efficiency of review," "contextual assessment permitted." The notes are all in the same handwriting, the same ink, and carry no signature. Whoever authored the justifications didn't attach their name to any of them.`;
         addJournal('Lore research confirmed procedure revisions', 'evidence', `shirshal-lore-revision-${G.dayCount}`);
       } else {
-        G.lastResult = `The procedural texts are dense with cross-reference codes and citation chains. Changes are present — the margin dates confirm recent amendments — but tracing which changes matter and why would take someone with a practitioner's fluency in Shirshal's legal taxonomy. You don't have that yet.`;
+        G.lastResult = `The procedural texts are dense with cross-reference codes and citation chains — each section pointing to another, the amendments nested inside footnotes that require the index volume to parse. Changes are present; the margin dates confirm amendments in the last six weeks, the ink newer than everything around it. But tracing which changes functionally matter, and why they matter in combination, would take someone with a practitioner's fluency in Shirshal's legal taxonomy and years in its proceedings. You don't have that yet. The archive assistant watches you from the doorway without speaking.`;
         addJournal('Procedure analysis inconclusive', 'evidence', `shirshal-lore-unclear-${G.dayCount}`);
       }
 
@@ -469,10 +469,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Authority discourages your doctrine research', 'complication', `shirshal-lore-discouraged-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The older teaching volumes center on truth as the precondition of justice. The current quarter's materials center on order as the precondition of truth. The shift is framed as maturation of understanding. The older volumes are shelved in the back section. The current materials are displayed at the reading tables.`;
+        G.lastResult = `The older teaching volumes center on truth as the precondition of justice — evidence verified, testimony corroborated, outcomes traceable to documented facts. The current quarter's materials center on order as the precondition of truth: stability first, accuracy where stability permits. The shift is framed throughout as maturation of understanding. The older volumes are shelved spine-in at the back of the archive room. The current materials are displayed face-out at the reading tables. Someone arranged that difference.`;
         addJournal('Lore research confirmed doctrine philosophical shift', 'evidence', `shirshal-lore-shift-${G.dayCount}`);
       } else {
-        G.lastResult = `The doctrine texts are layered with generations of annotation. The shift in emphasis is there — later hands write about order more than earlier ones do — but without knowing which annotations are authoritative and which are marginal, pinning the change to a specific revision is beyond what you can do from the reading room alone.`;
+        G.lastResult = `The doctrine texts are layered with generations of annotation, each hand adding a gloss to the one before it — ink stacked on ink, the parchment thick with accumulated interpretation. The shift in emphasis is present: later hands write about order more than earlier ones, and the word "stability" appears in margins where earlier annotators wrote "verification." But without knowing which annotations carry institutional authority and which are marginal commentary, pinning the philosophical change to a specific revision point is beyond what you can establish from the reading room alone.`;
         addJournal('Doctrine interpretation analysis inconclusive', 'evidence', `shirshal-lore-unclear-${G.dayCount}`);
       }
 
@@ -509,10 +509,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('You are removed from evidence area for unauthorized examination', 'complication', `shirshal-craft-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Three documents, compared side by side, show inconsistencies: seal impressions that are too even, signature baseline that doesn't waver the way a hand writing under time pressure would. The forgery is good — it passed the clerks who processed these. It didn't need to be better than that.`;
+        G.lastResult = `Three documents, compared side by side, show inconsistencies: seal impressions that are too even across their field, the wax depth uniform where a hand-pressed die always varies with angle and heat. The signature baseline doesn't waver the way a hand writing under time pressure would — the pressure strokes are too consistent. The forgery is good; it passed the clerks who processed these closure records without question. It was calibrated to that standard. It didn't need to be better than that, and whoever built it knew it.`;
         addJournal('Craft analysis found evidence of document forgery', 'evidence', `shirshal-craft-alteration-${G.dayCount}`);
       } else {
-        G.lastResult = `The documents hold up under everything you can check with your eyes and hands. Either they're genuine, or the forgery was executed by someone who knows exactly what verification looks like in Shirshal's system. You can't rule either out without tools you don't have here.`;
+        G.lastResult = `The documents hold up under everything you can check with your eyes and hands — the seal impressions look consistent, the signature lines don't betray obvious mechanical repetition, the parchment age matches the dated period. Either they're genuine, or the forgery was executed by someone who knows exactly what verification looks like in Shirshal's system and calibrated to that threshold precisely. You can't rule either out without comparative samples and tools you don't have access to in this evidence room.`;
         addJournal('Document authenticity assessment inconclusive', 'evidence', `shirshal-craft-unclear-${G.dayCount}`);
       }
 
@@ -552,7 +552,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The seals are close — very close — but two of the four show identical impression depth on details that should vary with application angle. The signatures hold up individually but don't match across the three letters the way the same hand would across different writing conditions. The correspondence is designed to pass a first and second check. It doesn't pass a third.`;
         addJournal('Craft analysis found evidence of credential forgery', 'evidence', `shirshal-craft-credentials-${G.dayCount}`);
       } else {
-        G.lastResult = `The seals hold. The signatures hold. Whatever tools or knowledge would expose these as forgeries, you don't currently have access to them. The correspondence reads as genuine regional authority — and that's the only conclusion available to you from what's in front of you now.`;
+        G.lastResult = `The seals hold. The signatures hold. The paper stock, the ink weight, the impression depth — everything reads within expected range for regional magistrate correspondence of this period. Whatever tools or specialist knowledge would expose these as forgeries, you don't currently have access to them in this room under these conditions. The correspondence reads as genuine regional authority — directed, authenticated, legitimately issued. That's the only conclusion available to you from what's in front of you, and it's the conclusion whoever made these intended you to reach.`;
         addJournal('Credential authenticity assessment inconclusive', 'evidence', `shirshal-craft-unclear-${G.dayCount}`);
       }
 
@@ -625,10 +625,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('You are viewed as destabilizing justice by soliciting victim complaints', 'complication', `shirshal-victim-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Three people, separately, at different points in the market. A landlord, a craftsman, a family waiting on a disputed inheritance. Different cases, different magistrates, same pattern: active proceedings closed without resolution, no explanation offered, no right of query. The accounts are uncoordinated but they rhyme precisely.`;
+        G.lastResult = `Three people, separately, at different points in the market. A landlord near the salt scales. A craftsman whose work contract dispute was closed before arbitration ran. A family waiting on a disputed inheritance, the eldest son still carrying the original filing receipt folded in his coat pocket. Different cases, different magistrates, same pattern: active proceedings closed without resolution, no explanation offered, no acknowledged right of query. The accounts are uncoordinated — they haven't spoken to each other. But they rhyme precisely.`;
         addJournal('Multiple victim testimonies gathered', 'evidence', `shirshal-victim-testimony-${G.dayCount}`);
       } else {
-        G.lastResult = `The people with abandoned cases don't speak readily. The landlord near the grain exchange spots the context of your question and shakes his head without explanation. A woman whose inheritance proceeding was closed gestures you away from her stall. They've been warned — directly or by example — that revisiting their cases invites additional attention from the hall.`;
+        G.lastResult = `The people with abandoned cases don't speak readily. The landlord near the grain exchange spots the context of your question and shakes his head before you've finished asking it. A woman whose inheritance proceeding was closed three weeks ago gestures you firmly away from her stall — hands flat, the motion practiced. A third person, a craftsman whose name appeared in the public docket twice, turns away when you approach. They've been warned — directly or by someone who made an example — that revisiting their cases invites additional attention from the hall.`;
         addJournal('Victims remain silent about case abandonment', 'evidence', `shirshal-victim-silent-${G.dayCount}`);
       }
 
@@ -668,7 +668,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The investigator admits, quietly and without preamble, that they've been keeping notes. "Not formal records. Personal notes." They don't show you. They hold the edge of a pocket where paper crinkles when they move. "I'd need to think about who else sees them." Fear is the word they don't say, but it's present in how long they pause before each sentence.`;
         addJournal('Investigator shows defection potential but hesitates', 'evidence', `shirshal-defection-close-${G.dayCount}`);
       } else {
-        G.lastResult = `Every investigator you approach today gives you a version of the same answer: Shirshal's system is sound, procedures are working, they have no concerns to share. The consistency is itself a tell — people with genuine confidence in a system don't use the same phrasing to describe it. Someone has briefed them recently.`;
+        G.lastResult = `Every investigator you approach today gives you a version of the same answer: Shirshal's system is sound, procedures are working, they have no concerns to share. Two of them use the phrase "confidence in the framework" unprompted. A third says "institutional trust is the foundation of effective process" without being asked anything about trust. The consistency is itself a tell — people with genuine confidence in a system don't reach for the same phrasing simultaneously. Someone has briefed them recently and recently enough that the language hasn't worn down to individual variation yet.`;
         addJournal('Investigators remain publicly loyal', 'evidence', `shirshal-defection-blocked-${G.dayCount}`);
       }
 
@@ -707,7 +707,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Conspiracy orchestrators directly warn you to leave Shirshal', 'complication', `shirshal-conspiracy-threat-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The pattern is legible: forged authorizations, accelerated closures, altered records, witnesses managed out of proceedings. The mechanism is visible across eight separate documentation threads. What's missing is the origin — who issued the directive, where The House operates from, what purpose the suppressed cases serve. The architecture of the corruption is clear. The builders remain outside your current reach.`;
+        G.lastResult = `The pattern is legible: forged authorizations, accelerated closures, altered records, witnesses managed out of proceedings. The mechanism is visible across eight separate documentation threads — a consistent structure operating behind Shirshal's hall without appearing in its records. What's missing is the origin: who issued the first directive, where The House operates from as a physical and institutional address, what specific purpose the suppressed cases serve. The architecture of the corruption is clear. The builders remain outside your current reach and apparently aware of how close you are.`;
         addJournal('Substantial corruption evidence compiled', 'evidence', `shirshal-conspiracy-substantial-${G.dayCount}`);
       } else {
         G.lastResult = `The individual threads are real — missing statements, altered logs, accelerated closures, forged seals on correspondence that shouldn't exist. But demonstrating they're connected rather than coincidental requires the link between the directive packets and the specific case outcomes they produced: who issued the instruction, which case number changed in response, on what date the record was altered. That chain is currently missing two nodes. Both are in records you don't yet have access to.`;
@@ -747,7 +747,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.flags.found_tazren_case_erasure = true;
         addJournal('Tazren precedent: six re-adjudications reversing original rulings — systematic case-by-case erasure', 'evidence', `shirshal-tazren-cases-${G.dayCount}`);
       } else {
-        G.lastResult = `The Tazren citations are there — fourteen of them, clearly marked. But the re-adjudication records sit behind a classification level that requires magistrate sponsorship to access. The shelf label is visible. The cases are listed by number. What happened inside each of them is behind a door you can't currently open.`;
+        G.lastResult = `The Tazren citations are there — fourteen of them, clearly marked in the index with their original ruling dates. But the re-adjudication records, the ones that would show what changed inside each case and on whose authority, sit behind a classification level that requires magistrate sponsorship to access. The chalk shelf label is visible. The case numbers are legible. The archive smells of old parchment and lamp oil, undisturbed and cool. What happened inside each re-adjudication is behind a door that requires a magistrate's name attached to a written request.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -794,13 +794,13 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The hearing follows procedure precisely. Too precisely — every objection is overruled with the same citation, every ruling uses identical phrasing. This isn't a magistrate making judgments; this is a magistrate executing predetermined outputs. The hearing form is being used as a delivery mechanism for decisions that were made elsewhere.`;
+        G.lastResult = `The hearing follows procedure precisely. Too precisely — every objection is overruled with the same citation, every ruling uses identical phrasing, the magistrate's hand movements between documents following a sequence that looks rehearsed rather than responsive. This isn't a magistrate making judgments; this is a magistrate executing predetermined outputs in the sequence they arrived. The hearing form is being used as a delivery mechanism for decisions that were made elsewhere, by someone who isn't in the room.`;
       } else if (arch === 'magic') {
-        G.lastResult = `The language of the ruling contains a phrase that doesn't appear in any public doctrine document: "per the administrative continuity resolution." An internal category with no public referent. The ruling cites law that isn't publicly accessible. The magistrate issued it without citation anxiety — they know it exists. It exists somewhere that isn't the public archive.`;
+        G.lastResult = `The language of the ruling contains a phrase that doesn't appear in any public doctrine document: "per the administrative continuity resolution." An internal category with no public referent — no index entry, no archive shelf, no posted charter. The ruling cites law that isn't publicly accessible and was issued without citation anxiety. The magistrate read the phrase from a prepared document without hesitation. They know it exists and know exactly what it authorizes. It exists somewhere that isn't the public archive, and it carries binding force here.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `The losing party's reaction is notable for its absence. No protest, no shock. They expected this outcome. Either they'd been informed privately, or they've seen enough hearings to know the result before they enter. The hall's theater of justice isn't for the parties involved — it's for the record.`;
+        G.lastResult = `The losing party's reaction is notable for its absence. No protest, no visible shock, no whispered consultation with the person beside them. They expected this outcome — their shoulders drop as the ruling is read, not in surprise but in confirmation of something already accepted. Either they'd been informed privately before they arrived, or they've attended enough hearings in this hall to read the result before it's spoken. The theater of justice runs for the record, not for the parties standing in it.`;
       } else {
-        G.lastResult = `The winning party has a representative seated three rows behind them who takes notes throughout. Not a lawyer — they make no procedural motions. But when the ruling is issued, the representative leaves first. The party follows. Someone off-record is managing this hearing from the public gallery.`;
+        G.lastResult = `The winning party has a representative seated three rows behind them who takes notes throughout the proceeding. Not a lawyer — they make no procedural motions, file no documents, speak to no clerk. They simply record. When the ruling is issued in the winning party's favor, the representative sets down the pen and leaves first; the party follows a half-step behind, watching the representative rather than the magistrate. Someone off-record is managing this hearing from the public gallery, and the party they represent knows it.`;
       }
       addJournal('Justice hall hearing: predetermined outcomes, hidden doctrine citations, off-record management from gallery', 'evidence', `shirshal-hearing-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -829,7 +829,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.factionHostility.oversight_collegium += 1;
         addJournal('faction', 'Oversight Collegium liaison Parro: ready to escalate if given ghost visitor correlation evidence', `shirshal-collegium-${G.dayCount}`);
       } else {
-        G.lastResult = `The Collegium's reception clerk is pleasant and immovable. Parro's schedule requires a written introduction from a registered party in an active case — no exceptions, no informal arrangements. The procedure isn't hostile; it's just closed. The Collegium doesn't open informally for anyone, which is either integrity or a useful barrier depending on who's trying to get through it.`;
+        G.lastResult = `The Collegium's reception clerk is pleasant and immovable. Parro's schedule requires a written introduction from a registered party in an active case — no exceptions, no informal arrangements, nothing passed through a third party. The desk is clean, the lamp trimmed, the procedure the clerk describes clearly recited from memory. It isn't hostile; it's just entirely closed. The Collegium doesn't open informally for anyone. Whether that's institutional integrity or a useful barrier depends entirely on who's trying to get through it and why.`;
         if (!G.flags) G.flags = {};
         G.flags.located_oversight_collegium_shirshal = true;
       }
@@ -846,7 +846,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'observing harbor night activity');
 
-      G.lastResult = `Three vessels are moored under low lanterns. Two were impounded in re-adjudicated cases — property transfers currently under "administrative review." Their former owners stand at the pier's edge and watch them. They don't speak to each other. They're watching something they no longer have legal claim to but haven't emotionally released. The harbor holds what the justice hall took.`;
+      G.lastResult = `Three vessels are moored under low lanterns at the east pier, the water black and still between them. Two were impounded in re-adjudicated cases — property transfers currently classified under "administrative review," which means no access, no timeline, no appeal window posted. Their former owners stand at the pier's edge separately, not together — they haven't found each other yet, or have decided not to. They watch without speaking. They're watching something they no longer hold legal claim to but haven't released in any other sense. The harbor holds what the justice hall took and keeps it visible.`;
       addJournal('Harbor at night: impounded vessels from re-adjudicated cases — former owners still watching', 'discovery', `shirshal-harbor-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
@@ -868,7 +868,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_corin_magistrate = true;
         addJournal('contact', 'Magistrate Corin: refused re-adjudication, transferred, has original case files with her unauthorized copies', `shirshal-corin-${G.dayCount}`);
       } else {
-        G.lastResult = `The village knows who she is. Two people point toward the same cottage at the coastal edge without needing to ask for clarification. But neither will walk you to the door. "She doesn't receive strangers," one says. "Not since the reassignment." She'll need to be approached by someone she already trusts, which you are not yet.`;
+        G.lastResult = `The village knows who she is. Two people point toward the same cottage at the coastal edge without needing to ask for clarification — a fisherwoman at the net-drying posts, a boy carrying a rope coil along the beach path. But neither will walk you to the door, and both step back after pointing. "She doesn't receive strangers," the fisherwoman says. "Not since the reassignment." The cottage shutters are half-closed in midday. She'll need to be approached by someone she already trusts, which you are not yet.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -894,7 +894,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_wend_shipowner = true;
         addJournal('contact', 'Dispossessed shipowner Wend: retroactive law application used to seize property registered under prior law', `shirshal-wend-${G.dayCount}`);
       } else {
-        G.lastResult = `Wend watches you approach from the pier's edge and shakes his head before you've said anything. "My advocate told me not to discuss it with anyone outside the formal process." He turns back to the water. The vessel sits thirty feet from where he stands. He isn't going anywhere.`;
+        G.lastResult = `Wend watches you approach from the pier's edge and shakes his head before you've said anything — a single slow motion, eyes already reading your purpose before you've named it. "My advocate told me not to discuss the proceeding with anyone outside the formal process." He says it flatly, practiced. He turns back to the water, which smells of salt and low tide and rope. The impounded vessel sits thirty feet from where he stands, close enough to read the hull mark. He isn't going anywhere.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -912,13 +912,13 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `"They introduced themselves as a judicial compliance officer," Corin says. "But they asked about the enforcement chain — who issued the re-adjudication directive, not whether it was legal. They were building a command structure map, not a legal case." Someone is mapping the chain of authority behind the re-adjudications. Not to challenge it — to understand it.`;
+        G.lastResult = `"They introduced themselves as a judicial compliance officer," Corin says, hands flat on the table between you. "But they asked about the enforcement chain — who issued the re-adjudication directive, not whether it was legal. That distinction matters. They were building a command structure map, not a legal case." She pauses. "I've been in law long enough to know the difference between someone building accountability and someone building leverage." Someone is mapping the chain of authority behind the re-adjudications. Not to challenge it — to understand it from the inside.`;
       } else if (arch === 'magic') {
-        G.lastResult = `"They asked about the 'administrative continuity resolution' — whether I'd ever seen a written version of it," Corin says. "I told them no. They seemed unsurprised. They said: 'That's the interesting part, isn't it?'" Someone already knows the hidden doctrine reference is the key. They're further along the legal analysis than you are.`;
+        G.lastResult = `"They asked about the 'administrative continuity resolution' — whether I'd ever seen a written version of it," Corin says. "I told them no. They seemed unsurprised, which unsurprised me. Then they said: 'That's the interesting part, isn't it?' and wrote something down." She looks out the half-shuttered window. "They knew what they were looking for before they arrived. I couldn't answer their specific question, but they treated that as confirmation rather than a dead end." Someone already knows the hidden doctrine reference is the key. They're further along the analysis than you are.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `"They knew about the case files before I mentioned them," Corin says. "Asked if I still had them before I'd said I'd kept anything. They already knew I'd kept copies." Someone mapped what Corin would have retained based on her professional profile. They didn't guess — they predicted. Professional research methodology.`;
+        G.lastResult = `"They knew about the case files before I mentioned them," Corin says quietly, the coastal wind audible through the shutter gap behind her. "Asked if I still had them before I'd said I'd kept anything. They already knew I'd kept copies — not that copies might exist. That I specifically had retained them." She presses her lips together. "That means they read my case handling history and predicted my behavior from it." Someone profiled what Corin would have retained based on her professional record. They didn't guess — they predicted. That requires institutional access.`;
       } else {
-        G.lastResult = `"They were kind," Corin says. "Brought food. Listened for an hour before asking a single question. And the question, when it came, was very precise: 'What would it take for you to testify?' Not to whom. Not where. Just what it would take." Someone is already thinking about using Corin as a witness. They're at the prosecution-building stage already.`;
+        G.lastResult = `"They were kind," Corin says. "Brought food from the village market — specific things, things I mentioned liking in a conversation years ago that I don't remember having with anyone who would have told them." She sets down her cup. "They listened for an hour before asking a single question. And the question, when it came, was very precise: 'What would it take for you to testify?' Not to whom. Not where or when. Just what it would take to get me to speak." Someone is already at the prosecution-building stage with Corin as a planned witness.`;
       }
 
       G.lastResult += ` This person is ahead of you on the Shirshal thread.`;
@@ -955,7 +955,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Craft-heavy') {
-        G.lastResult = `Some of the physical evidence in Shirshal's case storage appears degraded beyond what age and handling would explain. You note the condition without being able to characterize what caused it.`;
+        G.lastResult = `Some of the physical evidence in Shirshal's case storage appears degraded beyond what age and handling would explain — parchment annotations faded unevenly, wax seals soft where they should be firm, pressed fiber samples brittle without the brittleness of age. The pattern is odd. You note the condition without the knowledge to characterize what produced it or how long the process has been running. The evidence room smells faintly of something chemical beneath the lamp oil.`;
         gainXp(28, 'noting degraded evidence condition');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
@@ -999,7 +999,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A compliance schedule posting from the transit bureau is still up at the left corner. The surge witness appeal notice below it has been there since last week. Nothing that changes the picture.';
+      G.lastResult = 'The board has nothing new since this morning. A compliance schedule posting from the transit bureau is still pinned at the left corner, the ink faded to a pale brown at the edges. The surge witness appeal notice below it has been there since last week, its bottom corner curling from the salt damp off the channel. Someone has walked past this board recently — the chalk dust on the frame is freshly disturbed — but left nothing. Nothing on it changes the picture today.';
       return;
     }
     G.flags[key] = true;
