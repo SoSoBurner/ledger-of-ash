@@ -9499,6 +9499,7 @@ function _authorityResolvePhase2(authorityKey, polity, heatLevel, outcome, roll,
     // Combat victory result wired via post-combat hook — here we just enter combat
     addHeat(polity, 0); // heat added on victory in _authorityResolveCombatVictory
     document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
+    console.log('[combat-debug] authority fight: key=' + authorityKey + '_officer (will fail lookup — no ENEMY_TEMPLATES entry)');
     if (typeof enterCombat === 'function') {
       enterCombat(authorityKey + '_officer', { isBoss: false, _authorityPolity: polity, _authorityKey: authorityKey, _authorityFight: true });
     }
@@ -11941,6 +11942,7 @@ function handleChoice(choice) {
     const tier = (fromMacro && toMacro && fromMacro !== toMacro) ? 'long' :
                  (curPol && toPol && curPol !== toPol) ? 'medium' : 'short';
     const encList = (window.CORRIDOR_ENCOUNTERS || {})[tier] || [];
+    console.log('[corridor-debug] tier=' + tier + ' encList.length=' + encList.length + ' dest=' + destId + ' fromMacro=' + fromMacro + ' toMacro=' + toMacro + ' curPol=' + curPol + ' toPol=' + toPol);
     if (!encList.length) { resolveArrival(destId); return; }
     // Stage 2+ rate modifier: small chance of second encounter on same journey
     const _stageKey = ['Stage I','Stage II','Stage III','Stage IV','Stage V'][(G.stage||1)-1] || 'Stage I';
@@ -13585,6 +13587,7 @@ function travelTo(locId) {
     const sameMacro = lmr[locId] && lmr[G.location] && lmr[locId] === lmr[G.location];
     const plotUnlock = G.flags && G.flags['travel_unlock_' + locId];
     if (!samePolitya && !sameMacro && !plotUnlock) {
+      console.log('[travel-debug] BLOCKED locId=' + locId + ' polity='+loc.polity+'/'+cur.polity+' samePol='+samePolitya+' macro='+lmr[locId]+'/'+lmr[G.location]+' sameMacro='+sameMacro);
       addNarration('', '<em style="color:var(--gold-dim)">The road to ' + loc.name + ' lies beyond your current range. Advance to Stage II to journey further.</em>');
       return;
     }
