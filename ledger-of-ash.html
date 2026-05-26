@@ -11955,7 +11955,7 @@ function handleChoice(choice) {
     advanceMaren();
     if (typeof advanceFactionClocks === 'function') advanceFactionClocks(1);
     addNarration(enc.title, enc.text);
-    setTimeout(() => renderChoices(enc.choices), 300);
+    setTimeout(() => (window._rawRenderChoices || window.renderChoices)(enc.choices), 300);
     return;
   }
   // Journey: arrive at destination
@@ -12333,7 +12333,7 @@ function resolveConsequence(cid, success, partial) {
   if (res.xp) gainXP(res.xp);
   saveGame(); updateHUD();
   checkWorldClockThresholds();
-  if (!_awaitingLevelUp && res.next) setTimeout(() => renderChoices(res.next), 400);
+  if (!_awaitingLevelUp && res.next) setTimeout(() => (window._rawRenderChoices || window.renderChoices)(res.next), 400);
   // Fallback: if nothing rendered choices within 800ms, recover via loadStageChoices.
   // Guards against: _awaitingLevelUp true with no level-up UI, missing res.next, or
   // renderChoices setTimeout(0) cancelled by a racing call.
