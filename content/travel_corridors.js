@@ -827,7 +827,14 @@
       text: 'Step into the open. If they want a fight, they\'ll get one.',
       tag: 'bold',
       action: function(ctx) {
-        var b = (ctx && ctx.biome) || biome || 'plains';
+        // Prefer: explicit ctx.biome → static biome arg → dynamic route lookup → fallback
+        var b = (ctx && ctx.biome) || biome;
+        if (!b && G && G.flags && G.flags._corridor_to && G.flags._corridor_from) {
+          b = (typeof window.getBiomeForRoute === 'function')
+            ? (window.getBiomeForRoute(G.flags._corridor_to, G.flags._corridor_from) || 'plains')
+            : 'plains';
+        }
+        b = b || 'plains';
         var pool = (typeof BIOME_ENCOUNTER_POOLS !== 'undefined' && window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[b]) || ['road_bandit'];
         var enemy = pool[Math.floor(Math.random() * pool.length)];
         if (typeof enterCombat === 'function') enterCombat(enemy, { isBoss: false });
@@ -835,7 +842,9 @@
     };
   }
 
-  // Inject combat choice into CORRIDOR_ENCOUNTERS
+  // Inject combat choice into CORRIDOR_ENCOUNTERS.
+  // No biome arg passed here — the action resolves route biome dynamically at fire time
+  // via G.flags._corridor_to / _corridor_from set by TRAVEL_CORRIDOR.triggerEncounters.
   (function() {
     var tiers = ['short', 'medium', 'long'];
     tiers.forEach(function(tier) {
@@ -844,7 +853,7 @@
       encounters.forEach(function(enc) {
         if (!enc.choices) return;
         var alreadyHasFight = enc.choices.some(function(c) { return c.id === 'enc_fight'; });
-        if (!alreadyHasFight) enc.choices.push(_makeCombatChoice('plains'));
+        if (!alreadyHasFight) enc.choices.push(_makeCombatChoice());
       });
     });
   })();
