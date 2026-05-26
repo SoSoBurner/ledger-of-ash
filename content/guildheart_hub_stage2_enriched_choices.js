@@ -954,6 +954,140 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW SP2-ADVANCING CHOICES ────────────────────────────────────────
+
+  {
+    label: "Porter Ledgermere's Counting House ledger carries two columns that never reconcile.",
+    tags: ['Stage2', 'NPC', 'Craft'],
+    tag: 'risky',
+    failResult: "Porter Ledgermere sets his ink-brush on the stand and squares the ledger closed before the question reaches its second clause. Account reconciliation is an internal audit matter — walk-up inquiries are not part of the Counting House public desk's remit. He does not raise his voice. The ledger goes into a locked cabinet below the counter and a fresh sheet of blank paper appears in its place, end of discussion.",
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'cross-referencing Neutral Counting House dual-column anomaly with Porter Ledgermere');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_porter_ledgermere = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'Porter Ledgermere keeps the ledger open on his side of the counter — the behavior of a man letting something be seen rather than found. Fourteen months unreconciled. The gap increases by the same fixed sum each month, routed to a holding account registered under a Union subsidiary mark he does not recognize. He turns the ledger so the holding account line is legible. "I filed a discrepancy notice in month three. Response: standing instrument, no review required. Charter desk." He taps the line once. He has been waiting for someone to ask.';
+        addJournal('Counting House dual-column gap: fixed monthly sum routed to unrecognized Union subsidiary mark — charter desk certified no review required', 'evidence', 'guild-porter-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Porter Ledgermere is at the counter when the approach begins and behind a closed door before it ends. A junior clerk takes over the desk and produces a standard reconciliation inquiry form — seven-day processing window, institutional affiliation required. The form asks for the specific account series in question, which requires knowing the account number before the inquiry is filed. The Counting House door does not reopen for the rest of the morning.';
+        addJournal('Counting House access blocked — inquiry form requires account number as prerequisite; Porter Ledgermere withdrew', 'complication', 'guild-porter-fail-' + G.dayCount);
+      } else {
+        G.flags.met_porter_ledgermere = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'Porter Ledgermere does not pretend the two columns agree. "Fourteen months of monthly shortfall, same amount each time." He opens the ledger to the holding account entry without being asked. The account carries a Union subsidiary mark rather than a named registrant. "Charter desk told me it was a standing instrument. I filed the discrepancy notice. They closed it." He sets his ink-brush on the stand. "I kept the carbon of the discrepancy notice. Charter desk\'s response is stapled to the back."';
+        addJournal('Counting House ledger: 14-month fixed monthly shortfall routed to unnamed Union subsidiary — Porter Ledgermere\'s discrepancy notice closed by charter desk without explanation', 'evidence', 'guild-porter-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Sena Ledgermere mediated the charter dispute that should have voided this exemption.",
+    tags: ['Stage2', 'NPC', 'Persuasion'],
+    tag: 'bold',
+    failResult: "Sena Ledgermere's expression does not change, which is the mediator's version of closing a door. Arbitration records carry formal confidentiality under Union procedural code — the outcome is public, the deliberations are sealed. She can confirm the matter was mediated and resolved. She cannot confirm anything about the deliberation that led to the resolution. She offers a printed copy of the public outcome notice and nothing further.",
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'pressing Sena Ledgermere at Arbitration Hall on the charter exemption dispute outcome');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_sena_ledgermere = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'Sena Ledgermere mediates disputes, which means she listens before she speaks and speaks only what she has decided to say. She leads the way to a side corridor off the Arbitration Hall before answering. The charter dispute was brought by a cross-polity freight broker challenging the exemption\'s scope — legitimate standing, well-argued. She mediated toward a finding that should have restricted the exemption to diplomatic materials only. The final disposition that went into the record does not match her recommendation. "A mediator\'s finding is advisory. The charter desk accepted a modified outcome." She straightens one cuff. "The modification was already written before the hearing closed. I don\'t know by whom."';
+        addJournal('Sena Ledgermere: charter dispute mediation recommendation overridden — modified outcome pre-written before hearing closed, source unknown', 'evidence', 'guild-sena-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Sena Ledgermere meets directness with procedural precision — she cites three separate provisions of Union arbitration confidentiality before the question is finished. A formal transcript request requires a joint application from both original dispute parties. Neither party has filed one. She writes the application reference number on a slip and sets it on the edge of the table. "If both parties agree to release, the record opens. Until then I am not the path."';
+        addJournal('Arbitration Hall: charter dispute transcript sealed pending joint application — Sena Ledgermere cited three confidentiality provisions', 'complication', 'guild-sena-fail-' + G.dayCount);
+      } else {
+        G.flags.met_sena_ledgermere = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'Sena Ledgermere considers the question for longer than the mediator\'s usual cadence. "The dispute outcome is public record." She pauses. "My recommendation and the outcome are not the same document." She does not say more than that, but she does not leave. "Mediators are advisory. The charter desk takes the recommendation under consideration. In this case they considered it briefly." Her hands fold on the table in the way of someone who has finished saying what she can say.';
+        addJournal('Arbitration Hall: Sena Ledgermere confirms her charter dispute recommendation diverged from the recorded outcome — charter desk overruled her', 'intelligence', 'guild-sena-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Hearthmark at the Freight Exchange has a manifest he won't queue.",
+    tags: ['Stage2', 'NPC', 'Lore'],
+    tag: 'risky',
+    failResult: "Orin Hearthmark clears the manifest from the counter and stacks it under his arm before the sentence ends. Freight Exchange floor inquiries are for buyers and registered shippers only — he checks credentials before discussing any manifest. He does not ask for credentials; he simply stops talking and resumes marking his copy board, which is a more complete answer than any refusal would be.",
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'pressing Orin Hearthmark at the Freight Exchange over an unqueued manifest');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_orin_hearthmark = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'Orin Hearthmark is a Freight Exchange floor broker — he moves cargo inquiries through the queue system, matching buyers to available lots. The manifest he is not posting is heavier paper than standard lot sheets, printed in a font block used by Shelkopolis freight houses rather than Union-standard. He sets it on the edge of the counter, not in the queue tray. "Charter-exempt lots don\'t run through the queue. They\'re pre-matched." He keeps his hand flat on the copy board while he talks. "This lot has been pre-matched three times in four months. Different buyer name each time, same collection point." The collection point is the northeast waypoint. "Pre-matched lots don\'t generate floor records. I keep my own."';
+        addJournal('Freight Exchange: Hearthmark holds Shelk-format charter-exempt manifest off queue — same northeast waypoint, three different buyer names in four months, no floor record generated', 'evidence', 'guild-orin-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Orin Hearthmark logs the inquiry — floor brokers are required to record all approach contacts on the Exchange record, buyer, seller, or unaffiliated. He writes down the time and a physical description before saying a word. The contact log goes to the Exchange supervisor at end of session. He folds the manifest under his arm and moves to the far end of the floor without another glance back. He has been here long enough to know which conversations to make visible.';
+        addJournal('Freight Exchange contact logged by Hearthmark before any question answered — Exchange supervisor receives contact record at session end', 'complication', 'guild-orin-fail-' + G.dayCount);
+      } else {
+        G.flags.met_orin_hearthmark = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'Orin Hearthmark confirms the manifest is not in the queue. "Charter-exempt. Pre-matched, doesn\'t run through floor routing." He holds the manifest against the copy board rather than setting it down. The printed font is Shelk-style, not Union-standard — visible from two feet away. "Buyer changes each run. Lot doesn\'t." He marks his board. "Exchange doesn\'t record pre-matched lots in the floor register. That\'s in the charter protocol." He says it the way a man cites a rule he didn\'t write and doesn\'t agree with.';
+        addJournal('Freight Exchange pre-matched charter-exempt lot: Shelk-format manifest, rotating buyer names, no floor register entry — Hearthmark keeps personal record', 'intelligence', 'guild-orin-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Renn Tinmarch posted a retraction notice on the Union board. No original posting preceded it.",
+    tags: ['Stage2', 'NPC', 'Stealth'],
+    tag: 'safe',
+    failResult: "The Union Notice Board clerk on duty does not locate a Tinmarch posting under that reference number in the current cycle's registry. The retraction slip is on the board, correctly formatted, stamp intact. The board clerk shrugs once: notices can be posted and pulled in the same session without the original entering the permanent log. The retraction exists. The original it was meant to erase does not.",
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'tracing Renn Tinmarch retraction notice on the Union Notice Board');
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_renn_tinmarch = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'The retraction slip carries Renn Tinmarch\'s name and a posting reference number. Six weeks of board logs show no original posting under that number — and the sequence sits two digits ahead of the current cycle\'s highest issued number, generated outside normal board process. Tinmarch is at the Exchange annex, a compact man who checks door frames before passing through them. "I was told a notice was posted in my name. I was told to retract it or face a procedural action." He was never shown the original. He has the instruction in writing and produces it without being asked.';
+        addJournal('Notice Board retraction from Tinmarch references non-existent posting — reference number outside normal sequence; Tinmarch holds written instruction from unknown party directing him to retract', 'evidence', 'guild-renn-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The board is read. The retraction slip is there, Tinmarch\'s name clear on it. A board monitor — one of four who rotate through the notice hall — is already beside you before the second reading is finished. He asks for the inquiry purpose and writes it down. Notice board monitoring is routine during active registration cycles, he says. The slip stays on the board. The inquiry goes into the monitor\'s daily log, which is filed with the Hub\'s registration desk at close of session.';
+        addJournal('Notice Board inquiry logged by board monitor — daily log filed with Hub registration desk', 'complication', 'guild-renn-fail-' + G.dayCount);
+      } else {
+        G.flags.met_renn_tinmarch = true;
+        G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = 'The retraction slip is real and correctly formatted. The original posting it references is not in the board log. Tinmarch is located at the Exchange annex and confirms the sequence: he was told a notice had been posted using his registration mark and was directed to file a retraction immediately to prevent a procedural challenge to his status. "I filed it the same morning." He keeps the instruction slip in his coat. "Someone posted a notice in my name. I don\'t know what was on it. I never saw it. By the time I got to the board it had already been pulled."';
+        addJournal('Notice Board: notice posted under Tinmarch\'s mark then pulled before he arrived — retraction filed on external instruction, original content unknown', 'intelligence', 'guild-renn-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 ];
 
 // Sideplot injection — guildheart union testimony gap (Stage II only)

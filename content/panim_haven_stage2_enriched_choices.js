@@ -827,6 +827,135 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    label: "The clustering in the afterlife ledger is geographic, not administrative error.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    tag: 'safe',
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'analyzing afterlife registry clustering patterns');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.investigationProgress++;
+        G.lastResult = `Marrowen's registry counter holds the district breakdown map on a peg behind her chair. The clustering resolves into a precise radius: every phantom contract originates from within two city blocks of the freight lane porter's gate. No administrative sorting process uses geography — the ledger categories are temporal and denominational, not spatial. The clustering is a physical artifact of where the transactions were walked in. Someone carried these contracts to the counter on foot, from the same street, every time.`;
+        addJournal('Afterlife ledger clustering geographic — phantom contracts originate from porter gate radius', 'evidence', `panim-cluster-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The district breakdown map is not posted for public use — Marrowen says this without apology and removes it from its peg before the question is fully formed. The registry clerk's counter has a window behind it into the processing room, and someone in the processing room is now watching the exchange. A formal records access request has to go through the mediation hall intake. That intake routes to the oversight tier.`;
+        addJournal('Registry clustering map access denied — oversight intake route required', 'complication', `panim-cluster-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.investigationProgress++;
+        G.lastResult = `The clustering is real and not explained by any scheduling or denominational sorting rule Marrowen names. She produces the standard categories without hesitation and none of them produce spatial groupings. Whatever sorted these contracts into a cluster did so through physical origin, not administrative process. That narrows where the contracts entered the registry from but does not yet name who carried them.`;
+        addJournal('Afterlife ledger clustering — spatial origin confirmed, entry point unidentified', 'evidence', `panim-cluster-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Celis Lanthorn's grief mediation records contain names the registry won't acknowledge.",
+    tags: ['NPC', 'Stage2', 'Persuasion'],
+    tag: 'risky',
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'accessing Celis Lanthorn grief mediation records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.met_celis_lanthorn = true;
+        G.investigationProgress++;
+        G.lastResult = `Celis keeps her session ledger on a different shelf from the certified mediation records — her working copy, not the filed one. She sets it open to the relevant section without being asked for it. Eight families came to her in the past four months with memorial contracts for deceased relatives whose names did not appear in the afterlife registry at all. She helped four of them draft formal inquest petitions. All four petitions were returned marked "registry cross-reference pending" — a classification that has no defined resolution timeline and no assigned clerk.`;
+        addJournal('Celis Lanthorn — eight registry-absent names, four suppressed inquest petitions', 'evidence', `panim-celis-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Grief mediation sessions are privileged record under Panim Haven civic charter — Celis names this before the second question lands. The door to the mediation room stays open during all sessions; that is posted policy, visible on the wall behind her. A shrine warden in the corridor has been stationary for the last three minutes. Whatever Celis knows about the registry gaps, she keeps it behind a wall that her role gives her every right to maintain. She does not apologize for it.`;
+        addJournal('Grief mediation privilege invoked — warden present, access closed', 'complication', `panim-celis-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.met_celis_lanthorn = true;
+        G.investigationProgress++;
+        G.lastResult = `Celis confirms the pattern without opening the ledger. Several families presented valid memorial contracts for relatives who could not be located in the registry under any name variant or date. She directed them to the formal petition process. She cannot say what happened to those petitions after they left her office. Her expression carries the specific flatness of someone who knows the answer and has concluded that knowing it is not the same as being able to do anything about it.`;
+        addJournal('Celis confirms registry-absent family cases — petition outcomes unknown', 'intelligence', `panim-celis-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The procession gap covers the same block every time. Toriel Palevow works that block.",
+    tags: ['NPC', 'Investigation', 'Stage2'],
+    tag: 'risky',
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'approaching Toriel Palevow at Mortuary Halls');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.met_toriel_palevow = true;
+        G.investigationProgress++;
+        G.lastResult = `Toriel is washing instruments when you arrive — a routine that gives her hands something to do while she decides. She has worked the block for eleven years and noticed the procession reroutes within the first week. What she noticed beyond that: the block's foot traffic does not drop during the reroutes. The same volume of people moves through, but they are not mourners following a procession. They move in pairs, at pace, carrying nothing. She does not know what they are doing. She knows what mourners look like, and these are not mourners.`;
+        addJournal('Toriel Palevow — non-mourner foot traffic replaces procession during gaps', 'evidence', `panim-toriel-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        G.lastResult = `The question lands while a family is still in the Mortuary Hall anteroom. Toriel's expression does not change, but her posture does — she sets down the instrument she is holding and moves to the hall's inner door, closing it fully before turning back. "I have patients." The word she uses is not one a physician uses for the dead, which means she is not talking about the dead. The family in the anteroom is the constraint, and the constraint is not going away. This is the wrong moment and the wrong approach.`;
+        addJournal('Toriel approach failed — wrong timing, pressure noted', 'complication', `panim-toriel-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.met_toriel_palevow = true;
+        G.investigationProgress++;
+        G.lastResult = `Toriel has noticed the reroutes and is willing to say so. The specific detail she offers is small and precise: the gap always begins two hours before the dawn bell and resolves before the first services. She has never seen a posted reason. The Mortuary Hall does not post processional schedules — she checks the route boards the way anyone who works the block does, out of habit. The gap has been long enough to become routine.`;
+        addJournal('Toriel confirms processional gap timing — pre-dawn window, no posted reason', 'intelligence', `panim-toriel-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The sealed document annex has a public reading room. Pelor Coffinmarch works the desk.",
+    tags: ['Investigation', 'Stage2', 'Stealth'],
+    tag: 'bold',
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'accessing sealed documents via Panim Archives reading room');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.met_pelor_coffinmarch = true;
+        G.investigationProgress++;
+        G.lastResult = `Pelor processes the reading room request without looking up — a standard form, a standard fee, a standard wait. The request is for the mediation oversight correspondence index, which is public summary only, nothing sealed. While the index is produced, you locate the sealed document transfer log on the shelf behind the desk: a working record, not itself sealed, logging every document moved between the public annex and the restricted archive. Five transfers in the past eight months carry the same originating clerk notation: the name is Caldor Sepulcher. The transfer log goes back into place before Pelor returns.`;
+        addJournal('Panim Archives transfer log — five sealed document moves under Caldor Sepulcher notation', 'evidence', `panim-pelor-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `The movement toward the desk shelf is read before it completes. Pelor does not raise his voice — he sets a hand flat on the counter and waits, which is a more effective stop than any door. "Working records are not reading room materials." The phrasing is procedural and carries the weight of someone who has used it before to cover for something specific. Your name goes into the reading room admission log under a category reserved for flagged visits. That log is reviewed by the archive duty officer each morning.`;
+        addJournal('Archives reading room flagged visit — Pelor logged admission under review category', 'complication', `panim-pelor-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.met_pelor_coffinmarch = true;
+        G.investigationProgress++;
+        G.lastResult = `The mediation oversight correspondence index is produced on schedule. It lists document categories, date ranges, and originating parties without full names — a reference summary. One category appears more frequently than the others in the past eight months: sealed correspondence between the oversight tier and the district archive annex. The volume of that correspondence category is three times any comparable period in the five years prior. What those documents contain is not in the index. The frequency itself is the find.`;
+        addJournal('Panim Archives index — sealed oversight-annex correspondence volume tripled in eight months', 'intelligence', `panim-pelor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
     label: "The phantom memorial evidence is complete. Official channels or informal — this choice doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,

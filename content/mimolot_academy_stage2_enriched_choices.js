@@ -845,6 +845,142 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "Quillan Quillmark processed the restriction paperwork. He held the pen.",
+    tags: ['Stage2', 'NPC', 'Lore'],
+    tag: 'bold',
+    failResult: "Quillan is behind the access desk with two faculty members present. He listens to the question, opens a form drawer, and produces the external inquiry protocol sheet without speaking. The faculty members do not look up. The form has seven fields. The review cycle takes fourteen days.",
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'pressing Quillan Quillmark on restricted-access paperwork he processed');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_quillan_quillmark = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Quillan sets his pen down with the deliberateness of a man deciding something. He says he processed the restriction paperwork under a regent authorization code that arrived pre-filled — his job was to date it, countersign, and file it. He did all three. The authorization code is the same one Sarith flagged at the tariff desk. He opens his filing cabinet and pulls the original instruction slip without being asked. His initials are on the bottom line. "I signed it," he says. "I did not write it. Those are different things."';
+        addJournal('Quillan Quillmark: restriction paperwork signed under pre-filled regent code — same code as Sarith tariff anomaly', 'evidence', 'mim-quillan-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Quillan is behind the access desk with two faculty members present when the question lands. He opens a form drawer without pause and produces the external inquiry protocol sheet. The faculty members do not look up. The form has seven fields and a review cycle of fourteen days. The duty log entry under his pen is already dated.';
+        addJournal('Quillan Quillmark inquiry — external protocol invoked, faculty present, duty log entry dated', 'complication', 'mim-quillan-fail-' + G.dayCount);
+      } else {
+        G.flags.met_quillan_quillmark = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Quillan confirms he countersigned the restriction paperwork. He does not open his filing cabinet, but he does not deny the question either. The regent authorization code that came with the instruction was formatted correctly for an internal faculty directive — the right fields, the right sequence — but the originating office designation does not correspond to any faculty department he has seen before or since. He noted this at the time. He filed it anyway because the format was valid. He has wondered since whether that was the point.';
+        addJournal('Quillan Quillmark: restriction instruction used valid format but unknown originating office — accepted on format, not verified authority', 'intelligence', 'mim-quillan-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Vessa Scriptmere maintains canon compliance. The phantom monograph breaks it.",
+    tags: ['Stage2', 'NPC', 'Lore'],
+    tag: 'risky',
+    failResult: "Vessa's canon compliance work runs through the faculty review channel, not the public archive. External access to compliance records requires a faculty membership number on file. She writes the reference number for the access form on a slip of paper and slides it across the desk. Her expression is not unkind.",
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'drawing out Vessa Scriptmere on phantom citation canon compliance failure');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vessa_scriptmere = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Vessa pulls a compliance flag she filed eight months ago without being prompted — she kept a copy after the original was returned to her stamped RESOLVED with no resolution attached. The phantom monograph appears in her flag: fourteen citations across the glyph resonance stack referencing a Fairhaven source she could not locate in any registry she has access to. She escalated it to the canon review committee. The committee returned the flag as resolved and declined to share the resolution basis. She wrote the committee\'s non-answer into the flag margin in a hand tight enough to read only at close distance.';
+        addJournal('Vessa Scriptmere: phantom monograph compliance flag returned RESOLVED without resolution — committee response documented in margin', 'evidence', 'mim-vessa-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Vessa\'s compliance role runs through the faculty review channel and she tells this clearly: external access to compliance records requires a faculty membership number. She is not obstructing. She writes the reference number for the access form on a slip of paper. Her expression is not unkind. The compliance records that might answer the question are now behind a process that requires sponsorship she cannot provide.';
+        addJournal('Vessa Scriptmere canon compliance records — faculty membership required, access form reference given', 'complication', 'mim-vessa-fail-' + G.dayCount);
+      } else {
+        G.flags.met_vessa_scriptmere = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Vessa confirms the phantom monograph is a canon compliance failure — a source cited fourteen times in the glyph resonance stack that resolves to nothing in any registry she can access. She flagged it eight months ago. The flag came back stamped RESOLVED. She asked for the resolution basis. No one provided it. She opens the compliance log to the entry and points to the RESOLVED stamp. Below it, in her own hand, is a single word: "By whom."';
+        addJournal('Vessa Scriptmere: phantom monograph compliance flag resolved without basis — "By whom" noted in log', 'intelligence', 'mim-vessa-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Archivist Valcrest approved the rotation bypass. That decision left a paper trail.",
+    tags: ['Stage2', 'NPC', 'Lore'],
+    tag: 'bold',
+    failResult: "Valcrest's office door is closed and the schedule posted outside shows his next available appointment is in eleven days. The archive attendant offers to add a name to the waiting list. She does not offer a reason for the delay. The waiting list has four names above the one she writes.",
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'confronting Archivist Luthen Valcrest on restricted-stack rotation bypass authorization');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_archivist_valcrest = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Valcrest is at the reading-room table when the question reaches him — not in his office, accessible by circumstance rather than appointment. He looks at the late-return register page for a long time. Then he says the rotation bypass was a directive he received through the Dean\'s office, attached to the same external charter authorization that sealed the restricted stacks. He signed the bypass form because the charter authorization was formally valid. He has since checked the charter mark against the Academy\'s sealed-authority registry. It appears there once: on the paperwork Quillan Quillmark countersigned. Nowhere before that. He has been waiting for someone to connect those two documents.';
+        addJournal('Archivist Valcrest: rotation bypass ordered under external charter — same mark as Quillan paperwork, appears nowhere prior in authority registry', 'evidence', 'mim-valcrest-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Valcrest\'s office door is closed. The schedule posted outside shows eleven days to the next available appointment. The archive attendant adds a name to the waiting list without being asked for a reason. The list has four names above it. Before the outer door is reached on the way out, the attendant has already sent a message through the internal courier slot — a folded slip, sealed with a green wax circle that is the archive\'s standard inter-office notation for visitor inquiries.';
+        addJournal('Archivist Valcrest inaccessible — waiting list logged, inter-office notification sent on departure', 'complication', 'mim-valcrest-fail-' + G.dayCount);
+      } else {
+        G.flags.met_archivist_valcrest = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Valcrest confirms he authorized the rotation bypass — it is his signature on the form, and he does not deny it. The directive came through the Dean\'s office with a charter authorization attached. He processed it as a valid institutional instruction. When pressed on the charter mark\'s origin, he pauses. He says he checked the sealed-authority registry afterward, as a matter of professional habit. The mark appears only once in that registry, on a document dated the same week as the restricted-stacks classification. Before that week, it does not exist.';
+        addJournal('Archivist Valcrest: rotation bypass on Dean-relayed charter — mark appears in authority registry only once, dated same week as restriction', 'intelligence', 'mim-valcrest-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Crown Research Protocol code has a parent authority file. Someone filed it somewhere.",
+    tags: ['Stage2', 'NPC', 'Lore'],
+    tag: 'risky',
+    failResult: "The Book Tariff Office's authority file index is a restricted administrative document — exempt designation codes and their originating authorities are not public record. The clerk at the counter explains this with the practiced patience of someone who has said it many times. The index stays in its locked cabinet behind the desk.",
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing Crown Research Protocol authority origin in Book Tariff Office registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mim_crown_protocol_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Book Tariff Office keeps its authority file index in a cabinet behind the counter — restricted, but the clerk on duty this afternoon trained under the previous registrar and holds the older key set. She pulls the index without fanfare. The Crown Research Protocol designation appears once: registered seven months ago under a filing authority listed as "Collegium Transit Certification — Special Review Division." The same division Overseer Davan Mirce works under. The registration was processed by the tariff office\'s senior clerk, who retired four months ago. His forwarding address is Fairhaven.';
+        addJournal('Crown Research Protocol registered by Collegium Transit Certification — Mirce\'s division, senior clerk now retired to Fairhaven', 'evidence', 'mim-protocol-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The authority file index is a restricted administrative document and the clerk at the counter explains this with the practiced patience of someone who has said it before. The index stays in its locked cabinet. She writes the inquiry into the desk log before the question finishes. The log, she notes, is reviewed by the tariff office\'s senior oversight committee on a monthly basis. The next review is in nine days.';
+        addJournal('Book Tariff authority index inquiry logged — oversight committee review in nine days', 'complication', 'mim-protocol-fail-' + G.dayCount);
+      } else {
+        G.flags.mim_crown_protocol_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The authority file index yields the Crown Research Protocol designation under a filing authority that reads "Collegium Transit Certification — Special Review Division." The registration date is seven months ago. The clerk notes this is an unusual filing — most exempt designations originate within the Academy\'s own administrative structure. An external body registering a tariff exemption code through the Book Tariff Office directly, bypassing Academy administration, is procedurally irregular. She did not process it. It was the senior clerk, now retired.';
+        addJournal('Crown Research Protocol filed externally by Collegium Transit Certification — bypassed Academy administration, processed by now-retired senior clerk', 'intelligence', 'mim-protocol-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.MIMOLOT_STAGE2_ENRICHED_CHOICES = MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES;
