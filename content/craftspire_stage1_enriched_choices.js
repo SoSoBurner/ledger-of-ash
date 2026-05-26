@@ -300,7 +300,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Jorin's records are dense with chemical notation — readable to a guild chemist, dense enough to look like routine analysis documentation to anyone else. You carry a copy out in plain sight in a supply manifest folder. Nobody stops you. The six months of compound discrepancy analysis is now outside the guild's administrative reach.`;
+        G.lastResult = `Jorin's records are dense with chemical notation — readable to a guild chemist, dense enough to look like routine analysis documentation to anyone else. You carry a copy out in plain sight in a supply manifest folder, tucked between delivery receipts, the paper still carrying the faint metallic bite of the workshop's flux-heavy air. Nobody at the outgoing review desk looks twice. Six months of compound discrepancy analysis now sits outside the guild's administrative reach, in hands the supply chain cannot touch.`;
         G.flags.jorin_records_secured = true;
         addJournal('Jorin\'s six-month chemical analysis secured offsite — compound discrepancy data preserved outside guild administration', 'evidence', `craftspire-records-secure-${G.dayCount}`);
       } else {
@@ -328,7 +328,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
-      G.lastResult = `Guild district whisper, repeated at the water basin: "${selected}." The pattern of suppression extends further than Jorin's specific complaint — whatever is driving it reaches across the whole district, and has been building for months.`;
+      G.lastResult = `Guild district whisper, repeated at the water basin between the second and third bell while the smell of cooling metal drifted in from the forge yard: "${selected}." The worker who said it kept their eyes on the floor drain. The pattern of suppression extends further than Jorin's specific complaint — whatever is driving it reaches across the whole district, and the people closest to the production floor have been watching it build for months without a name to put to it.`;
       addJournal(`Craftspire guild rumor: "${selected}"`, 'evidence', `craftspire-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -472,13 +472,13 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `"They asked which other guilds shared our supply chain," Jorin says. "All of them, every one, systematically. They were mapping the full scope of the extraction network before anyone here had figured out it was a network." Military-scale threat assessment. They weren't investigating — they were cataloguing.`;
+        G.lastResult = `"They asked which other guilds shared our supply chain," Jorin says, his thumb pressing a crease into the edge of a log sheet. "All of them, every one, systematically. They were mapping the full scope of the extraction network before anyone here had figured out it was a network." He sets the sheet down. The forge outside runs its steady low roar. "Not asking around — working a list. Military-scale threat assessment. They weren't finding this. They were cataloguing what they already had."`;
       } else if (arch === 'magic') {
-        G.lastResult = `"They identified the compound class immediately," Jorin says. "Before I'd explained what I'd found. They said 'that's a class-C atmospheric precursor' the moment I described the concentration pattern. Expert-level knowledge. They came to confirm what they already knew."`;
+        G.lastResult = `"They identified the compound class immediately," Jorin says, voice flat as a calibration reading. "Before I'd explained what I'd found — before I'd named the substance at all. They said 'that's a class-C atmospheric precursor' the moment I described the concentration pattern. Just said it, the way you read a measurement aloud." He picks up a pen and sets it down without writing anything. The workshop smells of flux and cool metal. "Expert-level knowledge. They came to confirm what they already knew. Nothing I told them was new."`;
       } else if (arch === 'stealth') {
-        G.lastResult = `"They memorized the workshop layout during the tour," Jorin says. "I caught them mentally noting the storage positions, the exit routes, the blind spots. Not hostile — professional. The way someone learns a space they expect to need to navigate quickly."`;
+        G.lastResult = `"They memorized the workshop layout during the tour," Jorin says, speaking toward the workbench rather than at you. "I caught it — the small pause at each storage bay, the way their eyes moved to the exit points before the equipment. Not hostile. Professional." He runs a finger along the bench edge. The lamp oil smoke drifts flat under the high vaulted ceiling. "The way someone learns a space they expect to need to navigate quickly, and under pressure. They weren't admiring the forge. They were planning through it."`;
       } else {
-        G.lastResult = `"They asked about Jorin specifically," his assistant Lev interjects. "Whether he worked alone. Whether he shared findings with guild administration. Whether his position was secure." They were mapping Jorin's vulnerability — whether he could be isolated, pressured, or managed.`;
+        G.lastResult = `"They asked about Jorin specifically," his assistant Lev interjects, not looking up from the sample containers he's sorting. "Whether he worked alone. Whether he shared findings with guild administration before filing. Whether his workshop position was secure or conditional." He clicks a lid closed. The cooling rack hisses in the background. "They weren't asking about the chemicals. They were mapping whether Jorin could be isolated from his evidence before it went anywhere — whether he could be pressured, managed, or just quietly moved."`;
       }
 
       G.lastResult += ` They knew about the extraction six weeks before you arrived. They came here first.`;
@@ -517,7 +517,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Craft-heavy') {
-        G.lastResult = `The workshop ventilation layout is unusual — ducts running at angles that serve no obvious function in a standard chemical processing environment. Someone who knew the material science would read this space differently. You note the oddity and move on.`;
+        G.lastResult = `The workshop ventilation layout is unusual — ducts running at steep angles across the upper wall, the metal housing newer than the surrounding brickwork, the seams still sharp where older lime plaster was cut to fit them. Standard workshop ventilation runs along the ceiling line to catch heat rise. These run low and lateral, pulling air from the floor level. Whatever purpose the configuration serves, it isn't the standard safety spec posted on the wall beside the entry. You note the oddity and move on. Someone who knew the material science would read this space with considerably more alarm.`;
         gainXp(30, 'noting unusual workshop configuration');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
@@ -588,7 +588,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.flags.craftspire_secondary_destination = true;
         addJournal('Supply ledger asymmetry: outgoing records carry secondary destination column absent from receiving ledger — logs where extracted material goes', 'evidence', `craftspire-ledger-${G.dayCount}`);
       } else {
-        G.lastResult = `Cross-referencing two ledgers simultaneously requires working space and time the reading desk doesn't allow — clerks cycle the records back to storage after twenty minutes of external review. A full comparison needs a longer window than today's access permits, or a copy of both ledgers to work from outside the building. The access exists. The conditions don't yet.`;
+        G.lastResult = `Cross-referencing two ledgers simultaneously requires working space and time the reading desk doesn't allow — clerks cycle the records back to storage after twenty minutes of external review, the policy printed on a placard bolted to the counter. A full comparison needs a longer window than today's access permits, or a copy of both ledgers to work from outside the building. The lamp oil smoke sits in flat layers under the archive's high ceiling. The access exists. Arriving at the first bell, before the morning rush fills every desk, gives twice the standard window.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -672,7 +672,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A guild inspection schedule and two materials delivery notices from yesterday are still up. The cooling rack hisses somewhere across the workshop floor. Nothing worth copying down.';
+      G.lastResult = 'The board has nothing new since this morning. A guild inspection schedule, a materials delivery notice, and a certification amendment from yesterday still occupy the lower half, their edges lifting slightly in the dry forge-warm air that moves through the district at this hour. The lamp oil smoke from the overhead fixtures drifts past without settling. Nothing worth copying down, and nobody has added anything since the shift change. The board will turn over again at the sixth bell.';
       return;
     }
     G.flags[key] = true;
