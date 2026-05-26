@@ -57,7 +57,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_tess_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `Tess spreads her circuit log on the inspection table, a narrow ledger with columns for time, lantern position, and observed activity. Six entries are marked with a double tick — her notation for anything requiring follow-up. The materials involved carried an unusual chemical profile: sharp base notes she wrote down but could not cross-reference against anything in the standard craft register. The registered workshop entity listed in her notes does not appear in the trade registry at all.`;
+        G.lastResult = `Tess spreads her circuit log on the inspection table, a narrow ledger with columns for time, lantern position, and observed activity. Six entries are marked with a double tick — her notation for anything requiring follow-up. The materials involved carried an unusual chemical profile: sharp base notes cutting through the forge-heat and sawdust smell of the surrounding workshops, compounds she wrote down but could not cross-reference against anything in the standard craft register. The registered workshop entity listed in her notes does not appear in the trade registry at all.`;
         addJournal('After-hours chemical operations in unregistered workshop entity', 'evidence', `craft-tess-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -79,7 +79,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_copy_warden = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The Copy Warden's records show seven copies of glyph resonance damping formulas reproduced over three months, all citing a Mimolot Academy classification number that Quenra Quillfire confirmed was classified — not released for academic citation. The falsified citations enabled production-scale formula reproduction without triggering copy restriction flags.`;
+        G.lastResult = `The Copy Warden's records show seven copies of glyph resonance damping formulas reproduced over three months, all citing a Mimolot Academy classification number that Quenra Quillfire confirmed was classified — not released for academic citation. The Warden's copy desk smells of fresh ink and the faint soldering flux carried on the air from the adjoining workshop vault. The falsified citations enabled production-scale formula reproduction without triggering copy restriction flags. Seven copies, each stamped through cleanly under a number that should have locked the request on arrival.`;
         addJournal('Formula copies via falsified Mimolot citation — 7 production-scale copies, restricted citation spoofed', 'evidence', `craft-warden-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -119,7 +119,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_jorin_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `Jorin shows the credit offset line by line. The Collegium charter number is unfamiliar — not a format he recognizes from standard institutional accounts. He copies the reference string onto a separate slip of paper and slides it across without comment, keeping his eyes on the ledger page rather than on you.`;
+        G.lastResult = `Jorin shows the credit offset line by line. The Collegium charter number is unfamiliar — not a format he recognizes from standard institutional accounts. The ledger balcony is warm from the forge ventilation shafts below; the smell of hot metal rises faintly through the grate beside his desk. He copies the reference string onto a separate slip of paper and slides it across without comment, keeping his eyes on the ledger page. The reference string is eleven characters. None of the standard Collegium account prefixes match.`;
         addJournal('Unrecognized Collegium charter format used for chemical input credits', 'evidence', `craft-jorin2-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -149,7 +149,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.ghost_workshop_crates_witnessed = true;
         G.investigationProgress++;
-        G.lastResult = `You reach the service corridor before the transfer completes. The crates are stenciled with a broker mark but you cannot get close enough to read the full code before the porters close the bay. What you catch is the smell — sharp chemical base notes that do not match any standard craft materials. The panel-frame door seals without a visible latch.`;
+        G.lastResult = `The service corridor runs narrow between two workshop walls, the stone overhead black with lamp oil smoke deposited over years of near-capacity operation. The crates are stenciled with a broker mark but the porters close the bay before the full code is readable. What carries through is the smell — sharp chemical base notes over pine resin, nothing that matches any standard craft material category. The panel-frame door seals flush into the wall with no visible latch or hinge on the corridor side.`;
         addJournal('Ghost workshop transfer — sealed bay, unidentified chemical odor, broker mark partially observed', 'intelligence', `craft-ghost-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -174,12 +174,12 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Copy Bureau queue dispute resolved by citation — Copy Warden notified, standing established', 'contact_made', `craft-social-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Your intervention reads as an outsider overstepping workshop floor protocol. The artisan turns from the clerk to address you directly: "Queue order is not your concern unless you're filing." The crowd agrees, visibly. The intake clerk resumes the original dispute and the Copy Bureau staff file you as someone who does not understand Craftspire's governing rhythms.`;
+        G.lastResult = `The intervention reads as an outsider overstepping workshop floor protocol. The artisan turns from the clerk to address you directly: "Queue order is not your concern unless you're filing." The crowd agrees, visibly — a low murmur carries toward the copy windows, where the smell of fresh binding wax and lamp oil hangs thick from the morning's work. The intake clerk resumes the original dispute. The Copy Bureau staff file you as someone who does not understand Craftspire's governing rhythms, which are older than anyone in this room.`;
         addJournal('Copy Bureau social misstep — outsider status confirmed, workshop floor credibility lost', 'complication', `craft-social-fail-${G.dayCount}`);
       } else {
         G.flags.copy_bureau_social_standing = true;
         G.investigationProgress++;
-        G.lastResult = `The dispute de-escalates without resolution — the artisan steps back from the window, the queue moves, and the broader argument goes unaddressed. The intake clerk gives you a brief look that carries more acknowledgment than dismissal. One of the watching copyists pauses near the exit and tells you the Copy Warden's inspection rounds run after the second bell.`;
+        G.lastResult = `The dispute de-escalates without resolution — the artisan steps back from the window, the queue moves, and the broader argument goes unaddressed. The Copy Bureau's intake room settles back into its working noise: the dry scrape of certification forms, the knock of the stamp rack, the faint smell of binding wax and lamp oil from the copy benches beyond the partition. The intake clerk gives you a look that carries more acknowledgment than dismissal. One of the watching copyists pauses near the exit and tells you the Copy Warden's inspection rounds run after the second bell.`;
         addJournal('Copy Bureau queue intervention — partial standing, Copy Warden schedule obtained', 'intelligence', `craft-social-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -202,7 +202,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Copyist Sovi Maretch: ghost corridor lock upgraded to ORE-grade overnight — dismissal followed report', 'evidence', `craft-sovi-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Sovi looks at you the way people look at approaches they've already survived twice. "Whatever's back there, my name is already in the wrong places." She closes the strap on her materials case and doesn't look up again. The workbench is empty before the hallway clears. She was the last one here who might have talked.`;
+        G.lastResult = `Sovi looks at you the way people look at approaches they've already survived twice. "Whatever's back there, my name is already in the wrong places." She closes the strap on her materials case — worn canvas, ink-stained at the corner from years on the copy floor — and doesn't look up again. The hallway carries the standard Craftspire smell: sawdust and lacquer from the joinery district, hot stone from the venting shafts. The workbench is empty before the hallway clears. She was the last one here who might have talked.`;
         addJournal('Dismissed copyist declined — already implicated, left before further contact', 'complication', `craft-sovi-fail-${G.dayCount}`);
       } else {
         G.flags.met_dismissed_copyist_sovi = true;
@@ -230,7 +230,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Dead charter account: active Guild Council standing-committee signatory — inside permanent administration', 'evidence', `craft-charter-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The account inquiry requires a formal audit request filed through the Guild Council trade registry — a process that sends notification to the account's registered signatory. Jorin points to the clause before you file. Your inquiry would reach the signatory before any response reaches you. The account stays unexamined.`;
+        G.lastResult = `The account inquiry requires a formal audit request filed through the Guild Council trade registry — a process that sends notification to the account's registered signatory the same day the request is logged. Jorin points to the relevant clause in the Guild certification handbook before you file, his thumb on the line that specifies mandatory notification. The ledger balcony overhead carries the faint smell of hot metal from the forge vents; the sound of tool-grinding from the lower floor fills the silence while the clause is read. Your inquiry would reach the signatory before any response could reach you. The account stays unexamined.`;
         addJournal('Account audit triggers signatory notification — inquiry paused before alerting target', 'complication', `craft-charter-fail-${G.dayCount}`);
       } else {
         G.flags.dead_charter_account_traced = true;
@@ -264,7 +264,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.certification_backlog_exposed = true;
         G.investigationProgress++;
-        G.lastResult = 'She points to the tray without explaining it. The forms are dated daily but the test columns are empty — blank where a result should appear. "Allocation sheets come in certified. I process them certified." She turns back to her desk. The stack is real. The gap between the date stamps and any visible test record is real. She does not say anything else.';
+        G.lastResult = 'She points to the tray without explaining it. The forms are dated daily but the test columns are empty — blank where a result should appear. The tray holds the familiar weight of certification paperwork: heavy guild stock, the ink still faintly sharp from the morning stamp run. "Allocation sheets come in certified. I process them certified." She turns back to her desk. The stack is real. The gap between the date stamps and any visible test record is real. She does not say anything else, and the sound of the forge floor carries up through the wall behind her.`;
         addJournal('Certification forms show no test results — materials arrive pre-certified via allocation sheet', 'intelligence', `craft-inspector-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -437,7 +437,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.quota_board_discrepancy_found = true;
         G.investigationProgress++;
-        G.lastResult = `One row on the lower ledger balcony board runs well above the surrounding entries — output targets that would require continuous operation across registered floor space with no margin for equipment downtime. The inspector approval mark is there. No secondary verification notation. Standard quota approvals at this level require two marks. This row has one. The second mark's absence is either an oversight or it was never submitted for review.`;
+        G.lastResult = `One row on the lower ledger balcony board runs well above the surrounding entries — output targets that would require continuous operation across registered floor space with no margin for equipment downtime. The quota board is posted under the high Craftspire vaults, lamp oil smoke darkening the stone above each bracket light. The inspector approval mark is there. No secondary verification notation. Standard quota approvals at this level require two marks; this row has one. The second mark's absence is either an administrative oversight or the approval was never submitted for the second reviewer to see.`;
         addJournal('Quota board: single-mark approval on oversize ghost workshop target — second mark absent', 'intelligence', `craft-quota-partial-${G.dayCount}`);
         G.recentOutcomeType = 'neutral';
       }
