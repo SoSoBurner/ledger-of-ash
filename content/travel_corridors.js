@@ -881,4 +881,7 @@
   // Inject combat choices into travel pools now that all pools are defined
   _injectCombatIntoTravelPools();
 
+  // Export so handleChoice __journey__ path can wrap corridor choices correctly
+  window._wrapEncounterChoices = _wrapEncounterChoices;
+
 })();

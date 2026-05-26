@@ -11967,7 +11967,10 @@ function handleChoice(choice) {
     advanceMaren();
     if (typeof advanceFactionClocks === 'function') advanceFactionClocks(1);
     addNarration(enc.title, enc.text);
-    setTimeout(() => (window._rawRenderChoices || window.renderChoices)(enc.choices), 300);
+    // Set corridor state so nextEncounter can call resolveArrival(dest) correctly
+    if (G.flags) { G.flags._corridor_dest = destId; G.flags._corridor_encounters_remaining = 0; G.flags._corridor_encounters_queue = []; }
+    const _cEnc = typeof window._wrapEncounterChoices === 'function' ? window._wrapEncounterChoices(enc.choices, destId) : enc.choices;
+    setTimeout(() => renderChoices(_cEnc), 300);
     return;
   }
   // Journey: arrive at destination
@@ -11977,7 +11980,10 @@ function handleChoice(choice) {
       const _xEnc = G._extraEncounter;
       G._extraEncounter = null;
       addNarration(_xEnc.title, _xEnc.text);
-      setTimeout(() => (window._rawRenderChoices || window.renderChoices)(_xEnc.choices), 300);
+      const _xDest = G._journeyDest || G.location;
+      if (G.flags) { G.flags._corridor_dest = _xDest; G.flags._corridor_encounters_remaining = 0; G.flags._corridor_encounters_queue = []; }
+      const _xCEnc = typeof window._wrapEncounterChoices === 'function' ? window._wrapEncounterChoices(_xEnc.choices, _xDest) : _xEnc.choices;
+      setTimeout(() => renderChoices(_xCEnc), 300);
       return;
     }
     resolveArrival(G._journeyDest || G.location);
@@ -14699,11 +14705,16 @@ function showMap() {
   const cur = WORLD_LOCATIONS[settlementId] || WORLD_LOCATIONS[G.location];
   const curRegion = cur ? cur.region : '';
   const locs = Object.values(WORLD_LOCATIONS);
-  const stage1Locs = locs.filter(l => l.region === curRegion);
+  const _lmrShow = window.LOCALITY_MACROREGION || {};
+  const _curMacroShow = _lmrShow[G.location] || _lmrShow[settlementId] || '';
+  const stage1Locs = _curMacroShow
+    ? locs.filter(l => _lmrShow[l.id] === _curMacroShow || l.region === curRegion)
+    : locs.filter(l => l.region === curRegion);
   // If current polity has only the current locality (stranded at guildheart/panim/etc. via story choice),
   // show all cross-polity destinations so the player isn't dead-ended.
-  const stranded = stage1Locs.every(l => l.id === settlementId);
-  const stage2Locs = (G.stage !== 'Stage I' || stranded) ? locs.filter(l => l.region !== curRegion) : [];
+  const stranded = stage1Locs.filter(l => l.id !== settlementId).length === 0;
+  const stage2Locs = (G.stage !== 'Stage I' || stranded)
+    ? locs.filter(l => !stage1Locs.some(s => s.id === l.id)) : [];
 
   let html = '<div style="color:var(--ink-dim);font-size:13px;margin-bottom:16px">' +
     (G.stage === 'Stage I' ?
