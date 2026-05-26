@@ -11965,7 +11965,7 @@ function handleChoice(choice) {
       const _xEnc = G._extraEncounter;
       G._extraEncounter = null;
       addNarration(_xEnc.title, _xEnc.text);
-      setTimeout(() => renderChoices(_xEnc.choices), 300);
+      setTimeout(() => (window._rawRenderChoices || window.renderChoices)(_xEnc.choices), 300);
       return;
     }
     resolveArrival(G._journeyDest || G.location);
