@@ -1016,6 +1016,146 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+,
+
+  // ── SP2-ADVANCING CHOICES (canonical NPCs: Halv Tidereach, Aurek Tidereach, Sena Crestwave, Doran Wavecrest, Mira Sealedger) ──
+
+  {
+    label: "Halv Tidereach has pulled the same Harbor Registry folio three times this week.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    tag: 'safe',
+    failResult: "The Harbor Registry's public reading hours end before the folio circulation log can be found. The duty archivist names no patrons. The log stays closed, and the pattern stays unconfirmed for now.",
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'cross-checking Harbor Registry folio circulation against Halv Tidereach access log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_halv_tidereach = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'The Harbor Registry circulation log is kept in a cloth-bound book under the duty desk, each folio pull recorded by number and patron name. Halv Tidereach appears three times in eight days against the same folio number: the vessel licensing block covering decommissioned registrations from the previous decade. The duty archivist reads the entry twice before closing the log — she looks up at the shelf where the folio lives, then back. The folio has not been returned to its slot. It is still out, under a patron hold. Halv renewed the hold that morning.';
+        addJournal('Harbor Registry: Halv Tidereach holds decommissioned-vessel licensing folio — renewed same morning, three pulls in eight days', 'evidence', `cos-halv-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The circulation log is an administrative record, not a public document. The duty archivist explains the distinction and offers the public index instead. While the index is being processed, a clerk at the far desk writes a brief note and places it in the outgoing administrative tray. The tray routes to the Harbor Captain\'s office. A registry inquiry has been logged, and the name given at the desk is now in the system.';
+        addJournal('Harbor Registry circulation log access denied — inquiry logged, routed to Harbor Captain', 'complication', `cos-halv-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_halv_tidereach = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'The duty archivist confirms patron access to folio blocks without releasing names — a compromise between public record and patron privacy. "A single folio block has had repeated holds placed on it this week by the same registered patron." She closes the log. "That block covers decommissioned vessel registrations, prior decade." She straightens the log against the desk edge with both hands and says nothing more. The folio is still out. The patron is registered with the Harbor Registry office.';
+        addJournal('Harbor Registry: same patron holds decommissioned-vessel folio block repeatedly this week — patron registered, folio not yet returned', 'intelligence', `cos-halv-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Mira Sealedger's Merchant Fleet Office accounts show a dormant column reactivated.",
+    tags: ['Investigation', 'Stage2', 'Craft'],
+    tag: 'risky',
+    failResult: "The Merchant Fleet Office's secondary accounts are audited quarterly and are not open to non-credentialed review. Mira Sealedger processes the denial correctly, dates it, and files it in the tray that goes to Harbor Authority oversight.",
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'reviewing Merchant Fleet Office dormant-account reactivation with Mira Sealedger');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_mira_sealedger = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'Mira Sealedger maintains the Merchant Fleet ledger at a standing desk beside a salt-fogged window that rattles in the tidal wind. She sets the account book open to the dormant column without prompting — she has been expecting someone to come. The column was inactive for four years before reactivating eight months ago. The reactivation authorization is signed by a Cosmouth Fleet Continuity representative whose name does not appear on any current Cosmouth commercial directory. "I wrote to the Continuity office three times asking for current credentials," she says. "The replies confirmed the account was authorized. No credentials were attached." She does not close the book.';
+        addJournal('Merchant Fleet Office: dormant account reactivated 8 months ago by Cosmouth Fleet Continuity rep — credentials never supplied despite three written requests from Mira Sealedger', 'evidence', `cos-mira-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'Mira processes the account review request, logs it, and reaches for the standard denial form before it is finished. Secondary Fleet accounts require a Trade Hall credentialing letter. The form she fills out goes into a tray labeled HARBOR AUTHORITY REFERRAL — she labels it herself, unhurried. Two forms. One for the denial and one for the referral. She dates both and thanks you for coming in.';
+        addJournal('Merchant Fleet secondary account access denied — Harbor Authority referral form completed by Mira Sealedger, double-logged', 'complication', `cos-mira-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_mira_sealedger = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'The dormant column in the Merchant Fleet ledger ran zero entries from four years before the current period until eight months ago — a clean gap visible in the binding where pages go unturned long enough to take a slight set. Mira Sealedger opens it to the reactivation date and points to the authorization line without speaking first. The authorizing name is from a Cosmouth Fleet Continuity office. The column now runs cargo tonnage entries on a regular schedule. The tonnage figures are consistent and round in a way that real cargo rarely is.';
+        addJournal('Merchant Fleet ledger: dormant column reactivated 8 months ago — Cosmouth Fleet Continuity authorization, tonnage entries suspiciously round', 'intelligence', `cos-mira-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Sena Crestwave watched the night platform loading from the Sea Wall Lookout. She has notes.",
+    tags: ['NPC', 'Stage2', 'Stealth'],
+    tag: 'bold',
+    failResult: "Sena Crestwave is not at the Sea Wall Lookout at the expected hour. A posted notice says the lookout is under scheduled maintenance for two days. The notice is new — the paint on the clip holding it is still wet.",
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'meeting Sena Crestwave at the Sea Wall Lookout for night-platform observation notes');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('stealth', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_sena_crestwave = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'Sena Crestwave keeps watch at the upper lookout platform in the hour before and after the tidal turn — a habit, not a posting. She has a notebook of observations: dates, tide readings, cargo movements visible from the lookout height. Four pages cover the night platform. Sealed container movements appear on eleven nights matching the departure schedule; on each, she noted that the outer gangway went unattended during the crew rotation. She also noted the positions — brake winch and gangway post — and wrote a single annotation: "same gap, deliberate?" She did not know who to bring the question to. She gives you the four pages and retains a copy she made last week.';
+        addJournal('Sea Wall Lookout: Sena Crestwave observation notes — 11 sealed-container nights, crew rotation blind spot at brake winch and gangway post documented with personal copy retained', 'evidence', `cos-sena-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The Sea Wall Lookout platform is accessible by a single stair that opens onto a narrow stone walk above the third seawall tier. The approach is visible from the night platform below — open, lit by the harbor lamps, no cover. A dock hand near the mooring cleats tracks the movement without turning his head. Whatever Sena Crestwave has observed from here, the path to the lookout is not one that allows an unnoticed arrival.';
+        addJournal('Sea Wall Lookout approach visible from night platform — dock hand observed movement to lookout stair', 'complication', `cos-sena-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_sena_crestwave = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'Sena keeps a running observation log in a small cloth notebook she carries in her coat. She pages through it at the lookout railing, wind pulling at the edges, and marks four entries with her thumbnail — nights she noticed the outer gangway unattended during crew rotation while sealed containers were staged below. "I assumed it was lazy shift management," she says. "Four times is a pattern." She reads the entries aloud, dates and positions, then closes the notebook and keeps it. She gives what she has by word rather than paper, watching the platform below while she speaks.';
+        addJournal('Sea Wall Lookout: Sena Crestwave observed outer gangway unattended during sealed container nights — 4 instances, dates noted verbally', 'intelligence', `cos-sena-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Doran Wavecrest filed a Cosmouth Trade Hall complaint. It was reclassified before a hearing.",
+    tags: ['NPC', 'Stage2', 'Persuasion'],
+    tag: 'risky',
+    failResult: "Doran Wavecrest is not in the Trade Hall today. A clerk at the hall's front desk confirms his complaint was reclassified three weeks ago and does not have a scheduled hearing date. The clerk has already filled in the inquiry form before the question is finished.",
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'speaking with Doran Wavecrest about his reclassified Cosmouth Trade Hall complaint');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_doran_wavecrest = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'Doran Wavecrest meets at the Tidal Anchor Inn\'s back corner table — his coin on the table for two cups before the conversation starts. He filed his Trade Hall complaint ten months ago: cargo misclassification, systematic, consistent with a deliberate scheme. Reclassified from hearing-eligible to an administrative irregularity notice three weeks after filing. He sets the original complaint and the reclassification notice on the table and smooths the corner of the complaint with his thumb. "I know what I filed. Reclassification means the hearing never happens." He kept both documents because he expected to need them.';
+        addJournal('Doran Wavecrest: Trade Hall cargo misclassification complaint reclassified to administrative notice 3 weeks after filing — original complaint and reclassification notice held, hearing prevented by reclassification', 'evidence', `cos-doran-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Doran Wavecrest is at the Trade Hall counter when the approach comes. He looks at the door, then at the clerk behind the counter who is already writing something in the inquiry log. He takes a half-step back from the conversation. "I have an active administrative matter," he says, low enough that it is not overheard. "I cannot discuss it during the review period." The clerk has stopped writing and is listening. Doran straightens and asks for a copy of his reclassification notice in a full voice. He is doing the thing that keeps him safe in this room.';
+        addJournal('Doran Wavecrest declined Trade Hall conversation — active administrative review period, Trade Hall clerk present', 'complication', `cos-doran-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_doran_wavecrest = true;
+        G.investigationProgress++;
+        G.stageProgress[2]++;
+        G.lastResult = 'Doran is at the harbor end of the Tidal Anchor Inn\'s common room, salt on his coat from a morning delivery run. He confirms the complaint was reclassified. "Filed a hearing-eligible dispute. Got an administrative irregularity notice back. No hearing, no ruling, no record." He keeps his voice level — he\'s had this conversation with himself enough times that the anger has settled into a drier register. "The reclassification decision came from the Cosmouth regional Trade Hall office. Not the local one. I didn\'t file with the regional office." He finishes the cup and puts it down exactly in the ring it left on the table.';
+        addJournal('Doran Wavecrest complaint reclassified by Cosmouth regional Trade Hall — not the local office where complaint was filed, no hearing issued', 'intelligence', `cos-doran-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  }
+
 ];
 
 // Sideplot injection — cosmoria harbor weight fraud rung2 hook
