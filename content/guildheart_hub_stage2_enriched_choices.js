@@ -28,7 +28,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_sable_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `The three exemptions carry the same unusual charter pattern — confirmed without hesitation. The source reference log comes out and a finger runs down two columns before stopping. "Predates current Union governance. I can't source it further without the subsidiary archive, and that's a separate request." The log closes. "Old paper. New ink on the renewal line."`;
+        G.lastResult = `The three exemptions carry the same unusual charter pattern — confirmed without hesitation. The source reference log comes out and a finger runs down two columns before stopping. "Predates current Union governance. I can't source it further without the subsidiary archive, and that's a separate request." The log closes. "Old paper. New ink on the renewal line." The abacus at the desk corner sits untouched; the calculation has already been done. The ink on that renewal line is this season's batch — the Hub switched compounds in spring.`;
         addJournal('Pre-Union charter with recent renewal line — old structure, active use', 'evidence', `guild-sable-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -49,12 +49,12 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Luthen keeps his eyes on the yard while he talks. The loading crews for those three batches weren't guild — brought in from outside, names not on the shift register. The cargo had a chemical smell through the crating. Destination manifests listed a transit point northeast of Ithtananalor that he's never routed to before or since. "They told me not to enter it in my personal log. Just the official sheet." He pauses. "Official sheet goes to the charter desk. My log stays with me."`;
         addJournal('Non-guild crews loaded sealed compounds — unlisted northeast transit point', 'evidence', `guild-luthen-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The clipboard comes up before the question is finished. "Charter cargo isn't a porter's department to inspect. I move it, I log it, I clear the bay." A mark goes on the sheet and the conversation is done. He doesn't look back up. The transit yard noise fills the gap where an answer would have been.`;
+        G.lastResult = `The clipboard comes up before the question is finished. "Charter cargo isn't a porter's department to inspect. I move it, I log it, I clear the bay." A mark goes on the sheet and the conversation is done. He doesn't look back up. The transit yard noise fills the gap where an answer would have been — a crane mechanism cycling, a foreman calling a measure across the dock, the wet slap of canal water against the loading platform.`;
         addJournal('Transit yard freight inquiry stonewalled', 'complication', `guild-luthen-fail-${G.dayCount}`);
       } else {
         G.flags.met_luthen_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `The night-loading runs are confirmed without evasion. "Three batches, past regular hours. Weight didn't match the description category on the manifest — too dense for textile, too light for stone." The official log was filed, not a discrepancy report. "Charter exemption means no secondary review. That's in the protocol. Always has been." A mark goes on the clipboard as if the protocol settled the question. It didn't.`;
+        G.lastResult = `The night-loading runs are confirmed without evasion. "Three batches, past regular hours. Weight didn't match the description category on the manifest — too dense for textile, too light for stone." The official log was filed, not a discrepancy report. "Charter exemption means no secondary review. That's in the protocol. Always has been." A mark goes on the clipboard as if the protocol settled the question. It didn't. The transit yard smells of rope oil and cold canal water. Luthen turns back to the bay without waiting to see if there are more questions.`;
         addJournal('Charter-exempt cargo weight mismatch — no-questions protocol cited', 'evidence', `guild-luthen-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -76,12 +76,12 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Guildheart zero-rated Panim memorial imports — 22x audit threshold, retroactive exemption', 'evidence', `guild-derris-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Tariff review credentials are required before anything comes off the counter. Without them, the inquiry goes into the access log — category, time, physical description, written in a careful hand. "Unauthorized review attempts go to the Guild Arbiter. Standard procedure." The log slides closed. The entry is already complete before the sentence is finished.`;
+        G.lastResult = `Tariff review credentials are required before anything comes off the counter. Without them, the inquiry goes into the access log — category, time, physical description, written in a careful hand. "Unauthorized review attempts go to the Guild Arbiter. Standard procedure." The log slides closed. The entry is already complete before the sentence is finished. The chalk dust at the counter's edge drifts slightly when the ledger shuts. Derris does not look up again. The abacus beside him has not moved.`;
         addJournal('Tariff inquiry logged as unauthorized — Guild Arbiter notified', 'complication', `guild-derris-fail-${G.dayCount}`);
       } else {
         G.flags.met_derris_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `The zero-rating is confirmed without looking at the file. "That category was set eight months ago and hasn't been reviewed." A knuckle taps the counter. "Volume triggers a standard audit at a specific threshold. This category passed that threshold in month three." A pause. "Nobody filed for audit review. Nobody's questioned it."`;
+        G.lastResult = `The zero-rating is confirmed without looking at the file. "That category was set eight months ago and hasn't been reviewed." A knuckle taps the counter. "Volume triggers a standard audit at a specific threshold. This category passed that threshold in month three." A pause. "Nobody filed for audit review. Nobody's questioned it." The counter smells of ink and old parchment. Derris straightens the ledger stack by one corner and leaves the conversation there — not hostile, just finished.`;
         addJournal('Zero-rated import category passed audit threshold — no review filed', 'evidence', `guild-derris-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -109,7 +109,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_cala_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `Cala thinks before answering, which means she's deciding how much. "Comes in from the east. Leaves northwest. Carries sealed documentation, never leaves it in the room." She refills a cup before continuing. "She's not here for any arbitration I've seen go through the main hall. I'd remember — those are logged at the desk."`;
+        G.lastResult = `Cala thinks before answering, which means she's deciding how much. "Comes in from the east. Leaves northwest. Carries sealed documentation, never leaves it in the room." She refills a cup before continuing. "She's not here for any arbitration I've seen go through the main hall. I'd remember — those are logged at the desk." She straightens the cup handle before setting it down. Whatever else she knows, she has decided that is the portion she is giving.`;
         addJournal('Regular off-channel arbiter: east arrival, northwest departure, sealed documents', 'evidence', `guild-cala-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -138,7 +138,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_nyra_ledgermere = true;
         G.investigationProgress++;
-        G.lastResult = `Nyra describes the insignia of both parties without names — two different institutional categories, she confirms. A document passed between them. One party produced it, the other signed. "They left separately, at least ten minutes apart." She pauses. "The timing of that meeting falls within the same week the charter exemptions were filed at the tariff counter."`;
+        G.lastResult = `Nyra describes the insignia of both parties without names — two different institutional categories, she confirms. A document passed between them. One party produced it, the other signed. "They left separately, at least ten minutes apart." She pauses. "The timing of that meeting falls within the same week the charter exemptions were filed at the tariff counter." The shrine alcove holds a faint smell of cedar oil from the offering lamp. Nyra folds her hands and waits, giving the silence the same attention she gave the exchange.`;
         addJournal('Shrine document exchange at charter exemption filing week', 'evidence', `guild-nyra-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -323,12 +323,12 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Arbiter Dunmore filed fraudulent review completion — directed by named party, kept copy of instruction', 'evidence', `guild-arbiter-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Arbiter Dunmore closes his office door before the question is two sentences long. Through the glass panel he shakes his head once. Not aggressive — exhausted. The corridor outside his office smells of old paper and nervous sweat. He is not going to help, and whatever he knows has already cost him something. The door stays closed.`;
+        G.lastResult = `Arbiter Dunmore closes his office door before the question is two sentences long. Through the glass panel he shakes his head once. Not aggressive — exhausted. The corridor outside his office smells of old paper and nervous sweat. He is not going to help, and whatever he knows has already cost him something. The door stays closed. A clerk passes behind you without slowing. The corridor returns to its ordinary pace as if the closed door were unremarkable. Perhaps it has been closed a long time.`;
         addJournal('Arbiter Dunmore refused approach — appears aware and frightened, door closed', 'complication', `guild-arbiter-fail-${G.dayCount}`);
       } else {
         G.flags.guild_arbiter_compromised = true;
         G.investigationProgress++;
-        G.lastResult = `Arbiter Dunmore doesn't deny it. "The completion form was filed because someone told me the audit had been resolved through a separate channel. I filed the completion to close the administrative loop." He doesn't look at the review form. "I didn't ask what channel. That was my error." He knows it's worse than an error. He will not name who instructed him without a formal protection filing in place first. "Put that on record for me and I'll answer every question you have."`;
+        G.lastResult = `Arbiter Dunmore doesn't deny it. "The completion form was filed because someone told me the audit had been resolved through a separate channel. I filed the completion to close the administrative loop." He doesn't look at the review form. "I didn't ask what channel. That was my error." He knows it's worse than an error. He will not name who instructed him without a formal protection filing in place first. "Put that on record for me and I'll answer every question you have." The corridor outside his office smells of old lamp oil and stacked paper. His hands stay flat on the desk.`;
         addJournal('Arbiter Dunmore admits filing false completion on instruction — will cooperate under formal protection filing', 'intelligence', `guild-arbiter-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -599,7 +599,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Guildheart Hub Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Council clerk reviews the summary and sets it aside without opening the accompanying documents. "The chain requires corroboration at three points. Filed correctly, this moves. Filed now, it stalls." He hands it back. The case isn't ready.`;
+        G.lastResult = `The Council clerk reviews the summary and sets it aside without opening the accompanying documents. "The chain requires corroboration at three points. Filed correctly, this moves. Filed now, it stalls." He hands it back. The case isn't ready. The Arbitration Hall's ambient sound fills the pause — pens on ledgers, the creak of a bench, someone counting aloud in a distant room. The clerk's expression doesn't shift. He has sent better-prepared cases back before.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
@@ -636,10 +636,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Guildheart factor Toven: Collegium routing block with sequential manifest numbers — batch bypass of standard separation protocol.', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The manifest stack on the counter gets straightened into precise alignment before the answer comes. "Collegium orders process the same as any other order at this desk. Routing number queries go through the transit clerk upstairs." No eye contact. The stack was already aligned. The straightening is not about the stack.';
+        G.lastResult = 'The manifest stack on the counter gets straightened into precise alignment before the answer comes. "Collegium orders process the same as any other order at this desk. Routing number queries go through the transit clerk upstairs." No eye contact. The stack was already aligned. The straightening is not about the stack. The routing desk continues around this stillness — chalk figures posted on the transit board, the scratch of pen on manifest, a runner collecting a bound ledger from the end of the counter. Toven does not watch any of it.`;
       } else {
         G.flags.met_factor_toven = true;
-        G.lastResult = 'Toven pulls the routing ledger, finds the Collegium block, and opens it to the right page without hesitation — he has looked at this page before. "Manifest numbers are assigned at filing. I process what comes through." He closes the ledger. His thumbnail runs the full length of the binding edge before he sets it back on the shelf. He is not going to say more than that, not here.';
+        G.lastResult = 'Toven pulls the routing ledger, finds the Collegium block, and opens it to the right page without hesitation — he has looked at this page before. "Manifest numbers are assigned at filing. I process what comes through." He closes the ledger. His thumbnail runs the full length of the binding edge before he sets it back on the shelf. He is not going to say more than that, not here. The routing desk smells of chalk dust and slightly damp parchment. Whatever Toven has concluded, he concluded it weeks ago and has been waiting to see who else would notice.';
         addJournal('Guildheart factor Toven: Collegium routing block located in transit ledger — he has checked this page before.', 'intelligence');
       }
       G.recentOutcomeType = 'investigate';
@@ -656,14 +656,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 12) {
         G.investigationProgress = (G.investigationProgress||0) + 1;
-        G.lastResult = 'The document is heavier than standard transit paper — linen content, the kind used for long-archive filings. The seal is iron-grey wax with a quill impression, pressed at a slight angle as if stamped in haste. The routing stamp below it reads GUILDHEART TRANSIT HUB — RECEIVING, but the freight category line is blank. Not redacted. Blank, as if whoever typed the order did not know what category applied, or did not want one to. The order number is not sequential with the surrounding block.';
+        G.lastResult = 'The document is heavier than standard transit paper — linen content, the kind used for long-archive filings. The seal is iron-grey wax with a quill impression, pressed at a slight angle as if stamped in haste. The routing stamp below it reads GUILDHEART TRANSIT HUB — RECEIVING, but the freight category line is blank. Not redacted. Blank, as if whoever typed the order did not know what category applied, or did not want one to. The order number is not sequential with the surrounding block. A blank category on linen-weight paper means it was intended to outlast whatever question it answered.';
         addJournal('Guildheart transit records: Collegium sealed order — linen-weight paper, iron-grey quill seal, blank freight category, non-sequential order number.', 'evidence');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The transit records cabinet requires a routing clerk credential. The duty clerk at the desk takes your inquiry form, stamps it, and sets it in a tray marked PENDING SUPERVISOR REVIEW. "Three-day turnaround on non-standard access requests." The inquiry is now in a tray that someone from the Collegium routing block will eventually see.';
+        G.lastResult = 'The transit records cabinet requires a routing clerk credential. The duty clerk at the desk takes your inquiry form, stamps it, and sets it in a tray marked PENDING SUPERVISOR REVIEW. "Three-day turnaround on non-standard access requests." The inquiry is now in a tray that someone from the Collegium routing block will eventually see. The desk smells of fresh ink and old wood. Three days is enough time for whoever placed that order to know someone is looking.';
         addJournal('Guildheart transit records: access request logged — pending supervisor review, Collegium routing notification possible.', 'complication');
       } else {
-        G.lastResult = 'The Collegium order is filed between two standard freight manifests, which is not where Collegium orders are supposed to go — they have a separate administrative block. It was misfiled, or placed here deliberately where it would be overlooked. The seal is intact. The freight category field is blank. The order date is three weeks ago.';
+        G.lastResult = 'The Collegium order is filed between two standard freight manifests, which is not where Collegium orders are supposed to go — they have a separate administrative block. It was misfiled, or placed here deliberately where it would be overlooked. The seal is intact. The freight category field is blank. The order date is three weeks ago. The linen-weight paper sits heavier in the hand than the surrounding documents. Whoever filed it here knew it would take longer to surface than a standard transit query.';
         addJournal('Guildheart transit records: Collegium order misfiled in standard freight block — sealed, blank category, dated three weeks prior.', 'evidence');
         G.investigationProgress = (G.investigationProgress||0) + 1;
       }
@@ -695,7 +695,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_collegium_aware) {
-        G.lastResult = 'The third chair in the Arbiter alcove is placed at an angle not visible from the registry floor. Nothing to act on with the Collegium yet — the alcove is empty, or the occupant has not made contact.';
+        G.lastResult = 'The third chair in the Arbiter alcove is placed at an angle not visible from the registry floor. Nothing to act on with the Collegium yet — the alcove is empty, or the occupant has not made contact. The charter hall continues its usual pace around the vacancy: pens moving, clerks passing, the muted tap of a stamp on parchment from somewhere deeper in the corridor. The chair waits with the patience of placed furniture. Whoever put it there will return at their own timing.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -715,7 +715,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_collegium_contacted) {
-        G.lastResult = 'The Collegium contact isn\'t ready for the next step yet. Peregrin Vas needs to be approached in the Arbiter alcove before the certified copy can be filed to Oversight intake.';
+        G.lastResult = 'The Collegium contact isn\'t ready for the next step yet. Peregrin Vas needs to be approached in the Arbiter alcove before the certified copy can be filed to Oversight intake. The Arbitration Hall moves around this pause at its own pace — the shuffle of a queue at the Sanction Board anteroom, a clerk reciting reference numbers to a second clerk, the faint cold smell of chalk dust from the notice boards. The copy sits unsigned, waiting for the moment Peregrin Vas has named.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -867,7 +867,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'Fenwick checks the doorway twice before answering, and the second check decides him. He closes the folder and returns it to his drawer. "The intake process is working as designed," he says, which is not an answer to anything you asked. The deviation notes stay in the drawer. The exemption pattern stays in the manifest record, unaddressed.';
+        G.lastResult = 'Fenwick checks the doorway twice before answering, and the second check decides him. He closes the folder and returns it to his drawer. "The intake process is working as designed," he says, which is not an answer to anything you asked. The deviation notes stay in the drawer. The exemption pattern stays in the manifest record, unaddressed. The routing desk around him continues without pause — chalk on board, paper across the counter, the dry creak of a stool shifting weight. Whatever Fenwick has decided, he made it before this conversation started.';
         G.recentOutcomeType = 'blocked';
       }
     }
