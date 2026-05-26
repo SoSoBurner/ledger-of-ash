@@ -4,7 +4,7 @@ var MAREN_OSS_ENCOUNTER = (function() {
     
     return G && !G.flags.maren_oss_trail_found && !G.flags.maren_oss_encounter_done &&
            (G.investigationProgress || 0) >= 4 &&
-           (G.location === 'guildheart_archive' || G.location === 'guildheart_hub');
+           (G.location === 'guildheart' || G.location === 'guildheart_archive' || G.location === 'guildheart_hub');
   }
 
   function trigger() {

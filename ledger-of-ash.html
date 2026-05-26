@@ -14090,14 +14090,18 @@ const INN_NAMES = {
   shelkopolis: { cheap: 'The Amber Fountain (common room)', comfortable: 'The Amber Fountain (private room)' },
   fairhaven:   { cheap: 'The Road Gate Bunkhouse',          comfortable: 'The Warden\'s Rest' },
   guildheart_hub: { cheap: 'The Guild Floor',               comfortable: 'The Arbitration Suite' },
+  guildheart:     { cheap: 'The Guild Floor',               comfortable: 'The Arbitration Suite' },
   soreheim_proper: { cheap: 'Allocation Hall billet',       comfortable: 'Allocation Hall officer quarter' },
+  soreheim:        { cheap: 'Allocation Hall billet',       comfortable: 'Allocation Hall officer quarter' },
   aurora_crown:   { cheap: 'The Dome Shelter (common bunk)', comfortable: 'The Dome Shelter (sealed room)' },
   ashforge_citadel: { cheap: 'The Forge Rest (floor roll)',  comfortable: 'The Forge Rest (private berth)' },
   ithtananalor:   { cheap: 'The Roazian Billet',             comfortable: 'The Inspection Quarters' },
   lantern_docket: { cheap: 'The Paper House (cot)',          comfortable: 'The Paper House (private room)' },
   cosmoria:        { cheap: 'The Tidal Anchor',              comfortable: 'The Harbor Ledger House' },
   panim_haven:     { cheap: 'The Memorial Ward',             comfortable: 'The Offering House' },
+  panim:           { cheap: 'The Memorial Ward',             comfortable: 'The Offering House' },
   mimolot_academy: { cheap: 'The Student Annex',             comfortable: 'The Examiner\'s Lodge' },
+  mimolot:         { cheap: 'The Student Annex',             comfortable: 'The Examiner\'s Lodge' },
   shirshal:        { cheap: 'The Evidence Quarter',          comfortable: 'The Magistratus Rest House' },
   harvest_circle:  { cheap: 'The Granary Floor',             comfortable: 'The Board House' },
   glasswake_commune: { cheap: 'The Dome Bunk',               comfortable: 'The Commune Chamber' },
@@ -14193,7 +14197,7 @@ function doSleepScene() {
 
   const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
   const innData = INN_NAMES[loc] || { cheap: 'a shared room at the local inn', comfortable: 'a private room at the local inn' };
-  const isSoreheim = loc === 'soreheim_proper' || loc === 'ashforge_quarry' || loc === 'sunspire_haven' || loc === 'harvest_circle' || loc === 'quarry_flats';
+  const isSoreheim = loc === 'soreheim' || loc === 'soreheim_proper' || loc === 'ashforge_quarry' || loc === 'sunspire_haven' || loc === 'harvest_circle' || loc === 'quarry_flats';
 
   // Soreheim: high standing = free billet
   const engStanding = ((G.factions||[]).find(f => f.id === 'engineers_consortium') || {}).value || 0;
@@ -15754,6 +15758,10 @@ const SHOP_INVENTORY = {
     {id:'hklw_ledger_slip',name:'Supply Ledger Slip',desc:'Records anomalies in the keep supply. Lore for research.',cost:12,type:'tool',skillBonus:'lore',bonus:1,site:'Low Ward Dispensary'},
   ],
 };
+SHOP_INVENTORY.guildheart = SHOP_INVENTORY.guildheart_hub;
+SHOP_INVENTORY.soreheim   = SHOP_INVENTORY.soreheim_proper;
+SHOP_INVENTORY.panim      = SHOP_INVENTORY.panim_haven;
+SHOP_INVENTORY.mimolot    = SHOP_INVENTORY.mimolot_academy;
 
 // Soreheim shop social roll — once per in-game day per shop
 function trySorehimCreditBoost(shopId) {
