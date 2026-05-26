@@ -57,13 +57,13 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 2;
-        G.lastResult = `Mordoth stands before you finish. "You're attempting to leverage Alliance council members with unauthorized documentation." He crosses to the door and opens it. "The Council Security committee will receive a full account of this meeting." He holds the door. The meeting is over. The committee convenes the same afternoon.`;
+        G.lastResult = `Mordoth stands before you finish. "You're attempting to leverage Alliance council members with unauthorized documentation." He crosses to the door and opens it. "The Council Security committee will receive a full account of this meeting." He holds the door. The meeting is over. He does not look at the contracts on the table between you. The committee convenes the same afternoon. The documentation you carried in will be named in their proceedings by end of day.`;
         drawSocialMisstep(G.location);
         addJournal('Alliance Council Security committee — investigation designated infrastructure threat', 'complication', `sor-mordoth-fail-${G.dayCount}`);
       } else {
         G.flags.met_mordoth_valinheim = true;
         G.investigationProgress++;
-        G.lastResult = `Mordoth keeps his hands flat on the table. "The distribution contracts serve the Alliance's long-term strategic interests." He pauses. "Whether the approval process was appropriate is a governance question." He says governance question the way someone says something they've rehearsed. He doesn't move the contracts off the table, but he doesn't open them either.`;
+        G.lastResult = `Mordoth keeps his hands flat on the table. "The distribution contracts serve the Alliance's long-term strategic interests." He pauses. "Whether the approval process was appropriate is a governance question." He says governance question the way someone says something they've rehearsed. A horn call sounds the shift change somewhere in the tower above. He doesn't move the contracts off the table, but he doesn't open them either. The word appropriate does a lot of work in that sentence.`;
         addJournal('Distribution contracts acknowledged — Valinheim uncommitted', 'evidence', `sor-mordoth-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -92,7 +92,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_vorgul_oxtend = true;
         G.investigationProgress++;
-        G.lastResult = `Vorgul stands throughout the meeting — doesn't offer a seat, doesn't sit himself. "Military transport passes for authorized logistics operations are standard Alliance procedure." He says it to the middle distance, not to you. He doesn't say what was transported. The transport passes exist. He confirmed them without confirming anything else.`;
+        G.lastResult = `Vorgul stands throughout the meeting — doesn't offer a seat, doesn't sit himself. The smell of machine grease and iron dust follows him in from the corridor. "Military transport passes for authorized logistics operations are standard Alliance procedure." He says it to the middle distance, not to you. He doesn't say what was transported. The transport passes exist. He confirmed them without confirming anything else. The door stays open the whole time.`;
         addJournal('Military transport passes for staging location confirmed', 'evidence', `sor-vorgul-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -115,13 +115,13 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Arbiter Cron provides council seal for evidence — legally admissible in Alliance jurisdictions', 'evidence', `sor-cron-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Cron listens, then folds his hands. "Without corroborating testimony from a council-recognized source, I can't act on this directly." He pulls a petition form from the stack beside him. "I'll file this under Arbiter review. Follow-up in three weeks." He begins writing. The petition process is real and it will take exactly as long as he says.`;
+        G.lastResult = `Cron listens, then folds his hands. "Without corroborating testimony from a council-recognized source, I can't act on this directly." He pulls a petition form from the stack beside him. "I'll file this under Arbiter review. Follow-up in three weeks." He begins writing. The scratch of the pen on the form is deliberate and unhurried. The petition process is real and it will take exactly as long as he says. He will not be moved to accelerate it.`;
         drawSocialMisstep(G.location);
         addJournal('Arbiter formal petition process — 3-week review delay', 'complication', `sor-cron-fail-${G.dayCount}`);
       } else {
         G.flags.met_cron_udenine = true;
         G.investigationProgress++;
-        G.lastResult = `Cron reads the distribution contracts without expression. "These were not submitted through the council deliberation process." He sets them down. "The approval was administrative — a procedural authorization, not a political one." He doesn't say whether that distinction matters. His hands stay flat on the table.`;
+        G.lastResult = `Cron reads the distribution contracts without expression, turning each page slowly. The quota board on the wall behind him shows today's production figures in red chalk. "These were not submitted through the council deliberation process." He sets them down. "The approval was administrative — a procedural authorization, not a political one." He doesn't say whether that distinction matters. His hands stay flat on the table. He waits for the next question.`;
         addJournal('Distribution contracts bypassed council deliberation — administrative approval only', 'evidence', `sor-cron-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -145,12 +145,12 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 1;
-        G.lastResult = `Northern Ambition security stops you at the council entrance before you reach the clerk's desk. Two of them, positioned wide. Your name goes in the security log. They don't ask questions — they walk you back to the street entrance and stand there until you're gone. The council tower door closes behind them.`;
+        G.lastResult = `Northern Ambition security stops you at the council entrance before you reach the clerk's desk. Two of them, positioned wide, arms loose. The corridor smells of lamp oil and stamped parchment. Your name goes in the security log — one of them writes it without asking you to spell it. They don't ask questions. They walk you back to the street entrance and stand there until you're gone. The council tower door closes behind them. The log entry stays.`;
         addJournal('Northern Ambition bloc security — removed from council tower, name noted', 'complication', `sor-roth-fail-${G.dayCount}`);
       } else {
         G.flags.met_roth_udenine = true;
         G.investigationProgress++;
-        G.lastResult = `The expansion budget lists project funding as contingent on "regional economic adjustment outcomes." That phrase appears four times in the document. The budget was filed eight weeks ago — the same week the glyph disruption began in the competitor localities. The contingency and the disruption share a start date.`;
+        G.lastResult = `The expansion budget lists project funding as contingent on "regional economic adjustment outcomes." That phrase appears four times in the document, once underlined. The budget was filed eight weeks ago — the same week the glyph disruption began in the competitor localities. The contingency and the disruption share a start date. The document was filed openly, through the council's standard budget registry, as if the connection was not obvious to anyone who would bother reading it.`;
         addJournal('Expansion budget tied to regional economic adjustment — maps to glyph disruption effects', 'evidence', `sor-roth-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -227,7 +227,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addNarration('Ruler Across the Page', 'The scribe slides the ruler flush to the permit ledger margin and closes the cover before you finish reading. "Permit-class entries require a tower-rank identifier for cross-reference inquiry." She sets the ruler parallel to the ledger spine. The ledger stays closed. A second scribe at the adjacent desk logs the inquiry attempt in a smaller register without looking up.');
+        addNarration('Ruler Across the Page', 'The scribe slides the ruler flush to the permit ledger margin and closes the cover before you finish reading. "Permit-class entries require a tower-rank identifier for cross-reference inquiry." She sets the ruler parallel to the ledger spine, square to the corner of the desk. The ledger stays closed. A second scribe at the adjacent desk logs the inquiry attempt in a smaller register without looking up. The smaller register goes into a locked tray when the shift ends.');
       }
     }
   },
@@ -246,7 +246,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Trade permit archive: three consecutive licenses voided via Relic Strategy Wing override — same sealed-charter buyer reference', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Trade Permit Archive — Access Queued', 'The archive request goes into the permit clerk\'s queue behind eleven other inquiries. She hands you a numbered slip. Cross-reference requests require a tower-rank identifier verified at the main registry — a step that takes a full working day and produces a second numbered slip for a second queue. The process is not obstructive. It is simply very thorough.');
+        addNarration('Trade Permit Archive — Access Queued', 'The archive request goes into the permit clerk\'s queue behind eleven other inquiries. She hands you a numbered slip and points to the bench against the wall without making eye contact. Cross-reference requests require a tower-rank identifier verified at the main registry — a step that takes a full working day and produces a second numbered slip for a second queue. The process is not obstructive. It is simply very thorough. The bench seats four. Three of them are already occupied.');
       }
     }
   },
@@ -264,7 +264,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Export manifest dual-stamped — Relic Strategy Wing clearance added post-filing, absent from registry record', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Export Manifest Counter — Nothing Surface', 'The export manifest counter is current with its filings — the clerk keeps a tidy ledger and has no outstanding discrepancies she is aware of. Everything processed this week is reconciled. You would need a specific manifest number or date range to go further, and you don\'t have either.');
+        addNarration('Export Manifest Counter — Nothing Surface', 'The export manifest counter is current with its filings — the clerk keeps a tidy ledger, columns ruled in red ink, entries in a careful hand. She has no outstanding discrepancies she is aware of. Everything processed this week is reconciled. The bound ledger beside the counter shows no gaps in the date sequence. You would need a specific manifest number or date range to go further, and you don\'t have either. The clerk closes the current-week file and moves it to the completed stack.');
       }
     }
   },
@@ -341,7 +341,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_senne_orvath = true;
         G.investigationProgress++;
-        G.lastResult = `Senne confirms she was on duty that night. She confirms an override was entered. "The authorization code wasn't in the roster I was trained on." She pauses. "I wrote it down." She does not produce the note, but she does not deny it exists. Her hand moves briefly to her bag before settling back on the table.`;
+        G.lastResult = `Senne confirms she was on duty that night. She confirms an override was entered. The duty station behind her is quiet — no one else in the Wing's outer office at this hour. "The authorization code wasn't in the roster I was trained on." She pauses. "I wrote it down." She does not produce the note, but she does not deny it exists. Her hand moves briefly to her bag before settling back on the table. She does not break eye contact when it does.`;
         addJournal('Wing clerk Senne Orvath confirms override entry and private notation of non-roster authorization code', 'intelligence', `sor-senne-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -567,7 +567,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.assay_marks_traced = true;
         G.investigationProgress++;
-        G.lastResult = `The metallurgical registry clerk identifies the stamp pattern as non-Soreheim without needing the index — she recognizes the tripartite convention by eye. "This is northern frontier assay work. Pre-resettlement." She checks the origin index. Five possible localities, all outside Soreheim Alliance territory. "None of these are current production sites." She marks the entry. "This material was not manufactured here."`;
+        G.lastResult = `The metallurgical registry clerk identifies the stamp pattern as non-Soreheim without needing the index — she recognizes the tripartite convention by eye. She sets the fragment on the counter's iron rest rather than picking it up again. "This is northern frontier assay work. Pre-resettlement." She checks the origin index, running a finger down the column without hurrying. Five possible localities, all outside Soreheim Alliance territory. "None of these are current production sites." She marks the entry. "This material was not manufactured here."`;
         addJournal('Assay marks identified as northern frontier convention — pre-resettlement era, no current production sites; compound not of Soreheim manufacture', 'intelligence', `sor-assay-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -668,7 +668,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(112, 'Soreheim Proper Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence assembled so far doesn't carry enough weight for formal action. The council operates on documentation, and documentation has gaps. More is needed before any formal step holds — at least one more chain confirmed.`;
+        G.lastResult = `The evidence assembled so far doesn't carry enough weight for formal action. The council operates on documentation, and documentation has gaps — missing links that a skilled advocate will use to dismiss the whole package before a tribunal. More is needed before any formal step holds. At least one more chain must be confirmed, one more signature traced back to a named authority. The structure is visible. The proof isn't complete.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
@@ -792,7 +792,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_wardens_aware) {
-        G.lastResult = 'The low banner is still hanging at the north gate. Nothing to act on with the Wardens yet — the signal is the invitation, not the meeting. Wait for the rotation change before standing under it.';
+        G.lastResult = 'The low banner is still hanging at the north gate, brass grommet polished clean against the road grit on its neighbors. Nothing to act on with the Wardens yet — the signal is the invitation, not the meeting. Whoever set it out is watching the rotation change windows. Standing under it before they are ready to receive you accomplishes nothing and may close the contact entirely. Wait for the correct rotation window.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -812,7 +812,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_wardens_contacted) {
-        G.lastResult = 'Halse has not named the next step yet. The Station 42 archive is in the eastern duty hall, and the log is still in the filing cabinet. Moving without his timing means moving without the hearing as cover.';
+        G.lastResult = 'Halse has not named the next step yet. The Station 42 archive is in the eastern duty hall, and the log is still in the filing cabinet — he confirmed that much at the mustering yard meeting. Moving without his timing means moving without the hearing as cover, and without the hearing the log is just a stolen document with no admissible chain. Wait for Halse to name the window.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -899,7 +899,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Lyria's allocation tallies for the northern ward run two weeks behind every other district.",
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
-    failResult: "Lyria sets her pen down and turns the allocation ledger face-down without being asked. 'Ward-level reconciliation is administered on a rolling basis. Inquiries should be directed to the Giant Council intake desk.' She picks the pen up again. The intake desk will produce a queue ticket and a three-day wait.",
+    failResult: "Lyria sets her pen down and turns the allocation ledger face-down without being asked. 'Ward-level reconciliation is administered on a rolling basis. Inquiries should be directed to the Giant Council intake desk.' She picks the pen up again, resettles it in her grip, and returns to the column without looking up. The intake desk will produce a queue ticket and a three-day wait. The ledger stays face-down.",
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -914,13 +914,13 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Lyria Firesoul: northern ward allocation rows held under Relic Strategy Wing administrative review since fifth month — not yet released to Allocation Hall', 'evidence', 'sor-lyria-crit-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        G.lastResult = "Lyria's expression does not change. She stands, crosses to the counter door, and opens it. 'Allocation Hall inquiries follow the standard registry process. I can provide you the form.' She holds the door. The form is two pages and requires a tower-rank identifier on the second page. She has ended the meeting without raising her voice once.";
+        G.lastResult = "Lyria's expression does not change. She stands, crosses to the counter door, and opens it. The door swings on a weighted hinge — it will close itself. 'Allocation Hall inquiries follow the standard registry process. I can provide you the form.' She holds the door. The form is two pages and requires a tower-rank identifier on the second page. She has ended the meeting without raising her voice once.";
         addJournal('Lyria Firesoul — Allocation Hall inquiry closed; standard registry form issued, tower-rank identifier required', 'complication', 'sor-lyria-fail-' + G.dayCount);
       } else {
         G.flags.met_lyria_firesoul = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         G.stageProgress[2]++;
-        G.lastResult = "Lyria keeps working through the column without pausing. 'The northern ward reconciliation is under review. That is a matter of record.' She does not say whose review. She does not say when it will resolve. When she reaches the end of the column she closes the ledger and moves it to the completed stack. The two-week gap is in there, visible until it isn't.";
+        G.lastResult = "Lyria keeps working through the column without pausing, pen moving in measured strokes down the tally rows. 'The northern ward reconciliation is under review. That is a matter of record.' She does not say whose review. She does not say when it will resolve. A shift horn sounds somewhere in the tower above — she does not look up. When she reaches the end of the column she closes the ledger and moves it to the completed stack. The two-week gap is in there. Visible until it isn't. She has logged it and moved on.";
         addJournal('Lyria Firesoul confirms northern ward allocation is under administrative review — will not specify reviewing authority or timeline', 'intelligence', 'sor-lyria-partial-' + G.dayCount);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -963,7 +963,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Eryndor's contribution ranking dropped the same week the forge cavity load was delivered.",
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
-    failResult: "Eryndor Bladewright crosses his arms and does not uncross them. 'Contribution rankings are a council process. Challenging a ranking without a formal disputation form goes nowhere.' He is not hostile. He is a man who has learned that precise procedure is the only defense available to him, and he is using it.",
+    failResult: "Eryndor Bladewright crosses his arms and does not uncross them. 'Contribution rankings are a council process. Challenging a ranking without a formal disputation form goes nowhere.' He is not hostile. The forge heat coming off the adjacent station is steady and loud. He is a man who has learned that precise procedure is the only defense available to him, and he is using it without apology.",
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -978,13 +978,13 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         addJournal('Eryndor Bladewright: contribution ranking dropped via non-existent Giant Council directive reference — applied mid-assessment-cycle from outside tower', 'evidence', 'sor-eryndor-crit-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        G.lastResult = "Eryndor unfolds his arms only long enough to point at the workbench behind him. 'I have four hours on this blade before the heat cycle ends. Whatever you are here about — come back tomorrow with an appointment.' He turns around. A worker at the adjacent bench is watching. The worker's eyes move away before Eryndor turns back.";
+        G.lastResult = "Eryndor unfolds his arms only long enough to point at the workbench behind him. 'I have four hours on this blade before the heat cycle ends. Whatever you are here about — come back tomorrow with an appointment.' He turns around. The forge heat reddens the back of his neck and his hands as he picks up the blade. A worker at the adjacent bench is watching. The worker's eyes move away before Eryndor turns back.";
         addJournal('Eryndor Bladewright refused approach — returned to work; adjacent worker noted the exchange', 'complication', 'sor-eryndor-fail-' + G.dayCount);
       } else {
         G.flags.met_eryndor_bladewright = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         G.stageProgress[2]++;
-        G.lastResult = "Eryndor does not deny the drop. 'That week my output tallied the same as always. The ranking adjustment came from outside my tower's cycle — I know the form it should have taken and it didn't take that form.' He says it with the flat precision of someone who has already argued this to the wrong people and learned where the argument stops. He does not produce documentation, but he has it. The drop was imposed, not earned.";
+        G.lastResult = "Eryndor does not deny the drop. 'That week my output tallied the same as always. The ranking adjustment came from outside my tower's cycle — I know the form it should have taken and it didn't take that form.' He says it with the flat precision of someone who has already argued this to the wrong people and learned where the argument stops. The forge at the next station is cycling down — cooling pings traveling through the metal floor. He crosses his arms again. He does not produce documentation, but he has it. The drop was imposed, not earned.";
         addJournal('Eryndor Bladewright confirms ranking drop was externally imposed mid-assessment-cycle — procedurally irregular, documentation exists', 'intelligence', 'sor-eryndor-partial-' + G.dayCount);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
