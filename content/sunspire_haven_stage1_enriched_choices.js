@@ -75,7 +75,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Lysander grants you that, folding his hands on the table. "Obligations are being standardized — more uniformly enforced now." He doesn't volunteer why, or by whom, or what uniformity means for the families on the short end of it. The obligation board behind the registry desk has been repainted recently; the old chalk categories are still visible beneath the new coat in certain light — different headings, different columns. The categories changed, not just the names inside them.`;
         addJournal('Broker confirmed recent obligation system changes', 'evidence', `sunspire-broker-unclear-${G.dayCount}`);
       } else {
-        G.lastResult = `"Obligation policy is internal family documentation." Lysander doesn't apologize for it. Without family standing in Sunspire's registry, he won't open the ledgers. The obligation records are visible on the shelf behind him — close enough to read the spine labels, not close enough to open without permission.`;
+        G.lastResult = `"Obligation policy is internal family documentation." Lysander doesn't apologize for it. Without family standing in Sunspire's registry, he won't open the ledgers. The obligation records are visible on the shelf behind him — close enough to read the spine labels, not close enough to open without permission. Cold morning air comes through the narrow window above his desk. He returns his attention to the ledger already in front of him, the one that isn't yours to read.`;
         addJournal('Family obligations blocked without family access', 'evidence', `sunspire-broker-blocked-${G.dayCount}`);
       }
 
@@ -148,7 +148,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.isolation++;
         addJournal('Merchants now viewing you as potential investigator', 'complication', `sunspire-textile-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Keldan acknowledges uneven distribution without naming its source. "Competitive positions vary across families." He straightens a bolt of cloth that didn't need straightening. The contract board on the market's east wall has three family names appearing in six of the last seven premium material listings.`;
+        G.lastResult = `Keldan acknowledges uneven distribution without naming its source. "Competitive positions vary across families." He straightens a bolt of cloth that didn't need straightening. The contract board on the market's east wall has three family names appearing in six of the last seven premium material listings. Wind off the high plain moves through the market lane. He picks up a second bolt and doesn't look at the board again.`;
         addJournal('Merchant confirmed trade opportunity inequality', 'evidence', `sunspire-textile-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `The grain contract boards running the crossroads entrance carry this season's listings, workshop syndicate marks pressed into the upper corner of every posted sheet. "Commercial arrangements are private matters between parties." Keldan says it toward his stall rather than at you, straightening a bolt of fabric that was already straight. The contract register behind the market administrator's counter requires merchant standing to access, and Keldan isn't offering to vouch for you — the offer never materializes, never gets close enough to be declined.`;
@@ -188,7 +188,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Syndicate investigating your quota system inquiry', 'complication', `sunspire-quota-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
-        G.lastResult = `The targets have been adjusted in the past two cycles. Some families miss consistently — not by large margins, but always by enough to trigger a review. Other families hit their targets with room to spare. The resource allocations that accompany those targets don't explain the gap. The targets explain the gap.`;
+        G.lastResult = `The targets have been adjusted in the past two cycles. Some families miss consistently — not by large margins, but always by enough to trigger a review. Other families hit their targets with room to spare. The resource allocations that accompany those targets don't explain the gap. The targets explain the gap. Neria stacks the ledger closed and turns away. The watchtower on the plain is visible through the high narrow window above the intake desk.`;
         addJournal('Quota records show signs of deliberate inequality', 'evidence', `sunspire-quota-altered-${G.dayCount}`);
       } else {
         G.lastResult = `The haven road runs past the quota hall's eastern wall, the watchtower on the plain visible through the narrow window above the intake desk. "Quota records are internal family documentation." Neria stacks the ledgers back against the wall before you can finish scanning the visible page — the motion practiced, the stack returned tight with spines facing inward. Without family standing in Sunspire's production registry, the numbers stay closed. She's done this before; the stack settles into position the way something lands in its usual place. She doesn't look at it again to check.`;
@@ -265,7 +265,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.reverence++;
         addJournal('Family leadership banned you from authority questions', 'complication', `sunspire-elder-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Daven grants you a careful sentence. "Decision-making coordinates with the broader syndicate structure now." He doesn't say what was lost in that shift. The family governance board on the wall behind him has three new names in the advisory column that weren't there last season.`;
+        G.lastResult = `Daven grants you a careful sentence. "Decision-making coordinates with the broader syndicate structure now." He doesn't say what was lost in that shift. The family governance board on the wall behind him has three new names in the advisory column that weren't there last season. Lamp oil, old stone, the faint smell of woodsmoke from the courtyard. He turns back toward the window and leaves the rest unspoken.`;
         addJournal('Elder confirmed family authority constraints', 'evidence', `sunspire-elder-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `"Family structure is internal." Daven closes the door to the governance room without explaining what's in it — the latch engages before you've formed a follow-up. Stone corridor, the smell of old wood and lamp oil, morning quiet. Without family standing in Sunspire's registry, no elder will open that door for you, and standing in Sunspire's registry requires the very authority the door protects. The frame is still warm from when someone recently pulled it shut.`;
@@ -305,7 +305,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.isolation++;
         addJournal('Market inspector refused further inquiry', 'complication', `sunspire-inspector-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Varen allows that much. "Enforcement has been applied with contextual flexibility recently." He doesn't define context. The enforcement log's open page shows two stall closures from the same family name in the past month — both for minor variance — and three clearances for a different family name that the standards would have caught.`;
+        G.lastResult = `Varen allows that much. "Enforcement has been applied with contextual flexibility recently." He doesn't define context. The enforcement log's open page shows two stall closures from the same family name in the past month — both for minor variance — and three clearances for a different family name that the standards would have caught. Cart wheels on the market lane outside. Varen reclaims the log and marks a notation that wasn't there before you arrived.`;
         addJournal('Inspector confirmed inconsistent enforcement practices', 'evidence', `sunspire-inspector-confirmed-${G.dayCount}`);
       } else {
         G.lastResult = `"Enforcement records are administrative." Varen closes the log and places it on the high shelf with both hands, out of casual reach. The market's midday noise carries through the stone arch — vendors calling measures, cart wheels on the lane. Without market authority in Sunspire's trade registry, the enforcement documents stay up there. He doesn't offer to retrieve them, doesn't acknowledge they could be retrieved. The distance between the shelf and the floor is the distance between you and that information.`;
@@ -347,7 +347,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Syndicate leadership alerted to family structure analysis', 'complication', `sunspire-family-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `The work assignment records show movement — families shifted across production zones, membership lists updated. The cross-reference to the family registry shows the changes cluster around the past two cycles. Whether the pattern is administrative reorganization or something more deliberate requires a longer comparison window than the registry's open hours allow today.`;
+        G.lastResult = `The work assignment records show movement — families shifted across production zones, membership lists updated. The cross-reference to the family registry shows the changes cluster around the past two cycles. Whether the pattern is administrative reorganization or something more deliberate requires a longer comparison window than the registry's open hours allow today. The registry desk clerk keeps glancing toward the door. The second volume of the assignment ledger is gone from its shelf.`;
         addJournal('Family structure modifications detected', 'evidence', `sunspire-family-modified-${G.dayCount}`);
       }
 
@@ -384,10 +384,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Syndicate directly warned about resource scarcity inquiry', 'complication', `sunspire-resources-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The harvest ledger and the distribution record don't agree — supply levels at the storage depot run significantly ahead of what the distribution columns show leaving. The gap isn't rounding error. Something between the harvest and the household is pulling volume sideways. The column you need to find it is in the locked section of the ledger. The thread points the same direction it has been pointing.`;
+        G.lastResult = `The harvest ledger and the distribution record don't agree — supply levels at the storage depot run significantly ahead of what the distribution columns show leaving. The gap isn't rounding error. Something between the harvest and the household is pulling volume sideways. The column you need to find it is in the locked section of the ledger. The thread points the same direction it has been pointing. The storage yard sits in thin morning light beyond the hall window, quiet in a way that a full depot shouldn't be.`;
         addJournal('Resource diversion pattern confirmed', 'evidence', `sunspire-resources-partial-${G.dayCount}`);
       } else {
-        G.lastResult = `The grain store logs and the distribution records are both present and legible. Cross-referencing them to find a deliberate diversion requires the harvest intake reports from the same period — those live in the yard master's office, behind a door that requires family standing to open. Without the intake baseline, the gap you suspect stays invisible in the math.`;
+        G.lastResult = `The grain store logs and the distribution records are both present and legible. Cross-referencing them to find a deliberate diversion requires the harvest intake reports from the same period — those live in the yard master's office, behind a door that requires family standing to open. Without the intake baseline, the gap you suspect stays invisible in the math. Cold light off the high plain comes through the depot window. The numbers are there. The meaning of the numbers isn't.`;
         addJournal('Resource scarcity proof incomplete without full data access', 'evidence', `sunspire-resources-blocked-${G.dayCount}`);
       }
 
@@ -461,10 +461,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Inquiry drawing direct coercion consequences', 'complication', `sunspire-coercion-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Two families decline to answer in the same way — not evasively, but with a particular practiced brevity that has been rehearsed. A third family's eldest keeps glancing at the syndicate administrator's window across the market lane. The threats aren't visible in what people say. They're visible in the distance people keep between themselves and the subject when anyone else might be watching.`;
+        G.lastResult = `Two families decline to answer in the same way — not evasively, but with a particular practiced brevity that has been rehearsed. A third family's eldest keeps glancing at the syndicate administrator's window across the market lane. The threats aren't visible in what people say. They're visible in the distance people keep between themselves and the subject when anyone else might be watching. Wind comes off the high plain and moves through the open market. Everyone continues working.`;
         addJournal('Family intimidation confirmed through behavioral patterns', 'evidence', `sunspire-coercion-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `The families you speak with are careful and consistent. None will describe specific threats or pressure, and the conversations don't stay open long enough to reach that territory. The wariness is present — you can see it in how quickly topics close — but the mechanism producing it stays on the other side of every door you approach today.`;
+        G.lastResult = `The families you speak with are careful and consistent. None will describe specific threats or pressure, and the conversations don't stay open long enough to reach that territory. The wariness is present — visible in how quickly topics close — but the mechanism producing it stays on the other side of every door you approach today. Wind moves through the market lane. The stall holders return to their work the moment the conversation ends.`;
         addJournal('Coercion suspected but specific mechanisms not documented', 'evidence', `sunspire-coercion-unclear-${G.dayCount}`);
       }
 
@@ -538,10 +538,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.isolation++;
         addJournal('Community members avoiding you due to fear of scrutiny', 'complication', `sunspire-community-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The market square at midday is quieter than the posted gathering schedule would produce. Families cluster near their own stalls rather than crossing to others. The shared cooking fire at the commons has four people around it instead of the dozen that a fire that size would normally draw. The social infrastructure is intact — tables, fire, square — and the people are staying out of it.`;
+        G.lastResult = `The market square at midday is quieter than the posted gathering schedule would produce. Families cluster near their own stalls rather than crossing to others. The shared cooking fire at the commons has four people around it instead of the dozen that a fire that size would normally draw. The social infrastructure is intact — tables, fire, square — and the people are staying out of it. The smell of woodsmoke and thin air off the elevation. No one is moving to fill the space the fire was built for.`;
         addJournal('Community fragmentation confirmed through behavioral observation', 'evidence', `sunspire-community-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Sunspire's communal structures are all present and maintained. The market runs. The meal fires burn. Whether the bonds between families that once ran through those structures are still intact requires conversations that go deeper than a single pass through the square — and the families here don't open quickly to strangers, even in easier times.`;
+        G.lastResult = `Sunspire's communal structures are all present and maintained. The market runs. The meal fires burn. Whether the bonds between families that once ran through those structures are still intact requires conversations that go deeper than a single pass through the square — and the families here don't open quickly to strangers, even in easier times. Thin air, woodsmoke, the sound of the wind off the elevation above. The square holds its shape. The people inside it hold their distance.`;
         addJournal('Community fragmentation suspected but incompletely documented', 'evidence', `sunspire-community-unclear-${G.dayCount}`);
       }
 
@@ -578,10 +578,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Syndicate prohibited further family fragmentation analysis', 'complication', `sunspire-fragmentation-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The work assignment board shows a pattern across three posting cycles: members of the same family unit landing in locations that put days of travel between them. It could be routine labor rotation. It's consistent enough — across multiple families, across multiple cycles — that routine doesn't hold as an explanation. Someone is making placement decisions that produce a specific result without appearing to be trying to.`;
+        G.lastResult = `The work assignment board shows a pattern across three posting cycles: members of the same family unit landing in locations that put days of travel between them. It could be routine labor rotation. It's consistent enough — across multiple families, across multiple cycles — that routine doesn't hold as an explanation. Someone is making placement decisions that produce a specific result without appearing to be trying to. The board is posted in a stone archway at the yard entrance, exposed to the wind.`;
         addJournal('Family fragmentation and separation patterns confirmed', 'evidence', `sunspire-fragmentation-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Family separation is visible in the housing blocks if you know what to look for — elderly members in outer residential zones, working-age family in production housing, children in communal care blocks. Whether that's a coordinated displacement or a function of how work assignment naturally distributes depends on the assignment records, which require family standing to open.`;
+        G.lastResult = `Family separation is visible in the housing blocks if you know what to look for — elderly members in outer residential zones, working-age family in production housing, children in communal care blocks. Whether that's a coordinated displacement or a function of how work assignment naturally distributes depends on the assignment records, which require family standing to open. The housing block at the outer edge faces the watchtower plain. Smoke rises from only one chimney.`;
         addJournal('Family fragmentation analysis incomplete without assignment data', 'evidence', `sunspire-fragmentation-blocked-${G.dayCount}`);
       }
 
@@ -618,10 +618,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Syndicate aware of consent apparatus analysis', 'complication', `sunspire-consent-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The council minutes show unanimous agreement on the last three major resource decisions. No recorded dissent, no abstentions. For decisions of this scope — distribution changes, quota revisions, housing reallocations — that uniformity is unusual. Either the community is genuinely aligned, or the disagreement happened before the record was made. The minutes don't show which.`;
+        G.lastResult = `The council minutes show unanimous agreement on the last three major resource decisions. No recorded dissent, no abstentions. For decisions of this scope — distribution changes, quota revisions, housing reallocations — that uniformity is unusual. Either the community is genuinely aligned, or the disagreement happened before the record was made. The minutes don't show which. The communal hall sits cold in the high-elevation afternoon, the stone walls carrying the chill of a building that hasn't been crowded today.`;
         addJournal('Coerced consent structure confirmed', 'evidence', `sunspire-consent-confirmed-${G.dayCount}`);
       } else {
-        G.lastResult = `Community members describe the quota and distribution decisions as things they agreed to. The phrasing is consistent — "the family accepted the terms," "we came to an arrangement" — but what the alternative was, if one existed, nobody will say. The consent is documented. The conditions that produced it are not in the same record.`;
+        G.lastResult = `Community members describe the quota and distribution decisions as things they agreed to. The phrasing is consistent — "the family accepted the terms," "we came to an arrangement" — but what the alternative was, if one existed, nobody will say. The consent is documented. The conditions that produced it are not in the same record. Lamp oil and cold stone. Outside, the high-plain wind pushes through the gap between the hall's outer door and its frame.`;
         addJournal('Manufactured consent analysis incomplete without threat documentation', 'evidence', `sunspire-consent-blocked-${G.dayCount}`);
       }
 
@@ -723,7 +723,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const npc = npcOptions[Math.floor(Math.random() * npcOptions.length)];
 
-      G.lastResult = `${npc.name} doesn't wait for the second question. The first one breaks the silence they've been keeping. "${npc.fear}." They're not asking for anything — no absolution, no assurance. Their hands stay flat on the table. The fear is specific and old enough to have a shape. Whatever comes next is no longer entirely their decision.`;
+      G.lastResult = `${npc.name} doesn't wait for the second question. The first one breaks the silence they've been keeping. "${npc.fear}." They're not asking for anything — no absolution, no assurance. Their hands stay flat on the table. The fear is specific and old enough to have a shape. Whatever comes next is no longer entirely their decision. Outside, the watchtower on the plain catches the last light of the afternoon. Neither of you looks at it.`;
 
       if (!G.flags) G.flags = {};
       G.flags.stage1_evidence_decision = 'pending';
@@ -762,7 +762,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure += 2;
         addJournal('Inquiry interrupted by external coordination operators', 'complication', `sunspire-origin-caught-${G.dayCount}`);
       } else if (result.total >= 14) {
-        G.lastResult = `The evidence points beyond Sunspire Haven. Courier routes reference "northern resource authorities." Extraction orders show external signature. The conspiracy is larger than the community itself. You don't know the exact source yet, but you know the resource extraction is being directed from outside Sunspire Haven's borders.`;
+        G.lastResult = `The evidence points beyond Sunspire Haven. Courier routes reference "northern resource authorities." Extraction orders show external signature. The conspiracy is larger than the community itself. You don't know the exact source yet, but you know the resource extraction is being directed from outside Sunspire Haven's borders. The courier receipts carry a stamp from a northern district that no local family would have dealings with. Someone far from here has been writing to this community's syndicate for longer than the pattern suggests.`;
         addJournal('External coordination of Sunspire Haven extraction confirmed', 'discovery', `sunspire-origin-external-${G.dayCount}`);
       } else {
         G.lastResult = `The pieces suggest external involvement — courier receipts referencing outside parties, authorization marks without local provenance, convoy patterns that bypass Sunspire Haven's own route network. But the origin source remains obscured behind the layers that were built to obscure it. Whoever is orchestrating this has had sufficient time and resources to put distance between their instructions and their names. The shape of the apparatus is visible. The people who built it are not.`;
@@ -834,13 +834,13 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The positions of the guards when they fell tell you this wasn't a surprise attack — they were already moving into defensive formation when the interception happened. They knew something was wrong before the interception began. The convoy security was compromised from inside. Someone on the convoy itself signaled the moment.`;
+        G.lastResult = `The positions of the guards when they fell tell you this wasn't a surprise attack — they were already moving into defensive formation when the interception happened. They knew something was wrong before the interception began. The convoy security was compromised from inside. Someone on the convoy itself signaled the moment. Boot impressions in the thin soil at the site's edge show weight distribution from a standing position, not a running one. Whoever gave the signal waited until the last possible moment.`;
       } else if (arch === 'magic') {
-        G.lastResult = `Residue on the ground near the container position suggests the damping material had been activated before the convoy stopped. The container was already shielded before the disruption happened. This wasn't an ambush on a moving target — it was a scheduled handoff staged to look like a hijacking.`;
+        G.lastResult = `Residue on the ground near the container position suggests the damping material had been activated before the convoy stopped. The container was already shielded before the disruption happened. This wasn't an ambush on a moving target — it was a scheduled handoff staged to look like a hijacking. The residue pattern is concentrated in a ring roughly half a meter across — the container was held stationary here for several minutes before the transfer. Someone gave the order to activate and waited for the confirmation.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `The site has been cleaned. Not badly — it looks natural — but too natural. Wheel ruts that should be there aren't. The ground is even where a heavy container would have been dragged. Someone came back after the disruption and removed traces. Professional scene-clearing, done in daylight.`;
+        G.lastResult = `The site has been cleaned. Not badly — it looks natural — but too natural. Wheel ruts that should be there aren't. The ground is even where a heavy container would have been dragged. Someone came back after the disruption and removed traces. Professional scene-clearing, done in daylight. The wind off the high plain has been blowing since morning, but it doesn't blow smooth a drag path — something with a flat edge worked this ground before it dried.`;
       } else {
-        G.lastResult = `Two supply crates are still at the site, undisturbed. The disruption was selective — the sealed container was taken; everything else was left. This wasn't a raid on the convoy. It was retrieval of one specific item. The rest of the cargo was never the point.`;
+        G.lastResult = `Two supply crates are still at the site, undisturbed. The disruption was selective — the sealed container was taken; everything else was left. This wasn't a raid on the convoy. It was retrieval of one specific item. The rest of the cargo was never the point. Dry grass at the site margin, thin elevation soil, the watchtower visible on the horizon. Someone knew exactly what they were coming for and left everything else precisely where they found it.`;
       }
       addJournal('Convoy disruption site: selective retrieval confirmed, scene-cleared, inside source suspected', 'evidence', `sunspire-site-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -900,7 +900,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Your sketch captures dimensions, material layering, and the craftmark precisely — enough that a fabricator could identify the manufacture source from the drawing alone. You copy it twice and cache the second in your personal kit. Whatever happens to the physical container, you have its record.`;
+        G.lastResult = `Your sketch captures dimensions, material layering, and the craftmark precisely — enough that a fabricator could identify the manufacture source from the drawing alone. You copy it twice and cache the second in your personal kit. Whatever happens to the physical container, you have its record. Cold morning air, the smell of charcoal and lamp oil from the adjacent storeroom. The container will be locked inside before the afternoon bell. The drawing won't be.`;
         G.flags.container_documentation = true;
         addJournal('Container documentation completed and secured — craftmark recorded for later identification', 'evidence', `sunspire-document-${G.dayCount}`);
       } else {
@@ -945,11 +945,11 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `"Military bearing," the innkeeper says. "Asked whether the guards fired before or after the container was moved. Not whether they fired at all — specifically in what order. Someone with tactical training, working out a timeline." They knew what questions to ask. That means they already know what happened.`;
+        G.lastResult = `"Military bearing," the innkeeper says. "Asked whether the guards fired before or after the container was moved. Not whether they fired at all — specifically in what order. Someone with tactical training, working out a timeline." They knew what questions to ask. That means they already know what happened. The innkeeper folds a cloth on the counter, slow and even. "Came in at dusk. Left before the morning bell. Didn't eat anything."  `;
       } else if (arch === 'magic') {
-        G.lastResult = `"Carried a measuring instrument — brass, cylindrical," the innkeeper says. "Held it near the container storage area before asking questions. I thought it was for surveying." A resonance reader or material sensor. This person was characterizing the container's damping field, not documenting the disruption. They came for the container specifically.`;
+        G.lastResult = `"Carried a measuring instrument — brass, cylindrical," the innkeeper says. "Held it near the container storage area before asking questions. I thought it was for surveying." A resonance reader or material sensor. This person was characterizing the container's damping field, not documenting the disruption. They came for the container specifically. The innkeeper sets a mug down with deliberate care. "Quiet. Polite. Didn't leave a name."  `;
       } else if (arch === 'stealth') {
-        G.lastResult = `"Didn't ask about the disruption at all," the innkeeper says. "Just asked who'd been asking about it. Named three people by description before they'd been introduced." A monitor. Someone whose role is watching the watchers. They were mapping inquirers, not events. Your name isn't on their list yet — but it will be.`;
+        G.lastResult = `"Didn't ask about the disruption at all," the innkeeper says. "Just asked who'd been asking about it. Named three people by description before they'd been introduced." A monitor. Someone whose role is watching the watchers. They were mapping inquirers, not events. Your name isn't on their list yet — but it will be. The innkeeper glances at the door. "Left a coin on the counter for the information. Exact amount for what was given."  `;
       } else {
         G.lastResult = `"Spoke to every staff member separately," the innkeeper says. "Different questions each time. I only put it together afterward — they were building a complete picture of everyone involved." A pause, cloth folded on the counter. "Never repeated themselves. Each person got a different angle of the same thing." Methodical social mapping. They moved through the staff the way a surveyor moves through terrain — covering the ground systematically, never doubling back. A profile of this disruption's participants is already assembled somewhere. It's more complete than yours.`;
       }
@@ -973,7 +973,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. A seasonal obligation schedule is still pinned at the top — same one from three days back. The waystation arrival notice beside it has not changed since the last family transit. Nothing that changes the picture.';
+      G.lastResult = 'The board has nothing new since this morning. A seasonal obligation schedule is still pinned at the top — same one from three days back. The waystation arrival notice beside it has not changed since the last family transit. Nothing that changes the picture. Wind off the high plain moves through the open gateway, lifting the edge of the oldest posting and setting it down again. The board faces into it.  ';
       return;
     }
     G.flags[key] = true;
