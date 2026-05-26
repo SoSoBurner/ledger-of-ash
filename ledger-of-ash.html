@@ -14745,7 +14745,11 @@ function showMap() {
   html += '<div class="map-locations">' +
     stage1Locs.concat(stage2Locs).map(l => {
       const isCur = l.id === settlementId;
-      const locked = G.stage === 'Stage I' && l.region !== curRegion && !stranded;
+      const _lmr = window.LOCALITY_MACROREGION || {};
+      const _samePol = l.polity && cur && l.polity === cur.polity;
+      const _sameMacro = _lmr[l.id] && _lmr[G.location] && _lmr[l.id] === _lmr[G.location];
+      const _plotUnlock = G.flags && G.flags['travel_unlock_' + l.id];
+      const locked = G.stage === 'Stage I' && !_samePol && !_sameMacro && !_plotUnlock && !stranded;
       return '<div class="map-loc' + (isCur?' current':'') + (locked?' locked':'') + '">' +
         '<div class="map-loc-name">' + l.name + (isCur?' &#x2605;':'') + (locked?' &#x1F512;':'') + '</div>' +
         '<div class="map-loc-region">' + l.region + '</div>' +
