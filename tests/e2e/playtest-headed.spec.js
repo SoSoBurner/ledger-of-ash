@@ -189,6 +189,8 @@ async function readG(page) {
         masteryXP:     G.masteryXP || 0,
         companions:    (G.companions || []).length,
         flags:         G.flags ? { ...G.flags } : {},
+        miniboss_started:  !!(G.flags && G.flags.stage2_miniboss_started),
+        miniboss_complete: !!(G.flags && G.flags.stage2_miniboss_complete),
       };
     } catch (_) { return {}; }
   }).catch(() => ({}));
@@ -1651,7 +1653,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       if (picks > 0 && picks % 10 === 0) {
         const _gatesp2 = (g.stageProgress && g.stageProgress[2]) || 0;
         const _flags = g.flags || {};
-        log(`[s2-probe ${tag}] pick=${picks} stage=${g.stage} sp2=${_gatesp2} boss=${!!_flags.stage2_miniboss_complete} faction=${!!_flags.stage2_faction_contact_made} antechamber=${!!_flags.stage2_antechamber_done} climaxDone=${!!(_flags.stage2_climax_complete||_flags.maren_oss_resolved)} gold=${g.gold} xp=${g.xp} supply=${g.supply}`);
+        log(`[s2-probe ${tag}] pick=${picks} stage=${g.stage} sp2=${_gatesp2} boss_started=${g.miniboss_started} boss_done=${g.miniboss_complete} faction=${!!_flags.stage2_faction_contact_made} antechamber=${!!_flags.stage2_antechamber_done} climaxDone=${!!(_flags.stage2_climax_complete||_flags.maren_oss_resolved)} gold=${g.gold} xp=${g.xp} supply=${g.supply}`);
       }
 
       // Enhancement 1 — Every-10-pick periodic screenshot (deduped)
