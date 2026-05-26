@@ -9495,13 +9495,26 @@ function _authorityResolvePhase2(authorityKey, polity, heatLevel, outcome, roll,
     _authorityResolveDetention(authorityKey, polity);
     return;
   }
+  var AUTHORITY_ENEMY_MAP = {
+    road_wardens:           'warden_lieutenant',
+    roazian_enforcement:    'iron_accord_enforcer',
+    magi_magistratus:       'red_hood_operative',
+    book_tariff_office:     'private_security',
+    afterlife_registry:     'guild_enforcer',
+    cosmouth_archives:      'private_security',
+    harvest_measures_board: 'frontier_militia',
+    trade_arbitration_guild:'guild_enforcer',
+    route_warden_compacts:  'patrol_guard',
+    giant_council:          'frontier_militia',
+    bond_registry_ring:     'guild_enforcer'
+  };
   if (outcome === 'fight') {
     // Combat victory result wired via post-combat hook — here we just enter combat
     addHeat(polity, 0); // heat added on victory in _authorityResolveCombatVictory
     document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
-    console.log('[combat-debug] authority fight: key=' + authorityKey + '_officer (will fail lookup — no ENEMY_TEMPLATES entry)');
     if (typeof enterCombat === 'function') {
-      enterCombat(authorityKey + '_officer', { isBoss: false, _authorityPolity: polity, _authorityKey: authorityKey, _authorityFight: true });
+      var _enemyKey = AUTHORITY_ENEMY_MAP[authorityKey] || 'patrol_guard';
+      enterCombat(_enemyKey, { isBoss: false, _authorityPolity: polity, _authorityKey: authorityKey, _authorityFight: true });
     }
   }
 }
