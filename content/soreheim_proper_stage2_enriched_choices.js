@@ -893,6 +893,136 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── NEW SP2-ADVANCING CHOICES ──────────────────────────────────────
+
+  {
+    label: "Lyria's allocation tallies for the northern ward run two weeks behind every other district.",
+    tags: ['Investigation', 'Stage2', 'NPC'],
+    tag: 'risky',
+    failResult: "Lyria sets her pen down and turns the allocation ledger face-down without being asked. 'Ward-level reconciliation is administered on a rolling basis. Inquiries should be directed to the Giant Council intake desk.' She picks the pen up again. The intake desk will produce a queue ticket and a three-day wait.",
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'pressing Lyria Firesoul on northern ward allocation delay');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.met_lyria_firesoul = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "Lyria does not turn the ledger over. She opens it to the northern ward column and sets her finger on the date row — two weeks back. 'Reconciliation for that ward was flagged for administrative review in the fifth month. The review order came from the Relic Strategy Wing, not from my office. I reconcile what my office controls.' She closes the ledger. 'The flagged rows have not been released back to me.' The two-week gap is not her error. It is a hold the Wing placed and has not lifted.";
+        addJournal('Lyria Firesoul: northern ward allocation rows held under Relic Strategy Wing administrative review since fifth month — not yet released to Allocation Hall', 'evidence', 'sor-lyria-crit-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = "Lyria's expression does not change. She stands, crosses to the counter door, and opens it. 'Allocation Hall inquiries follow the standard registry process. I can provide you the form.' She holds the door. The form is two pages and requires a tower-rank identifier on the second page. She has ended the meeting without raising her voice once.";
+        addJournal('Lyria Firesoul — Allocation Hall inquiry closed; standard registry form issued, tower-rank identifier required', 'complication', 'sor-lyria-fail-' + G.dayCount);
+      } else {
+        G.flags.met_lyria_firesoul = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "Lyria keeps working through the column without pausing. 'The northern ward reconciliation is under review. That is a matter of record.' She does not say whose review. She does not say when it will resolve. When she reaches the end of the column she closes the ledger and moves it to the completed stack. The two-week gap is in there, visible until it isn't.";
+        addJournal('Lyria Firesoul confirms northern ward allocation is under administrative review — will not specify reviewing authority or timeline', 'intelligence', 'sor-lyria-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Ironroot Crossing manifest records show a crew rotation that never happened.",
+    tags: ['Investigation', 'Stage2', 'Survival'],
+    tag: 'bold',
+    failResult: "The crossing foreman at Ironroot is a large man with a very short memory for faces he does not recognize. He takes the manifest from your hand, reads the date, and hands it back. 'Rotation records are internal Crossing documentation. You'll need a labor assignment to pull those.' He turns back to the loading sled without waiting for a response.",
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'enduring the Ironroot Crossing yard to read phantom crew entries');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.ironroot_crossing_phantom_crew = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "The Ironroot Crossing manifest board runs a three-shift rotation — names posted, initials logged, crew weights signed off for load-balancing. For six nights across the past two months, the posted names do not match the initials in the load log. The signatures on those six nights are consistent with each other and inconsistent with any worker whose name appears in the posted rotation. A second crew moved through this crossing, used the rotation board as cover, and signed under names that were not theirs. The load weights on those six nights are heavier than any standard crew would carry.";
+        addJournal('Ironroot Crossing manifest board: 6 nights with name/signature mismatches — phantom crew signed under posted names, load weights above standard crew capacity', 'evidence', 'sor-ironroot-crit-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = "The Ironroot Crossing yard runs at full noise — sleds moving, chains, the deep vibration of the Crossing mechanisms. Staying close enough to read the manifest board for the time needed means standing in the active load zone, which the yard foreman notices before the second minute is up. He crosses the yard in a straight line and asks for a labor assignment seal. The question is not a suggestion.";
+        addJournal('Ironroot Crossing manifest board access — yard foreman challenged position, labor assignment seal required', 'complication', 'sor-ironroot-fail-' + G.dayCount);
+      } else {
+        G.flags.ironroot_crossing_phantom_crew = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "Three nights in the manifest board records show load weights that exceed the posted crew's combined capacity. The initials in the load log on those nights are different from the crew names at the top of the form. Someone corrected the weight entry after the fact on one of the three — the original figure is still legible under the correction mark. The Crossing ran heavier loads on those nights than its own posted rotation could account for.";
+        addJournal('Ironroot Crossing: 3 manifest entries show above-capacity load weights with mismatched initials — one corrected entry still shows original figure', 'intelligence', 'sor-ironroot-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Eryndor's contribution ranking dropped the same week the forge cavity load was delivered.",
+    tags: ['Investigation', 'Stage2', 'NPC'],
+    tag: 'risky',
+    failResult: "Eryndor Bladewright crosses his arms and does not uncross them. 'Contribution rankings are a council process. Challenging a ranking without a formal disputation form goes nowhere.' He is not hostile. He is a man who has learned that precise procedure is the only defense available to him, and he is using it.",
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'approaching Eryndor Bladewright about contribution ranking drop');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.met_eryndor_bladewright = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "Eryndor does not uncross his arms, but he stops watching the door. 'My output that week was identical to the three weeks before it. The ranking adjustment was applied from outside my tower's assessment cycle — I checked. The only external authority that can override a cycle ranking mid-period is a Giant Council administrative directive.' He pauses. 'I pulled the directive reference number from the adjustment record. It does not exist in the Giant Council public register.' He writes the reference number on a scrap and sets it on the workbench between you without comment.";
+        addJournal('Eryndor Bladewright: contribution ranking dropped via non-existent Giant Council directive reference — applied mid-assessment-cycle from outside tower', 'evidence', 'sor-eryndor-crit-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = "Eryndor unfolds his arms only long enough to point at the workbench behind him. 'I have four hours on this blade before the heat cycle ends. Whatever you are here about — come back tomorrow with an appointment.' He turns around. A worker at the adjacent bench is watching. The worker's eyes move away before Eryndor turns back.";
+        addJournal('Eryndor Bladewright refused approach — returned to work; adjacent worker noted the exchange', 'complication', 'sor-eryndor-fail-' + G.dayCount);
+      } else {
+        G.flags.met_eryndor_bladewright = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "Eryndor does not deny the drop. 'That week my output tallied the same as always. The ranking adjustment came from outside my tower's cycle — I know the form it should have taken and it didn't take that form.' He says it with the flat precision of someone who has already argued this to the wrong people and learned where the argument stops. He does not produce documentation, but he has it. The drop was imposed, not earned.";
+        addJournal('Eryndor Bladewright confirms ranking drop was externally imposed mid-assessment-cycle — procedurally irregular, documentation exists', 'intelligence', 'sor-eryndor-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Miners Assembly posted a grievance that vanished from the board within hours.",
+    tags: ['Investigation', 'Stage2', 'Lore'],
+    tag: 'bold',
+    failResult: "The Assembly clerk at the grievance board desk pulls the register back across the counter before you finish reading the entry. 'Withdrawn postings are not subject to further review. The filing party retracted it.' She closes the register. Withdrawn postings are retracted by the filing party — or retracted for them.",
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing the vanished Miners Assembly grievance to its source filing');
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      if (result.isCrit) {
+        G.flags.miners_assembly_grievance_traced = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "The Miners Assembly maintains a secondary log of all posted and withdrawn grievances — a procedural requirement under the Giants' Accord, kept separately from the public board. The withdrawn posting was filed by a crew of eight workers from Ironroot Crossing, citing a load assignment they were ordered to complete without tower record or wage credit. The withdrawal was entered four hours after posting, attributed to the filing party, but the withdrawal signature does not match any of the eight names on the original filing. It matches a Relic Strategy Wing administrative designate. The Accord log cannot be altered. The mismatch is permanent.";
+        addJournal("Miners Assembly Accord log: grievance withdrawn under a Wing administrative designate's signature — original filers did not retract it; load assignment off-books and uncredited", 'evidence', 'sor-assembly-crit-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        G.lastResult = "The Miners Assembly secondary log is held in the Accord compliance office, a separate room requiring a labor-representative credential to enter. The compliance officer on duty today asks for the credential twice and does not accept an explanation in place of it. Three workers eating at the benches near the entrance have stopped talking and are listening to the exchange. The compliance officer waits until you leave before resuming her own conversation.";
+        addJournal('Miners Assembly Accord compliance log access blocked — labor-representative credential required; workers present noted the exchange', 'complication', 'sor-assembly-fail-' + G.dayCount);
+      } else {
+        G.flags.miners_assembly_grievance_traced = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2]++;
+        G.lastResult = "The secondary log entry for the withdrawn grievance is intact — posting date, filing crew reference, withdrawal timestamp. The withdrawal attribution line lists the filing party, but the compliance clerk who reads it aloud stops at the signature field and does not finish the sentence. She marks the entry with a procedural flag without explaining what the flag signifies. The grievance was filed by workers at Ironroot Crossing about an off-books load assignment. It was gone from the public board before the end of the same day shift.";
+        addJournal('Miners Assembly Accord log: Ironroot Crossing workers filed off-books load assignment grievance — withdrawn same day, compliance clerk flagged the withdrawal signature', 'intelligence', 'sor-assembly-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES;
