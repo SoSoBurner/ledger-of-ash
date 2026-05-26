@@ -23,7 +23,7 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Aurora Heights archive: House Shelk letter confirms Northern Provision Compact delivery terms', 'evidence', `ah-archive-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The clerk at the records counter sets down her stamp and steps back without processing the request. A handwritten routing slip goes into the senior ledger. Somewhere above this counter, House Shelk estate will receive word that someone asked about charter correspondence from this period. The inquiry is already traveling faster than you are.`;
+        G.lastResult = `The clerk at the records counter sets down her stamp and steps back without processing the request. A handwritten routing slip goes into the senior ledger, pressed flat with her palm. Lamp oil and wet stone drift up from the corridor outside. Somewhere above this counter, House Shelk estate will receive word that someone asked about charter correspondence from this period. The inquiry is already traveling faster than the person who made it.`;
         addJournal('Aurora Heights archive inquiry escalated to House Shelk estate', 'complication', `ah-archive-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -43,7 +43,7 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `A court contact identifies the sealed charter holder by family name — a minor noble house that was dissolved three years ago but whose legal entity was never formally struck from the registry. It is a legal ghost operating under the protection of expired legitimacy.`;
+        G.lastResult = `A former estate solicitor names the sealed charter holder without hesitation — a minor noble house dissolved three years ago whose legal entity was never formally struck from the registry. The dissolution paperwork sits in the noble registry's own files, unfiled, gathering the particular dust of deliberately unfinished administrative work. A legal ghost, operating under the protection of expired legitimacy, and someone kept the paperwork just incomplete enough to preserve that protection.`;
         addJournal('Aurora Heights court: charter holder identified as dissolved noble legal ghost', 'evidence', `ah-court-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The phrasing lands wrong — too direct for this circuit. The man across the tea table sets down his cup and reclassifies the conversation in real time: a prospecting call, someone scouting charter availability. He produces the House Shelk solicitor's card with practiced efficiency and slides it across the tablecloth. The social door closes before it was ever properly open.`;
@@ -93,7 +93,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `A former workshop hand describes the modification work in precise detail: signal-damping insulation panels, chemical seal reinforcement on the container joints, and a specific loading configuration designed to distribute weight evenly across a standard grain convoy arrangement. He was paid double rate and told not to discuss it. He discusses it anyway.`;
+        G.lastResult = `A former workshop hand describes the modification work over the last of his drink, speaking at medium volume into the ward tavern noise. Signal-damping insulation panels. Chemical seal reinforcement on the container joints. A specific loading configuration built to distribute weight evenly across a standard grain convoy arrangement, so it reads correctly on a manifest. He was paid double rate, cash, in an envelope left at the yard gate — no name, no guild form. He was told not to discuss it. He discusses it anyway.`;
         addJournal('Ironspool Ward: worker describes container modification specs — signal damping, grain convoy weight config', 'evidence', `iron-ward-worker-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -155,7 +155,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!G.flags.stage2_faction_red_hood_aware) {
-        G.lastResult = 'The pawn window is open, but there is nothing to act on with the broker yet. The listing code in the window changes by the day. Come back when the pattern has been read.';
+        G.lastResult = 'The pawn window is open, lamp oil and cobblestone damp carrying up from the lane outside, but there is nothing to act on with the broker yet. The cracked lamp sits in its place, its tag face-down. The listing code in the window changes by the day — acting on one you have not decoded yet would burn the approach entirely. Come back when the pattern has been read and the current code confirmed.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -175,7 +175,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!G.flags.stage2_faction_red_hood_contacted) {
-        G.lastResult = 'Anneth Torv indicated a specific task at the last meeting. Until that task is complete, the next step in the arrangement is not open. The confiscation shelf will still be there.';
+        G.lastResult = 'Anneth Torv outlined a specific task at the last meeting — her register was Kerroun market, short sentences, numbers always in multiples of three. Until that task is complete, the next step in the arrangement is not open. The pawn window stays closed, the cracked lamp unsold, the tag rewritten daily for an audience that has not yet earned the meeting. The confiscation shelf will still be there. The question is whether it will still hold what Torv needs by the time the approach is ready.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -207,7 +207,7 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The healers have compiled forty-seven cases across seven months. They cross-referenced patient addresses against known compound transit routes and confirmed geographic clustering. They were preparing to publish but received a suppression notice from the "Northern Glyph Oversight Commission." They kept their records hidden. They share them.`;
+        G.lastResult = `The healers have compiled forty-seven cases across seven months, each patient record kept in a hand-copied ledger stored behind the collective's dispensary shelves rather than in the main filing cabinet. They cross-referenced patient addresses against known compound transit routes and confirmed geographic clustering across four city wards. They were preparing to publish when a suppression notice arrived from the "Northern Glyph Oversight Commission" — an authority none of them could locate in any regulatory directory. They kept the records out of the main files. They share them now.`;
         addJournal('Verdant Row healers: 47 exposure cases documented, suppressed by fake authority, records shared', 'evidence', `vr-healers-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
@@ -282,7 +282,7 @@ var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `You catch the manifest as it is being processed. The grain routing number on a non-agricultural manifest was entered four minutes ago. The submitting agent is still at the counter. You obtain a physical description and the exact charter subsidiary code they used. Live evidence.`;
+        G.lastResult = `The manifest is still being processed at the counter when the routing number flags — grain code stamped onto a non-agricultural load, entered four minutes ago, the ink not yet dry on the submission form. The submitting agent stands at the window, waiting for the batch receipt. There is time to hold the filing, pull a physical description, and copy the exact charter subsidiary code before the batch cycle closes. The evidence is live and still attached to a person who has not yet left the building.`;
         addJournal('Granary Steps: live manifest fraud caught — agent described, charter code captured', 'evidence', `hk-granary-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The agent at the counter glances up once, reads the angle of attention across the room, and moves. The manifest is voided before the ink has dried on the routing stamp — a single ruled line, initialed in a hand that will be impossible to trace. By the time a supervisor could be summoned, the counter is empty and the side exit closed. The fraud evaporated cleanly. The only thing left is a voided manifest with a grain routing number that no longer points at anything.`;
@@ -310,7 +310,7 @@ var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
         G.flags.granary_marker_found = true;
         maybeStageAdvance();
       } else {
-        addNarration('Ward Marker, Unremarkable', 'The posts at the granary boundary are standard — district designation, date of last arbitration, constable patrol signature in chalk. The chalk is fresh. Whatever was underneath has been scrubbed, not just covered. The stone is still damp.');
+        addNarration('Ward Marker, Unremarkable', 'The stone post at the granary district boundary carries the standard marks: ward designation, date of last arbitration, constable patrol signature in chalk renewed this morning. The chalk is too fresh — pressed into the stone harder than a routine update requires, thick enough to fill a groove rather than just mark a surface. Whatever sat beneath it has been scrubbed rather than simply written over. The post is still damp where the scrubbing went deep.');
       }
     }
   }
@@ -328,7 +328,7 @@ var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The asset transfers converge on a single escrow account held under the Northern Provision Compact name. The account has received seven disbursements over six months from three separate institutional payers — one Soreheim, one Guildheart, one House Shelk subsidiary. The full financial picture is here.`;
+        G.lastResult = `The asset transfers converge on a single escrow account registered under the Northern Provision Compact name, filed in a ledger column sandwiched between routine ward supply disbursements on either side. The account has received seven payments over six months from three separate institutional payers — one Soreheim administrative fund, one Guildheart commercial line, one House Shelk subsidiary operating through a numbered charter entity. Each payment filed under a different service classification. Together they produce a complete financial picture that no single payer intended to leave visible.`;
         addJournal('Iron Ledger Ward: NPC escrow account with Soreheim + Guildheart + Shelk disbursements confirmed', 'evidence', `ilw-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -357,7 +357,7 @@ var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
         G.flags.iron_ledger_arbiter_consulted = true;
         maybeStageAdvance();
       } else {
-        addNarration('Arbiter Seniris, On the Record', 'She lays both documents down and gives you the same answer she gives everyone: the provisional determination is posted on the notice board. The full arbitration schedule is public. She will not discuss active filings outside the formal process. Her desk is already sorted before you finish asking.');
+        addNarration('Arbiter Seniris, On the Record', 'She lays both documents flat on the desk and gives the answer she gives everyone who comes through that door without an arbitration appointment — the provisional determination is posted on the public notice board in the hall. The full arbitration schedule is public record, available at the ward filing counter. Active filings are not discussed outside the formal process. Her desk is already sorted and her attention is already elsewhere before the question finishes forming. The door to the back office remains closed throughout.');
       }
     }
   }
@@ -374,7 +374,7 @@ var RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
-        G.lastResult = `You find the complainant. They withdrew under threat of legal action using the sealed charter as a basis for a defamation claim. The original complaint identified specific cargo that had been using their service classification. They kept a copy of the original complaint. They sign a new witness statement.`;
+        G.lastResult = `The complainant is found at their place of business in Reckoning Quarter's outer lane, the smell of woodsmoke and damp cobblestone coming through the open window behind them. They withdrew under threat of legal action — the sealed charter deployed as grounds for a defamation claim, the letter arriving three days after the original complaint was filed. The original complaint named specific cargo classifications being moved under their service registration without authorization. They kept a copy behind a false drawer base. They sign a new witness statement without being asked twice.`;
         addJournal('Reckoning Quarter: memorial fraud complainant located — witness statement secured', 'evidence', `rq-complaint-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;

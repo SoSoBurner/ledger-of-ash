@@ -23,15 +23,15 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_farlan_inkshade = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Farlan's cross-reference confirms the routing number theft. Memorial manifests are using harvest shipment tracking numbers that allow them to pass through Roadwarden supply checkpoints without inspection — because harvest shipments have standing agricultural exemption. The memorial manifests are hijacking agricultural legitimacy.`;
+        G.lastResult = `Farlan's cross-reference confirms the routing number theft. Memorial manifests are using harvest shipment tracking numbers that allow them to pass through Roadwarden supply checkpoints without inspection — because harvest shipments have standing agricultural exemption. The granary timber creaks in the late-season cold above the archive room. Farlan sets the two ledger pages side by side on the counting table and does not touch them again. The memorial manifests are hijacking agricultural legitimacy, and the exemption was designed for collective harvest labor, not for this.`;
         addJournal('Memorial manifests using harvest routing numbers — bypassing Roadwarden checkpoints via ag exemption', 'evidence', `har-farlan-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Farlan's records are scheduled for annual academic review this week. The timing is not incidental — the review was filed three days ago. His cooperation would jeopardize the review's independence, and he is unable to assist without compromising his institutional standing.`;
+        G.lastResult = `Farlan's records are scheduled for annual academic review this week. The timing is not incidental — the review was filed three days ago, four days after your last visit to the archive wing. His cooperation would jeopardize the review's independence, and he is unable to assist without compromising his institutional standing. The granary timber overhead creaks in the late-season cold. He does not look at you while he explains this.`;
         addJournal('Quota records under annual academic review — access conflict', 'complication', `har-farlan-fail-${G.dayCount}`);
       } else {
         G.flags.met_farlan_inkshade = true;
         G.investigationProgress++;
-        G.lastResult = `Farlan identifies the routing number overlap without needing the full context. "These manifest numbers belong to our grain shipments. We haven't shipped grain to those destinations." He closes the ledger. "Someone is borrowing our exemption credentials and they've been doing it for months."`;
+        G.lastResult = `Farlan identifies the routing number overlap without needing the full context. "These manifest numbers belong to our grain shipments. We haven't shipped grain to those destinations." He closes the ledger, the binding pressing flat against the counting table. The smell of turned earth from the open corridor window settles over the room. "Someone is borrowing our exemption credentials and they've been doing it for months." He turns the ledger face-down before he sets it aside.`;
         addJournal('Harvest routing numbers borrowed by non-agricultural manifests', 'evidence', `har-farlan-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -51,16 +51,16 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_valen_crestmark = true;
         G.investigationProgress++;
-        G.lastResult = `Valen's assessment logs show the shipment arriving with military transport credentials and departing south the same day. The weight and volume profiles match the second suppression compound cache Vorgul Oxtend revealed in Soreheim. The northern staging location is moving material through Harvest Circle as a quiet waypoint.`;
+        G.lastResult = `Valen's assessment logs show the shipment arriving with military transport credentials and departing south the same day — boot tracks in the wet field mud beside the dock, gone before the morning tally crew arrived. The weight and volume profiles match the second suppression compound cache Vorgul Oxtend revealed in Soreheim. The northern staging location is moving material through Harvest Circle as a quiet waypoint, using agricultural infrastructure and exemption credentials that no one inside the commune authorized.`;
         addJournal('Harvest Circle as staging waypoint — military-credentialed compound cache transit confirmed', 'evidence', `har-valen-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The shipment Valen logged was entered under military exemption credentials. His attempt to retrieve those records now triggers an automatic military exemption protection notice — the file is flagged and sealed before the query completes.`;
+        G.lastResult = `The shipment Valen logged was entered under military exemption credentials. His attempt to retrieve those records now triggers an automatic military exemption protection notice — the file is flagged and sealed before the query completes. The chalk tally marks on the assessment wall stay where they are, unanswered. Valen sets both hands on the desktop and does not reach for the register again. The protection notice will route to a supply chain office he cannot name.`;
         addJournal('Military exemption shipment records sealed — protection notice triggered', 'complication', `har-valen-fail-${G.dayCount}`);
       } else {
         G.flags.met_valen_crestmark = true;
         G.investigationProgress++;
-        G.lastResult = `Valen found the anomalous shipment troubling enough to note separately in his own log. "Arrived from the northwest, not from any harvest supplier I know. Heavy chemical smell on the containers — not grain, not fertilizer. They were gone before I could request a proper manifest."`;
+        G.lastResult = `Valen found the anomalous shipment troubling enough to note separately in his own log. "Arrived from the northwest, not from any harvest supplier I know. Heavy chemical smell on the containers — not grain, not fertilizer." Boot tracks had crossed the wet field mud beside the dock, two sets heading back toward the northern road before dawn. "They were gone before I could request a proper manifest." He taps the margin note once and does not elaborate.`;
         addJournal('Chemical-smell northern shipment — rapid departure before manifest review', 'evidence', `har-valen-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -139,7 +139,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_velrik_durnshade = true;
         G.investigationProgress++;
-        G.lastResult = `The dispute involves a handling fee paid by one guild member to another for processing a sealed cargo batch — a fee that was not authorized by any guild contract. The payer was instructed to handle the cargo by a guild supervisor who has since left the commune. The cargo description matches suppression compound containers.`;
+        G.lastResult = `The dispute involves a handling fee paid by one guild member to another for processing a sealed cargo batch — a fee that was not authorized by any guild contract. The payer was instructed to handle the cargo by a guild supervisor who has since left the commune. The containers were sealed with a charter mark the payer did not recognize. The cargo description matches suppression compound containers. Velrik sets a finger on the charter mark notation and does not move it.`;
         addJournal('Guild dispute reveals unauthorized fee for handling suppression compound containers', 'evidence', `har-velrik-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The mediation chamber door is closed and the clerk at the outer desk does not look up until the third knock. Active proceedings, both parties still in session. No observer access, no summary disclosure, no record pull until the mediation concludes and a settlement is filed. The clerk sets a form on the counter for a formal access request. The processing queue runs three weeks.`;
@@ -668,7 +668,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(104, 'Harvest Circle Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The routing number fraud and the supplier irregularities are visible but the threads aren't closed. The communal council will not act on partial documentation, and a premature approach risks sealing the archive access that's still open. Three or four more solid confirmations, and the case holds.`;
+        G.lastResult = `The routing number fraud and the supplier irregularities are visible but the threads aren't closed. The communal council will not act on partial documentation — a case brought too early becomes a closed file, not an open one. Approaching now risks sealing the archive access that's still available, and the chalk marks on the grain tally boards are still being disputed. Three or four more solid confirmations close the gaps, and a closed case holds against appeal.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -677,12 +677,12 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You present the routing number fraud and the commune elder's statement to the Harvest Circle Communal Council. The Council suspends all incoming manifests using the identified routing numbers and files a formal complaint with Roadwarden supply chain oversight. The agricultural exemption is closed. Stage III opens with communal council backing.`;
+        G.lastResult = `The routing number fraud and the commune elder's statement go before the Harvest Circle Communal Council in the circle-house, the smell of smoke from the autumn fire settling across the assembly floor. The Council suspends all incoming manifests using the identified routing numbers before the session ends and files a formal complaint with Roadwarden supply chain oversight. The agricultural exemption is closed. The council's land documents, collective-held and weighted with years of communal labor, are placed in the record alongside the complaint.`;
         addJournal('Harvest Circle S2 finale: communal council suspends routing fraud — Roadwarden complaint filed', 'evidence', `har-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `You share the next expected routing number with the Verdant Row network. The network positions contacts at every checkpoint along the route. The next shipment from the Northern Provision Compact is intercepted, documented, and dispersed before it reaches its destination.`;
+        G.lastResult = `The next expected routing number goes to the Verdant Row network before dawn, passed hand to hand along the collective labor lines. The network positions watchers at every checkpoint along the route — grain workers and dock hands who know how to stand in a crowd without standing out. The next shipment from the Northern Provision Compact is intercepted, its containers documented in the wet field mud beside the staging dock, and dispersed before it reaches its destination.`;
         addJournal('Harvest Circle S2 finale: network intercepts next ghost shipment via routing prediction', 'evidence', `har-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
