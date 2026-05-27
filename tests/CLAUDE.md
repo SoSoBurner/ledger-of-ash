@@ -73,7 +73,7 @@ Helper files in `tests/e2e/helpers/`:
 
 **Known harness gaps (do not investigate as new failures):**
 - **Pre-existing startup JS errors**: "Invalid or unexpected token" fires exactly 2× per run at page load across all archetypes — non-blocking, game plays through. 13 content files have UTF-8 BOM. Treat as baseline noise.
-- **Zero-sp2 locality pattern**: `coverage-tracker.js` accumulator bug fixed (commit `17feba99`). `stageProgress[2]` wired to fairhaven/panim/mimolot success paths (commit `c4b4fd09`). If zero-sp2 appears in a new run for those localities, it means the player passed through them but all choices failed (roll failures don't increment sp2 — only success paths do).
+- **Zero-sp2 locality pattern**: `stageProgress[2]` now wired to fairhaven/panim/mimolot (commit `c4b4fd09`) and soreheim/shirshal (commit `13d512f5`) success paths. If zero-sp2 appears in a future run for any of these, the player visited but all rolls failed — roll failures don't increment sp2, only success paths do. Remaining unvisited Stage II locs (roaz, remeny, etc.) are content backlog.
 - **`post-run-analysis.js` ETIMEDOUT on Windows**: Auto-analysis Claude API call (`spawnSync cmd.exe`) times out in headed spec post-run hook. Non-fatal. Run `node tests/e2e/post-run-analysis.js <report-file>` manually if analysis is needed.
 
 ## Playtest Change Gate
