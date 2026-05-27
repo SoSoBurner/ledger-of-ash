@@ -71,6 +71,12 @@ Helper files in `tests/e2e/helpers/`:
 
 **Warning baseline**: 291 (set via `reporter.setWarningBaseline(291)`). New warnings above baseline are flagged in report.
 
+**Known harness gaps (do not investigate as new failures):**
+- **`pageerror` → `reporter.addJsError()` gap**: Harness logs `pageerror` events to console but never calls `reporter.addJsError()` — report always shows "JS errors logged: 0" even when real browser JS errors fired. Check raw output for `[js-error ...]` lines; don't trust the report's JS error count.
+- **Pre-existing startup JS errors**: "Invalid or unexpected token" fires exactly 2× per run at page load across all archetypes — non-blocking, game plays through. 13 content files have UTF-8 BOM. Treat as baseline noise.
+- **Zero-sp2 locality pattern**: Localities showing 0 sp2 in coverage map (shelkopolis, fairhaven, cosmoria, mimolot, panim, ithtananalor) are content gaps — no sp2-contributing choices authored for Stage II there. Not engine bugs; file as content backlog items.
+- **`post-run-analysis.js` ETIMEDOUT on Windows**: Auto-analysis Claude API call (`spawnSync cmd.exe`) times out in headed spec post-run hook. Non-fatal. Run `node tests/e2e/post-run-analysis.js <report-file>` manually if analysis is needed.
+
 ## Playtest Change Gate
 
 NEVER make changes to the Playtest system (`tests/e2e/playtest-headless.spec.js`, `tests/e2e/playtest-headed.spec.js`, `tests/e2e/helpers/*.js`, `tests/e2e/post-run-analysis.js`, or the Playtest Protocol section of CLAUDE.md) unless the user explicitly asks. Then: confirm **"Are you sure you want to modify the Playtest system?"** before making any change.
