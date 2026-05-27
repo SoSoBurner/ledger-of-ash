@@ -28,7 +28,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_darian_ironspike_quarry = true;
         G.investigationProgress++;
-        G.lastResult = `Darian answers at the gate without stepping aside. "Certain extractions run under ORE Supreme Command classification. Assay reports aren't generated at site level for classified categories." His tone is procedure, not explanation. The classification is real — the paperwork exists somewhere in the ORE command chain, inaccessible at Ironhold. What it's protecting here is another question.`;
+        G.lastResult = `Darian answers at the gate without stepping aside, one hand flat on the post shelf, stone dust on his cuff and the smell of machine grease coming off the equipment shed behind him. "Certain extractions run under ORE Supreme Command classification. Assay reports aren't generated at site level for classified categories." His tone is procedure, not explanation. The classification is real — the paperwork exists somewhere in the ORE command chain, inaccessible at Ironhold. What it's protecting here is a different question, and the gate is not the place he'll answer it.`;
         addJournal('Special mineral extraction under ORE command classification — no local assay required', 'evidence', `iron-darian-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -205,7 +205,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.transport_crew_identified = true;
         G.investigationProgress++;
-        G.lastResult = `The script they pay with isn't local quarry scrip and isn't standard Soreheim trade tender. The cook accepts it with the practiced indifference of someone who's been doing so for months. You catch the denomination mark on one coin: a column-and-chain seal, Shelkopolis administrative issue. Whatever their stated affiliation, their pay comes from a capital account.`;
+        G.lastResult = `The script they pay with isn't local quarry scrip and isn't standard Soreheim trade tender. The cook accepts it with the practiced indifference of someone who's been doing so for months, wiping the counter with a cloth that smells of iron ore and canteen grease. You catch the denomination mark on one coin before it disappears into the till: a column-and-chain seal, Shelkopolis administrative issue. Whatever affiliation they've given the quarry administration, their pay comes from a capital account, and the cook's hands don't pause on the ladle.`;
         addJournal('Transport crew pay from Shelkopolis administrative account — not local contractors', 'intelligence', `iron-crew-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -318,7 +318,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_canteen_cook = true;
         G.investigationProgress++;
-        G.lastResult = `Prael shows two coins — he doesn't spread the full collection. The column-and-chain seal is Shelkopolis administrative issue, he confirms that much. He tells you the crew first appeared in the autumn quarter. He doesn't volunteer the detail about personnel changes. He pockets the coins and goes back to the range. Something about the approach has made him careful.`;
+        G.lastResult = `Prael shows two coins — he doesn't spread the full collection. The column-and-chain seal is Shelkopolis administrative issue, he confirms that much, turning one coin over on the pass-through ledge where the smell of quarry dust and iron ore mixes with the range grease. He tells you the crew first appeared in the autumn quarter. He doesn't volunteer the detail about personnel changes, and he doesn't look toward their table again. He pockets the coins and goes back to the range. Something about the approach has made him careful, and careful is the end of that conversation.`;
         addJournal('Cook confirms transport crew present since autumn — Shelkopolis treasury coins, cook guarded', 'intelligence', `iron-cook-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -622,7 +622,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(104, 'Ironhold Quarry Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence chain at Ironhold isn't complete. Darian's classification, the mineral sample, Velka's safety reports — the pieces exist but they haven't been assembled into something that will hold under formal review. Acting now means acting on a partial record. The quarry keeps running in the meantime.`;
+        G.lastResult = `The evidence chain at Ironhold isn't complete. Darian's classification, the mineral sample, Velka's safety reports — the pieces exist but they haven't been assembled into something that will hold under formal review. Acting now means acting on a partial record that gives the ORE command chain room to dissolve the inquiry on procedural grounds. The quarry production ledger runs another shift. Stone dust settles on every surface. The extraction dock makes its next departure on its own schedule, indifferent to what's still missing from the record.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};

@@ -339,7 +339,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.flags.velka_log_secured = true;
         addJournal('consequence', 'Velka\'s 14-month eastern face log secured offsite — undisclosed operations record preserved outside quarry administration', `ironhold-velka-log-${G.dayCount}`);
       } else {
-        G.lastResult = `The gate inspection runs longer than expected — a second guard checks outgoing documentation against a manifest that wasn't operating yesterday. The eastern face security is tightening the exit protocols. The log copy, still in its sample case, stays put. Getting it out requires a window when the secondary inspection isn't active, or a different exit point entirely.`;
+        G.lastResult = `The gate inspection runs longer than expected — a second guard checks outgoing documentation against a manifest that wasn't operating yesterday. The eastern face security is tightening the exit protocols. The smell of quarry dust and machine grease hangs at the gate line; hauling chains clank from somewhere behind the equipment shed. The log copy, still in its sample case, stays put. Getting it out requires a window when the secondary inspection isn't active, or a different exit point that doesn't route through Darian's gate crew.`;
       }
       G.recentOutcomeType = 'craft'; maybeStageAdvance();
     }
@@ -367,7 +367,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 
-        G.lastResult = `End-of-shift at the equipment shed line, when the noise from the face drops and voices carry again. The word moving through the crew: "${selected}." It circulates in the gaps between louder conversation, repeated to people who already know it. Workers at Ironhold don't need the full picture to know something at the eastern face has gone wrong.`;
+        G.lastResult = `End-of-shift at the equipment shed line, when the noise from the face drops and voices carry again — the cold of the quarry's stone face still coming off the workers' coats, stone dust on every collar. The word moving through the crew: "${selected}." It circulates in the gaps between louder conversation, repeated to people who already know it, passed sideways when the foremen are still visible. Workers at Ironhold don't need the full picture to know something at the eastern face has gone wrong. They've been watching the signs accumulate for weeks.`;
       addJournal(`Ironhold quarry worker rumor: "${selected}"`, 'evidence', `ironhold-rumor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -594,7 +594,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
       if (family !== 'Support') {
-        G.lastResult = `The eastern face workers come off rotation looking tired in a way that doesn't match their reported work classification. The eastern section isn't listed as heavy-extraction. The fatigue profile doesn't fit the task description. You note the discrepancy without being able to characterize it further.`;
+        G.lastResult = `The eastern face workers come off rotation looking tired in a way that doesn't match their reported work classification. The eastern section isn't listed as heavy-extraction — the production ledger classifies it as routine material handling. The fatigue profile doesn't fit the task description: dry-throated, slow on the fine movements, nothing that drill impacts and hauling chains would produce. Stone dust coats their gear the same as any crew, but something about the way they hold their arms at end-of-shift marks a different kind of exposure. The discrepancy is visible without being nameable from outside the work.`;
         gainXp(32, 'noting eastern face worker fatigue pattern');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
       }
@@ -760,7 +760,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. The weight quotas for the day shift are posted, and an outbound cart schedule is tacked beside them — standard operational notices, nothing that wasn\'t there at first light.';
+      G.lastResult = 'The board has nothing new since this morning. The weight quotas for the day shift are posted, and an outbound cart schedule is tacked beside them — standard operational notices, nothing that wasn\'t there at first light. Stone dust has already settled on the upper edge of the board, the same fine grey coat that covers every surface at Ironhold by mid-shift. The quarry production ledger on the shed wall beside it shows today\'s extraction weight in the same hand as yesterday\'s. Nothing here points to the eastern face.';
       return;
     }
     G.flags[key] = true;

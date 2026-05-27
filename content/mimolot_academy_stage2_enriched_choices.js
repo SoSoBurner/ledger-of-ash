@@ -90,7 +90,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
-        G.lastResult = `Sarith confirms the three exemptions without hesitation — she processed them and noted the unfamiliar code at the time. Academy leadership entered the designation; she didn't question it, but she did note in the margin that the acquired materials would normally fall under her "applied craft components" category, not scholarly texts. The exemption code bypassed the category check entirely.`;
+        G.lastResult = `Sarith confirms the three exemptions without hesitation — she processed them herself and noted the unfamiliar code at the time, penciling it into the margin of her own copy because it did not appear in the fee schedule posted behind her desk. Academy leadership entered the designation; she did not question it, but she marked in her ledger that the materials would normally fall under her "applied craft components" category, not scholarly texts. The exemption code bypassed the category check entirely. The brass shelf fittings behind her catch the clerestory light as she closes the register.`;
         addJournal('Academy tariff-exempt craft components — misclassified acquisitions', 'evidence', `mim-sarith-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -643,7 +643,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Mimolot Academy Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The reading room map on the rotunda wall shows nine points of evidence, but three connections between them are still broken lines. The Regent Council requires a complete chain before it will convene on an institutional complaint — a single unlinked fragment gives them room to dissolve the whole inquiry. The gaps need closing before this can move forward.`;
+        G.lastResult = `The reading room map on the rotunda wall shows nine points of evidence, but three connections between them are still broken lines. The Regent Council requires a complete chain before it will convene on an institutional complaint — a single unlinked fragment gives them room to dissolve the whole inquiry. The gaps need closing before this can move forward. The smell of old vellum and chalk dust fills the corridor outside. Scholars work in silence at the reference tables beneath the tall clerestory windows. The sealed external directive sits in its folder, waiting for the rest of the record to meet it.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -822,7 +822,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
       if (!G.flags.collegium_contact_2) {
-        G.lastResult = 'The senior review track at the Academy requires a Cosmoria cross-reference code — a registry identifier from the Cosmoria Collegium linking prior access records. You do not have one yet. That chain begins elsewhere.';
+        G.lastResult = 'The senior review track at the Academy requires a Cosmoria cross-reference code — a registry identifier from the Cosmoria Collegium linking prior access records. You do not have one yet. That chain begins elsewhere. The restricted visitor log sits behind a clerk\'s desk at the far end of the archive corridor, its brass clasp catching the light from the clerestory windows above the reference shelves. The corridor smells of old vellum and chalk dust. The clerk works in silence, making entries in a ruled ledger, unhurried, as though nothing about this room carries weight.';
         G.recentOutcomeType = 'locked';
         return;
       }
@@ -866,7 +866,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         addJournal('Quillan Quillmark: restriction paperwork signed under pre-filled regent code — same code as Sarith tariff anomaly', 'evidence', 'mim-quillan-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'Quillan is behind the access desk with two faculty members present when the question lands. He opens a form drawer without pause and produces the external inquiry protocol sheet. The faculty members do not look up. The form has seven fields and a review cycle of fourteen days. The duty log entry under his pen is already dated.';
+        G.lastResult = 'Quillan is behind the access desk with two faculty members present when the question lands. He opens a form drawer without pause and produces the external inquiry protocol sheet — the motion is smooth, well-practiced, the drawer closing with a soft click of the brass pull. The faculty members do not look up from their papers. The form has seven fields and a review cycle of fourteen days. The duty log entry under his pen is already dated. Whatever he might have said in a different register is not accessible here, in the chalk-dust quiet of the Academy\'s intake corridor, with witnesses at either elbow.';
         addJournal('Quillan Quillmark inquiry — external protocol invoked, faculty present, duty log entry dated', 'complication', 'mim-quillan-fail-' + G.dayCount);
       } else {
         G.flags.met_quillan_quillmark = true;
