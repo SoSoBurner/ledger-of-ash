@@ -74,7 +74,7 @@ Helper files in `tests/e2e/helpers/`:
 **Known harness gaps (do not investigate as new failures):**
 - **`pageerror` → `reporter.addJsError()` gap**: Harness logs `pageerror` events to console but never calls `reporter.addJsError()` — report always shows "JS errors logged: 0" even when real browser JS errors fired. Check raw output for `[js-error ...]` lines; don't trust the report's JS error count.
 - **Pre-existing startup JS errors**: "Invalid or unexpected token" fires exactly 2× per run at page load across all archetypes — non-blocking, game plays through. 13 content files have UTF-8 BOM. Treat as baseline noise.
-- **Zero-sp2 locality pattern**: Localities showing 0 sp2 in coverage map (shelkopolis, fairhaven, cosmoria, mimolot, panim, ithtananalor) are content gaps — no sp2-contributing choices authored for Stage II there. Not engine bugs; file as content backlog items.
+- **Zero-sp2 locality pattern**: After fixing the `coverage-tracker.js` accumulator bug (commit `17feba99`), shelkopolis and cosmoria now show correct sp2. Remaining genuine zero-sp2 locs: **panim, mimolot, fairhaven** — no sp2-contributing choices authored there. Content backlog items, not engine bugs.
 - **`post-run-analysis.js` ETIMEDOUT on Windows**: Auto-analysis Claude API call (`spawnSync cmd.exe`) times out in headed spec post-run hook. Non-fatal. Run `node tests/e2e/post-run-analysis.js <report-file>` manually if analysis is needed.
 
 ## Playtest Change Gate
