@@ -53,6 +53,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Myra pulls her personal log from under the counter without being asked — she's been keeping it specifically because the standard manifest counter doesn't cover everything. Six deliveries over four months, all arriving on the Fairhaven scholar route. Signed off by an Academy regent code she checked against the official registry and couldn't match. She points at two entries. Both precede documented glyph surge events in Shelkopolis by forty-eight hours. She circled the dates when she noticed.`;
         addJournal('Academy off-manifest deliveries via Fairhaven path — 48hr pre-surge correlation', 'evidence', `mim-myra-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -61,6 +62,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Myra nods before you finish the question. "Non-standard deliveries on non-standard paperwork — I log everything that comes through the bay regardless of manifest status. Writing it down isn't my job to question." She opens the personal log and sets it on the counter. She has written it all down. The question is what the entries add up to when read together.`;
         addJournal('Non-standard Academy deliveries confirmed in personal cargo log', 'evidence', `mim-myra-partial-${G.dayCount}`);
       }
@@ -81,6 +83,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Sarith's tariff records are organized by exemption category, and the "Crown Research Protocol" designation appears in three entries and nowhere else in the registry — not in the formal exemption categories, not in supplementary guidance, not in the Academy charter's fee schedule. All three exemptions were applied to glyph resonance theory acquisitions. All three list Fairhaven as point of origin. Sarith checked the designation against every reference she has. It doesn't exist officially. It was used anyway, and the exemptions held.`;
         addJournal('Crown Research Protocol exemptions — glyph theory, Fairhaven origin', 'evidence', `mim-sarith-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -90,6 +93,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Sarith confirms the three exemptions without hesitation — she processed them herself and noted the unfamiliar code at the time, penciling it into the margin of her own copy because it did not appear in the fee schedule posted behind her desk. Academy leadership entered the designation; she did not question it, but she marked in her ledger that the materials would normally fall under her "applied craft components" category, not scholarly texts. The exemption code bypassed the category check entirely. The brass shelf fittings behind her catch the clerestory light as she closes the register.`;
         addJournal('Academy tariff-exempt craft components — misclassified acquisitions', 'evidence', `mim-sarith-partial-${G.dayCount}`);
       }
@@ -110,6 +114,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_ilys_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Ilys describes the guests with the precision of someone who notices things professionally: what they wore, how they moved, whether they looked at the room or the exits when they entered. One matches the physical description you have from Vaelis Sunweave's account in Fairhaven — same courier on the north-south route. The overheard phrase from the late-night conversation: "the cave output needs another three months of calibration." The guests checked out before the morning bell. No forwarding note.`;
         addJournal('Academy inn guest matches Fairhaven courier — cave calibration timeline overheard', 'evidence', `mim-ilys-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -118,6 +123,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_ilys_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Ilys describes the guests by habit: northern accents, sealed documentation cases stored at the foot of the beds instead of in the wardrobe, pre-dawn departures without breakfast. The phrase she caught from the late-night conversation was "pressure management." She didn't know what it referred to. She noted it because it was an odd phrase for people claiming to be here on academic business. You know what it refers to.`;
         addJournal('Academy inn — pressure management phrase, northern guests', 'evidence', `mim-ilys-partial-${G.dayCount}`);
       }
@@ -150,6 +156,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_velis_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Velis grants reading access and stands to one side while you work through the inscriptions. The Watchers Perch cave is described as a designed site — engineered by the original settlement architects for pressure regulation, maintained across generations as infrastructure rather than natural formation. The recent modifications weren't a first intervention. Someone intervened twice: once to build this, once to break it.`;
         addJournal('Watchers Perch was previously engineered — recent modifications are second intervention', 'evidence', `mim-velis-partial-${G.dayCount}`);
       }
@@ -171,6 +178,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 16) {
         G.flags.met_leth_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('The Scribe\'s Ledger', 'Leth sets the ledger on the reading-room table and slides it across without speaking. His thumb stays on the cover for a moment before he lifts it away. The entries inside are written in two different hands — his precise, vertical script for the Academy entries, and a second, compressed hand for the external requisitions. The compressed hand matches the charter notation on Sarith\'s exemption records. Leth confirms this when pressed. He has been holding the ledger because nobody told him to file it, and he does not file things without instruction.');
         addJournal('Scribe ledger: two-hand entries link charter notation to Academy external requisitions', 'evidence');
         maybeStageAdvance();
@@ -181,6 +189,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_leth_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('The Scribe\'s Ledger', 'Leth does not open the ledger but confirms the dual-hand notation system — standard practice for co-authorized requisitions, he explains, where an external signatory adds a counter-entry. He has not filed it because the external co-authorization is incomplete: one signature present, counter-signature absent. He has been waiting for the second hand to return. It has not.');
         addJournal('Unlogged Academy ledger: incomplete external co-authorization — second signatory absent', 'intelligence');
         maybeStageAdvance();
@@ -200,6 +209,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (roll.total >= 13) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Restricted Stacks', 'The archive housing is original construction — stone cut and set during the Academy\'s founding period, the mortar joints darkened with decades of lamp-oil residue. The seal on the Restricted Stacks gate is a different story: pressed wax over a cast-iron plate, the wax still showing tool marks, the plate mounted in brackets that have not oxidized yet. Somebody sealed this section recently. The classification directive date on Quenra\'s files is the same month as the bracket installation, judging by the hardware finish.');
         addJournal('Restricted Stacks seal is recent installation — matches classification directive date', 'discovery');
         maybeStageAdvance();
@@ -208,6 +218,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         addJournal('Restricted Stacks approach interrupted by proctor — access formally refused', 'complication');
       } else {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Restricted Stacks', 'The seal hardware is newer than the surrounding stonework — that much is clear from the bracket finish and the wax condition. The section beyond was accessible to general readers until recently; the reading-room register still has patron entries from last term filed under stack numbers that are now classified. The cutoff is abrupt: entries stop in the same week the classification directive was issued.');
         addJournal('Restricted Stacks access cut off same week as classification directive', 'evidence');
         maybeStageAdvance();
@@ -229,6 +240,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_calia_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('The Foreman\'s Ledger', 'Calia is the labor foreman\'s clerk, and she asked the question that cleared the room: whether the crew that reinforced the Restricted Stacks gate was the same crew that serviced the Watchers Perch access tunnel last season. The lecture hall went quiet because the answer is yes, and everyone with a work-order number in their head knows it. She finds you after the session ends and gives you the crew rotation log without explanation. Her handwriting is in the margins of two separate entries.');
         addJournal('Labor crew overlap: Restricted Stacks gate and Watchers Perch tunnel — same rotation', 'evidence');
         maybeStageAdvance();
@@ -239,6 +251,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_calia_quillfire = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('The Foreman\'s Ledger', 'Calia hands you the crew rotation log after the session without making a production of it — the way someone passes a document they have been carrying with intent. The Watchers Perch tunnel crew and the Restricted Stacks reinforcement crew share four names. She circled the names in pencil, then erased the circles, then handed it to you anyway. The indentations are still there if you hold it to the lamp.');
         addJournal('Labor crew rotation log: four names shared across Watchers Perch and Restricted Stacks jobs', 'intelligence');
         maybeStageAdvance();
@@ -270,6 +283,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_hoven_draske = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Hoven confirms the night-dock receives transfers that do not go through the morning intake process — a separate authorization channel, he explains, for materials under faculty regent codes. He has logged everything in his own shift register, which is not the same document the day supervisor reviews. He can show the shift register. The regent codes on the night-dock entries are the same ones Sarith could not match against the official exemption registry.`;
         addJournal('Night-dock shift register: regent codes match Sarith tariff anomalies — separate auth channel', 'intelligence', `mim-hoven-partial-${G.dayCount}`);
       }
@@ -300,6 +314,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_pellin_ost = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Pellin confirms he suspended anomaly reporting without elaborating on the reason. He opens a drawer, retrieves a single sheet, and sets it face-down on the desk between you. The sheet is the returned anomaly report — the reclassification annotation visible through the paper when held to the window light. He does not turn it over. "The process functioned as designed," he says, which is a precise and deliberate way to describe a process that did not function as intended.`;
         addJournal('Pellin Ost: anomaly report returned reclassified — process described as "functioning as designed"', 'intelligence', `mim-pellin-partial-${G.dayCount}`);
       }
@@ -321,6 +336,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_draith_calver = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The courier is Draith Calver, and he arrives at the Academy's east service gate every twelve days — not on the posted schedule, which lists Fairhaven deliveries as monthly. The east service gate is not staffed by regular dock workers. The same two faces appear on every off-schedule arrival, drawn from a short roster Myra's shift log does not account for. Draith's route manifest for these stops shows a single line entry: "Academic reagent exchange — pre-cleared." The pre-clearance code resolves to the same external charter mark Hoven pulled from his coat.`;
         addJournal('Draith Calver 12-day courier cycle: same charter mark as Hoven dock receipt', 'evidence', `mim-draith-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -330,6 +346,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_draith_calver = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The east service gate shows irregular traffic in Myra's cargo log — entries logged under a "pre-cleared academic exchange" category that runs on a twelve-day cycle, not the monthly schedule posted publicly. The courier name on these entries is partially redacted, but the route origin — Fairhaven — is intact. The twelve-day interval matches the surge event spacing Myra circled in her log.`;
         addJournal('East gate 12-day Fairhaven exchange cycle matches Myra surge event intervals', 'intelligence', `mim-draith-partial-${G.dayCount}`);
       }
@@ -351,6 +368,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.mim_phantom_citations_mapped = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Fourteen papers in the glyph resonance theory stack cite a source titled "Distributed Pressure Regulation: Applied Architecture" — a monograph that does not appear in the Academy catalog, the Collegium registry, or any public acquisition record. The citation format uses a Fairhaven institutional prefix. All fourteen papers were authored in the two years preceding the classification directive. The monograph's existence was known to the Academy's faculty before the theoretical work here was completed. Someone gave the faculty this text through a channel that left no acquisition record.`;
         addJournal('Phantom monograph: 14 papers cite Fairhaven source absent from all registries', 'evidence', `mim-citations-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -360,6 +378,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_phantom_citations_mapped = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The citation discrepancy is systematic: a single source appears in multiple papers in the glyph resonance stack but resolves to nothing in the catalog. The papers themselves are available to read. The source they cite is not. This is not a cataloging error — each paper uses the same citation format, the same institutional prefix, and the same publication date. The source was real and known to these authors. It simply does not exist in any record the Academy is willing to show.`;
         addJournal('Systematic phantom citation: single Fairhaven source, same format across 14 papers — deliberate omission', 'intelligence', `mim-citations-partial-${G.dayCount}`);
       }
@@ -381,6 +400,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.mim_reagent_notation_decoded = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The notation is a field-craft weighing shorthand used in extraction operations — not a workshop system, not an academic one. Someone trained in applied field extraction filled in these manifests. The weights themselves are significant: the quantities logged for three reagent entries correspond to batch sizes for suppression compound production at a scale that would supply a distributed deployment, not a contained test. The manifest is signed off as routine Academy reagent storage. The quantities are not routine. Not even close.`;
         addJournal('Reagent manifest: field-extraction notation, batch sizes indicate distributed suppression deployment', 'evidence', `mim-reagent-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -389,6 +409,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_reagent_notation_decoded = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The weighing notation is not Academy standard — that much is clear from the unit abbreviations, which don't match the faculty measurement guide on the wall behind the desk. The shorthand is from outside the academic system: a practical extraction notation used in applied field work, not theoretical research. Someone with field training filled in these manifests. The Academy's storage records have been maintained by someone who has never worked inside an academy.`;
         addJournal('Storage manifest notation: field-craft shorthand — non-academic author confirmed', 'intelligence', `mim-reagent-partial-${G.dayCount}`);
       }
@@ -420,6 +441,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_access_log_handwriting_matched = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The access log shows eight bookings in the cadaveric chemistry suite outside the standard teaching schedule. The hand in those entries is compressed and vertical — not the anatomy faculty's rounded administrative script. The desk clerk confirms she did not write those entries. They are in the log because they arrived pre-filled, already approved. She filed them without questioning the format. The regent code on the approval slips is the same code Sarith flagged.`;
         addJournal('Pre-filled chemistry suite bookings in foreign hand — Sarith regent code on approvals', 'intelligence', `mim-accesslog-partial-${G.dayCount}`);
       }
@@ -441,6 +463,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.mim_stipend_halt_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The stipend disbursement office is run by Neven Osk, a compact man who keeps his records in coloured folders by funding source. The glyph resonance track folder is thinner than the others. Neven opens it without prompting and names the disbursement halt date: the same week Pellin Ost's anomaly report was reclassified. The halt was not a budget decision — the fund balance was intact. It was an administrative hold placed by an external authority code that Neven had not encountered before and has not encountered since. Three candidates received half-disbursement before the hold. The fourth received nothing and withdrew the following term.`;
         addJournal('Stipend halt: administrative hold by unknown authority code, same week as Pellin reclassification — one candidate withdrew', 'evidence', `mim-stipend-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -449,6 +472,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_stipend_halt_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Neven confirms the disbursement halt without hesitation — it is an anomaly in his records and he has no satisfactory explanation for it. The halt code applied to the entire glyph resonance track at once, affecting four active candidates. The fund remained solvent throughout. No faculty notice accompanied the hold. He filed a query with the Dean's finance office. The query was acknowledged and is marked pending, which in this office means it will not be answered.`;
         addJournal('Glyph resonance stipend halt: whole-track administrative hold, solvent fund — Dean finance query unanswered', 'intelligence', `mim-stipend-partial-${G.dayCount}`);
       }
@@ -480,6 +504,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_observatory_spike_linked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Bress Alvane is willing to show the pressure log and does so without formality. The spike is documented: southwest bearing, no weather cause noted, forty-minute duration. The date falls in the same window as the unmanifested Fairhaven deliveries Myra's cargo log covers. Bress cannot say what caused it — the instruments measure direction and magnitude, not source. But the bearing puts the origin consistent with the Watchers Perch access tunnel, and the date puts it consistent with delivery activity.`;
         addJournal('Observatory pressure spike: southwest bearing, no weather cause — consistent with Watchers Perch and Fairhaven delivery window', 'intelligence', `mim-observatory-partial-${G.dayCount}`);
       }
@@ -501,6 +526,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.mim_lecturer_credential_fraudulent = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The credential file is in the faculty registrar's open-access visitor section — no restriction on reading, only on copying. The Collegium endorsement uses a valid seal format, the right counter-signature position, the correct certification phrase. Everything except the reference number. The reference number resolves to a dormant Collegium file from eleven years ago, assigned to an institution that no longer exists. Someone transferred the number to a current credential. The visiting lecturer has been delivering glyph resonance supplementary sessions for six weeks, off the public lecture calendar.`;
         addJournal('Visiting lecturer credential: Collegium reference number belongs to defunct institution — off-calendar glyph resonance sessions', 'evidence', `mim-lecturer-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -510,6 +536,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_lecturer_credential_fraudulent = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The credential file is readable. The Collegium endorsement looks correct in form — seal position, counter-signature, certification phrase — but the reference number does not appear in the Collegium registry when checked against the posted annual index. The annual index is current as of three months ago. The credential was filed seven months ago. Either the endorsement predates the index update, or it was never in the registry to begin with. The visiting lecturer's session schedule is not on the public calendar.`;
         addJournal('Visiting lecturer Collegium reference not in annual registry — session schedule off public calendar', 'intelligence', `mim-lecturer-partial-${G.dayCount}`);
       }
@@ -531,6 +558,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_torva_seld = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Torva Seld runs the grounds crew out of a low building near the east perimeter and keeps her own work orders filed in a wooden box by date. She tips the box out on the table between you without ceremony and points to three dates. No maintenance orders — she asked for them each time and was told by a single faculty regent that the work was pre-authorized verbally and the orders would follow. They did not follow. The work was clearing and widening the east tunnel approach: not routine, not maintenance. She knows the difference. The regent's name she gives does not appear on the faculty roster.`;
         addJournal('Grounds crew: east tunnel widening, no orders — non-faculty regent matches Ilys inn guest description', 'evidence', `mim-grounds-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -539,6 +567,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_torva_seld = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Torva confirms the three east tunnel approach servicing jobs and confirms no maintenance orders were filed for any of them. Verbal authorization from a faculty regent, she says — she asked twice for written orders and was told they were coming. The work itself was approach clearance and tunnel-mouth widening: not standard maintenance, more consistent with preparing a route for repeated vehicle or cargo access. She noted this at the time in her personal log but did not escalate it.`;
         addJournal('East tunnel approach widened three times, verbal auth only — grounds lead noted cargo-access preparation', 'intelligence', `mim-grounds-partial-${G.dayCount}`);
       }
@@ -560,6 +589,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.mim_emeritus_office_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The faculty housing office keeps departure records by room number. The emeritus office cleared nine weeks ago: furniture removed in a single morning, key returned by proxy, no forwarding address filed. The proxy who returned the key signed with the same compressed hand as the charter exemptions and the anatomy study room entries. The emeritus who held the office is the same one whose initials appear exclusively on the restricted-stack withdrawal register for the past eleven months. He did not resign or retire — no notice in the faculty record. He stopped appearing and someone returned his key.`;
         addJournal('Emeritus office cleared by proxy with charter hand — restricted-stack monopoly holder vanished without notice', 'evidence', `mim-emeritus-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -569,6 +599,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_emeritus_office_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The housing office confirms the emeritus departure: nine weeks ago, morning clearance, key by proxy. No sabbatical posted, no forwarding address. The clerk pulls the departure slip — the proxy signature is initials only, compressed script. She doesn't recognize the hand. The emeritus's name is the same one on the restricted-stack withdrawal register. He held exclusive access for eleven months. He is no longer in the building. Nobody in the housing office was told why.`;
         addJournal('Emeritus departed by proxy, nine weeks ago — same individual as restricted-stack monopoly holder', 'intelligence', `mim-emeritus-partial-${G.dayCount}`);
       }
@@ -590,6 +621,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.mim_student_debrief_route_mapped = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Four students, all on the glyph resonance track, exit through the library garden gate after the visiting lecturer's off-calendar sessions and walk to a provisioning house on the east side of the settlement — not a faculty building, not on Academy maps. The route goes past the east gate without stopping. Inside the provisioning house, through the window, a lamp is already burning at a table with three chairs and documents laid flat. The students are met by a figure in a plain coat who is not the visiting lecturer. The session in there runs longer than the seminar did. Whatever is being taught officially, this is the actual curriculum.`;
         addJournal('Glyph resonance students debrief at off-Academy provisioning house — third-party instructor, documents on table', 'evidence', `mim-debrief-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -599,6 +631,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_student_debrief_route_mapped = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Three students from the visiting lecturer's off-calendar sessions leave together via the library garden gate. The route goes east, past the main campus boundary, to a provisioning house not marked on Academy maps. The building's ground-floor window shows lamplight after dark on the same evenings as the sessions. The pattern is consistent enough to be a standing arrangement. Whatever is happening in that building is tied to the same schedule as the off-calendar seminars.`;
         addJournal('Student group follows east route to unmapped provisioning house after off-calendar sessions — standing arrangement', 'intelligence', `mim-debrief-partial-${G.dayCount}`);
       }
@@ -620,6 +653,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.mim_charter_document_forged = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The external charter document that authorized the classification directive sits in the Dean's open reference file as a matter of institutional record. The seal is authentic — old wax, the right press depth, heat-oxidation consistent with its stated date. The paper is not. The fiber compression on this stock does not occur until after three years of shelf storage; this document shows none. The ink carrier has not fully set into the weave. Written on paper produced this year, dated three years ago, sealed with a genuine seal from that period. A genuine seal taken from a different document and transferred. The classification directive is built on a fabricated foundation.`;
         addJournal('External charter document: genuine seal on fresh paper — seal transferred from period document, directive is fabricated', 'evidence', `mim-charter-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -628,6 +662,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.mim_charter_document_forged = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The paper stock and the seal do not belong to the same document. The seal carries genuine age: wax oxidation, press depth consistent with old tooling. The paper is too fresh — the fiber has not had time to compress fully, and the ink carrier sits on the surface rather than sinking into the weave. Three years old on the face. Produced this year by the material evidence. The classification directive rests on a document where the authority mark and the physical record are from different sources.`;
         addJournal('Charter document seal and paper from different sources — directive authority mark transferred onto fresh paper', 'intelligence', `mim-charter-partial-${G.dayCount}`);
       }
@@ -732,6 +767,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.mim_defense_deferrals_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Indefinitely Deferred', 'The defense schedule is pinned to a cork board in the rotunda, each term on a colored card. Four candidates on the glyph resonance track have been marked DEFERRED PENDING ADVISOR REVIEW across three consecutive terms — the same notation, the same advisor signature, a different handwriting on each card. Standard deferral is one term. Three is procedurally unprecedented. One candidate was on the rolls at the same time as the Fairhaven delivery shipments. She has since withdrawn without a filed reason. The empty card slot was replaced with a blank.');
         addJournal('Academy defense schedule: 4 glyph resonance candidates deferred three terms — one withdrew during Fairhaven shipment window', 'evidence');
         maybeStageAdvance();
@@ -753,6 +789,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 14) {
         G.flags.mim_restricted_withdrawal_tracked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Same Initials', 'The late-return register is kept at the circulation desk in a weatherworn cloth binder — three years of returns logged in alternating ink colors by shift. Restricted-stack withdrawals are supposed to rotate through multiple authorized readers as an internal check against single-point access. The register shows the same two initials on every restricted return for the past eleven months. The initials match a senior faculty name that does not appear on the faculty roster. He holds emeritus status. Emeritus holders retain check-out privileges but are not supposed to hold them exclusively.');
         addJournal('Academy restricted stacks: emeritus faculty holds exclusive withdrawal access for 11 months — rotation protocol bypassed', 'evidence');
         maybeStageAdvance();
@@ -802,6 +839,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 14) {
         G.flags.mim_lecturer_self_censor_seen = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Crossed Through', 'The lecturer arrives early and sets his notes on the lectern, reviewing them while the hall fills. Before the session opens he draws a line through a name in his own margin — a single horizontal stroke, pen pressed hard enough to leave an indent through two pages. The lecture proceeds without reference to the crossed-out name. Afterward, when the hall empties, the notes remain on the lectern for the sweeper. The indent is readable against the lamp. The name corresponds to a co-author on a glyph damping paper whose abstract was pulled from the Academy catalog three months ago.');
         addJournal('Academy lecture notes: lecturer self-censored co-author name — abstract also pulled from catalog', 'evidence');
         maybeStageAdvance();

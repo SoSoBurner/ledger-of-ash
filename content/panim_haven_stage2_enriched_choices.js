@@ -21,6 +21,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = arch === 'magic'
           ? `Three afterlife-ledger entries carry ritual invocations that have no place in a secular mediation record — they belong to a specific shrine communication protocol. Someone with theological training inserted them deliberately, using doctrine language as an encoding layer. The decoded content is a delivery schedule with four dates still pending.`
@@ -32,6 +33,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ledger access revoked — oversight alerted', 'complication', `panim-ledger-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Three entries stand out clearly under the lamplight of the records room. You document them and note what they share: all three involve memorial service dates that cluster within a four-day window, twice in six months. The smell of old paper and cold stone fills the narrow reading space. Single irregular entries can be administrative error. The clustering is not. Whatever produced these entries ran on a schedule, and schedules leave traces.`;
         addJournal('Ledger clustering pattern identified', 'evidence', `panim-ledger-partial-${G.dayCount}`);
       }
@@ -81,6 +83,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `The rerouted streets form a pattern: they all pass a single building in the memorial district that has no registered purpose in the civic records. The building's shuttered facade gives nothing away, its threshold worn smooth by use that predates the reroutes by years. It receives foot traffic at predictable hours that do not correspond to any scheduled service. The rigging creak of the harbor carries through the district, but no one enters or leaves during the processions. Someone is using the procession reroutes to create a predictable gap in civic visibility.`;
         addJournal('Processional reroute — cover building identified', 'evidence', `panim-process-${G.dayCount}`);
@@ -90,6 +93,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Processional crush — logged without intelligence gain', 'complication', `panim-process-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The reroutes are real and recent. Three specific streets have been systematically deprioritized in official processional scheduling across the last three months. The reason given in each case is "ritual traffic management" — a designation that requires no further documentation and carries no review requirement. The salt-and-pitch smell of the harbor reaches even here, carried on the morning air through the open corridor window. Whatever changed the scheduling had access to the notation system and knew exactly which label to apply.`;
         addJournal('Processional reroutes confirmed — ritual traffic cover', 'evidence', `panim-process-partial-${G.dayCount}`);
       }
@@ -110,6 +114,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_saryna_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Saryna has kept a personal copy of every suppressed flag, stored separately from the stall's certified ledgers in a worn cloth binding she does not label. The flags describe coin entering the market in memorial offering form and leaving through a purchasing pattern that corresponds to no registered buyer. The offering queue moves around you both without slowing. The exits are clean on paper. The entries show a single repeating source — a northern account attached to a subsidiary charter. She taps the column twice with one finger and does not speak again.`;
         addJournal('Saryna personal flags — northern account identified', 'evidence', `panim-saryna-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -118,6 +123,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_saryna_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Saryna confirms the irregularities and produces three flagged entries from the copy she keeps beneath the market stall's supply shelf — the originals never came back. Her thumb keeps the corner of each page flat while you read. The suppression chain stops at the mediation oversight level, one rank above Elior. That rank is not accountable to civic review without a formal inquest, and a formal inquest requires standing that neither of them holds. The stall's offering candles gutter in the harbor draft.`;
         addJournal('Saryna flags confirmed — oversight suppression chain', 'evidence', `panim-saryna-partial-${G.dayCount}`);
       }
@@ -138,6 +144,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_velune_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Velune speaks after long silence: three times in the past month, a figure arrived at the shrine at the third hour with what Velune describes as "not an offering — a confirmation." The figure used ritual language correctly but in the wrong order — liturgically inverted. It's a recognized counter-ritual used in certain forbidden summoning traditions. Someone is using the shrine for a specific type of arcane registration.`;
         addJournal('Velune confirms shrine misuse — inverted ritual identified', 'evidence', `panim-velune-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -147,6 +154,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_velune_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Velune confirms unusual evening visits with her back to the shrine's offering shelf, not looking at you directly — the attendant's habit of maintaining witness distance from difficult disclosures. The lamplight in the shrine catches the mineral dust that settles on every surface near the harbor. "Someone who knows how to use the shrine without being known here." She pauses and adds nothing further. That phrasing is specific enough to tell you the person is trained, and trained in this particular tradition rather than a neighboring one.`;
         addJournal('Velune confirms unusual shrine visits — trained visitor', 'evidence', `panim-velune-partial-${G.dayCount}`);
       }
@@ -167,6 +175,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_ithren_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Ithren has a porter's memory: he names three sealed containers that arrived under memorial service manifests but did not match standard offering weight profiles. Two were light — empty where a full offering case should sit. One was significantly heavy, heavy enough that he braced for it wrong the first time and had to reset his grip. He noted it in the unofficial cargo log he keeps in the back of his gate register, a habit from ten years of work at the freight lane. The entry is still there.`;
         addJournal('Ithren cargo log — weight anomalies confirmed', 'evidence', `panim-ithren-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -175,6 +184,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_ithren_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Ithren confirms unusual cargo movement without details. The harbor smell — salt, cured rope, old wood — is strong near the porter's gate where he stands, and he does not step away from it to continue the conversation. "Some things arrive as one type and leave as another. I don't ask. That's not my role." He sets his hand on the gate register with a flat, decisive weight and holds eye contact long enough for you to understand this is as much of an answer as the role permits him to give.`;
         addJournal('Ithren confirms cargo irregularity — no details given', 'evidence', `panim-ithren-partial-${G.dayCount}`);
       }
@@ -225,6 +235,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `The registry at night is unguarded but sealed, the stone floor cold underfoot and the only light a single lamp left burning at the duty station. Your method bypasses the seals without triggering the alert mechanism. Inside: 31 suppressed inquest files stacked in three bound groups, each connecting a phantom memorial contract to a specific coin destination in the northern districts. The salt-draft from the harbor reaches even this inner room through the vent slats above the shelves. The transaction chain is complete.`;
         addJournal('Registry accessed — 31 suppressed files obtained', 'evidence', `panim-registry-${G.dayCount}`);
@@ -235,6 +246,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Registry alert triggered — security inquiry opened', 'complication', `panim-registry-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Six files before the watch rotation closes the window. The candlelight is dim enough to work by and no more. Each page confirms what the daylight work suggested: the transaction chain is real, structured, and older than the past six months. Two endpoints emerge with enough clarity to act on. The full thirty-one remain sealed. What's in hand is a foothold, not a complete picture.`;
         addJournal('Registry partial access — transaction endpoints identified', 'evidence', `panim-registry-partial-${G.dayCount}`);
       }
@@ -255,6 +267,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_merev_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Merev has been keeping notes in a small ledger she keeps under the counter beside the candle tin — her own system, separate from the inn's official guest register. Three guests in the past month used the Memorial Inn as a meeting point and paid in memorial coin, an unusual denominator for secular transactions in a harbor town where silver and trade script are standard. Their conversations centered on "completion schedules" and "verification windows." Memorial language applied to non-memorial logistics. Merev sets the ledger on the counter without opening it again.`;
         addJournal('Memorial coin transaction pattern — Merev log', 'evidence', `panim-merev-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -263,6 +276,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_merev_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Three guests, no names offered — Merev makes this boundary clear before beginning the description. They spoke quietly and occupied the same corner table each visit. Payment came in exact amounts, no exchange of change. "Everything about them was deliberate. That's what I remember most." A cloth is folded and set down. The description ends there, but the observation itself is sharp enough to be useful.`;
         addJournal('Memorial Inn — deliberate guests noted without detail', 'evidence', `panim-merev-partial-${G.dayCount}`);
       }
@@ -282,6 +296,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `The backlog is not accidental — it is managed. Specific cases have been routinely deferred at the scheduling stage, each one individually unremarkable, the combined effect a mediation hall whose formal review capacity remains permanently saturated. The halls carry the particular quiet of a place processing too much and resolving too little, the sealed document stacks grown taller than the clerks who filed them. A saturated hall cannot pursue new anomalies. The backlog is the operational cover that allows the phantom memorial contracts to move without triggering review.`;
         addJournal('Mediation backlog is deliberate operational cover', 'evidence', `panim-backlog-${G.dayCount}`);
@@ -290,6 +305,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Backlog analysis error — credibility reduced', 'complication', `panim-backlog-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The pattern is there but stops short of proof of intent. Specific cases routed to defer at predictable intervals, the scheduling notation consistent enough to suggest a practiced hand rather than administrative drift. Someone with access to the mediation hall's priority queue has been making quiet adjustments. The scheduling system requires a clerk-level appointment to modify. That narrows the field without closing it.`;
         addJournal('Backlog management pattern — scheduling access implicated', 'evidence', `panim-backlog-partial-${G.dayCount}`);
       }
@@ -371,6 +387,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Sanctuary Without Mourners', 'The rolls are posted on the outer wall of the mediation hall — a courtesy so families can find their registered dead. You read them from the bottom row, where the oldest untouched entries gather. Twenty-seven names across the last half year show no visitation mark, no amendment, no claim. A sanctuary entry protects a body from civil seizure while a family arranges rites. Twenty-seven active protections on bodies no one has come to mourn. The names themselves read wrong — too many from trade rosters, too few from the congregant rolls. Someone is using the sanctuary frame as a holding pattern.');
         addJournal('Sanctuary protections holding 27 unclaimed entries — frame repurposed as custody', 'evidence');
         maybeStageAdvance();
@@ -391,6 +408,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_nemeia_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Nemeia wipes pitch from her thumb on a square of sackcloth before she answers — the same square she uses for the crew tally, the marks layered on top of each other. Four shipments in three months left the benches without her foreman's seal. Standard protocol requires it. She filed the omission each time. Each filing came back marked resolved at the oversight tier without a reply to her. "When my paper keeps coming home clean, the dirt is above me. I know where it ends up. I don't know whose hand puts it there."`;
         addJournal('Nemeia — four unsealed shipments cleared above foreman tier', 'evidence', `panim-nemeia-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -400,6 +418,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_nemeia_sepulcher = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Nemeia confirms the unsealed shipments without naming count. The coffin bench smell is close here — pine pitch, linen, the mineral cold of worked stone — and she does not step away from her work to answer. "More than one. Less than ten. All in the last season. All cleared above my head." She taps the bench surface twice with two knuckles, a foreman's punctuation, and returns to her crew without further eye contact. The confirmation is all she will give today, and she has given it clearly.`;
         addJournal('Nemeia confirms unsealed shipment pattern — count withheld', 'evidence', `panim-nemeia-partial-${G.dayCount}`);
       }
@@ -417,6 +436,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `You hold at the cistern arch with the hood of your travel cloak drawn in the memorial style and wait out the third hour. The figure emerges exactly when Velune described and crosses the courtyard on a line that avoids the pilgrim arch entirely. The porter's gate opens from the inside — no hail, no exchange, no tally mark. The figure passes through to the freight lane and steps into a covered cart already waiting, driver's face turned away. The cart carries a House Panim seal on the axle plate. It is the wrong seal — oversight-tier, not funerary service.`;
         addJournal('Third-hour visitor egress via porter gate — oversight-tier seal on cart', 'evidence', `panim-egress-${G.dayCount}`);
@@ -426,6 +446,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Egress watch reinforced — observation position compromised', 'complication', `panim-egress-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The figure emerges at exactly the third hour, crosses the courtyard on a line that keeps to the shadow of the colonnade, and exits through the porter's gate as Velune described. The night carries the smell of low tide and cured fish from the harbor below. You catch the shape of a covered cart waiting beyond the arch, the driver's face turned away, but cannot reach a position to read the axle plate before it rolls. The route is confirmed. The seal is not yet.`;
         addJournal('Egress route confirmed — cart seal unread', 'evidence', `panim-egress-partial-${G.dayCount}`);
       }
@@ -457,6 +478,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.northern_charter_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The registration address is real on paper and wrong on the ground. A note in the margin of the third renewal says "address under civic review" — a designation that has sat unchanged for seven years without triggering any suspension of the charter's active status. The district archive carries the smell of old wax and damp stone through its reading room. The entity's account activity is current; the address is not. Whatever administrative mechanism should have caught this gap and closed the charter, it did not run.`;
         addJournal('Northern charter — valid accounts, unresolvable civic address', 'intelligence', `panim-charter-partial-${G.dayCount}`);
       }
@@ -488,6 +510,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.building_interior_accessed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The interior confirms use without revealing what it holds. The stone bench carries weight marks from regular loading — rectangular, consistent with standard memorial containers. The floor near the southwest corner shows fine grit swept into the mortar lines but not out of them. Something rested here often enough to leave the pattern. Whatever was stored here was moved with care, not in haste.`;
         addJournal('Unregistered building — load marks confirm storage use', 'evidence', `panim-building-partial-${G.dayCount}`);
       }
@@ -509,6 +532,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.caldor_route_documented = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Caldor breaks his route at the junction where the memorial district meets the freight lane — the same junction where the porter's gate empties. He enters a chandler's shop that has no customers visible through the window. Seven minutes later he exits carrying nothing and takes the direct route to the oversight hall without deviation. The chandler's shop is registered to a trade address in the northern quarter. The northern account's subsidiary charter lists the same address.`;
         addJournal('Caldor route deviation — chandler stop links to northern charter address', 'evidence', `panim-caldor-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -518,6 +542,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.caldor_route_documented = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Caldor deviates once — a brief stop at a chandler's shop that reads as routine. Duration too short for an actual purchase. The shop closes its shutters from the inside while he is there. He emerges and continues without looking back. The deviation is documented. The chandler's shop location and the northern charter's registered trade address are worth cross-referencing before taking the next step.`;
         addJournal('Caldor route deviation — chandler stop duration noted', 'intelligence', `panim-caldor-partial-${G.dayCount}`);
       }
@@ -539,6 +564,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.freight_seal_documented = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Three carts move through the freight lane in the hour before the dawn bell, all carrying memorial service manifests. Two bear the standard funerary service seal — correct denomination, correct color. The third carries an oversight-tier administrative seal on the axle plate, the same discrepancy noted on the third-hour visitor's cart. The driver's tally book is open across his knee: the route destination is listed as the district archive annex. The archive annex has no scheduled deliveries logged for this morning.`;
         addJournal('Freight lane — oversight-tier cart, unscheduled archive annex destination', 'evidence', `panim-freight-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -548,6 +574,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.freight_seal_documented = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `One cart in three carries a seal that does not match its manifest type. The axle plate is readable for a half-second as the cart rounds the lane corner — oversight-tier denomination, not funerary service. The driver's route takes the cart past the archive annex and continues without stopping. Where it stops is beyond the visible section of the lane from this position.`;
         addJournal('Freight lane — mismatched seal cart confirmed, destination unclear', 'intelligence', `panim-freight-partial-${G.dayCount}`);
       }
@@ -569,6 +596,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_watch_captain = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The captain's name is Orvath Sepulcher. He opens the third report without being asked — it has been kept separate from the bound filing stack, in a plain folio without a cover mark. The report documents a freight irregularity in the porter's gate lane on a specific date six months ago. The response from the oversight tier was a single line: jurisdictional review pending. The same line appears on reports two and one. "When I stopped, no one came to ask why." He pushes the folio across the desk. He does not ask for it back.`;
         addJournal('Orvath Sepulcher — three suppressed watch reports, folio surrendered', 'evidence', `panim-captain-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -578,6 +606,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_watch_captain = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Orvath confirms the reports without producing them. Three filings, three identical responses, all from the same oversight tier signatory. He does not name the signatory — the name is in the reports and the reports are filed. He confirms they are accessible through the district archive intake log. That log is public record. The path to the reports does not require his cooperation; he is telling you this without saying it directly.`;
         addJournal('Orvath — three oversight-suppressed reports accessible via archive intake log', 'intelligence', `panim-captain-partial-${G.dayCount}`);
       }
@@ -609,6 +638,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.transit_signatory_identified = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The current quarter's permits are open stack. Four of the twelve sealed cargo shipments bear the same signatory in the oversight-tier authorization field — a name that does not appear on any other cargo permit category in the same period. The name itself is not yet readable from this position in the file; the signature's style is consistent and trained, the work of someone who authorizes documents as a regular function of their role.`;
         addJournal('Memorial cargo permits share signatory — identity not yet confirmed', 'intelligence', `panim-transit-partial-${G.dayCount}`);
       }
@@ -640,6 +670,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.wrapping_residue_identified = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The fold lines carry a deposit that does not match incense residue in color or texture — it is dry, pale, and crystalline where incense ash is dark and oily. The compound is familiar in broad category: mineral salts used in storage. The specific formulation would require a reference text to narrow further. What is already clear is that ritual wrapping cloth should not carry this residue at all.`;
         addJournal('Wrapping residue — mineral salt, non-ritual, storage category confirmed', 'intelligence', `panim-residue-partial-${G.dayCount}`);
       }
@@ -661,6 +692,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.family_witness_testimony = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The family is from the northern district and paid in advance — memorial coin, the exact denomination Merev noted in her inn records. Their receipt carries a reference number that traces to the phantom contract cluster in the afterlife ledger. They came to collect their father's remains and were told by a clerk that the service had not been completed. The clerk offered a refund form. The family refused and kept the receipt. It is in the eldest daughter's travel pouch right now. She hands it over without hesitation when the purpose is explained.`;
         addJournal('Family receipt matches phantom contract cluster — direct link to ledger falsification', 'evidence', `panim-family-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -669,6 +701,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.family_witness_testimony = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The family describes the transaction clearly: paid in advance, received a reference number, arrived to find no record. The clerk told them the file had been archived under a different classification and offered a refund. They are still deciding whether to accept. The reference number on their receipt is the kind that should trace back through the ledger system — it is worth cross-referencing against the phantom contract cluster.`;
         addJournal('Family testimony — advance payment, record gap, reference number to trace', 'intelligence', `panim-family-partial-${G.dayCount}`);
       }
@@ -690,6 +723,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.chandler_back_room_searched = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The back room holds a writing desk, a locked correspondence box, and a wall rack holding six sealed message tubes of the type used by oversight-tier administrators for internal distribution. The tubes are not opened — but two bear the House Panim oversight seal and a recipient code that matches the district archive annex. A third tube carries a date stamp from four days ago. None of these communications should be traveling through a chandler's shop.`;
         addJournal('Chandler back room — oversight seal message tubes confirm administrative relay point', 'evidence', `panim-chandler-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -699,6 +733,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.chandler_back_room_searched = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The back room is in use as a correspondence staging point — writing supplies, a correspondence box, wall hooks for message tubes. Nothing currently present that names a party or purpose. The desk surface carries ink patterns from recent drafting: two documents, one shorter than the other, both produced with the same pen. The setup is administrative, not commercial. A chandler's back room furnished as a relay station.`;
         addJournal('Chandler back room — correspondence relay point confirmed, no current contents', 'intelligence', `panim-chandler-partial-${G.dayCount}`);
       }
@@ -730,6 +765,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.notary_chain_documented = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The public summary of Caldor's appointment lists four notary signatures and standard authorization dates. The dates themselves do not flag anything from the summary alone. The full appointment record — which would show each notary's own registration date — requires the restricted access level the current overview review controls. The summary contains enough to know the question is worth asking with proper authorization.`;
         addJournal('Caldor appointment chain — four notaries, full records blocked pending review', 'intelligence', `panim-notary-partial-${G.dayCount}`);
       }
@@ -751,6 +787,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.annex_log_cross_referenced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The loading bay log runs in two columns: scheduled deliveries on the left, actual arrivals on the right. For the past four months, three to five unscheduled arrivals per week appear in the right column without a corresponding left-column entry. Each unscheduled arrival carries a notation: "oversight authorization — no further logging required." The notation is handwritten, not printed, and the handwriting matches the transit permit signatures already on file. Caldor personally authorized deliveries to the archive annex and ensured they were not logged in the public system.`;
         addJournal('Archive annex unscheduled deliveries — Caldor authorization notation, handwriting match', 'evidence', `panim-annex-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -760,6 +797,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.annex_log_cross_referenced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The log shows unscheduled arrivals in the right column for the past quarter — more than the scheduled deliveries in some weeks. The notation field for these arrivals reads "OT auth" — an abbreviation that could mean oversight-tier authorization, but the full form is not defined on the log header. The volume of unscheduled arrivals at an archive annex is unusual enough to document. What went in has not been cross-referenced yet against what the annex officially holds.`;
         addJournal('Archive annex — unscheduled arrivals exceed scheduled, OT auth notation', 'intelligence', `panim-annex-partial-${G.dayCount}`);
       }
@@ -781,6 +819,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.sanctuary_roster_linked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `All twenty-seven unclaimed sanctuary names appear in the northern district trade charter records as registered laborers under the same subsidiary entity Saryna flagged — the one connected to the ghost charter address. Every name carries a registration date within the past year. None appear in Panim Haven congregant rolls, family petition records, or transit intake logs at any point prior to the sanctuary filing. These are not real deceased. They are constructed identities used to hold sanctuary protections as a legal mechanism — each one a sustained claim on a custody status that prevents civic seizure.`;
         addJournal('Sanctuary names are constructed identities from ghost charter roster — civic custody mechanism', 'evidence', `panim-roster-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -789,6 +828,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.sanctuary_roster_linked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The trade charter records are public. Of the twenty-seven sanctuary names, twelve appear in a northern district trade charter as registered laborers. The charter entity is not one you have seen before — a different name from the ghost subsidiary but with the same northern quarter address structure. The remaining fifteen names do not appear in any accessible record. Trade charter registration without congregant or transit history is unusual. The combination warrants further access.`;
         addJournal('Twelve sanctuary names on northern charter roster — entity differs from known subsidiary', 'intelligence', `panim-roster-partial-${G.dayCount}`);
       }
@@ -810,6 +850,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.water_course_documented = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The shrine's ritual water source is a channeled spring that runs beneath the memorial district through a civic conduit system. The conduit's maintenance access points are mapped in the district waterworks record — a dry technical document available at the civic works office. The conduit runs directly beneath the unregistered building. One of the access hatches opens inside that building's foundation, which explains the sub-floor cavity: it is positioned directly above the conduit access point. Whatever was stored there was passed in and out through the waterworks channel, not the freight lane.`;
         addJournal('Water conduit access point inside unregistered building — sub-floor cavity above hatch', 'evidence', `panim-water-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -819,6 +860,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.water_course_documented = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The waterworks record is available at the civic works office and shows the conduit path through the memorial district. The route passes beneath a section of the district that includes the unregistered building's block. Whether the conduit has an access point directly under that building requires the maintenance map, which the counter clerk says is filed separately under infrastructure reference. That map is available but requires a half-day processing request through the district registry.`;
         addJournal('Shrine conduit traced to unregistered building block — maintenance map pending', 'intelligence', `panim-water-partial-${G.dayCount}`);
       }
@@ -841,6 +883,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Marrowen's registry counter holds the district breakdown map on a peg behind her chair. The clustering resolves into a precise radius: every phantom contract originates from within two city blocks of the freight lane porter's gate. No administrative sorting process uses geography — the ledger categories are temporal and denominational, not spatial. The clustering is a physical artifact of where the transactions were walked in. Someone carried these contracts to the counter on foot, from the same street, every time.`;
         addJournal('Afterlife ledger clustering geographic — phantom contracts originate from porter gate radius', 'evidence', `panim-cluster-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -850,6 +893,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The clustering is real and not explained by any scheduling or denominational sorting rule Marrowen names. She produces the standard categories without hesitation and none of them produce spatial groupings. Whatever sorted these contracts into a cluster did so through physical origin, not administrative process. That narrows where the contracts entered the registry from but does not yet name who carried them.`;
         addJournal('Afterlife ledger clustering — spatial origin confirmed, entry point unidentified', 'evidence', `panim-cluster-partial-${G.dayCount}`);
       }
@@ -873,6 +917,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.met_celis_lanthorn = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Celis keeps her session ledger on a different shelf from the certified mediation records — her working copy, not the filed one. She sets it open to the relevant section without being asked for it. Eight families came to her in the past four months with memorial contracts for deceased relatives whose names did not appear in the afterlife registry at all. She helped four of them draft formal inquest petitions. All four petitions were returned marked "registry cross-reference pending" — a classification that has no defined resolution timeline and no assigned clerk.`;
         addJournal('Celis Lanthorn — eight registry-absent names, four suppressed inquest petitions', 'evidence', `panim-celis-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -883,6 +928,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.met_celis_lanthorn = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Celis confirms the pattern without opening the ledger. Several families presented valid memorial contracts for relatives who could not be located in the registry under any name variant or date. She directed them to the formal petition process. She cannot say what happened to those petitions after they left her office. Her expression carries the specific flatness of someone who knows the answer and has concluded that knowing it is not the same as being able to do anything about it.`;
         addJournal('Celis confirms registry-absent family cases — petition outcomes unknown', 'intelligence', `panim-celis-partial-${G.dayCount}`);
       }
@@ -906,6 +952,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.met_toriel_palevow = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Toriel is washing instruments when you arrive — a routine that gives her hands something to do while she decides. She has worked the block for eleven years and noticed the procession reroutes within the first week. What she noticed beyond that: the block's foot traffic does not drop during the reroutes. The same volume of people moves through, but they are not mourners following a procession. They move in pairs, at pace, carrying nothing. She does not know what they are doing. She knows what mourners look like, and these are not mourners.`;
         addJournal('Toriel Palevow — non-mourner foot traffic replaces procession during gaps', 'evidence', `panim-toriel-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -916,6 +963,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.met_toriel_palevow = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Toriel has noticed the reroutes and is willing to say so. The specific detail she offers is small and precise: the gap always begins two hours before the dawn bell and resolves before the first services. She has never seen a posted reason. The Mortuary Hall does not post processional schedules — she checks the route boards the way anyone who works the block does, out of habit. The gap has been long enough to become routine.`;
         addJournal('Toriel confirms processional gap timing — pre-dawn window, no posted reason', 'intelligence', `panim-toriel-partial-${G.dayCount}`);
       }
@@ -939,6 +987,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.met_pelor_coffinmarch = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Pelor processes the reading room request without looking up — a standard form, a standard fee, a standard wait. The request is for the mediation oversight correspondence index, which is public summary only, nothing sealed. While the index is produced, you locate the sealed document transfer log on the shelf behind the desk: a working record, not itself sealed, logging every document moved between the public annex and the restricted archive. Five transfers in the past eight months carry the same originating clerk notation: the name is Caldor Sepulcher. The transfer log goes back into place before Pelor returns.`;
         addJournal('Panim Archives transfer log — five sealed document moves under Caldor Sepulcher notation', 'evidence', `panim-pelor-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -949,6 +998,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.met_pelor_coffinmarch = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The mediation oversight correspondence index is produced on schedule. It lists document categories, date ranges, and originating parties without full names — a reference summary. One category appears more frequently than the others in the past eight months: sealed correspondence between the oversight tier and the district archive annex. The volume of that correspondence category is three times any comparable period in the five years prior. What those documents contain is not in the index. The frequency itself is the find.`;
         addJournal('Panim Archives index — sealed oversight-annex correspondence volume tripled in eight months', 'intelligence', `panim-pelor-partial-${G.dayCount}`);
       }

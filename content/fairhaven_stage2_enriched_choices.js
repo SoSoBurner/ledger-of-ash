@@ -21,6 +21,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_thalen_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Thalen opens the ledger to the relevant page and keeps his finger on the line. The commission came through six months ago — bulk quantity, glyph-surge suppression grade. Buyer identified through a sealed charter reference only: no name, no location, just a charter code. Thalen found the same code on a delivery order from a different supplier last month. He points to his handwritten note in the margin. The compounds went northwest. He circled the staging coordinates in red.`;
         addJournal('Glyph suppression compounds — sealed charter buyer, northwest staging', 'evidence', `fair-thalen-${G.dayCount}`);
@@ -31,6 +32,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_thalen_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Thalen confirms the scale of the order — more suppression compound than Fairhaven's chapel uses in a full year. He sets the ledger flat and taps the line with one finger. No buyer name on the record, only a charter reference code written in a hand he doesn't recognize. The delivery address sits on the northern route coordination pattern you've been building. Someone dropped an anchor point in his ledger and walked away clean.`;
         addJournal('Suppression compounds link to northern route staging', 'evidence', `fair-thalen-partial-${G.dayCount}`);
       }
@@ -51,6 +53,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_serin_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Serin pulls the correlation log without being asked — it's already been flagged for discussion. Every celestial creature sighting at Watchers Perch falls within eight hours of a regional glyph surge. Eight hours, not before. Serin has drawn the timeline across three columns. "They appear in the aftermath," he says. "Not the precursor." He circles the word aftermath. Something is moving through the surge residue — either drawn to it or routed through it deliberately.`;
         addJournal('Celestial sighting post-surge correlation confirmed — directional pattern', 'evidence', `fair-serin-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -60,6 +63,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_serin_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Serin's three months of records show the correlation plainly — every sighting clustered in the days following a surge, none preceding it. He made a note in the margin after the second month: "timing pattern — review." His pen is careful and unhurried. He suspected something before you arrived and kept documenting it. The records exist because he didn't dismiss what he was seeing.`;
         addJournal('Serin sighting records — glyph correlation visible', 'evidence', `fair-serin-partial-${G.dayCount}`);
       }
@@ -80,6 +84,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_maris_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Maris has already earmarked eight manifests in a separate column in her ledger — her own initiative, noted before your arrival. All eight carry Panim memorial service classification. All eight contain materials that Panim memorial services have no use for. The weight and volume profiles match glyph suppression compound batches. She sets the ledger flat on the table. "Someone is routing these through a category that doesn't ask questions about contents."`;
         addJournal('Fairhaven manifests connect to Panim memorial cover and suppression compounds', 'evidence', `fair-maris-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -88,6 +93,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_maris_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Maris confirms the manifests are unusual — she'd been waiting for the right question. "Weight profiles don't match Panim memorial standards. I've noted it four months running." She taps the earmarked pages without spreading them open. She hasn't reported it formally because she doesn't know what category the discrepancy belongs to and has no authority to invent one. She's been waiting for someone to come along who does.`;
         addJournal('Manifest weight irregularities — four months of noting', 'evidence', `fair-maris-partial-${G.dayCount}`);
       }
@@ -108,6 +114,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_vaelis_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Vaelis describes the second guest in detail — build, clothing, the particular way he carries a sealed document satchel with one hand against his body. The description matches the chapel intermediary pattern from Shelkopolis. Always north to south. Always after the tenth hour. "He never signs the guest register," she says. "There's a standing arrangement. I was told the name wasn't necessary." Someone negotiated his invisibility in the formal record before he ever arrived.`;
         addJournal('Fairhaven inn — Shelkopolis chapel intermediary cross-identified', 'evidence', `fair-vaelis-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -116,6 +123,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_vaelis_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Three guests, no names on file. All come from the north and leave southward. Sealed documentation cases each time, carried close. Vaelis says the cycle runs every ten to twelve days — she gestures toward the back room when she says it. "Regular enough I stopped noting it," she says. She noted it anyway, in small script at the back of the room ledger under miscellaneous, which is where things go when she isn't sure what they are.`;
         addJournal('Fairhaven inn — northern courier cycle confirmed', 'evidence', `fair-vaelis-partial-${G.dayCount}`);
       }
@@ -135,6 +143,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `The marks are inside the cave mouth, above head height — deliberate cuts into the glyph inscription at three specific pressure nodes. The tool used left a flat chisel pattern, not natural erosion. The modifications are months old; the cut edges have weathered. Cross-referencing the altered nodes against the regional surge calendar shows a consistent match: each major surge at Shelkopolis follows a tidal cycle that these modifications would amplify. The surges weren't natural variance. They were tuned.`;
         addJournal('Watchers Perch cave modified — engineered surges confirmed', 'evidence', `fair-cave-${G.dayCount}`);
@@ -144,6 +153,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glyph pressure release — presence at cave known', 'complication', `fair-cave-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Tool marks inside the entrance — flat chisel cuts into the inscription face, not natural wear. The stone dust in the grooves is a different color from the surrounding surface, lighter, not yet darkened by exposure. The pattern suggests intentional modification but the precise age and purpose aren't readable without glyph architecture training. What's clear: the work was done by someone who knew which nodes to touch and which to leave alone.`;
         addJournal('Cave tool marks — human activity confirmed, interpretation limited', 'evidence', `fair-cave-partial-${G.dayCount}`);
       }
@@ -163,6 +173,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_naevys_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Naevys Sunweave — Guild Archive', 'Naevys does not fetch the archive without being asked twice. The second time, she sets it on the workbench with both hands and does not step back. The records run twelve years — guild commissions, tool certifications, craft inspections. A gap appears eighteen months ago: two full seasons with no inspection stamps, no commissions, no certifications. She taps the blank column. "They stopped coming," she says. "I assumed the route had changed. Now I am less sure."');
         addJournal('Naevys guild archive gap — eighteen months without inspection stamps, northern route disruption', 'evidence');
         maybeStageAdvance();
@@ -183,6 +194,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Cyfoes Fountain — Drainage Shift', 'The market square fountain runs from a carved stone basin fed by a spring channel under the paving. The drain faces east now — the basin lip has been re-seated, recently, with fresh mortar still pale against the old stone. The original drain faced west toward the chapel. An eastward drain in Cyfoes fountain practice routes the blessing flow away from the faith ward and toward the field roads. Someone relocated the basin without announcing it. The shrine attendant nearby has not acknowledged the change, which is its own kind of acknowledgment.');
         addJournal('Cyfoes fountain re-seated — drain redirected away from chapel ward, unreported', 'discovery');
         maybeStageAdvance();
@@ -205,6 +217,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_elira_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Elira Sunweave — Lamp Test', 'Elira carries the Cyfoes lamp through the common room without comment, but the path she takes is deliberate. She passes the corner table where the three regulars sit with their backs to the wall. When the lamp comes within arm\'s reach, one of them sets down his cup without drinking and does not pick it up again. His hand stays flat on the table. The lamp moves on. Elira does not look back. Outside, in the yard, she says quietly: "They know what that lamp tests for. Anyone who doesn\'t know just watches the light."');
         addJournal('Elira lamp test — glyph-sensitized guests at corner table, self-identified by reaction', 'evidence');
         maybeStageAdvance();
@@ -227,6 +240,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_serin_sunweave = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Serin Sunweave — Private Record', 'Serin pulls the second log from under a stack of hymnals and sets it face-down on the table before turning it over. The entries run in smaller script than his official records — dates, compass headings, estimated altitudes. Every sighting he logged for himself after submitting the chapel copy. The private entries include three observations he left out of the formal record: two with approach vectors from the northwest, one that landed briefly on the cave shelf before lifting again. "The doctrine says to record what is seen," he says. "It does not say to record what it means."');
         addJournal('Serin private log — northwest approach vectors and cave shelf landing omitted from chapel record', 'evidence');
         maybeStageAdvance();
@@ -247,6 +261,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('vigor', G.skills.survival);
       if (roll.total >= 13) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Western Field Road — Cart Track', 'The ruts cut through field road clay that hasn\'t been graded since last season. Two sets of wheel marks, wide gauge, heavily loaded — the near wheel sank four finger-widths into the soft shoulder at the bend. The road ends at the equipment barn and the old drainage channel. Neither receives bulk deliveries. Backtracking the tire marks to the market gate shows the departure time was after the second watch bell, when the market records close for the night. Whatever moved through here was not moving under a manifest.');
         addJournal('Western field road — overnight heavy-load cart tracks, no market manifest coverage', 'discovery');
         maybeStageAdvance();
@@ -267,6 +282,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Cyfoes Shrine — Charter Bearer', 'The shrine attendant\'s hands stop mid-offering arrangement when the sealed charter comes out. He does not look at the bearer\'s face — he looks at the seal, and then at the charter ribbon, and then at the seal again. His thumb finds the chalk edge of the ward mark in the doorframe without him seeming to notice it. In Fairhaven, presenting a Shelkopolis administrative charter at a Cyfoes shrine signals that the bearer operates outside both the guild registry and the chapel record. The attendant finishes his arrangement and steps to the far side of the altar without speaking. He will not record having seen this person.');
         addJournal('Cyfoes shrine — sealed charter bearer observed, outside both guild and chapel record systems', 'intelligence');
         maybeStageAdvance();
@@ -286,6 +302,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('wits', G.skills.lore);
       if (roll.total >= 13) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Dock Authority Ledger — Missing Departures', 'The dock authority keeps arrivals in the left column and departures in the right, bound in the same daily ledger. Six vessels from the past two months have arrival entries with no corresponding departure — the right column is blank beside each one. The harbormistress\'s annotation on two of them reads "night clearance — no manifest presented." On the other four there is no annotation at all. Night clearance is a discretionary exception for guild-credentialed vessels in emergency conditions. None of the six entered through the standard credentialing queue. Their cargo classifications are listed as \'passenger and correspondence\' — the category that waives contents inspection.');
         addJournal('Dock authority ledger — six vessels departed without sign-out, night clearance invoked, contents inspection waived', 'evidence');
         maybeStageAdvance();
@@ -304,6 +321,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('spirit', G.skills.craft);
       if (roll.total >= 13) {
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('South Pier — Backdated Manifest Seal', 'The shipping agent spreads three manifests across the pier desk without being prompted. The third: a bulk delivery cleared through Fairhaven\'s south pier seven weeks ago. The authorization seal carries a certification date that expired forty-three days before the manifest was stamped. The seal was genuine — issued by a real authority — but its validity window closed before this delivery arrived. Someone used an expired seal and the pier inspector did not flag it, or chose not to. The agent taps the certification date twice. "That\'s not the inspector\'s handwriting on the clearance line," he says.');
         addJournal('South pier manifest — authorization seal expired before delivery date, clearance line handwriting mismatch', 'evidence');
         maybeStageAdvance();
@@ -338,6 +356,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.roadwarden_logs_reviewed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The transit logs cover twelve weeks. Every twelfth day, a cluster of three to four entries carries the correspondence waiver instead of a cargo declaration. The handwriting in those entries changes with each shift warden, but the waiver language is identical each time — word for word, copied, not written fresh. Someone introduced that phrasing and it propagated through the station's practice without being questioned. The pattern is consistent enough to predict the next transit window.`;
         addJournal('Roadwarden checkpoint — correspondence waiver pattern identified, next window predictable', 'intelligence', `fair-rwlog-partial-${G.dayCount}`);
       }
@@ -369,6 +388,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_aldra_wennis = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Aldra confirms her signature on the clearances. She turns to face the harbor window first, then turns back. She chooses each word with the care of someone who has rehearsed the answer and knows its edges. "Emergency discretionary clearance is within the harbor registry's authority." She does not say the clearances were appropriate. She says they were authorized. The difference runs like a fault line under the conversation, and she knows which side of it she's standing on.`;
         addJournal('Harbormistress confirmed signatures — no explanation given for credential gaps', 'intelligence', `fair-aldra-partial-${G.dayCount}`);
       }
@@ -390,6 +410,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.northern_approach_tracked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The secondary path leaves the main road two hundred yards before the cave marker and cuts north through low scrub. It has been used at least four times in the past two months — the brush springs back but not completely, and the root exposure on one steep section shows a worn groove from repeated boot placement at the same angle. A flat shelf halfway up holds three anchor points for ropes: iron pins driven into the limestone, old rust at the collar but fresh marks at the eye. Someone runs equipment up this path. Not cargo. Tools.`;
         addJournal('Secondary Watchers Perch approach — rope anchor points, equipment access route confirmed', 'evidence', `fair-path-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -399,6 +420,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.northern_approach_tracked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The scrub brush along the secondary path has been pushed aside repeatedly — the stems flex the wrong direction, bent and held, then released. The path leads to the limestone shelf below the cave mouth. Recent boot prints in the clay, more than one person, different sole weights. The access is being used, but the purpose isn't readable from the marks alone.`;
         addJournal('Secondary approach to cave — multiple-person traffic confirmed', 'evidence', `fair-path-partial-${G.dayCount}`);
       }
@@ -420,6 +442,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.shelkopolis_supply_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Cross-referencing Thalen's compound batch records against the guild's inter-locality supply register produces one match: a chartered supplier registered in Shelkopolis under a subsidiary name that resolves to the same sealed charter code that appears in the Panim memorial manifests and the dock clearance paperwork. The same charter entity is sourcing the compounds, routing them through Fairhaven, and waiving its own cargo inspection along the way. The supply chain and the distribution chain are the same organization.`;
         addJournal('Suppression compound supply traced to Shelkopolis charter entity — same code across three document types', 'evidence', `fair-supply-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -429,6 +452,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.shelkopolis_supply_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The supplier delivering to Thalen operates under a Shelkopolis subsidiary registration — a name on paper, no physical address in Fairhaven. The subsidiary appears in two other local supply records from different vendors in different trade categories. Same registration entity, different transaction faces. The grain of the hemp manifest paper is the same across all three, the same supplier stock. A single network reaching into multiple Fairhaven businesses under different names; the full scope of it isn't yet mappable.`;
         addJournal('Shelkopolis subsidiary supplier in multiple Fairhaven vendor records — full scope unclear', 'intelligence', `fair-supply-partial-${G.dayCount}`);
       }
@@ -450,6 +474,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.courier_cycle_timed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The tide tables posted at the dock master's board confirm it. Low tide on the north channel — the one that runs past the equipment barn at the end of the western field road — occurs every twelve days at the fourth hour. At low tide, a flat-bottomed supply vessel can move through the shallows without logging a harbor entry. The courier cycle Vaelis described at the inn, the field road ruts, the dock clearances, and the glyph surge calendar all share the same twelve-day interval. The schedule is the system.`;
         addJournal('Courier cycle runs on twelve-day tide window — north channel low tide enables unlisted vessel transit', 'evidence', `fair-tide-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -459,6 +484,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.courier_cycle_timed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The twelve-day interval between Vaelis's guest cycles matches the north channel low-tide window exactly. At the fourth hour on those nights, the channel shallows enough for a flat-bottomed vessel to transit without logging a harbor entry. The dock smells of brine and old rope as the board is read. The timing fits every data point in the pattern. What actually moves through the channel on those nights isn't visible from the tide board alone.`;
         addJournal('Twelve-day tide window confirmed — fits inn courier cycle interval', 'intelligence', `fair-tide-partial-${G.dayCount}`);
       }
@@ -490,6 +516,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.equipment_barn_searched = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The barn floor near the northeast wall has been relaid recently — the boards are slightly lighter where the clay dust hasn't settled fully into the grain, and the nail heads are bright rather than rusted. Tapping the section returns a hollow register, a clear resonant knock against the surrounding solid clay. The cavity is sealed and there is no handle or hinge visible from above, but the access mechanism is present. Whatever's inside isn't accessible quickly or quietly from this angle.`;
         addJournal('Equipment barn — hollow floor section confirmed at northeast wall, access sealed', 'intelligence', `fair-barn-partial-${G.dayCount}`);
       }
@@ -511,6 +538,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_physic_orra_seld = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Orra Seld keeps a symptom calendar on the back of her dispensing ledger — a row of symbols she devised herself, one per patient visit, dated. Three patients over four months presented the same contact dermatitis pattern: skin at the wrists and lower forearms, resolving in ten days. The first two she treated as unrelated accidents. The third, six weeks ago, came in the same week as the cart ruts on the field road. She points to the calendar row. The dates align with the twelve-day courier cycle.`;
         addJournal('Physic Orra Seld — three compound-exposure patients, dates match twelve-day courier cycle', 'evidence', `fair-physic-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -519,6 +547,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_physic_orra_seld = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Orra confirms she has seen a skin presentation pattern she associates with chemical handling — base-grade suppression compound residue, by profile. More than once, from different patients. She won't share dates or names but she draws the symptom distribution on a scrap of paper and slides it across the counter: wrist-to-forearm, lateral edge, consistent with a container seal that leaks on the left side during transport.`;
         addJournal('Physic confirms compound-exposure presentation in multiple patients — container leak pattern identified', 'intelligence', `fair-physic-partial-${G.dayCount}`);
       }
@@ -540,6 +569,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.shrine_visitor_log_read = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Brael's log is a cloth-bound pocket record, not a formal chapel document. He has been noting visitors who enter via the side door — the entrance that bypasses the chapel's public register — for seven months. Fourteen entries, each with a brief physical description and the charter seal color they carried. Six entries share the same seal description: dark wax, no visible guild mark, folded ribbon closure. The last entry is dated three days before the most recent cave surge. Brael holds the log by the spine. "I was told the Cyfoes practice requires witness." He was told by Serin. Serin does not know the log exists.`;
         addJournal('Shrine attendant private log — 14 unregistered visitors, six with matching dark-wax sealed charter, timing links to cave surge', 'evidence', `fair-shrine-log-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -549,6 +579,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.shrine_visitor_log_read = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Brael shows the log without the dates — he folds the right edge of each page to cover the calendar column before turning it. What remains visible: physical descriptions and charter seal colors. Three entries share a matching dark-wax seal with no guild mark. He does not explain why he keeps the record. He does not explain why he has agreed to show it.`;
         addJournal('Shrine attendant log — three matching dark-wax unsealed charter visitors, dates withheld', 'intelligence', `fair-shrine-log-partial-${G.dayCount}`);
       }
@@ -579,6 +610,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_cartwright_orvast = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Pell built six crates to a specification he describes from memory: sealed interior panels, ceramic-fit slot brackets, lime-wash interior coat. He confirms he received the commission by letter, not in person. He no longer has the letter — he cleaned his order files last month — but he remembers the delivery address was on the western side of town. His description of the crates matches the suppression compound amphorae profile.`;
         addJournal('Cartwright confirms six sealed compound crates, western delivery address, commission received by letter', 'intelligence', `fair-cart-partial-${G.dayCount}`);
       }
@@ -600,6 +632,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.deputy_harbor_confronted = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Sava holds eye contact for three seconds after you lay out what Aldra told you, then looks at the ledger surface to her left. The night clearance language was added at the request of a guild registry contact who approached her privately, not through the harbor authority's standard amendment process. The contact brought a written draft. She copied it into the standing protocol because the guild registry seal on the draft looked legitimate. She did not check the seal against the registry's current issue list. Her hands are very still. She has been waiting for this conversation.`;
         addJournal('Deputy Sava — night clearance protocol written by guild registry contact, seal legitimacy not verified', 'evidence', `fair-sava-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -609,6 +642,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.deputy_harbor_confronted = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Sava confirms she wrote the night clearance language into the standing protocol, and that the phrasing was drafted from an external source she received in written form. She sets her hands on the counter and looks at the middle distance. She chooses not to describe that source further. What she does say: the draft arrived without going through the harbor authority's normal amendment review process. She initialed the change without flagging it. Aldra's countersignature followed.`;
         addJournal('Deputy confirms external draft source for night clearance language — amendment review bypassed', 'intelligence', `fair-sava-partial-${G.dayCount}`);
       }
@@ -630,6 +664,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.commander_notation_read = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Veth Olan's notation ledger is narrow-ruled and written in a hand smaller than his official log — the compression of someone working with limited page space and intent on keeping the volume portable. Two entries are marked with a double-strike through the date: incidents he observed but did not formally report. The first: a sealed-charter convoy passing the checkpoint at third-hour night with two Roadwarden escorts he did not dispatch and cannot account for. The second: a rider delivering a document to his own post that bypassed the standard routing slip. Both entries align with the correspondent's twelve-day cycle. He shows the ledger without being asked to. He has been waiting for the right person to show it to.`;
         addJournal('Commander Veth Olan personal ledger — two unfiled incidents: phantom escort convoy and unrouted post delivery, both in twelve-day cycle', 'evidence', `fair-cmdr-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -639,6 +674,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.commander_notation_read = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Veth confirms two incidents he recorded outside the official log: a checkpoint transit he could not account for, and a post delivery that bypassed standard routing and arrived already opened at the seal. He is willing to describe both in detail but will not transfer the notation ledger or make copies — it stays in the desk drawer. He keeps his voice at the register of someone reporting weather. His posture says he has carried these entries for months without knowing what to do with them.`;
         addJournal('Post commander confirms two unlogged incidents matching twelve-day cycle — notation not transferable', 'intelligence', `fair-cmdr-partial-${G.dayCount}`);
       }
@@ -670,6 +706,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.factor_ashwick_tracked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The voluntary trader register shows two sign-ins under the same factor authorization code, six weeks apart — the market square busy behind the window, produce carts rolling in from the east gate. Both entries carry the dark-wax secondary verification mark in the right-hand column. The code is correctly formatted for a licensed trade factor but does not appear in the main guild registry when cross-referenced. The factor who used it is real. The authorization behind it is not.`;
         addJournal('Factor authorization code in two Fairhaven register entries — valid format, no guild registry match', 'intelligence', `fair-factor-partial-${G.dayCount}`);
       }
@@ -691,6 +728,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.certification_lapse_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The guild certification office in Fairhaven holds a route calendar going back four years. Eighteen months ago, the inspector assigned to the Fairhaven-northwest circuit simply stopped appearing on the monthly schedule. There is no reassignment record, no route transfer, no coverage appointment. The certification stamps that should have been issued in the gap period were issued anyway — Naevys's archive gap, the empty column she pointed to, is the visible mark of inspections that happened on paper but not in person. The gap is not administrative failure. It was cleared deliberately to let uninspected workshops operate under a credentialing cover.`;
         addJournal('Guild certification inspector route lapsed 18 months ago — stamps issued without inspection, Naevys gap confirmed as deliberate cover', 'evidence', `fair-cert-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -700,6 +738,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.certification_lapse_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The route calendar shows an eighteen-month gap in Fairhaven inspector visits. The clerk confirms no reassignment was filed for the gap period. The stamps that should appear in Naevys's archive during those months were issued from a district-level blanket authorization rather than individual inspector visits. Blanket authorization requires a district coordinator signature. The clerk does not know whose signature that is.`;
         addJournal('Certification gap — district blanket authorization used for 18 months, authorizing signatory unknown', 'intelligence', `fair-cert-partial-${G.dayCount}`);
       }
