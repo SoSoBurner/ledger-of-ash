@@ -15,9 +15,10 @@
  *   docs/superpowers/plans/playtest-plan-{YYYYMMDD-HHmm}.md
  */
 
-const fs           = require('fs');
-const path         = require('path');
-const { execSync } = require('child_process');
+const fs             = require('fs');
+const path           = require('path');
+const { execSync }   = require('child_process');
+const { spawn }      = require('child_process');
 
 const ROOT           = path.join(__dirname, '..', '..');
 const TEST_RESULTS   = path.join(ROOT, 'tests', 'test-results');
@@ -430,6 +431,170 @@ async function analyzeWithSDK(domain, ctx, imagePaths) {
 }
 
 // ---------------------------------------------------------------------------
+// Domain 13 — Static Code Audit
+// ---------------------------------------------------------------------------
+function runCodeAudit() {
+  const gameRoot   = path.resolve(__dirname, '..', '..');
+  const htmlPath   = path.join(gameRoot, 'ledger-of-ash.html');
+  const contentDir = path.join(gameRoot, 'content');
+
+  const findings = [];
+
+  // 1. Scan ledger-of-ash.html for TODOs, FIXME, and stub return-false
+  let htmlContent = '';
+  try { htmlContent = fs.readFileSync(htmlPath, 'utf8'); } catch (e) {
+    findings.push(`[ERROR] Could not read ledger-of-ash.html: ${e.message}`);
+  }
+  if (htmlContent) {
+    const htmlLines = htmlContent.split('\n');
+    htmlLines.forEach(function(line, i) {
+      if (/TODO|FIXME/.test(line)) {
+        findings.push(`[TODO] ledger-of-ash.html:${i + 1} — ${line.trim()}`);
+      }
+      // return false; that isn't already commented out
+      const commentIdx = line.indexOf('//');
+      const retIdx     = line.indexOf('return false;');
+      if (retIdx !== -1 && (commentIdx === -1 || retIdx < commentIdx)) {
+        findings.push(`[STUB] ledger-of-ash.html:${i + 1} — ${line.trim()}`);
+      }
+    });
+
+    // Empty function bodies: function name() {}
+    const emptyFnRe = /function\s+\w+\s*\([^)]*\)\s*\{\s*\}/g;
+    let m;
+    while ((m = emptyFnRe.exec(htmlContent)) !== null) {
+      const lineNo = htmlContent.slice(0, m.index).split('\n').length;
+      findings.push(`[EMPTY-FN] ledger-of-ash.html:${lineNo} — ${m[0].slice(0, 80)}`);
+    }
+  }
+
+  // 2. Scan content/*.js
+  let contentFiles = [];
+  try {
+    contentFiles = fs.readdirSync(contentDir)
+      .filter(function(f) {
+        try { return fs.statSync(path.join(contentDir, f)).isFile() && f.endsWith('.js'); }
+        catch (_) { return false; }
+      });
+  } catch (e) {
+    findings.push(`[ERROR] Could not read content/: ${e.message}`);
+  }
+
+  for (const fname of contentFiles) {
+    const fpath = path.join(contentDir, fname);
+    let content = '';
+    try { content = fs.readFileSync(fpath, 'utf8'); } catch (e) { continue; }
+
+    // Choices with stageProgress but no failResult
+    // Heuristic: grab object-like blocks containing stageProgress
+    const spBlocks = content.match(/\{[^{}]{0,800}stageProgress[^{}]{0,800}\}/g) || [];
+    spBlocks.forEach(function(block) {
+      if (!block.includes('failResult')) {
+        findings.push(`[MISSING-FAILRESULT] ${fname} — choice block has stageProgress but no failResult`);
+      }
+    });
+
+    // G.flags.X = ... set in content files, never read in html
+    const flagSetRe = /G\.flags\.(\w+)\s*=/g;
+    let fm;
+    while ((fm = flagSetRe.exec(content)) !== null) {
+      const flag = fm[1];
+      if (htmlContent && !htmlContent.includes(`G.flags.${flag}`)) {
+        findings.push(`[ORPHANED-FLAG] ${fname} — G.flags.${flag} set but never read in ledger-of-ash.html`);
+      }
+    }
+  }
+
+  // 3. Specific checks on stage2_climax.js and stage2_antechamber.js
+  const specialFiles = ['stage2_climax.js', 'stage2_antechamber.js'];
+  for (const sf of specialFiles) {
+    const sfPath = path.join(contentDir, sf);
+    try {
+      const sfContent = fs.readFileSync(sfPath, 'utf8');
+      if (/TODO|FIXME/.test(sfContent)) {
+        findings.push(`[TODO] content/${sf} — contains TODO/FIXME markers`);
+      }
+      if (/return false;/.test(sfContent)) {
+        findings.push(`[STUB] content/${sf} — contains return false; (possible unfinished stub)`);
+      }
+      if (/\{\s*\}/.test(sfContent)) {
+        findings.push(`[INCOMPLETE] content/${sf} — contains empty block {}`);
+      }
+    } catch (_) { /* file may not exist yet — skip */ }
+  }
+
+  return findings.slice(0, 50); // cap at 50
+}
+
+async function domain13_codeAudit(ctx) {
+  const findings = runCodeAudit();
+
+  const findingsSummary = findings.length > 0
+    ? findings.map(function(f) { return `- ${f}`; }).join('\n')
+    : 'No critical orphaned/unwired features found.';
+
+  const systemPrompt = [
+    'You are a game engine code auditor for Ledger of Ash, a text-RPG browser game (vanilla ES5 JS, ~16K lines).',
+    'Analyze the static code findings and identify which represent genuine orphaned/unfinished features vs intentional stubs.',
+    'The engine has a known intentional stub: canAdvanceToStage3() returns false (V1.0 scope freeze — not a bug).',
+    'STAGE2_BOSS_MODULE exports checkTrigger (not shouldTrigger) — this is intentional, not a bug.',
+  ].join(' ');
+
+  const userPrompt = [
+    'Static analysis findings from Ledger of Ash source files:',
+    '',
+    findingsSummary,
+    '',
+    'For each finding:',
+    '1. Classify: BUG (broken at runtime) | STUB (intentionally unfinished) | ORPHANED (dead code) | INCOMPLETE (wired but empty)',
+    '2. Priority: P0 (breaks gameplay) | P1 (missing feature) | P2 (technical debt)',
+    '3. Recommended action',
+    '',
+    'Format output as a markdown checklist:',
+    '## Code Audit Findings',
+    '- [ ] [P0-BUG] ...',
+    '- [ ] [P1-STUB] ...',
+    '',
+    'End with a "## Summary" section estimating total dev hours for all P0+P1 items.',
+  ].join('\n');
+
+  // Try Anthropic SDK first, fall back to CLI
+  let Anthropic;
+  try { Anthropic = require('@anthropic-ai/sdk'); } catch (_) {}
+
+  if (Anthropic && process.env.ANTHROPIC_API_KEY) {
+    try {
+      const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+      const msg = await client.messages.create({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 2048,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: [{ type: 'text', text: userPrompt }] }],
+      });
+      return msg.content[0].type === 'text' ? msg.content[0].text : '[no text response]';
+    } catch (e) {
+      console.warn(`[post-run-analysis] domain13 SDK error: ${e.message}, falling back to CLI`);
+    }
+  }
+
+  // CLI fallback
+  const tmpFile = path.join(TEST_RESULTS, '_analysis_prompt_code_audit.txt');
+  const fullPrompt = `${systemPrompt}\n\n${userPrompt}`;
+  fs.writeFileSync(tmpFile, fullPrompt, 'utf8');
+  try {
+    const result = execSync(
+      'claude -p --model claude-sonnet-4-6 -',
+      { input: fs.readFileSync(tmpFile, 'utf8'), encoding: 'utf8', timeout: 120000 }
+    );
+    try { fs.unlinkSync(tmpFile); } catch (_) {}
+    return result.trim();
+  } catch (err) {
+    try { fs.unlinkSync(tmpFile); } catch (_) {}
+    return `[code-audit failed: ${String(err.message).slice(0, 200)}]`;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 async function main() {
@@ -465,6 +630,11 @@ async function main() {
     }
   }
 
+  // Domain 13 — Static Code Audit (no screenshots needed, separate async path)
+  console.log('[post-run-analysis] analyzing: Code Audit (static)...');
+  findings['code_audit'] = await domain13_codeAudit(ctx)
+    .catch(e => `[code-audit-error: ${e.message}]`);
+
   // ---------------------------------------------------------------------------
   // Build findings report
   // ---------------------------------------------------------------------------
@@ -495,6 +665,22 @@ async function main() {
     allP0 = allP0.concat(p0.map(l => `- ${domain.label}: ${l}`));
     allP1 = allP1.concat(p1.map(l => `- ${domain.label}: ${l}`));
     allP2 = allP2.concat(p2.map(l => `- ${domain.label}: ${l}`));
+  }
+
+  // Append Code Audit section
+  {
+    const text = findings['code_audit'] || '[no findings]';
+    analysisLines.push('## Code Audit');
+    analysisLines.push('');
+    analysisLines.push(text);
+    analysisLines.push('');
+
+    const p0 = (text.match(/\[P0\][^\n]*/g) || []);
+    const p1 = (text.match(/\[P1\][^\n]*/g) || []);
+    const p2 = (text.match(/\[P2\][^\n]*/g) || []);
+    allP0 = allP0.concat(p0.map(l => `- Code Audit: ${l}`));
+    allP1 = allP1.concat(p1.map(l => `- Code Audit: ${l}`));
+    allP2 = allP2.concat(p2.map(l => `- Code Audit: ${l}`));
   }
 
   // Write analysis report
@@ -530,6 +716,18 @@ async function main() {
   console.log(`[post-run-analysis] fix plan → ${planPath}`);
 
   console.log(`[post-run-analysis] done. P0=${allP0.length} P1=${allP1.length} P2=${allP2.length}`);
+
+  // ---------------------------------------------------------------------------
+  // Spawn second-pass skills script (non-blocking)
+  // ---------------------------------------------------------------------------
+  const skillsPassScript = path.resolve(__dirname, 'post-run-skills-pass.js');
+  if (fs.existsSync(skillsPassScript)) {
+    console.log(`[post-run-analysis] spawning skills pass → post-run-skills-pass.js`);
+    spawn('node', [skillsPassScript, analysisPath], {
+      detached: true,
+      stdio:    'ignore',
+    }).unref();
+  }
 }
 
 main().catch(err => { console.error('[post-run-analysis] fatal:', err); process.exit(1); });
