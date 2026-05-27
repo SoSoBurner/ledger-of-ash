@@ -11185,16 +11185,16 @@ function loadStageChoices(locId) {
   if (enriched && enriched.length) {
     const seenKey = '_seen_enriched_' + stageNum;
     const seen = G.flags[seenKey] = G.flags[seenKey] || {};
-    let pool = enriched.filter(function(c) { return !seen[c.label]; });
-    if (pool.length < 2) { G.flags[seenKey] = {}; pool = enriched.slice(); }
+    let pool = enriched.filter(function(c) { return c && !seen[c.label]; });
+    if (pool.length < 2) { G.flags[seenKey] = {}; pool = enriched.filter(Boolean); }
     // Fisher-Yates shuffle
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       const tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
     }
     // Guarantee at least 1 plot:main choice per render (blue border = stage progress signal)
-    const _plotMain = pool.filter(function(c){ return c.plot === 'main'; });
-    const _nonPlot  = pool.filter(function(c){ return c.plot !== 'main'; });
+    const _plotMain = pool.filter(function(c){ return c && c.plot === 'main'; });
+    const _nonPlot  = pool.filter(function(c){ return c && c.plot !== 'main'; });
     const picked = (_plotMain.length ? [_plotMain[0]] : []).concat(_nonPlot).slice(0, 4);
     picked.forEach(function(c) { seen[c.label] = true; });
     const adapted = picked.map(adaptEnrichedChoice);
