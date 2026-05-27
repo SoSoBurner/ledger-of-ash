@@ -11138,7 +11138,7 @@ function prioritizeChoices(choices, maxCount) {
   if (!Array.isArray(choices)) return choices;
   var cap = (typeof maxCount === 'number' && maxCount > 0) ? maxCount : 8;
   var TIERS = { 'main': 1, 'side': 2, 'enriched': 3, 'utility': 4 };
-  var sorted = choices.slice().sort(function(a, b) {
+  var sorted = choices.filter(Boolean).slice().sort(function(a, b) {
     var ta = TIERS[a.plot] || (a.isUtility ? 4 : 3);
     var tb = TIERS[b.plot] || (b.isUtility ? 4 : 3);
     return ta - tb;

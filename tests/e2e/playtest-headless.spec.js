@@ -1213,7 +1213,7 @@ test.describe('Headless QA — 4 families', () => {
     }
 
     // Wire pageerror events into reporter so JS errors appear in the report
-    jsErrors.forEach(e => reporter.addJsError(e));
+    jsErrors.forEach(e => reporter.addJsError(`[${e.tag}] ${e.msg}`));
 
     // Write structured report
     try {
