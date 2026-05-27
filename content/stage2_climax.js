@@ -91,8 +91,8 @@ var STAGE2_CLIMAX = (function() {
 
   // Phase 3 — The Resolution
   function phase3() {
-    
-    G.lastResult += '\n\nSeld presses a folded document into your hands — a partial copy of the records. His hands are unsteady. "What you do with this determines everything," he says. He does not wait to see what you decide.';
+
+    G.lastResult = (G.lastResult || '') + '\n\nSeld presses a folded document into your hands — a partial copy of the records. His hands are unsteady. "What you do with this determines everything," he says. He does not wait to see what you decide.';
 
     (window._rawRenderChoices || window.renderChoices)([
       {
