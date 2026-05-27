@@ -1212,6 +1212,9 @@ test.describe('Headless QA — 4 families', () => {
       log(`[coverage-gaps] localities visited with 0 sp2: ${coverage.coverageGaps.join(', ')}`);
     }
 
+    // Wire pageerror events into reporter so JS errors appear in the report
+    jsErrors.forEach(e => reporter.addJsError(e));
+
     // Write structured report
     try {
       const reportPath = reporter.write(coverage, 291); // 291 = known warning baseline

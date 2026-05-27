@@ -49,6 +49,7 @@ class CoverageTracker {
       this._localities[loc] = {
         visits: 0, firstVisitPick: this._pickCount,
         sp2OnArrival: sp2, sp2OnDeparture: sp2,
+        totalSp2Contributed: 0,
         deadEnds: 0, mapTravels: 0, stageVisitedIn: stage,
       };
     }
@@ -56,11 +57,14 @@ class CoverageTracker {
     // Arrival at a new locality
     if (loc !== this._currentLoc) {
       if (this._currentLoc && this._localities[this._currentLoc]) {
+        // Flush this visit's sp2 contribution before leaving
+        const visitContrib = this._currentSp2 - this._localities[this._currentLoc].sp2OnArrival;
+        if (visitContrib > 0) this._localities[this._currentLoc].totalSp2Contributed += visitContrib;
         this._localities[this._currentLoc].sp2OnDeparture = this._currentSp2;
       }
       this._localities[loc].visits++;
       this._localities[loc].sp2OnArrival = sp2;
-      this._localities[loc].stageVisitedIn = stage;  // Record stage at arrival
+      this._localities[loc].stageVisitedIn = stage;
       this._currentLoc = loc;
     }
 
@@ -98,7 +102,11 @@ class CoverageTracker {
 
     const localityRows = visited.map(locId => {
       const d = this._localities[locId];
-      const sp2Contributed = d.sp2OnDeparture - d.sp2OnArrival;
+      // For the current (still-active) locality, add its live unflushed contribution
+      let sp2Contributed = d.totalSp2Contributed;
+      if (locId === this._currentLoc) {
+        sp2Contributed += Math.max(0, this._currentSp2 - d.sp2OnArrival);
+      }
       if (sp2Contributed <= 0 && d.visits > 0) {
         gaps.push(locId);
         // Track Stage II zero-contributor localities separately

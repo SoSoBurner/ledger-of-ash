@@ -2534,6 +2534,7 @@ test.describe('Headed QA — 4 families', () => {
 
     // Write playtest report and per-family transcripts
     const coverage  = tracker.getSummary();
+    jsErrors.forEach(e => reporter.addJsError(e));
     const reportPath = reporter.write(coverage, 0);
     log(`[suite:headed] report written → ${reportPath}`);
     const transcriptPaths = reporter.writeTranscripts();
