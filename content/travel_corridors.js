@@ -615,28 +615,27 @@
     if (!choices || !choices.length) return choices;
     return choices.map(function(c) {
       var original = c.action;
-      // Return a shallow clone with action replaced
+      // CID-based choices (no inline action) must fall through to the C consequence
+      // lookup in handleChoice so their success/failure text and XP are shown.
+      // Only wrap choices that already have an inline action function.
+      if (typeof original !== 'function') return c;
+      // Return a shallow clone with action replaced to patch _travelNextEncounter
       var wrapped = {};
       for (var k in c) { if (Object.prototype.hasOwnProperty.call(c, k)) wrapped[k] = c[k]; }
       wrapped.action = (function(_orig, _dest) {
         return function(ctx) {
-          if (typeof _orig === 'function') {
-            // Original action handles its own narration/roll; it must NOT call
-            // loadStageChoices/resolveArrival itself — we handle that via nextEncounter.
-            // Patch the fallback references inside legacy closures by temporarily
-            // overriding _travelNextEncounter to point at corridor nextEncounter.
-            var _prevNext = window._travelNextEncounter;
-            window._travelNextEncounter = function() {
-              window._travelNextEncounter = _prevNext;
-              window.TRAVEL_CORRIDOR.nextEncounter();
-            };
-            _orig.call(this, ctx);
-            // If the original did NOT call _travelNextEncounter synchronously,
-            // restore and let the timeout inside the original fire as normal.
-          } else {
-            // No original action: just advance the encounter chain
+          // Original action handles its own narration/roll; it must NOT call
+          // loadStageChoices/resolveArrival itself — we handle that via nextEncounter.
+          // Patch the fallback references inside legacy closures by temporarily
+          // overriding _travelNextEncounter to point at corridor nextEncounter.
+          var _prevNext = window._travelNextEncounter;
+          window._travelNextEncounter = function() {
+            window._travelNextEncounter = _prevNext;
             window.TRAVEL_CORRIDOR.nextEncounter();
-          }
+          };
+          _orig.call(this, ctx);
+          // If the original did NOT call _travelNextEncounter synchronously,
+          // restore and let the timeout inside the original fire as normal.
         };
       })(original, dest);
       return wrapped;
