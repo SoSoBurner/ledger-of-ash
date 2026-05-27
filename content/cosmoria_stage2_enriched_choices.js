@@ -146,12 +146,12 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_nerissa_tideglass = true;
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Nerissa spreads her tidal observation sheets across the shrine's record table — two years of dual-tide amplitude readings, dated and signed. The correlation is visible in the columns without calculation: every Shelkopolis surge date aligns with a peak-amplitude dual-tide window. She traces the pattern with her finger without speaking for a moment. "I couldn't explain why the surges followed this schedule. I assumed it was the surges triggering tidal sensitivity." She looks up. "But if the tidal window is the trigger and not the consequence — then the schedule isn't random. It's predictable. Every time."`;
+        G.lastResult = `Nerissa spreads her tidal observation sheets across the shrine's record table — two years of dual-tide amplitude readings, dated and signed. Salt from the deep harbor drifts through the shrine's open seaward arch. The correlation is visible in the columns without calculation: every Shelkopolis surge date aligns with a peak-amplitude dual-tide window. She traces the pattern with her finger without speaking for a moment. "I couldn't explain why the surges followed this schedule. I assumed it was the surges triggering tidal sensitivity." She looks up. "But if the tidal window is the trigger and not the consequence — then the schedule isn't random. It's predictable. Every time."`;
 
         addJournal('Tidal window confirmed as surge trigger mechanism — operation uses natural schedule as cover', 'evidence', `cos-nerissa-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `Nerissa listens carefully and then says tidal surge events fall outside the shrine's observational scope — the shrine records natural tide cycles, not glyph activity. "What you're describing is a theological question about divine tide mechanics. That's doctrine, not observation." She closes her record sheets and offers a tide blessing instead. The offer is genuine. The records stay closed.`;
+        G.lastResult = `Nerissa listens carefully and then says tidal surge events fall outside the shrine's observational scope — the shrine records natural tide cycles, not glyph activity. "What you're describing is a theological question about divine tide mechanics. That's doctrine, not observation." Salt air moves through the shrine's open arch from the deep harbor below. She closes her record sheets and offers a tide blessing instead. The offer is genuine. The records stay closed.`;
         addJournal('Sea shrine records closed — tidal inquiry redirected to doctrine', 'complication', `cos-nerissa-fail-${G.dayCount}`);
       } else {
         G.flags.met_nerissa_tideglass = true;
@@ -200,12 +200,12 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.quay_markings_examined = true;
         G.investigationProgress++;
-        addNarration('Painted Over', 'The night platform smells of salt and cooling timber. The original quay markings are still readable under the new paint if the angle is right — weight classifications in the old Harbor Authority format, each berth rated for a specific load range. The painted-over marks on berth seven are noticeably lower than the surrounding berths. Someone reclassified it upward. A sealed container routed through berth seven under the new classification would not trigger the secondary weight inspection that the original rating requires. The paint job is three to five months old by the oxidation pattern.');
+        addNarration('Painted Over', 'The night platform smells of brine and cooling timber, the deep-harbor water low against the struts at this hour. The original quay markings are still readable under the new paint if the angle is right — weight classifications in the old Harbor Authority format, each berth rated for a specific load range. The painted-over marks on berth seven are noticeably lower than the surrounding berths. Someone reclassified it upward. A sealed container routed through berth seven under the new classification would not trigger the secondary weight inspection that the original rating requires. The paint job is three to five months old by the oxidation pattern on the surface coat.');
         addJournal('Night airship berth seven weight classification painted over — bypasses secondary inspection threshold', 'evidence');
         maybeStageAdvance();
       } else {
         G.lastResult = `A loading crew foreman steps off the gangway before the quay markings are close enough to read. "Pre-departure staging. Platform's restricted." He gives his name without being asked: Oren Saltwick, night platform lead. The tide gauge bracket behind him is still dripping from the last surge cycle, salt water running down a rust-brown stain on the iron strut. Two dock hands near the mooring cleats have stopped what they were doing. Saltwick waits without moving. He has done this before and expects it to end the same way.`;
-        addNarration('Platform Crew', 'Oren Saltwick, night platform lead, steps off the gangway before the quay markings are close enough to read. "Pre-departure staging. Platform\'s restricted." The tide gauge bracket behind him drips from the last surge cycle. He waits for you to back away.');
+        addNarration('Platform Crew', 'Oren Saltwick, night platform lead, steps off the gangway before the quay markings are close enough to read. "Pre-departure staging. Platform\'s restricted." The tide gauge bracket behind him drips from the last surge cycle, salt water running down a rust-brown iron strut. The smell of brine-preserved goods and weathered rope comes off the dock at full load. Two dock hands near the mooring cleats have stopped their work. He waits for you to back away.');
       }
     }
   },
@@ -409,11 +409,11 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.pallmark_pilot_chart_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The approach chart filed for the Pallmark Reach lists a pilot certification dated three months before the vessel's original commissioning date — the chart was registered before the ship existed. The licensing board clerk sets both documents side by side without being asked and reads the dates twice. The certifying pilot's name has not appeared on any active licensing roll for eleven years. Someone backdated the chart using an expired certification that no longer had a living holder to contradict it.`;
+        G.lastResult = `The approach chart filed for the Pallmark Reach lists a pilot certification dated three months before the vessel's original commissioning date — the chart was registered before the ship existed. The licensing board clerk sets both documents side by side without being asked and reads the dates twice. The smell of long-haul brine-preserved cargo hangs in the board's waiting corridor. The certifying pilot's name has not appeared on any active licensing roll for eleven years. Someone backdated the chart using an expired certification that no longer had a living holder to contradict it.`;
         addJournal('Pallmark Reach pilot chart predates vessel commissioning — certifying pilot license expired 11 years prior, holder untraceable', 'evidence', `cos-pilotchart-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The licensing board's intake desk requires a vessel owner authorization or a Harbor Captain countersignature before releasing approach charts for review. The clerk produces the authorization form before the request is complete — a pre-positioned reflex. Marrow Tideglass's administrative office receives the countersignature request within the hour. The inquiry is now cross-referenced between two offices and logged in both.`;
+        G.lastResult = `The licensing board's intake desk requires a vessel owner authorization or a Harbor Captain countersignature before releasing approach charts for review. The clerk produces the authorization form before the request is complete — a pre-positioned reflex. The smell of the deep-sea port carries through the board's open window, brine and rope work and loaded cargo. Marrow Tideglass's administrative office receives the countersignature request within the hour. The inquiry is now cross-referenced between two offices and logged in both.`;
         addJournal('Pilot chart access blocked — Harbor Captain countersignature requested, cross-logged', 'complication', `cos-pilotchart-fail-${G.dayCount}`);
       } else {
         G.flags.pallmark_pilot_chart_found = true;
@@ -689,11 +689,12 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit || result.total >= 12) {
         G.flags.met_clerk_mevra = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
-        G.lastResult = 'The clerk — Mevra — processes the records request correctly: logs it, stamps it, retrieves the index. The filing exists. She reads the access restriction line and says it cannot be released without Collegium authorization. Standard procedure. Then she glances at the cabinet behind her — the grey-tab dividers — and back to you. Half a second. She slides the denial form across with both hands. The filing number is visible on the index before she closes it: COL-7-RESTRICTED-COSM-14.';
+        G.lastResult = 'The clerk — Mevra — processes the records request correctly: logs it, stamps it, retrieves the index. The filing exists. She reads the access restriction line and says it cannot be released without Collegium authorization. Standard procedure. Port noise carries through the records office window, ropes under load against the wharf iron. Then she glances at the cabinet behind her — the grey-tab dividers — and back to you. Half a second, deliberate. She slides the denial form across with both hands. The filing number is visible on the index before she closes it: COL-7-RESTRICTED-COSM-14.';
         addJournal('Cosmoria records office: Collegium sealed filing COL-7-RESTRICTED-COSM-14 — clerk Mevra processed denial correctly but marked the grey-tab cabinet.', 'evidence');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'Mevra stamps the request, notes the Collegium restriction, and adds a second notation: INQUIRY LOGGED PER COLLEGIUM PROTOCOL 14. The protocol requires that any access attempt on a sealed Collegium filing be reported to the issuing office within one business day. She is sorry. This is the procedure.';
+        G.lastResult = 'Mevra stamps the request, notes the Collegium restriction, and adds a second notation: INQUIRY LOGGED PER COLLEGIUM PROTOCOL 14. The protocol requires that any access attempt on a sealed Collegium filing be reported to the issuing office within one business day. Port noise carries in through the records window — rope loads against iron cleats, cargo being staged for the next long-haul departure. She is sorry. This is the procedure.';
+
         addJournal('Cosmoria records office: sealed filing access attempt — Collegium Protocol 14 notification triggered.', 'complication');
       } else {
         G.flags.met_clerk_mevra = true;
@@ -859,7 +860,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
       if (!G.flags.collegium_contact_1) {
-        G.lastResult = 'The Collegium intake desk requires a certifying reference from a registered filer before opening a secondary inquiry. Fenwick\'s name carries no weight here without an active certification on file. You do not have one yet.';
+        G.lastResult = 'The Collegium intake desk requires a certifying reference from a registered filer before opening a secondary inquiry. The weight of Cosmoria\'s long-haul trading documentation is particular in this office — every name that crosses the counter carries a registered filing history. Fenwick\'s name carries no weight here without an active certification on file. The desk clerk checks the register twice without being asked, a habit. You do not have one yet.';
         G.recentOutcomeType = 'locked';
         return;
       }
@@ -869,13 +870,13 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.collegium_contact_2 = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The Collegium intake desk in Cosmoria is staffed by a woman named Renne who processes secondary inquiries under a separate ledger kept on a lower shelf. Fenwick\'s reference number clears the intake without a wait period. She reads the deviation note carbons without expression, then writes a cross-reference code in a small bound register she does not leave on the desk. "This goes to senior review," she says. She means it as information, not reassurance. The register goes back onto the lower shelf. The code is now in the system.';
+        G.lastResult = 'The Collegium intake desk in Cosmoria is staffed by a woman named Renne who processes secondary inquiries under a separate ledger kept on a lower shelf. The weight of long-haul trading documentation is particular in a port this size — every certified reference carries a specific gravity here. Fenwick\'s reference number clears the intake without a wait period. She reads the deviation note carbons without expression, then writes a cross-reference code in a small bound register she does not leave on the desk. "This goes to senior review," she says. She means it as information, not reassurance. The register goes back onto the lower shelf. The code is now in the system.';
         addJournal('Collegium intake officer Renne at Cosmoria accepted secondary inquiry using Fenwick\'s reference. Cross-reference code entered into senior review ledger. Source: Cosmoria Collegium intake desk.', 'intelligence');
         G.recentOutcomeType = 'investigate';
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'Renne reads the reference number and checks it against a list she keeps folded in the intake register. It is not on the list. "Fenwick\'s certification lapsed two rotations ago," she says. "He should have renewed." The form goes back across the desk, stamped REFER TO ORIGINATING DESK. The cross-reference stays unissued. The secondary inquiry path requires a current certification.';
+        G.lastResult = 'Renne reads the reference number and checks it against a list she keeps folded in the intake register. It is not on the list. "Fenwick\'s certification lapsed two rotations ago," she says. "He should have renewed." The form goes back across the desk, stamped REFER TO ORIGINATING DESK. The smell of brine-preserved cargo comes through the intake window from the harbor staging yards. The cross-reference stays unissued. The secondary inquiry path requires a current certification.';
         G.recentOutcomeType = 'blocked';
       }
     }

@@ -197,7 +197,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Tally clerk Fera: sealed-charter parties arrive together on 90-minute window, northern laneway entry', 'evidence', `unity-fera-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Fera hears the question and her thumbnail stops moving. She looks past you toward the arbitration runner stationed at the court entrance, then back at the tally board. "I count what's on the board." She turns the board face-down and begins erasing today's chalk lines from the frame. The slip, if she has one, stays in her cuff.`;
+        G.lastResult = `Fera hears the question and her thumbnail stops moving. She looks past you toward the arbitration runner stationed at the court entrance, then back at the tally board. "I count what's on the board." She turns the board face-down and begins erasing today's chalk lines from the frame. The slip, if she has one, stays in her cuff. The runner's position gives him a line of sight to the entire tally floor. She knew that before you asked. The chalk erases cleanly. The board goes blank. She doesn't look back.`;
         addJournal('Tally clerk approach failed — arbitration runner proximity, clerk closed off', 'complication', `unity-fera-fail-${G.dayCount}`);
       } else {
         G.flags.met_tally_clerk_fera = true;
@@ -225,7 +225,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Counting house confirmed as reconciliation point — older shadow register hand active, unindexed charter series visible', 'evidence', `unity-countinghouse-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `A second-floor window opens while you are positioned below. A figure leans out, looks directly at the laneway below, and holds there for twelve seconds. You do not move. The shutter on the ground floor closes from the inside before the figure withdraws. The counting house light goes out. The building is now dark and aware.`;
+        G.lastResult = `A second-floor window opens while you are positioned below. A figure leans out, looks directly at the laneway below, and holds there for twelve seconds. You do not move. The shutter on the ground floor closes from the inside before the figure withdraws. The counting house light goes out. The building is now dark and aware. The petitioners' hall at the square's far end carries the sound of a case being argued — the particular silence that falls when both parties stop talking at once. It fills the laneway until the window above stays shut.`;
         addJournal('Counting house occupants alerted — shutter closed, lights out', 'complication', `unity-countinghouse-fail-${G.dayCount}`);
       } else {
         G.flags.counting_house_interior_seen = true;

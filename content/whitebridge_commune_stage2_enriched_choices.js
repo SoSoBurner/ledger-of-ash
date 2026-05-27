@@ -30,7 +30,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_cadrin_crownmere = true;
         G.investigationProgress++;
-        G.lastResult = `Cadrin taps the crossing log column without opening it. "Same party, same schedule, same exemption code, seven months running. I flagged it upward twice." He pauses. "Both flags came back cleared — administrative override, no explanation." He doesn't ask further. The override signature belongs to a position two levels above his supervisor.`;
+        G.lastResult = `Cadrin taps the crossing log column without opening it. "Same party, same schedule, same exemption code, seven months running. I flagged it upward twice." He pauses. "Both flags came back cleared — administrative override, no explanation." He doesn't ask further. The override signature belongs to a position two levels above his supervisor. He closes the log and straightens the binder spine against the shelf. Something in that precise movement says he has been waiting for someone to notice the cleared flags as long as he has been noticing them.`;
         addJournal('Regular diplomatic exemption crossings — administrative override cleared 2 flags', 'evidence', `wb-cadrin-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -296,7 +296,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Docket closed against review — presence logged by clerk', 'complication', `wb-arbiter-seat-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
-        G.lastResult = `Four names, one blank. The clerk confirms the seat is pending but gives no reason. The Compacts permit vacancy without notice only under Loss Ledger bereavement clauses — which require a corresponding entry in the Loss Ledger. No such entry exists for this cycle. The blank is a procedural impossibility that has been allowed to stand.`;
+        G.lastResult = `Four names, one blank. The clerk confirms the seat is pending but gives no reason. The Compacts permit vacancy without notice only under Loss Ledger bereavement clauses — which require a corresponding entry in the Loss Ledger. No such entry exists for this cycle. The blank is a procedural impossibility that has been allowed to stand. Damp stone smell from the bridge deck comes through the station window; the crossing checkpoint continues its ordinary noise outside. Inside, a formal absence sits open in the docket column and no one has filed anything to close it.`;
         addJournal('Arbiter seat vacancy without Loss Ledger entry — procedural breach tolerated', 'evidence', `wb-arbiter-seat-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

@@ -45,7 +45,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       const tasks = ['repair a fence', 'move supplies', 'carry goods', 'fix equipment', 'help with construction'];
       const task = pick(tasks, G.dayCount);
       const person = pick(['local merchant', 'homeowner', 'shopkeeper', 'laborer'], G.dayCount + 1);
-      G.lastResult = `You finish the work and don't wait to be thanked. The ${person} watches you go and says your name to the next person who asks. By evening you've been mentioned in three conversations you weren't part of. Usefulness is its own currency in ${loc.name} — visible, unthreatening, and easier to trust than a stranger asking questions.`;
+      G.lastResult = `You finish the work and don't wait to be thanked. The ${person} watches you go and says your name to the next person who asks. By evening you've been mentioned in three conversations you weren't part of. Usefulness is its own currency in ${loc.name} — visible, unthreatening, and easier to trust than a stranger asking questions. There's a cost to it too: you've now been placed, given a role. The help is remembered, and so is the face that offered it.`;
       gainXp(30, 'community good faith');
       addJournal('community', `Helped locals in ${loc.name}`, `help-${G.location}-${G.dayCount}`);
       G.recentOutcomeType = 'community';
@@ -223,7 +223,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
         gainXp(30, 'neutral intelligence gathering');
         addJournal('neutrality', `Mapped faction tensions in ${loc.name}`, `faction-map-${G.dayCount}`);
       } else {
-        G.lastResult = `The power structure in this locality runs through one body with no real competition. The absence of visible friction is its own data point. Single authority means disputes are absorbed rather than aired — you won't hear about conflicts, you'll see their aftermath. A district this unified usually has significant pressure applied somewhere you can't see yet.`;
+        G.lastResult = `The power structure in this locality runs through one body with no real competition. The absence of visible friction is its own data point. Single authority means disputes are absorbed rather than aired — you won't hear about conflicts, you'll see their aftermath. A district this unified usually has significant pressure applied somewhere you can't see yet. It shows in small things: the way a vendor pauses before answering a price question, the space left around certain tables in the common room.`;
         gainXp(30, 'power structure analysis');
       }
       G.recentOutcomeType = 'observe';

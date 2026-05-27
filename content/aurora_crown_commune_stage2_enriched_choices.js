@@ -695,7 +695,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.arcane_contact_2) {
-        G.lastResult = 'The amber residue and the intake concentrations tell part of the story, but matching them to any specific documented technique requires a thread that has not yet surfaced here. There is more groundwork to lay before this connection can be made.';
+        G.lastResult = 'The amber residue and the intake concentrations tell part of the story, but matching them to any specific documented technique requires a thread that has not yet surfaced here. There is more groundwork to lay before this connection can be made. The pine cold comes through the high-latitude hall vents — the commune\'s ventilation runs continuously, regardless of season, regardless of what moves through it. Whatever is in the system is already circulating. The documentation to name it precisely isn\'t in hand yet.';
         return;
       }
       var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
@@ -727,7 +727,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(110, 'Aurora Crown Commune Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence chain isn't complete yet. Acting on the dome system now, without the full documentation, leaves too many gaps for the delivery contract to survive a challenge. More is needed before the next move.`;
+        G.lastResult = `The evidence chain isn't complete yet. Acting on the dome system now, without the full documentation, leaves too many gaps for the delivery contract to survive a challenge. More is needed before the next move. The meeting house holds the woodsmoke from the morning's council session — the collective governance of Aurora Crown doesn't act on incomplete information, and that same standard applies here. A partial presentation gives the Collegium liaison room to dismiss the claim before the full record is assembled.`;
         G.recentOutcomeType = 'investigate'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};

@@ -54,7 +54,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_kael_emberthrone = true;
         G.investigationProgress++;
-        G.lastResult = `Kael's requisition records show custom-built container insulation equipment — specifically designed to mask chemical compound signatures during standard cargo inspection. The work was commissioned by a party using the same sealed charter reference that appears throughout the record trail. Sunspire's convoy infrastructure was used as a modification workshop for the transport containers.`;
+        G.lastResult = `Kael's requisition records show custom-built container insulation equipment — specifically designed to mask chemical compound signatures during standard cargo inspection. The work was commissioned by a party using the same sealed charter reference that appears throughout the record trail. The modification work ran for six weeks. Sunspire's convoy infrastructure was used as a modification workshop for the transport containers, at altitude, away from the port inspectors who would have recognized the equipment's purpose.`;
         addJournal('Sunspire convoy workshop used to build inspection-masking container insulation — same charter ref', 'evidence', `sun-kael-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Kael wipes his hands on a rag and sets it down before he turns. The logs are syndicate property under convoy commercial confidentiality — he says this before you finish the question, the phrasing ready-made, a sentence he has delivered before. Without a formal override order from the Adjudicator's office, he cannot open them to an outside party. He is not apologetic about it. He goes back to the bench. The caliper is already in his hand before he reaches the worktop.`;
@@ -82,7 +82,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_orvak_strone = true;
         G.investigationProgress++;
-        G.lastResult = `The dispute documentation includes the original commissioning party's contact reference — a specific charter subsidiary code that matches the sealed charter buyer identified by Thalen Sunweave in Fairhaven. The commissioning party is now in default on the final payment. Orvak provides the full documentation to support the adjudication.`;
+        G.lastResult = `The dispute documentation includes the original commissioning party's charter subsidiary code — a reference that matches the sealed charter buyer identified by Thalen Sunweave in Fairhaven. The commissioning party is now in default on the final payment, and the adjudication file is a matter of public record. Orvak provides the full documentation without hesitation, squaring the pages against the desk edge as he hands them across. The cold at altitude carries its own weight in a room this quiet.`;
         addJournal('Container commission dispute reveals charter subsidiary code — matches Fairhaven suppression buyer', 'evidence', `sun-orvak-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Orvak sets his quill down and folds his hands over the adjudication docket. Active proceedings are confidential by charter — both parties receive notice of any external inquiry into the dispute, a rule he explains without inflection, because it is simply the rule. He logs your name and the nature of your interest in the margin register before the conversation is over. Both parties will know someone asked before the day is out. He picks the quill back up and waits for you to leave.`;
@@ -169,11 +169,11 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.kael_ledger_gap_revealed = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('The Missing Page', 'Kael sets the requisition ledger on the workbench and turns away, the back of his neck reddening. The binding shows it cleanly — a razor cut through stitching, no stub left. He taps the iron clasp twice before he speaks. "Someone came back after the work was done. Said the commission had been logged wrong. I let them correct it." His thumb presses against the clasp and stays there. "I should not have let them correct it."');
+        addNarration('The Missing Page', 'Kael sets the requisition ledger on the workbench and turns away, the back of his neck reddening. The binding shows it cleanly — a razor cut through the stitching, no stub left. Cold comes through the workshop wall at this altitude; his exhale is faintly visible. He taps the iron clasp twice before he speaks. "Someone came back after the work was done. Said the commission had been logged wrong. I let them correct it." His thumb presses against the clasp and stays there. "I should not have let them correct it."');
         addJournal('Kael confirms a requisition page was removed post-completion by the commissioning party', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Workshop Confidentiality', 'Kael straightens the ledger and slides it to the far end of the bench. "Workshop records are syndicate property. I can confirm work was done. I cannot walk through every line with an outsider." He picks up a caliper and turns back to the bench in a way that closes the conversation.');
+        addNarration('Workshop Confidentiality', 'Kael straightens the ledger and slides it to the far end of the bench. "Workshop records are syndicate property. I can confirm work was done. I cannot walk through every line with an outsider." He picks up a caliper and turns back to the bench in a way that closes the conversation. The cold at altitude makes the iron of the bench clamp visible in contrast to the warmed stone wall. The ledger stays at the far end.');
       }
     }
   },
@@ -190,11 +190,11 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.storehouse_glyph_marks_examined = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Scoring Marks', 'The marks run in a horizontal band along the storehouse\'s interior wall at hip height — shallow cuts in the stone, spaced too evenly for damage, too low for ward-lines. Dust has settled differently inside each groove. Taldan\'s countermeasure documentation describes exactly this: a pressure-sampling array, used to measure glyph saturation in enclosed cargo spaces. Someone ran a calibration here. The storehouse was a test environment before the containers were built.');
+        addNarration('Scoring Marks', 'The marks run in a horizontal band along the storehouse\'s interior wall at hip height — shallow cuts in the dry stone, spaced too evenly for damage, too low for ward-lines. Dust has settled differently inside each groove, undisturbed by the wind that moves through the high-plain gaps in the eaves. Taldan\'s countermeasure documentation describes exactly this: a pressure-sampling array, used to measure glyph saturation in enclosed cargo spaces. Someone ran a calibration here, at altitude, before the containers were built. The storehouse was a test environment.');
         addJournal('Storehouse interior shows glyph pressure-sampling array marks — calibration site for container modification work', 'discovery');
         maybeStageAdvance();
       } else {
-        addNarration('Stone Damage', 'The marks could be tool drag, old ward lines, or simple wear. Without sharper reference material the distinction between deliberate scoring and incidental damage stays open. A syndicate clerk spots the examination and asks, with some edge, whether there is a problem with the storage facility.');
+        addNarration('Stone Damage', 'The marks could be tool drag, old ward lines, or simple wear. Without sharper reference material the distinction between deliberate scoring and incidental damage stays open. Dry wind moves through the eave gaps at this altitude, carrying the smell of warmed stone. A syndicate clerk spots the examination and asks, with some edge, whether there is a problem with the storage facility. He writes the time and a description in a pocket log before he moves on.');
       }
     }
   },
@@ -212,12 +212,12 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.sunspire_social_breach_navigated = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Wrong Seal, Right Moment', 'The market clerk\'s eyes drop to the papers and stay there a half-beat too long. The endorsement column is blank. He draws breath to speak and you step into the pause — naming the Crownmere family yard three streets north, asking about freight timing. His posture shifts. The question is familiar enough to settle him. By the time he hands the papers back, his attention has moved on, and the freight manifest on his desk — the one with the charter subsidiary stamp — remains face-up long enough to read the reference number.');
+        addNarration('Wrong Seal, Right Moment', 'The market clerk\'s eyes drop to the papers and stay there a half-beat too long. The endorsement column is blank. Cold dry air moves through the market stall gap at his back. He draws breath to speak and you step into the pause — naming the Crownmere family yard three streets north, asking about freight timing in the altitude-specific phrasing that marks a local. His posture shifts. The question is familiar enough to settle him. By the time he hands the papers back, his attention has moved on, and the freight manifest on his desk — the one with the charter subsidiary stamp — remains face-up long enough to read the reference number.');
         addJournal('Charter subsidiary reference number confirmed on Sunspire freight manifest — same code as commissioning party', 'intelligence');
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addNarration('Logged', 'The clerk does not raise his voice. He simply asks for a family endorsement mark, writes something in his ledger, and waits. The pause stretches until retreat is the only clean option. The entry stays in his book.');
+        addNarration('Logged', 'The clerk does not raise his voice. He simply asks for a family endorsement mark, writes something in his ledger, and waits. The pause stretches until retreat is the only clean option. The sound of the watchtower wind is audible through the market wall at this altitude, thin and constant. The entry stays in his book. The wax of the altitude-adapted seal on the counter beside him has dried to a pale ring.');
       }
     }
   },
@@ -663,7 +663,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.arcane_contact_1) {
-        G.lastResult = 'The pattern in Taldan\'s suppression files is clear — targeted documentation, not broad censorship — but the connection to any specific practitioner group requires a thread that has not yet surfaced here. There is more to find elsewhere before this line opens.';
+        G.lastResult = 'The pattern in Taldan\'s suppression files is clear — targeted documentation, not broad censorship. Fourteen requests, a fake regulatory authority, all of it pointing at the same narrow category of countermeasure knowledge. The dry air off the high-plain carries the smell of warmed stone through the registry window. But the connection to any specific practitioner group requires a thread that has not yet surfaced here. There is more to find in the other localities before this line opens.';
         return;
       }
       var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
