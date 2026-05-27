@@ -19,6 +19,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_decon_von_reckshem = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 1;
         G.lastResult = `Decon sets his pen down before you finish the question. He doesn't deny the requisitions. "The materials couldn't be obtained through standard channels without triggering Roadwarden inspection. The assessment framing was necessary." He says this the way someone states a calculation — no apology, no hesitation. The glyph pressure operation was his design. The surges create compound dependency. Soreheim holds the compound supply. He built the leverage and is not embarrassed by the architecture.`;
@@ -31,6 +32,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_decon_von_reckshem = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 1;
         G.lastResult = `Decon closes the folder on his desk before looking up. "Strategic requisitions serve Alliance interests. That is the full extent of what I'm authorized to discuss." He picks up the folder again and opens it to a different page. The materials listed in the requisition manifest are on the table between you. He doesn't move them. He doesn't acknowledge them. They're consistent with suppression compound precursor profiles.`;
         addJournal('Relic Strategy requisitions confirmed glyph-adjacent — strategic purpose implied', 'evidence', `sor-decon-partial-${G.dayCount}`);
@@ -50,6 +52,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_mordoth_valinheim = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.stage2_rival_status = 'negotiated';
         G.factionHostility.iron_compact = Math.max(0, (G.factionHostility.iron_compact||0) - 1);
         G.lastResult = `Mordoth doesn't ask how you got the documents. He reads through them, sets them face-down, and leans back. "The Progress bloc was promised exclusive distribution rights. That arrangement no longer appears viable." He opens a drawer. "Equivalent access through legitimate trade channels would satisfy the bloc's requirements." He puts the distribution contract records on the table without being asked. The deal is what it is. The records are real.`;
@@ -63,6 +66,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_mordoth_valinheim = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Mordoth keeps his hands flat on the table. "The distribution contracts serve the Alliance's long-term strategic interests." He pauses. "Whether the approval process was appropriate is a governance question." He says governance question the way someone says something they've rehearsed. A horn call sounds the shift change somewhere in the tower above. He doesn't move the contracts off the table, but he doesn't open them either. The word appropriate does a lot of work in that sentence.`;
         addJournal('Distribution contracts acknowledged — Valinheim uncommitted', 'evidence', `sor-mordoth-partial-${G.dayCount}`);
       }
@@ -81,6 +85,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_vorgul_oxtend = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Vorgul crosses his arms and doesn't deny the passes. "Military logistics serve military purposes. The staging location was a contingency depot." His jaw is set — he expected a softer approach. Under the next question he shifts posture, just slightly. "The depot is still classified active." A pause. "It contains a second cache. Undeployed." He stops there. The volume of compound at the staging location is enough for a second operation matching the first.`;
         addJournal('Second suppression compound cache at staging location confirmed — still active', 'evidence', `sor-vorgul-${G.dayCount}`);
@@ -92,6 +97,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_vorgul_oxtend = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Vorgul stands throughout the meeting — doesn't offer a seat, doesn't sit himself. The smell of machine grease and iron dust follows him in from the corridor. "Military transport passes for authorized logistics operations are standard Alliance procedure." He says it to the middle distance, not to you. He doesn't say what was transported. The transport passes exist. He confirmed them without confirming anything else. The door stays open the whole time.`;
         addJournal('Military transport passes for staging location confirmed', 'evidence', `sor-vorgul-partial-${G.dayCount}`);
       }
@@ -110,6 +116,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_cron_udenine = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.factionHostility.iron_compact = Math.max(0, (G.factionHostility.iron_compact||0) - 1);
         G.lastResult = `Cron spreads his own notes across the table — three months of compiled observations, none of it sufficient without source documents. He looks at your documentation for a long time without touching it. "I have authority. You have evidence. Neither is enough alone." He takes the Arbiter seal from his desk drawer and stamps the cover document. "Legally admissible in any Soreheim Alliance jurisdiction. Don't waste it." He doesn't ask for anything in return.`;
         addJournal('Arbiter Cron provides council seal for evidence — legally admissible in Alliance jurisdictions', 'evidence', `sor-cron-${G.dayCount}`);
@@ -121,6 +128,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_cron_udenine = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Cron reads the distribution contracts without expression, turning each page slowly. The quota board on the wall behind him shows today's production figures in red chalk. "These were not submitted through the council deliberation process." He sets them down. "The approval was administrative — a procedural authorization, not a political one." He doesn't say whether that distinction matters. His hands stay flat on the table. He waits for the next question.`;
         addJournal('Distribution contracts bypassed council deliberation — administrative approval only', 'evidence', `sor-cron-partial-${G.dayCount}`);
       }
@@ -139,6 +147,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_roth_udenine = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 1;
         G.lastResult = `The Northern Ambition expansion budget is a column document — income left, projected expenditure right. Line seven in the income column: "suppression compound distribution — recurring." The figure is large. The footnote maps it to "sales to stabilization-dependent localities." The operation was never a single tactical action. It's a revenue stream. The expansion projects on the right side of the ledger are funded by what happened to those localities. Multi-year. Already in progress.`;
         addJournal('Northern Ambition expansion budget depends on compound revenue — multi-year financing model', 'evidence', `sor-roth-${G.dayCount}`);
@@ -150,6 +159,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_roth_udenine = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The expansion budget lists project funding as contingent on "regional economic adjustment outcomes." That phrase appears four times in the document, once underlined. The budget was filed eight weeks ago — the same week the glyph disruption began in the competitor localities. The contingency and the disruption share a start date. The document was filed openly, through the council's standard budget registry, as if the connection was not obvious to anyone who would bother reading it.`;
         addJournal('Expansion budget tied to regional economic adjustment — maps to glyph disruption effects', 'evidence', `sor-roth-partial-${G.dayCount}`);
       }
@@ -222,6 +232,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.tower_scribe_cooperative = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('The Duplicate Seal Entry', 'The scribe turns the permit ledger toward you with the edge of a ruler, not her fingers — she slides the ruler flush to the margin every time she presents a page, and the ruler does not leave her hand while outsiders are reading. Two transit seals are entered for the third hour of the same night. Same convoy number. Different signing authorities. One is a Giant Council quota seal. The other is a Relic Strategy Wing operational seal. Both are valid. Both authorize the same cargo. The ledger does not reconcile duplicates — it simply lists them.');
         addJournal('Permit ledger records duplicate transit seals on same convoy — Giant Council and Relic Strategy Wing both authorizing', 'evidence');
         maybeStageAdvance();
@@ -242,6 +253,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.trade_permit_archive_checked = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Trade Permit Archive — Voided Licenses', 'The permit archive clerk files by issuance date, not buyer name, and does not notice the pattern until you lay three consecutive pages side by side on the counter. Three trade licenses, all issued to the same sealed-charter buyer reference — same code Thalen\'s ledger carried — voided within forty-eight hours of each issue. Not revoked for cause. Voided with a Relic Strategy Wing administrative override code entered in the revocation field. The override code is designed for internal logistical holds, not commercial permit suspension. Someone used institutional authority to erase a buyer\'s paper trail one document at a time.');
         addJournal('Trade permit archive: three consecutive licenses voided via Relic Strategy Wing override — same sealed-charter buyer reference', 'evidence');
         maybeStageAdvance();
@@ -311,6 +323,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.transit_ledger_exemption_confirmed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The exemption code appears on seven manifests across a four-month window. The transit clerk confirms it was issued to a dissolved cooperative — she checks the dissolution register without being asked and marks the date. "Expired accounts shouldn't carry active exemption codes." She looks at the manifests once more. "These were processed by a different shift." She does not say which shift.`;
         addJournal('Northern transit ledger: expired exemption code on 7 manifests — dissolved cooperative, different shift processing', 'intelligence', `sor-transit-ledger-partial-${G.dayCount}`);
         if (!G.suspects) G.suspects = {}; G.suspects['dravn_pell'] = (G.suspects['dravn_pell']||0) + 2;
@@ -341,6 +354,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_senne_orvath = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Senne confirms she was on duty that night. She confirms an override was entered. The duty station behind her is quiet — no one else in the Wing's outer office at this hour. "The authorization code wasn't in the roster I was trained on." She pauses. "I wrote it down." She does not produce the note, but she does not deny it exists. Her hand moves briefly to her bag before settling back on the table. She does not break eye contact when it does.`;
         addJournal('Wing clerk Senne Orvath confirms override entry and private notation of non-roster authorization code', 'intelligence', `sor-senne-partial-${G.dayCount}`);
       }
@@ -360,6 +374,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.courier_route_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The courier moves through three service corridors that bypass the forge-dock checkpoints entirely — maintenance access routes that are open but unwatched after the third bell. He ends at a storage annex behind the north bridge transit station: a low building with a new padlock on the loading bay door and no signage. He goes in, stays twelve minutes, and comes back without the satchel he carried in. The annex does not appear in the tower registry as active storage. The padlock manufacturer's mark is the same mark stamped on the staging depot hardware Vorgul's manifest described.`;
         addJournal('Wing courier route traced to unlisted north bridge annex — new padlock matching staging depot hardware; satchel delivered, courier returned empty-handed', 'evidence', `sor-courier-crit-${G.dayCount}`);
         if (!G.suspects) G.suspects = {}; G.suspects['dravn_pell'] = (G.suspects['dravn_pell']||0) + 2;
@@ -370,6 +385,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.courier_route_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The courier takes a maintenance corridor to a side exit at the north bridge approach. He meets someone at the street corner — a brief exchange, nothing passed visibly — and returns the same way. The meeting point is a corner with clear sight lines in three directions. You watch from the fourth. The person he met wore a transit registry badge, not a Wing insignia.`;
         addJournal('Wing courier met transit registry contact at north bridge approach — maintenance corridor egress, no visible transfer', 'intelligence', `sor-courier-partial-${G.dayCount}`);
       }
@@ -389,6 +405,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.forge_ring_offbooks_witnessed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The forge ring goes cold at the second bell — venting stacks idle, heat dropping fast. By the third bell the ambient temperature at the outer ring has dropped enough that breath shows. The loading crew that arrives is six people, no tower badges, carrying unmarked crates on a flatbed sled. They work without lanterns. The crates go into a recessed bay at the base of the third forge column that is listed on the tower blueprint as a thermal buffer cavity. It holds eleven crates before the bay doors close. No manifest is produced. No signature changes hands. The crew leaves the way they came.`;
         addJournal('Outer forge ring: 6-person unbadged crew loads 11 crates into unlisted thermal cavity at 3rd bell cold cycle — no manifest, no signature', 'evidence', `sor-forge-ring-crit-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -398,6 +415,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.forge_ring_offbooks_witnessed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `A crew arrives at the outer ring during the cold cycle — four people, no badges visible at this distance. They work near the third column base for about thirty minutes and leave with an empty sled. The crates they carried in did not come back out. The column base bay is visible but not close enough to read any markings on the crates. Something was stored. The bay doors are the same recessed type marked as thermal buffer cavities on the posted tower blueprints.`;
         addJournal('Outer forge ring: unbadged crew deposits crates in thermal cavity bay during cold cycle — not recovered on departure', 'intelligence', `sor-forge-ring-partial-${G.dayCount}`);
       }
@@ -417,6 +435,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.compound_residue_matched = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The residue sample scraped from the sled runners is a layered compound — base mineral binder with a synthetic catalyst fixed on top, the kind of layering that requires a controlled bonding step, not a field mix. The alloy export register lists every compound with that binder profile. None of them are cleared for export to the localities named in Roth's expansion budget. One of them is specifically flagged as a restricted compound under the northern resettlement accords — agreements Soreheim signed twelve years ago. The compound was moved in violation of a treaty obligation, not just a trade rule.`;
         addJournal('Compound residue matched to resettlement-accord restricted compound — Soreheim export register confirms treaty violation, not merely a trade infraction', 'evidence', `sor-residue-crit-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -426,6 +445,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.compound_residue_matched = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The clerk runs the compound profile against the export register and marks three entries with the same binder structure. Two are cleared for export. One is flagged as restricted — northern resettlement accords, signed twelve years ago. She circles the flag notation. "This one would need a council waiver to move." She checks the waiver ledger without being asked. There is no waiver on file for the current fiscal year.`;
         addJournal('Compound residue matches restricted northern-accord compound — no export waiver on file for current year', 'intelligence', `sor-residue-partial-${G.dayCount}`);
       }
@@ -455,6 +475,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.wage_ledger_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Three of the six disbursement entries carry the sealed-charter reference SC-4417 in the authorization column. The pay station clerk traces the reference through her charter index and finds no registered entity — the charter number was issued but the corresponding entity registration was never completed. "Incomplete charters can't legally authorize disbursements." She marks all three entries. "Someone processed these anyway."`;
         addJournal('Pay station: SC-4417 charter identifier incomplete — three disbursements processed without legal entity registration', 'intelligence', `sor-wage-partial-${G.dayCount}`);
       }
@@ -474,6 +495,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_bren_sothwick = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Bren Sothwick keeps his route log current by reflex — the habit of someone whose job depends on provable delivery times. He opens it to the relevant weeks without being asked, laying it flat on the mail bench. On the four days Decon's tower access log showed him absent, Bren ran sealed dispatches from an outer-district drop point to the council transit registry rather than the standard Wing receiving office. The drop point address is a disused commercial factor's address two streets behind the north bridge transit station — the same street block as the unlisted annex the courier's route ended at. Someone used the herald's schedule to route correspondence through an address that doesn't carry Wing oversight.`;
         addJournal('Herald Bren Sothwick: 4 irregular dispatches from outer-district factor address to transit registry — same block as unlisted north bridge annex', 'evidence', `sor-herald-crit-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -483,6 +505,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_bren_sothwick = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Bren confirms the extra routes. "Authorization came through the standard dispatch order system — I had a signed order for each run." He checks the log for the originating signature. The orders were signed by a Wing administrative designate, not by Decon directly. Bren delivered to a commercial factor address on two of the four runs. "Different drop than usual, but the order was valid."`;
         addJournal('Herald confirms 4 irregular dispatches — Wing administrative designate authorized, factor address used as drop point', 'intelligence', `sor-herald-partial-${G.dayCount}`);
       }
@@ -502,6 +525,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.blueprint_discrepancy_found = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The restricted blueprint drawer is filed by tower column — the lock uses the same key pattern as the forge registry annex, and the gap between shifts is four minutes wide. The original construction survey for the third forge column shows a sub-level cavity that does not appear on any current operational blueprint: a space below the thermal buffer designation, accessible by a maintenance ladder behind the northwest fire door. The cavity dimensions match the crate volume the unbadged loading crew delivered during the cold cycle. The original survey is dated twelve years ago. Someone removed the cavity from later plans without issuing a construction amendment.`;
         addJournal('Blueprint vault: original 3rd-column survey shows undisclosed sub-level cavity — removed from later plans, cavity dimensions match observed cold-cycle loading volume', 'evidence', `sor-blueprint-crit-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -511,6 +535,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.blueprint_discrepancy_found = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The current operational blueprint for the third column shows the thermal buffer cavity as a labeled but empty maintenance space — no dimensions, no access notation. The adjacent original survey file, unfiled in the same drawer, has full dimensions and a ladder access marked in red ink. The current blueprint was amended. The amendment removed the sub-level designation without closing the physical space.`;
         addJournal('3rd-column blueprint amended: sub-level cavity removed from current plans but physical access remains — original survey still in file', 'intelligence', `sor-blueprint-partial-${G.dayCount}`);
       }
@@ -530,6 +555,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.night_transit_log_observed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The north bridge curfew post checks fourteen passes between the third and fifth bell. Eleven are standard cargo holds — crew names, company seals, scheduled window. Three are different: plain passes, no company mark, the authorizing stamp a Relic Strategy Wing operational code that the checkpoint sergeant reads and waves through without recording. The sergeant does not enter them in his curfew log. The third pass carrier wears a transit registry badge on the left breast — the same badge type the Wing courier met at the north bridge approach corner. All three unlogged passes move toward the factor-address street block.`;
         addJournal('North bridge curfew post: 3 unlogged Wing operational passes waved through after third bell — no entry in sergeant\'s log, all moving toward factor-address block', 'evidence', `sor-nightwatch-crit-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -539,6 +565,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.night_transit_log_observed = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Four passes move through the north bridge curfew checkpoint after the third bell without standard company marks. The sergeant waves two of them through without logging them — the other two go into the standard curfew record. The unlogged passes carry a stamp too small to read from this distance, but both pass-carriers move toward the north bridge approach rather than the inner-ring commercial district. One of them carries a satchel that sits too rigid to be empty.`;
         addJournal('2 unlogged passes at north bridge curfew — non-standard stamp, moving toward north bridge approach; one carrier with rigid satchel', 'intelligence', `sor-nightwatch-partial-${G.dayCount}`);
       }
@@ -558,6 +585,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.assay_marks_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The assay mark on the crate fragment is a tripartite stamp — two exterior marks flanking a center designation. Soreheim's registered forge stamps all use a single-authority center mark with directional supplementals. This pattern is a northern frontier assay convention, used in five localities outside Soreheim Alliance territory. The center designation matches a now-decommissioned extraction site in the northern resettlement corridor — territory covered by the accords Soreheim signed twelve years ago. The compound wasn't produced in Soreheim. It was produced in a facility that no longer officially exists, transported into Soreheim territory, and given a local paper trail through the material ledger laundering. The operation crosses two separate treaty obligations.`;
         addJournal('Crate assay marks: northern frontier convention, decommissioned extraction site in resettlement corridor — compound produced outside Soreheim, smuggled in and given local ledger cover', 'evidence', `sor-assay-crit-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -567,6 +595,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.assay_marks_traced = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The metallurgical registry clerk identifies the stamp pattern as non-Soreheim without needing the index — she recognizes the tripartite convention by eye. She sets the fragment on the counter's iron rest rather than picking it up again. "This is northern frontier assay work. Pre-resettlement." She checks the origin index, running a finger down the column without hurrying. Five possible localities, all outside Soreheim Alliance territory. "None of these are current production sites." She marks the entry. "This material was not manufactured here."`;
         addJournal('Assay marks identified as northern frontier convention — pre-resettlement era, no current production sites; compound not of Soreheim manufacture', 'intelligence', `sor-assay-partial-${G.dayCount}`);
       }
@@ -586,6 +615,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_hassel_dorn = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Hassel Dorn does not ask how you found his address. He sits across from you in a room that has no Wing insignia, no commendation plaques, nothing that marks the twenty-three years. His tell is that he straightens the edge of whatever document is nearest to him before he speaks — not reading it, just squaring it. He designed the override authorization system. The external code Senne Orvath couldn't find in the roster is not a fabrication: it's a recovery code, a backdoor Dorn built into the system for emergency access. He gave that code to one person when he resigned. He names the person. It is not Decon Von Reckshem. Decon got it from someone above him.`;
         addJournal('Hassel Dorn (retired Wing architect): emergency override code given on resignation to a named superior — Decon received it second-hand; command chain extends above Relic Strategy Wing', 'evidence', `sor-dorn-crit-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -595,6 +625,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_hassel_dorn = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Dorn lets you in and stays standing the whole time. He confirms the override code exists and that he designed it. "It was a structural safeguard. Single-use, emergency access only." He does not confirm who has it. "I gave it to the person I was supposed to give it to when I left. What they did with it is not something I can speak to." He squares the edge of a letter on the sideboard before he shows you to the door. The conversation lasted nine minutes.`;
         addJournal('Hassel Dorn confirms emergency override code exists — given to one person on his resignation; refuses to name them', 'intelligence', `sor-dorn-partial-${G.dayCount}`);
       }
@@ -624,6 +655,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.treaty_addendum_found = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Addendum 7-C is in the archive — a short document, three pages, ratified under emergency session. The definition of "northern defense materiel" was expanded to include compounds used in "infrastructure stabilization operations." The addendum was not published in the standard council notice register. The ratification session had four council members present out of seven. The presiding officer is listed as a pro-tem designate rather than the standard session chair.`;
         addJournal('Iron Compact Addendum 7-C found: northern defense materiel definition expanded — emergency session, 4 of 7 members, pro-tem chair, unpublished notice', 'intelligence', `sor-addendum-partial-${G.dayCount}`);
       }
@@ -653,6 +685,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.dispatch_rider_intercepted = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The dispatch rider stops at the outer-ring water point and sets the saddle pouch on the trough edge while he drinks. The pouch seal is intact but the outer label is visible: "Operational — Northern Depot, Priority Window." The routing mark on the label uses the same three-character prefix as the Relic Strategy Wing operational codes logged in the permit ledger. The delivery destination is north of the transit station. The priority window notation suggests a fixed time constraint on the contents.`;
         addJournal('Dispatch pouch label: "Operational — Northern Depot, Priority Window" — Wing operational code prefix, north transit station destination', 'intelligence', `sor-rider-partial-${G.dayCount}`);
       }
