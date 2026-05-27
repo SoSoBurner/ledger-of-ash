@@ -28,6 +28,15 @@ var _runStartMs = 0;
 var lastDeadEndPick = -1;
 var _combatProbeModeCounter = 0; // even=defend+flee, odd=strike; increments per family run; module-scope for runPlaythrough closure
 var _combatMode = 'defend'; // module-scope so runFullPanelSimulation can access it (closure trap)
+// Block M — per-family skill tracking (module-scope to avoid closure trap)
+var _familySkillCounts = {};  // skill -> count for current family
+var _familyAbilityCount = 0;
+var _familyHeatCount    = 0;
+var _familyAlignCount   = 0;
+var _familyLevelupCount = 0;
+var _familyLastLevel    = 0;
+// Block L — combat corridor probe runs once per headed test run
+var _corridorCombatProbeDone = false;
 
 // ---------------------------------------------------------------------------
 // Output dirs
@@ -1018,6 +1027,12 @@ async function probeShop(page, tag, g) {
     const txt       = await page.locator('.overlay.active,[id*="shop"]').first().innerText().catch(() => '');
     const itemCount = await page.locator('.shop-item').count().catch(() => 0);
     log(`[panel:shop ${tag}] loc=${g.location} items=${itemCount} gold=${g.gold} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
+    // K2 — gold injection for probe: ensure enough gold to attempt a purchase
+    const _goldCheck = (await readG(page)).gold;
+    if (_goldCheck < 15) {
+      await page.evaluate(function() { try { G.gold = 30; if (typeof updateHUD === 'function') updateHUD(); } catch (_) {} }).catch(function() {});
+      log(`[panel:shop ${tag}] K2 gold-inject: was=${_goldCheck} set=30`);
+    }
     // Attempt to buy first affordable item
     const goldBefore = (await readG(page)).gold;
     const buyBtns = await page.locator('.shop-buy-btn').all().catch(() => []);
@@ -1394,6 +1409,169 @@ async function probeCombatBranches(page, tag, combatMode) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// K0 — Full HUD probe (G-state + DOM integrity)
+// ---------------------------------------------------------------------------
+async function probeHUDFull(page, log_fn, tag) {
+  try {
+    const gs = await page.evaluate(function() {
+      try {
+        return {
+          hp:            G.hp,
+          maxHp:         G.maxHp || G.hp,
+          level:         G.level,
+          xp:            G.xp || 0,
+          gold:          G.gold || 0,
+          renown:        G.renown || 0,
+          day:           G.dayCount,
+          location:      G.location,
+          stage:         G.stage,
+          stageProgress: JSON.stringify(G.stageProgress || {}),
+          heat:          JSON.stringify(G.heat || {}),
+          benevolence:   G.benevolence || 0,
+          orderAxis:     G.orderAxis || 0,
+          traitsLen:     (G.traits || []).length,
+          skills:        JSON.stringify(G.skills || {}),
+          flagCount:     Object.keys(G.flags || {}).length,
+        };
+      } catch (_) { return {}; }
+    }).catch(function() { return {}; });
+
+    const dom = await page.evaluate(function() {
+      function t(id) { var el = document.getElementById(id); return el ? el.textContent.trim() : '__missing__'; }
+      return {
+        hp:            t('hud-hp'),
+        level:         t('hud-level'),
+        gold:          t('hud-gold'),
+        topbarStage:   t('topbar-stage'),
+        sp2Val:        t('hud-stage-progress-val'),
+        location:      t('hud-location'),
+      };
+    }).catch(function() { return {}; });
+
+    log_fn('[hud-full ' + tag + '] ' + JSON.stringify(gs));
+
+    // Mismatch checks — HP and gold are minimum required
+    var domHp   = parseInt((dom.hp   || '').replace(/[^0-9].*/, ''), 10);
+    var domGold = parseInt((dom.gold || '').replace(/[^0-9\-]/g, ''), 10);
+    if (!isNaN(domHp)   && dom.hp   !== '__missing__' && domHp   !== gs.hp)   log_fn('[hud-mismatch ' + tag + '] hp dom=' + dom.hp + ' G=' + gs.hp);
+    if (!isNaN(domGold) && dom.gold !== '__missing__' && domGold !== gs.gold) log_fn('[hud-mismatch ' + tag + '] gold dom=' + dom.gold + ' G=' + gs.gold);
+    await screenshot(page, tag + '_hud_full');
+  } catch (err) {
+    log_fn('[hud-full ' + tag + '] WARN: ' + err.message);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Block L — Combat Corridor Probe
+// Runs once per headed test run, around picks 25-30 of family 1.
+// Uses _travelCoreTravelTo to reach a hostile route, then exercises combat UI.
+// ---------------------------------------------------------------------------
+async function probeCombatCorridor(page, tag) {
+  // Corridor travel routes with high encounter probability (highland/sheresh biomes have highest extra weights)
+  // These use _travelCoreTravelTo(dest) — fires corridor encounters without mode-select UI
+  const HOSTILE_ROUTES = [
+    { from: 'shelkopolis', to: 'aurora_crown_commune' },  // highland biome — extra 1.5 on long routes
+    { from: 'shelkopolis', to: 'glasswake_commune' },     // highland biome
+    { from: 'shelkopolis', to: 'cosmoria' },              // coastal biome with boat
+  ];
+
+  log('[combat-corridor] starting corridor combat probe — ' + HOSTILE_ROUTES.length + ' candidate routes');
+
+  let combatFound = false;
+  for (const route of HOSTILE_ROUTES) {
+    if (combatFound) break;
+    try {
+      // Teleport to origin first (in-place, no travel encounter)
+      await page.evaluate(function(loc) {
+        try {
+          G.location = loc;
+          if (typeof loadStageChoices === 'function') loadStageChoices(loc);
+        } catch (_) {}
+      }, route.from).catch(function() {});
+      await page.waitForTimeout(800);
+
+      // Travel via corridor function — this fires encounter rolls
+      await page.evaluate(function(dest) {
+        try {
+          if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(dest);
+          else if (typeof travelTo === 'function') travelTo(dest);
+        } catch (_) {}
+      }, route.to).catch(function() {});
+
+      // Wait up to 5s for choices
+      await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 5000 }).catch(function() {});
+
+      // Check for combat UI: encounter panel, or choices containing Attack/Defend/Strike
+      const buttons = await page.locator('.choice-btn:visible:not([disabled])').allInnerTexts().catch(function() { return []; });
+      const buttonText = buttons.join(' ').toLowerCase();
+      const hasCombat = await page.locator('.encounter-panel, .combat-actions, #combat-overlay').isVisible({ timeout: 1000 }).catch(function() { return false; });
+      const hasAttack = /attack|strike|press|defend|retreat/i.test(buttonText);
+
+      if (!hasCombat && !hasAttack) {
+        log('[combat-corridor] route=' + route.from + '->' + route.to + ' — no encounter triggered, trying next');
+        continue;
+      }
+
+      combatFound = true;
+      await screenshot(page, tag + '_corridor_combat_hud');
+      const allBtnText = buttons.slice(0, 6).map(function(t) { return t.replace(/\n/g, ' ').slice(0, 40); }).join(' | ');
+      log('[combat-corridor] ENCOUNTER found route=' + route.from + '->' + route.to + ' choices=[' + allBtnText + ']');
+
+      // Click Attack/Press if visible
+      const attackBtn = page.locator(
+        '.choice-btn:visible:not([disabled]):has-text("Attack"), .choice-btn:visible:not([disabled]):has-text("Strike"), .choice-btn:visible:not([disabled]):has-text("Press")'
+      ).first();
+      const attackVis = await attackBtn.isVisible({ timeout: 1000 }).catch(function() { return false; });
+      if (attackVis) {
+        await attackBtn.click();
+        await page.waitForTimeout(1000);
+        await screenshot(page, tag + '_corridor_combat_attack');
+        log('[combat-corridor] attack clicked');
+      }
+
+      // Wait for result, then retreat/flee if combat still active
+      await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 3000 }).catch(function() {});
+      const postBtns = await page.locator('.choice-btn:visible:not([disabled])').allInnerTexts().catch(function() { return []; });
+      const postText = postBtns.join(' ').toLowerCase();
+      const stillInCombat = /attack|strike|press|defend|retreat/i.test(postText);
+
+      if (stillInCombat) {
+        const retreatBtn = page.locator(
+          '.choice-btn:visible:not([disabled]):has-text("Retreat"), .choice-btn:visible:not([disabled]):has-text("Flee"), .choice-btn:visible:not([disabled]):has-text("Defend")'
+        ).first();
+        const retreatVis = await retreatBtn.isVisible({ timeout: 800 }).catch(function() { return false; });
+        if (retreatVis) {
+          await retreatBtn.click();
+          await page.waitForTimeout(800);
+          log('[combat-corridor] retreated from combat');
+        }
+      }
+
+      await screenshot(page, tag + '_corridor_combat_final');
+      const outcome = stillInCombat ? 'retreated' : 'defeated-or-resolved';
+      log('[combat-corridor] outcome=' + outcome);
+
+      // Restore clean state
+      await page.evaluate(function() {
+        try {
+          G.tensionLevel = 0;
+          try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
+          if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+        } catch (_) {}
+      }).catch(function() {});
+      await page.waitForTimeout(500);
+
+    } catch (routeErr) {
+      log('[combat-corridor] WARN route=' + route.from + '->' + route.to + ': ' + routeErr.message);
+    }
+  }
+
+  if (!combatFound) {
+    log('[combat-corridor] outcome=no-encounter (all routes tried)');
+  }
+}
+
 let _lastProbedAtPick = -1;
 async function runFullPanelSimulation(page, tag, g, picks) {
   if (picks > 0 && picks % PROBE_EVERY === 0 && picks !== _lastProbedAtPick) {
@@ -1433,6 +1611,13 @@ async function runFullPanelSimulation(page, tag, g, picks) {
   if (picks === 50) {
     await dismissOverlays(page);
     await probeCombatBranches(page, tag, _combatMode);
+  }
+  // Block L — combat corridor probe: once per headed test run, at pick 27 of whichever family hits it first
+  if (picks === 27 && !_corridorCombatProbeDone) {
+    _corridorCombatProbeDone = true;
+    await dismissOverlays(page);
+    await probeCombatCorridor(page, tag);
+    await dismissOverlays(page);
   }
 }
 
@@ -1541,6 +1726,17 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   log('[screenshot-diag] boot screenshot: ' + (_diagPath || 'null — see [screenshot-err] above'));
   await screenshot(page, `${tag}_start`);
 
+  // K0 — Full HUD probe at stage entry (right after character creation, before first pick)
+  await probeHUDFull(page, log, 'stage1_entry');
+
+  // Block M — reset per-family skill/event counters (module-scope vars)
+  _familySkillCounts  = {};
+  _familyAbilityCount = 0;
+  _familyHeatCount    = 0;
+  _familyAlignCount   = 0;
+  _familyLevelupCount = 0;
+  _familyLastLevel    = g.level || 1;
+
   let picks            = 0;
   lastDeadEndPick      = -1;  // reset per family — picks restart at 0 each family
   let deadStreak       = 0;
@@ -1554,6 +1750,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   let stuckAtLoc       = 0;
   let lastMapTravelPick = 0;
   let _lastScreenshotAtPick = -1;
+  // K5 — quest count tracking
+  let _lastQuestCount  = 0;
+  // K0 — stage2 HUD probe guard (fire once on first Stage II entry)
+  let _stage2HudProbeDone = false;
+  // Block M — heat snapshot for delta tracking
+  let _prevHeatSnapshot = Object.assign({}, g.heat || {});
 
   let _lastHudProbeAtPick = -1;
   let _lastKnownStage  = '';
@@ -1621,6 +1823,19 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       await handleLevelup(page, tag);
       g = await readG(page);
+
+      // Block M — level-up count tracking
+      if (g.level && g.level > _familyLastLevel) {
+        _familyLevelupCount += g.level - _familyLastLevel;
+        _familyLastLevel = g.level;
+      }
+
+      // K0 — stage2 HUD probe: fire once when stage advances to Stage II
+      if (!_stage2HudProbeDone && g.stage === 'Stage II' && _lastKnownStage && _lastKnownStage !== 'Stage II') {
+        _stage2HudProbeDone = true;
+        await dismissOverlays(page);
+        await probeHUDFull(page, log, 'stage2_entry');
+      }
 
       if (g.location && !visitedForLog.has(g.location)) {
         visitedForLog.add(g.location);
@@ -1699,6 +1914,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             const _dOrd   = _curOrd - _lastOrderAxis;
             if (_dBen !== 0 || _dOrd !== 0) {
               log(`[alignment-drift ${tag}] pick=${picks} ben=${_curBen}(${_dBen >= 0 ? '+' : ''}${_dBen}) order=${_curOrd}(${_dOrd >= 0 ? '+' : ''}${_dOrd})`);
+              // Block M — count alignment shifts
+              if (_dBen !== 0) _familyAlignCount++;
+              if (_dOrd !== 0) _familyAlignCount++;
             }
             if (!_benThresholdHit && Math.abs(_curBen) >= 10) {
               _benThresholdHit = true;
@@ -1712,6 +1930,14 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             }
             _lastBenevolence = _curBen;
             _lastOrderAxis   = _curOrd;
+          } catch (_) {}
+
+          // Block M — heat event tracking (count changes in total heat)
+          try {
+            const _totalHeat = Object.values(g.heat || {}).reduce(function(a, b) { return a + b; }, 0);
+            const _prevHeat  = Object.values(_prevHeatSnapshot || {}).reduce(function(a, b) { return a + b; }, 0);
+            if (_totalHeat !== _prevHeat) _familyHeatCount++;
+            _prevHeatSnapshot = Object.assign({}, g.heat || {});
           } catch (_) {}
 
           // D2: Stage II organic probe — antechamber + climax interception
@@ -1999,13 +2225,53 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         snap.forEach(s => probeCanonText(s.text, tag, `choice-label pick=${picks}`));
       }
 
+      // K5 — quest count snapshot before pick
+      let _questCountBefore = 0;
+      try {
+        _questCountBefore = await page.evaluate(function() {
+          try { return G.questHints ? Object.keys(G.questHints).length : 0; } catch (_) { return 0; }
+        }).catch(function() { return 0; });
+      } catch (_) {}
+
+      // K6 — extract skill badge from the about-to-be-picked choice button
+      let _skillUsed = 'unknown';
+      try {
+        const _pickedBtnLocator = page.locator('.choice-btn:visible:not([disabled])').first();
+        const _btnText = await _pickedBtnLocator.textContent().catch(function() { return ''; });
+        const _skillMatch = (_btnText || '').match(/\b(SURVIVAL|COMBAT|STEALTH|LORE|PERSUASION|CRAFT|MIGHT|FINESSE|VIGOR|WITS|CHARM|SPIRIT)\b/i);
+        if (_skillMatch) {
+          _skillUsed = _skillMatch[1].toLowerCase();
+          const _KEY_NORM = { might:'combat', finesse:'stealth', vigor:'survival', wits:'lore', charm:'persuasion', spirit:'craft' };
+          _skillUsed = _KEY_NORM[_skillUsed] || _skillUsed;
+        }
+      } catch (_) {}
+
       await dismissOverlays(page);
       const result = await pickChoice(page, picks, picks < forcePlotMain);
       if (!result.clicked) { await page.waitForTimeout(600); continue; }
+
+      // K6 — log skill use and accumulate for Block M balance matrix
+      log(`[skill-use ${tag}] pick=${picks + 1} skill=${_skillUsed}`);
+      if (_skillUsed !== 'unknown') {
+        _familySkillCounts[_skillUsed] = (_familySkillCounts[_skillUsed] || 0) + 1;
+      }
+
       log(`[pick ${tag}] #${picks + 1} plotMain=${result.isPlotMain} combat=${result.isCombat} "${result.text.slice(0, 60)}"`);
       picks++;
       lastPickTime = Date.now();
       await page.waitForTimeout(PACE.betweenCombat);
+
+      // K5 — quest count snapshot after pick; screenshot if new quest gained
+      try {
+        const _questCountAfter = await page.evaluate(function() {
+          try { return G.questHints ? Object.keys(G.questHints).length : 0; } catch (_) { return 0; }
+        }).catch(function() { return 0; });
+        if (_questCountAfter > _questCountBefore || _questCountAfter > _lastQuestCount) {
+          _lastQuestCount = _questCountAfter;
+          await screenshot(page, `${tag}_quest_new_p${picks}`);
+          log(`[quest-probe ${tag}] new_quest pick=${picks} total=${_questCountAfter}`);
+        }
+      } catch (_) {}
 
       // P1-G: capture result text for per-family narrative transcript
       try {
@@ -2181,6 +2447,30 @@ test.describe('Headed QA — 4 families', () => {
         try { await context.close(); } catch (_) {}
 
         log(`[family:${family}] round ${round} attempt ${state.attemptNum} ${result.success ? 'SUCCESS ✓' : `FAILED (${result.reason})`} picks=${result.picks}`);
+
+        // Block M — archetype signature emit (uses module-scope counters accumulated during runPlaythrough)
+        try {
+          const _skillEntries = Object.entries(_familySkillCounts);
+          const _dominant = _skillEntries.length > 0
+            ? _skillEntries.sort(function(a, b) { return b[1] - a[1]; })[0]
+            : ['none', 0];
+          const _balanceStr = _skillEntries.map(function(e) { return e[0] + '=' + e[1]; }).join(' ');
+          log(`[archetype-signature] family=${family} archetype=${archetypeId} dominant_skill=${_dominant[0]}=${_dominant[1]} abilities=${_familyAbilityCount} heat_events=${_familyHeatCount} alignment_shifts=${_familyAlignCount} levelups=${_familyLevelupCount}`);
+          log(`[balance-matrix] family=${family} ${_balanceStr || 'no-skill-data'}`);
+          reporter.addArchetypeSignature({
+            family,
+            archetype: archetypeId,
+            dominantSkill: _dominant[0],
+            dominantCount: _dominant[1],
+            skillCounts: Object.assign({}, _familySkillCounts),
+            abilities: _familyAbilityCount,
+            heatEvents: _familyHeatCount,
+            alignShifts: _familyAlignCount,
+            levelups: _familyLevelupCount,
+          });
+        } catch (_sigErr) {
+          log(`[archetype-signature] WARN: ${_sigErr.message}`);
+        }
 
         const sp2 = (result.g && result.g.stageProgress && result.g.stageProgress[2]) || 0;
         reporter.addFamily({

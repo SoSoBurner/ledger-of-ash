@@ -27,12 +27,18 @@ class ReportWriter {
     this._jsErrors = [];
     this._startTime = new Date();
     this._transcripts = {};  // family → [{pick, choice, result}]
+    this._archetypeSigs = [];  // Block M archetype signature records
   }
 
   setCeiling(ceiling)          { this._ceiling = ceiling; }
   setWarningBaseline(n)        { this._warnBaseline = n; }
   addFamily(result)            { this._families.push(result); }
   addJsError(err)              { this._jsErrors.push(err); }
+
+  addArchetypeSignature(sig) {
+    if (!this._archetypeSigs) this._archetypeSigs = [];
+    this._archetypeSigs.push(sig);
+  }
 
   addTranscriptEntry(family, pick, choiceText, resultText) {
     if (!this._transcripts[family]) this._transcripts[family] = [];
@@ -165,6 +171,30 @@ class ReportWriter {
       lines.push('## JS Errors Logged');
       for (const e of this._jsErrors) {
         lines.push(`- \`${e}\``);
+      }
+      lines.push('');
+    }
+
+    // Block M — Archetype Signatures section
+    const sigs = this._archetypeSigs || [];
+    if (sigs.length > 0) {
+      lines.push('## Archetype Signatures');
+      for (const s of sigs) {
+        lines.push(`- **${s.family}** (${s.archetype}): dominant=${s.dominantSkill}(${s.dominantCount}) abilities=${s.abilities} heat_events=${s.heatEvents} alignment_shifts=${s.alignShifts} levelups=${s.levelups}`);
+      }
+      lines.push('');
+
+      // Balance matrix table: rows = families, columns = all skill keys seen
+      const ALL_SKILLS = ['combat','stealth','survival','lore','persuasion','craft'];
+      const skillsInData = new Set(ALL_SKILLS);
+      sigs.forEach(s => { Object.keys(s.skillCounts || {}).forEach(k => skillsInData.add(k)); });
+      const skillCols = Array.from(skillsInData);
+      lines.push('### Balance Matrix (skill usage per family)');
+      lines.push('| Family | Archetype | ' + skillCols.join(' | ') + ' |');
+      lines.push('|---|---|' + skillCols.map(() => '---').join('|') + '|');
+      for (const s of sigs) {
+        const cells = skillCols.map(sk => (s.skillCounts && s.skillCounts[sk]) ? String(s.skillCounts[sk]) : '0');
+        lines.push(`| ${s.family} | ${s.archetype} | ${cells.join(' | ')} |`);
       }
       lines.push('');
     }
