@@ -672,6 +672,68 @@ async function probeCharSheet(page, tag, g) {
       }
     } catch (_d3err) {}
 
+    // Active ability use — click .ability-btn:not(.ability-btn--spent) if one exists
+    try {
+      const _activeAbil = page.locator('.ability-btn:not(.ability-btn--spent)').first();
+      if (await _activeAbil.isVisible({ timeout: 500 }).catch(() => false)) {
+        const _abilLabel = await _activeAbil.innerText().catch(() => '');
+        await _activeAbil.click();
+        await page.waitForTimeout(PACE.short || 300);
+        await screenshot(page, `${tag}_active_ability_use`);
+        log(`[panel:char-sheet ${tag}] active-ability-use: clicked "${_abilLabel.slice(0,40).replace(/\n/g,' ')}"`);
+      } else {
+        log(`[panel:char-sheet ${tag}] active-ability-use: none available (all spent or no active abilities)`);
+      }
+    } catch (_aErr) {}
+
+    // Trait use button
+    try {
+      const _traitBtn = page.locator('#btn-use-trait,.trait-use-btn').first();
+      if (await _traitBtn.isVisible({ timeout: 400 }).catch(() => false)) {
+        const _traitLabel = await _traitBtn.innerText().catch(() => '');
+        await _traitBtn.click();
+        await page.waitForTimeout(PACE.short || 300);
+        await screenshot(page, `${tag}_trait_use`);
+        log(`[panel:char-sheet ${tag}] trait-use: clicked "${_traitLabel.slice(0,40).replace(/\n/g,' ')}"`);
+      }
+    } catch (_tErr) {}
+
+    // Inventory tab
+    try {
+      const _invTab = page.locator('.sheet-tab[data-tab="inventory"]');
+      if (await _invTab.isVisible({ timeout: 400 }).catch(() => false)) {
+        await _invTab.click();
+        await page.waitForTimeout(PACE.short || 300);
+        await screenshot(page, `${tag}_charsheet_inventory`);
+        const _invTxt = await page.locator('[data-pane="inventory"],.sheet-tab-pane').first().innerText().catch(() => '');
+        const _invItems = await page.locator('.inv-item,[data-pane="inventory"] .item-row').count().catch(() => 0);
+        const _invObjObj = _invTxt.includes('[object Object]');
+        log(`[panel:char-sheet ${tag}] inventory-tab: items=${_invItems} objObj=${_invObjObj} text="${_invTxt.slice(0,80).replace(/\n/g,' ')}"`);
+        if (_invObjObj) log(`[panel:char-sheet ${tag}] VIOLATION: [object Object] in inventory tab`);
+        const _useBtn = page.locator('.btn-use-item').first();
+        if (await _useBtn.isVisible({ timeout: 400 }).catch(() => false)) {
+          await _useBtn.click();
+          await page.waitForTimeout(PACE.short || 300);
+          log(`[panel:char-sheet ${tag}] inventory-tab: use-item clicked`);
+        }
+      }
+    } catch (_invErr) {}
+
+    // Mastery tab
+    try {
+      const _mastTab = page.locator('.sheet-tab[data-tab="mastery"]');
+      if (await _mastTab.isVisible({ timeout: 400 }).catch(() => false)) {
+        await _mastTab.click();
+        await page.waitForTimeout(PACE.short || 300);
+        await screenshot(page, `${tag}_charsheet_mastery`);
+        const _mastTxt = await page.locator('[data-pane="mastery"],.sheet-tab-pane').first().innerText().catch(() => '');
+        const _mastObjObj = _mastTxt.includes('[object Object]');
+        const _trainBtns = await page.locator('button:has-text("Train"),.mastery-btn').count().catch(() => 0);
+        log(`[panel:char-sheet ${tag}] mastery-tab: trainBtns=${_trainBtns} objObj=${_mastObjObj} text="${_mastTxt.slice(0,100).replace(/\n/g,' ')}"`);
+        if (_mastObjObj) log(`[panel:char-sheet ${tag}] VIOLATION: [object Object] in mastery tab`);
+      }
+    } catch (_mErr) {}
+
     await closeSpecificOverlay(page, 'overlay-charsheet');
   } catch (err) {
     log(`[panel:char-sheet ${tag}] FAIL: ${err.message}`);
@@ -854,28 +916,35 @@ async function probeCamp(page, tag, g) {
 }
 
 async function probeInventory(page, tag) {
+  // Inventory lives inside the char sheet as a tab — no standalone button exists
   await page.waitForTimeout(PACE.beforePanel);
   try {
-    const btn = page.locator('#btn-inventory,button:has-text("Inventory")').first();
-    if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:inventory ${tag}] SKIP`); return; }
-    await btn.click();
-    await page.waitForTimeout(PACE.panelDwell);
+    if (!await openOverlay(page, '#btn-charsheet', '#overlay-charsheet')) { log(`[panel:inventory ${tag}] SKIP`); return; }
+    const invTab = page.locator('.sheet-tab[data-tab="inventory"]');
+    if (!await invTab.isVisible({ timeout: 800 }).catch(() => false)) {
+      log(`[panel:inventory ${tag}] SKIP: inventory tab not found in char sheet`);
+      await closeSpecificOverlay(page, 'overlay-charsheet');
+      return;
+    }
+    await invTab.click();
+    await page.waitForTimeout(PACE.short || 300);
     await screenshot(page, `${tag}_inventory_open`);
-    const txt      = await page.locator('.overlay.active,[id*="inventory"]').first().innerText().catch(() => '');
-    const itemCount = await page.locator('.inv-item,.inventory-item,.item-card').count().catch(() => 0);
-    log(`[panel:inventory ${tag}] items=${itemCount} chars=${txt.length} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
-    const equipBtn = page.locator('button:has-text("Equip"),button:has-text("equip"),.equip-btn').first();
-    if (await equipBtn.isVisible({ timeout: 800 }).catch(() => false)) {
+    const txt       = await page.locator('[data-pane="inventory"],.sheet-tab-pane').first().innerText().catch(() => '');
+    const itemCount = await page.locator('.inv-item,[data-pane="inventory"] .item-row,.item-card').count().catch(() => 0);
+    const objObj    = txt.includes('[object Object]');
+    log(`[panel:inventory ${tag}] items=${itemCount} objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    if (objObj) log(`[panel:inventory ${tag}] VIOLATION: [object Object] in inventory tab`);
+    probeCanonText(txt, tag, 'inventory');
+    const equipBtn = page.locator('button:has-text("Equip"),.equip-btn').first();
+    if (await equipBtn.isVisible({ timeout: 600 }).catch(() => false)) {
       await equipBtn.click();
       await page.waitForTimeout(PACE.short);
       await screenshot(page, `${tag}_inventory_equip`);
-      const postTxt = await page.locator('.overlay.active,[id*="inventory"]').first().innerText().catch(() => '');
-      log(`[panel:inventory ${tag}] post-equip: "${postTxt.slice(0,80).replace(/\n/g,' ')}"`);
+      log(`[panel:inventory ${tag}] equip clicked`);
     } else {
-      log(`[panel:inventory ${tag}] equip: no equip buttons visible (${itemCount} items shown)`);
+      log(`[panel:inventory ${tag}] equip: no equip buttons (${itemCount} items)`);
     }
-    probeCanonText(txt, tag, 'inventory');
-    await closeOverlay(page);
+    await closeSpecificOverlay(page, 'overlay-charsheet');
   } catch (err) {
     log(`[panel:inventory ${tag}] WARN: ${err.message}`);
     await closeOverlay(page).catch(() => {});
@@ -1162,6 +1231,76 @@ async function probeHowToPlay(page, tag) {
     else { await page.keyboard.press('Escape'); await closeOverlay(page); }
   } catch (err) {
     log(`[panel:howtoplay ${tag}] WARN: ${err.message}`);
+    await closeOverlay(page).catch(() => {});
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Save / Load modal probe
+// ---------------------------------------------------------------------------
+async function probeSaveLoad(page, tag) {
+  await page.waitForTimeout(PACE.beforePanel);
+  try {
+    const saveBtn = page.locator('#btn-save').first();
+    if (!await saveBtn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:save ${tag}] SKIP`); return; }
+    await saveBtn.click();
+    await page.waitForSelector('#overlay-save', { state: 'visible', timeout: 3000 }).catch(() => {});
+    await page.waitForTimeout(PACE.panelDwell);
+    await screenshot(page, `${tag}_save_modal`);
+    const saveTxt    = await page.locator('#overlay-save').innerText().catch(() => '');
+    const saveObjObj = saveTxt.includes('[object Object]');
+    const saveSlots  = await page.locator('#overlay-save button:not(.overlay-close)').count().catch(() => 0);
+    log(`[panel:save ${tag}] slots=${saveSlots} objObj=${saveObjObj} text="${saveTxt.slice(0,120).replace(/\n/g,' ')}"`);
+    if (saveObjObj) log(`[panel:save ${tag}] VIOLATION: [object Object] in save modal`);
+    await closeSpecificOverlay(page, 'overlay-save');
+    await page.waitForTimeout(PACE.short);
+
+    // Load modal (same overlay, different mode)
+    const loadBtn = page.locator('#btn-load').first();
+    if (await loadBtn.isVisible({ timeout: 600 }).catch(() => false)) {
+      await loadBtn.click();
+      await page.waitForSelector('#overlay-save', { state: 'visible', timeout: 3000 }).catch(() => {});
+      await page.waitForTimeout(PACE.panelDwell);
+      await screenshot(page, `${tag}_load_modal`);
+      const loadTxt    = await page.locator('#overlay-save').innerText().catch(() => '');
+      const loadObjObj = loadTxt.includes('[object Object]');
+      log(`[panel:load ${tag}] objObj=${loadObjObj} text="${loadTxt.slice(0,120).replace(/\n/g,' ')}"`);
+      if (loadObjObj) log(`[panel:load ${tag}] VIOLATION: [object Object] in load modal`);
+      await closeSpecificOverlay(page, 'overlay-save');
+    }
+  } catch (err) {
+    log(`[panel:save ${tag}] WARN: ${err.message}`);
+    await closeOverlay(page).catch(() => {});
+  }
+}
+
+// ---------------------------------------------------------------------------
+// End Legend overlay probe — open and dismiss without confirming
+// ---------------------------------------------------------------------------
+async function probeEndLegend(page, tag) {
+  await page.waitForTimeout(PACE.beforePanel);
+  try {
+    const btn = page.locator('#btn-end-legend').first();
+    if (!await btn.isVisible({ timeout: 800 }).catch(() => false)) { log(`[panel:end-legend ${tag}] SKIP`); return; }
+    await btn.click();
+    await page.waitForSelector('#overlay-death', { state: 'visible', timeout: 3000 }).catch(() => {});
+    await page.waitForTimeout(PACE.panelDwell);
+    await screenshot(page, `${tag}_end_legend`);
+    const txt    = await page.locator('#overlay-death').innerText().catch(() => '');
+    const objObj = txt.includes('[object Object]');
+    log(`[panel:end-legend ${tag}] objObj=${objObj} text="${txt.slice(0,120).replace(/\n/g,' ')}"`);
+    if (objObj) log(`[panel:end-legend ${tag}] VIOLATION: [object Object] in end legend overlay`);
+    // Dismiss via "Not yet." button or close button — never confirm
+    const dismissBtn = page.locator('[data-close="overlay-death"],button:has-text("Not yet"),button:has-text("Return"),button:has-text("Cancel"),.overlay-close').first();
+    if (await dismissBtn.isVisible({ timeout: 800 }).catch(() => false)) {
+      await dismissBtn.click();
+      await page.waitForTimeout(PACE.short);
+      log(`[panel:end-legend ${tag}] dismissed — game continues`);
+    } else {
+      await closeOverlay(page).catch(() => {});
+    }
+  } catch (err) {
+    log(`[panel:end-legend ${tag}] WARN: ${err.message}`);
     await closeOverlay(page).catch(() => {});
   }
 }
@@ -1614,6 +1753,7 @@ async function runFullPanelSimulation(page, tag, g, picks) {
     await probeNotices(page, tag);
     await probeContacts(page, tag);
     await probeParty(page, tag);
+    await probeSaveLoad(page, tag);
   }
   if (picks > 0 && picks % CAMP_EVERY === 0) {
     await dismissOverlays(page);
@@ -1625,6 +1765,11 @@ async function runFullPanelSimulation(page, tag, g, picks) {
   }
   if (picks === 5) {
     await probeHowToPlay(page, tag);
+  }
+  // End Legend overlay — probe once per family at pick 10 (before character is committed)
+  if (picks === 10) {
+    await dismissOverlays(page);
+    await probeEndLegend(page, tag);
   }
   // Forced-state probe — once per family at pick 30 (character is established)
   if (picks === 30) {
