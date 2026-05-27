@@ -1482,13 +1482,31 @@ async function probeCombatCorridor(page, tag) {
   for (const route of HOSTILE_ROUTES) {
     if (combatFound) break;
     try {
-      // Teleport to origin first (in-place, no travel encounter)
+      // Teleport to origin first — use _travelCoreTravelTo per CLAUDE.md (loadStageChoices re-renders
+      // silently and must not be used for teleports; resolveArrival is the proper in-place re-render fallback).
+      let _originTeleportMethod = 'none';
       await page.evaluate(function(loc) {
         try {
-          G.location = loc;
-          if (typeof loadStageChoices === 'function') loadStageChoices(loc);
-        } catch (_) {}
-      }, route.from).catch(function() {});
+          if (typeof _travelCoreTravelTo === 'function') {
+            _travelCoreTravelTo(loc);
+            return 'travelCore';
+          } else if (typeof resolveArrival === 'function') {
+            G.location = loc;
+            resolveArrival(loc);
+            return 'resolveArrival';
+          } else if (typeof loadStageChoices === 'function') {
+            // last resort — loadStageChoices only if both preferred functions are absent
+            G.location = loc;
+            loadStageChoices(loc);
+            return 'loadStageChoices';
+          }
+          return 'none';
+        } catch (_) { return 'error'; }
+      }, route.from).then(function(method) { _originTeleportMethod = method; }).catch(function() {});
+      if (_originTeleportMethod !== 'travelCore') {
+        log('[combat-corridor] WARNING — _travelCoreTravelTo not defined for origin teleport, used fallback=' + _originTeleportMethod);
+      }
+      await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 5000 }).catch(function() {});
       await page.waitForTimeout(800);
 
       // Travel via corridor function — this fires encounter rolls
@@ -1552,12 +1570,18 @@ async function probeCombatCorridor(page, tag) {
       const outcome = stillInCombat ? 'retreated' : 'defeated-or-resolved';
       log('[combat-corridor] outcome=' + outcome);
 
-      // Restore clean state
+      // Restore clean state — use _travelCoreTravelTo / resolveArrival (not loadStageChoices for teleports)
       await page.evaluate(function() {
         try {
           G.tensionLevel = 0;
           try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
-          if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+          if (typeof _travelCoreTravelTo === 'function') {
+            _travelCoreTravelTo(G.location);
+          } else if (typeof resolveArrival === 'function') {
+            resolveArrival(G.location);
+          } else if (typeof loadStageChoices === 'function') {
+            loadStageChoices(G.location); // last resort
+          }
         } catch (_) {}
       }).catch(function() {});
       await page.waitForTimeout(500);
@@ -1831,9 +1855,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       }
 
       // K0 — stage2 HUD probe: fire once when stage advances to Stage II
+      // _lastKnownStage updated HERE (before D5) so that a stage-advance pick that also hits
+      // picks % 10 === 0 doesn't let D5 run first and consume the transition silently.
       if (!_stage2HudProbeDone && g.stage === 'Stage II' && _lastKnownStage && _lastKnownStage !== 'Stage II') {
         _stage2HudProbeDone = true;
+        _lastKnownStage = g.stage; // update now so D5 sees no transition to re-process
         await dismissOverlays(page);
+        await page.waitForTimeout(300); // let stage-advance overlay clear and HUD update
         await probeHUDFull(page, log, 'stage2_entry');
       }
 
@@ -2243,6 +2271,10 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           _skillUsed = _skillMatch[1].toLowerCase();
           const _KEY_NORM = { might:'combat', finesse:'stealth', vigor:'survival', wits:'lore', charm:'persuasion', spirit:'craft' };
           _skillUsed = _KEY_NORM[_skillUsed] || _skillUsed;
+        }
+        // Block M — ability tracking: detect ability button clicks by label text
+        if (/\babilit/i.test(_btnText || '')) {
+          _familyAbilityCount++;
         }
       } catch (_) {}
 
