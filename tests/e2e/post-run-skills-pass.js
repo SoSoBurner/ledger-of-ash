@@ -256,7 +256,7 @@ async function main() {
   const planContent = [
     '# Ledger of Ash — Post-Playtest Improvement Plan',
     '',
-    '> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development to implement this plan task-by-task.',
+    '> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.',
     '',
     `**Goal:** ${autoGoal}`,
     '**Architecture:** Stage-based text-RPG; all game logic in ledger-of-ash.html + content/*.js; no bundler.',

@@ -445,9 +445,14 @@ function runCodeAudit() {
   try { htmlContent = fs.readFileSync(htmlPath, 'utf8'); } catch (e) {
     findings.push(`[ERROR] Could not read ledger-of-ash.html: ${e.message}`);
   }
+  // Known intentional stubs — skip these lines in all HTML scan loops
+  const KNOWN_STUBS = ['canAdvanceToStage3', 'canAdvanceToStage4', 'canAdvanceToStage5', 'STAGE2_BOSS_MODULE'];
+
   if (htmlContent) {
     const htmlLines = htmlContent.split('\n');
     htmlLines.forEach(function(line, i) {
+      // Skip known intentional stubs before appending to findings
+      if (KNOWN_STUBS.some(function(stub) { return line.includes(stub); })) return;
       if (/TODO|FIXME/.test(line)) {
         findings.push(`[TODO] ledger-of-ash.html:${i + 1} — ${line.trim()}`);
       }
@@ -485,14 +490,20 @@ function runCodeAudit() {
     let content = '';
     try { content = fs.readFileSync(fpath, 'utf8'); } catch (e) { continue; }
 
-    // Choices with stageProgress but no failResult
-    // Heuristic: grab object-like blocks containing stageProgress
-    const spBlocks = content.match(/\{[^{}]{0,800}stageProgress[^{}]{0,800}\}/g) || [];
-    spBlocks.forEach(function(block) {
-      if (!block.includes('failResult')) {
-        findings.push(`[MISSING-FAILRESULT] ${fname} — choice block has stageProgress but no failResult`);
+    // Choices with stageProgress but no maybeStageAdvance or failResult nearby
+    // Line-by-line scan: window of ±8 lines around each stageProgress occurrence
+    const lines = content.split('\n');
+    for (var i = 0; i < lines.length; i++) {
+      if (/stageProgress/.test(lines[i])) {
+        var windowLines = lines.slice(Math.max(0, i - 8), Math.min(lines.length, i + 8)).join('\n');
+        if (!windowLines.includes('maybeStageAdvance')) {
+          findings.push(`[UNWIRED] ${fname}:${i + 1} — stageProgress without maybeStageAdvance nearby`);
+        }
+        if (!windowLines.includes('failResult')) {
+          findings.push(`[MISSING-FAILRESULT] ${fname}:${i + 1} — stageProgress without failResult nearby`);
+        }
       }
-    });
+    }
 
     // G.flags.X = ... set in content files, never read in html
     const flagSetRe = /G\.flags\.(\w+)\s*=/g;
