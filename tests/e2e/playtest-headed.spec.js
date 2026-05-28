@@ -37,6 +37,9 @@ var _familyLevelupCount = 0;
 var _familyLastLevel    = 0;
 // Block L — combat corridor probe runs once per headed test run
 var _corridorCombatProbeDone = false;
+// Block N — once-per-family probe guards
+var _masteryProbeDone  = false; // probeCharSheet mastery section — reset per family
+var _lootProbeDone     = false; // post-combat loot snapshot — reset per family
 
 // ---------------------------------------------------------------------------
 // Output dirs
@@ -728,9 +731,23 @@ async function probeCharSheet(page, tag, g) {
         await screenshot(page, `${tag}_charsheet_mastery`);
         const _mastTxt = await page.locator('[data-pane="mastery"],.sheet-tab-pane').first().innerText().catch(() => '');
         const _mastObjObj = _mastTxt.includes('[object Object]');
-        const _trainBtns = await page.locator('button:has-text("Train"),.mastery-btn').count().catch(() => 0);
-        log(`[panel:char-sheet ${tag}] mastery-tab: trainBtns=${_trainBtns} objObj=${_mastObjObj} text="${_mastTxt.slice(0,100).replace(/\n/g,' ')}"`);
+        const _mastBtns = await page.locator('.ability-btn:not(.ability-btn--spent)').count().catch(() => 0);
+        log(`[panel:char-sheet ${tag}] mastery-tab: upgradeBtns=${_mastBtns} masteryXP=${g ? (g.masteryXP||0) : '?'} objObj=${_mastObjObj} text="${_mastTxt.slice(0,100).replace(/\n/g,' ')}"`);
         if (_mastObjObj) log(`[panel:char-sheet ${tag}] VIOLATION: [object Object] in mastery tab`);
+        // Click first available upgrade button (organic — only present if player reached level cap)
+        if (_mastBtns > 0 && !_masteryProbeDone) {
+          _masteryProbeDone = true;
+          const _firstMastBtn = page.locator('.ability-btn:not(.ability-btn--spent)').first();
+          const _mastBtnLabel = await _firstMastBtn.innerText().catch(() => '');
+          const _mastXPBefore = await page.evaluate(function(){ return (typeof G !== 'undefined' && G.masteryXP) || 0; }).catch(() => 0);
+          await _firstMastBtn.click();
+          await page.waitForTimeout(PACE.short || 300);
+          const _mastXPAfter = await page.evaluate(function(){ return (typeof G !== 'undefined' && G.masteryXP) || 0; }).catch(() => 0);
+          await screenshot(page, `${tag}_charsheet_mastery_purchase`);
+          log(`[panel:char-sheet ${tag}] mastery-purchase: "${_mastBtnLabel.slice(0,40).replace(/\n/g,' ')}" masteryXP ${_mastXPBefore}→${_mastXPAfter}`);
+        } else if (_mastBtns === 0 && (g ? (g.masteryXP||0) : 0) === 0) {
+          log(`[panel:char-sheet ${tag}] mastery-tab: player has not reached level cap yet (masteryXP=0)`);
+        }
       }
     } catch (_mErr) {}
 
@@ -1041,6 +1058,37 @@ async function probeContacts(page, tag) {
       } catch (_) {}
     }
     if (contactCards.length === 0) log(`[panel:contacts ${tag}] WARN: no contact cards visible`);
+    // Click .npc-approach-btn buttons — these appear when tension allows NPC interaction
+    const approachBtns = await page.locator('.npc-approach-btn[data-npc-name]').all().catch(() => []);
+    log(`[panel:contacts ${tag}] npc-approach-btns=${approachBtns.length}`);
+    for (const btn of approachBtns.slice(0, 3)) {
+      try {
+        const npcName = await btn.evaluate(function(el){ return el.getAttribute('data-npc-name') || ''; }).catch(() => '');
+        const npcSite = await btn.evaluate(function(el){ return el.getAttribute('data-npc-site') || ''; }).catch(() => '');
+        const isEnabled = await btn.isEnabled({ timeout: 400 }).catch(() => false);
+        if (!isEnabled) { log(`[panel:contacts ${tag}] approach-btn disabled for npc="${npcName}"`); continue; }
+        log(`[panel:contacts ${tag}] approach npc="${npcName}" site="${npcSite}"`);
+        await btn.click();
+        await page.waitForTimeout(PACE.panelDwell);
+        await screenshot(page, `${tag}_npc_approach_${npcName.replace(/[^a-z0-9]/gi,'_').slice(0,20)}`);
+        const resultTxt = await page.locator('.result-text,.narrative-text,.npc-dialog-text').first().innerText().catch(() => '');
+        log(`[panel:contacts ${tag}] approach-result="${resultTxt.slice(0,150).replace(/\n/g,' ')}"`);
+        // Dismiss any choices/dialog that opened — player can make picks if choices appear
+        const choiceCount = await waitForChoices(page, 1000).catch(() => 0);
+        if (choiceCount > 0) {
+          log(`[panel:contacts ${tag}] approach opened ${choiceCount} choices — picking first`);
+          await page.locator('.choice-btn:visible:not([disabled])').first().click().catch(() => {});
+          await page.waitForTimeout(PACE.short);
+        }
+        const closeBtn = page.locator('button:has-text("×"),button:has-text("Close"),[data-close]').first();
+        if (await closeBtn.isVisible({ timeout: 400 }).catch(() => false)) await closeBtn.click();
+        else await page.keyboard.press('Escape');
+        await page.waitForTimeout(PACE.short);
+      } catch (_approachErr) {
+        log(`[panel:contacts ${tag}] approach-btn error: ${_approachErr.message}`);
+      }
+    }
+    if (approachBtns.length === 0) log(`[panel:contacts ${tag}] npc-approach: no .npc-approach-btn visible (tension=0 or no contacts at current locality)`);
     await closeSpecificOverlay(page, 'overlay-npcs');
   } catch (err) {
     log(`[panel:contacts ${tag}] WARN: ${err.message}`);
@@ -1096,14 +1144,9 @@ async function probeShop(page, tag, g) {
     const txt       = await page.locator('.overlay.active,[id*="shop"]').first().innerText().catch(() => '');
     const itemCount = await page.locator('.shop-item').count().catch(() => 0);
     log(`[panel:shop ${tag}] loc=${g.location} items=${itemCount} gold=${g.gold} text="${txt.slice(0,80).replace(/\n/g,' ')}"`);
-    // K2 — gold injection for probe: ensure enough gold to attempt a purchase
-    const _goldCheck = (await readG(page)).gold;
-    if (_goldCheck < 15) {
-      await page.evaluate(function() { try { G.gold = 30; if (typeof updateHUD === 'function') updateHUD(); } catch (_) {} }).catch(function() {});
-      log(`[panel:shop ${tag}] K2 gold-inject: was=${_goldCheck} set=30`);
-    }
-    // Attempt to buy first affordable item
+    // Attempt to buy first affordable item (organic — no gold injection)
     const goldBefore = (await readG(page)).gold;
+    log(`[panel:shop ${tag}] gold-available=${goldBefore}`);
     const buyBtns = await page.locator('.shop-buy-btn').all().catch(() => []);
     let bought = false;
     for (const buyBtn of buyBtns.slice(0, 3)) {
@@ -1116,27 +1159,33 @@ async function probeShop(page, tag, g) {
         const gAfterBuy = await readG(page);
         log(`[panel:shop ${tag}] buy-attempt: "${itemLabel.slice(0,40)}" gold-before=${goldBefore} gold-after=${gAfterBuy.gold}`);
         bought = true;
-        // Close shop before opening inventory
+        // Close shop before opening inventory via char sheet
         await closeOverlay(page);
         await page.waitForTimeout(PACE.short);
-        // Sell flow: open inventory and attempt to sell
+        // Sell flow: char sheet → inventory tab → sell button
         try {
-          const invBtn = page.locator('#btn-inventory,button:has-text("Inventory")').first();
-          if (await invBtn.isVisible({ timeout: 600 }).catch(() => false)) {
-            await invBtn.click();
+          const csBtn = page.locator('#btn-charsheet').first();
+          if (await csBtn.isVisible({ timeout: 600 }).catch(() => false)) {
+            await csBtn.click();
             await page.waitForTimeout(PACE.panelDwell);
-            const sellBtn = page.locator('.sell-btn[data-idx],button:has-text("Sell")').first();
-            if (await sellBtn.isVisible({ timeout: 800 }).catch(() => false)) {
-              const goldBeforeSell = (await readG(page)).gold;
-              await sellBtn.click();
+            const invTab = page.locator('.sheet-tab[data-tab="inventory"]');
+            if (await invTab.isVisible({ timeout: 600 }).catch(() => false)) {
+              await invTab.click();
               await page.waitForTimeout(PACE.short);
-              await screenshot(page, `${tag}_shop_sell`);
-              const goldAfterSell = (await readG(page)).gold;
-              log(`[panel:shop ${tag}] sell gold-before=${goldBeforeSell} gold-after=${goldAfterSell} delta=${goldAfterSell - goldBeforeSell}`);
-            } else {
-              log(`[panel:shop ${tag}] WARN: sell button not found after buy`);
+              const sellBtn = page.locator('.sell-btn[data-idx],button:has-text("Sell")').first();
+              if (await sellBtn.isVisible({ timeout: 800 }).catch(() => false)) {
+                const goldBeforeSell = (await readG(page)).gold;
+                await sellBtn.click();
+                await page.waitForTimeout(PACE.short);
+                await screenshot(page, `${tag}_shop_sell`);
+                const goldAfterSell = (await readG(page)).gold;
+                log(`[panel:shop ${tag}] sell gold-before=${goldBeforeSell} gold-after=${goldAfterSell} delta=${goldAfterSell - goldBeforeSell}`);
+              } else {
+                const _invCountAfterBuy = await page.locator('.inv-item,[data-pane="inventory"] .item-row,.item-card').count().catch(() => 0);
+                log(`[panel:shop ${tag}] sell: no sell button (items in inventory=${_invCountAfterBuy})`);
+              }
             }
-            await closeOverlay(page);
+            await closeSpecificOverlay(page, 'overlay-charsheet');
           }
         } catch (sellErr) {
           log(`[panel:shop ${tag}] WARN: sell flow error: ${sellErr.message}`);
@@ -1148,6 +1197,57 @@ async function probeShop(page, tag, g) {
     await closeOverlay(page);
   } catch (err) {
     log(`[panel:shop ${tag}] WARN: ${err.message}`);
+    await closeOverlay(page).catch(() => {});
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Loot probe — reads inventory after combat to check item acquisition
+// Called organically; no state injection
+// ---------------------------------------------------------------------------
+async function probeLoot(page, tag) {
+  if (_lootProbeDone) return;
+  try {
+    const g = await readG(page);
+    const invLen = await page.evaluate(function(){ try { return (G.inventory||[]).length; } catch(_){ return 0; } }).catch(() => 0);
+    const invItems = await page.evaluate(function(){
+      try { return (G.inventory||[]).map(function(i){ return (i&&i.name)||'?'; }).join(', '); } catch(_){ return ''; }
+    }).catch(() => '');
+    log(`[probe:loot ${tag}] inventory-len=${invLen} gold=${g.gold} supply=${g.supply} items="${invItems.slice(0,120)}"`);
+    if (invLen > 0) {
+      _lootProbeDone = true; // only mark done when we have actual loot to report
+      // Open char sheet inventory tab to visually verify items render correctly
+      const csBtn = page.locator('#btn-charsheet').first();
+      if (await csBtn.isVisible({ timeout: 600 }).catch(() => false)) {
+        await csBtn.click();
+        await page.waitForTimeout(PACE.short);
+        const invTab = page.locator('.sheet-tab[data-tab="inventory"]');
+        if (await invTab.isVisible({ timeout: 600 }).catch(() => false)) {
+          await invTab.click();
+          await page.waitForTimeout(PACE.short);
+          await screenshot(page, `${tag}_loot_inventory`);
+          const invTxt = await page.locator('[data-pane="inventory"],.sheet-tab-pane').first().innerText().catch(() => '');
+          const objObj = invTxt.includes('[object Object]');
+          log(`[probe:loot ${tag}] inventory-render objObj=${objObj} text="${invTxt.slice(0,120).replace(/\n/g,' ')}"`);
+          if (objObj) log(`[probe:loot ${tag}] VIOLATION: [object Object] in inventory after loot`);
+          // Try using a consumable if one exists
+          const useBtn = page.locator('.btn-use-item').first();
+          if (await useBtn.isVisible({ timeout: 400 }).catch(() => false)) {
+            const hpBefore = await page.evaluate(function(){ return (typeof G !== 'undefined') ? G.hp : 0; }).catch(() => 0);
+            await useBtn.click();
+            await page.waitForTimeout(PACE.short);
+            const hpAfter = await page.evaluate(function(){ return (typeof G !== 'undefined') ? G.hp : 0; }).catch(() => 0);
+            await screenshot(page, `${tag}_loot_use_item`);
+            log(`[probe:loot ${tag}] use-item hp ${hpBefore}→${hpAfter}`);
+          }
+        }
+        await closeSpecificOverlay(page, 'overlay-charsheet');
+      }
+    } else {
+      log(`[probe:loot ${tag}] inventory empty — combat may not have fired yet or drops are 0`);
+    }
+  } catch (err) {
+    log(`[probe:loot ${tag}] WARN: ${err.message}`);
     await closeOverlay(page).catch(() => {});
   }
 }
@@ -1759,6 +1859,7 @@ async function runFullPanelSimulation(page, tag, g, picks) {
     await dismissOverlays(page);
     await probeCamp(page, tag, g);
     await probeInventory(page, tag);
+    await probeLoot(page, tag);
   }
   if (picks > 0 && picks % 80 === 0) {
     await probeShop(page, tag, g);
@@ -1780,6 +1881,8 @@ async function runFullPanelSimulation(page, tag, g, picks) {
   if (picks === 50) {
     await dismissOverlays(page);
     await probeCombatBranches(page, tag, _combatMode);
+    await dismissOverlays(page);
+    await probeLoot(page, tag); // loot check after combat branches
   }
   // Block L — combat corridor probe: once per headed test run, at pick 27 of whichever family hits it first
   if (picks === 27 && !_corridorCombatProbeDone) {
@@ -1787,6 +1890,7 @@ async function runFullPanelSimulation(page, tag, g, picks) {
     await dismissOverlays(page);
     await probeCombatCorridor(page, tag);
     await dismissOverlays(page);
+    await probeLoot(page, tag); // loot check after corridor combat
   }
 }
 
@@ -1905,6 +2009,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   _familyAlignCount   = 0;
   _familyLevelupCount = 0;
   _familyLastLevel    = g.level || 1;
+  _masteryProbeDone   = false;
+  _lootProbeDone      = false;
 
   let picks            = 0;
   lastDeadEndPick      = -1;  // reset per family — picks restart at 0 each family
