@@ -11895,6 +11895,7 @@ function rollD20(skill, bonus) {
 
 function gainXp(amount) {
   G.xp = (G.xp || 0) + amount;
+  if (_awaitingLevelUp && !document.querySelector('.levelup-block')) _awaitingLevelUp = false;
   checkLevelUp();
 }
 
@@ -12582,6 +12583,7 @@ function modHP(n) {
 // ── XP AND LEVEL UP ──────────────────────────────────────
 function gainXP(n) {
   G.xp = (G.xp || 0) + n;
+  if (_awaitingLevelUp && !document.querySelector('.levelup-block')) _awaitingLevelUp = false;
   checkLevelUp();
 }
 

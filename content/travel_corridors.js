@@ -663,13 +663,13 @@
   // patrol_guard and border_enforcer are law enforcement — they route through
   // enterAuthorityConfrontation(), not enterCombat(). Excluded here.
   window.BIOME_ENCOUNTER_POOLS = {
-    plains:       ['shadowhands_watcher', 'road_bandit', 'house_shelk_operative'],
-    highland:     ['frontier_militia', 'road_bandit', 'shadowhands_watcher'],
-    coastal:      ['hired_muscle', 'road_bandit', 'shadowhands_watcher'],
-    mountain:     ['frontier_militia', 'village_thug', 'road_bandit'],
-    forest:       ['road_bandit', 'village_thug', 'hired_muscle'],
-    'ash-zone':   ['road_bandit', 'frontier_militia', 'hostile_debtor'],
-    'ice-locked': ['road_bandit', 'frontier_militia', 'shadowhands_watcher']
+    plains:       ['frontier_militia', 'hostile_debtor', 'guild_enforcer'],
+    highland:     ['iron_accord_enforcer', 'veteran_mercenary', 'frontier_militia'],
+    coastal:      ['dock_enforcer', 'smuggler_lookout', 'hired_muscle'],
+    mountain:     ['iron_accord_soldier', 'veteran_mercenary', 'iron_accord_enforcer'],
+    forest:       ['shadowhands_watcher', 'village_thug', 'red_hood_operative'],
+    'ash-zone':   ['road_bandit', 'hostile_debtor', 'faction_agent'],
+    'ice-locked': ['iron_accord_soldier', 'road_bandit', 'frontier_militia']
   };
 
   // ---------------------------------------------------------------------------
