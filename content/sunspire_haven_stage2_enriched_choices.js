@@ -686,6 +686,758 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // --- BATCH 2: +25 CHOICES ADDED 2026-05-29 ---
+
+  // MAGICAL KNOWLEDGE REGISTRY ANOMALIES (~7)
+
+  {
+    label: "Taldan's registry has two classification tiers for restricted knowledge. The second tier has no public entries.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'auditing magical knowledge registry tiers with Overseer Taldan Veyst');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Taldan sets the classification index on the reading ledge and opens it to the second tier — a section whose spine crease shows it is rarely opened from the outside. The tier exists as an internal notation cross-referenced only through convoy staging authorizations. Every entry is marked with a Guildheart-issued clearance code. None of those codes appear in any public index he can produce. The dry air off the high-plain moves through the registry window. The codes are real. Their public counterparts are not.`;
+        addJournal('Registry second tier — convoy staging authorization, Guildheart clearance codes missing from public index', 'evidence', `sun-taldan2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Taldan receives the query and routes it to his compliance review cycle before answering — the cycle requires fourteen days and a formal cross-reference audit from the requesting party. He explains this procedure without apology. Access to the second tier is suspended pending audit completion. The timing, he does not say, is not accidental. He sets the index back on the shelf with both hands, spine facing inward.`;
+        addJournal('Registry access suspended — compliance review triggered', 'complication', `sun-taldan2-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Taldan confirms the second tier exists and sets the authorization form on the reading ledge without opening it. The form has not been revised in eighteen months — he supplies this detail unprompted, running a finger across the document date. The last revision coincides with when the northern convoy pattern changed. He closes the form. He will not open the tier itself without a cross-registry authorization, but he has said everything else.`;
+        addJournal('Registry second tier confirmed — authorization form revision date matches convoy pattern shift', 'evidence', `sun-taldan2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The registry intake stamps run an unbroken sequence except for a three-week window six months ago.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'auditing Knowledge Registry intake stamp sequence for gaps');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The intake ledger runs sequentially — every submission given a stamped number in order — until a three-week gap where stamp numbers jump from 4,112 to 4,156. Forty-three submissions are missing from the sequence. Taldan pulls the intake manifest for those three weeks: the entries exist in the manifest log but carry no corresponding physical file in the reading stacks. The manifest notes them as "transferred — administrative relocation." No destination is listed. The transfers happened during the container calibration period.`;
+        addJournal('Registry intake: 43 missing files, transferred with no destination — during container calibration window', 'evidence', `sun-intake-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The intake ledger is a restricted working document — only registry staff read it in sequence. Taldan's junior archivist notes the request in her own log before replying. Registry sequence continuity is a staff quality-assurance matter, not a subject of external audit. The answer is brief and the pen keeps moving in her log. The entry will go to Taldan's morning report.`;
+        addJournal('Registry intake ledger — restricted document, query logged', 'complication', `sun-intake-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.lastResult = `Taldan opens the intake ledger without hesitation and runs his thumb along the stamp sequence until it jumps. He keeps his thumb at the gap. "Administrative relocation," he says. "That notation does not appear anywhere else in the seven-year ledger." He does not move his thumb. The gap runs three weeks and covers the same period as the container modification work. He closes the ledger with both hands.`;
+        addJournal('Registry intake gap: 3-week administrative relocation notation — unique in 7-year ledger', 'intelligence', `sun-intake-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Four entries in the restricted access log share the same charter reference number as the suppression requests.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'cross-checking restricted access log against suppression request charter references');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_taldan_veyst = true;
+        G.flags.sun_access_log_linked = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Taldan sets the restricted access log beside the suppression request stack and lets the comparison happen without narrating it. The charter reference number appears four times in the access log — each visit targeting the same sub-section of glyph countermeasure documentation. The visits preceded the suppression requests by one to three days. The party was reading what they later tried to suppress. Taldan's finger traces the dates in sequence. "They knew what they were asking for before they asked for its removal."`;
+        addJournal('Access log: charter ref visited glyph countermeasure docs 1–3 days before each suppression request — pre-mapped the targets', 'evidence', `sun-accesslog-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The restricted access log requires countersign from the registry's patron liaison before an external party reads it — this is not a discretionary rule, and Taldan explains it with the precision of someone who has explained it many times. The patron liaison is available on third-bell days only. Today is not a third-bell day. The window is logged and closed.`;
+        addJournal('Restricted access log — patron liaison countersign required, not available today', 'complication', `sun-accesslog-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.lastResult = `Taldan holds the access log open to the charter reference entries while you compare dates against the suppression request stack. The references align — access visits, then suppression requests, same material, same charter number. He sets the log flat. "The party accessed the material. Then tried to ensure no one else could." He squares the log with the desk edge and does not say what that sequence of events suggests. He doesn't need to.`;
+        addJournal('Access log dates precede suppression requests — party accessed then attempted to suppress same documents', 'intelligence', `sun-accesslog-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The registry's physical glyph-ward seals were upgraded after the suppression requests arrived.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'examining glyph-ward seal upgrade timeline at Knowledge Registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The ward seals on the registry's reading-room door are new — the resin is paler than the stone surround, not yet darkened by the altitude-damp that greys everything else in Sunspire. A ward craftsman's date mark is pressed into the seal base: four months ago, one week after the first suppression request arrived. Taldan had the seals upgraded not to comply with the pressure but to protect the collection from a different kind of access. The seals block glyph-assisted extraction, not physical entry.`;
+        addJournal('Registry ward seals upgraded 1 week after first suppression request — Taldan blocked glyph-assisted extraction proactively', 'evidence', `sun-wards-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Registry maintenance records are working documents — not available for external review. A craftsman near the door asks if there is a fault with the seals and writes something in a maintenance log when the answer involves anything other than "no." The entry will go to the registry's patron liaison. The seal resin near the door frame is paler than the surrounding stone and does not explain itself.`;
+        addJournal('Ward seal maintenance records not available — query logged', 'complication', `sun-wards-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.lastResult = `Taldan gestures toward the reading-room door without leading the eye directly to the seals. "The wards were upgraded four months ago. I commissioned it through the craftsman registry." The resin is visibly newer than the stonework around it. He sets his hand on the door frame beside the seal rather than on the seal itself. He does not explain the timing. The first suppression request arrived five weeks before the upgrade.`;
+        addJournal('Registry ward upgrade commissioned 4 months ago — new resin visible, timing near suppression request period', 'intelligence', `sun-wards-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Two researchers applied for restricted section access the same week. Both withdrew applications without explanation.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing withdrawn restricted access applications at Knowledge Registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Taldan opens the application register to the withdrawal entries — both researchers, same week, no notation beyond "applicant rescinded." He sets a finger on one name. "Orvaith is one of them." His finger does not move. The second name is Cira Lunne, a materials analyst whose patron funding lapsed at the same time Orvaith's research went quiet. Both researchers were working adjacent topics: glyph pressure behavior in enclosed cargo environments. The withdrawal week coincides with the third suppression request.`;
+        addJournal('Two researchers — Orvaith and Lunne — withdrew restricted access applications same week as 3rd suppression request', 'evidence', `sun-withdrawals-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Application records are confidential by registry protocol — a researcher's withdrawal is their private decision, and its disclosure to external parties requires the researcher's written consent. Neither researcher has filed consent. Taldan explains this without variation from the procedure. The application register stays closed on the reading ledge while he speaks.`;
+        addJournal('Withdrawn application records confidential — researcher consent required', 'complication', `sun-withdrawals-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.lastResult = `Taldan opens the register to the relevant week without checking the index — he knows where it is. Two withdrawals, same week, no stated reason on either. He keeps the register open. "The withdrawal notation is standard. There is nothing in the record that says why." His thumb finds the spine. The date sits inside the window when the suppression pressure was most active.`;
+        addJournal('Two researcher withdrawals same week — no stated reason, timing inside peak suppression window', 'intelligence', `sun-withdrawals-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A cross-reference notation in the index points to a locality that doesn't correspond to any Sunspire district.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'tracing anomalous cross-reference notation in Knowledge Registry index');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_registry_crossref = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The cross-reference notation appears in eight index entries across the glyph countermeasure section — a two-letter locality code, "WH," that does not correspond to any Sunspire district or registry sub-collection. Running the code against the Roadwarden registry of waypoints produces one match: Watchers Perch Halt, a northern transit rest-point two days' convoy travel from Sunspire. The cross-reference was added during the suppression period. Someone was routing registry materials through a Roadwarden-designated convoy waypoint.`;
+        addJournal('Registry cross-ref "WH" = Watchers Perch Halt — convoy waypoint linked to 8 glyph countermeasure entries during suppression period', 'evidence', `sun-crossref-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The index notation requires the classification key to decode — without it, the two-letter code is ambiguous. The classification key is a restricted reference held by the Overseer's office. Taldan is not in the building. His junior archivist can provide the key on his authorization only. The wind off the high-plain moves through the registry window and the index sits open at the anomalous entry while she explains procedure.`;
+        addJournal('Registry cross-reference code undecoded — classification key requires Overseer authorization', 'complication', `sun-crossref-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_registry_crossref = true;
+        G.investigationProgress++;
+        G.lastResult = `The two-letter code "WH" appears in eight index entries, all within the glyph countermeasure sub-collection, all added in the same period. The standard locality codes Sunspire uses are three letters. This one is shorter and appears in no Sunspire district mapping. Whatever it refers to is outside the usual index structure. The entries it appears in are the same eight that drew the most persistent suppression pressure.`;
+        addJournal('Unknown 2-letter cross-reference "WH" in 8 high-pressure suppression targets — outside standard locality code system', 'intelligence', `sun-crossref-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The registry's copy of the Northern Charter Accord is missing its third annex entirely.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'auditing Northern Charter Accord holdings in Knowledge Registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The Accord's binding is intact and its index lists three annexes — but where the third annex should start, the folios skip from 84 to 112. Twenty-eight pages, gone cleanly. The pages were not torn; the stitching along the spine gap is continuous without a stub. Taldan's intake log shows the third annex as received in full when the collection was catalogued eleven years ago. Someone removed the folios after intake, with access to both the document and the stitching tools to close the binding afterward. The third annex covers cross-locality glyph authority jurisdiction — who has the right to suppress glyph knowledge in transit.`;
+        addJournal('Northern Charter Accord: third annex removed — covered cross-locality glyph authority jurisdiction, pages 84–112 missing', 'evidence', `sun-accord-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The Accord is in the reading section reserved for charter reference materials — access requires a charter-party endorsement to remove it from the reading shelf. Asking after specific annexes without endorsement produces a notation in the access log rather than a document. The junior archivist is already writing the time before the question has resolved.`;
+        addJournal('Northern Charter Accord access — charter-party endorsement required, query logged', 'complication', `sun-accord-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.lastResult = `The Accord's binding runs from page 1 to 84, then skips to 112. The index lists a third annex. Taldan sets the document flat and opens it to the gap without directing attention to it. "I noticed this during a routine collection check. The intake record shows the document as received complete." He does not say when he noticed. He sets the Accord square with the reading ledge and waits.`;
+        addJournal('Northern Charter Accord: binding gap at pages 84–112, third annex listed but absent — Taldan aware', 'intelligence', `sun-accord-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // NPC ENCOUNTERS (~7)
+
+  {
+    label: "Elyra's forest patrol routes avoid the northern staging road entirely.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'observing Elyra Mossbane patrol route pattern');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_elyra_mossbane_sun = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Elyra sets the patrol log on the desk and exhales through her nose — small, controlled — before she opens it. Every route for the past five months curves east of the northern staging road by at least two hundred meters. She taps the margin notation beside the first diverted route: "convoy activity, access not advised." She has written this notation forty-one times. "I was told the road was under charter-maintenance exclusion. The exclusion order does not appear in any maintenance record I can locate." Her thumb presses flat against the cover.`;
+        addJournal('Elyra patrol routes: 41 diversions east of northern staging road — charter maintenance exclusion order not verifiable', 'evidence', `sun-elyra3-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Elyra's thumb closes over the patrol log before it opens. "Patron-family route planning is a working document — the decisions in it are operational, not archival." She exhales through her nose, small and controlled. "The northern staging road is in active use. The routes around it are as documented." She sets the log on the shelf behind her and keeps her back to it for the remainder of the exchange.`;
+        addJournal('Elyra patrol log access declined — operational document, not archival', 'complication', `sun-elyra3-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_elyra_mossbane_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Elyra holds the patrol log open without pointing at the relevant sections. The routes on the page curve away from the northern staging road — it is visible in the route line itself, the drawn path bending east. "Charter activity on that road means I route my people around it." She closes the log with one hand. "I have not been told when the charter activity ends."`;
+        addJournal('Elyra patrol routes curve east of northern staging road — charter activity ongoing, no end date given', 'intelligence', `sun-elyra3-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Kael's machinery logs have a gap during the last three convoy cycles.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'auditing Kael Emberthrone machinery log continuity');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_kael_emberthrone = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Kael sets the machinery log on the workbench and turns it to the gap without being asked to. Three convoy cycles, twelve days each — no maintenance entries, no equipment check stamps, no daily notation. The bench beside him carries a fresh stamp pad, still capped. "During the charter period, I was told the logs were being maintained centrally." He taps the gap with a caliper handle. "I never saw the central logs. I do not know if they exist." He does not look away from the gap.`;
+        addJournal('Machinery logs: 36-day gap across 3 convoy cycles — "central logging" claimed but logs never seen', 'evidence', `sun-kaellog-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Kael wipes both hands on the bench rag and does not reach for the log. "Syndicate machinery records are commercial property. I've said this already to someone else this week." He turns back to the bench and picks up the caliper. The log sits on the shelf above the workbench at a height where the gap in notation is not visible from the door. He has arranged the workshop so the relevant section is not casually visible.`;
+        addJournal('Machinery log access refused — syndicate commercial property, second inquiry this week', 'complication', `sun-kaellog-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_kael_emberthrone = true;
+        G.investigationProgress++;
+        G.lastResult = `Kael slides the machinery log to the edge of the bench where both of you can see it. He taps the gap with the caliper. "Three convoy cycles. No entries." He says this without explanation. The log is otherwise meticulous — daily notation, equipment check stamps, a consistent hand. The gap sits inside the container modification window. He sets the caliper down and waits for the next question without picking it back up.`;
+        addJournal('Machinery log gap: 3 convoy cycles with no entries — otherwise meticulous record, gap inside modification window', 'intelligence', `sun-kaellog-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Orvak keeps the adjudication docket locked after the second bell. Someone came after second bell.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'probing Orvak Strone after-hours docket access incident');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_orvak_strone = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Orvak squares the after-hours log against the desk edge before he opens it. The entry is three weeks old: a party presenting sealed charter documentation after second bell, requesting access to the container dispute docket. Orvak declined and logged the refusal in full — name, charter reference, time of request. The charter reference matches the subsidiary code. The name in the log is Dennov Cray. He presses his quill against the closed log. "I log everything after second bell. It is a habit I began when things started being logged in other people's offices."`;
+        addJournal('After-hours docket access attempt: Dennov Cray, charter subsidiary ref — Orvak declined and logged in full', 'evidence', `sun-orvakbell-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Orvak folds both hands over the desk before answering. "After-hours access records are adjudication office confidential — sharing them requires a formal evidentiary request filed through the Patron-Family council." He sets his quill square with the desk edge. The after-hours log is visible on the shelf behind him. He has not moved it, but he has also not indicated it.`;
+        addJournal('After-hours access records — adjudication confidential, formal request required', 'complication', `sun-orvakbell-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_orvak_strone = true;
+        G.investigationProgress++;
+        G.lastResult = `Orvak sets the after-hours log on the desk and opens it to the relevant entry without prompting. A party with sealed charter documentation came after second bell. He declined. The charter reference in his log matches the subsidiary code. He squares the log with the desk edge before closing it. "I record everything after second bell. It is a policy I applied before this specific situation arose." He does not say when the policy started.`;
+        addJournal('After-hours access attempt with subsidiary charter ref logged by Orvak — declined, fully documented', 'intelligence', `sun-orvakbell-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Jorva keeps the communal ledger locked after the second bell. The lock is new.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'examining Jorva Helmrune communal ledger security change');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_jorva_helmrune_sun = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Jorva squares the ledger against the desk edge before she sets her hand on the lock. The lock is new brass — the clasp plate still bright, no altitude-tarnish yet. "Someone entered the communal records room after second bell two months ago. I found entries flagged in the handler payment section — someone had folded a corner on the page with the external payment records." She sets both hands flat on the ledger. "I did not fold that corner. I do not fold corners." The lock was fitted the next morning.`;
+        addJournal('Communal ledger locked after after-hours entry 2 months ago — handler payment page found corner-flagged by unknown party', 'evidence', `sun-jorvalock-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Jorva's hand closes over the lock and stays there. "The communal ledger is under council access protocol. External queries about security procedures go to the full council." She squares the ledger corner to corner against the desk edge without releasing the lock. The exchange is closed before it opens. Her thumb remains on the lock plate.`;
+        addJournal('Communal ledger security — council access protocol, external queries escalated', 'complication', `sun-jorvalock-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_jorva_helmrune_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Jorva sets her hand on the new lock without pointing at it. "Two months ago, the records room was accessed after bell hours." She does not say by whom. She squares the ledger corner to corner. "I added the lock after. That is not unusual — it is what you do when you find a door open that should be closed." Her thumb rests on the clasp plate and does not leave it.`;
+        addJournal('Communal records room accessed after-hours 2 months ago — new lock added by Jorva, no identification of party', 'intelligence', `sun-jorvalock-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Taldan asked the Patron-Family council for oversight authority two months ago. It was denied.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'documenting Taldan Veyst oversight authority request and denial');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_taldan_veyst = true;
+        G.flags.sun_taldan_oversight_denied = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Taldan sets the request filing on the reading ledge — he has not filed it away. The petition asked the Patron-Family council to extend registry oversight authority to include transit cargo documentation held under charter exemption. The denial came in writing, signed by two council members, citing "charter sovereignty of transit records." The signing council members' names appear on two of the charter subsidiary entry documents in Orvak's adjudication file. Taldan keeps his finger on one name. "I found that correspondence after the denial arrived."`;
+        addJournal('Taldan oversight petition denied by council members — same names sign subsidiary charter entries in Orvak file', 'evidence', `sun-taldanoversight-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Taldan sets his hands flat on the reading ledge and exhales. "A petition to the Patron-Family council is a council matter from the moment it is filed. I cannot discuss the substance of a pending or resolved petition with an outside party without council authorization." He opens the classification index and begins working. The petition filing is visible in the outbox tray behind him, not yet archived, spine out.`;
+        addJournal('Taldan declined to discuss council petition — council matter, outside party restriction', 'complication', `sun-taldanoversight-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_taldan_veyst = true;
+        G.investigationProgress++;
+        G.lastResult = `Taldan pulls the denial letter from his outbox without prompting. Two months ago, denied. "Charter sovereignty of transit records" — he reads the phrase aloud and sets the letter square with the reading ledge. "That phrase does not appear in any charter I can locate." He closes the denial. The petition is still in the tray behind him, not yet archived. He has not decided what to do with it.`;
+        addJournal('Taldan oversight petition denied — "charter sovereignty of transit records" phrase not found in any charter', 'intelligence', `sun-taldanoversight-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Elyra knows the researcher Orvaith. She has not said so until now.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'cross-examining Elyra Mossbane on Lenn Orvaith connection');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_elyra_mossbane_sun = true;
+        G.flags.sun_elyra_orvaith_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Elyra exhales through her nose — small, controlled — and keeps her thumb on the logbook spine. "Orvaith was my field monitoring contact for glyph pressure readings. He ran the portable gauge before I adapted my own." She has not said this in any previous conversation. "He sent me his final dataset two weeks before his research went quiet. I have not forwarded it anywhere because I do not know who forwarded it last time." Her thumb does not lift. The dataset is what sent his dispute into withdrawal.`;
+        addJournal('Elyra was Orvaith\'s field monitoring contact — holds his final dataset, withheld for security', 'evidence', `sun-elyraorvaith-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Elyra's hand closes the logbook and sets it on the shelf behind her. "I have said what I can say about patronage portfolio researchers." Her exhale is small and controlled. The deliberateness of her posture increases — each movement a degree more precise. She has decided something, and the decision is that the conversation is finished.`;
+        addJournal('Elyra declined further discussion of Orvaith — logbook moved from desk', 'complication', `sun-elyraorvaith-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_elyra_mossbane_sun = true;
+        G.investigationProgress++;
+        G.lastResult = `Elyra exhales through her nose — small, controlled — and keeps her thumb on the spine. "I knew him. We worked in proximity on field data." She does not elaborate. "He sent me materials before the withdrawal. I have them." She does not say what the materials are or where they are kept. The logbook stays closed under her hand and she waits.`;
+        addJournal('Elyra knew Orvaith, received materials before his withdrawal — will not specify contents or location', 'intelligence', `sun-elyraorvaith-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Kael recognized the modified container specs from prior work — he built similar insulation for Guildheart.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'tracing Kael Emberthrone prior Guildheart commission connection');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_kael_emberthrone = true;
+        G.flags.sun_kael_guildheart_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Kael wipes both hands on the bench rag and sets it down carefully. "Three years ago, I built signal-damping insulation for a Guildheart transport commission. Different dimensions but same material layering — compressed mineral damping medium, glyph-scored face plates." He pulls a sketch from under the bench without being asked. "When the new commission arrived, the spec notation was in the same hand as the Guildheart commission. I recognized the abbreviation system." He sets the sketch beside the new commission. The hand is identical.`;
+        addJournal('Kael: Sunspire commission spec hand matches 3-year-old Guildheart commission — same operator, same abbreviation system', 'evidence', `sun-kaelguild-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Kael's hand finds the caliper before he answers — turns it once, sets it down. "Commission origin details are syndicate commercial confidential. Previous commissions are not public record." He does not elaborate and does not pick up the caliper again. The bench between you has a sketch face-down on the far end that he has not acknowledged.`;
+        addJournal('Kael declined prior commission comparison — commercial confidential', 'complication', `sun-kaelguild-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_kael_emberthrone = true;
+        G.investigationProgress++;
+        G.lastResult = `Kael sets the caliper down and exhales. "The spec notation matched something I'd built before. Different size, same layering logic." He does not say who the prior commission was for. He taps the new commission spec with one finger. "When you see the same abbreviation system twice, you know it's the same desk." He picks up the caliper and goes back to the bench, which closes the conversation.`;
+        addJournal('Kael: new commission spec matches prior work abbreviation system — same operator, origin undisclosed', 'intelligence', `sun-kaelguild-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // NORTHERN CONVOY STAGING ROUTES (~5)
+
+  {
+    label: "The northern staging road has two waypoints that don't appear on the Roadwarden's public map.",
+    tags: ['Convoy', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'cross-checking northern staging road against Roadwarden public waypoint map');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_staging_waypoints_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The Roadwarden's public map and the convoy handler's internal route sheet differ by two waypoints. The first is a timber-frame rest stop three hours north — marked on the handler sheet as "WH-1, charter maintenance." The second, six hours further, is marked "WH-2, inspection hold." Both use the same "WH" designation from the registry cross-reference index. The public map shows uninterrupted forest corridor across both locations. The waypoints exist as operational infrastructure without a public record.`;
+        addJournal('Northern staging road: 2 unlisted waypoints WH-1 and WH-2 — match registry cross-reference "WH" code', 'evidence', `sun-waypoints-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The Roadwarden post at Sunspire's north gate handles waypoint map queries only during first-bell hours. This is not first-bell. The warden on duty logs the query and notes it for the morning officer. The convoy handler's internal route sheet is syndicate property and not available for comparison. Wind carries the smell of pine resin off the upper branches, steady and cold at this elevation.`;
+        addJournal('Waypoint map query — first-bell hours only, query logged for morning officer', 'complication', `sun-waypoints-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_staging_waypoints_found = true;
+        G.investigationProgress++;
+        G.lastResult = `The public map and the handler's route sheet don't match — two stops on the handler's sheet don't appear on the public version. One is marked "WH-1," the second "WH-2," both using a designation that doesn't correspond to any Roadwarden waypoint code in the index. The public map shows forest at both locations. Whatever the waypoints are, they are maintained under a separate notation system.`;
+        addJournal('Two unlisted waypoints WH-1 and WH-2 on handler route sheet — not on public Roadwarden map', 'intelligence', `sun-waypoints-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The convoy weight declarations at the north gate averaged four hundred pounds under actual load.",
+    tags: ['Convoy', 'Stage2'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'cross-referencing north gate weight declarations against axle-load records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_weight_underreport = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The axle-load impressions in the northern staging road are compressed to a depth the Roadwarden infrastructure guide sets at eight hundred to eleven hundred pounds per axle. The weight declarations filed at the north gate for the same convoy window average four hundred to five hundred. Pelsa, the warden, sets the two figures side by side on the station desk without speaking. The declarations were filed under the 7-F diplomatic exemption, which requires no verification. The gap between declared and loaded weight is the size of the suppression compound shipment.`;
+        addJournal('Axle impressions show 800–1100 lb load vs 400–500 lb declarations — under 7-F exemption, no verification required', 'evidence', `sun-weight2-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Pelsa has the transit log under his arm before the comparison is proposed. "Active charter exemption records are Adjudicator-controlled during the review window. I cannot provide axle-load comparison access." He stamps a transit form without looking up. The road impression in the lane behind him — ruts from heavy wagon weight — is visible from the gate post but not from his desk.`;
+        addJournal('Weight comparison access refused — charter exemption review period, Adjudicator control', 'complication', `sun-weight2-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_weight_underreport = true;
+        G.investigationProgress++;
+        G.lastResult = `Pelsa opens the transit log without prompting and sets it beside the road infrastructure guide. The axle-load section gives a depth-to-weight table. He taps the rut depth column and then the declaration weight column. They do not agree. He does not say the discrepancy is intentional. He closes both documents and squares them with the station edge, which is its own kind of statement.`;
+        addJournal('Axle-load depth vs weight declaration mismatch — Pelsa demonstrated comparison without comment', 'intelligence', `sun-weight2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A convoy manifest had its origin locality listed as a locality that does not exist.",
+    tags: ['Convoy', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing false origin locality on convoy manifest');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_false_origin_manifest = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The manifest lists origin as "Creston Halt" — a locality name that does not appear in any Roadwarden registry, any charter map index, or any regional trade record in the Knowledge Registry's holdings. Taldan checks all three while you wait. The locality name is plausible — a transit rest-point or small settlement — but its absence from every georegistry suggests it was chosen precisely for that: familiar enough to pass a quick review, absent enough to prevent a trace. The shipment's actual origin cannot be reconstructed from the manifest.`;
+        addJournal('Convoy manifest origin "Creston Halt" — locality absent from all registries, plausible but untraceable', 'evidence', `sun-manifest-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Manifest verification requires the cargo's charter documentation — without it, a locality query against a single manifest entry is classified as a customs irregularity report, which triggers a formal hold and notification to the filing party. The notification goes to the charter address on the manifest. The filing party will know within two days. The procedure applies to every manifest query, without exception.`;
+        addJournal('Manifest locality verification — triggers irregularity report and charter notification, procedure unavoidable', 'complication', `sun-manifest-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_false_origin_manifest = true;
+        G.investigationProgress++;
+        G.lastResult = `Three registries checked — no Creston Halt in any of them. The manifest origin is a locality name that sounds functional but leaves no trace. Taldan sets the manifest flat. "This is not an error. Errors produce a name that exists but is wrong. This name simply does not exist." He squares the document. The cargo cleared the gate regardless because the 7-F exemption waived origin verification.`;
+        addJournal('Manifest origin locality nonexistent across 3 registries — 7-F exemption waived verification', 'intelligence', `sun-manifest-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The staging yard's loading crane was rented from an outside party for the modification period.",
+    tags: ['Convoy', 'Stage2'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'tracing staging yard equipment rental for container loading period');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_crane_rental_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The crane rental agreement is in the communal equipment registry — Jorva has it filed under infrastructure lease, squared corner to corner in the appropriate binder. The renting party is listed as the charter subsidiary. The crane's rated capacity: twelve hundred pounds. The rental period exactly spans the container loading window. A crane rated at twelve hundred pounds was brought to Sunspire to lift containers declared at under five hundred pounds each. Jorva sets the lease on the desk and keeps a hand on each corner.`;
+        addJournal('Crane rental by charter subsidiary — 1200 lb capacity for containers declared under 500 lb each', 'evidence', `sun-crane-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Infrastructure lease records are communal property — access requires council authorization during an active lease period. The crane rental is listed as still active in the equipment registry, which classifies it as a live commercial agreement. External queries during active agreements require council countersign. Jorva squares the registry closed and sets her hand on the cover.`;
+        addJournal('Crane lease records — active agreement, council countersign required', 'complication', `sun-crane-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_crane_rental_traced = true;
+        G.investigationProgress++;
+        G.lastResult = `Jorva opens the equipment registry and squares the crane lease entry against the desk edge before reading it aloud. Rented by the charter subsidiary, same period as the container work. She sets the rated capacity figure beside the declared container weight figures. "The crane is rated for considerably more than the declared cargo weight would require." She closes the registry. She has done the arithmetic already.`;
+        addJournal('Crane rental: charter subsidiary, rated capacity exceeds declared container weights by 2.4x', 'intelligence', `sun-crane-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Three convoy drivers took the same unusual northern deviation on their last run. None filed a route report.",
+    tags: ['Convoy', 'Stage2'],
+    xpReward: 69,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(69, 'locating convoy drivers who took undocumented northern deviation');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_drivers_testimony = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `One driver agrees to speak — Nevel, a wide-shouldered woman who keeps her route token on the table between you and rotates it once before answering anything. The deviation was mandatory, not optional — the convoy was met at the staging yard's north exit by a handler with a charter override card and rerouted to a waypoint stop not on the standard map. The waypoint had its own loading infrastructure already in place. "We offloaded part of the containers there. Reloaded something different." She rotates the token again. "We were told it was a redistribution stop. I have run forty routes. There are no redistribution stops on that road."`;
+        addJournal('Driver Nevel: convoy rerouted by charter override to unmapped waypoint — partial offload and reload of unknown materials', 'evidence', `sun-drivers-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `All three drivers are working routes today. The staging yard's dispatch office notes the query and adds it to the driver interview queue — standard procedure when an outside party asks about individual driver routes. The queue review happens quarterly. The dispatch clerk writes the date and nature of the query with a practiced hand and does not look up afterward.`;
+        addJournal('Driver route query routed to quarterly review queue — dispatch clerk logged inquiry', 'complication', `sun-drivers-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_drivers_testimony = true;
+        G.investigationProgress++;
+        G.lastResult = `Nevel rotates the route token once before speaking. "We were rerouted. Charter override, north of the standard exit." She sets the token flat. "The stop was not on any map I carry. There was loading equipment already there." She does not say what was loaded or offloaded. She picks up the token and pockets it, which closes the subject. She has said more than she planned to when she sat down.`;
+        addJournal('Driver confirms charter-override reroute to unmapped waypoint with pre-placed loading equipment', 'intelligence', `sun-drivers-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // SUPPRESSION COMPOUND THEORETICAL BASIS (~4)
+
+  {
+    label: "The suppression compound requires glyph pressure at a specific saturation threshold to activate.",
+    tags: ['Arcane', 'Stage2'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'cross-referencing suppression compound activation conditions from Orvaith workspace data');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_compound_theory_advanced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Orvaith's workspace slate board carried a threshold number that connects to a broader activation model: the compound does not suppress at ambient glyph pressure levels. It requires external glyph pressure applied to the container as an activation mechanism, creating a pressure-locked delivery system. The containers ship inert. Someone at the destination applies pressure — not countermeasure pressure but initiation pressure — and the compound activates. The calibration work at Sunspire was setting the precise pressure range required for initiation without premature activation during transit.`;
+        addJournal('Compound activation: pressure-locked delivery — inert in transit, initiates under applied glyph pressure at destination', 'evidence', `sun-compound-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The theoretical framework requires the full dataset to resolve — without Orvaith's complete research materials, the threshold calculation from the slate board is an isolated data point. The slate board's half-erased figures could support multiple interpretations. Dry wind moves through the workspace eave gap and the residue-clouded glass vessels on the bench catch no light at this angle.`;
+        addJournal('Compound activation theory inconclusive — incomplete dataset, multiple interpretations possible', 'complication', `sun-compound-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_compound_theory_advanced = true;
+        G.investigationProgress++;
+        G.lastResult = `The slate board threshold and the container calibration specs from the sealed bay point in the same direction: an activation mechanism that requires external glyph pressure applied within a specific range. The compound stays inert below the threshold. Applied at calibration range, it activates. The Sunspire calibration work was precision work — not rough approximation but exact threshold-setting to prevent transit activation.`;
+        addJournal('Container calibration sets activation threshold — compound inert below range, activates under precise applied pressure', 'intelligence', `sun-compound-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The materials in the containers are not a weapon. They are a suppression agent for active glyph wards.",
+    tags: ['Arcane', 'Stage2'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'synthesizing compound purpose from registry and workspace evidence');
+      if (!G.flags) G.flags = {};
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (G.investigationProgress < 6) {
+        G.lastResult = `The theoretical framework is not yet closed. The compound's purpose requires cross-referencing the container specs, the registry's suppressed documentation, and Orvaith's dispersal research — and not all of those threads are in hand yet. The pine resin smell from the timber yard carries on the altitude wind through the corridor. There is more to follow before this conclusion can be reached.`;
+        return;
+      }
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_compound_purpose_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The full picture: glyph wards are maintained at localities through standing pressure arrays. The suppression compound, when activated at calibration threshold, disperses through enclosed spaces and disrupts the ward-maintenance frequency — not destroying wards, but causing them to degrade at an accelerated rate without triggering a visible attack signature. A locality's ward infrastructure fails over weeks, appearing as natural attrition. The party suppressed the countermeasure documentation specifically because the countermeasures would make the degradation visible and reversible.`;
+        addJournal('Compound purpose: ward-maintenance frequency disruption — staged degradation, no attack signature, suppressed countermeasures make it detectable', 'evidence', `sun-purpose-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The synthesis requires Orvaith's complete dispersal dataset to confirm — without it, the purpose identification is hypothesis supported by partial evidence. The threshold calculations, the container specs, the suppressed documentation all point in the same direction, but the confirmation requires a closed chain that one missing dataset prevents. The altitude wind moves through the corridor, cold and steady.`;
+        addJournal('Compound purpose synthesis incomplete — Orvaith dispersal dataset required for confirmation', 'complication', `sun-purpose-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_compound_purpose_identified = true;
+        G.investigationProgress++;
+        G.lastResult = `The evidence threads converge: a compound that disrupts glyph ward maintenance frequencies, delivered in sealed containers, calibrated to activate under specific pressure, documented to suppress countermeasure research. The result is ward degradation over weeks — slow enough to appear as maintenance attrition, traceable only if you know what the countermeasures were designed to find. The suppression campaign removed the detection tools before the compound shipped.`;
+        addJournal('Compound identified as ward-maintenance frequency disruptor — degradation mimics attrition, countermeasure suppression removed detection', 'evidence', `sun-purpose-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Altitude matters. The calibration required elevation — the compound behaves differently above the plateau line.",
+    tags: ['Arcane', 'Stage2'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'documenting altitude-dependency of suppression compound calibration');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_altitude_calibration = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Elyra's ecological pressure readings tell the second half of the story: glyph pressure readings at Sunspire's elevation run at approximately sixty percent of the sea-level baseline she uses for comparison. The compound's activation threshold in Orvaith's notes is calibrated to this lower ambient level. At sea level, the compound would activate prematurely from ambient glyph saturation alone. Sunspire's altitude was not incidental to the operation — it was a technical requirement. Only at this elevation could the containers be loaded, calibrated, and sealed without spontaneous activation.`;
+        addJournal('Altitude-dependency confirmed: compound requires low ambient glyph pressure for safe calibration — Sunspire elevation was technical requirement', 'evidence', `sun-altitude-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The altitude-pressure relationship requires Elyra's portable resonance gauge readings for quantification — without access to the unsubmitted dataset, the relationship is theoretical. The cold at this elevation keeps the breath visible and the pine resin smell sharp. The observational inference is supportable; the specific calibration dependency cannot be confirmed from the evidence in hand.`;
+        addJournal('Altitude calibration dependency inferred but not quantified — Elyra dataset access required', 'complication', `sun-altitude-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_altitude_calibration = true;
+        G.investigationProgress++;
+        G.lastResult = `The calibration bay is at Sunspire's highest point — maximum elevation within the settlement. The sealed bay's anchor spacing matches containers designed to hold a compound at rest at this altitude's ambient pressure. Lower elevation means higher ambient glyph saturation. A compound activated by applied pressure needs ambient saturation below its activation threshold during transit. Sunspire provides exactly that.`;
+        addJournal('Calibration bay at maximum elevation — altitude provides ambient pressure below activation threshold for safe transit', 'intelligence', `sun-altitude-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Orvaith's dispersal dataset is the only thing that can quantify the compound's effective radius.",
+    tags: ['Arcane', 'Stage2'],
+    xpReward: 77,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(77, 'establishing Orvaith dataset as critical missing evidence for compound radius');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_orvaith_dataset_critical = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The workspace glass vessels held dispersal medium in quantities that point to a full locality coverage test — not a room-scale experiment. Orvaith's container weight estimate of eight-fifty pounds corresponds to a dispersal volume sufficient to cover an enclosed locality district at Sunspire-scale elevation. Elyra holds the dataset. The dataset will confirm the coverage radius and determine whether a single container per district is sufficient or whether the multi-container convoy pattern suggests multiple simultaneous targets. The radius is the difference between a local incident and a coordinated campaign.`;
+        addJournal('Orvaith dataset critical: container volume suggests district-scale dispersal — radius determines single vs. coordinated target scope', 'evidence', `sun-radius-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Dispersal radius calculation requires the complete reagent formulation and the ambient pressure measurements from Orvaith's field work — neither is available without the dataset. The calculation from the workspace evidence alone produces an error range too wide to be operational. The glass vessels on the workspace bench are clouded and sealed and remain so.`;
+        addJournal('Dispersal radius incalculable from available evidence — Orvaith dataset required', 'complication', `sun-radius-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_orvaith_dataset_critical = true;
+        G.investigationProgress++;
+        G.lastResult = `Container volume at eight-fifty pounds, combined with the dispersal medium residue profile from the workspace vessels, gives an approximate radius: large enough to cover a locality district at this elevation. Sufficient for meaningful ward disruption across an inhabited area, not just a single building. The dataset would confirm whether that estimate is conservative or accurate. Elyra has the dataset and has not yet said whether she will share it.`;
+        addJournal('Estimated dispersal radius: locality-district scale — Elyra dataset would confirm, not yet offered', 'intelligence', `sun-radius-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // CROSS-LOCALITY THREADS (~2)
+
+  {
+    label: "The charter subsidiary that commissioned the containers holds a registered address in Guildheart.",
+    tags: ['CrossLocality', 'Stage2'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'tracing charter subsidiary registration address to Guildheart');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_guildheart_link = true;
+        G.flags.sun_local_agent_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Orvak's adjudication records carry the subsidiary's registered address in full: a charter office district address in Guildheart, filed with the Guildheart Commerce Registry under a registration date that is eleven months old. The subsidiary was created eleven months ago — four months before the suppression requests arrived at Sunspire, five months before the container modification work began. It was established specifically for this operation, with enough lead time to create a paper history. Dennov Cray, the local agent, signed the Sunspire entry documents. His Guildheart address matches the subsidiary's registration.`;
+        addJournal('Charter subsidiary: Guildheart address, 11-month-old registration — created 4 months before suppression requests, Cray address matches', 'evidence', `sun-guildheart-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Cross-locality charter registration queries require a formal request through the Guildheart Commerce Registry — a process that takes fourteen days minimum and notifies the registered party that a query has been filed. The notification is automatic. Filing means the subsidiary knows within a week that someone is tracing its registration. Orvak explains the notification rule without suggesting an alternative.`;
+        addJournal('Guildheart charter registration query — 14 days, party notified automatically, process unavoidable', 'complication', `sun-guildheart-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_guildheart_link = true;
+        G.investigationProgress++;
+        G.lastResult = `The subsidiary's registered address is in Guildheart — visible on the adjudication record's filing header, not protected by confidentiality because it is a commercial public registration. Orvak leaves the document open where the address is legible. "Registered addresses are public charter record," he says, closing the file with both hands once the information has been read.`;
+        addJournal('Charter subsidiary registered in Guildheart — address visible on public adjudication filing header', 'intelligence', `sun-guildheart-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The same suppression pattern appeared at a locality two weeks north of here before it appeared at Sunspire.",
+    tags: ['CrossLocality', 'Stage2'],
+    xpReward: 79,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(79, 'cross-referencing Sunspire suppression pattern against prior locality records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.sun_prior_locality_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Taldan pulls a northern circuit Knowledge Registry correspondence file and opens it to a letter from the Watchers Perch Halt registry post, dated two months before Sunspire's first suppression request. The post describes an identical pattern: multiple requests from a nonexistent regulatory authority targeting glyph countermeasure documentation. The Watchers Perch registry complied — the requests were filed with sealed charter documentation and the post had no oversight authority to refuse. The suppression at Sunspire is the second wave. The first wave succeeded.`;
+        addJournal('Watchers Perch Halt registry: identical suppression pattern 2 months prior — they complied, Sunspire was second target', 'evidence', `sun-priorloc-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Cross-locality correspondence is archived under the northern circuit filing index — accessible only to registered registry staff or parties with a patron-family endorsement. The correspondence with Watchers Perch and other northern posts is in that archive. Taldan indicates its location without opening it. Access to it requires paperwork he does not currently have the authority to waive.`;
+        addJournal('Northern circuit correspondence archive — patron-family endorsement required for external access', 'complication', `sun-priorloc-fail-${G.dayCount}`);
+      } else {
+        G.flags.sun_prior_locality_link = true;
+        G.investigationProgress++;
+        G.lastResult = `Taldan opens the northern circuit correspondence file to a Watchers Perch letter, two months old. The post there received suppression requests that match the Sunspire pattern — same fake regulatory authority, same targeted documentation category. Taldan sets the letter beside his own suppression file. "They acted before reaching us. Whether they succeeded there, I cannot say from this correspondence alone."`;
+        addJournal('Watchers Perch received identical suppression requests 2 months before Sunspire — prior locality targeted first', 'intelligence', `sun-priorloc-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // FINALE (unchanged, kept at end)
   {
     label: "Sunspire is an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
