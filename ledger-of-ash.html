@@ -11998,7 +11998,8 @@ function handleChoice(choice) {
     if (typeof advanceFactionClocks === 'function') advanceFactionClocks(1);
     addNarration(enc.title, enc.text);
     // Set corridor state so nextEncounter can call resolveArrival(dest) correctly
-    if (G.flags) { G.flags._corridor_dest = destId; G.flags._corridor_encounters_remaining = 0; G.flags._corridor_encounters_queue = []; }
+    // _corridor_from/_to are needed by _makeCombatChoice() to resolve biome for enemy pool
+    if (G.flags) { G.flags._corridor_dest = destId; G.flags._corridor_from = G.location; G.flags._corridor_to = destId; G.flags._corridor_encounters_remaining = 0; G.flags._corridor_encounters_queue = []; }
     const _cEnc = typeof window._wrapEncounterChoices === 'function' ? window._wrapEncounterChoices(enc.choices, destId) : enc.choices;
     setTimeout(() => renderChoices(_cEnc), 300);
     return;

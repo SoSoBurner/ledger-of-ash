@@ -1751,11 +1751,13 @@ async function probeCombatCorridor(page, tag) {
       await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 5000 }).catch(function() {});
       await page.waitForTimeout(800);
 
-      // Travel via corridor function — this fires encounter rolls
+      // Force a biome-appropriate combat encounter directly — avoids probabilistic _travelCoreTravelTo roll
       await page.evaluate(function(dest) {
         try {
-          if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(dest);
-          else if (typeof travelTo === 'function') travelTo(dest);
+          var biome = (typeof window.getBiomeForRoute === 'function') ? window.getBiomeForRoute(dest, G.location) : 'plains';
+          var pool = (window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[biome]) || ['road_bandit'];
+          var enemy = pool[Math.floor(Math.random() * pool.length)];
+          if (typeof enterCombat === 'function') enterCombat(enemy, { isBoss: false });
         } catch (_) {}
       }, route.to).catch(function() {});
 
