@@ -11425,6 +11425,18 @@ function loadStageChoices(locId) {
     if (G.stage === 'Stage II' || G.stage === 'Stage III') {
       setTimeout(function() { if (typeof checkStageAdvance === 'function') checkStageAdvance(); }, 50);
     }
+    // Zero-choice fallback: prevent dead-ends when fallback path leaves panel empty
+    setTimeout(function() {
+      var _active = document.querySelectorAll('#action-content .choice-btn:not([disabled])');
+      if (_active.length === 0 && G && !G.dead) {
+        renderChoices([{
+          id: 'fallback_pause',
+          text: 'Hold position. The situation needs a clearer read.',
+          tag: 'safe',
+          action: function() { if (typeof advanceTime === 'function') advanceTime(1); loadStageChoices(); }
+        }]);
+      }
+    }, 300);
   }
 }
 
