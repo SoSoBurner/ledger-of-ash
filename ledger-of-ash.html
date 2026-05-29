@@ -10988,7 +10988,8 @@ function adaptEnrichedChoice(c) {
         if (G && G._pendingDcReduce) G._pendingDcReduce = 0;
         var _gTotal = _gRoll + _gVal;
         var _gFailed = _gTotal < _gDC;
-        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSk + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
+        var _gSkLabel = (typeof skillDisplay === 'function') ? skillDisplay(_gSk) : (_gSk.charAt(0).toUpperCase() + _gSk.slice(1));
+        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSkLabel + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
         _gateShown = true;
         if (_gFailed) {
           var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : (c.failResult ? String(c.failResult) : ''));
@@ -12003,7 +12004,8 @@ function handleChoice(choice) {
     const _rRoll = Math.floor(Math.random() * 20) + 1;
     const _rDiff = getChoiceDC(choice);
     const _rSuccess = (_rRoll + _rSkill) >= _rDiff;
-    addNarration('', '<div class="roll-result ' + (_rSuccess ? 'success' : 'failure') + '">d20: ' + _rRoll + ' + ' + choice.skill + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs DC ' + _rDiff + ' — ' + (_rSuccess ? 'Success' : 'Failure') + '</div>');
+    var _rSkillLabel = (typeof skillDisplay === 'function') ? skillDisplay(choice.skill) : (choice.skill || '');
+    addNarration('', '<div class="roll-result ' + (_rSuccess ? 'success' : 'failure') + '">d20: ' + _rRoll + ' + ' + _rSkillLabel + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs DC ' + _rDiff + ' — ' + (_rSuccess ? 'Success' : 'Failure') + '</div>');
     resolveRivalOutcome(_rIdx, _rOutcome, _rSuccess);
     return;
   }
