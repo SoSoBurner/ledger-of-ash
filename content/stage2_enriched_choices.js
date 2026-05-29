@@ -1,4 +1,4 @@
-﻿const STAGE2_ENRICHED_CHOICES = [
+const STAGE2_ENRICHED_CHOICES = [
   // ========== TRAVEL ENCOUNTERS: Mysterious Figures & Hazardous Routes ==========
   {
     label: "The cloaked trader on the Ridgeway has maps she isn't selling to everyone.",

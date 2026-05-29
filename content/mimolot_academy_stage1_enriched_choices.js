@@ -1,4 +1,4 @@
-﻿/**
+/**
  * MIMOLOT ACADEMY STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to knowledge, scholarship, and restricted truth
  * Generated for: Knowledge hoarding vs public truth, preservation vs dangerous revelation, authority vs questioning

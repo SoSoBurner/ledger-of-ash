@@ -1,4 +1,4 @@
-﻿/**
+/**
  * COSMORIA STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to maritime archives, shipwright trade, and personal ambition corruption
  * Generated for: Personal ambition vs collective trust, individual power weaponized, archives/records as control

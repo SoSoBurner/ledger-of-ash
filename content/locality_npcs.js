@@ -1,4 +1,4 @@
-﻿// locality_npcs.js — Per-locality tavern NPC conversations
+// locality_npcs.js — Per-locality tavern NPC conversations
 // C2: Sunweave (Shelkopolis), Tideglass (Cosmoria), Firesoul (Soreheim Proper)
 // ES5 only. No const/let in function bodies. No arrow functions. Use bare G (not window.G).
 

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ITHTANANALOR STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to martial structure, oath-binding, and honor
  * Generated for: Martial honor vs personal conscience, duty vs individual bond, order vs corruption

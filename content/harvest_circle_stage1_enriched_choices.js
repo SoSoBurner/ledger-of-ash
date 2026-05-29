@@ -1,4 +1,4 @@
-﻿/**
+/**
  * HARVEST CIRCLE STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to grain distribution, festival trade, and family-controlled commerce corruption
  * Generated for: Fair market exchange vs family duty, spoilage urgency vs quality care, festival unity vs economic pressure
