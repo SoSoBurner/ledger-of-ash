@@ -562,6 +562,555 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── ARRIVAL REGISTRY MANIPULATION (6 choices) ────────────────────────────
+
+  {
+    label: "Brokerwell's arrival registry has a secondary notation only transit-flagged entries carry.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing secondary notations in the arrival registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell sets the transit ledger flat on the ink-stained counter, open to the notation column. Seventeen entries in the last quarter carry a two-letter suffix — no corresponding definition in the margin key. He runs a finger along the column without touching the page. The suffix was added by a central registry directive six months ago, issued with no counter-signature. The entries it marks bypass the standard ward mediation step and route directly to a holding classification no follow-up audit ever checks.';
+        addJournal('Transit-flag suffix bypasses ward mediation — holding classification added by unsigned central directive, 17 entries last quarter', 'evidence', `uni-broker-transit-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The query touches something Brokerwell was not expecting. He closes the ledger before the page is fully visible, sets it under the counter, and logs the access attempt in a slim notebook he keeps separate from the official record. His pen does not pause. When he looks up, the desk between you is bare and his expression has gone careful. Any further query on transit-flagged entries will now route through a ward supervisor sign-off he cannot issue unilaterally.';
+        addJournal('Transit-flag ledger query logged separately — ward supervisor approval now required for further access', 'complication', `uni-broker-transit-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell confirms the secondary notation exists and leaves the ledger open just long enough. Seventeen entries in the last quarter. The notation pattern repeats at fixed intervals — not distributed at random across the calendar. He does not elaborate on what the suffix means. He does not need to. Fixed-interval timing on an undocumented notation category is its own kind of answer.';
+        addJournal('Secondary notation on 17 transit-flagged entries — fixed interval pattern, meaning undocumented', 'evidence', `uni-broker-transit-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The holding classification that swallows transit arrivals has no expiry column.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'auditing the holding classification in the arrival registry');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The holding classification ledger runs to nine pages. Every row has an arrival date, a party name, a cargo weight notation, and a routing designation. None has a release date. The column header for expiry exists — printed in the original ledger format — but every cell beneath it is blank. Cargo entered the holding classification and was never formally released. It simply stopped appearing in subsequent routing records. Brokerwell stands very still while you read this.';
+        addJournal('Holding classification: no entries have expiry dates — cargo routed in, never formally released, 9 pages of entries', 'evidence', `uni-broker-hold-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The holding classification ledger is listed in the index but physically absent from the archive drawer. A tag in the drawer reads "transferred for audit — central records." The transfer date is three days ago. The stamp is from an office that does not appear on the hall directory board. The empty drawer smells of fresh ink and recent handling.';
+        addJournal('Holding classification ledger transferred to unidentified central office three days ago', 'complication', `uni-broker-hold-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The holding classification column for expiry date is blank across every row Brokerwell will let you see. Four pages, dozens of entries, no release dates recorded. He keeps one hand on the ledger spine. "Standard procedure requires a release notation when a hold is lifted. I have never received one for any entry in that section." He closes the ledger. The stamp sounds of the outer registry fill the silence.';
+        addJournal('Holding classification entries never receive release notations — Brokerwell has no record of any hold being lifted', 'evidence', `uni-broker-hold-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Arrivals on the same sealed-charter parties cluster at three-week intervals across six months.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'cross-referencing charter party arrival intervals');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The arrivals fall on a twenty-one-day cycle without exception. Brokerwell pulls three months of ledger pages and lays them side by side on the counter. The pattern is immediate and exact: same charter designation, same weight-class notation, same ward routing code, every three weeks, for six months. No variation for weather, for market closures, for civic festival days. Whatever this movement is, it runs on a schedule maintained from outside Unity Square entirely.';
+        addJournal('Sealed-charter arrivals on exact 21-day cycle for 6 months — schedule maintained externally, impervious to local disruption', 'evidence', `uni-broker-cycle-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The registry pages are in order by arrival date, not by charter party. Pulling all entries for a single charter party would require access to the cross-reference index, which is stored in the ward administration annex on a separate request cycle. Brokerwell cannot pull it without a formal records order, which would be logged and reviewed. The pattern is there. The path to it is now slower and more visible.';
+        addJournal('Charter party cross-reference requires formal records order — query will be logged and reviewed by ward administration', 'complication', `uni-broker-cycle-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell does not have time to pull every page, but he marks the dates without being asked. Counting the gaps between marked entries: twenty or twenty-two days each, close enough to a fixed cycle to be deliberate. The weight-class notation repeats across all of them. He straightens the pages back into order and returns them to the archive without comment. The pattern is there for anyone who looks.';
+        addJournal('Charter party arrivals at ~21-day intervals, consistent weight-class notation across all entries', 'evidence', `uni-broker-cycle-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The counter-signature line on the central registry directive is blank — no issuing authority recorded.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'examining the unsigned central registry directive');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The directive is printed on the correct administrative stock, sealed with a wax impression that matches the Ward Oversight Committee format. The counter-signature line is blank. So is the issuing office designation. Brokerwell points to the seal without touching it. "I checked against the committee's active member roster when it arrived. None of them recognized it." He had documented this discrepancy in a personal note filed behind the directive. He kept the note because he did not know what else to do with it.';
+        addJournal('Central registry directive: correct seal format but no counter-signature, no issuing office — Oversight Committee members deny authorship', 'evidence', `uni-broker-directive-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Brokerwell cannot produce the original directive. It was filed in the ward administration central archive as required protocol on receipt. Retrieving it would require a records release request cosigned by the ward supervisor — a request that would flag the directive itself for review. The filing protocol that should protect the record is what makes it inaccessible now.';
+        addJournal('Original registry directive filed in ward central archive — retrieval requires cosigned release request, flags the directive for review', 'complication', `uni-broker-directive-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell keeps a copy in his personal archive, separate from the official filing. The counter-signature line is blank. The directive is dated and sealed, but no issuing office is named. He sets it on the counter and steps back. "I implemented it because the format was correct and the seal matched. I did not have a process for what to do when the authority line was empty." The paper smells of the same cedar-oil ink that all ward correspondence uses.';
+        addJournal('Registry directive copy: blank counter-signature and issuing office — Brokerwell implemented it due to correct format and seal', 'evidence', `uni-broker-directive-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Cargo weight notations in the flagged entries match suppression compound volume ranges.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'cross-checking cargo weights against suppression compound volumes');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The weight-class notations in the transit-flagged entries fall in a narrow band: between forty and sixty standard weight units per shipment. Brokerwell does not know what that means. You do. That range is consistent with bulk suppression compound in sealed transit canisters — the volume-to-weight ratio is specific enough that ordinary freight in that class would be listed differently. Seventeen shipments over six months. The total volume implied is not incidental. It is a sustained supply line.';
+        addJournal('Transit-flagged cargo weights (40–60 SWU) match suppression compound bulk volume — 17 shipments over 6 months, sustained supply line implied', 'evidence', `uni-broker-weight-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The weight notation column uses a non-standard abbreviation that does not appear in the hall\'s public reference index. Reading it requires the internal coding key, which is stored in the archive supervisor\'s office — closed for the afternoon administrative session. The numbers are visible. What they mean in standard terms is behind a door that will not open until tomorrow.';
+        addJournal('Weight notation abbreviations require internal coding key — archive supervisor office closed, access deferred', 'complication', `uni-broker-weight-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The weight-class notations are consistent across every transit-flagged entry — forty to sixty units, the same band, every shipment. Brokerwell does not know the significance. The consistency itself is what matters here: no ordinary mixed-freight consignment holds that range so tightly across seventeen separate movements over six months. Someone loaded these to a specification, not to capacity.';
+        addJournal('Transit-flagged entries all in 40–60 weight-unit band — loaded to specification, not capacity, across all 17 shipments', 'evidence', `uni-broker-weight-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A registry gap last quarter aligns exactly with a three-day ward security review.",
+    tags: ['Registry', 'Stage2'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'cross-referencing the registry gap with ward security review dates');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Three days in the second month of last quarter: no transit-flagged arrivals logged. The ward security review ran those exact days. Brokerwell has both records. The review was a routine compliance check, but its schedule was announced internally fourteen days in advance — long enough for anyone monitoring the hall to plan around it. Every transit-flagged shipment in the six-month record was scheduled away from the review window. Not one overlap.';
+        addJournal('Transit arrivals suspended for exact 3-day ward security review — all 17 shipments scheduled to avoid review window, 14-day advance notice exploited', 'evidence', `uni-broker-gap-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The security review records are archived under a separate administrative classification that requires a ward oversight signature to access — Brokerwell cannot produce them without triggering a review of why they\'re being pulled. The gap in the transit ledger is visible. The security review dates that would confirm it are behind a procedural wall.';
+        addJournal('Ward security review records require oversight signature — gap confirmed in transit ledger but review dates inaccessible', 'complication', `uni-broker-gap-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The transit ledger shows a three-day gap in the second month of last quarter. Brokerwell checks the hall schedule calendar: the ward security review occupied those exact days. He marks both dates without comment. Whether the gap is coincidence or planning, the alignment is exact and the security review\'s internal schedule was shared with all hall staff two weeks prior.';
+        addJournal('3-day registry gap aligns exactly with ward security review — internal schedule distributed 2 weeks in advance', 'evidence', `uni-broker-gap-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── WARD MEDIATION BYPASSES (5 choices) ──────────────────────────────────
+
+  {
+    label: "Ledgermere's bypass forms list a third party that doesn't appear in the ward directory.",
+    tags: ['Mediation', 'Stage2'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'tracing the third-party listing on bypass forms');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Ledgermere\'s mediation bypass forms carry a third-party oversight line that standard ward forms do not include. Every bypass in the last six months names the same entity in that line: "Compact Liaison Review." The name does not appear in the ward directory, the hall\'s institutional index, or the public registry of licensed mediation observers. Ledgermere has the form in his hand and is reading the entry as though seeing it for the first time, which is not possible.';
+        addJournal('Mediation bypass forms list "Compact Liaison Review" as third-party oversight — entity not in any ward or hall directory', 'evidence', `uni-ledge-bypass-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Ledgermere accepts the inquiry and writes a formal clarification request to the form-issuing office. The request is procedurally correct and will receive a procedurally correct response in seven to fourteen days. He hands you a receipt for the clarification request. The receipt is stamped and dated. The answer, when it arrives, will almost certainly say nothing useful.';
+        addJournal('Bypass form third-party query routed to formal clarification — 7–14 day response window, procedural answer likely', 'complication', `uni-ledge-bypass-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Ledgermere locates the bypass form template and sets it on the desk. The third-party oversight line is pre-printed — it was added when the form was last revised. The entity named across all bypass filings in the last six months is consistent and Ledgermere confirms it does not correspond to any ward directory entry he has access to. He writes the name down for his own records while you\'re still at the desk.';
+        addJournal('Bypass form third-party oversight line pre-printed — named entity consistent across all recent filings, not in any accessible directory', 'evidence', `uni-ledge-bypass-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The mediation bypass approval counter has been moved twice in six months.",
+    tags: ['Mediation', 'Stage2'],
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'tracing mediation bypass counter relocations');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The counter has moved from the main hall floor to a side corridor, then to its current position in an annex off the mediation wing — each relocation reducing its visibility from the main entrance by another layer. The floor tiles show the old counter positions: rectangular wear patches where the furniture stood. The annex has no window to the hall and no queue management post. Walk-in access to ward mediation bypass approval now requires knowing it exists and knowing where it moved.';
+        addJournal('Mediation bypass counter relocated twice in 6 months — each move reduces visibility, annex location now unknown to general hall traffic', 'evidence', `uni-ledge-counter-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The current bypass approval counter location is posted on the hall directory board — you find it after fifteen minutes of checking rooms. The directory listing was updated last week. If there is a relocation pattern, it has been papered over with procedurally correct signage. Ledgermere\'s administrative assistant is at the current counter and notes the time of your visit in his ledger.';
+        addJournal('Bypass counter location on directory board — visit time logged by Ledgermere\'s assistant', 'complication', `uni-ledge-counter-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Two floor wear patches mark where the bypass approval counter used to stand — one near the main hall entrance, one in the first corridor. Each position was more visible than the current annex location. Ledgermere, when asked, says the moves were for space management during renovation cycles. The renovation records in the hall\'s maintenance log confirm no renovation work touched the mediation wing.';
+        addJournal('Bypass counter moved twice toward less-visible positions — maintenance log shows no renovation work in mediation wing to justify moves', 'evidence', `uni-ledge-counter-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Ward mediation bypass filings spike during the same weeks the transit arrivals cluster.",
+    tags: ['Mediation', 'Registry', 'Stage2'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'correlating bypass filing spikes with transit arrival clusters');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_ledgermere = true;
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Ledgermere\'s bypass filing calendar and Brokerwell\'s transit arrival log align on every three-week interval without exception. The bypass filings arrive two days before the transit arrivals and close two days after. The pattern covers six months. Transit-flagged cargo clears ward mediation before it arrives — the bypass does not follow the arrival, it precedes it. The mediation step is not being skipped. It is being pre-cleared on a schedule.';
+        addJournal('Bypass filings arrive 2 days before transit arrivals, close 2 days after — pre-clearance on 21-day schedule for 6 months, both records confirm', 'evidence', `uni-ledge-broker-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Ledgermere\'s bypass filing calendar is a summary log — it records counts per week, not individual filing dates. Correlating it against the transit arrival dates would require the individual bypass docket numbers, which are maintained in a separate annex filing. The summary is visible. The docket dates are not available without a formal records request to the annex.';
+        addJournal('Bypass calendar shows weekly counts only — individual docket dates require annex records request to cross-reference', 'complication', `uni-ledge-broker-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The bypass filing calendar shows clustering at intervals that match the transit arrival pattern from the registry. Ledgermere confirms the calendar summary without opening individual dockets. The spike weeks align. Whether the bypass filings are for the same parties as the transit arrivals, he cannot confirm without the docket detail — but the timing correspondence across six months is not accidental.';
+        addJournal('Bypass filing spikes align with transit arrival weeks across 6 months — individual docket correlation still needed', 'evidence', `uni-ledge-broker-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Bypass filings under a sealed administrative exemption never go to the standard review queue.",
+    tags: ['Mediation', 'Stage2'],
+    xpReward: 71,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(71, 'examining sealed administrative exemption bypass routing');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The sealed administrative exemption designation routes bypass filings directly to a named approver — bypassing the review queue, bypassing the standard two-reviewer panel, bypassing the counter log. The named approver is a ward administrative title, not a person. Ledgermere checks the title\'s current assignment. The position has been vacant for four months. Every bypass filed under the sealed exemption in that period was approved by an empty desk. The approval stamps are real and correctly formatted.';
+        addJournal('Sealed exemption bypasses route to a vacant administrative position — approvals stamped correctly for 4 months from an empty desk', 'evidence', `uni-ledge-exemption-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The sealed administrative exemption category is itself under a confidentiality classification that Ledgermere cannot discuss without authorization from the ward oversight committee. The exemption exists. Its routing mechanism is not something he can describe. He logs the query and routes it to the committee with his own notation that the question was asked in good faith by a named visitor.';
+        addJournal('Sealed exemption routing classified — query logged and forwarded to ward oversight committee with visitor identification', 'complication', `uni-ledge-exemption-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The sealed administrative exemption designation exists as a distinct routing category in the bypass filing system. Ledgermere confirms that filings under this designation do not enter the standard review queue. Where they route instead, he says, is to a named approver position. He looks up the current occupant of that position, closes the staff directory, and does not offer the name.';
+        addJournal('Sealed exemption filings bypass standard review queue — routed to a named approver position Ledgermere declined to identify', 'evidence', `uni-ledge-exemption-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The ward boundary markers at the north gate were moved two months ago.",
+    tags: ['Mediation', 'Observation', 'Stage2'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'documenting the north gate ward boundary marker relocation');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The north gate markers were moved inward by four meters — visible from the anchor-hole pattern still cut into the cobblestones where the old posts stood. The boundary change reclassified a strip of street frontage from Ward Three to Ward Two jurisdiction. Ward Two operates under a different mediation bypass threshold: carriers with Compact-affiliated documentation can self-certify arrival compliance without a mediator countersignature. Ledgermere administers Ward Two. The boundary move shifted that entire frontage strip into his jurisdiction exactly two months ago.';
+        addJournal('North gate markers moved inward 4m two months ago — reclassified frontage to Ward Two, where Compact-affiliated carriers self-certify without mediator countersignature', 'evidence', `uni-ledge-boundary-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The boundary markers look permanent and original. The anchor points in the cobblestones could be old maintenance repairs or fixture replacements — the surface wear around them is consistent with age. Without the official survey record showing the prior position, the relocation is a hypothesis. The survey records are held in the cartographic annex off the main administrative wing.';
+        addJournal('North gate boundary marker relocation unconfirmed — survey record needed from cartographic annex', 'complication', `uni-ledge-boundary-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The old anchor holes are still visible in the cobblestones four meters beyond the current marker positions. The markers were moved inward. A street vendor near the gate says the change happened "before the cold season, maybe two months back." She remembers because the lantern post that used to mark the boundary got moved at the same time and now the alley behind her stall is darker at night.';
+        addJournal('North gate ward markers moved inward ~2 months ago — old anchor holes visible, vendor confirms timeline', 'evidence', `uni-ledge-boundary-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NPC ENCOUNTERS (6 choices) ────────────────────────────────────────────
+
+  {
+    label: "Brokerwell's personal archive copy doesn't match the official record on file.",
+    tags: ['NPC', 'Registry', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'comparing Brokerwell\'s personal archive against the official record');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell keeps a personal carbon of every entry he logs — a habit from his first posting, he says, not a protocol requirement. Three entries in the last quarter exist in his personal carbon but not in the official registry. He located the discrepancy himself six weeks ago. He has been waiting, he says, for someone with the right kind of question to come through his window. He passes the carbons across the counter without touching them to your side of the desk.';
+        addJournal('Brokerwell personal carbons show 3 entries absent from official registry — discrepancy found 6 weeks ago, Brokerwell waited to disclose', 'evidence', `uni-broker-carbon-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Brokerwell does not keep personal copies — policy since last year forbids it. He is precise about this. The personal archive you were told about belongs to his predecessor, who retired and whose materials were formally transferred to the central record office. The trail is real but it leads to a records office that requires a provenance request to access historical clerk materials.';
+        addJournal('Brokerwell has no personal archive — predecessor\'s materials in central records office, provenance request required', 'complication', `uni-broker-carbon-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell\'s personal carbons show two entries from last quarter that he cannot locate in the official registry. The discrepancy could be a filing error — entries moved to an archived subvolume during the quarterly purge. He marks both in his carbon copy. The official registry in front of him, cross-referenced against the same dates, shows no corresponding entries in any subvolume. They are simply absent.';
+        addJournal('Two Brokerwell carbon entries absent from official registry and all subvolumes — not a filing error', 'evidence', `uni-broker-carbon-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Ledgermere's assistant processes bypass forms during hours Ledgermere himself isn't present.",
+    tags: ['NPC', 'Mediation', 'Stage2'],
+    xpReward: 69,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(69, 'documenting bypass processing during Ledgermere\'s absence');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The counter log records processing time for every bypass docket. Cross-referencing against Ledgermere\'s posted session schedule: eleven bypass forms were processed during hours his calendar shows him in closed mediation sessions on the upper floor. His assistant\'s handwriting is on the countersignature line of all eleven. The assistant is not a licensed ward mediator. His countersignature is not legally valid for bypass approval. All eleven were accepted as complete.';
+        addJournal('11 bypass forms countersigned by unlicensed assistant during Ledgermere\'s mediation hours — all accepted as legally complete', 'evidence', `uni-ledge-assist-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The counter log shows processing times but not which staff member handled each docket. The initials on the countersignature line are a two-letter administrative code, not a name. Matching initials to individuals would require the staff assignment roster, which the ward administration office holds. The office posts posted hours: closed until the day after tomorrow for an inter-ward coordination session.';
+        addJournal('Counter log initials unidentifiable without staff roster — ward administration office closed 2 days', 'complication', `uni-ledge-assist-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_ledgermere = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The assistant is at the bypass counter during the mid-morning window when Ledgermere runs his closed sessions. Several bypass dockets in the counter log show processing timestamps from that window. The assistant\'s handwriting on the countersignature line is identifiable by the particular way he closes the final letter of the ward code — a small loop that appears consistently. Ledgermere\'s signature does not appear on those dockets.';
+        addJournal('Bypass dockets countersigned by assistant during Ledgermere\'s closed session hours — identified by distinctive handwriting loop', 'evidence', `uni-ledge-assist-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Tinmarch's patient log goes cold for a week that matches a registry gap.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'cross-referencing Tinmarch\'s patient log against the registry gap');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_tinmarch = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Tinmarch runs his patient log out of a canvas-covered register he keeps in his coat pocket — entries in a cramped, precise hand. The gap is eight days in the second month of last quarter: no entries, no canceled appointments, no referral notes. He turns to that section without being asked and holds the register open. "I was called for a block consultation. Private arrangement. I was not treating patients from the square that week." He does not say who called him or where he went.';
+        addJournal('Tinmarch: 8-day patient log gap second month last quarter — private block consultation, not treating square patients, client and location undisclosed', 'evidence', `uni-tinmarch-gap-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Tinmarch\'s log is personal medical record and he does not open it for general review. He is pleasant about this and professionally specific: his patient records are protected under the ward physician compact and he would require a formal public health order to disclose even aggregate entries. He writes the compact\'s charter article number on a small slip of paper and hands it over. The gap stays closed.';
+        addJournal('Tinmarch patient log protected under ward physician compact — formal public health order required for access', 'complication', `uni-tinmarch-gap-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_tinmarch = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Tinmarch confirms a gap in his regular square circuit — a week where he did not post his usual morning hours outside the tenement row. He describes it as an arranged absence without elaborating on the arrangement. His hands are busy wrapping a dressing for a patient while he talks, and he does not look up when he says the week was not a holiday and he was not ill.';
+        addJournal('Tinmarch confirms week absence from regular square circuit — arranged, not holiday or illness, no further detail', 'evidence', `uni-tinmarch-gap-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Tinmarch treated three arrivals in the tenement row who were never entered in the registry.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 77,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(77, 'tracing unregistered arrivals through Tinmarch\'s patient records');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_tinmarch = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Three patients in the tenement row, all in the same month, all presenting with transit fatigue and minor abrasion consistent with extended sealed-compartment travel. None of them appeared in the arrival registry when Tinmarch checked — he checked because the presentation was unusual enough that he wanted to verify their status. All three gave him the same transit authorization number. He wrote it down. He shows you the notation in the margin of his case record. The number is not a ward transit format.';
+        addJournal('Tinmarch: 3 unregistered tenement arrivals, sealed-compartment transit presentation, all gave identical non-ward transit auth number — number recorded', 'evidence', `uni-tinmarch-arrivals-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Tinmarch treats patients without documentation verification as policy — his practice charter explicitly covers unregistered individuals as a public health measure. He cannot confirm or deny whether specific patients appeared in the arrival registry because he does not cross-reference that system. The tenement row is his territory. What the registry says about who lives there is not his concern and he will not speculate.';
+        addJournal('Tinmarch: no cross-referencing with arrival registry by practice policy — unable to confirm unregistered status of patients', 'complication', `uni-tinmarch-arrivals-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_tinmarch = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Tinmarch recalls a cluster of patients in the tenement row last quarter with a distinctive presentation — transit fatigue, minor cuts from confined travel, unusual pallor. He does not remember checking the registry against them. Three patients, same month, same general profile. He notes this in the margin of his case record while you\'re speaking, in his small precise hand, as though he has only now thought to write it down.';
+        addJournal('Tinmarch: 3 tenement patients last quarter with sealed-transit presentation — registry status not verified at time of treatment', 'evidence', `uni-tinmarch-arrivals-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Brokerwell has been logging private notes in the margins of the transit-flagged pages.",
+    tags: ['NPC', 'Registry', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'reading Brokerwell\'s margin notes in the transit ledger');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The margin notes are in pencil, faint, and run to two or three words per entry — arrival descriptions Brokerwell wrote for himself, not for any official record. "Sealed canisters, no external markings." "Two handlers, no ward badges." "Delivery window: pre-dawn." "Same handlers as third-month entry." He wrote them because, he says, the arrivals seemed like the kind of thing someone should write down. He did not know where else to put them. They are a shadow log of exactly what the official entries omit.';
+        addJournal('Brokerwell margin notes: shadow log of transit arrivals — sealed canisters, unidentified handlers, pre-dawn delivery windows, repeat handler appearances', 'evidence', `uni-broker-margins-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The transit-flagged ledger pages are clean — no margin annotations. Brokerwell confirms he does not add unofficial notations to official record books; doing so would constitute an administrative violation. If there are margin notes somewhere, they are in a document he has not shown you and is not going to show you in this setting, while the outer registry is staffed and the door to the hall is open.';
+        addJournal('No margin notes in transit ledger visible — Brokerwell unwilling to share unofficial notations with hall staff present', 'complication', `uni-broker-margins-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell turns the ledger to show the margin column. The notes are in pencil, partially erased and rewritten — he has edited them over time. Observation fragments: a handling method, a delivery hour, a note about the absence of ward documentation on the carriers. He started writing them, he says, when the entries began repeating in a way that did not fit the listed cargo class.';
+        addJournal('Brokerwell margin notes confirm irregular handling — delivery hours, carrier documentation gaps, repeating pattern prompted note-keeping', 'evidence', `uni-broker-margins-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Tinmarch knows who in the tenement row receives packages before the registry opens each morning.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'learning from Tinmarch about pre-registry tenement deliveries');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_tinmarch = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Tinmarch starts his rounds before the registry opens — a habit from his first posting in a district without regular morning hours. He names three tenement units that receive sealed packages in the pre-dawn window, always by the same two-person delivery team, always without a receipt exchange. Unit seven, unit twelve, unit twenty-three. He knows because the delivery team woke a patient of his once by knocking on the wrong door. He has seen them six times in the last quarter.';
+        addJournal('Tinmarch: pre-dawn deliveries to tenement units 7, 12, 23 — same 2-person team, no receipt exchange, seen 6 times last quarter, team woke a patient once', 'evidence', `uni-tinmarch-delivery-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Tinmarch is careful. He will describe what he has observed in clinical terms: movement of materials in the early morning, residents who receive goods outside standard delivery windows. He will not name units or individuals. "My patients trust that I do not comment on their private arrangements." The observation is offered. The specifics stay behind his professional caution.';
+        addJournal('Tinmarch confirms pre-dawn deliveries in general — will not identify units or residents, patient confidentiality invoked', 'complication', `uni-tinmarch-delivery-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_tinmarch = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Tinmarch has seen the delivery team on his early rounds. He describes them: two individuals, one carrying, one watching the street. The packages are sealed and cylindrical — consistent with canister transport. He does not know which unit they are delivering to because he did not follow them, but the deliveries happen in the northern end of the tenement row, where the ground-floor units have exterior-facing access hatches.';
+        addJournal('Tinmarch: pre-dawn delivery team — sealed cylindrical packages, northern tenement row, exterior access hatches, 2-person team (one carrier, one lookout)', 'evidence', `uni-tinmarch-delivery-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── CROSS-DISTRICT CARGO MOVEMENT THREADS (3 choices) ────────────────────
+
+  {
+    label: "The cargo routing codes in the transit ledger match outbound manifests at the Guildheart Hub.",
+    tags: ['Cargo', 'Stage2'],
+    xpReward: 79,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(79, 'matching transit routing codes to Guildheart Hub outbound manifests');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The routing codes in the transit-flagged entries are a three-digit prefix followed by a ward designation. The same prefix appears on Guildheart Hub outbound manifests under a "specialized consignment" category — Brokerwell found this in a cross-district routing summary that crosses his desk monthly. The consignments listed under that prefix at the Hub do not have corresponding inbound entries at Unity Square. The cargo arrives here and does not appear in the outbound record. It stops.';
+        addJournal('Transit routing codes match Guildheart Hub "specialized consignment" prefix — cargo arrives at Unity Square with no corresponding outbound record, movement terminates here', 'evidence', `uni-cargo-hub-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The routing code format used in the transit ledger is a local Unity Square designation — it does not correspond to the inter-district routing standard used by Guildheart Hub manifests. Cross-referencing them requires a translation key held by the regional freight coordination office, which is not in the square. The codes are not directly comparable without that key.';
+        addJournal('Routing code translation key required for Guildheart Hub cross-reference — held at regional freight coordination office, not locally available', 'complication', `uni-cargo-hub-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Brokerwell\'s monthly cross-district routing summary lists outbound manifests from Guildheart Hub with a prefix that appears in several transit-flagged entries. The categories do not match perfectly — one uses "specialized consignment," the other uses the holding classification designation — but the prefix is identical. He marks both entries side by side without drawing a conclusion aloud.';
+        addJournal('Routing code prefix appears in both transit ledger and Guildheart Hub outbound manifests — category labels differ, prefix identical', 'evidence', `uni-cargo-hub-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A cargo handoff point in the eastern alley operates outside ward oversight hours.",
+    tags: ['Cargo', 'Observation', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'documenting the eastern alley cargo handoff outside oversight hours');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The eastern alley has a recessed loading bay that was reclassified as a storage annex in last year\'s ward survey — meaning it no longer appears on the active commercial inspection circuit. Between the fourth and sixth hour of the morning, a two-cart operation runs through the bay: sealed canisters transferred from one cart to another with practiced efficiency. No ward documentation changes hands. The lantern on the bay post is unlit. The team works by the ambient light from the square\'s main corridor, twenty meters away.';
+        addJournal('Eastern alley loading bay: reclassified as storage annex, removed from inspection circuit — 2-cart canister transfer runs 4th–6th morning hour, no documentation, unlit', 'evidence', `uni-cargo-alley-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The eastern alley is active before the square opens — foot traffic, delivery carts, stall setup. Whatever cargo movement runs through there is not distinct from the normal pre-opening commercial activity at this hour. There is nothing to isolate. One of the cart drivers looks at you for a moment longer than necessary. The alley empties before you have anything concrete.';
+        addJournal('Eastern alley pre-dawn cargo movement indistinguishable from routine commercial activity — observation inconclusive, possible counter-surveillance', 'complication', `uni-cargo-alley-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The loading bay in the eastern alley shows signs of regular use: scuff marks on the ramp surface, canister ring impressions on the stone floor, a worn groove where a cart wheel has run the same path many times. The bay\'s classification placard reads "storage annex — no active commercial use." The placard and the floor tell different stories.';
+        addJournal('Eastern alley loading bay shows active use despite "no commercial use" classification — canister ring marks, cart wheel groove, ramp scuffing', 'evidence', `uni-cargo-alley-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Cross-district freight running through Unity Square has a staging point that doesn't appear on any map.",
+    tags: ['Cargo', 'Stage2'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'locating the unmapped staging point for cross-district freight');
+      if (!G.flags) G.flags = {};
+      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_vale_brokerwell = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The staging point is a sub-level storage room accessed through the tenement row\'s laundry court — a stair that descends behind the wash-line posts and opens into a vaulted room that does not appear in the hall\'s building registry. The room is dry, ventilated, and currently empty. The floor shows long-term use: canister stacking marks in a regular grid, cargo strap anchor points bolted into the stone, a hand-pump for pressure-checking sealed containers. Built for this. Not improvised.';
+        addJournal('Unmapped sub-level staging room under tenement laundry court — canister grid marks, strap anchors, pressure-check pump; purpose-built, not in building registry', 'evidence', `uni-cargo-staging-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'The tenement row sub-levels are a maintenance access system that requires a building authority key to enter legally. The access point you find is locked with a standard ward padlock. Forcing it would leave marks. Going through the building authority for a key would generate a request record. The staging point, if it exists, is currently behind a door you cannot open without creating a trail that arrives before you do.';
+        addJournal('Sub-level access requires building authority key — entry without key leaves evidence, official request generates advance record', 'complication', `uni-cargo-staging-fail-${G.dayCount}`);
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The laundry court behind the northern tenement block has a stair that descends below street level — no sign, no lock currently on the door at the bottom. The room beyond is empty. The floor is swept clean but not recently enough: canister ring marks in the dust, a grid pattern that suggests regular, organized stacking. The room is not on any hall map or building registry. It has been used within the last two weeks.';
+        addJournal('Unmapped sub-level room accessed via tenement laundry court — canister ring marks, regular stacking pattern, used within 2 weeks, not in building registry', 'evidence', `uni-cargo-staging-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = UNITY_SQUARE_STAGE2_ENRICHED_CHOICES;
