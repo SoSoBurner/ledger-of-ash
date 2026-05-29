@@ -66,14 +66,14 @@ const HEADED_FAMILY_POOLS = {
 // Shared archetype data
 // ---------------------------------------------------------------------------
 const ARCHETYPE_BACKGROUNDS = {
-  warrior:      ['w_garrison','w_roaz','w_frontier'],
+  warrior:      ['w_garrison','w_roaz'],
   knight:       ['k_shelk','k_roaz','k_order'],
-  ranger:       ['r_shelk','r_soreheim','r_sheresh'],
+  ranger:       ['r_shelk','r_soreheim'],
   paladin:      ['p_cysur','p_eloljaro','p_gwybodaeth'],
-  archer:       ['a_roadwarden','a_frontier','a_nomdara'],
-  berserker:    ['b_soreheim','b_frontier','b_cosmouth'],
-  warden:       ['wa2_aurora','wa2_shelk','wa2_soreheim'],
-  warlord:      ['wl_frontier','wl_roaz','wl_soreheim'],
+  archer:       ['a_roadwarden','a_nomdara'],
+  berserker:    ['b_soreheim','b_cosmouth'],
+  warden:       ['wa2_shelk','wa2_soreheim'],
+  warlord:      ['wl_roaz','wl_soreheim'],
   death_knight: ['dk_shelk','dk_roaz','dk_panim'],
   rogue:        ['ro_shelk','ro_union','ro_nomdara'],
   assassin:     ['as_shadowhands','as_redhoodguild','as_shirsh'],
@@ -81,12 +81,12 @@ const ARCHETYPE_BACKGROUNDS = {
   scout_c:      ['sc_shelk','sc_soreheim','sc_cosmouth'],
   thief:        ['th_shelk','th_cosmouth','th_union'],
   trickster:    ['tr_shelk','tr_union','tr_nomdara'],
-  beastmaster:  ['bm_frontier','bm_soreheim','bm_sheresh'],
+  beastmaster:  ['bm_soreheim'],
   healer:       ['hl_shelk','hl_soreheim','hl_panim'],
   artificer:    ['af_guild','af_tinker','af_roaz'],
   engineer:     ['eg_soreheim','eg_shelk','eg_roaz'],
   tactician:    ['tc_shelk','tc_soreheim','tc_union'],
-  alchemist:    ['al_mimolot','al_sheresh','al_union'],
+  alchemist:    ['al_mimolot','al_union'],
   saint:        ['sn_cysur','sn_remeny','sn_eloljaro'],
   bard:         ['ba_shelk','ba_union','ba_panim'],
 };
@@ -177,7 +177,10 @@ async function readG(page) {
     try {
       return {
         stage:         G.stage,
-        stageProgress: G.stageProgress ? { ...G.stageProgress } : {},
+        stageProgress: {
+          1: G.stageProgress && G.stageProgress[1] || 0,
+          2: G.stageProgress && G.stageProgress[2] || 0
+        },
         sp2:           (G.stageProgress && typeof G.stageProgress[2] === 'number') ? G.stageProgress[2] : 0,
         location:      G.location,
         tensionLevel:  G.tensionLevel,
