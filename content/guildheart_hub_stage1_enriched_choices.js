@@ -941,7 +941,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading the trading floor');
-      const arch = G.archetype && G.archetype.group;
+      var arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
         G.lastResult = `The arbiter crosses the floor twice in an hour. Both times, merchant conversations in his path stop a beat before he arrives and resume a beat after he passes. No one looks at him directly. The pressure isn't in what he does — he does nothing visible. It's in the space he creates by moving. The floor adjusts to him the way a room adjusts to someone carrying a weapon at rest.`;
@@ -1069,7 +1069,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
-      const arch = G.archetype && G.archetype.group;
+      var arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
         G.lastResult = `The note records a series of questions: which faction you work with, whether you've spoken to anyone in the warden structure, which merchants accepted your presence without complaint. Military framing — affiliations and backing, not findings. The paper is plain and dry, no canal-water smell on it; this didn't come through the Guildheart freight counter. Whoever's asking isn't trying to understand what you know. They're trying to understand who stands behind you before deciding how far they can push.`;
       } else if (arch === 'magic') {
