@@ -14365,8 +14365,11 @@ function checkDuskcall() {
 
 // ── JOURNEY START / TRAVEL CORE ──────────────────────────
 function doJourneyStart(destId) {
-  var routeKey = G.location + '|' + destId;
-  var route = window.TRAVEL_ROUTES && window.TRAVEL_ROUTES[routeKey];
+  var _LOC_ALIAS = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy'};
+  var _fromLoc = _LOC_ALIAS[G.location] || G.location;
+  var _toLoc   = _LOC_ALIAS[destId]     || destId;
+  var routeKey = _fromLoc + '|' + _toLoc;
+  var route = window.TRAVEL_ROUTES && (window.TRAVEL_ROUTES[routeKey] || window.TRAVEL_ROUTES[_toLoc + '|' + _fromLoc]);
   if (!route) {
     addNarration('Travel', 'No known route from here to that destination.', 'failure');
     return;
@@ -14521,8 +14524,11 @@ function startTravel(destinationKey) {
 
 /** Executes multi-day journey to destId using G.travelMode and G.pace. Applies journey fatigue. @param {string} destId */
 function doTravelJourney(destId) {
-  var routeKey = G.location + '|' + destId;
-  var route = window.TRAVEL_ROUTES && window.TRAVEL_ROUTES[routeKey];
+  var _LOC_ALIAS = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy'};
+  var _fromLoc = _LOC_ALIAS[G.location] || G.location;
+  var _toLoc   = _LOC_ALIAS[destId]     || destId;
+  var routeKey = _fromLoc + '|' + _toLoc;
+  var route = window.TRAVEL_ROUTES && (window.TRAVEL_ROUTES[routeKey] || window.TRAVEL_ROUTES[_toLoc + '|' + _fromLoc]);
   if (!route) return;
 
   var mode = G.travelMode || 'foot';

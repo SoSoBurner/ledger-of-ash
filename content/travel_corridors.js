@@ -678,8 +678,17 @@
   // ---------------------------------------------------------------------------
   window.getBiomeForRoute = function(toId, fromId) {
     if (!toId || !fromId) return null;
-    var keyA = fromId + '|' + toId;
-    var keyB = toId + '|' + fromId;
+    var _LOC_ALIAS = {
+      aurora: 'aurora_crown_commune',
+      guildheart: 'guildheart_hub',
+      panim: 'panim_haven',
+      soreheim: 'soreheim_proper',
+      mimolot: 'mimolot_academy'
+    };
+    var _from = _LOC_ALIAS[fromId] || fromId;
+    var _to   = _LOC_ALIAS[toId]   || toId;
+    var keyA = _from + '|' + _to;
+    var keyB = _to   + '|' + _from;
     var r = TRAVEL_ROUTES[keyA] || TRAVEL_ROUTES[keyB];
     return (r && r.biome) || null;
   };
