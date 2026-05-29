@@ -1009,7 +1009,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   // ── AFTERLIFE-LEDGER FALSIFICATION ── 6 choices ──────────────────────────
 
   {
-    label: "The second witness column in the afterlife ledger is never filled. Someone decided it shouldn't be.",
+    label: "The second witness column is never filled. Someone decided it shouldn't be.",
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 72,
@@ -1040,7 +1040,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Three death-date entries in the ledger don't match the memorial contract dates filed the same week.",
+    label: "Three death-date entries don't match the memorial contract dates filed the same week.",
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 75,
@@ -1071,7 +1071,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A sealed addendum packet is attached to seven ledger entries. Addenda don't belong in the primary ledger.",
+    label: "Sealed addenda are attached to seven ledger entries. They don't belong in the primary ledger.",
     tags: ['Ledger', 'Stage2'],
     tag: 'bold',
     xpReward: 80,
@@ -1104,7 +1104,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The ledger's ink changes formula on the same date every quarter. No supply order accounts for it.",
+    label: "The ink formula changes on the same date every quarter. No supply order explains it.",
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 68,
@@ -1135,10 +1135,11 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The ledger's margin annotations stop entirely in the months the sealed records grew. Someone stopped commenting.",
+    label: "The margin annotations stop when the sealed records grew. Someone stopped commenting.",
     tags: ['Ledger', 'Stage2'],
     tag: 'safe',
     xpReward: 65,
+    failResult: "The volumes are out on the reading desk when the archive warden makes her circuit. Nothing useful surfaced before she took notice.",
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing margin annotation gaps in the afterlife ledger');
@@ -1166,7 +1167,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A batch of ledger entries share the same filing clerk initial. That clerk hasn't worked here in two years.",
+    label: "Same filing clerk initial on a batch of entries. That clerk left two years ago.",
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 73,
@@ -1232,7 +1233,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Merev keeps a second ledger behind the inn counter. She doesn't hide it, but she doesn't offer it.",
+    label: "Merev keeps a second ledger. She doesn't hide it, but she doesn't offer it.",
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 71,
@@ -1263,7 +1264,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Saryna's market receipt archive has a gap. The week it covers is the same week three entries were sealed.",
+    label: "Saryna's receipt archive has a gap. Same week three ledger entries were sealed.",
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 74,
@@ -1356,7 +1357,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elior's handwriting is in the ledger addenda. He is not listed as a co-signatory on any of them.",
+    label: "Elior's hand is in the addenda. He's not listed as co-signatory on any of them.",
     tags: ['NPC', 'Ledger', 'Stage2'],
     tag: 'bold',
     xpReward: 85,
@@ -1389,7 +1390,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Merev remembers every guest who left before dawn. She stopped noting them after the third inquiry.",
+    label: "Merev remembers guests who left before dawn. She stopped noting them after the third inquiry.",
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 69,
@@ -1422,7 +1423,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   // ── PROCESSIONAL DISRUPTION / CARGO TRANSFER WINDOWS ── 4 choices ─────────
 
   {
-    label: "The processional road has a no-traffic order. Cargo moved through it anyway, on the same three mornings.",
+    label: "No-traffic order on the processional road. Cargo moved through it on the same three mornings.",
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
     xpReward: 75,
@@ -1484,7 +1485,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The transit warden who signed the no-traffic waivers was transferred two weeks after the last one.",
+    label: "The warden who signed the no-traffic waivers was transferred two weeks after the last one.",
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
     xpReward: 70,
@@ -1515,7 +1516,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The harbor arrival manifest shows incoming cargo on those three mornings. None of it cleared the standard dock log.",
+    label: "Harbor manifest shows cargo on those three mornings. None of it cleared the dock log.",
     tags: ['Processional', 'Stage2'],
     tag: 'bold',
     xpReward: 78,
@@ -1581,7 +1582,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The sealed mediation records have a co-signatory line. It lists the same clerk number on all three.",
+    label: "The sealed mediation records have a co-signatory line — same clerk number on all three.",
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
     xpReward: 74,
@@ -1612,7 +1613,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The mediation oversight log shows three review requests for the sealed records. All three were denied the same day they arrived.",
+    label: "Three review requests for the sealed records. All three denied the same day they arrived.",
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
     xpReward: 76,

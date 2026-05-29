@@ -691,7 +691,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   // MAGICAL KNOWLEDGE REGISTRY ANOMALIES (~7)
 
   {
-    label: "Taldan's registry has two classification tiers for restricted knowledge. The second tier has no public entries.",
+    label: "Taldan's registry has two restricted tiers. The second has no public entries at all.",
     tags: ['Registry', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -721,7 +721,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The registry intake stamps run an unbroken sequence except for a three-week window six months ago.",
+    label: "Registry intake stamps run unbroken — except a three-week window six months ago.",
     tags: ['Registry', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -752,7 +752,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Four entries in the restricted access log share the same charter reference number as the suppression requests.",
+    label: "Four restricted access entries share the same charter reference as the suppression requests.",
     tags: ['Registry', 'Stage2'],
     xpReward: 78,
     fn: function() {
@@ -840,7 +840,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A cross-reference notation in the index points to a locality that doesn't correspond to any Sunspire district.",
+    label: "An index cross-reference points to a locality that doesn't match any Sunspire district.",
     tags: ['Registry', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -1076,7 +1076,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Kael recognized the modified container specs from prior work — he built similar insulation for Guildheart.",
+    label: "Kael recognized the container specs — he built similar insulation for Guildheart.",
     tags: ['NPC', 'Stage2'],
     xpReward: 75,
     fn: function() {
@@ -1224,7 +1224,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Three convoy drivers took the same unusual northern deviation on their last run. None filed a route report.",
+    label: "Three convoy drivers took the same northern deviation last run. None filed a report.",
     tags: ['Convoy', 'Stage2'],
     xpReward: 69,
     fn: function() {
@@ -1284,7 +1284,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The materials in the containers are not a weapon. They are a suppression agent for active glyph wards.",
+    label: "Not a weapon — a suppression agent for active glyph wards. That is more frightening.",
     tags: ['Arcane', 'Stage2'],
     xpReward: 82,
     fn: function() {
@@ -1407,7 +1407,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The same suppression pattern appeared at a locality two weeks north of here before it appeared at Sunspire.",
+    label: "This suppression pattern appeared two weeks north of here before it reached Sunspire.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 79,
     fn: function() {

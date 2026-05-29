@@ -736,7 +736,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Receipt logs for the northern transit depot show a standing gap — same three-week window, annually.",
+    label: "Northern transit depot logs show a standing gap — same three-week window, annually.",
     tags: ['Archive', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -824,7 +824,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The compliance certification for the northern route is signed by an officer who retired two years ago.",
+    label: "Northern route compliance cert is signed by an officer who retired two years ago.",
     tags: ['Archive', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -883,7 +883,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A water-damage notation on a file box. Inside, the files are pristine — not a warped edge.",
+    label: "Water-damage noted on the file box. Inside: pristine files, not a warped edge.",
     tags: ['Archive', 'Stage2'],
     xpReward: 65,
     fn: function() {
@@ -914,7 +914,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   // NPC ENCOUNTERS (~8)
 
   {
-    label: "Luneth signs for packages he wasn't told the contents of. He's been keeping a private tally.",
+    label: "Luneth signs for packages he wasn't told the contents of — keeping a private tally.",
     tags: ['NPC', 'Stage2'],
     xpReward: 80,
     fn: function() {
@@ -1042,7 +1042,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Tazren drew a map of the suppression network before the case was closed. It's still in his drawer.",
+    label: "Tazren drew a network map before the case closed. It's still in his drawer.",
     tags: ['NPC', 'Stage2'],
     xpReward: 85,
     fn: function() {
@@ -1075,7 +1075,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The porter rotation was changed to exclude Luneth from the restricted wing. He noticed the week it happened.",
+    label: "The porter rotation excluded Luneth from the restricted wing. He noticed the week it happened.",
     tags: ['NPC', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -1140,7 +1140,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   // MATERIAL TRANSIT (~6)
 
   {
-    label: "The import classification for resonance compound uses a sub-tier that hasn't been valid since the charter revision.",
+    label: "Resonance compound uses an import sub-tier that hasn't been valid since the charter revision.",
     tags: ['Transit', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -1170,7 +1170,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Compound shipments arrive light — weights declared at the border don't match what the depot receives.",
+    label: "Compound shipments arrive light — declared weights don't match what the depot receives.",
     tags: ['Transit', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1258,7 +1258,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The receiving signature on the northern transfer is initials only. The same two initials on every form.",
+    label: "Northern transfer receiving signature is initials only — same two initials on every form.",
     tags: ['Transit', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -1377,7 +1377,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Panim Haven's compliance clerk sent a query to Shirshal six months ago. The reply wasn't from the Bureau.",
+    label: "Panim Haven's compliance clerk queried Shirshal six months ago. The reply wasn't from the Bureau.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1406,7 +1406,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Three glyph surge reports from Fairhaven list a Shirshal case number. Shirshal denies the case exists.",
+    label: "Three Fairhaven glyph surge reports list a Shirshal case number. Shirshal denies it exists.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 78,
     fn: function() {
@@ -1436,7 +1436,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A northern route carrier remembers the last shipment he couldn't ask questions about. He remembers everything.",
+    label: "A carrier remembers the last shipment he couldn't ask questions about. He remembers everything.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -1481,7 +1481,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.oversight_auditor_managed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Auditor Penhe Varast interviews in a side room, a pen in her left hand and a case index in her right. The case index is visible: your name is three entries from the top, flagged with a notation you cannot read upside down. The interview opens with her confirming your origin and stated purpose. What follows is an hour of methodical questions that slowly reveals she already knows every public access log entry you have generated since arriving in Shirshal. She is not trying to stop you. She is building a record of everything you have found, because it is also what she is looking for. At the close of the hour: "I recommend you complete your work before the end of the week. Oversight windows close." She means her own.`;
+        G.lastResult = `Auditor Penhe Varast interviews in a side room, a pen in her left hand and a case index in her right. Your name is three entries from the top, flagged with a notation you cannot read upside down. The interview opens with her confirming your origin and stated purpose. What follows reveals she already knows every public access log entry since you arrived. She is not trying to stop you — she is building a record of everything you have found, because it is also what she is looking for. At the close: "Complete your work before the end of the week. Oversight windows close." She means her own.`;
         addJournal('Auditor Penhe Varast: reviewing same evidence trail — recommends completing work before oversight window closes', 'evidence', `shir-auditor-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -1532,7 +1532,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Magistratus official has been sitting in the Bureau lobby since the courier intercept. He is not reading.",
+    label: "A Magistratus man sits in the Bureau lobby since the courier intercept. Not reading.",
     tags: ['Heat', 'Authority', 'Stage2'],
     xpReward: 78,
     fn: function() {
