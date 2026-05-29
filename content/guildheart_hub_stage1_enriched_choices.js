@@ -1356,7 +1356,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH x2
   {
     archetypeGroup: 'stealth',
-    label: "Transit district at third bell. The courier takes the same route and he hasn\'t varied it once.",
+    label: "Transit district at third bell. The courier takes the same route every time.",
     tags: ['Stealth', 'Covert', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1398,7 +1398,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
-    label: "Caravan staging area at night. One guard, long circuit, and the manifest box is in the open shed.",
+    label: "Caravan staging area at night. One guard, long circuit, manifest box in the open shed.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1462,7 +1462,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The factor sets his routing ledger aside and folds his hands on the desk. "Emergency route, sealed cargo, no standard staging entry — you\'re asking for protocol seven." He says the number without looking at it anywhere. He knows it. "Protocol seven exists. I\'ve processed eleven in the past six weeks. I don\'t have authority to do twelve. The authorization for protocol seven comes from the transit arbitration panel." He opens a side drawer and takes out a copy of the eleven authorizations — his own carbons. "I keep these because one day someone is going to ask me why I did eleven things that don\'t appear in the staging log, and I want to be able to answer that question." He hands them across the desk.';
+        G.lastResult = 'The factor sets his routing ledger aside and folds his hands on the desk. "Emergency route, sealed cargo, no standard staging entry — you\'re asking for protocol seven." He knows the number without checking anything. "Protocol seven exists. I\'ve processed eleven in the past six weeks. I don\'t have authority to do twelve. The authorization comes from the transit arbitration panel." He opens a side drawer and takes out a copy of the eleven authorizations — his own carbons. "I keep these because one day someone will ask me why I did eleven things that don\'t appear in the staging log." He hands them across the desk.';
         G.stageProgress[1]++;
         addJournal('Factor revealed "protocol seven" — 11 processed, all off staging log; authorization from transit arbitration panel; factor kept personal carbons', 'evidence');
       } else if (result.isFumble) {
@@ -1483,7 +1483,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
-    label: "The route discrepancy is a risk to the waymark factor\'s own operation. He\'s about to figure that out.",
+    label: "The route discrepancy is a risk to the waymark factor's own operation.",
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
     stageProgress: 1,

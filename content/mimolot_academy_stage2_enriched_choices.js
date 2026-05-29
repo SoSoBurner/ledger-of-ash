@@ -1306,7 +1306,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Myra's personal cargo log has an entry she crossed out and then re-entered three weeks later.",
+    label: "Myra's cargo log has an entry she crossed out and re-entered three weeks later.",
     tags: ['Academy', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1320,7 +1320,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Myra opens the log to the page before being asked — she has tabs marking the entries she keeps returning to. The crossed-out entry was a crate she logged on delivery, then was told not to log, then re-entered three weeks later when the instruction not to log it was itself reversed. The supervisor who told her not to log it did so verbally, no written order; the one who told her to re-enter it gave her a written instruction on Academy letterhead with no signature block. She kept both the verbal record in her personal notes and the written instruction. She has had them both for eleven weeks. She pushes the log across the counter with both documents folded inside it.`;
+        G.lastResult = `Myra opens the log to the page before being asked — she has tabs marking the entries she keeps returning to. The crossed-out entry was a crate she logged on delivery, then was told not to log, then re-entered three weeks later when the instruction not to log it was itself reversed. The supervisor who told her not to log it did so verbally, no written order; the one who told her to re-enter it gave her a written instruction on Academy letterhead with no signature block. She kept both the verbal record in her personal notes and the written instruction. She pushes the log across the counter with both documents folded inside it.`;
         addJournal('Myra Quillfire: suppressed-then-reinstated cargo entry — verbal suppression, unsigned re-entry instruction', 'evidence', 'mim-myra-log-' + G.dayCount);
       } else if (result.isFumble) {
         G.lastResult = `The personal cargo log is personal property and not required to be shared with external inquirers — Myra's supervisor established this in a staff briefing six months ago, she explains, which means the question and Myra's refusal are both on the right side of the same rule. She does not seem pleased about either. The log stays on the shelf behind her. The supervisor in question is visible through the loading bay door.`;
@@ -1369,7 +1369,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Myra logged a delivery where the porter who signed for it doesn't match any staff record.",
+    label: "Myra logged a delivery signed by a porter who doesn't match any staff record.",
     tags: ['Academy', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -1526,7 +1526,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The compound's degradation timeline makes it useless for anything except population-scale application.",
+    label: "The compound's degradation window rules out everything except population-scale deployment.",
     tags: ['Academy', 'Stage2'],
     xpReward: 80,
     fn: function() {
@@ -1540,7 +1540,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.mim_degradation_timeline_mapped = true;
-        G.lastResult = `The compound degrades to inert components within eight hours of dispersal — which means it cannot be stockpiled in active form, must be produced continuously near its deployment site, and must be applied over a large area to achieve effect before degradation neutralizes it. This is not the profile of a controlled research agent. It is the profile of a weapon designed for mass deployment: too unstable to store, too short-lived to use on individuals, exactly suited for broad ambient release across an inhabited area. The Academy's theoretical framing as a research compound is not just a cover. It is the only legal description available for something with these properties, because the legal category for what this actually is does not exist in any administrative framework that would permit its development here.`;
+        G.lastResult = `The compound degrades to inert components within eight hours of dispersal — which means it cannot be stockpiled in active form, must be produced continuously near its deployment site, and must be applied over a large area to achieve effect before degradation neutralizes it. This is not the profile of a controlled research agent. It is the profile of a weapon designed for mass deployment: too unstable to store, too short-lived to use on individuals, exactly suited for broad ambient release across an inhabited area. The Academy's theoretical framing as a research compound is not just a cover — it is the only legal description available for something with these properties.`;
         addJournal('Compound degradation profile: 8-hour window, requires continuous production near deployment — optimized for mass ambient release, not research', 'evidence', 'mim-degradation-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1590,7 +1590,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "One external agent attended a faculty-only thesis committee session. The committee has no record of it.",
+    label: "One external agent attended a faculty-only thesis session. No committee record of it.",
     tags: ['Academy', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -1621,7 +1621,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The external agents' key return dates all fall on the same day as Draith Calver's arrivals.",
+    label: "External agents' key return dates all fall on the same day as Draith Calver's arrivals.",
     tags: ['Academy', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1651,7 +1651,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The visiting faculty endorsement for one external agent is signed by someone who died two years ago.",
+    label: "One external agent's faculty endorsement is signed by someone who died two years ago.",
     tags: ['Academy', 'Stage2'],
     xpReward: 80,
     fn: function() {

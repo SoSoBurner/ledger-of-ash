@@ -1102,7 +1102,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
   // COMBAT x2
   {
     archetypeGroup: 'combat',
-    label: "The berth locks from this side. One tide window. The enforcers haven\'t reached the dock yet.",
+    label: "The berth locks from this side. One tide window before enforcers reach the dock.",
     tags: ['Combat', 'Risk', 'Direct'],
     xpReward: 65,
     stageProgress: 1,
@@ -1144,7 +1144,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'combat',
-    label: "Three harbor enforcers, one dock. They want me off this pier and they\'re going to push.",
+    label: "Three harbor enforcers, one dock. They want me off this pier.",
     tags: ['Combat', 'Confrontation', 'Direct'],
     xpReward: 65,
     stageProgress: 1,
@@ -1316,7 +1316,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
-    label: "Guarded vessel, second berth from the end. The watch rotation has a gap at the stern.",
+    label: "Guarded vessel, second berth from the end. Watch rotation has a gap at the stern.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1359,7 +1359,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
-    label: "Dock workers are watching the harbor clerk. They know what a timed distraction costs and they\'re waiting for someone to ask.",
+    label: "Dock workers are watching the harbor clerk. They know what a timed distraction costs.",
     tags: ['Support', 'NPC', 'Coordination'],
     xpReward: 65,
     stageProgress: 1,
@@ -1401,7 +1401,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
-    label: "The harbor clerk flagged this discrepancy himself. He just hasn\'t been able to explain it to anyone who will listen.",
+    label: "The harbor clerk flagged this discrepancy himself. No one has listened.",
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
     stageProgress: 1,

@@ -881,7 +881,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Toman and Lenna met once before I arrived. The outcome is written on both of them.",
+    label: "Toman and Lenna met once before I arrived. That meeting left a mark.",
     tags: ['NPC', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -1013,7 +1013,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Shelkopolis civic register lists NGOC. The address is a postal relay node, not an office.",
+    label: "A Shelkopolis civic register lists NGOC. That address is a postal relay node.",
     tags: ['Research', 'Stage2'],
     xpReward: 82,
     fn: function() {

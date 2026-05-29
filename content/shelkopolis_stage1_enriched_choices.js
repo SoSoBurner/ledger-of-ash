@@ -1216,7 +1216,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'combat',
-    label: "The guild courier is carrying a sealed dispatch. This is the last alley before the relay post.",
+    label: "The guild courier is carrying a sealed dispatch. Last alley before the relay post.",
     tags: ['Combat', 'Confrontation', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1345,7 +1345,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH x2
   {
     archetypeGroup: 'stealth',
-    label: "The guild factor walks the same commercial district route every second hour. He hasn\'t noticed anyone following.",
+    label: "The guild factor walks the same commercial route every second hour. Nobody following.",
     tags: ['Stealth', 'Covert', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1387,7 +1387,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
-    label: "The counting house closes to the public at the sixth bell. The clerks leave twenty minutes after.",
+    label: "The counting house closes at sixth bell. The clerks leave twenty minutes after.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1431,7 +1431,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
-    label: "The trade concession the factor wants is something you can arrange. He knows what he has in exchange.",
+    label: "The trade concession the factor wants is something I can arrange.",
     tags: ['Support', 'NPC', 'Negotiation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1474,7 +1474,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
-    label: "The clerk already knows the discrepancy threatens her standing. She just hasn\'t said it aloud yet.",
+    label: "The clerk already knows the discrepancy threatens her standing.",
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
     stageProgress: 1,
@@ -1738,7 +1738,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
-    label: 'The counting house closes at the fifth-watch bell. The back entrance does not lock until later.',
+    label: 'The counting house closes at fifth-watch bell. The back entrance locks later.',
     tags: ['Stealth', 'Infiltration', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1781,7 +1781,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT ×2 — Negotiation or information brokering
   {
     archetypeGroup: 'support',
-    label: 'The trade concession is worth more to him than the manifest access is worth to them.',
+    label: 'The trade concession is worth more to him than the manifest access.',
     tags: ['Social', 'NPC', 'Negotiation', 'Commerce'],
     xpReward: 65,
     stageProgress: 1,
