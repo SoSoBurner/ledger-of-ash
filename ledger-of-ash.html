@@ -4327,6 +4327,7 @@ function resolveCombatAction(action, abilityId) {
   const combatSkill = G.skills.might || 0;
   const survSkill = G.skills.vigor || 0;
   const traitCombatBonus = getTraitBonus('might');
+  var _archFamily = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(archId) : 'combat';
 
   let resultText = '';
   let playerDamage = 0;
@@ -4441,7 +4442,8 @@ function resolveCombatAction(action, abilityId) {
     CS.enemyDefMod = 0;
     const total = roll + combatSkill + traitCombatBonus + rangeBonus + compAtkBonus + nextAtkBonus + stratAtkBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
     if (G._traitBonus && G._traitBonus.skill === 'combat') G._traitBonus = null;
-    const hit = total >= (CS.enemy.defense + enemyDefAdj) + 5;
+    const _atkThreshold = (CS.enemy.defense + enemyDefAdj) + 5 - (_archFamily === 'combat' ? 2 : 0);
+    const hit = total >= _atkThreshold;
     const baseDmg = hit ? Math.floor(Math.random() * 6) + combatSkill + 1 : 0;
 
     // Enemy counter-attack
@@ -4472,7 +4474,8 @@ function resolveCombatAction(action, abilityId) {
     const roll = d20();
     const stratDefBonus = (CS.strategyActive === 'defensive' && CS.strategyRoundsLeft > 0) ? 3 : 0;
     const total = roll + survSkill + stratDefBonus;
-    const defended = total >= 10;
+    const _defThreshold = _archFamily === 'combat' ? 9 : 10;
+    const defended = total >= _defThreshold;
     // Enemy still attacks but reduced
     const eRoll = d20();
     const eBase = Math.floor(Math.random() * 4) + CS.enemy.attack - 3;
@@ -4521,6 +4524,8 @@ function resolveCombatAction(action, abilityId) {
           resultText += 'Success. ' + ab.effect + '. Enemy takes ' + bonusDmg + ' damage.';
         }
         resultType = 'success';
+        if (!G.abilityUsedThisRest) G.abilityUsedThisRest = {};
+        G.abilityUsedThisRest[abilityId] = true;
 
         // Bonus-action abilities: also resolve a normal attack in the same round
         if (ab.cost === 'bonus' && CS.enemy.hp > 0) {
@@ -4546,6 +4551,8 @@ function resolveCombatAction(action, abilityId) {
         resultText += 'The ability misfires. The enemy exploits the opening. You take ' + enemyDamage + ' damage.';
         applyWound(enemyDamage, 'from ' + CS.enemy.name);
         resultType = 'failure';
+        if (!G.abilityUsedThisRest) G.abilityUsedThisRest = {};
+        G.abilityUsedThisRest[abilityId] = true;
       }
     }
 
