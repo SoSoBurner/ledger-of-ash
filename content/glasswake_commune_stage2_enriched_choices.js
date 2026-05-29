@@ -620,6 +620,432 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
 
+  // ── NEW CHOICES: contamination data suppression (4) ──────────────────────────
+
+  {
+    label: "Two monitoring stations read the same formation. Their numbers have never matched.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'comparing dual-station contamination monitoring discrepancy at glasswake');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.dual_station_discrepancy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Station A is the newer installation — its anchor posts are still pale where they were set in the frozen ground. Station B predates it by three years. The logged readings from A run consistently below B by eleven to fourteen percent, and A is positioned closer to the formation center. A nearer station should read higher, not lower. The calibration records for A are missing from the posted binder: someone removed the sheets and did not note the removal date.';
+        addJournal('Station A reads lower than Station B despite being closer — calibration records removed, no date logged', 'evidence', 'gla-stations-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The monitoring post technician is running a calibration cycle on both stations simultaneously. She does not look up. The logbooks are in active use and unavailable for review during cycle. She marks the end time in the binder — both stations return identical readings at cycle close, a precision that does not appear anywhere else in the historical log. The calibration overwrite interval is set to four hours. By the time the next reading posts, this window is gone.';
+        addJournal('Calibration cycle active — both stations forced to identical reading at cycle close, overwrite interval four hours', 'complication', 'gla-stations-fail-' + G.dayCount);
+      } else {
+        G.flags.dual_station_discrepancy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Station A logs are available at the environmental post. The numbers are lower than Station B at every corresponding date. Cold morning light off the shard field refracts through the post window and runs pale lines across the logbook pages. The discrepancy is consistent: not a single spike or error, but a steady eleven-percent gap. A methodical undercount produces exactly this pattern. The calibration binder for Station A has a gap where the installation sheets should be.';
+        addJournal('Station A systematically eleven percent below Station B — calibration installation sheets missing from binder', 'intelligence', 'gla-stations-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The contamination boundary shrank six months ago. The shards didn't.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'cross-referencing contamination boundary reduction against shard field extent');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.boundary_reduction_noted = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The boundary reduction order is in the public governance record: six months ago, fourteen meters reduced on the northwest quadrant. The justification listed: "reduced contamination pressure confirmed by Station A quarterly assessment." Station A is the newer installation with the missing calibration sheets. The formation itself has not changed — the shard density maps from the previous quarter show the same northwest cluster extent. The boundary reduction was authorized by data from a station whose calibration record does not exist.';
+        addJournal('Boundary reduction authorized on Station A data — calibration record absent, formation extent unchanged, northwest cluster unaffected', 'evidence', 'gla-boundary-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'The boundary reduction order is in the public record but the supporting assessment is filed as a restricted annex — available only to Containment Research Concord reviewers. Requesting it through the commune research office triggers an automatic notification to the Concord liaison. Lenna files the notification before the request is complete. She does it quietly, pen not pausing, the way she handles any mandatory process. The request goes into the log and stays there.';
+        addJournal('Boundary reduction supporting assessment restricted — access request auto-notified Concord liaison', 'complication', 'gla-boundary-fail-' + G.dayCount);
+      } else {
+        G.flags.boundary_reduction_noted = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The reduction is documented: northwest quadrant, fourteen meters. The stated reason references a Station A quarterly assessment. The actual shard density map from the same period — available in the open monitoring files — shows the northwest cluster unchanged. The morning glare off the formation makes the marker stakes visible from the commune perimeter. The new boundary line runs inside the old one. The shards behind it are the same shards.';
+        addJournal('Boundary reduction documented — supporting Station A assessment references formation data contradicted by unchanged density maps', 'intelligence', 'gla-boundary-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Toman's original suppression request listed a secondary reviewer. That name is blank now.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'tracing secondary reviewer erasure on Toman Iceveil suppression request');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.secondary_reviewer_erased = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The original suppression request is on file in the archive\'s restricted correspondence drawer — Lenna can access it for structural review without opening the classified sections. The secondary reviewer field carries the ghost of a name beneath a chemical erasure: the paper is slightly raised where the original ink sat before the solvent was applied. The erasure post-dates the filing stamp by at least two weeks. Whoever removed the name had access to the original document after it was filed and processed. That requires Concord-level archive access.';
+        addJournal('Secondary reviewer field chemically erased post-filing — Concord-level archive access required, name recoverable under raking light', 'evidence', 'gla-reviewer-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The restricted correspondence drawer is locked when the archive opens. Lenna checks the access log: the drawer was opened four days ago by a Concord liaison representative whose name appears in the log as "authorized designate" — no personal name, no credential number. The access window was twelve minutes. Whatever was in the drawer before that visit may or may not still be in the same condition.';
+        addJournal('Restricted drawer accessed four days ago by unnamed Concord designate — twelve-minute window, contents condition unknown', 'complication', 'gla-reviewer-fail-' + G.dayCount);
+      } else {
+        G.flags.secondary_reviewer_erased = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Lenna pulls the suppression request cover page — the part she can access without opening classified content. The secondary reviewer line is blank. It should not be: Concord suppression procedure requires two reviewers minimum. She checks the procedural manual on the shelf behind her desk without being asked. "Single-reviewer suppression isn\'t valid under current protocol." She closes the manual. "It was filed anyway."';
+        addJournal('Suppression request filed with single reviewer — secondary reviewer line blank, Concord protocol requires two', 'intelligence', 'gla-reviewer-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The quarterly contamination report omits the northwest cluster entirely.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'auditing quarterly contamination report for northwest cluster omission');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.quarterly_report_gap = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The quarterly report is public — posted on the commune notice board in a weather-resistant sleeve, the paper slightly yellowed at the edges from cold air off the shard field. Four sections: east cluster, south cluster, central zone, perimeter readings. The northwest cluster does not appear. It is not abbreviated, not combined with another section, not noted as under review. It is simply absent from a report that covers every other part of the formation. The report is signed by the Containment Research Concord liaison — Orend Cavel\'s countersignature is the second one on the page.';
+        addJournal('Quarterly contamination report omits northwest cluster — four of five zones covered, Cavel countersigned the report', 'evidence', 'gla-quarterly-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The most recent quarterly report is no longer in the notice board sleeve. The sleeve is still posted, the weather-resistant cover intact, but the interior is empty. A maintenance worker replacing the sleeve cord nearby does not know when the report was removed. "They update them when a new quarter closes." The previous quarter\'s report is not in the archive\'s open files — it was pulled for the Concord\'s annual review, which has no listed end date.';
+        addJournal('Quarterly report removed from notice board — previous quarter pulled for undated annual review, no replacement posted', 'complication', 'gla-quarterly-fail-' + G.dayCount);
+      } else {
+        G.flags.quarterly_report_gap = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'East, south, central, perimeter. The report covers all of those. The northwest cluster is not listed. The cold refractive glare off the shard formation is strongest in the northwest quadrant at this hour — the light hits at an angle that makes the crystalline tips glow faintly against the grey estuary sky. It is visible from the commune gate. It is not in the report. No annotation explains the omission.';
+        addJournal('Northwest cluster absent from quarterly report — all other zones present, no annotation or explanation', 'intelligence', 'gla-quarterly-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NEW CHOICES: NPC encounters — Toman and Lenna (5) ────────────────────────
+
+  {
+    label: "Toman keeps his most recent fieldwork separate. He calls the folder 'personal notes'.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'gaining access to Toman Iceveil personal fieldwork folder');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.toman_personal_notes = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Toman takes the folder from the shelf above his instrument rack without naming it. His thumb traces the edge of the cover — a habit, not a hesitation. Inside: handwritten field observations from the northwest cluster, dated across the last three months. He has been measuring the formation\'s glyph pressure inflow at the perimeter every clear-sky morning. The measurements are not in any submitted record. "I stopped submitting fieldwork when I understood what happens to the reports." He sets the folder open on the table. "These are yours to read."';
+        addJournal('Toman Iceveil personal fieldwork: three months of northwest cluster inflow measurements, none submitted — handed over directly', 'evidence', 'gla-toman-notes-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Toman is courteous. He describes the folder as personal working material, not research output, and therefore not available for external review under any current protocol. The observation gallery is cold in the morning, the estuary-side window admitting a line of pale light across the instrument rack. He does not move toward the shelf. "I keep personal notes because I find them useful. They are not findings." He says it the way someone states a position they have rehearsed against a specific challenge.';
+        addJournal('Toman declined access to personal folder — distinguished it from research output, no protocol available to compel access', 'complication', 'gla-toman-notes-fail-' + G.dayCount);
+      } else {
+        G.flags.toman_personal_notes = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Toman allows a partial look — three pages from the northwest cluster observation series, his handwriting close and measured. The glyph inflow readings he logged are higher than anything in the submitted record for the same period. He watches while the pages are reviewed. "The formation is drawing more pressure than it was six months ago. The quarterly report does not show this." He takes the pages back and returns them to the shelf. "Now you know why I keep the folder."';
+        addJournal('Toman personal notes partial review: northwest cluster inflow rising — discrepancy with submitted quarterly record confirmed', 'intelligence', 'gla-toman-notes-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Lenna pulled the submission logs herself before I arrived. She was already counting.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'learning what Lenna Bannerhold already found in the submission logs');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.lenna_pre_audit = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The submission log is open on Lenna\'s desk, a handwritten tally in the margin she made before anyone asked. Seventeen submissions across the last six months. Four marked "held for review." All four from the same researcher — not Toman — all referencing the northwest cluster. She has circled the reviewer column on each: blank on all four. "I counted them last week. I did not know what to do with the count." She pushes the log across the desk. "Now I think I do."';
+        addJournal('Lenna pre-audit: four northwest cluster submissions held, same external researcher, no reviewer assigned — she counted before being asked', 'evidence', 'gla-lenna-preaudit-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Lenna sets her pen down precisely at the log\'s spine crease. "If you are asking me what I\'ve noticed, I\'m going to tell you that\'s a question I\'d need to answer in front of a Concord representative to protect both of us." She is not deflecting — she is describing the actual procedural constraint clearly. She marks the current entry in the log, date and time, and moves the log to the closed shelf without saying what\'s in it.';
+        addJournal('Lenna declined outside procedural process — described Concord representation as required protection for both parties', 'complication', 'gla-lenna-preaudit-fail-' + G.dayCount);
+      } else {
+        G.flags.lenna_pre_audit = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Lenna shows the margin tally without commentary: four held submissions, northwest cluster, six months. She covers the researcher name with her thumb — not obstructing, just keeping the conversation on what she can confirm without it. "Four held with no reviewer. That\'s irregular. The log should show a reviewer name within ten days of submission." She looks at the log, not at the room. "They\'ve been sitting for between three and five months each."';
+        addJournal('Lenna confirms four held northwest cluster submissions, no reviewer within protocol window — held three to five months each', 'intelligence', 'gla-lenna-preaudit-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Toman filed a formal complaint once. He won't say what happened to it.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'getting Toman Iceveil to speak about his filed formal complaint');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.toman_complaint_filed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Toman speaks without prompting once trust is established — as if he has been waiting for someone to ask the right question in the right register. He filed the complaint fourteen weeks ago. Three days later his fieldwork access permit was suspended for a procedural error in his renewal application — an error he cannot locate in the original forms. The access suspension lasted eleven days. When it lifted, the complaint entry in the Concord\'s correspondence register showed a routing status of "referred for internal review." It has not changed since. "I understood the message. I stopped filing."';
+        addJournal('Toman complaint filed 14 weeks ago — access suspended 3 days later on phantom procedural error, complaint still in internal review', 'evidence', 'gla-toman-complaint-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Toman\'s posture does not shift. He considers the question the way he considers a measurement he does not trust. "There is a formal correspondence record. The Concord\'s process is public." He does not answer the question. He describes where the answer could theoretically be found and then returns to the parchment on the gallery table. His hands are flat and still on the surface.';
+        addJournal('Toman declined to speak about complaint — redirected to formal correspondence record, no further information given', 'complication', 'gla-toman-complaint-fail-' + G.dayCount);
+      } else {
+        G.flags.toman_complaint_filed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Toman confirms the complaint exists without describing it. "Fourteen weeks ago. It is in the Concord\'s correspondence register." He pauses. The observation gallery holds the cold smell of stone and the faint acrid trace from the shard field that works into every room on the north side of the building. "My fieldwork access was suspended the week after I filed." He does not say what he concludes from that. He doesn\'t need to.';
+        addJournal('Toman confirms complaint, 14 weeks — fieldwork access suspended the week after filing, no stated conclusion', 'intelligence', 'gla-toman-complaint-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Lenna's been marking the suppression files with a private notation system.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'decoding Lenna Bannerhold private notation system in suppression files');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.lenna_notation_decoded = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The notation appears in the corner of each suppression file cover — a small pencil mark, one to three characters, the same hand throughout. Lenna does not explain it until asked directly. A single dot: filed under valid protocol. Two dots: filed under valid protocol with an anomaly she recorded elsewhere. A horizontal dash: no valid protocol basis, filed anyway. The suppression orders related to Toman\'s northwest cluster research carry dashes. There are seven dashes in the archive. All seven cluster around the same six-month period.';
+        addJournal('Lenna private notation: dash = no valid protocol basis — seven dashes in archive, all northwest cluster suppression orders in same 6-month window', 'evidence', 'gla-lenna-notation-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Lenna notices the attention on the file margins while closing the archive drawer. She does not comment on what the marks mean. She straightens the files and sets the drawer lock without meeting the question directly. "Clerks develop working habits. They\'re not part of the official record." Her tone carries neither confirmation nor denial — the flat register of someone who has decided to give nothing more than the minimum.';
+        addJournal('Lenna deflected notation inquiry — described marks as personal working habit, not part of the official record', 'complication', 'gla-lenna-notation-fail-' + G.dayCount);
+      } else {
+        G.flags.lenna_notation_decoded = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Lenna explains the notation system without elaborating on what she\'s found using it. One mark for clean filings, two marks for filings with anomalies, a dash for filings without protocol basis. She does not say which files carry which marks. She does say: "I started using it six months ago. Before that the distinctions didn\'t seem necessary." The archive room is cold, the damp paper smell working up from the lower shelves.';
+        addJournal('Lenna confirms three-tier notation system begun six months ago — specific file marks not disclosed', 'intelligence', 'gla-lenna-notation-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Toman and Lenna met once before I arrived. The outcome is written on both of them.",
+    tags: ['NPC', 'Stage2'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'reading Toman Iceveil and Lenna Bannerhold prior meeting dynamic');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.toman_lenna_prior_meeting = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Lenna confirms the meeting when asked directly: eight weeks ago, Toman brought a formatted submission to her desk requesting access to the restricted correspondence drawer. She walked him through the access protocol. He filled every form correctly. The access was denied by automated routing before it reached a human reviewer. He thanked her and left without asking why. She has thought about that — his lack of surprise — every time she pulls the drawer since. "He already knew the answer. He was making a record."';
+        addJournal('Toman submitted formal access request through Lenna 8 weeks ago — denied by automated routing, no human reviewer, Toman unsurprised', 'evidence', 'gla-prior-meeting-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Neither Toman nor Lenna acknowledges the meeting when the subject comes up in separate conversations. Not denial — absence. The question produces a brief pause and then a movement to adjacent topics, the way someone moves around furniture they have learned not to bump in a dark room. Whatever the meeting produced, it also produced a shared understanding that discussing it is not safe.';
+        addJournal('Both Toman and Lenna non-responsive to prior meeting question — shared avoidance pattern, no denial given', 'complication', 'gla-prior-meeting-fail-' + G.dayCount);
+      } else {
+        G.flags.toman_lenna_prior_meeting = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Toman acknowledges the meeting without specifics: he approached Lenna with a formal request eight weeks ago. He describes her response as procedurally correct. He does not describe the request or its outcome. The cold morning air from the shard field has worked its way into the observation gallery — the window frames carry a faint white mineral deposit at their edges from repeated condensation. "I learned what I needed to know about the routing system from that conversation."';
+        addJournal('Toman confirms prior meeting with Lenna — formal request, procedurally correct response, routing system behavior confirmed', 'intelligence', 'gla-prior-meeting-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NEW CHOICES: research suppression mechanism (2) ──────────────────────────
+
+  {
+    label: "The hold mechanism is automated. No person has to sign off on individual suppressions.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'mapping automated suppression routing mechanism at glasswake commune');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.suppression_mechanism_mapped = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The submission routing protocol is documented in the commune\'s research administration handbook — available on the open reference shelf in Lenna\'s archive room. A submission tagged with any of seven designated subject codes is automatically held for secondary review. The subject codes include "northwest formation anomaly" — added to the list five months ago. The addition required only a Containment Research Concord directive, no commune vote. The NGOC suppression order established the subject code list. The automated hold is the mechanism the suppression order created, running without requiring any individual decision after the initial setup.';
+        addJournal('Automated hold triggered by seven subject codes — northwest formation anomaly added 5 months ago via Concord directive, no commune vote required', 'evidence', 'gla-mechanism-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The research administration handbook is on the open reference shelf but the appendix section covering routing codes is missing — the page signatures are present but the leaves have been removed cleanly at the binding. Lenna notes the damage in the archive condition log, her handwriting marking the entry date and the nature of the defect. "This happened recently. The handbook was complete at last quarter\'s condition review." The missing appendix covers exactly the subject code list.';
+        addJournal('Routing code appendix removed from handbook — clean cut at binding, Lenna logged condition defect, missing since last quarter review', 'complication', 'gla-mechanism-fail-' + G.dayCount);
+      } else {
+        G.flags.suppression_mechanism_mapped = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The routing protocol exists in the handbook: submissions matching designated subject codes go to secondary review automatically. Lenna pulls the current subject code list from the administrative drawer. Seven codes. She reads them aloud and stops at the fifth: "northwest formation anomaly." She sets the list down. "I process submissions. I do not see the subject code field unless I look for it." She has clearly looked for it.';
+        addJournal('Subject code list confirmed — northwest formation anomaly code active, Lenna found it after reviewing routing anomalies', 'intelligence', 'gla-mechanism-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The secondary review queue has no assigned reviewers. Submissions go in and stop.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'auditing the empty secondary review queue at glasswake commune research office');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.review_queue_empty = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The secondary review queue roster is a one-page document kept with the submission routing records. It names three reviewer positions — all listed as "pending appointment by the Containment Research Concord." None has been filled. The queue has been in this state since the routing protocol was established five months ago. Every submission that reaches secondary review enters a queue staffed by no one. The protocol does not have a timeout provision: a submission can wait indefinitely without violating any documented rule.';
+        addJournal('Secondary review queue: three positions, all pending Concord appointment for five months — no timeout provision, held submissions wait indefinitely', 'evidence', 'gla-queue-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The review queue roster is filed with the restricted correspondence section — Lenna can confirm the queue exists but cannot show the roster without a Concord authorization. She describes it as "staffing records" and explains that staffing records for Concord-administered review bodies are not commune documents regardless of where they are physically filed. The restriction is correct under Concord jurisdiction rules. The information is present and inaccessible by design.';
+        addJournal('Review queue roster classified as Concord staffing records — not commune-accessible, restriction jurisdictionally correct', 'complication', 'gla-queue-fail-' + G.dayCount);
+      } else {
+        G.flags.review_queue_empty = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Lenna confirms what she is able to say: the secondary review queue has reviewer positions designated by the Concord, and she does not process the queue — that is Concord administration. "I can tell you what goes in. I cannot tell you whether anything comes out." She sets her pen on the submission log. The cold window light from the estuary side catches the pale surface of the open page. "In five months, I have not seen a held submission receive a reviewer assignment."';
+        addJournal('Lenna confirms: five months active queue, no reviewer assignment seen — Concord administers queue, she only processes intake', 'intelligence', 'gla-queue-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NEW CHOICES: cross-locality thread (2) ────────────────────────────────────
+
+  {
+    label: "The same NGOC routing code appears on a suppression order filed at Cosmouth.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'tracing NGOC routing code match between glasswake and cosmouth suppression orders');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.cross_locality_ngoc = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Cosmouth suppression order arrived through guild correspondence routes — the Tidereach merchant council maintains a research notification board that logs external suppression filings affecting guild-adjacent institutions. The routing code on the Cosmouth order: Post Line 7, Northern Glyph Oversight Commission, Shelkopolis Civic Administration Bureau. Identical format to the Glasswake filing. The subject at Cosmouth: tidal glyph pressure mapping, specifically the estuary inflow patterns that connect to the glasswake formation region. Two localities, one routing code, one suppression body, one connected subject.';
+        addJournal('NGOC Post Line 7 routing code on Cosmouth suppression — tidal glyph pressure mapping subject, connects to glasswake formation region', 'evidence', 'gla-cosmouth-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'The Cosmouth notification board is the lead. But accessing the Tidereach merchant council\'s correspondence logs requires a guild member referral — and someone has already flagged the NGOC routing code as sensitive in the council\'s system. The referral request triggers a secondary review notice within hours. A courier arrives at the commune the following morning with a formal inquiry from the council asking for the purpose of the records request. The trail to Cosmouth drew attention before it could be traced.';
+        addJournal('Cosmouth access triggered Tidereach council inquiry — NGOC routing code flagged as sensitive in council system', 'complication', 'gla-cosmouth-fail-' + G.dayCount);
+      } else {
+        G.flags.cross_locality_ngoc = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Tidereach merchant council\'s research notification board is semi-public — guild members and registered researchers can read it. The Cosmouth entry is dated three weeks before the Glasswake filing: Post Line 7, NGOC, tidal glyph pressure mapping. The subject at Cosmouth and the subject at Glasswake are adjacent — the estuary inflow patterns the Cosmouth order suppressed are the same patterns Toman\'s correlation data depends on for its external signal argument. Suppressing both removes the evidence base from two directions at once.';
+        addJournal('NGOC suppressed Cosmouth tidal inflow data 3 weeks before Glasswake filing — both subjects required to build Toman\'s external signal argument', 'intelligence', 'gla-cosmouth-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A Shelkopolis civic register lists NGOC. The address is a postal relay node, not an office.",
+    tags: ['Research', 'Stage2'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'tracing Northern Glyph Oversight Commission address to Shelkopolis relay node');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ngoc_address_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Shelkopolis civic administration directory is available at any research institution with a Shelkopolis affiliate charter — the commune qualifies. The NGOC entry appears under "regulatory oversight bodies, glyph and formation management." Address: Civic Administration Bureau, Post Line 7. That address corresponds to the Shelkopolis postal relay service used by government bodies that do not maintain a permanent physical office — a forwarding point for institutions with temporary or distributed operations. The NGOC has no listed permanent office. Its mail forwards to a private distribution routing address not named in the directory. The organization exists in the directory. Its actual location does not.';
+        addJournal('NGOC in civic directory as Post Line 7 relay — no permanent office, forwarding address private and unlisted, Shelkopolis relay used by temporary government bodies', 'evidence', 'gla-ngoc-address-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The commune\'s Shelkopolis affiliate charter does not extend to directory access for regulatory oversight bodies — that tier requires a direct institutional Shelkopolis affiliation, not an associate charter. The archivist checks twice and shrugs. "You need a Class 2 affiliation. We have a Class 3." The information is one administrative tier out of reach, and the distinction exists in writing in the commune\'s own charter documentation.';
+        addJournal('Directory access denied — commune holds Class 3 affiliate status, regulatory oversight tier requires Class 2', 'complication', 'gla-ngoc-address-fail-' + G.dayCount);
+      } else {
+        G.flags.ngoc_address_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The directory lists the NGOC under regulatory oversight. Post Line 7. The commune\'s research administrator, who handles the Shelkopolis affiliate charter annually, knows Post Line 7 without looking it up: "That\'s the relay node for provisional and distributed bodies. Not a street address." He checks whether the NGOC has a secondary listing showing a permanent office. It does not. "They exist in the directory. They just don\'t exist anywhere you can go."';
+        addJournal('NGOC listed at Post Line 7 relay — commune administrator confirms relay designation, no permanent office secondary listing', 'intelligence', 'gla-ngoc-address-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── END NEW CHOICES ───────────────────────────────────────────────────────────
+
   {
     label: 'The allocation records show water going somewhere not on the map',
     tags: ['Records', 'Evidence'],
