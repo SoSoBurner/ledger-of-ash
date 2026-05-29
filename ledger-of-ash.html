@@ -10972,6 +10972,7 @@ function adaptEnrichedChoice(c) {
     tag: _derivedTag,
     _isEnriched: true,
     align: c.align || 'neutral',
+    skill: c.skill || null,
     cid: c.cid || c.id || undefined,
     plot: c.plot || undefined,
     failResult: c.failResult || undefined,
@@ -11035,6 +11036,12 @@ function adaptEnrichedChoice(c) {
           G.narrationUpdateCounter = 0;
           scheduleLivingDescUpdate();
         }
+      }
+      // Stage II stageProgress increment — wire c.stageProgress on success/crit outcomes
+      var _spVal = c.stageProgress || 0;
+      if (_spVal && G.stage === 'Stage II' && (_outcomeType === 'success' || _outcomeType === 'crit')) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + _spVal;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
       // Soreheim plot currency: increment on enriched choice execution in Soreheim territory
       const _soreLocs = ['soreheim','sunspire'];
