@@ -4533,7 +4533,7 @@ function resolveCombatAction(action, abilityId) {
           var _baRangeBonus = getRangeModifier('melee');
           var _baCompBonus = getCompanionPassiveBonus('combat');
           var _baTotal = _baRoll + combatSkill + traitCombatBonus + _baRangeBonus + _baCompBonus;
-          var _baHit = _baTotal >= (CS.enemy.defense) + 5;
+          var _baHit = _baTotal >= (CS.enemy.defense) + 5 - (_archFamily === 'combat' ? 2 : 0);
           var _baDmg = _baHit ? Math.floor(Math.random() * 6) + combatSkill + 1 : 0;
           resultText += '<br><em>(Bonus action — follow-up attack)</em> d20 ' + _baRoll + ' + Might ' + combatSkill + ' = <strong>' + _baTotal + '</strong> — ';
           if (_baHit) {
