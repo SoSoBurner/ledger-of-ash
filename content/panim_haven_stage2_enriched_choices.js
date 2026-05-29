@@ -1006,6 +1006,642 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ── AFTERLIFE-LEDGER FALSIFICATION ── 6 choices ──────────────────────────
+
+  {
+    label: "The second witness column in the afterlife ledger is never filled. Someone decided it shouldn't be.",
+    tags: ['Ledger', 'Stage2'],
+    tag: 'risky',
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'auditing witness column patterns in the afterlife ledger');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ledger_witness_column_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The ledger's printed form has two witness lines separated by a ruled margin. The second is blank in every entry from the past eleven months — not struck through, not marked exempt, simply unused. Cross-referencing three earlier volumes shows the second witness signed every entry without exception until the month Elior Sepulcher took the senior mediator post. The transition is not noted in any administrative log. The gap is structural, deliberate, and hidden inside the appearance of a form left half-complete.`;
+        addJournal('Afterlife ledger: second witness column abandoned when Elior took senior post', 'evidence', `pan-witness-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The archive reading desk requires a counter-stamped day pass for extended ledger access. The stamp desk is staffed by a single clerk who notes, without being asked, that ledger cross-referencing requests require a written statement of purpose filed one working day in advance. The form for that statement is not currently available at this counter. The clerk offers nothing further and returns to the document she was copying before the question arrived.`;
+        addJournal('Ledger access blocked — advance filing requirement invoked', 'complication', `pan-witness-fail-${G.dayCount}`);
+      } else {
+        G.flags.ledger_witness_column_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Eleven months of entries share the same format deviation: the second witness line is blank. The pattern holds across every entry in that window without a single exception. Earlier volumes show both lines signed. No administrative memo marks the change. The second witness was quietly removed from the process at some point, and the ledger kept moving forward as if the line had always been decorative.`;
+        addJournal('Afterlife ledger: second witness column systematically vacant — eleven months', 'evidence', `pan-witness-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Three death-date entries in the ledger don't match the memorial contract dates filed the same week.",
+    tags: ['Ledger', 'Stage2'],
+    tag: 'risky',
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'cross-checking death dates against memorial contract filings');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ledger_date_mismatch_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three ledger entries show death dates that fall three to five days after the corresponding memorial contracts were filed — contracts that should have been impossible without a prior registry entry. The seal wax on the ledger pages for those entries is slightly brighter than surrounding pages, still carrying a faint sheen that older wax loses. The entries were not written first. They were written to match documents that already existed. The contracts came before the deaths were recorded.`;
+        addJournal('Ledger death dates post-date memorial contracts — entries retroactively filed', 'evidence', `pan-datecheck-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Memorial contracts are cross-held between the civic archive and the shrine record office under a dual-custody arrangement. Accessing both sets for comparison requires a joint authorization form signed by a representative of each office. The archive clerk produces the form. It requires the shrine warden's counter-signature first. The shrine warden's office is closed on this day of the week. The form must be returned unsigned.`;
+        addJournal('Dual-custody access blocked — shrine warden office closed', 'complication', `pan-datecheck-fail-${G.dayCount}`);
+      } else {
+        G.flags.ledger_date_mismatch_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three entries show the ledger date recorded after the contract filing date — a sequence that should not be possible. The ledger is supposed to exist first; the contract is supposed to follow it. These three entries invert that order by three to five days each. It is a small gap. Small enough to survive a casual review and large enough, for anyone who knew what to look for, to make the entire sequence of filings fall apart.`;
+        addJournal('Death-date sequence inverted in three entries — contracts predate registry', 'evidence', `pan-datecheck-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A sealed addendum packet is attached to seven ledger entries. Addenda don't belong in the primary ledger.",
+    tags: ['Ledger', 'Stage2'],
+    tag: 'bold',
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'examining sealed addendum packets on ledger entries');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ledger_addenda_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The addendum seals share a wax stamp that is not in the standard clerical registry — a mark with no assigned office. One seal has been pressed slightly off-center, catching the edge of a thread used to bind the addendum to the ledger page. The thread is commercial-grade dock cord, not the archival ribbon used in every other bound document in the building. Whoever attached these addenda worked quickly, with materials they brought themselves, in a room they did not normally occupy.`;
+        addJournal('Ledger addenda: unregistered wax stamp, dock cord binding — external insertion', 'evidence', `pan-addenda-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The addendum packets are sealed. Handling sealed primary ledger attachments without archival authorization is a category-two records breach under civic charter. The archive warden at the far counter has not looked up, but her posture has changed in the last thirty seconds — shoulders angled toward this section of the room. The addenda go back exactly as they were found. Nothing has been opened. The warden does not move, but she does not look away either.`;
+        addJournal('Addendum handling flagged — archive warden attention drawn', 'complication', `pan-addenda-fail-${G.dayCount}`);
+      } else {
+        G.flags.ledger_addenda_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Seven entries carry addendum packets affixed to the back cover page rather than filed separately, which the archive protocol requires. The packets are sealed with a stamp not visible in the reference index of authorized clerical marks. Addenda are supplemental documents — they are not supposed to travel with the primary ledger at all. Whatever is inside those seven packets was meant to stay close to these specific entries and stay unread.`;
+        addJournal('Seven ledger entries carry unauthorized addendum packets — unregistered seals', 'evidence', `pan-addenda-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The ledger's ink changes formula on the same date every quarter. No supply order accounts for it.",
+    tags: ['Ledger', 'Stage2'],
+    tag: 'risky',
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing ink formula shifts in ledger quarterly entries');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ledger_ink_signature_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Two ink formulas alternate in the ledger on a quarterly schedule — a carbon-heavy mixture for most of the year and a gall-based formula for three-week windows that align with the sealed mediation review periods. Gall-based ink lifts cleanly from certain parchment grades when treated with mild acid. The archive uses exactly that parchment grade throughout. Whoever switches the ink during those windows chose a formula that allows the entries to be removed without tearing the page. The rest of the year, removal would leave a visible scar.`;
+        addJournal('Ledger ink alternates quarterly — erasable formula used during mediation review windows', 'evidence', `pan-ink-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Archive supply records are held in the procurement annex across the processional road, staffed on alternating days. Today is an unstaffed day. The procurement annex clerk's name is on the door. The door is locked. A note in the clerk's hand instructs anyone with a supply query to return the following morning. The processional road is quiet enough this hour that the note's edges have not been disturbed by draft. It may have been there for days.`;
+        addJournal('Supply annex closed — ink sourcing trail stalled', 'complication', `pan-ink-fail-${G.dayCount}`);
+      } else {
+        G.flags.ledger_ink_signature_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The entries written during the quarterly sealed mediation periods use a different ink than the rest — slightly lighter under indirect light, with a finer spread across the parchment grain. No supply requisition in the archive record accounts for a second ink formula. The clerk who orders supplies uses a single standard blend. Whatever brought the second formula into the archive did not come through the normal procurement channel.`;
+        addJournal('Ledger ink formula shifts quarterly — no supply order on record', 'evidence', `pan-ink-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The ledger's margin annotations stop entirely in the months the sealed records grew. Someone stopped commenting.",
+    tags: ['Ledger', 'Stage2'],
+    tag: 'safe',
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'tracing margin annotation gaps in the afterlife ledger');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ledger_margin_gap_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The margin annotations are written in two distinct hands — a senior clerk's compressed script and a junior reviewer's wider, looser lettering. Both hands appear in every volume before the gap period. After the sealed records expand, the senior clerk's hand continues alone. The junior hand vanishes without a transfer note, a promotion memo, or a reassignment entry anywhere in the personnel ledger. The junior reviewer simply stopped annotating. Their name is not in the current staff register.`;
+        addJournal('Junior reviewer annotations cease — no transfer or departure on record', 'evidence', `pan-margin-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The archive reading desks are positioned so the warden can observe every patron's page without crossing the room. The margin annotation comparison requires placing two volumes side by side — which puts both open pages visible from the warden's station simultaneously. She has not looked up, but the desk placement is not accidental. The comparison is completed, but slowly, and with both volumes closed before the warden finishes her rotation of the room.`;
+        addJournal('Margin comparison completed under archive warden observation', 'complication', `pan-margin-fail-${G.dayCount}`);
+      } else {
+        G.flags.ledger_margin_gap_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Earlier volumes carry a consistent pattern of margin annotations — procedural cross-checks, date confirmations, and discrepancy flags written in a second hand alongside the primary entry clerk's script. That second hand disappears at the same point the sealed record volume increases. The annotations don't thin out gradually. They stop on a specific date and do not return. Whatever the second annotator was flagging, someone ensured they would not be flagging it anymore.`;
+        addJournal('Margin annotation second hand stops — coincides with sealed record expansion', 'intelligence', `pan-margin-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A batch of ledger entries share the same filing clerk initial. That clerk hasn't worked here in two years.",
+    tags: ['Ledger', 'Stage2'],
+    tag: 'risky',
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'tracing a departed clerk\'s initial in current ledger entries');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.ledger_ghost_clerk_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The initial "V.K." appears on fourteen entries across the past eight months. The personnel register shows V.K. — Verath Kessolm, archive filing clerk — left the post twenty-seven months ago following a disciplinary review whose contents are held under a separate sealed file. The entries V.K. supposedly filed include dates from last season. Either Verath Kessolm returned without being re-registered, or someone with access to the archive's stamp drawer has been using a departed clerk's mark on documents that needed a name attached to them that no one would think to locate.`;
+        addJournal('Ghost clerk initial V.K. on 14 recent entries — departed 27 months ago after sealed discipline review', 'evidence', `pan-ghost-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Clerk initial attribution is managed through the personnel annex, not the archive itself. The archive warden confirms this before the second sentence is finished and provides the personnel annex address — on the far side of the processional district, third building past the shrine annex, open morning hours only. The warden's tone is helpful. Her eyes are on the ledger volume still open on the reading desk. She does not suggest closing it, but she does not look away from it either.`;
+        addJournal('Personnel annex referral — archive warden watching open ledger', 'complication', `pan-ghost-fail-${G.dayCount}`);
+      } else {
+        G.flags.ledger_ghost_clerk_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Fourteen entries in the past eight months carry a filing initial that does not match any current archive staff member. Cross-referencing the current personnel register against the initial produces no match. The most recent volume of the personnel roster does not show the initial's owner at all. The entries are recent — within the current archive period — but the clerk whose mark they carry has not been on staff for long enough that their name no longer appears in the current roster books.`;
+        addJournal('Ghost clerk initial in 14 recent entries — no current staff match', 'evidence', `pan-ghost-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NPC ENCOUNTERS ── 7 choices ───────────────────────────────────────────
+
+  {
+    label: "Elior sealed three mediation records the same week the processional route changed.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'bold',
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'pressing Elior Sepulcher on the mediation-route correlation');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_elior_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Elior does not react to the question immediately. He sets his stylus down, aligns it with the edge of the desk, and says that processional route adjustments are managed by the transit warden's office, not by the mediation chamber. He says this with the deliberate evenness of someone reciting a boundary rather than answering a question. His thumb finds a sealed folder on the desk and presses flat against it — once, briefly — before he withdraws his hand. Three sealed records. One thumb. He knows exactly which week is being named.`;
+        addJournal('Elior Sepulcher: physical deflection — sealed file contact during route-question denial', 'evidence', `pan-elior-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = `Elior listens without expression for approximately four seconds. Then he asks, in the same tone he would use for a procedural clarification, whether there is a formal inquiry associated with this visit or whether this is a personal research matter. The distinction matters, he says, for how he routes the response. Two shrine wardens are visible through the chamber's open interior window. Neither has moved. Elior's stylus has not moved either. The question hangs in the incense-thickened air without a safe answer.`;
+        addJournal('Elior Sepulcher: formal-inquiry challenge issued — wardens present', 'complication', `pan-elior-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_elior_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Elior confirms the records are sealed and says that sealing decisions rest with the senior mediator's discretion under standing clerical charter. He does not confirm or deny the timing. His eyes do not move to the sealed folder on the desk — he has been careful not to look at it since the conversation began, which is its own kind of answer. Route adjustments and mediation business are separate offices, he says again, and returns to the document he was reading before the door opened.`;
+        addJournal('Elior Sepulcher: confirmed sealed records, denied route-connection — deliberate misdirection noted', 'intelligence', `pan-elior-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Merev keeps a second ledger behind the inn counter. She doesn't hide it, but she doesn't offer it.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 71,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(71, 'reading the situation with Merev Sepulcher at the inn counter');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_merev_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Merev slides the second ledger across the counter without being asked for it specifically. She says she keeps a parallel register because the civic lodging records require category notations she disagrees with. Her register uses her own categories. Under a header she labels "mediation guests" she has fourteen entries from the past year — names and stay-lengths, with small notations in a compressed shorthand. Three names carry a mark she has placed next to no other entry in the book: a small horizontal line drawn twice. She does not explain the mark. She leaves the ledger open.`;
+        addJournal('Merev Sepulcher second ledger: 14 mediation guests, 3 marked with double-line notation', 'evidence', `pan-merev-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Merev is polite in the way that innkeepers in funerary cities learn to be — measured warmth with a back wall behind it. She answers the question about the second ledger by saying that her business records are private under guild register charter and she keeps them as she sees fit. A guest at the end of the counter has been nursing the same cup for the past quarter-hour. Merev refills it without being asked and does not look back at the counter ledger again.`;
+        addJournal('Merev Sepulcher: guild charter privacy invoked — second ledger withheld', 'complication', `pan-merev-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_merev_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Merev confirms she maintains a parallel lodging register. She keeps it because the civic form's categories don't capture what she actually needs to track. She does not offer to show it, but she does not move it off the counter either. She mentions, without being asked, that she has had several guests over the past year whose stays coincided with mediation sessions — guests who paid in advance and left no forwarding address. She names no names. The ledger sits between them on the counter.`;
+        addJournal('Merev Sepulcher: parallel lodging register confirmed — mediation-window guests noted', 'intelligence', `pan-merev-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Saryna's market receipt archive has a gap. The week it covers is the same week three entries were sealed.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'pressing Saryna Sepulcher on the market receipt archive gap');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_saryna_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Saryna does not search for the missing receipts. She goes straight to the correct sleeve in the file box and holds it up — empty. She already knows it is empty. She says the receipts for that week were pulled by a clerk from the district annex who presented a valid withdrawal authorization and returned a counter-stamped receipt for the batch. She kept the counter-stamp. She opens the bottom of the file box and produces it: an authorization bearing a seal from the mediation oversight office dated two days before the batch was sealed.`;
+        addJournal('Saryna: receipt batch pulled under mediation oversight authorization — counter-stamp retained', 'evidence', `pan-saryna-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Saryna keeps a precise counter. Questions about specific archive weeks require a formal records access request submitted to the market registry office, not the clerk counter. She is not being obstructive — she explains this with genuine patience — but the registry office has a three-day processing window and requires the requester's civic ID and stated purpose. The archive sleeve for the relevant week is visible from the counter, third row, second from the left. Saryna does not look at it.`;
+        addJournal('Saryna: formal registry access required — three-day processing delay', 'complication', `pan-saryna-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_saryna_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Saryna confirms the gap. That week's receipts are not in the archive sleeve where they should be. She says there is a withdrawal record — someone pulled the batch with proper authorization — but she cannot produce the receipts themselves because they are not here. She knows who the withdrawal was attributed to by office, though not by name. She writes the office on a slip of paper and slides it across the counter with the same motion she uses for change.`;
+        addJournal('Saryna: receipt batch withdrawn under district office authorization — office name provided', 'evidence', `pan-saryna-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Velune's shrine attendance log shows the same three names absent on every sealed mediation day.",
+    tags: ['NPC', 'Stage2', 'Shrine'],
+    tag: 'risky',
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'cross-checking Velune\'s shrine attendance log against mediation days');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_velune_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Velune keeps attendance with a soft precision — names, time of arrival, which shrine station they used, and a small coded notation for whether the visit appeared ritual or administrative in character. Three names recur in the absence pattern on every sealed mediation day over the past nine months: two appear regularly on all other days, and one appears only on non-sealed days and never on sealed ones. Velune has already drawn a margin line connecting the three names across the log pages. She drew it three months ago. She has told no one.`;
+        addJournal('Velune: 3 recurring absences on every sealed mediation day — pre-connected in her log', 'evidence', `pan-velune-att-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Velune is in the middle of a processional preparation when the question arrives — oil-soaked wicks being trimmed for the lanterns that line the approach road, an task that cannot be set down mid-step without marking the stone with oil. She answers while working: the shrine attendance log is an internal document, not a public register, and she is not currently at liberty to share it. The trimming continues. The smell of warm oil carries through the stone corridor. She does not say when she will be at liberty.`;
+        addJournal('Velune: attendance log withheld — processional prep in progress', 'complication', `pan-velune-att-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_velune_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Velune confirms the pattern before the question is fully framed. Three regular attendees are never present on sealed mediation days. She noticed it herself several months ago and made a note in the log margin. She does not know where those three are on those days — only that they are not at the shrine. She recites their names from memory without looking at the log. She has been keeping track without knowing what she was tracking.`;
+        addJournal('Velune: 3 regular attendees consistently absent on sealed mediation days — names known', 'evidence', `pan-velune-att-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Ithren's porter log lists cargo transfers during no-traffic windows. The entries carry no consignee.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'reading Ithren Sepulcher\'s porter cargo log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_ithren_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Ithren hands the log across without ceremony — he is a man who lives by paperwork and has no instinct for protecting it from scrutiny. The no-traffic entries are easy to find because he uses a different notation for them: a small bracket around the time stamp rather than the standard underline. Eleven entries. No consignee listed on any of them. Weight notations in units he confirms are not his own — someone else filled in the weight column after the fact, in handwriting that is not his and ink that sits slightly proud of the page surface, not absorbed into it.`;
+        addJournal('Ithren porter log: 11 no-traffic entries, post-written weights in external hand', 'evidence', `pan-ithren-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Ithren keeps the porter log, but the log belongs to the porter guild register, not to him personally. Questions about specific entries require a guild access request, which he does not have the authority to waive. He is apologetic about this in the way of someone who has delivered this answer many times and long ago stopped feeling bad about it. The log sits in a locked bracket on the wall behind him. He has not touched the key.`;
+        addJournal('Ithren: guild access request required — porter log locked', 'complication', `pan-ithren-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_ithren_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Ithren's porter log lists eleven cargo movements during the processional no-traffic periods — hours when the road should have been cleared of all freight traffic for ceremonial use. The entries have no consignee name on any of them. Ithren says he filled in what the authorization slip told him to fill in. The authorization slips for those eleven runs are not attached to the log entries. He stored them separately, he says. He is not certain where separately is.`;
+        addJournal('Ithren: 11 cargo movements in no-traffic windows, no consignee, authorization slips missing', 'evidence', `pan-ithren-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Elior's handwriting is in the ledger addenda. He is not listed as a co-signatory on any of them.",
+    tags: ['NPC', 'Ledger', 'Stage2'],
+    tag: 'bold',
+    xpReward: 85,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(85, 'cross-referencing Elior\'s handwriting against unsigned ledger addenda');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/4));
+      if (result.isCrit) {
+        G.flags.elior_addenda_authorship_proven = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three authenticated samples of Elior's script from public mediation filings match the addenda annotations in fourteen consistent features: the crossing height on his letter-t, the break pattern in his connected-script ligatures, and a specific compression he applies to the letter-m in sequences of three or more. The match is not approximate. A document examiner would not call it approximate either. Elior annotated seven ledger addenda that he is not named on, under seal conditions he controlled, without leaving his name attached to any of them.`;
+        addJournal('Elior Sepulcher handwriting confirmed in 7 unsigned ledger addenda — 14-feature match', 'evidence', `pan-elior-hand-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Handwriting comparison requires placing public-record samples alongside the sealed addenda — which means both documents are out simultaneously on the reading desk. The archive warden's morning rounds bring her past this desk at intervals of roughly twenty minutes. The current interval runs short. She pauses at the desk, notes that sealed addenda are held under restricted-access protocols requiring written authorization, and asks whether such authorization is on file. It is not. The addendum must be returned to its housing.`;
+        addJournal('Sealed addendum access challenged — archive warden intervention, comparison incomplete', 'complication', `pan-elior-hand-fail-${G.dayCount}`);
+      } else {
+        G.flags.elior_addenda_authorship_proven = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Elior's handwriting is recognizable from his public mediation filings — a compressed, upright script with consistent pressure across horizontal strokes. The same hand appears in the margin annotations of the ledger addenda. He is not listed as an author, a reviewer, or a co-signatory on any of the seven documents. His script is there anyway, in the same ink as the addendum text, not added after the fact. He wrote into those documents before they were sealed and did not put his name on them.`;
+        addJournal('Elior Sepulcher script identified in 7 addenda — not listed as author on any', 'evidence', `pan-elior-hand-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Merev remembers every guest who left before dawn. She stopped noting them after the third inquiry.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 69,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(69, 'drawing Merev Sepulcher out on pre-dawn guest departures');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_merev_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Merev leans back from the counter and folds her arms — not a hostile posture, but a thinking one. She says she stopped noting pre-dawn departures in the register after someone from the district annex asked to review her recent lodging records. That was five months ago. The review was polite, administrative, and left no written record of itself. She kept her own notes separately after that, in a format that does not look like a register. She produces a small cloth-bound notebook from below the counter. The entries are in her own shorthand. She translates three of them aloud.`;
+        addJournal('Merev: pre-dawn departure notes moved to private notebook after annex review — 3 entries shared', 'evidence', `pan-merev-dawn-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Merev answers the question about pre-dawn guests by answering a different question — the question of whether the inn's lodging records are current and compliant with civic register requirements. They are. She has the counter-stamped review sheet from last quarter to confirm it. Her register is as complete as it is required to be. The counter between them is clean, the ledger closed, and the conversation has arrived somewhere it cannot usefully go from here.`;
+        addJournal('Merev: lodging compliance cited — pre-dawn departure line closed', 'complication', `pan-merev-dawn-fail-${G.dayCount}`);
+      } else {
+        G.flags.met_merev_sepulcher = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Merev says she has had several guests in the past year who left before the processional lanterns were lit for the morning route — before any civic traffic moved on the road. She used to note those departures in the register under a courtesy entry. She stopped doing that after someone asked her about them. She does not say who asked. She says only that after they asked, she decided her record of it was better kept somewhere that required less explanation.`;
+        addJournal('Merev: pre-dawn departures noted privately since unnamed inquiry — register entries stopped', 'intelligence', `pan-merev-dawn-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── PROCESSIONAL DISRUPTION / CARGO TRANSFER WINDOWS ── 4 choices ─────────
+
+  {
+    label: "The processional road has a no-traffic order. Cargo moved through it anyway, on the same three mornings.",
+    tags: ['Processional', 'Stage2'],
+    tag: 'risky',
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'documenting cargo movement through the no-traffic processional road');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.processional_cargo_route_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Stone dust on the processional road retains wheel-track impressions for several hours before the morning sweepers clear it — a narrow window, and one that only matters if you know to check before the sweepers arrive. Three sets of impressions, all from the same narrow-wheel configuration, leading from the harbor district entrance to a loading bay at the shrine annex that is marked as a storage-only zone on the civic map. The bay door shows fresh gouge marks along the lower edge. The door has been opened recently with something heavier than a broom.`;
+        addJournal('Processional road wheel-tracks traced to shrine annex storage bay — fresh door gouges', 'evidence', `pan-procession-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The processional road is active during daytime hours — vendors, attendants, and mourners moving through the stone corridor between the harbor approach and the mediation district. Reading the road surface for historical evidence requires early-morning access before the sweepers clear it, which requires a dawn-entry permit from the transit warden's office. The transit warden's office opens at second-bell, well after the sweepers have gone. The window for reading the road passed before breakfast.`;
+        addJournal('Processional road evidence inaccessible — dawn-entry permit required, sweepers already cleared', 'complication', `pan-procession-fail-${G.dayCount}`);
+      } else {
+        G.flags.processional_cargo_route_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The processional road runs between the harbor approach and the mediation district under a no-freight order during clerical transit hours. The transit warden's log shows three enforcement waivers granted in the past eight months — each one on a date that corresponds to a sealed mediation session. The waivers name a shipper category rather than a specific consignee. The shipper category listed on all three is the same: "archival materials transfer, district annex." No annex transfer receipt exists for any of the three.`;
+        addJournal('Three processional waivers for unnamed archival transfers — no receipts on file at annex', 'evidence', `pan-procession-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The shrine annex storage bay was listed as empty during the same three no-traffic windows.",
+    tags: ['Processional', 'Stage2', 'Shrine'],
+    tag: 'risky',
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'auditing shrine annex storage bay availability records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.shrine_annex_gap_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The shrine annex maintains a bay-availability log for maintenance scheduling. On the three mornings matching the no-traffic waivers, the storage bay is listed as empty and under routine inspection by the facilities warden. The facilities warden's own log shows her on the other side of the complex during those same hours — supervising a lantern-oil delivery at the main processional entrance. Both logs are correct. The storage bay was listed as empty and under inspection while the facilities warden was visibly elsewhere. The inspection never happened. Someone used the log to clear the bay on paper.`;
+        addJournal('Shrine annex bay listed under inspection while facilities warden was elsewhere — paper clearance', 'evidence', `pan-shrine-bay-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The shrine annex bay records are maintained by the facilities warden, whose office is on the northern side of the compound. The facilities warden is currently in a weekly coordination meeting with the shrine senior attendant — a meeting that runs until midday. A junior attendant at the annex entrance desk says the warden does not accept document queries outside her office hours. The bay itself is visible from the entrance, door closed and padlocked with a standard fixtures lock. There is no way in from here.`;
+        addJournal('Shrine annex facilities warden unavailable — bay inaccessible', 'complication', `pan-shrine-bay-fail-${G.dayCount}`);
+      } else {
+        G.flags.shrine_annex_gap_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The shrine annex bay-availability log shows the storage space as empty and under routine inspection on the three mornings when the processional no-traffic waivers were active. An empty bay under active inspection would not be accessible for cargo receipt. But the bay was accessible — the door wear pattern and the transit log both suggest it was opened. The inspection entries are cover entries, written to ensure the bay appeared unavailable to anyone who looked at the log rather than the door.`;
+        addJournal('Shrine annex bay: inspection entries used to paper-clear active cargo receipt', 'evidence', `pan-shrine-bay-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The transit warden who signed the no-traffic waivers was transferred two weeks after the last one.",
+    tags: ['Processional', 'Stage2'],
+    tag: 'risky',
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing the transit warden transfer after the final no-traffic waiver');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.transit_warden_transfer_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The transfer record for the transit warden is administrative in form — a lateral reassignment to a road-maintenance supervisory role in the outer district, framed as a promotion. The signature authorizing it belongs to the district administrator, but the initiating memo comes from the mediation oversight office. Mediation oversight does not have administrative authority over transit staff. The memo uses a courtesy language around the transfer that reads like a request but was processed as a directive. The warden's new posting is three districts away and does not require any knowledge of processional route management.`;
+        addJournal('Transit warden transfer initiated by mediation oversight — outside their administrative authority', 'evidence', `pan-warden-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Personnel transfer records are held at the civic administrative office, not the transit warden's station. Accessing them requires proof of a legitimate research purpose — a statement filed in writing and reviewed within five working days. The current transit warden, who replaced the transferred warden, receives the question and produces the address of the civic administrative office with the efficiency of someone who has given this answer before. She does not know anything about her predecessor's transfer and says so twice, which is once more than necessary.`;
+        addJournal('Transfer records at civic admin — five-day review window, current warden claims ignorance', 'complication', `pan-warden-fail-${G.dayCount}`);
+      } else {
+        G.flags.transit_warden_transfer_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The transit warden who granted the three processional waivers was transferred to a different district posting fourteen days after the last waiver was signed. The transfer is documented as routine — lateral reassignment, standard administrative language. But the timing is specific enough that the distance between the final waiver date and the transfer date fits inside a two-week window during which no new waivers were granted and the sealed mediation process entered a quiet period. The transfer removed the one person who could explain the waiver authorizations from the office that held them.`;
+        addJournal('Transit warden transferred 14 days after final waiver — removed before questions could reach her', 'intelligence', `pan-warden-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The harbor arrival manifest shows incoming cargo on those three mornings. None of it cleared the standard dock log.",
+    tags: ['Processional', 'Stage2'],
+    tag: 'bold',
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'tracing unlogged cargo arrivals against the harbor manifest');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.harbor_manifest_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three cargo arrivals appear in the harbor manifest under a category notation that routes them around the standard dock-clearance log: "ecclesiastical sealed transfer, direct to recipient." That category waives the standard dock-log requirement and requires only the receiving party's counter-signature. The receiving party on all three is listed as "Panim Haven Mediation Archive, care of senior mediator." No arrival counter-signature exists in the archive's own records — the receiving confirmation was never filed. The cargo cleared the harbor, moved through the processional waiver, and arrived at a recipient that has no record of receiving it.`;
+        addJournal('3 ecclesiastical sealed transfers cleared harbor without dock log — archive shows no receipt', 'evidence', `pan-harbor-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Harbor manifests for incoming cargo are managed under port authority registry, a separate administrative body from the civic and mediation records systems. The port authority registry office is on the harbor-side of the district, a substantial walk from the archive. Port manifest access requires a registered purpose code — a category designation that identifies the requester as a licensed trader, civic auditor, or credentialed researcher. None of those designations are currently on hand. The port gate warden takes note of the inquiry before the question is fully finished.`;
+        addJournal('Port manifest access blocked — purpose code required, harbor warden logged inquiry', 'complication', `pan-harbor-fail-${G.dayCount}`);
+      } else {
+        G.flags.harbor_manifest_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three cargo arrivals on the harbor manifest correspond to the mornings the processional no-traffic waivers were active. None of the three appear in the standard dock clearance log — they were processed under a category exemption that bypasses the standard log requirement. That exemption requires a receiving party's counter-signature. The counter-signatures are not in the archive, the dock record, or the port authority's own file. The cargo arrived, was moved, and left no completed documentation chain behind it.`;
+        addJournal('3 harbor arrivals bypassed dock log — no counter-signatures in any archive', 'evidence', `pan-harbor-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── MEDIATION RECORD BYPASSES ── 3 choices ────────────────────────────────
+
+  {
+    label: "The mediation chamber was reserved under an emergency session code on all three sealed dates.",
+    tags: ['Mediation', 'Stage2'],
+    tag: 'risky',
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'auditing emergency session code use in the mediation chamber reservation log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mediation_emergency_code_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The emergency session code authorizes the chamber without the standard two-day advance request and waives the mandatory co-mediator attendance requirement. It is designed for genuine crisis arbitration — deaths, property seizures, active disputes requiring immediate intervention. The charter defines six qualifying categories. Cross-referencing the three emergency-coded reservations against the charter's categories, none of the three sessions meet any qualifying condition that is visible in the records. The emergency code was used on dates when no emergency has been documented anywhere in the civic record.`;
+        addJournal('Emergency session code used 3 times — no qualifying crisis documented for any date', 'evidence', `pan-emergency-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The chamber reservation log is an internal administration document managed by the mediation chamber secretary. The secretary's office is through a door behind the reception alcove, marked with a small brass plate. The door is locked. A note in the secretary's hand directs scheduling inquiries to the mediation scheduling portal, available during morning hours on Tuesdays and Thursdays. Today is neither. The lock is a standard lever-action and the keyhole faces away from the corridor, but none of this is immediately useful.`;
+        addJournal('Chamber reservation log inaccessible — secretary office locked, wrong day for scheduling portal', 'complication', `pan-emergency-fail-${G.dayCount}`);
+      } else {
+        G.flags.mediation_emergency_code_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `All three sealed mediation sessions were booked under the emergency session code rather than the standard advance-request process. The emergency code is used on average twice per year in the full reservation log — an infrequent designation for unusual situations. Using it three times in eight months is outside the pattern. Using it for sessions that appear to have been planned rather than emergent — as evidenced by their correlation with the cargo transfer windows — suggests the code was chosen specifically for what it waives rather than for what it authorizes.`;
+        addJournal('Emergency session code: 3 uses in 8 months vs 2-per-year average — code selected for its waivers', 'evidence', `pan-emergency-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The sealed mediation records have a co-signatory line. It lists the same clerk number on all three.",
+    tags: ['Mediation', 'Stage2'],
+    tag: 'risky',
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'tracing the repeated co-signatory clerk number across sealed records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mediation_cosignatory_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Clerk number 4417 appears on all three sealed records as the mandatory co-signatory. The clerk register assigns number 4417 to a filing position that has been vacant for nineteen months — the previous holder retired and the position was not refilled. A vacant position cannot sign a document. The signature on each record is present in the physical sense — ink, a flowing hand — but the number beneath it belongs to a post that did not exist as a staffed role on any of the three dates. Someone signed using a number they knew would not trace back to a living clerk.`;
+        addJournal('Co-signatory clerk 4417 on all 3 sealed records — position vacant 19 months, retired and unfilled', 'evidence', `pan-cosig-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `Sealed records are not available for inspection without a written authorization from the mediation chamber senior officer — which is Elior Sepulcher. The co-signatory line is not visible on the external cover sheet; it is on the interior filing page, inside the sealed document. The only way to read it without authorization is to break a seal, which is a category-one records breach under civic charter. The external cover sheet lists the session code and date. Nothing else is visible without opening the seal.`;
+        addJournal('Sealed record co-signatory line inaccessible without Elior authorization — interior page blocked', 'complication', `pan-cosig-fail-${G.dayCount}`);
+      } else {
+        G.flags.mediation_cosignatory_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `All three sealed records list the same co-signatory clerk number. The clerk number system assigns a unique identifier to each staff position — not each individual, but each post. Cross-referencing the number against the current clerk register produces no match. The number belongs to a post that is not currently active. A co-signatory requirement exists precisely to ensure a second party witnesses the sealing process. Using an inactive clerk number satisfies the format of the requirement while ensuring the witness was never actually present.`;
+        addJournal('Same inactive clerk number on all 3 seals — co-signatory requirement satisfied in form only', 'evidence', `pan-cosig-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The mediation oversight log shows three review requests for the sealed records. All three were denied the same day they arrived.",
+    tags: ['Mediation', 'Stage2'],
+    tag: 'risky',
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'auditing the pattern of same-day denials in the mediation oversight review log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.mediation_denial_pattern_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Standard review requests for sealed records carry a ten-day processing window under mediation charter. All three requests for these specific records were denied in under six hours — well inside the window for a procedural review, let alone a substantive one. The denial letters are identical in language, down to the punctuation, with only the request date and the requester's name changed. They were not drafted in response to each request. They were drafted once, in advance, and held ready for the moment a request arrived. Someone anticipated the requests before they were filed.`;
+        addJournal('3 review requests denied same day — identical denial letters drafted in advance, anticipatory blocking', 'evidence', `pan-denial-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = `The mediation oversight log is a restricted administrative record — available to credentialed parties with a legitimate review standing. Review standing requires either a civic audit mandate or a formal party-of-record designation from the mediation chamber. Neither designation is currently held here. The oversight office clerk provides the relevant charter section number for future reference and marks the inquiry in the visitor log. The entry is written in the same moment the question is asked, before the answer has been given.`;
+        addJournal('Oversight log access blocked — no review standing, inquiry logged on arrival', 'complication', `pan-denial-fail-${G.dayCount}`);
+      } else {
+        G.flags.mediation_denial_pattern_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three separate parties filed review requests for the sealed records at different points over eight months. All three received denial letters the same day their requests arrived. The standard processing window runs ten days. A same-day denial requires either an exceptional pre-existing determination or prior knowledge that the request was coming. The denial letters cite the same charter subsection in the same phrasing. They read as a single document issued three times to three different parties who had no connection to each other.`;
+        addJournal('3 review requests denied same day — identical language, no connection between requesters', 'evidence', `pan-denial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
   {
     label: "The phantom memorial evidence is complete. Official channels or informal — this choice doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
