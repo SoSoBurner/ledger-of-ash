@@ -15285,6 +15285,8 @@ function showCharSheet() {
     '<button class="sheet-tab active" data-tab="identity" onclick="showSheetTab(\'identity\')">Identity</button>' +
     '<button class="sheet-tab" data-tab="equipment" onclick="showSheetTab(\'equipment\')">Equipment</button>' +
     '<button class="sheet-tab" data-tab="inventory" onclick="showSheetTab(\'inventory\')">Inventory</button>' +
+    '<button class="sheet-tab" data-tab="abilities" onclick="showSheetTab(\'abilities\')">Abilities</button>' +
+    '<button class="sheet-tab" data-tab="traits" onclick="showSheetTab(\'traits\')">Traits</button>' +
     '</div>' +
 
     '<div class="sheet-tab-pane active" data-pane="identity">' +
@@ -15489,6 +15491,92 @@ function showCharSheet() {
                 '</span>' + btn + sellBtn +
               '</div>';
             }).join('')) +
+        '</div>';
+    })() +
+
+    (function() {
+      var arch = G.archetype && G.archetype.id;
+      if (!arch || typeof ARCHETYPE_ABILITY_TREES === 'undefined') {
+        return '<div class="sheet-tab-pane" data-pane="abilities"><div style="color:var(--ink-faint);padding:8px;font-size:12px;font-family:var(--font-body)">No abilities available.</div></div>';
+      }
+      var tree = ARCHETYPE_ABILITY_TREES[arch] || [];
+      if (tree.length === 0) {
+        return '<div class="sheet-tab-pane" data-pane="abilities"><div style="color:var(--ink-faint);padding:8px;font-size:12px;font-family:var(--font-body)">No abilities for this archetype.</div></div>';
+      }
+      var _SKILL_DISP = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+      var rows = tree.map(function(ab) {
+        var unlocked = (G.unlockedAbilities || []).indexOf(ab.id) !== -1;
+        var spent = unlocked && G.abilityUsedThisRest && G.abilityUsedThisRest[ab.id];
+        var isActive = ab.type === 'active';
+        var nameColor = unlocked ? 'var(--ink)' : 'var(--ink-faint)';
+        var html = '<div class="char-stat-row" style="flex-direction:column;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border)">';
+        html += '<div style="display:flex;align-items:center;gap:8px;width:100%">';
+        html += '<span style="font-family:var(--font-display);font-size:10px;color:' + nameColor + '">' + (ab.name || ab.id) + '</span>';
+        html += '<span style="font-size:9px;color:var(--ink-faint);letter-spacing:1px;text-transform:uppercase">' + (ab.type || 'passive') + '</span>';
+        if (unlocked && isActive) {
+          if (spent) {
+            html += '<span style="font-size:9px;color:var(--ink-faint);margin-left:auto">SPENT</span>';
+          } else {
+            html += '<button class="btn btn-ghost btn-xs" style="margin-left:auto" onclick="activateAbility(\'' + ab.id + '\');showCharSheet()">Activate</button>';
+          }
+        }
+        if (!unlocked) {
+          html += '<span style="font-size:9px;color:var(--ink-faint);margin-left:auto">LOCKED</span>';
+        }
+        html += '</div>';
+        html += '<div style="font-size:12px;color:var(--ink-dim);margin-top:2px;font-family:var(--font-body)">' + (ab.desc || ab.gameEffect || '') + '</div>';
+        if (!unlocked) {
+          var reqText = 'Unlocks at level ' + (ab.unlockLevel || '?');
+          if (ab.skillReq) reqText += ' \u00b7 requires ' + (_SKILL_DISP[ab.skillReq.skill] || ab.skillReq.skill) + ' ' + ab.skillReq.min;
+          html += '<div style="font-size:11px;color:var(--ink-faint);margin-top:2px;font-family:var(--font-body)">' + reqText + '</div>';
+        }
+        html += '</div>';
+        return html;
+      });
+      return '<div class="sheet-tab-pane" data-pane="abilities">' +
+        '<div class="char-section-title">Abilities</div>' +
+        rows.join('') +
+        '</div>';
+    })() +
+
+    (function() {
+      var _SKILL_DISP2 = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+      var traits = G.traits || [];
+      if (traits.length === 0) {
+        return '<div class="sheet-tab-pane" data-pane="traits"><div style="color:var(--ink-faint);padding:8px;font-size:12px;font-family:var(--font-body)">No traits available.</div></div>';
+      }
+      var rows = traits.map(function(t) {
+        var isPassive = t.passive === true;
+        var isUsed = !isPassive && t.used;
+        var isReady = !isPassive && !t.used;
+        var sourceLabel = (t.source === 'background') ? 'BACKGROUND' : (t.source === 'archetype') ? 'ARCHETYPE' : (t.source || 'TRAIT');
+        var html = '<div class="char-stat-row" style="flex-direction:column;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border)">';
+        html += '<div style="display:flex;align-items:center;gap:8px;width:100%">';
+        html += '<span style="font-family:var(--font-display);font-size:10px;color:var(--ink)">' + (t.name || 'Trait') + '</span>';
+        html += '<span style="font-size:9px;color:var(--ink-faint);letter-spacing:1px;text-transform:uppercase">' + sourceLabel + '</span>';
+        if (isPassive) {
+          var sb2 = t.skillBonus || {};
+          var bonusParts = Object.keys(sb2).map(function(k) { return '+' + sb2[k] + ' ' + (_SKILL_DISP2[k] || k); });
+          if (bonusParts.length > 0) {
+            html += '<span style="font-size:10px;color:var(--gold-dim);margin-left:auto">' + bonusParts.join(', ') + '</span>';
+          }
+        } else if (isReady) {
+          var traitId = t.id || '';
+          var onclickStr = traitId
+            ? 'useUtilitySkill(\'' + traitId + '\');showSheetTab(\'traits\')'
+            : 'showSheetTab(\'traits\')';
+          html += '<button class="btn btn-ghost btn-xs" style="margin-left:auto" onclick="' + onclickStr + '">Use</button>';
+        } else if (isUsed) {
+          html += '<span style="font-size:9px;color:var(--ink-faint);margin-left:auto">USED</span>';
+        }
+        html += '</div>';
+        html += '<div style="font-size:12px;color:var(--ink-dim);margin-top:2px;font-family:var(--font-body)">' + (t.desc || t.description || '') + '</div>';
+        html += '</div>';
+        return html;
+      });
+      return '<div class="sheet-tab-pane" data-pane="traits">' +
+        '<div class="char-section-title">Traits</div>' +
+        rows.join('') +
         '</div>';
     })();
 
@@ -16504,15 +16592,21 @@ function updateHUD() {
     _fatigueEl.style.display = _fatigue > 0 ? '' : 'none';
     _fatigueEl.style.color = _fatigue >= 5 ? 'var(--danger)' : 'var(--ink-faint)';
   }
-  // Active trait readiness indicator
+  // Active trait readiness indicator (traits + unlocked active abilities)
   var _nonPassive = (G.traits || []).filter(function(t){ return t.traitType !== 'passive'; });
-  var _ready = _nonPassive.filter(function(t){ return !t.used; }).length;
+  var _readyTraits = _nonPassive.filter(function(t){ return !t.used; }).length;
+  var _unlockedActive = (G.unlockedAbilities || []).filter(function(id) {
+    if (!G.abilityUsedThisRest || !G.abilityUsedThisRest[id]) return true;
+    return false;
+  }).length;
+  var _totalActive = _nonPassive.length + (G.unlockedAbilities || []).length;
+  var _totalReady = _readyTraits + _unlockedActive;
   var _traitEl = document.getElementById('hud-trait-ready');
   if (_traitEl) {
-    if (_nonPassive.length > 0) {
-      _traitEl.textContent = 'TRAITS ' + _ready + '/' + _nonPassive.length + ' READY';
+    if (_totalActive > 0) {
+      _traitEl.textContent = 'ABILITIES ' + _totalReady + '/' + _totalActive + ' READY';
       _traitEl.style.display = '';
-      _traitEl.style.color = _ready > 0 ? 'var(--jade-bright)' : 'var(--ink-faint)';
+      _traitEl.style.color = _totalReady > 0 ? 'var(--jade-bright)' : 'var(--ink-faint)';
     } else {
       _traitEl.style.display = 'none';
     }
