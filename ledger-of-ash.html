@@ -2865,9 +2865,9 @@ function advanceFactionClocks(ticks) {
 function getArchetypeFamily() {
   if (!G.archetype) return 'support';
   const id = G.archetype.id;
-  const combat  = ['warrior','knight','ranger','paladin','archer','berserker'];
-  const magic   = ['wizard','cleric','priest','necromancer','illusionist','inquisitor','elementalist'];
-  const stealth = ['rogue','assassin','spellthief','scout_c','thief','trickster'];
+  const combat  = ['warrior','knight','ranger','paladin','archer','berserker','warden','warlord','death_knight'];
+  const magic   = ['wizard','cleric','priest','necromancer','illusionist','inquisitor','elementalist','oracle'];
+  const stealth = ['rogue','assassin','spellthief','scout_c','thief','trickster','beastmaster'];
   if (combat.includes(id)) return 'combat';
   if (magic.includes(id)) return 'magic';
   if (stealth.includes(id)) return 'stealth';
