@@ -15366,7 +15366,9 @@ function showCharSheet() {
           var _usedLabel = (t.traitType !== 'passive' && t.used) ? ' <span style="color:var(--ink-faint)">(used)</span>' : '';
           var _useBtn = '';
           if ((t.traitType === 'active' || t.type === 'active') && t.activeSkillType === 'utility' && !t.used) {
-            _useBtn = '<button class="btn btn-ghost btn-xs" onclick="useUtilitySkill(\'' + t.id + '\')" style="margin-top:4px;font-size:11px;padding:2px 8px">Use</button>';
+            var _tid = t.id || '';
+            var _traitOnclick = _tid ? 'useUtilitySkill(\'' + _tid + '\')' : '';
+            if (_traitOnclick) _useBtn = '<button class="btn btn-ghost btn-xs" onclick="' + _traitOnclick + '" style="margin-top:4px;font-size:11px;padding:2px 8px">Use</button>';
           }
           _html += '<div class="trait-row">';
           _html += '<div class="trait-name">' + (t.name || t.id || 'Trait') + _usedLabel + '</div>';
@@ -16593,7 +16595,7 @@ function updateHUD() {
     _fatigueEl.style.color = _fatigue >= 5 ? 'var(--danger)' : 'var(--ink-faint)';
   }
   // Active trait readiness indicator (traits + unlocked active abilities)
-  var _nonPassive = (G.traits || []).filter(function(t){ return t.traitType !== 'passive'; });
+  var _nonPassive = (G.traits || []).filter(function(t){ return t.passive !== true && t.traitType !== 'passive'; });
   var _readyTraits = _nonPassive.filter(function(t){ return !t.used; }).length;
   var _unlockedActive = (G.unlockedAbilities || []).filter(function(id) {
     if (!G.abilityUsedThisRest || !G.abilityUsedThisRest[id]) return true;

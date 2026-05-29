@@ -644,6 +644,98 @@
       success_default: 'He names a shipment that did not match its declared manifest and explains what he did with the discrepancy — which was, he notes with some frustration, less than he thought appropriate. The irregularity is still active.',
       success_indirect: 'Two arrivals are logged within the same hour with the same declared cargo type. They arrived from different directions.',
       failure: 'He processes the standard docking inquiry and hands you the current route schedule.'
+    },
+
+    // ════ SHIRSHAL ════════════════════════════════════════════════════════════
+
+    shirshal_harbor_factor: {
+      id: 'shirshal_harbor_factor',
+      name: 'Harbor Factor of Shirshal',
+      polity: 'shirsh',
+      locality: 'shirshal',
+      tier: T2,
+      dc: 12,
+      skill: 'lore',
+      agenda: 'Clear a consignment backlog that has stalled on document chain discrepancies — not because the paperwork is wrong, but because the wrong person signed it.',
+      register: 'Shirshal harbor register — formal, information-precise, names the procedural category before the person, treats discretion as a professional standard rather than a preference.',
+      tell: 'Aligns the manifest corner with the desk edge before reading it — a half-second adjustment, always the same corner, so the document sits square before the eyes touch it.',
+      choice_label: 'The harbor factor controls consignment intake and cargo clearance at Shirshal.',
+      intro_default: 'The harbor factor is at the intake counter with three manifests open and a fourth in her hand. She squares the corner of the document against the desk edge before reading it. You have seen people do this once. She has done it every time.',
+      ask_direct: 'Ask which consignments are stalled and why the paperwork chain broke.',
+      ask_direct_label: 'Ask which consignments are stuck in the intake queue.',
+      ask_indirect: 'Scan the intake board for cargo whose clearance date has passed.',
+      ask_indirect_label: 'Check the intake board for overdue clearances.',
+      success_default: 'She names two consignments sitting outside the normal clearance window — both carrying the same third-party countersignature from a name she says carefully, once, and does not repeat. She says the consignments are not flagged. She says they should have cleared three days ago. She squares the manifest corner again and says she has noted the delay.',
+      success_indirect: 'The intake board has a clearance code that does not match any standard Shirshal category. It was added within the last week. Someone created a new processing lane without posting the authority notice.',
+      failure: 'She processes the standard inquiry and directs you to the Shirshal port registry, which opens at the second bell.'
+    },
+
+    shirshal_ward_registrar: {
+      id: 'shirshal_ward_registrar',
+      name: 'Ward Registrar of Shirshal',
+      polity: 'shirsh',
+      locality: 'shirshal',
+      tier: T2,
+      dc: 13,
+      skill: 'lore',
+      agenda: 'Maintain the ward fracture registry as a complete record against pressure from the Magi Magistratus office to classify certain incidents as procedural rather than anomalous.',
+      register: 'Shirshal Magi Magistratus register — precise categorization, names the regulatory distinction before the fact, withholds inference while giving observation.',
+      tell: 'When naming a document category, taps the relevant regulatory index on the shelf behind them with one finger — not consulting it, just locating it, as if the category requires the physical anchor of the rule that defines it.',
+      choice_label: 'The ward registrar maintains the anomaly record for Shirshal\'s magical enforcement office.',
+      intro_default: 'The ward registrar is cross-referencing two filing logs at the registry counter — a procedure that should take minutes and appears to be taking considerably longer. He does not look up immediately. He taps the regulatory index on the shelf behind him with one finger and keeps reading.',
+      ask_direct: 'Ask what the registry shows for recent ward-fracture incidents.',
+      ask_direct_label: 'Ask what the anomaly registry shows for the last month.',
+      ask_indirect: 'Read the open registry log on the counter.',
+      ask_indirect_label: 'Read the registry log while he works.',
+      success_default: 'He names a date range — not a case, a date range — during which three separate ward incidents were filed under a procedural category that does not appear in the standard registry index. He says the category was applied by a duty officer rotation he cannot currently account for. He says this is the accurate description of the record. He does not say what the accurate description implies.',
+      success_indirect: 'The registry log has an entry column with no corresponding authority code. The entries in that column are dated across a two-week span. Whatever filed them had access to the registry but not to the standard intake form.',
+      failure: 'The registry is maintained under Magi Magistratus access protocol. A formal review request through the oversight desk is the standard mechanism.'
+    },
+
+    // ════ SOREHEIM PROPER ════════════════════════════════════════════════════
+
+    soreheim_supply_factor: {
+      id: 'soreheim_supply_factor',
+      name: 'Supply Factor of Soreheim Proper',
+      polity: 'soreheim',
+      locality: 'soreheim_proper',
+      tier: T2,
+      dc: 11,
+      skill: 'lore',
+      agenda: 'Surface a systematic allocation redirect before the next quarterly audit reveals it in a way that implicates the people who had no part in authorizing it.',
+      register: 'Soreheim quota register — specifics before context, allocation numbers before names, presents problems as arithmetic before politics.',
+      tell: 'Runs a finger down the allocation column before speaking, landing it on the figure being discussed — a habit from floor work, where pointing at a number meant you owned the conversation about it.',
+      choice_label: 'The supply factor manages the allocation queue for Soreheim Proper.',
+      intro_default: 'The supply factor is at the allocation counter running a finger down a column of figures. She stops on one and does not move from it. You have interrupted a calculation she was about to lose track of. She holds the number and looks at you.',
+      ask_direct: 'Ask which allocation orders have been redirected in the current quarter.',
+      ask_direct_label: 'Ask which allocation orders have been redirected this quarter.',
+      ask_indirect: 'Read the allocation queue board for irregularities.',
+      ask_indirect_label: 'Check the allocation queue board for anomalies.',
+      success_default: 'She names a supply category — transit fuel, specifically — where the allocation queue shows orders being processed in a sequence that does not match the submission dates. The earliest requests are being serviced last. The ones moving to the top have a shared origin marker she has not been able to trace to a current ministry authorization. She puts her finger back on the figure and says: that is what the numbers say. She does not say who she thinks moved them.',
+      success_indirect: 'The allocation board shows two queue entries with the same authorization code on different dates. Codes are not reused. One of them was filed after the authorization window it references had already closed.',
+      failure: 'She completes the column and notes your inquiry for the quarter log. Allocation reviews go through the standard submission process.'
+    },
+
+    soreheim_road_warden: {
+      id: 'soreheim_road_warden',
+      name: 'Road Warden of Soreheim Proper',
+      polity: 'soreheim',
+      locality: 'soreheim_proper',
+      tier: T2,
+      dc: 12,
+      skill: 'survival',
+      agenda: 'Get a formal record of the northern route irregularities into the Soreheim patrol log before the current ministry cycle closes and the window for formal notice expires.',
+      register: 'Soreheim patrol register — route data before names, reports in the tense of observation rather than conclusion, flags discrepancies as operational concerns before regulatory ones.',
+      tell: 'Folds the patrol chart at the same crease each time — a crease that marks the northern segment boundary, the part of the route where the irregularities cluster. The fold is a habit. The location of the fold is not random.',
+      choice_label: 'The road warden tracks transit conditions and cargo movements on the Soreheim routes.',
+      intro_default: 'The road warden is at the patrol post checking a route chart against a transit log. He folds the chart at a crease near the top third — the northern segment — and holds it at that angle while he reads. You have seen this fold before. He has used the same one twice.',
+      ask_direct: 'Ask what route irregularities he has been tracking on the northern segment.',
+      ask_direct_label: 'Ask what he has been tracking on the northern routes.',
+      ask_indirect: 'Read the patrol chart he has been folding at.',
+      ask_indirect_label: 'Note what the patrol chart crease reveals about his focus.',
+      success_default: 'He names four transit delays on the northern segment in the last eight days — two cargo, two personnel. The cargo delays have paperwork. The paperwork lists the delay cause as route inspection. He has checked the route. No inspection was scheduled. He says he has noted this in the patrol log. He says the patrol log is reviewed at the end of the ministry cycle, which is in eleven days. He folds the chart again at the same crease and does not say what he thinks will happen in eleven days.',
+      success_indirect: 'The patrol chart has four transit markers circled in the northern segment — each circled in the same ink, each circled after the route notation was made, not during it. Someone reviewed the chart and marked specific points without documenting the review.',
+      failure: 'He handles the standard transit inquiry and notes your passage in the patrol log. Northern route advisories are posted at the warden station if conditions warrant.'
     }
 
   };
