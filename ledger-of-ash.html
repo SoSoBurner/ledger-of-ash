@@ -4442,7 +4442,7 @@ function resolveCombatAction(action, abilityId) {
     CS.enemyDefMod = 0;
     const total = roll + combatSkill + traitCombatBonus + rangeBonus + compAtkBonus + nextAtkBonus + stratAtkBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
     if (G._traitBonus && G._traitBonus.skill === 'combat') G._traitBonus = null;
-    const _atkThreshold = (CS.enemy.defense + enemyDefAdj) + 5 - (_archFamily === 'combat' ? 2 : 0);
+    var _atkThreshold = (CS.enemy.defense + enemyDefAdj) + 5 - (_archFamily === 'combat' ? 2 : 0);
     const hit = total >= _atkThreshold;
     const baseDmg = hit ? Math.floor(Math.random() * 6) + combatSkill + 1 : 0;
 
@@ -4474,7 +4474,7 @@ function resolveCombatAction(action, abilityId) {
     const roll = d20();
     const stratDefBonus = (CS.strategyActive === 'defensive' && CS.strategyRoundsLeft > 0) ? 3 : 0;
     const total = roll + survSkill + stratDefBonus;
-    const _defThreshold = _archFamily === 'combat' ? 9 : 10;
+    var _defThreshold = _archFamily === 'combat' ? 9 : 10;
     const defended = total >= _defThreshold;
     // Enemy still attacks but reduced
     const eRoll = d20();
