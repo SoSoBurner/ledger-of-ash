@@ -14860,8 +14860,8 @@ function showNPCMenu() {
 
     html += '<div class="npc-card" data-npc="' + npc.name + '">' +
       '<div class="npc-name">' + npc.name + '</div>' +
-      '<div class="npc-role">' + npc.role + ' &middot; ' + npc.site + '</div>' +
-      '<div class="npc-note">' + npc.note + '</div>' +
+      '<div class="npc-role">' + (npc.role || '') + ' &middot; ' + (npc.site || '') + '</div>' +
+      '<div class="npc-note">' + (npc.note || '') + '</div>' +
       '<div class="npc-meta">' +
         '<span style="color:' + tColor + '">' + tLabel + (seen ? ' (seen ' + seen + 'x)' : '') + '</span>' +
         (t >= 0 ? '<button class="btn btn-ghost btn-xs npc-approach-btn" data-npc-name="' + npc.name + '" data-npc-site="' + npc.site + '">Approach</button>' : '') +
@@ -14912,7 +14912,7 @@ function approachNPC(npcName, site) {
 
   const intro = seen > 0 ? npcName + ' recognizes you.' : 'You approach ' + npcName + ' at ' + site + '.';
   const trustNote = trust >= 10 ? ' They speak without reservation.' : trust < -3 ? ' The warmth is gone from how they look at you.' : '';
-  addNarration(npcName, intro + trustNote + archetypeNote + ' ' + npc.note);
+  addNarration(npcName, intro + trustNote + archetypeNote + (npc.note ? ' ' + npc.note : ''));
 
   const persuasion = G.skills.charm || 0;
   const choices = [];

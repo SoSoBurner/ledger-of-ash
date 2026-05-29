@@ -1092,6 +1092,8 @@ async function probeContacts(page, tag) {
         if (await closeBtn.isVisible({ timeout: 400 }).catch(() => false)) await closeBtn.click();
         else await page.keyboard.press('Escape');
         await page.waitForTimeout(PACE.short);
+        // Overlay closes after first approach — no point trying remaining buttons
+        break;
       } catch (_approachErr) {
         log(`[panel:contacts ${tag}] approach-btn error: ${_approachErr.message}`);
       }
