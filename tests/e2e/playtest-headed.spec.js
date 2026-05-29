@@ -61,13 +61,6 @@ const HEADED_FAMILY_POOLS = {
   'support-leadership': ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
 };
 
-// Fixed first attempt per family
-const HEADED_FIRST_ATTEMPT = {
-  'classic-combat':     { archetypeId: 'warrior', backgroundId: 'w_garrison' },
-  'magic-spellcasting': { archetypeId: 'paladin', backgroundId: 'p_cysur'    },
-  'stealth-precision':  { archetypeId: 'rogue',   backgroundId: 'ro_shelk'   },
-  'support-leadership': { archetypeId: 'healer',  backgroundId: 'hl_shelk'   },
-};
 
 // ---------------------------------------------------------------------------
 // Shared archetype data
@@ -2719,13 +2712,8 @@ test.describe('Headed QA — 4 families', () => {
         const state = familyState[family];
         state.attemptNum++;
 
-        let archetypeId, backgroundId;
-        if (state.attemptNum === 1 && HEADED_FIRST_ATTEMPT[family]) {
-          ({ archetypeId, backgroundId } = HEADED_FIRST_ATTEMPT[family]);
-        } else {
-          if (state.poolIdx >= state.pool.length) { state.pool = buildPool(family); state.poolIdx = 0; }
-          ({ archetypeId, backgroundId } = state.pool[state.poolIdx++]);
-        }
+        if (state.poolIdx >= state.pool.length) { state.pool = buildPool(family); state.poolIdx = 0; }
+        const { archetypeId, backgroundId } = state.pool[state.poolIdx++];
 
         log(`\n[family:${family}] round ${round} attempt ${state.attemptNum}/${MAX_ATTEMPTS} → ${archetypeId}/${backgroundId}`);
 
