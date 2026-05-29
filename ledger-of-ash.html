@@ -11436,11 +11436,22 @@ function loadStageChoices(locId) {
     setTimeout(function() {
       var _active = document.querySelectorAll('#action-content .choice-btn:not([disabled])');
       if (_active.length === 0 && G && !G.dead) {
+        var _fallbackRetries = 0;
         renderChoices([{
           id: 'fallback_pause',
           text: 'Hold position. The situation needs a clearer read.',
           tag: 'safe',
-          action: function() { if (typeof advanceTime === 'function') advanceTime(1); loadStageChoices(); }
+          action: function() {
+            _fallbackRetries++;
+            if (_fallbackRetries > 3) {
+              // Escape hatch: route to shelkopolis to prevent infinite loop
+              G.location = 'shelkopolis';
+              if (typeof resolveArrival === 'function') resolveArrival('shelkopolis');
+              return;
+            }
+            if (typeof advanceTime === 'function') advanceTime(1);
+            loadStageChoices();
+          }
         }]);
       }
     }, 300);
