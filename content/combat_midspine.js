@@ -110,7 +110,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
       G.flags.combat_midspine_node3_complete = true;
 
-      if (G.flags.combat_midspine_warden_respected) {
+      if (G.flags && G.flags.combat_midspine_warden_respected) {
         G.lastResult = `Edvar lays the offer out without embellishment: authorization, archive access, legal standing in three jurisdictions. The attached condition is mandatory pre-action reporting to the Order. You decline the integration and propose a counter: mutual disclosure at defined intervals, no operational authority on either side. Edvar considers it with the stillness of a man calculating odds. He nods once. "The Order respects operational discipline," he says. He means it as a compliment.`;
         G.flags.combat_midspine_warden_allied = true;
         G.worldClocks.reverence = (G.worldClocks.reverence || 0) + 1;

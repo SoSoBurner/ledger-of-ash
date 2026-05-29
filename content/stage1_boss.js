@@ -267,17 +267,18 @@ function checkStage1BossTriggered() {
   if (!G || G.stage !== 'Stage I') return;
   var _sp1 = G.stageProgress[1]||0;
   // At sp1 >= 18, player has progressed past miniboss window — bypass it so main boss fires
-  if (!G.flags.stage1_miniboss_complete && _sp1 >= 18) {
+  if (!(G.flags && G.flags.stage1_miniboss_complete) && _sp1 >= 18) {
+    if (!G.flags) G.flags = {};
     G.flags.stage1_miniboss_complete = true;
   }
-  if (!G.flags.stage1_miniboss_complete &&
-      (_sp1 >= 8 && (G.flags.stage1_miniboss_seeded_1 || G.flags.stage1_miniboss_seeded_2) ||
+  if (!(G.flags && G.flags.stage1_miniboss_complete) &&
+      (_sp1 >= 8 && (G.flags && (G.flags.stage1_miniboss_seeded_1 || G.flags.stage1_miniboss_seeded_2)) ||
        _sp1 >= 15)) {
     triggerStage1MiniBoss();
     return;
   }
-  if (!G.flags.stage1_mainboss_complete &&
-      G.flags.stage1_miniboss_complete &&
+  if (!(G.flags && G.flags.stage1_mainboss_complete) &&
+      (G.flags && G.flags.stage1_miniboss_complete) &&
       _sp1 >= 15) {
     triggerStage1MainBoss();
   }

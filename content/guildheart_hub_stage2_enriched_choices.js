@@ -694,7 +694,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_collegium_aware) {
+      if (!(G.flags && G.flags.stage2_faction_collegium_aware)) {
         G.lastResult = 'The third chair in the Arbiter alcove is placed at an angle not visible from the registry floor. Nothing to act on with the Collegium yet — the alcove is empty, or the occupant has not made contact. The charter hall continues its usual pace around the vacancy: pens moving, clerks passing, the muted tap of a stamp on parchment from somewhere deeper in the corridor. The chair waits with the patience of placed furniture. Whoever put it there will return at their own timing.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -714,7 +714,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_collegium_contacted) {
+      if (!(G.flags && G.flags.stage2_faction_collegium_contacted)) {
         G.lastResult = 'The Collegium contact isn\'t ready for the next step yet. Peregrin Vas needs to be approached in the Arbiter alcove before the certified copy can be filed to Oversight intake. The Arbitration Hall moves around this pause at its own pace — the shuffle of a queue at the Sanction Board anteroom, a clerk reciting reference numbers to a second clerk, the faint cold smell of chalk dust from the notice boards. The copy sits unsigned, waiting for the moment Peregrin Vas has named.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -725,7 +725,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       G.investigationProgress = (G.investigationProgress||0) + 2;
       G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
       var tension = '';
-      if (G.flags.stage2_faction_shadowhands) {
+      if (G.flags && G.flags.stage2_faction_shadowhands) {
         tension = ' Peregrin pauses before sealing the intake envelope. "Your coat carries the dust from a Roazian hand-press. I know the grain. Be aware the Collegium reads who a filer keeps company with before it reads what they file." He seals the envelope anyway.';
       }
       G.lastResult = 'Peregrin takes the certified copy without turning it over. He reads only the intake stamp. "Good. The rider was renewed through an administrative back-channel the Collegium has been unable to subpoena — every formal request for the source authority has been met with a missing signatory line and a date gap we cannot reconcile. Your filing creates standing. With standing, the Collegium can compel the renewal office to produce the authorizing name." He writes a single clerk code on the back of your carbon and slides it across. "When you see that code on a Guildheart notice, the compel has landed. Do not be in the building that day."' + tension;

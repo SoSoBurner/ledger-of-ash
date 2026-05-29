@@ -113,12 +113,12 @@ function _pell_phase1() {
 
 // Phase 2 — The Meeting
 function _pell_phase2() {
-  if (G.flags.stage2_miniboss_p2_started) return;
+  if (G.flags && G.flags.stage2_miniboss_p2_started) return;
   G.flags.stage2_miniboss_p2_started = true;
-  if (G.flags.stage2_miniboss_p1_delayed) {
+  if (G.flags && G.flags.stage2_miniboss_p1_delayed) {
     // Delayed path: meeting happens ten days later
     addNarration('', 'The rescheduled meeting. Pell\'s office is the same room, the same layout. He receives you without comment about the delay and lays the inquiry form face-down before reading it — he has a fresh copy. He lays his pen flat beside it before he speaks, the nib toward him, a small reset he performs before every sentence that matters. "Pursuant to the extended window, we can proceed." He opens a second folder while his hand still rests on the inquiry form. Inside: a cross-referenced route summary. His. "A former associate of yours has been quite cooperative," he says. The word \'associate\' is careful, chosen. He means Seld. He does not say Seld\'s name.');
-  } else if (G.flags.stage2_miniboss_p1_caught) {
+  } else if (G.flags && G.flags.stage2_miniboss_p1_caught) {
     addNarration('', 'Pell keeps the flagged document square between you. He lays his pen flat on the desk before speaking — nib toward him, a reset he performs before every sentence that carries weight. "In accordance with our review procedures, I want to be direct with you." He opens a second folder and sets it beside the form — face-down, then turned over. A cross-referenced summary of your transit activity, annotated in his handwriting. "A former associate of yours has been cooperative. Their account of your movements is consistent with what I have here." He says it without inflection. He means it as a threat and he means it to sound like procedure.');
   } else {
     addNarration('', 'Pell has evidence — not the kind that closes a case, but the kind that opens one. A cross-referenced summary of route timings, manifest dates, and inquiry filings. He sets it on the desk face-down before turning it toward you, then lays his pen flat beside the stack — nib toward him, unhurried. He does this before every sentence that matters. "In accordance with standard review, I want to be transparent about the scope of this inquiry." He pauses. "A former associate of yours has been quite cooperative." He does not say the name. He does not need to. He means Seld, and the weight he puts on \'cooperative\' is the only inflection he has allowed himself. The file he was assigned to close was yours — and he was assigned before any formal complaint was filed.');
@@ -242,8 +242,8 @@ function checkTrigger() {
   var sp2 = ((G.stageProgress && G.stageProgress[2]) || 0);
   // seed_seen required at sp2>=8; at sp2>=12 the miniboss fires regardless (catches
   // archetypes like paladin whose enriched-choice mix never surfaces the seed choices)
-  var seedReady = G.flags.stage2_miniboss_seed_seen || sp2 >= 12;
-  if (!G.flags.stage2_miniboss_complete &&
+  var seedReady = (G.flags && G.flags.stage2_miniboss_seed_seen) || sp2 >= 12;
+  if (G.flags && !G.flags.stage2_miniboss_complete &&
       !G.flags.stage2_miniboss_started &&
       sp2 >= 8 &&
       seedReady) {

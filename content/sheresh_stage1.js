@@ -67,7 +67,7 @@ var SHERESH_STAGE1 = (function() {
 
   function _closeWithHint() {
 
-    if (!G.flags.sheresh_principalities_hint_shown) {
+    if (!(G.flags && G.flags.sheresh_principalities_hint_shown)) {
       G.flags.sheresh_principalities_hint_shown = true;
       if (typeof addNarration === 'function') {
         addNarration('A Thought', 'The pattern is larger than this commune. If it happened here, it happened in more places. The Principalities — Shelkopolis in particular — is where official records are centralized. That is where the answer is.');

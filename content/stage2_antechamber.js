@@ -15,7 +15,7 @@ window.STAGE2_ANTECHAMBER = (function() {
     if (!G) return;
 
     // Side effects only on first trigger call; subsequent calls (race-condition re-renders) skip them
-    if (!G.flags.stage2_antechamber_started) {
+    if (!(G.flags && G.flags.stage2_antechamber_started)) {
       G.flags.stage2_antechamber_started = true;
       addJournal('Someone has been watching you for three days. This morning, a Collegium courier left a note at your lodging: ', 'evidence');
       window.addWorldNotice(

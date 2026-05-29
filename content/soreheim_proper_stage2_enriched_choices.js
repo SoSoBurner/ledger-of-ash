@@ -824,7 +824,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Wardens', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_wardens_aware) {
+      if (!(G.flags && G.flags.stage2_faction_wardens_aware)) {
         G.lastResult = 'The low banner is still hanging at the north gate, brass grommet polished clean against the road grit on its neighbors. Nothing to act on with the Wardens yet — the signal is the invitation, not the meeting. Whoever set it out is watching the rotation change windows. Standing under it before they are ready to receive you accomplishes nothing and may close the contact entirely. Wait for the correct rotation window.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -844,7 +844,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_wardens_contacted) {
+      if (!(G.flags && G.flags.stage2_faction_wardens_contacted)) {
         G.lastResult = 'Halse has not named the next step yet. The Station 42 archive is in the eastern duty hall, and the log is still in the filing cabinet — he confirmed that much at the mustering yard meeting. Moving without his timing means moving without the hearing as cover, and without the hearing the log is just a stolen document with no admissible chain. Wait for Halse to name the window.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -855,7 +855,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       G.investigationProgress = (G.investigationProgress||0) + 2;
       G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
       var tension = '';
-      if (G.flags.stage2_faction_red_hood) {
+      if (G.flags && G.flags.stage2_faction_red_hood) {
         tension = ' Ruven closes the log with his thumb still in the page. "There is Red Hood grease on this cover. A hair of it. You are carrying things I would rather you not carry into my bay. I will keep the log. You will not be in the yard when the hearing convenes, and you will not tell me why you smell like a Kerroun broker."';
       }
       G.lastResult = 'Ruven reads the log in order and stops at a four-day gap where the Station 42 duty sergeant entered the same weather phrase on every line — fair, light wind from the north — across forty hours of what should have been active patrol entries. "That phrase is a place-holder cadets use when they cannot reach the logging post. A station sergeant does not leave it four days in a row. The sergeant was ordered to write it anyway, by a name above mine not supposed to have that reach." He marks the gap with a saber-cleaning pin and closes the book. "Your page just made three years of tracking admissible."' + tension;

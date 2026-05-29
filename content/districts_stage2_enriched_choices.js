@@ -154,7 +154,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     tags: ['RedHood', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_red_hood_aware) {
+      if (!(G.flags && G.flags.stage2_faction_red_hood_aware)) {
         G.lastResult = 'The pawn window is open, lamp oil and cobblestone damp carrying up from the lane outside, but there is nothing to act on with the broker yet. The cracked lamp sits in its place, its tag face-down. The listing code in the window changes by the day — acting on one you have not decoded yet would burn the approach entirely. Come back when the pattern has been read and the current code confirmed.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -174,7 +174,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_red_hood_contacted) {
+      if (!(G.flags && G.flags.stage2_faction_red_hood_contacted)) {
         G.lastResult = 'Anneth Torv outlined a specific task at the last meeting — her register was Kerroun market, short sentences, numbers always in multiples of three. Until that task is complete, the next step in the arrangement is not open. The pawn window stays closed, the cracked lamp unsold, the tag rewritten daily for an audience that has not yet earned the meeting. The confiscation shelf will still be there. The question is whether it will still hold what Torv needs by the time the approach is ready.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -185,7 +185,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
       G.investigationProgress = (G.investigationProgress||0) + 2;
       G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
       var tension = '';
-      if (G.flags.stage2_faction_wardens) {
+      if (G.flags && G.flags.stage2_faction_wardens) {
         tension = ' Anneth turns the iron ring inward and laughs the small laugh. "You have Warden saber-oil on the satchel strap. That is a scent I recognize. I am going to tell you less than I meant to, and you are going to act as though I told you more. We both leave cleaner that way."';
       }
       G.lastResult = 'Anneth takes the satchel and opens it on the counter in the specific order a courier would — outer pocket, inner flap, false base. The false base has been opened and re-closed by someone who knew it was there. "They read it. They did not copy it. There is a difference. Copying leaves press marks on the lining. Reading leaves this." She shows you a thumb-smudge of grey dust along one seam. "Collegium ink residue. The satchel was opened by an auditor with a subpoena record, and the subpoena was then withdrawn. That means someone above the Collegium pulled the audit back after the item was already seen."' + tension;

@@ -905,7 +905,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
-      if (!G.flags.stage2_faction_shadowhands_aware) {
+      if (!(G.flags && G.flags.stage2_faction_shadowhands_aware)) {
         G.lastResult = 'The chalk mark is still drying on the wall by the dye-quarter alley. The Ironspool district carries its smell of coal smoke and old tanning vats. Nothing to act on with this contact yet — the mark is a signal, and a signal before its time is just a mark on a wall. Return after the curl sets and the message has had time to find its intended reader. Acting now means arriving before trust is possible.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -925,7 +925,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Shadowhands', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
-      if (!G.flags.stage2_faction_shadowhands_contacted) {
+      if (!(G.flags && G.flags.stage2_faction_shadowhands_contacted)) {
         G.lastResult = 'Kess has not named the window yet. The night-shift turnover runs during the third bell, and the ledger sits unattended for those twenty minutes — but moving without her timing means moving blind into a dock station with at least two guards on rotation. The dye-works back room carries the sharp smell of cloth treatment and old wood. The signal comes from her side first. Moving early doesn\'t shorten the wait; it removes the option entirely.';
         G.recentOutcomeType = 'locked'; return;
       }
@@ -936,7 +936,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       G.investigationProgress = (G.investigationProgress||0) + 2;
       G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
       var tension = '';
-      if (G.flags.stage2_faction_collegium) {
+      if (G.flags && G.flags.stage2_faction_collegium) {
         tension = ' Kess closes the folio halfway through and looks up. "Your boots carry chalk dust from the Arbiter alcove runner. That alcove has had an outside audit chair since last rotation. I will still give you what I said I would. But what I give will be what a Collegium filer can hear without it costing us a cell."';
       }
       G.lastResult = 'Kess reads the page twice before she speaks. Her palm stays flat. "The night-shift ledger was forged before your copy was made. Three different hands logged the same three containers under three different freight codes across three shifts — same crate weight, same seal number, three paperwork lives. The Shadowhands have been tracking the third-code variant across six ports. It is not a shipping scheme. It is a paper screen built to hide where one specific cargo actually goes. Your page is the first one that names the origin officer. Not the receiver. The origin." She gives you a strip of rice paper with a single Roazian cipher. "Set this where it can be seen. Someone will move."' + tension;

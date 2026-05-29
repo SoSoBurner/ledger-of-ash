@@ -74,7 +74,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
 
       if (!G.worldClocks) G.worldClocks = {};
-      if (!G.flags.met_toman_iceveil && !G.flags.met_lenna_bannerhold) {
+      if (!(G.flags && G.flags.met_toman_iceveil) && !(G.flags && G.flags.met_lenna_bannerhold)) {
         G.lastResult = `The routing channel requires both researchers' cooperation — Toman's data and Lenna's access to the suppression order's structure. The fishing nets off the commune's east dock creak against their bollards in the morning wind, a sound that carries all the way to this corridor at low tide. Without both threads confirmed, the package that reaches the archive will be incomplete, and an incomplete submission won't carry the weight needed to protect it from the mechanism that killed the original publications. The groundwork here is not done yet.`;
         G.recentOutcomeType = 'investigate'; return;
       }
