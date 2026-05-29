@@ -1752,16 +1752,19 @@ async function probeCombatCorridor(page, tag) {
       await page.waitForTimeout(800);
 
       // Force a biome-appropriate combat encounter directly — avoids probabilistic _travelCoreTravelTo roll
-      await page.evaluate(function(dest) {
+      const _combatEnemy = await page.evaluate(function(dest) {
         try {
           var biome = (typeof window.getBiomeForRoute === 'function') ? window.getBiomeForRoute(dest, G.location) : 'plains';
           var pool = (window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[biome]) || ['road_bandit'];
           var enemy = pool[Math.floor(Math.random() * pool.length)];
           if (typeof enterCombat === 'function') enterCombat(enemy, { isBoss: false });
-        } catch (_) {}
-      }, route.to).catch(function() {});
+          return enemy;
+        } catch (_) { return null; }
+      }, route.to).catch(function() { return null; });
+      log('[combat-corridor] route=' + route.from + '->' + route.to + ' enterCombat called enemy=' + _combatEnemy);
 
-      // Wait up to 5s for choices
+      // enterCombat renders choices via setTimeout(300ms) — wait for combat choices to replace locality choices
+      await page.waitForTimeout(600);
       await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 5000 }).catch(function() {});
 
       // Check for combat UI: encounter panel, or choices containing Attack/Defend/Strike
