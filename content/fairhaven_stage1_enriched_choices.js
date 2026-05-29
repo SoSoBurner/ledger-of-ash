@@ -1096,4 +1096,351 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   if (_millHook) FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(_millHook);
 })();
 
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT x2
+  {
+    archetypeGroup: 'combat',
+    label: "The berth locks from this side. One tide window. The enforcers haven\'t reached the dock yet.",
+    tags: ['Combat', 'Risk', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The berth lock is a double-bar system and the second bar has rusted into the bracket. You get the first bar clear before the harbor enforcers come around the dock shed corner. Two of them, armed with boarding pikes. The berth stays locked and the enforcers have your description in the log before the tide turns.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Clear the area before the enforcers complete their report.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'forcing locked berth before tide');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'Both bars clear in under forty seconds and the berth gate swings before the tide window closes. The vessel inside is not the one on the harbor manifest — it is flying an independent merchant pennant but the hull markings belong to a Cosmouth house brig that was reported as delayed in the outer channel. Inside the berth shed: a cargo manifest on a nail, handwritten, for goods that match the description of the three alchemical shipments Kellen the broker said were diverted. The manifest is dated two days ago. The shipments were logged as lost at sea six weeks ago.';
+        G.stageProgress[1]++;
+        addJournal('Forced berth entry — vessel inside is misidentified Cosmouth brig; cargo matches broker\'s diverted alchemical shipment description; manifest dated 2 days ago, goods logged lost 6 weeks ago', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The first bar clears and the second does not. You have your shoulder against the second bar when the enforcers\' voices come around the dock shed corner — not checking the berth specifically, just the standard circuit, but at the wrong moment. You get the bar back into the bracket before they round the corner. The berth looks untouched. Your hands smell of rust and salt-iron and the enforcer closest to you pauses for two seconds before moving on. He noted something. You do not know what.';
+        addJournal('Berth access attempt failed — enforcer paused during circuit; possible notation', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The berth opens on the second attempt. Inside: a loaded vessel, hatch sealed, with a cargo declaration slip pinned to the rigging. The declaration is for standard fishing equipment — nets, line, ballast stone. The vessel sits low in the water for fishing equipment. Low the way a vessel sits when its hold contains something denser than nets. The harbor log across the dock shed shows this berth as assigned to a registered fishing concern. The vessel has no fishing marks on the hull.';
+        addJournal('Forced berth entry — vessel sits too low for declared fishing cargo; no fishing marks on hull; berth assigned to registered fishing concern', 'evidence');
+      } else {
+        G.lastResult = 'The berth opens. Inside: an empty vessel, recently vacated — the mooring lines are still damp from recent adjustment and a clay lamp on the dock bollard is still warm. Whatever was in this berth left within the past hour. The harbor manifest has this berth listed as occupied by a vessel that does not match the dimensions of the one in front of you. The vessel that was here is gone. The tide that would carry it out began forty minutes ago.';
+        addJournal('Forced berth — vessel inside wrong dimensions for manifest entry; previous occupant departed within past hour', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'combat',
+    label: "Three harbor enforcers, one dock. They want me off this pier and they\'re going to push.",
+    tags: ['Combat', 'Confrontation', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'Three harbor enforcers is a confrontation that ends one way on a public dock — with you in the harbor authority log and the pier cleared. You withdraw before it becomes a formal report and settle for watching the dock from the warehouse row. Whatever the pier conceals, a direct approach is closed for this tide cycle.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Watch from the warehouse row until the tide changes and the enforcers rotate.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'holding position against harbor enforcers');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The enforcers read the situation correctly and the lead one holds up a hand — the universal gesture for \'this is not worth it.\' They move off the pier without writing anything down. In the window that creates, a dock worker who has been watching from the warehouse threshold crosses to you with purpose. He was waiting for exactly this outcome. He puts a folded slip of paper in your hand and walks back without speaking. The slip has a berth number and a time: two hours before dawn, berth seven. \'Come alone. The harbor master knows about the manifest.\' The dock worker is gone before you unfold the slip completely.';
+        G.stageProgress[1]++;
+        addJournal('Dock workers signaled after enforcer standoff — paper slip: berth 7, pre-dawn meeting; harbor master knows about manifest', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The lead enforcer does not back down and the other two spread out to cut the angles. This is a practiced formation and they use it quickly. You disengage without a physical confrontation but the withdrawal is not clean — a dock worker has already started running toward the harbor master\'s office. By the time you reach the warehouse row, the harbor master\'s bell has rung twice: the signal for a pier security incident. Your description is in the pier log.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Enforcer standoff escalated — harbor master security bell rung twice; description in pier log', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Two of the three enforcers step back when the lead one holds. The lead one holds because you have not moved. It becomes a question of whether he wants to write the report that would follow from this, and after eight seconds he decides he does not. The pier stays yours. The berth at the end of the pier has a vessel with its cargo hatch open and a manifest board on the dock cleat that shows a consignment reference matching the broker\'s diverted supply figures. The hatch workers are watching you from inside.';
+        addJournal('Held pier position against enforcers — manifest board on dock cleat matches broker\'s diverted supply reference', 'evidence');
+      } else {
+        G.lastResult = 'The lead enforcer holds when you do not move. He does not write the report. But he does not leave either — he takes a position at the pier gate that is not quite blocking and watches. The pier is technically accessible and practically surveilled. You can reach the far berth but not investigate anything without the enforcer logging every minute of it. You learn what you can from distance: the vessel in berth six has been moored for three tides without cargo movement, which is unusual for a vessel that the manifest shows as loaded and ready.';
+        addJournal('Pier access gained under enforcer surveillance — berth 6 vessel moored 3 tides without cargo movement; manifest shows loaded and ready', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // MAGIC x2
+  {
+    archetypeGroup: 'magic',
+    label: "Tide patterns don\'t repeat like this unless something upstream is holding them.",
+    tags: ['Magic', 'Lore', 'Observation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The tide observation requires a fixed reference point above the waterline, and the only usable one — the harbor authority\'s tidal marker post — has a restricted access radius marked in chalk on the dock. Harbor authority chalk is enforced. The marker post readings are logged and posted at the harbor gate each morning, which gives an indirect route to the same information.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the harbor gate tide log instead of the marker post directly.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading tide patterns for unlogged shipment window');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The tide pattern has an eleven-minute anomaly that repeats every third cycle. In natural harbor conditions, the tidal rhythm should be consistent to within two minutes. An eleven-minute drift that repeats precisely is artificial — something is holding the tide at that phase, the way a weir holds river water. The effect is localized to the northern harbor channel. A vessel navigating in that eleven-minute window would move through harbor waters without registering on the standard tidal arrival log, which uses the main channel marker as its reference. The northern channel bypass is effectively invisible to the harbor record.';
+        G.stageProgress[1]++;
+        addJournal('Tide anomaly: 11-minute artificial hold in northern channel, repeating every 3rd cycle — vessels in this window invisible to main-channel tidal arrival log', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The tide reading requires a calm surface for the resonance baseline and the harbor is running chop from a wind change. The reading is noisy and you spend twenty minutes on a baseline that a clear day would resolve in five. The harbor master\'s assistant, making her morning circuit, stops to watch you work. She does not ask what you are measuring. She does not need to. The harbor authority logs unusual activity at the tidal marker. Your presence at the marker is unusual.';
+        addJournal('Tide reading attempt degraded by chop — harbor authority assistant observed and logged unusual activity at marker', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The tide phase for the past three weeks shows a repeating anomaly in the northern channel — a brief period of reduced current that does not match the standard astronomical tidal model for this harbor. The anomaly is consistent and scheduled, which means it is not natural variation. A vessel that knew the timing could enter the northern channel in that window without triggering the harbor gate sensors, which key off current velocity. The anomaly window is twelve minutes wide. It has been present for exactly twenty-one days.';
+        addJournal('Northern channel tidal anomaly: 12-minute reduced-current window, consistent for 21 days — harbor gate sensors trigger off current velocity; window is a potential unlogged entry route', 'evidence');
+      } else {
+        G.lastResult = 'The tide readings show a minor but consistent variance in the northern channel — the current runs slightly slower than the main harbor model predicts, and the variance is periodic rather than random. It is not a major anomaly; a harbor pilot who had been running this approach for years might not notice it. But it is regular and it has been regular for at least the past month, based on the marker readings. Whoever is using this harbor knows its timing better than the official tide charts do.';
+        addJournal('Northern channel tidal variance identified — periodic, consistent, at least one month old; suggests detailed local knowledge of timing', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'magic',
+    label: "Harbor registry markings in the margin. Those aren\'t notations — they\'re a secondary script.",
+    tags: ['Magic', 'Lore', 'Records'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The harbor registry is in the morning session and the reading room is at capacity — four clerks working the current manifests and no open counter space. The marginal markings are visible from the queue but not at a usable reading distance. The afternoon session opens the archive copies, which may carry the same script if it was applied before filing.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Return for the afternoon archive session when counter space is available.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'decoding secondary script in harbor registry margin');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The marginal script is a notation system layered over the standard harbor registry shorthand. Each entry has two sets of marks: the visible registry notation and a secondary layer written in a compressed script that uses standard registry symbols in non-standard combinations. The secondary script is a running record of discrepancies between the declared manifests and what the notation author actually observed. Three entries for the current month describe cargo that was logged as one thing and arrived as another. The last entry ends mid-sentence with a date three weeks ago. The archivist who wrote the secondary script has not added to it since that date.';
+        G.stageProgress[1]++;
+        addJournal('Harbor registry margin script decoded — secondary notation records observed vs declared cargo discrepancies; author stopped 3 weeks ago mid-sentence', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The secondary script uses a compression technique that requires a reference grammar to decode accurately. You work through it for thirty minutes and produce a partial reading that contains two words you are confident of — \'berth\' and \'authorization\' — and a reference number you cannot place. The archive clerk notices the extended session on the same page and comes over. She does not ask what you are reading. She does offer to pull the \'official explanatory notes\' for that registry section. The offer is not a threat. It is a very careful offer.';
+        addJournal('Harbor registry secondary script partially decoded — two words recovered; archivist offered official explanatory notes', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The marginal script is a dual-register notation: standard registry marks on the surface, compressed shorthand underneath using modified registry symbols. The compression is from a regional maritime tradition — a harbor pilot\'s personal notation system, designed to fit additional information in the registry margin without a separate document. Three entries carry both layers. In the secondary layer, two of the three show discrepancies between the declared cargo and the observed arrival. One entry simply reads: \'authorization not harbor master.\' It is the most recent entry in the section.';
+        addJournal('Harbor registry dual-register notation: secondary layer shows cargo discrepancies and one entry reading "authorization not harbor master"', 'evidence');
+      } else {
+        G.lastResult = 'The marginal script is readable as a secondary layer but the compression technique requires more context than this single registry page provides. What you can determine: the secondary script appears on entries from the past three weeks, not before. It was added after the primary registry entries were written. Whoever added it had access to the closed registry during non-session hours. The script is in a different hand from the primary registry clerk.';
+        addJournal('Harbor registry secondary script confirmed as post-entry addition — 3 weeks, different hand, added in non-session hours', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // STEALTH x2
+  {
+    archetypeGroup: 'stealth',
+    label: "Harbor log checkpoint opens in thirty seconds. Two dockworkers between me and the gate.",
+    tags: ['Stealth', 'Covert', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The harbor log checkpoint opens before the two dockworkers clear the gate. One of them is signing something at the log desk when you reach the gate angle. You have to pull back and wait on the dock side. The log entry window closes before the dockworkers finish. Your movement through the gate will be in the next log cycle.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for the next log cycle gap and retime the approach.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'slipping through harbor log checkpoint unlogged');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'Through the gate in the twelve-second window between dockworkers and log clerk — unlogged, no entry. Inside the dock section: the berths that do not appear in the public harbor manifest. Three of them, in the northern row, with vessels moored at tide but no dock assignment boards posted. One vessel has a cargo declaration slip in a deck cleat — the slip carries the same consignment reference as the supply chain diversion records from the chapel quarter. The goods logged as alchemical supplies bound for the chapel are in this berth, not at sea.';
+        G.stageProgress[1]++;
+        addJournal('Unlogged gate entry — 3 unregistered northern berths; one vessel cargo declaration matches chapel alchemical supply diversion reference', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The dockworker signing at the log desk looks up when you pass the gate. He does not call out. He writes something on the log page. The harbor log checkpoint clerk, who has been watching the dock side, turns to see what the dockworker wrote. You are inside the gate and the log clerk is reading. You do not know what was written. But you are inside a restricted dock section with a log entry against you, and the clerk is still reading it.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Gate passage logged by observant dockworker — clerk read entry; presence in restricted dock section recorded', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Through the gate between log cycles. The restricted dock section is quieter than the public berths — only two active mooring lines, both on the northern row. The vessels here do not have the standard dock assignment boards that the public berths require. One has a manifest board facing inward — you can see it but not read it from the dock edge without boarding. The absence of dock assignment boards means these berths are either authorized through a non-standard process or they are simply not logged.';
+        addJournal('Unlogged entry — restricted dock section has vessels with inward-facing manifests and no dock assignment boards', 'evidence');
+      } else {
+        G.lastResult = 'Inside the gate without a log entry. The dock section is smaller than the public berths suggested — two rows, six berths, three occupied. The occupied berths have tide ropes but no dock workers on the dock side. All three vessels are running dark — no lanterns lit on deck during a moored dock period, which is a harbor authority violation for any vessel with crew aboard. They are either empty or the crew is below. The harbor log does not know you came through. It also does not know these three vessels are this way.';
+        addJournal('Restricted dock section entered unlogged — 3 vessels moored dark with no dock workers; harbor authority violation', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'stealth',
+    label: "Guarded vessel, second berth from the end. The watch rotation has a gap at the stern.",
+    tags: ['Stealth', 'Covert', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The gap at the stern is narrower than it appeared from the warehouse row — the second watch is running a tighter circuit than the first, and the overlap catches you at the gangplank. You are off the gangplank and back on the dock before the watch reaches the stern corner, but the motion on the gangplank is visible from the dock gate. Someone at the gate saw the movement. You do not know who.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Clear the dock area before the gate watcher acts on what they saw.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'boarding guarded vessel at stern watch gap');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'Aboard and below decks in the stern gap window. The hold is partially loaded — three cargo tiers, two sealed with harbor authority stamps, one unsealed. The unsealed tier holds crates with markings that match the supply chain description from the broker\'s records: alchemical materials, chapel-supply grade. The harbor authority stamps on the sealed tiers are genuine but the stamp dates are wrong — dated four days before the vessel arrived in Fairhaven. Stamps cannot precede arrival. These were prepared in advance and applied to cargo that was already here.';
+        G.stageProgress[1]++;
+        addJournal('Boarded guarded vessel — hold has pre-dated harbor authority stamps (4 days before arrival) and unsealed alchemical crates matching broker supply description', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The stern gap closes early — the watch rotation is not what you mapped. The second watch comes around the stern corner eight seconds ahead of schedule and you are on the gangplank. You go into the water between the vessel and the dock. It is cold, salt-dark, and close. You come up against the dock piling and hold there for six minutes while the watch finishes the stern circuit. You are wet, you are in the harbor water, and you have not reached the vessel. The watch did not look over the rail. You do not know why.';
+        addJournal('Vessel boarding failed — fell into harbor water; watch rotation tighter than mapped', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Aboard in the gap window. Deck level only — the below-hatch is dogged shut from the inside, which means someone is below while the watch is topside. The deck cargo manifest is pinned to the mast housing. It lists six categories of standard fishing equipment. The vessel has no fishing equipment visible on deck — no nets, no line coils, no bait barrels. The manifest and the deck are in complete disagreement. Someone wrote this manifest for a different vessel or for a different purpose.';
+        addJournal('Boarded vessel deck — manifest lists fishing equipment; none present on deck; hatch dogged from inside', 'evidence');
+      } else {
+        G.lastResult = 'Aboard at the gap and immediately aware that the hold hatch has a second watch on the other side — footsteps moving below, close to the hatch. You cannot go below. The deck manifest is accessible. It is a standard harbor registry form, correctly completed, with one anomaly: the vessel registration number in the upper corner does not match the hull number painted on the stern. You read both numbers before the stern gap closes and the watch comes back around.';
+        addJournal('Boarded vessel deck — vessel registration number on manifest does not match stern hull number', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // SUPPORT x2
+  {
+    archetypeGroup: 'support',
+    label: "Dock workers are watching the harbor clerk. They know what a timed distraction costs and they\'re waiting for someone to ask.",
+    tags: ['Support', 'NPC', 'Coordination'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The dock workers are willing but not unified — three different opinions on timing and two on method. The conversation takes long enough that the harbor clerk\'s shift rotation ends naturally and a replacement takes the desk. The distraction opportunity closes because the moment passed while you were arranging it. The dock workers disperse without incident. Nothing was risked. Nothing was gained.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for the next clerk rotation and a simpler distraction opportunity.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'coordinating dock worker distraction');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The dock workers execute it cleanly — a cargo dispute at the gate that requires the harbor clerk to come out from behind the desk and physically arbitrate. Three minutes of organized noise. You have the manifest ledger open and photographed by the second minute. The third minute gives you the second ledger section, the one the clerk keeps under the desk rather than in the open stack. Under-desk manifests in a harbor registry are always the ones that need protecting. The section you found there records berth allocations that have no corresponding vessel entries in the main log. Twelve allocations. Twelve vessels that the log does not know about.';
+        G.stageProgress[1]++;
+        addJournal('Dock worker distraction: accessed under-desk manifest section — 12 berth allocations with no corresponding vessel entries in main log', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The dock workers start the distraction before the timing is right — one of them misread the signal. The harbor clerk looks up at the gate noise and calls for a second clerk rather than going out herself. Two clerks and a closed desk means the distraction just doubled the audience watching the manifest area. You cannot move toward the manifests. The distraction ends without achieving anything and the clerk who stayed at the desk writes a short note — probably about the unusual gate noise.';
+        addJournal('Dock worker distraction mistimed — second clerk called; manifest area now double-staffed', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Clean execution — the harbor clerk goes to the gate for the cargo dispute and you have ninety seconds at the open ledger. The northern berth allocation section for the current month shows three entries marked with a red stamp you do not recognize. The stamp says \'priority routing\' in harbor registry shorthand. Priority routing entries are not in the public manifest index. The three entries correspond to dates when the broker reported supply diversions. Same dates, same approximate quantities.';
+        addJournal('Dock distraction: 3 northern berth entries stamped \'priority routing\' not in public index; dates match broker-reported supply diversions', 'evidence');
+      } else {
+        G.lastResult = 'The distraction works well enough. The harbor clerk goes to the gate. You have sixty seconds at the open manifest before she starts back. The current-month berth section is open in front of you. There are fewer entries than a busy harbor should produce — gaps that look like editing, not slow periods. The entries around the gaps are intact, cleanly written. Whatever was removed was removed carefully, with the surrounding entries left in place. Someone cleaned the record and left the cleanup invisible.';
+        addJournal('Distraction window: harbor berth manifest has editing gaps — surrounding entries intact; careful record cleaning', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'support',
+    label: "The harbor clerk flagged this discrepancy himself. He just hasn\'t been able to explain it to anyone who will listen.",
+    tags: ['Support', 'NPC', 'Persuasion'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The harbor clerk is at the midpoint of a filing cycle and he cannot pause it — the tide window for that cycle closes in twenty minutes and the entries have to be stamped before it does. He acknowledges the question and says he will be available after. After comes and he has moved on to the next cycle. Harbor clerks live in their windows. The space between windows is where conversations happen, and you missed this one.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Come back between tide cycles when the clerk has a window.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'drawing out clerk\'s flagged discrepancy');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'Tideon sets down his stamp and turns fully to face you — the first time he has stopped moving since you arrived. "I flagged it in the secondary registry six weeks ago. The flag was acknowledged but never actioned." He opens a drawer and takes out a folded carbon copy — his own copy, the one clerks make when they suspect the official copy will disappear. "Fourteen berth entries with authorization signatures that do not match any factor in the harbor master\'s authorized-factors registry. I have checked seven times." He slides the carbon across the counter. "I stopped asking who would listen. You\'re the first person who asked me."';
+        G.stageProgress[1]++;
+        addJournal('Harbor clerk produced personal carbon copy — 14 berth entries with authorization signatures not in harbor master\'s authorized-factors registry; flag unactioned for 6 weeks', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'Tideon stops what he is doing and takes a long look at who is asking this question. Then he looks at the harbor master\'s office window at the end of the registry building. Then back at the manifest. "I recommend filing a formal harbor inquiry," he says. His voice is completely level. He goes back to his stamp. The look he gave the harbor master\'s office window lasted two seconds and contained something that was not available in the words that followed it.';
+        addJournal('Harbor clerk deflected to formal inquiry process — glance at harbor master\'s office noted before deflection', 'discovery');
+      } else if (result.total >= target) {
+        G.lastResult = 'Tideon keeps his voice low. "I noted it in the secondary register three weeks ago. Fourteen entries." He does not look at the harbor master\'s office. He looks at the manifest in front of him and keeps his hands moving. "The authorization signatures on those entries are not from any factor I can match to the authorized-factors list. I submitted a flag. The flag came back reviewed." He pauses his stamping. "Reviewed means someone read it. I can\'t tell you what they decided." He resumes stamping. He has given you everything he can give you in a room where the walls have windows.';
+        addJournal('Clerk confirmed 14 unmatched authorization entries in secondary register; flag returned reviewed with no action noted', 'evidence');
+      } else {
+        G.lastResult = 'Tideon acknowledges the discrepancy without looking up from his work. "There are anomalies in the berth authorization section. I have noted them." He says it the way someone says a thing they have said many times to many people. He stamps another form. "The appropriate process is a formal harbor inquiry, filed in triplicate, reviewed by the harbor master\'s office." He pauses at the end of the sentence. He does not add anything. The pause is the only commentary he is willing to offer on what the harbor master\'s office review means.';
+        addJournal('Harbor clerk acknowledged berth authorization anomalies — directed to formal inquiry; pause at "harbor master\'s office review" noted', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  }
+
+);
+
 window.FAIRHAVEN_STAGE1_ENRICHED_CHOICES = FAIRHAVEN_STAGE1_ENRICHED_CHOICES;

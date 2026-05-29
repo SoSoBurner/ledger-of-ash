@@ -1103,4 +1103,698 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   }
 }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT x2
+  {
+    archetypeGroup: 'combat',
+    label: "The sealed corridor has one pressure latch. One good shoulder and it gives.",
+    tags: ['Combat', 'Risk', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The latch holds — older construction, thicker than it looks. The impact rings through the maintenance passage and a patrol turns the far corner thirty seconds later. You are standing at a sealed door with a bruised shoulder and no explanation that fits the context. The patrol writes a notation in their route log. The corridor stays sealed.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Clear the area before the patrol reaches your position.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'forced corridor access');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The latch snaps on the second strike — clean, no secondary noise. The corridor beyond smells of thermal gel and old sealant. A restricted maintenance log hangs on the inside wall: vent allocation schedules for the past three weeks, signed by the coordinator\'s office, show two dome sections receiving zero maintenance hours while a third gets double the standard crew time. The discrepancy is dated and stamped. You copy the reference numbers before the corridor\'s heat alarms register the open door.';
+        G.stageProgress[1]++;
+        addJournal('Forced sealed corridor — maintenance log inside shows skewed allocation; coordinator signature present', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The latch gives on the wrong axis — a pressure release rather than a break, venting a burst of hot air from the thermal duct on the other side. The alarm strip above the door activates. You have twenty seconds before the nearest dome monitor arrives, and the corridor is a dead end. Whatever was inside the sealed section is now behind a door that is also flagged in the incident log.';
+        addJournal('Corridor forced — pressure alarm triggered, incident logged', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The latch gives on the third attempt and you are inside before the corridor noise settles. The sealed section holds a decommissioned gauge array — still live, still reading. The pressure readings are two weeks out of sync with the posted dome status board. Someone is receiving real data here and posting different numbers publicly. The array has a registry tag from the coordinator\'s office, filed as decommissioned fourteen days ago.';
+        addJournal('Forced corridor — live gauge array inside reads differently from public dome status board', 'evidence');
+      } else {
+        G.lastResult = 'The latch holds. You get purchase on the frame but not enough force behind it — the dome construction here is heavier than the residential corridors. A work crew comes around the bend before your third attempt and you fall back. The sealed section stays sealed. The same coordinator stamp appears on the access restriction notice beside the latch.';
+        addJournal('Sealed corridor access failed — coordinator-stamped restriction noted', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'combat',
+    label: "Two workers blocking the thermal vent access. One of them is wearing management colors.",
+    tags: ['Combat', 'Confrontation', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The worker in management colors has backup one turn of the corridor away — a second crew who arrive before the confrontation resolves. You are outnumbered in a maintenance passage with no clear exit angle. The thermal vent access closes behind them. The blockade is now formal, logged, and has witnesses.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Withdraw and find another route to the vent section.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'clearing management blockade');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The worker in management colors reads the situation accurately and steps back first. The second worker follows. The thermal vent access is clear. Inside: the vent calibration log for the past month. Every third entry is initialled by someone whose name does not appear on the commune\'s posted personnel board. A name that exists in paperwork and nowhere else. The vent has been routed away from the residential dome sections on days that align with the observation archive gaps.';
+        G.stageProgress[1]++;
+        addJournal('Cleared management blockade — vent calibration log shows phantom initialler; routing aligns with archive gaps', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The management-colors worker does not step back. He raises his voice instead — a practiced response, calibrated to volume. It draws a patrol in under a minute. You are the outside party here, and the patrol writes it that way. The thermal vent access stays blocked and your name is in the patrol log beside a note about unauthorized pressure on maintenance staff.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Confrontation at thermal vent — patrol logged; unauthorized pressure notation', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The management-colors worker moves. He does it without words — just steps to the side and looks at the wall. The other follows. The thermal vent access is open long enough for you to read the routing manifest taped inside the panel door: the vent serves three dome sections, but the flow allocation for the past twelve days shows one section receiving sixty percent of available heat output. That section is the coordinator\'s administrative block.';
+        addJournal('Vent access forced — routing manifest shows coordinator block receiving 60% heat output for 12 days', 'evidence');
+      } else {
+        G.lastResult = 'The management-colors worker holds his position and does not look at you while he does it. He has done this before, in this corridor, probably for the same reason. After three minutes of not moving, you have a choice between escalating into something that ends in a patrol report or withdrawing. The thermal vent access stays blocked. The coordinator stamp on the blockade notice is the same stamp on the sealed corridor two junctions back.';
+        addJournal('Vent blockade held — coordinator stamp repeated on restriction notice', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // MAGIC x2
+  {
+    archetypeGroup: 'magic',
+    label: "The ward mark on that dome panel is six weeks old. The panel it protects is brand new.",
+    tags: ['Magic', 'Lore', 'Observation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The ward mark is on the upper edge of the panel, out of direct reading angle without a step platform. The nearest platform is locked to a maintenance crew that has already moved down the corridor. The mark stays unread. The panel installation date is visible on the lower stamp without any special access — that alone is worth noting.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Note the panel installation date from the lower stamp instead.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'ward mark temporal analysis');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The ward mark is written in three layers: a standard dome-protection sigil, a secondary layer added within the past three weeks, and a third mark underneath that predates the panel by at least eight months — carried over from whatever was here before. That third mark is not commune standard. The symbol class belongs to a pre-commune authority whose seal appears in the registry hall archive as a dissolved predecessor institution. Something from before the current administration is still being warded. The panel is new. The thing it replaced is not.';
+        G.stageProgress[1]++;
+        addJournal('Ward mark on new dome panel shows pre-commune authority layer — predecessor institution seal identified', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The ward mark reads normally until the third sigil layer, where the decoding requires a reference index that is not standard commune curriculum. You lose time searching for the anchor glyph and attract the attention of the dome monitor doing her panel check. She does not ask what you are reading. She logs the panel number and your presence in the same notation, and moves to the next section. The ward itself is intact. What it means is still unclear.';
+        addJournal('Ward mark analysis interrupted — dome monitor logged panel and presence together', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The ward mark is genuine dome-protection script — thermal containment class, correctly anchored — but the inscription date embedded in the sigil base is six weeks old. The panel beneath it was installed eleven days ago, according to the installation stamp on the lower frame. The ward was written before the panel existed. Either the panel replaced something else and the ward was carried over, or the ward was prepared in advance of a planned replacement. Both possibilities require a work order that should be in the coordinator\'s registry.';
+        addJournal('Dome panel ward predates panel installation by 5 weeks — replacement or pre-planned swap indicated', 'evidence');
+      } else {
+        G.lastResult = 'The ward mark is correctly formed and reads as standard thermal containment. The inscription date is embedded in the base sigil — six weeks back, as you estimated. Nothing in the symbol grammar indicates corruption or tampering. But the panel is demonstrably new, and a valid ward on a new panel means either the ward was transferred or the panel swap was planned well in advance. The coordinator\'s office manages planned maintenance. That is where the work order would live.';
+        addJournal('Ward mark reads standard — temporal mismatch with panel age; work order likely in coordinator records', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'magic',
+    label: "Ley-line interference in the observation archive. The pattern isn't natural.",
+    tags: ['Magic', 'Lore', 'Records'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The observation archive\'s interference field is strongest near the sealed section, which is behind a locked access panel requiring coordinator clearance. The open section of the archive still shows normal ley readings — the interference is specifically localized to the restricted area. That localization is itself a finding worth recording.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Record the interference boundary before the archive closes.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'ley-line interference pattern analysis');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The interference pattern is not random noise. It is a suppression field — a deliberate arcane construction layered over the natural ley signature of the dome\'s observation platform. Someone inscribed it into the foundation stones of the archive annex, probably during a maintenance window, probably at night. The suppression is targeted: it specifically attenuates the frequency band used by the dome\'s celestial anomaly monitors. The monitors still function. They simply cannot report what they are reading. The inscription anchor point is in the sealed section, under the coordinator\'s clearance lock.';
+        G.stageProgress[1]++;
+        addJournal('Observation archive interference confirmed as deliberate suppression field — attenuation targets celestial anomaly monitor frequency; anchor in sealed coordinator section', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The interference is stronger than expected and the reading process pulls on your concentration for longer than it should. By the time you have a usable baseline, the archive morning session has ended and the archivist is running the close-cycle, which involves resetting the floor panels you were using as reference points. Whatever the interference field is doing, the reading is incomplete. The archivist notes your extended presence in the session log.';
+        addJournal('Ley interference analysis incomplete — extended session logged by archivist', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The ley-line signature in the observation archive shows two distinct interference bands — one consistent with the dome\'s standard thermal regulation field, one with no matching source in the public maintenance registry. The second band is recent, narrow, and specifically positioned over the celestial observation instrumentation. It is not disrupting the instruments. It is filtering their output before the readings reach the public log. Someone is editing what the dome sees before the record is written.';
+        addJournal('Second interference band identified in archive — filters celestial instrument output before public log entry', 'evidence');
+      } else {
+        G.lastResult = 'The ley-line baseline for this section of the dome should be stable — thermal infrastructure generates a consistent field signature. The archive reading shows a second signal layered underneath, periodic rather than continuous, cycling on a schedule that does not match any standard maintenance window you can identify. The cycle period is close to the celestial observation rotation logged on the public board, but offset by eleven minutes. The offset is precise enough to be intentional.';
+        addJournal('Ley archive shows periodic secondary signal — offset 11 minutes from celestial observation rotation, too precise for coincidence', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // STEALTH x2
+  {
+    archetypeGroup: 'stealth',
+    label: "Maintenance patrol pattern has a four-minute gap at the junction. That's the window.",
+    tags: ['Stealth', 'Risk', 'Covert'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The patrol gap is three minutes, not four — the second officer runs the eastern branch faster than the first. You are in the service passage when the light from her headlamp sweeps the junction. She does not see you, but she stops and checks the side passage by habit. You hold still for ninety seconds before she moves on. The window has closed and the patrol is now one rotation out of sync with the gap you mapped.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Remap the patrol rotation before the next attempt.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'navigating maintenance patrol gap');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'The junction clears on schedule and you are through before the echo of the patrol\'s boots has fully faded. The service passage beyond the gap leads to the dome\'s secondary monitoring station — unmanned, still recording. The station log shows the last eighteen days of dome pressure readings in real time, and they do not match the public board. The divergence began sixteen days ago. The log timestamps show the public board was last synchronized on that same day, then decoupled. Someone stopped the sync and left the station running separately.';
+        G.stageProgress[1]++;
+        addJournal('Accessed secondary monitoring station — real-time pressure readings diverge from public board; sync decoupled 16 days ago', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The gap exists but the thermal draft from the vent above the junction carries your movement sound further than the service passage acoustics usually allow. The second patrol officer pauses at the junction and does a visual sweep — standard habit, nothing specific. She marks the timestamp on her route log. The patrol frequency increases on this section for the rest of the day: one extra pass per hour. The gap is now half its previous width.';
+        addJournal('Patrol detected movement sound — frequency increased on this section, gap halved', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Through the gap and into the service tunnel before the first patrol officer completes her turn. The tunnel runs parallel to the coordinator\'s administrative corridor — close enough to hear voices through the insulation panels, muffled but identifiable. Two voices: one is reading numbers from what sounds like a routing sheet. The second is giving corrections. The corrections are not going back to the original sheet. They are going somewhere else. You cannot stay long enough to catch the specific figures, but the coordinator\'s office is sourcing corrections that bypass the standard record.';
+        addJournal('Service tunnel intercept — coordinator office voices; corrections routed away from original routing sheet', 'evidence');
+      } else {
+        G.lastResult = 'Through the gap without incident. The service passage beyond is short — it ends at a locked equipment room, and the lock is current-spec, not salvage. The room was locked within the last two weeks: the latch mechanism still has installation marks. Whatever the equipment room holds was secured in a hurry, during the same period the maintenance rotation changes began. You make it back to the main corridor before the next patrol comes around.';
+        addJournal('Accessed service passage — equipment room locked recently, installation marks fresh; timing matches rotation changes', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'stealth',
+    label: "The overseer takes the same route every third shift. Right now she\'s ahead by one junction.",
+    tags: ['Stealth', 'Covert', 'Observation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The overseer takes an unscheduled stop at the secondary gauge station — a deviation that cuts the following distance to nothing. You have to peel off into the side passage before she turns around to log the gauge reading. She does not see you but she does see the side passage door, which you left two inches open. She notes it in her route log. The overseer\'s route is compromised for this shift.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for the next shift rotation before trying again.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'shadowing overseer through service tunnels');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'Three junctions, two stairwells, and a pressure-door cycle. The overseer\'s route ends at a meeting room that is not on the public facility map — a room that exists in the dome\'s construction record but was listed as decommissioned four years ago. She knocks twice and enters without waiting. Through the insulation gap above the door frame: two voices, the smell of a cooler air supply, and a very specific phrase — "the allocation runs through the registry on day seven." You catch the signature name before the door seals. It is the same name that stamps the sealed maintenance corridors.';
+        G.stageProgress[1]++;
+        addJournal('Shadowed overseer to unmapped decommissioned room — heard allocation reference and caught signature name matching sealed corridors', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The overseer stops without warning at the pressure-door junction — not to check gauges, just to listen. She has done this before. She stands for forty seconds without moving, then takes the left branch instead of the right. Her route has changed. You have been following the wrong pattern. By the time you reset, she is three junctions ahead and the service tunnel lighting has dimmed to maintenance cycle. You return the way you came.';
+        addJournal('Overseer altered route — following pattern was wrong; surveillance attempt failed', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Two junctions in, the overseer stops at a marked access panel that the public facility map shows as a standard utility closet. She uses a key that is not on the standard maintenance ring — it is separate, on a plain loop. She is inside for four minutes. When she comes out, she is carrying a sealed document envelope that she was not carrying before. The document envelope goes into her inner jacket pocket, not her work satchel. The access panel is marked with the coordinator\'s restriction stamp.';
+        addJournal('Overseer accessed restricted panel with non-standard key — left with sealed document envelope', 'evidence');
+      } else {
+        G.lastResult = 'One junction of clean following distance. Then the acoustic profile of the corridor changes — the thermal insulation thins out near the dome wall and sound carries differently. Your footfall timing is off by just enough. The overseer doesn\'t stop, doesn\'t look back, but her pace changes — slightly faster, slightly more deliberate. She knows the tunnel acoustics better than you do. You back off. You learned one thing: she went left at the third junction. That branch leads toward the coordinator\'s restricted section.';
+        addJournal('Partial shadow — overseer pace shifted; route toward coordinator restricted section confirmed', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // SUPPORT x2
+  {
+    archetypeGroup: 'support',
+    label: "The injured dome worker hasn\'t reported to the medical station. She has a reason for that.",
+    tags: ['Support', 'NPC', 'Care'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The dome worker waves you off before you finish the offer — not hostile, just practiced. She has been managing this injury through her shift and the muscle memory of doing so has closed the conversation. She ties off the pressure wrap on her own and goes back to the gauge station. You don\'t learn why she hasn\'t reported. The next shift handoff in two hours will take her through the medical station corridor; the reason might surface there.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for the shift handoff to create a natural opening.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'tending to injured dome worker');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'Ressa lets you wrap the wrist properly and doesn\'t speak until you\'re tying the knot. "Medical reports go to the coordinator\'s office now. Not to the medical station — to the coordinator." Her other hand finds the edge of her work chit and folds it once, the way she apparently does with every piece of paper she\'s thinking about. "First time I reported a workplace injury under the new system, I lost my maintenance rotation access for six days. The report said it was for recovery observation. I was working full capacity by the second day." She looks at the wrist. "This is fine. I\'ll manage." The coordinator\'s office routing of medical reports started eight weeks ago. Same week as the rotation changes.';
+        G.stageProgress[1]++;
+        addJournal('Dome worker: medical reports now route to coordinator, not medical station — worker lost rotation access after reporting; 8 weeks ago same time as rotation changes', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'Ressa accepts the help and says nothing during it — arms, hands, all the conversation she intends to have. When the wrap is done she stands up and goes back to the gauge station. The silence is not unfriendly. She simply has nothing to give you: whatever reason she has for not reporting, it lives somewhere that is not going to open for a stranger in a maintenance corridor. The wrap is better than it was. That is the extent of the transaction.';
+        addJournal('Tended dome worker — no information gained; barrier too established', 'discovery');
+      } else if (result.total >= target) {
+        G.lastResult = 'Ressa lets you work on the wrist and keeps her voice low. "Medical station is logged to the coordinator\'s office now. Everything goes through." She glances toward the gauge station. "I\'m not trying to get a notation in my file right now." She says it flatly, without self-pity — the way someone states a fact about weather or equipment. Her thumbnail finds the edge of her work chit without her looking at it. The routing change is real. The fear of a notation is real. The coordinator\'s office is at the center of both.';
+        addJournal('Dome worker: medical station reporting routes to coordinator — fears notation in file; confirmed routing change is discouraging reporting', 'evidence');
+      } else {
+        G.lastResult = 'Ressa lets you help and relaxes slightly while the wrap goes on — a small drop in the tension she has been carrying through her shift. She doesn\'t offer the reason she hasn\'t reported. But she does say: "I\'ll go when this rotation\'s done." Her thumbnail finds the fold of her work chit while she says it. Whatever the actual barrier is, she has decided it is manageable. The medical station is two corridors east. If she goes, the reason she delayed will show up in the intake record.';
+        addJournal('Dome worker agreed to report after rotation — delay reason unclear but may appear in medical intake record', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'support',
+    label: "Two dome crews competing for the same repair slot. The dispute is the distraction.",
+    tags: ['Support', 'NPC', 'Negotiation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'Both foremen have been arguing this slot long enough that they have developed fixed positions and a working dislike of each other. A third party wading in reads as another layer of the same problem. The taller foreman tells you, politely, to file a scheduling grievance through the coordinator\'s office. The shorter one just stops talking. The dispute continues without you and the corridor stays blocked.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'File a scheduling inquiry through the coordinator\'s office instead.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'brokering dome crew slot dispute');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The dispute is about a thermal vent maintenance slot that appeared on both crews\' schedules simultaneously — something that should be impossible under commune allocation. You get both foremen talking to you instead of each other and the real shape of it emerges: neither crew scheduled the slot. It was placed on their schedules from the coordinator\'s office three days ago with no work order attached. "Someone needed both crews in this corridor at the same time," the shorter foreman says. Her thumbnail finds the edge of her work chit and scores a small line across it. "And neither of us was supposed to notice we\'d been put here together." They share their scheduling logs with you.';
+        G.stageProgress[1]++;
+        addJournal('Crew conflict was engineered — coordinator placed both on same slot with no work order', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'You choose the wrong entry point and the taller foreman redirects his frustration at you for the next four minutes — a complete accounting of every scheduling irregularity this crew has endured, none of which is relevant to the repair slot, all of which is delivered at a volume that draws a patrol around the junction. The patrol doesn\'t intervene, but they log the time and location of the disturbance. The slot dispute is still unresolved and you are now associated with it.';
+        addJournal('Crew mediation backfired — patrol logged disturbance, dispute unresolved', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'You split the slot: one crew handles the thermal inspection, one handles the seal check. Both foremen agree because the alternative is losing the slot entirely when a patrol writes up the obstruction. In the process of working out the division you learn that both crews were assigned the same repair slot from different management channels — one through the usual coordinator routing, one through a secondary office that neither foreman can name on their work chit. That secondary routing is new. It started six weeks ago.';
+        addJournal('Dual-channel slot assignment confirmed — secondary unnamed office routing started 6 weeks ago', 'evidence');
+      } else {
+        G.lastResult = 'The foremen agree to a split timeline and stop blocking each other\'s crews. The corridor clears. One of the workers, waiting at the back of the group while the foremen talked, catches your eye as they move past. She taps the edge of her work chit twice — a gesture you\'ve seen commune workers use when the written record doesn\'t match the real instruction. You don\'t have context for what it means here. But the slot assignment is worth examining.';
+        addJournal('Crew dispute resolved — worker signaled discrepancy between chit and real instruction', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  }
+
+);
+
 window.AURORA_STAGE1_ENRICHED_CHOICES = AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES;
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — Physical access in maintenance/industrial areas
+  {
+    archetypeGroup: 'combat',
+    label: 'The corridor seal is rusted half-open. No one is looking this way.',
+    tags: ['Combat', 'Direct', 'Risk', 'Infrastructure'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The seal gives a quarter-turn before the pressure differential shoves it back — the dome\'s thermal system is still live on this branch. The bang echoes down the maintenance corridor and draws a patrol head-around from the junction. You\'re moving before they call out, but the route is burned. The technician who logs this seal will find the scuff marks.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find another approach before the patrol logs the seal.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'forcing a sealed maintenance corridor');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The seal turns on the second lean — you read the pressure direction from the frost line on the outer plate and angled into it. The corridor beyond smells of warm metal and old sealant. A work order board inside the alcove lists three restricted thermal vent assignments — names, rotation numbers, counter-signatures. The third name appears on every restricted slot for the past twelve days. You copy the pattern and reseal behind you. The frost line settles back to its original shape.';
+        G.stageProgress[1]++;
+        addJournal('Forced restricted corridor — rotation assignment pattern logged', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The seal pops free all at once, louder than intended, and the pressure wave knocks a gauge housing off its bracket with a clang that carries. Two technicians appear at the far end of the corridor. You get the seal back in place before they reach you, but your hands are covered in sealant residue and the bracket on the floor is not where it was. They write something down. You will not be able to use this corridor again.';
+        addJournal('Corridor breach attempt logged by maintenance pair', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The seal yields with steady pressure and a controlled hiss. Inside: a narrow access alcove with a pressure gauge array and a rotation log clipped to the wall. The log covers the past three weeks. Two thermal vent assignments marked as suspended carry a different counter-signature than the rest — one you haven\'t seen on any open board. You note it and ease the seal back into place. The gauge readings don\'t change. No one comes.';
+        addJournal('Accessed restricted alcove — unfamiliar counter-signature on suspended vent assignments', 'evidence');
+      } else {
+        G.lastResult = 'The seal moves, but the locking pin beneath it doesn\'t. The dome maintenance system uses a two-step engagement you can feel but can\'t see. You apply pressure until your forearms ache and get nothing. The patrol rotation down this branch runs every twenty minutes; you\'ve used seven of them. You step back before the window closes. The seal is undamaged. The corridor is still locked.';
+        addJournal('Sealed corridor: two-step lock resisted forced entry', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'combat',
+    label: 'Two workers blocking the vent junction. Their argument is slowing a patrol.',
+    tags: ['Combat', 'Direct', 'Confrontation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The two workers clock you before you close the gap — commune settlements read body language the way port towns read tides. One steps sideways to block the junction gap on pure instinct. The argument stops. You\'re the new problem in the corridor, and the patrol at the far end has already slowed to look. The junction stays closed.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Back off before the patrol makes it a formal stop.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'clearing a contested vent junction');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'You step into the argument, not around it — take one side, speak with enough authority about the gauge differential that the taller of the two turns to address you directly. The argument shifts, reconfigures, and ends with both workers moving off toward the monitoring station together, you watching them go. The junction is clear. Beyond it: a secondary pressure board with restricted vent assignments posted in red marker. You read it in thirty seconds. One assignment has been redirected three times in a week.';
+        G.stageProgress[1]++;
+        addJournal('Cleared junction blockade — found repeatedly redirected vent assignment on secondary board', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The workers don\'t move and don\'t argue — they stop and look at you, which is worse. The taller one asks, very quietly, who sent you to this corridor. It isn\'t a hostile question. It\'s a commune question: everyone belongs to a rotation, and you don\'t fit any rotation they know. The patrol at the junction end stops and looks. You have about eight seconds to produce a reason or walk away.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Junction confrontation raised attention — commune suspicion logged', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The workers separate when you step between them — not because you said anything aggressive, but because you moved with the particular deliberateness of someone who has decided the question is settled. The junction opens. You note what\'s posted on the vent board inside before the workers regroup behind you. Three names, one recurring assignment, no dates. Someone is keeping a rotation slot off the official schedule.';
+        addJournal('Junction cleared — undated recurring assignment noted on vent board', 'evidence');
+      } else {
+        G.lastResult = 'The workers look at you, then at each other, then continue the argument at a lower volume with their bodies angled to block the junction gap. You have not made this worse, but you haven\'t made it better. The patrol passes at the far end and doesn\'t stop. The junction remains effectively closed — two people and an ongoing dispute fill it as completely as a locked door.';
+        addJournal('Junction blockade: standoff unresolved, passage denied', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // MAGIC ×2 — Reading arcane residue or celestial data
+  {
+    archetypeGroup: 'magic',
+    label: 'The ward marks on these dome panels are wrong. They have been for a while.',
+    tags: ['Knowledge', 'Lore', 'Observation', 'Arcane'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The dome panel script is maintenance shorthand layered over older ward notation — two systems written in the same space, neither fully legible through the other. Reading it properly would take a reference text you don\'t have access to. The archive reading room carries the notation manual for dome inscription systems. That route is still open.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'The archive reading room has the notation reference.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading dome ward mark anomalies');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The original ward marks are thermal containment seals — standard commune inscription, correctly applied. The newer marks layered over them are not maintenance notation. They\'re suppression marks: designed to damp the resonance field that the containment seals generate when dome integrity degrades. Someone has been marking the panels to hide what the seals would otherwise signal. The suppression work is recent — the chalk base hasn\'t fully cured. Whoever applied it was here within the last two days.';
+        G.stageProgress[1]++;
+        addJournal('Dome panels carry suppression marks over containment seals — applied within 48 hours', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The notation resolves partway and then doesn\'t — you\'ve been reading maintenance shorthand as ward script and the meanings have compounded into something incoherent. You\'ve spent twenty minutes in a maintenance corridor running your hand along panels, and a technician passing at the junction has stopped to watch. She doesn\'t say anything. She notes something in her rotation log and moves on. Whatever you misread, someone now knows you were here reading it.';
+        addJournal('Dome panel reading misread — observation logged by passing technician', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The ward marks are standard thermal containment inscription — correctly applied in the original layer. The second layer is something else: notation you recognize from structural suppression work, the kind used when a dome section is being quietly decommissioned without formal announcement. The marks cover three consecutive panels. The formal decommission register is posted outside the coordinator\'s office. These panels are not on it.';
+        addJournal('Panels carry suppression notation absent from formal decommission register', 'evidence');
+      } else {
+        G.lastResult = 'The marks are layered — original inscription under a second pass of a different hand and tool. You can read the original well enough: thermal containment, standard commune issue. The second layer uses a notation style you\'ve seen but can\'t place precisely without a reference text. It isn\'t decorative. It isn\'t maintenance. The commune archive carries the notation index — the reading room is open during both daily windows.';
+        addJournal('Dome panels: dual-layer inscription, second layer unidentified — archive notation index needed', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'magic',
+    label: 'The ley-line readings in the observation archive stop at a specific date.',
+    tags: ['Knowledge', 'Lore', 'Records', 'Arcane'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The observation archive is locked for the morning consolidation cycle. The posted hours show two daily windows; neither is now. The public index in the registry hall cross-references the ley-line observation logs by date. That index is always accessible and carries the same date range.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'The registry hall public index carries the same date range.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'tracing ley-line observation record gap');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The final entry before the gap reads normally: azimuthal reading, interference coefficient, observer initial. The next entry — fourteen days later — uses different notation for the interference coefficient. The old notation measured ambient field strength. The new notation measures suppressed field strength. Someone changed the measurement standard without a conversion note, which means the gap in the record isn\'t a gap in observation. It\'s a gap in the measurement system itself — the readings before it and after it describe different things. The change order would have come through the contamination monitor\'s office.';
+        G.stageProgress[1]++;
+        addJournal('Ley-line log gap reflects measurement standard change — old vs suppressed field notation, no conversion note', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'You lose the thread in the notation — the observation logs use a shorthand that builds on itself, and the entry where it changes breaks the chain you\'ve been reading. By the time you find the gap you came to examine, the archive window has closed and the archivist is already at the door. She holds it open without expression. The gap is real. You didn\'t read it.';
+        addJournal('Observation archive: notation chain broken, archive window closed before gap examined', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The gap is fourteen days. Before it: daily entries, consistent notation, three different observer initials. After it: daily entries, similar notation, one observer initial — always the same one. The solo observer began on the same day the gap ends. The commune record board would show who was assigned the observation post during the gap period, and why the rotation collapsed to a single person.';
+        addJournal('Ley-line log: 14-day gap, post-gap single-observer rotation — board assignment record needed', 'evidence');
+      } else {
+        G.lastResult = 'The gap is there — fourteen days with no entries, not even a notation of equipment failure or weather interruption that would explain a pause in celestial observation. The entries before and after are routine. The date of the gap corresponds to something in commune administrative history, but the connection requires a second source. The registry hall public index cross-references observation log dates to administrative decisions.';
+        addJournal('Ley-line observation log: 14-day gap with no notation of cause', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // STEALTH ×2 — Moving undetected through dome infrastructure
+  {
+    archetypeGroup: 'stealth',
+    label: 'The maintenance patrol uses the same junction rotation every cycle.',
+    tags: ['Stealth', 'Infiltration', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The patrol varies its return window this cycle — a response to something, or a test, or chance. You\'re in the junction gap when their lamp rounds the corner twelve seconds early. You fold into the equipment alcove and they pass close enough that the lamp heat reaches you. They slow but don\'t stop. You can\'t use this junction again today.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a different approach before the patrol logs the anomaly.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'slipping past a maintenance patrol');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'You move on the patrol\'s heels — close enough to use their lamp shadow, far enough to drop into a pressure alcove if they stop. They don\'t stop. The restricted section beyond the junction has an open work board: three thermal vent assignments listed under "suspended pending review," each counter-signed by an office designation that doesn\'t appear anywhere on the public board. You have the assignment numbers and the office code before the patrol\'s return pass begins. You\'re back at the junction before their lamp rounds the corner.';
+        G.stageProgress[1]++;
+        addJournal('Bypassed patrol — suspended vent assignments with unlisted office counter-signature logged', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'You time the patrol correctly but misjudge the acoustic properties of the corridor — the dome\'s curved wall returns footstep sound from an angle, and you hear yourself a half-second after the patrol does. They stop. They don\'t call out; they just stop and listen. You press flat against the junction wall and don\'t breathe. After thirty seconds, they continue. But one of them turns and looks back at the junction before they round the corner. They know something was there.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Patrol alerted to corridor presence — acoustic slip, not confirmed', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The junction opens on the patrol\'s exit beat and closes behind you on their next turn. Inside: a secondary maintenance board with this week\'s vent assignments. Two slots are marked with a notation you haven\'t seen on the public schedule — a category marker, not a name. Whatever the category covers, it isn\'t listed on any open board in the commune. The patrol\'s lamp passes the junction gap. You\'re already past the second turn.';
+        addJournal('Accessed secondary maintenance board — unlisted category marker on two vent slots', 'evidence');
+      } else {
+        G.lastResult = 'The patrol window holds, but the junction seal is noisier than expected — the hiss when it opens is short, but short isn\'t nothing in a dome corridor. You clear the junction and reach the secondary section without incident. But you hear the patrol slow behind you. They don\'t stop. You keep moving and find a pressure alcove to wait in until the corridor sound settles back to baseline.';
+        addJournal('Junction traversal: patrol noticed seal noise, did not investigate', 'discovery');
+      }
+
+      G.recentOutcomeType = 'stealth';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'stealth',
+    label: 'The overseer takes the same service tunnel every morning. She never looks behind her.',
+    tags: ['Stealth', 'Observation', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'She looks behind her this morning — a habit broken, a lamp checked, whatever the reason. The tunnel is narrow and there is no shadow deep enough. She sees you before you can create a distance. She doesn\'t call out. She just stops and waits. The conversation you have is controlled, professional, and gives you nothing.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Withdraw before she decides the encounter needs to be logged.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'shadowing the overseer through service tunnels');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'She moves quickly through the tunnel and you match her rhythm — close enough to read the papers under her arm, far enough to drop back at any deviation. At the third junction she stops and slides a key into a wall-mounted panel you\'d have missed without following this exact route. Inside: a secondary communication board with names and schedule codes. She photographs it with a hand mirror and moves on. You see seven names on that board, none of which appear in any public commune roster. The panel locks behind her and you note its location.';
+        G.stageProgress[1]++;
+        addJournal('Followed overseer to hidden communication board — 7 names absent from public roster, panel location noted', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'A pipe junction drips at the worst moment — the sound hits the tunnel wall and returns doubled, and she is already turning before the second echo settles. She holds her lamp toward the tunnel behind her for a long three seconds. You are flat against the curved section of the pipe housing. The lamp light reaches your boots. She carries on. But her pace is different after that — quicker, with pauses at each junction. She knows the tunnel is not empty.';
+        addJournal('Overseer spooked in service tunnel — pace changed, she is now alert', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'She enters a side alcove you\'d have passed without noticing — no markings, no handle, just a slightly different wear pattern on the floor in front of it. Inside she speaks briefly with someone you can\'t see. You catch three words in the correct register: a schedule code, a name you recognize from the maintenance board, and the word "delayed." She emerges and continues. You wait a full minute before passing the alcove entrance. It\'s empty. Whatever the delay covers, the name matches a suspended vent assignment.';
+        addJournal('Overseer alcove meeting: schedule code, suspended vent assignment name, delay referenced', 'evidence');
+      } else {
+        G.lastResult = 'She takes the tunnel at a pace that makes distance management difficult in the curved sections — every turn accelerates slightly, and you fall back twice to avoid closing gap. You don\'t lose her, but you arrive at her destination junction two seconds after she\'s through it and the panel is already locked. You note the junction location. The route itself is useful. You know exactly where she goes and roughly when.';
+        addJournal('Overseer route mapped — destination junction identified, entry not achieved', 'discovery');
+      }
+
+      G.recentOutcomeType = 'stealth';
+      maybeStageAdvance();
+    }
+  },
+
+  // SUPPORT ×2 — Social/care-based extraction
+  {
+    archetypeGroup: 'support',
+    label: 'The dome worker\'s hands are wrapped wrong. She has been doing this herself.',
+    tags: ['Care', 'NPC', 'Social'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'She pulls her hands back before you reach her — not hostile, just practiced. "Medical station handles injuries." She says it the way someone says something they\'ve been told to say. The medical station is two corridors east and staffed during two posted windows. Whatever she needed tending, she has decided to tend it herself, or wait.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Try the medical station — the route through there may yield more.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'tending to injured worker, drawing out information');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'She lets you retape the thermal wrap on her left palm — a pressure burn, not deep, but the kind that comes from working a valve without gloves on a restricted vent line. She talks while you work. "The restricted lines have been run hot for three weeks. We\'re not supposed to touch them without authorization, but the authorized crews never come. So you either let the readings climb or you manage it yourself and don\'t report the contact." She keeps her voice below the ventilation hum. "Three of us have burns. None of them are in the medical log." Her right thumb finds the seam of the wrap and presses it flat without her seeming to notice.';
+        G.stageProgress[1]++;
+        addJournal('Dome worker revealed unauthorized manual management of restricted vent lines — 3 unreported burns', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'She accepts the offer, sits down on the equipment crate, and then doesn\'t talk. She watches the corridor while you work. When the wrap is done she flexes her hand twice, thanks you with the particular brevity of someone who has learned not to owe anything to strangers, and returns to the gauge station. You offered something real and she took it and gave nothing back. This is not hostility. It\'s caution that has been tested enough to become reflex.';
+        addJournal('Injured worker accepted care, offered nothing — caution without hostility', 'discovery');
+      } else if (result.total >= target) {
+        G.lastResult = 'She talks while you work the wrap — not about the burn, about the rotation schedule. "They pulled the experienced crew from this section six weeks ago. Borrowed, they said. The work didn\'t stop — someone still has to manage these lines. So it\'s whoever\'s left, on whatever they can figure out." She flexes the rewrapped hand. "Management doesn\'t come through here anymore. Hasn\'t since the reallocation." The rotation records would show who was borrowed and when they were supposed to return.';
+        addJournal('Worker confirmed experienced crew reallocation — medical situation undocumented', 'evidence');
+      } else {
+        G.lastResult = 'She lets you help with the wrap. She doesn\'t talk, but she doesn\'t have to — the burn pattern on her palm is from a valve housing that runs above rated temperature. The medical station would log that as a restricted-line contact. She hasn\'t reported it. Either the restricted lines are being run outside safe parameters and she knows it, or she can\'t afford to document the contact. Both possibilities lead to the same place: the vent authorization records.';
+        addJournal('Worker burn pattern suggests unreported restricted-line contact — medical log gap implied', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'support',
+    label: 'The two crews are fighting over a repair slot that neither of them scheduled.',
+    tags: ['Social', 'NPC', 'Diplomacy', 'Infrastructure'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'Both crews look at you, then at each other, then back at the disputed repair slot — and decide the problem is easier to manage without a third party involved. The argument stops. Both crews occupy opposite ends of the corridor and neither moves. The slot stays empty. Whatever was worth fighting over is no longer worth explaining to an outsider.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Leave the crews to it and find another approach.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'brokering between competing dome crews');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The dispute is about a thermal vent maintenance slot that appeared on both crews\' schedules simultaneously — something that should be impossible under commune allocation. You get both foremen talking to you instead of each other and the real shape of it emerges: neither crew scheduled the slot. It was placed on their schedules from the coordinator\'s office three days ago with no work order attached. "Someone needed both crews in this corridor at the same time," the shorter foreman says. Her thumbnail finds the edge of her work chit and scores a small line across it. "And neither of us was supposed to notice we\'d been put here together." They share their scheduling logs with you.';
+        G.stageProgress[1]++;
+        addJournal('Crew conflict was engineered — coordinator placed both on same slot with no work order', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'You choose the wrong entry point and the taller foreman redirects his frustration at you for the next four minutes — a complete accounting of every scheduling irregularity this crew has endured, none of which is relevant to the repair slot, all of which is delivered at a volume that draws a patrol around the junction. The patrol doesn\'t intervene, but they log the time and location of the disturbance. The slot dispute is still unresolved and you are now associated with it.';
+        addJournal('Crew mediation backfired — patrol logged disturbance, dispute unresolved', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'You split the slot: one crew handles the thermal inspection, one handles the seal check. Both foremen agree because the alternative is losing the slot entirely when a patrol writes up the obstruction. In the process of working out the division you learn that both crews were assigned the same repair slot from different management channels — one through the usual coordinator routing, one through a secondary office that neither foreman can name on their work chit. That secondary routing is new. It started six weeks ago.';
+        addJournal('Dual-channel slot assignment confirmed — secondary unnamed office routing started 6 weeks ago', 'evidence');
+      } else {
+        G.lastResult = 'The foremen agree to a split timeline and stop blocking each other\'s crews. The corridor clears. One of the workers, waiting at the back of the group while the foremen talked, catches your eye as they move past. She taps the edge of her work chit twice — a gesture you\'ve seen commune workers use when the written record doesn\'t match the real instruction. You don\'t have context for what it means here. But the slot assignment is worth examining.';
+        addJournal('Crew dispute resolved — worker signaled discrepancy between chit and real instruction', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  }
+
+);

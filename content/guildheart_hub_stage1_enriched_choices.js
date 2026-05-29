@@ -1178,4 +1178,351 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     }
   }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT x2
+  {
+    archetypeGroup: 'combat',
+    label: "Staged blockade on the transit route. Three people, one road, and they know we\'re coming.",
+    tags: ['Combat', 'Risk', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The three blocking the route are better positioned than they look — two have the high ground on the road shoulder and the third is behind a loaded cart that would take both of you to move. The blockade is professionally set. You withdraw and circle to the waymark post through the secondary footpath, which adds two hours to the route.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Take the secondary footpath around the blockade to the waymark post.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'clearing transit route blockade');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The blockade clears fast — the three holding it were hired for deterrence, not a real fight, and they read the difference quickly. Underneath the blocking cart: a sealed document case they were guarding, not the road. The case is guild-stamped with a routing authority mark for a caravan that the transit registry shows as not yet arrived. The caravan is three days late. The case has been here, at this blockade, for three days — waiting for a caravan that the case is supposed to travel with, or for someone who knows the caravan is not coming. Inside: route amendment orders, signed by the factor registry, rerouting three caravans through an unregistered waypoint.';
+        G.stageProgress[1]++;
+        addJournal('Blockade cleared — concealed guild document case: route amendment orders rerouting 3 caravans through unregistered waypoint; caravan 3 days overdue', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The blockade holds longer than it should because the middle one is not actually part of the blockade — a merchant trying to get past it who gets caught in the middle of the confrontation and panics. The resulting confusion draws a waymark factor from the relay post, who logs the road incident. You are the outside party in the incident record. The blockade disperses when the factor arrives, which means the factor saw you but not what the blockade was protecting.';
+        addJournal('Transit blockade confrontation drew waymark factor — road incident logged; blockade contents not seen before dispersal', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The blockade clears when two of the three decide the third one is not going to hold. The road opens. The cleared position reveals a waymark post that has been partially dismantled — the route marker for the northern corridor has been pulled and set face-down behind the blocking cart. Whoever set this blockade was also changing the route markers. The northern corridor route marker would direct caravans toward the unregistered waypoint that appears in the factor registry complaints.';
+        addJournal('Blockade cleared — north corridor waymark dismantled and laid face-down; rerouting caravans to unregistered waypoint', 'evidence');
+      } else {
+        G.lastResult = 'Two of the three clear. The third holds until you make the calculation obvious, then steps aside. The route opens. The blocking cart is loaded — not with cargo, with empty crates filled with ballast stone to weight it. Someone built a blockade prop and deployed it here specifically. An empty-crate blockade at a waymark junction means someone wanted this road stopped for a specific time window, not indefinitely. The timing and the junction are worth noting.';
+        addJournal('Transit blockade cleared — blocking cart was prop: weighted empty crates; temporary, time-specific blockade at waymark junction', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'combat',
+    label: "Guild courier approaching the relay post. One intersection left before he\'s inside.",
+    tags: ['Combat', 'Confrontation', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The courier is already past the intersection when you clear the staging area corner. He is inside the relay post gate before you reach the intersection. The gate closes with the standard relay post security lock. The dispatch is filed. Whatever it contained is now inside the post record, and the post record is guild-restricted access.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Approach the relay post through the official inquiry channel instead.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'intercepting guild courier at relay post approach');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The courier stops when you step into the intersection and he takes a moment to read the situation. He hands over the satchel before the moment resolves any other way. Inside: three route dispatches, two standard routing confirmations, and one sealed document with a wax impression that is not the standard guild courier seal — it is the seal of the route arbitration panel, which only issues dispatches when a route dispute is in formal arbitration. The dispatch is addressed to the waymark factor at this relay post. The route being arbitrated is the northern corridor. The arbitration has been running for six weeks. No dispute has been filed in the public arbitration register for that route in six weeks.';
+        G.stageProgress[1]++;
+        addJournal('Courier intercepted — dispatch carries route arbitration panel seal for northern corridor; arbitration running 6 weeks with no public register entry', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The courier does not stop — he angles through the intersection at a run and uses his satchel arm to clear the space between you. He is practiced at intersections. You do not catch him. He logs the interception attempt at the relay post desk within four minutes of arrival. Your description is in the relay post security record. The courier dispatch is inside the relay post and you are in the street with a security notation against you.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Courier interception failed — interception attempt logged at relay post; description on security record', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The courier stops and the satchel opens. He hands over one envelope — the top one, which he reads as expendable. Inside: a route confirmation for a caravan that the transit registry shows as not yet registered. The confirmation pre-authorizes the caravan\'s passage through the relay post, signed by the route factor registry. A caravan with pre-authorization that does not appear in the public register is moving through this hub on a track that official record-keeping does not see.';
+        addJournal('Courier yielded envelope — pre-authorization for unregistered caravan through relay post; signed by factor registry', 'evidence');
+      } else {
+        G.lastResult = 'The courier stops, reads you accurately, and sets the satchel on the ground. Everything inside is routing confirmations — six of them, all standard, all for caravans that appear in the transit registry. He picks up the satchel when you are done and continues to the relay post. The dispatch he was protecting was already inside his jacket, not in the satchel. The satchel was the decoy. Whatever the jacket dispatch contains reached the relay post.';
+        addJournal('Courier used satchel as decoy — jacket dispatch reached relay post; satchel contents standard', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // MAGIC x2
+  {
+    archetypeGroup: 'magic',
+    label: "Caravan manifest has a cipher running through the route codes. Not guild-standard.",
+    tags: ['Magic', 'Lore', 'Records'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The manifest is on the loading factor\'s desk and the loading factor is currently working through it with a caravan captain. The cipher column is visible from the queue but reading it accurately requires the desk angle. The public routing board in the staging area carries last-quarter filed manifests that may have the same cipher if it predates the current month.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read last quarter\'s routing board manifests for the cipher pattern.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'decoding route cipher in caravan manifest');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The cipher is a substitution layer in the route code column — every fifth entry, reading across rather than down, which is why the standard audit process misses it. Decoded: a schedule of cargo transfers keyed to specific waypoints, amounts, and receiving party designations. The receiving party designations use a three-letter code that does not appear in the guild\'s registered factor list. Cross-referencing the waypoints with the transit registry: two of the five waypoints in the cipher are not in the official route registry. They are real places — recognizable from the road — but they have no registry designation. The caravan is stopping at ghost stops.';
+        G.stageProgress[1]++;
+        addJournal('Caravan manifest cipher decoded — transfers to 2 unregistered waypoints; receiving party codes not in guild factor list; every 5th entry reading horizontally', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The cipher runs in the route code column but the compression technique requires a reference grammar you do not have access to here. You produce a partial decoding that contains three route code fragments and one receiving party designation — the designation resolves to a known guild factor name, which is consistent with legitimate business and tells you nothing directional. The loading factor notices the extended time on the manifest reading page and closes the public access window fifteen minutes early.';
+        addJournal('Manifest cipher partially decoded — one legitimate factor name recovered; public access closed early by loading factor', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The cipher is in the route code column, every fifth entry. The substitution is simple but not guild-standard — it uses the waymark designation system from the pre-guild cartographic tradition, which the current guild replaced thirty years ago. Someone is using old map language in current documents. The decoded entries show transfer amounts and three-letter receiving party codes. The amounts total to a figure that matches the quantity discrepancy in the factor arbitration complaints.';
+        addJournal('Manifest cipher uses pre-guild waymark designations — decoded amounts match factor arbitration discrepancy; receiving party coded in 3-letter system', 'evidence');
+      } else {
+        G.lastResult = 'The cipher structure is identifiable: regular spacing anomaly in the route code column, too regular for clerical drift. It runs through approximately every fifth entry. Full decoding requires either a reference grammar or more time on a single manifest. What you establish in the available window: the cipher is present across at least three consecutive manifests, all from the current month. It was not there in the archive copy from last quarter. It started recently.';
+        addJournal('Caravan manifest cipher: regular spacing anomaly every 5th entry; present in current month across 3 manifests, absent from last quarter archive', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'magic',
+    label: "Waymark inscription on the transit post. Underneath the guild marks there\'s a second message.",
+    tags: ['Magic', 'Lore', 'Observation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The waymark post is at the center of the staging area and reading the inscriptions at close range requires standing at the post long enough to attract the staging area factor\'s attention. The factor asks your business before you have time to isolate the secondary layer. The public routing board beside the post has the same guild marks; the secondary inscription, if it is there, would appear in both places.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read the routing board inscription instead of the post directly.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading secondary waymark inscription');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'Two layers of inscription on the waymark post. The outer layer is the current guild routing marks — correctly inscribed, properly anchored. Underneath, running in the grain of the older stonework: a pre-guild waymark inscription using the cartographic tradition that predates the current administration. The old inscription gives a route designation and a waypoint identification that does not exist in the guild\'s route registry. But the waypoint it describes is identifiable from the road — it is the unregistered stopping point that appears in the decoded manifest cipher. The old waymark and the cipher in the manifests are referring to the same place. Someone is using the old infrastructure as a parallel route network.';
+        G.stageProgress[1]++;
+        addJournal('Waymark post secondary inscription: pre-guild cartographic tradition identifies same unregistered waypoint as manifest cipher; parallel old-infrastructure route network implied', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The secondary inscription is present — you can identify the layered structure from the sigil density — but the outer guild marks were inscribed over it with enough force to partially disrupt the underlying text. The disruption is deliberate: whoever added the outer marks knew the secondary inscription was there and applied the outer layer to obscure it, not just to add the new information. You recover fragments. The fragments are in the pre-guild waymark tradition. The full text is lost to the overwriting.';
+        addJournal('Waymark secondary inscription partially legible — outer guild marks deliberately applied to obscure; fragments in pre-guild tradition', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The outer guild routing marks sit over a secondary inscription in a different hand and a different tradition. The secondary inscription is pre-guild cartographic notation — the waymark designation system that the current guild replaced thirty years ago. The old inscription identifies a waypoint and a route designation. The route designation uses a numbering system that does not appear in the current transit registry. But the physical waypoint it describes is somewhere on the northern corridor — the description is specific enough that you could find it.';
+        addJournal('Waymark secondary inscription: pre-guild route designation for identifiable northern corridor waypoint — not in current transit registry', 'evidence');
+      } else {
+        G.lastResult = 'The waymark post has two inscription layers — the outer guild marks and something underneath that is older and in a different style. The underlying inscription is legible in fragments. What you can recover: a waypoint designation and a direction marker. The waypoint designation does not use the current guild numbering system. It is from an older tradition, pre-guild, that used named references rather than numbers. The named reference in the fragment is not a locality name you recognize from the transit registry.';
+        addJournal('Waymark secondary inscription: pre-guild named waypoint reference, not in current transit registry; fragments only', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // STEALTH x2
+  {
+    archetypeGroup: 'stealth',
+    label: "Transit district at third bell. The courier takes the same route and he hasn\'t varied it once.",
+    tags: ['Stealth', 'Covert', 'Observation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The transit district at third bell is busier than the courier\'s route suggested — a caravan staging at the main intersection blocks the sight line for the second junction. You lose the courier\'s position in the caravan traffic and he is gone into the relay post district before you re-acquire. The route pattern needs a quieter bell.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Re-map the courier\'s route at a quieter bell.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'shadowing guild courier through transit district');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'Five blocks, two waymark posts, one side passage that does not appear on the transit district map. The courier goes into the side passage and does not come out for eleven minutes. When he does, his satchel sits differently — less weight on the main side, more on the interior pocket that was empty when he left the relay post. He picked something up. The side passage entrance has no guild mark, no registry posting, and no official designation. It is an access point that exists in the physical layout and not in any record you have seen. Whatever the courier collected in eleven minutes came from somewhere the district map does not acknowledge.';
+        G.stageProgress[1]++;
+        addJournal('Courier tailed to unmapped side passage — 11 minutes inside, left with additional weight in interior pocket; passage has no guild mark or registry posting', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The courier takes an unscheduled stop at a waymark post that you are standing too close to. He notices. He does not say anything. He reads the waymark inscription without looking at you and continues his route — but his pace is different after the waymark stop, slightly faster, more deliberate. His route changes at the next junction: he takes the guild annexe approach instead of the transit district shortcut. The route he uses from now on is not the one you mapped. He knows someone was following.';
+        addJournal('Courier noticed tail — altered route; mapped pattern now compromised', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Three clean blocks. The courier stops at the second waymark post on his route and touches the stone — not the inscription, the stone below it. A specific spot, habitual, the way you touch a familiar surface you are not looking at. He continues his circuit. You reach the spot he touched after he rounds the next corner. The stone has a notch in it — deliberate, worked, not damage. Inside the notch: a folded strip of paper, recent, dry. A dead drop. You do not have time to fully read the strip before the courier might come back. You get a partial: a three-number sequence and the letters \'NW.\' Northern corridor west.';
+        addJournal('Courier dead drop at waymark post — partial reading: 3-number sequence and "NW" (northern corridor west)', 'evidence');
+      } else {
+        G.lastResult = 'Two blocks of clean distance. Then the courier pauses at a junction and touches the waymark post — not reading it, just a hand on the stone, briefly. He continues. Whatever the gesture means, it is deliberate and it is at a specific post. You reach the post after he moves on. Nothing visibly attached to it, no drop, no marking. But the stone surface at hand height has a worn spot consistent with regular contact. Someone touches this post the same way with some frequency. The courier is not the only one.';
+        addJournal('Courier touched waymark post at junction — worn contact spot at hand height; regular use by multiple people', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'stealth',
+    label: "Caravan staging area at night. One guard, long circuit, and the manifest box is in the open shed.",
+    tags: ['Stealth', 'Covert', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The guard\'s circuit is shorter than it appeared from the staging area perimeter — he cuts through the center of the staging area on every second pass, which halves the window at the shed. You are at the shed door when his lantern appears between the caravan rows. You do not open the shed. You pull back and wait out his circuit. The manifest box stays locked until a longer window opens.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Map the guard\'s full circuit pattern before the next attempt.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'infiltrating caravan staging area at night');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'Eight minutes in the open shed between the guard\'s circuits. The manifest box is unlocked — someone forgot, or someone has been accessing it and stopped bothering to lock it again. Inside: the staging manifests for the current week, and underneath them, a secondary stack that is not the staging manifest format. The secondary stack is route amendment orders, and they are all signed with the same authorization mark — the mark of the route arbitration panel, which only operates on active disputes. Eleven route amendment orders. No active disputes in the public arbitration register. The amendments redirect cargo to three waypoints. Two of the three are not in the transit registry.';
+        G.stageProgress[1]++;
+        addJournal('Staging area manifest box: secondary stack of 11 route amendment orders signed by arbitration panel; no public disputes; 2 of 3 redirect waypoints not in transit registry', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The guard\'s circuit is irregular on the night cycle — he adds a random fourth check of the shed during his second pass, which is not in the pattern you mapped. He is at the shed door while you are still inside. You hold behind the manifest box stack for four minutes while he checks the lock and leaves. He tries the lock twice. The second time, he does not leave immediately — he stands outside for ninety seconds. Whatever he noticed, the shed door does not show a forced entry. You are out when he moves away. But he checks the shed twice more before morning.';
+        addJournal('Staging area infiltration near-miss — guard added unscheduled shed check; tried lock twice, stood outside 90 seconds', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Inside the shed in the guard\'s long circuit window. The manifest box is locked but the box latch is the standard transit registry model — accessible. Inside: current week\'s staging manifests and a sealed envelope addressed to the waymark factor in the transit authority\'s handwriting. The envelope is unsealed — the wax is broken. Someone has already read it and replaced it. The letter inside references \'route authorization protocol seven\' and instructs the waymark factor to process three caravan authorizations without entering them in the standard staging log.';
+        addJournal('Staging manifest box: unsealed letter from transit authority instructing waymark factor to process 3 caravans off staging log per "protocol seven"', 'evidence');
+      } else {
+        G.lastResult = 'Inside the shed for six minutes. The manifest box is locked and does not yield to the standard approach — it has been upgraded within the past month, based on the latch mechanism. The staging manifests that are meant to be in the box are instead in a folder on the shed wall hook, accessible without the box. The folder holds the public staging entries. It does not hold the secondary entries that the factor arbitration complaints describe. The secondary entries exist. They are simply not in the folder.';
+        addJournal('Staging shed: manifest box recently upgraded lock; public staging entries in open folder, secondary entries absent', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // SUPPORT x2
+  {
+    archetypeGroup: 'support',
+    label: "Emergency route arrangement. The factor wants something first and he\'s not pretending otherwise.",
+    tags: ['Support', 'NPC', 'Negotiation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The factor\'s ask is specific enough that he already has something in mind — it is not a negotiating position, it is a price list item. Whatever he wants is not something you can provide in this conversation. He acknowledges this without rancor and returns to his desk. The emergency route arrangement does not happen. The sealed cargo stays in the staging area.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find what the factor wants and come back with it.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'brokering emergency route arrangement');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The factor sets his routing ledger aside and folds his hands on the desk. "Emergency route, sealed cargo, no standard staging entry — you\'re asking for protocol seven." He says the number without looking at it anywhere. He knows it. "Protocol seven exists. I\'ve processed eleven in the past six weeks. I don\'t have authority to do twelve. The authorization for protocol seven comes from the transit arbitration panel." He opens a side drawer and takes out a copy of the eleven authorizations — his own carbons. "I keep these because one day someone is going to ask me why I did eleven things that don\'t appear in the staging log, and I want to be able to answer that question." He hands them across the desk.';
+        G.stageProgress[1]++;
+        addJournal('Factor revealed "protocol seven" — 11 processed, all off staging log; authorization from transit arbitration panel; factor kept personal carbons', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The factor hears the request and his expression changes in the specific way of someone who has been asked for something they were specifically told not to provide. "Emergency route arrangements outside the standard process go through the route arbitration panel. That is the only authorized channel." He says it the way someone says a phrase they have been trained to say. He writes something in his contact log while he says it. The contact log entry means this conversation is now part of the factor registry record.';
+        addJournal('Factor formalized refusal, cited route arbitration panel — entry made in contact log', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The factor agrees to the arrangement — conditionally. "Route authorization for sealed cargo outside the standard staging process requires a transit arbitration panel confirmation number." He waits. You do not have one. "Then you are not authorized through the standard emergency channel. However." He opens a side drawer. "There is a secondary process. It has been in use for six weeks. It does not go through the staging log." He takes out a routing form that is not the standard staging format. "This is what the other eleven looked like. If you can get a panel authorization mark on this form, I can process it."';
+        addJournal('Factor confirmed secondary routing process used 11 times in 6 weeks; provided non-standard form; requires transit arbitration panel authorization mark', 'evidence');
+      } else {
+        G.lastResult = 'The factor considers the arrangement for long enough that you know he has processed something like it before. "Emergency staging outside the standard entry process requires authorization from the route arbitration panel." He says it once, clearly. Then he says: "The panel\'s authorization mark is on file with the waymark factor in the transit authority annex. If you have a reason the panel would authorize, you can get the mark there." He does not say he has never processed an emergency route without the mark. He does not need to.';
+        addJournal('Factor directed to transit arbitration panel for authorization mark; did not confirm or deny prior processing without mark', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'support',
+    label: "The route discrepancy is a risk to the waymark factor\'s own operation. He\'s about to figure that out.",
+    tags: ['Support', 'NPC', 'Persuasion'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The waymark factor has already made the calculation you are trying to walk him through — he made it three weeks ago and decided the risk to his own operation was manageable compared to the alternative. Whatever the alternative is, it was convincing enough that the route discrepancy is still in his records without correction. He listens to the argument without responding to it. He has heard it. He chose.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find what overrides the factor\'s risk calculation.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'making route discrepancy the factor\'s risk');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The waymark factor sits back from his desk when the full calculation is in front of him. "If the discrepancy routes to my authorization section in an audit, I carry it." He says it quietly. His hands stay flat on the desk — a specific effort. "I have been told the route amendment orders are properly authorized through the transit arbitration panel. I have not seen the panel authorization marks myself. I have accepted the word of the staging factor." He opens his registry. "I am going to need you to help me find out if that was a mistake." He turns the registry toward you and leaves the room for ten minutes.';
+        G.stageProgress[1]++;
+        addJournal('Waymark factor opened registry and left room — accepted route amendments on staging factor\'s word without seeing panel authorization marks; now seeking verification', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The waymark factor listens to the risk calculation and nods. Then he says: "I have already raised this concern through the appropriate channel and received a response from the route arbitration panel confirming the authorizations are valid." He takes out the response letter and sets it on the desk. The letter is correctly formatted, panel-stamped, and signed by the panel chair. "If you believe the panel authorization is itself irregular, that is a concern for the guild oversight committee, not my registry." He picks up the letter and files it. The letter is real. Whether the panel chair signed it is a different question.';
+        addJournal('Factor produced panel response letter — correctly formatted and stamped; authenticity of panel chair signature is open question', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The waymark factor stops what he is doing when the risk calculation is complete in front of him. "The authorization marks on the route amendment orders — I have not verified them against the panel registry independently." He says it the way someone says a thing they have been meaning to say for some time. "I processed the amendments because the staging factor confirmed they were authorized." He reaches for his registry. "I would like to verify the marks now." He opens the registry to the authorization section and begins comparing. His thumb finds the edge of the ledger binding and stays there while he reads.';
+        addJournal('Factor beginning independent verification of route amendment authorization marks — had relied on staging factor confirmation only', 'evidence');
+      } else {
+        G.lastResult = 'The factor acknowledges the risk calculation and takes out the route amendment orders to review them alongside the transit registry. "The authorization marks are correctly formatted," he says after a minute. "The panel reference numbers appear valid." He pauses. "The reference numbers appear valid based on the format. I have not checked them against the panel\'s own register." He looks at you. "Is there a reason to think the format is being mimicked?" He has not asked that question before today. The answer to it is in the panel\'s own register, which is in the arbitration annex.';
+        addJournal('Factor checking route amendment authorizations for first time — format appears valid but not cross-checked against panel register; directed to arbitration annex', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  }
+
+);
+
 window.GUILDHEART_STAGE1_ENRICHED_CHOICES = GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES;

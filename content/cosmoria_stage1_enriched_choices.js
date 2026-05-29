@@ -1070,4 +1070,354 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   if (_fraudHook) COSMORIA_STAGE1_ENRICHED_CHOICES.push(_fraudHook);
 })();
 
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+COSMORIA_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT x2
+  {
+    archetypeGroup: 'combat',
+    label: "Two watchers, blocking line of sight to the harbor gate. Signal the moment they split.",
+    tags: ['Combat', 'Confrontation', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The watchers do not split — one steps back but the second moves to compensate, closing the angle before it opens. They have practiced this. A third watcher appears from the salt merchant row and the harbor gate access is now monitored from three directions. You withdraw before the third watcher establishes your position. The harbor gate approach is closed for this watch rotation.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for the watch rotation to change before approaching the gate.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'suppressing watchers at harbor gate');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'Both watchers move before they finish the decision. The harbor gate opens into the port authority outer courtyard. A dock clerk is at the registry window on the far side — he sees the watchers go down and opens the window fully, leaning out. "I have been waiting for someone to do that for three weeks," he says. His thumb presses the edge of the registry ledger he is holding, the way someone holds something they have been waiting to hand over. "Come in through the side. I have the secondary manifest stack. The one that does not go to the senior port authority desk."';
+        G.stageProgress[1]++;
+        addJournal('Watchers removed at harbor gate — dock clerk opened secondary manifest stack; separate from senior port authority records', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The two watchers are faster than they look and the one on the right gets past you before the confrontation resolves. He is at the salt merchant row entrance before you can close the angle, calling out a number — a code, not words. The third watcher who appears from the row is older and she does not approach. She watches. The harbor gate is now under observation by someone who was not in your original count and who has not been recorded in the port authority\'s watcher log because she is not a port authority watcher.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Watcher confrontation: signal sent, third watcher appeared from salt merchant row — not in port authority log; independent network', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'One watcher down, one back. The second reads the situation correctly and steps away from the gate line — not retreating, just no longer blocking. The harbor gate is open. Inside the port authority outer courtyard: the registry window is shuttered but the secondary entrance beside it is ajar. A dock clerk\'s voice from inside: "Is the window clear?" He was listening. He has been listening for this outcome. Whatever he has to share, he was waiting for the watchers to stop being in the way.';
+        addJournal('Harbor gate access cleared — dock clerk was waiting, asked if window clear; had information to share once watchers gone', 'evidence');
+      } else {
+        G.lastResult = 'The watchers move back enough that the harbor gate is technically accessible. Neither has gone far. The gate opens onto the port authority outer courtyard and the registry window beyond it. A dock clerk at the window makes brief eye contact and looks away — an acknowledgment, not a greeting. He knows you cleared some of the observation pressure. He is not ready to act on it yet. The watchers are still visible from the courtyard. Their presence has a specific effect on who speaks and what they say in that courtyard.';
+        addJournal('Partial harbor gate clearance — dock clerk acknowledged but not ready to act; watchers still visible from courtyard', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'combat',
+    label: "Harbor gate is blocked. The bar on the other side hasn\'t been properly seated.",
+    tags: ['Combat', 'Risk', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The bar is more firmly seated than the gap in the gate suggested — enough play to show the misalignment but not enough to give on impact without a tool you do not have. The watchers in the salt merchant row are already turning. You step back from the gate before they reach their signal position.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a tool and a better-timed approach for the gate bar.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'forcing blocked harbor gate');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The bar gives on the second strike and the gate swings before the salt row watchers complete their turn. Inside: the port authority inner dock, which the public manifest map shows as a storage area and which is in fact a working berth. Two vessels moored. Both flying independent pennants. Neither appears in the harbor registry for this week. Their cargo declaration slips are pinned to the dock cleats: both list general provisions, both reference the same authorization mark — the mark of the port authority senior factor, who the public registry shows as currently off-station. An off-station official\'s authorization mark on active vessels is either forgery or the official is not actually off-station.';
+        G.stageProgress[1]++;
+        addJournal('Forced harbor gate — inner dock has 2 unregistered vessels with off-station senior factor\'s authorization mark; official listed as off-station', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The bar gives but the gate opens into the path of a salt merchant cart being moved along the inner dock road. The cart driver shouts. The watchers in the salt row respond to the shout. You are inside the gate, the gate is open, and a cart driver and two watchers are all looking at the same place at the same time. The gate closes again before the watchers reach it. You are on the right side of the gate but the wrong side of a logged disturbance.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Harbor gate forced — cart driver shouted, watchers responded; disturbance logged', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The gate opens and you are through in the window before the salt row watchers re-orient. The port authority inner dock is quieter than the public harbor — two work crews, both with their heads down, neither looking up when the gate opens. The registry window on the inner dock face is open and unattended. The current-week harbor manifest is visible on the desk through the window: the berth assignments for the inner dock show six occupied berths. Three have vessel names. Three have only authorization codes.';
+        addJournal('Forced harbor gate — inner dock registry window unattended; 3 berths carry authorization codes only, no vessel names', 'evidence');
+      } else {
+        G.lastResult = 'Through the gate in the watchers\' turn window. The inner dock is short — four berths, two occupied. The occupied berths have their hatch flags up, which means loading in progress, which means work crews. The work crews have not looked up. The dock wall beside the first berth has a cargo staging record pinned to it — the standard form, correctly filled, for a vessel whose registration number does not appear in the harbor registry\'s current-week active vessel list. The vessel is here. The registry does not know it is here.';
+        addJournal('Harbor inner dock entry — vessel present with unstaged registration number; active but not in current-week registry', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // MAGIC x2
+  {
+    archetypeGroup: 'magic',
+    label: "Coastal marker stones carry inscriptions. That one has a second layer underneath the Roazian marks.",
+    tags: ['Magic', 'Lore', 'Observation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The coastal marker stone is on the tidal shelf below the harbor walk, accessible only at low tide, which was two hours ago. The current tide has covered the lower section of the stone where the secondary inscription is likely to be. The stone will be accessible again at the next low tide, which the harbor gate board lists for six hours from now.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Return at the next low tide for the inscription reading.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading secondary inscription in coastal marker stone');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'Two inscription layers. The outer layer is current Roazian coastal marking script — navigation and warning text for the tidal shelf, correctly inscribed, recently renewed. The inner layer is older and uses a different maritime tradition: a tidal cipher script that predates the current port authority by at least fifty years. The old script is a route marker. It designates a specific tidal window — six hours after the third bell — and a channel approach that bypasses the harbor gate sensors. The bypass channel is still physically passable. The cipher was inscribed before the harbor gate sensors existed. But someone renewed the outer layer of the stone within the past three weeks. They knew the inner inscription was there and they renewed the outer layer over it rather than replacing the stone. They wanted the inner inscription preserved.';
+        G.stageProgress[1]++;
+        addJournal('Coastal marker stone: inner tidal cipher identifies gate-bypass channel approach window; outer layer renewed 3 weeks ago over inner inscription — deliberate preservation', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The inner inscription is in a tidal cipher script that requires a reference grammar specific to the pre-port-authority maritime tradition. You have the base sigil vocabulary but not the compound forms used in the cipher layer. You can establish that the secondary layer exists and that it is navigational in nature. The content is not recoverable without the reference text. A salt merchant watching from the harbor walk above you notices the extended attention to the marker stone and walks away quickly. The marker stone is not something people usually study for this long.';
+        addJournal('Coastal marker stone secondary inscription: navigational cipher, content not recoverable without reference grammar; salt merchant noted extended attention', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The outer Roazian marks are navigation standard. Underneath: a tidal cipher in an older maritime tradition, applied to the lower section of the stone where the tide covers it at normal water levels. The cipher is accessible only at specific low tides — by design, it would seem. What you can decode from the exposed section: a channel designation and a time reference. The channel designation is not in the current harbor registry. The time reference is a tidal formula, not a fixed clock time. The channel exists somewhere along this coast.';
+        addJournal('Coastal marker inner cipher: unregistered channel designation and tidal-formula time reference; inscription accessible only at specific low tides', 'evidence');
+      } else {
+        G.lastResult = 'The secondary inscription is present below the current tide line — only accessible at specific low tides, which means it was designed to be read at specific times. The exposed fragment is tidal cipher, an older maritime tradition, navigational in nature. You recover two sigil fragments before the tide begins to reclaim the lower section. The fragments indicate a directional reference and a time formula. Full reading requires waiting for the lowest tide of the current cycle, which occurs at a specific night hour.';
+        addJournal('Coastal marker stone inner inscription: tidal cipher, directional and temporal references partially recovered; full reading requires lowest tide at night', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'magic',
+    label: "Port authority record room. The ward on the archive cabinet is newer than the cabinet.",
+    tags: ['Magic', 'Lore', 'Records'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The archive cabinet is in the restricted section of the port authority records room, which requires a port official\'s access token to enter. The ward is visible from the public section through the grille, but reading it at this distance loses the fine-grain sigil detail needed to distinguish the inscription layers. The public section holds filed copies; the ward on the original archive is inaccessible from here.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a port official\'s access token or a different approach to the archive.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading arcane ward on port authority archive cabinet');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The ward on the archive cabinet is a detection-and-logging mark — not a lock, a recorder. Every time the cabinet is opened, the mark logs the access. But the mark is not reporting to the port authority. The ward\'s reporting anchor is set to a remote receiver outside the port authority building — the anchor symbol is a specific maritime guild sigil that the port authority does not use. Someone who is not port authority has been monitoring every time this archive is opened, and they have been doing it for at least six weeks, which is when the ward was inscribed. The cabinet holds the original authorization records for the inner dock. Whoever is watching knows every time those records are accessed.';
+        G.stageProgress[1]++;
+        addJournal('Port archive cabinet ward is a remote-logging mark, not a lock — reports to maritime guild sigil receiver outside port authority; monitoring inner dock authorization access for 6 weeks', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The ward responds to close reading with an alert pulse — not an alarm, but a notification to its anchor point. The port authority clerk at the public desk turns and looks at the archive section. She does not know what triggered the pulse. She approaches the grille and checks the cabinet visually. The cabinet is undisturbed. She notes the time in the access log. She does not note what caused the pulse. The ward has now logged your proximity to the archive.';
+        addJournal('Port archive ward alert pulse triggered — clerk checked archive and logged time; ward recorded proximity', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The ward is newer than the cabinet — the inscription date embedded in the base sigil is six weeks old, while the cabinet hardware is at least twenty years of age. The ward was applied recently and it is not a standard port authority protection ward. The symbol grammar belongs to a maritime monitoring tradition — a ward type used by shipping factors who want to know when their cargo records are accessed by others. This is a cargo factor\'s ward, applied to a port authority cabinet. Someone is monitoring the port authority\'s own archive from outside it.';
+        addJournal('Port archive ward: cargo factor monitoring type, 6 weeks old, applied to 20-year-old cabinet — external party monitoring port authority archive access', 'evidence');
+      } else {
+        G.lastResult = 'The ward on the archive cabinet is correctly formed and recently inscribed. Standard port authority protection wards use a specific symbol grammar from the coastal ward-writing tradition. This ward\'s symbol grammar is close but not identical — the anchor sigil in the base is from a related but distinct tradition, one associated with maritime cargo factors rather than port authority administration. The difference is subtle enough that a non-specialist would not notice it. It is the kind of difference that is deliberate.';
+        addJournal('Port archive cabinet ward: symbol grammar close to port authority standard but anchor sigil is maritime cargo factor tradition — deliberate distinction', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // STEALTH x2
+  {
+    archetypeGroup: 'stealth',
+    label: "The watched building, second floor, east window. There\'s a person inside who shouldn\'t be visible at all.",
+    tags: ['Stealth', 'Covert', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The building entrance is covered from two angles — one watcher in the salt row, one at the harbor walk corner. The east window is not accessible from the street. The alley behind the building is gated and the gate latch is on the inside. Whatever access exists, it does not run through the main street or the alley entrance.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a rooftop approach or a different entry angle to the building.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'extracting person from watched building');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'In through the warehouse loading bay beside the watched building, across the shared loft, down to the east room. The person inside is a port authority records clerk who has been in this room for three days — not held by force, held by the weight of knowing something. She is Dalve, she has been keeping secondary cargo records for the inner dock berths for six months, and she stopped going to work when the watcher coverage on her building doubled two weeks ago. She has the secondary records with her. All of them. They detail eleven months of unregistered berth activity, signed authorizations, and the name of the senior factor who authorized them. The name is in the port authority directory. He is currently listed as off-station.';
+        G.stageProgress[1]++;
+        addJournal('Extracted records clerk Dalve from watched building — has 11 months of secondary inner dock records; senior factor name on authorizations listed as off-station', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The loft approach works until a ceiling board gives under your weight — old wood, salt-swollen. The sound carries into the building below. The watcher at the harbor walk corner responds to the sound and is at the alley gate before you reach the exit. You are on the building side of the gate with a watcher on the other side listening. You hold still for six minutes. The watcher moves on. The person in the east window does not open the window when you knock. They heard the board too.';
+        addJournal('Building infiltration near-miss — ceiling board collapsed; watcher responded; contact in east room spooked, would not open window', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Through the loading bay and into the east room. The person inside is a dock records keeper — she does not give her name but she shows you what she has: a handwritten list of inner dock berth allocations for the past two months, each one carrying an authorization code rather than a named official. She has been in the building for five days. "The codes map to one person," she says. She does not say the name. She writes it on a separate piece of paper and hands it to you with the list, then tears both edges of the paper to mark it as a copy. "Get me out through the back gate. I know the watcher schedule."';
+        addJournal('Extracted dock records keeper from watched building — list of inner dock berth authorizations; codes map to single person (name on separate paper)', 'evidence');
+      } else {
+        G.lastResult = 'Inside and to the east room. The person there is a young records keeper who went quiet three days ago after seeing something in the inner dock manifest he was not supposed to see. He does not know you are coming. He opens the door because you knocked three times the way a dock worker knocks. "Is it time?" he asks, looking past you for someone else. He is waiting for a specific person who has not come. He will talk, but he will not move until the specific person arrives or you explain why they did not.';
+        addJournal('Reached records keeper in watched building — waiting for a specific contact who has not arrived; has information but will not move without contact or explanation', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'stealth',
+    label: "Port authority checkpoint at night. One clerk, one log, and twenty seconds between entries.",
+    tags: ['Stealth', 'Covert', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The clerk\'s entry rhythm is irregular — sometimes eight seconds between log entries, sometimes thirty-five. The window you mapped is not reliable. You hold at the checkpoint corner for ten minutes and never find two consecutive gaps wide enough for the crossing. The checkpoint stays active through the night.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Map the checkpoint entry rhythm more precisely before attempting again.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'slipping through port authority checkpoint unlogged');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'Through the checkpoint in the twenty-second window without a log entry. The inner harbor area beyond the checkpoint is the part of Cosmoria\'s port that does not appear in the visitor navigation guides. Three warehouse structures, all dark, all carrying Roazian administrative marks on the doors. The third warehouse door is ajar. Inside: cargo staged in neat rows, all carrying the authorization mark of the port authority senior factor who is listed as off-station. Forty-two individual cargo entries. The authorization mark stamps are dated. They span the past eleven months. The senior factor has been authorizing inner harbor cargo storage from off-station, continuously, for almost a year.';
+        G.stageProgress[1]++;
+        addJournal('Unlogged checkpoint crossing — inner harbor warehouse: 42 cargo entries bearing off-station senior factor\'s authorization mark spanning 11 months', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The twenty-second window closes at nineteen — the clerk finishes his entry and looks up before you clear the log desk angle. He sees movement and lifts his pen from the current entry to write something in the incident column. You are past the desk and in the shadow of the inner harbor wall before he completes the entry, but the entry exists. Whatever he wrote is in the log as a checkpoint incident. You are inside the restricted area with a log entry marking an unidentified crossing.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Checkpoint crossing logged as incident — clerk noted unidentified movement; log entry exists', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Clean crossing in the window. The inner harbor area holds two active warehouse structures and a dock registry building that is not marked in any public harbor map. The dock registry building has a lamp burning — someone is working in it at this hour. The window is not shuttered. Inside, visible from the wall angle: a dock clerk updating a ledger, working through a stack of authorization forms. The forms carry the port authority seal. The dock registry building is not in the public map but it has active port authority work happening in it at midnight.';
+        addJournal('Unlogged checkpoint crossing — unmapped dock registry building has active port authority work at midnight; clerk updating authorization forms', 'evidence');
+      } else {
+        G.lastResult = 'Through the checkpoint without a log entry. The inner harbor area is quieter than the public harbor at this hour — no dock workers, no cargo movement. Two warehouse structures, both dark and secured. A third building at the far end of the inner dock has a lamp in the lower window. The building is not a warehouse; the roofline and window placement read as office space. An office building in the inner harbor area at this hour means someone uses it at hours when the public checkpoint discourages observation.';
+        addJournal('Unlogged checkpoint crossing — inner harbor office building with lamp burning at night; unmapped, non-warehouse structure', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // SUPPORT x2
+  {
+    archetypeGroup: 'support',
+    label: "The watcher has been standing in the salt row for four hours. He\'s not watching the harbor.",
+    tags: ['Support', 'NPC', 'Persuasion'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The watcher has nothing to give and nothing to gain. He was told to stand in the salt row and he is standing in the salt row and the conversation ends when you stop contributing to it. His posture closes off slowly, without hostility, the way someone closes off when they realize the conversation is not going anywhere for either party. He watches the harbor.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a different watcher or a different approach to the harbor gate.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'turning suspicious watcher through patient conversation');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The watcher\'s name is Fen. He has been in the salt row for six weeks — not watching the harbor, watching the port authority records room window. "Someone is supposed to come out of that window with a document case," he says. He says it the way someone says something they have been waiting six weeks to say to the right person. "I don\'t know who sends me. The pay comes through the salt merchant at the end of the row. I was told to watch for a records clerk who would leave by the window rather than the door." He looks at the records room window. "She hasn\'t come yet." He tells you the pay schedule, the signal system, and the salt merchant\'s name without being asked for any of it. He has decided the thing he is involved in is larger than he understood when he agreed to it.';
+        G.stageProgress[1]++;
+        addJournal('Watcher Fen: watching port authority records room window for records clerk leaving by window with document case; paid through salt merchant row; 6 weeks, no contact yet', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The watcher hears enough of the conversation to decide you are the thing he was told to watch for. Not the document case, not the records clerk — you. His posture changes. He touches his collar twice, which is a signal. The salt merchant three stalls down stops arranging his display and starts watching the approach to the harbor gate. You have been identified as a concern and the salt merchant row has just extended its coverage. Whatever you were going to do at the harbor gate has an additional complication now.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Watcher signaled to salt merchant after conversation — harbor gate approach now additionally observed', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The watcher relaxes slightly when the conversation is not about what he is watching. He admits he has been in the salt row for six weeks. He admits the pay comes through someone he does not know directly — a drop at the end of the row, cash, no name. He does not know who he is watching for or why. "I was told to note anyone who comes out of the port authority records building after the fifth bell carrying a document case." He says it without realizing it is useful. He has been watching, and this is what he has been watching for. The records building after fifth bell, document case.';
+        addJournal('Watcher watching for post-fifth-bell records building exit with document case; paid through anonymous salt row drop for 6 weeks', 'evidence');
+      } else {
+        G.lastResult = 'The watcher admits he is not watching the harbor after about ten minutes of patient conversation. He does not say what he is watching. He says the work is straightforward and the pay is reliable and he has been doing it for five weeks. He looks at the port authority building once while he talks — a specific window, upper east face, which is the records room section. The look is habitual, not intentional. He catches himself doing it and looks back at the harbor. Whatever the window means to him, it is what the job centers on.';
+        addJournal('Watcher watching port authority records room upper east window for 5 weeks; looked at it habitually during conversation', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'support',
+    label: "The salt merchant controls port access. He knows it. He\'s waiting for someone to acknowledge it.",
+    tags: ['Support', 'NPC', 'Negotiation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The salt merchant wants acknowledgment and he wants a specific kind — not gratitude, not deference, but a concrete offer that treats his control as legitimate rather than assumed. Whatever you offered did not reach that threshold. He goes back to his display arrangement and the harbor gate access he manages informally remains closed.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Come back with a concrete offer that treats his authority as real.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'brokering deal with salt merchant who controls port access');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The salt merchant sets his display weight down when the offer acknowledges his actual function rather than his nominal one. "Port authority manages the front gate. I manage what moves through the inner dock." He says it plainly, without pride — a statement of operational reality. "Six months ago I was approached by someone from the port authority factor\'s office. They needed cargo to move through the inner dock without appearing in the external manifest. I agreed because I was paid well and the alternative was not offered as optional." He turns the display weight in his hand. "I kept a list of every movement. I kept it because I knew I would need it." He retrieves the list from under the display counter and hands it to you.';
+        G.stageProgress[1]++;
+        addJournal('Salt merchant produced 6-month list of inner dock off-manifest cargo movements — approached by port authority factor\'s office; coerced participation; kept records for protection', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The salt merchant hears the acknowledgment and his expression shifts to something that has been waiting for this conversation for a while. He says: "You are not the first person to come to me with this approach. The previous two are no longer asking questions." He sets his display weight down. "I would recommend you consider whether you want to continue asking them." The conversation is over. The warning is specific enough to mean something and vague enough to be difficult to act on. The salt row is quieter than it was when you arrived.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Salt merchant issued warning — previous two inquirers "no longer asking questions"; salt row now quieter', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The salt merchant accepts the acknowledgment and becomes practical. "Inner dock access runs through me for six hours on each side of midnight. Port authority manages the front gate. I manage the rest." He arranges three display weights into a line without looking at them. "What you want access for determines what I need in return." He is not asking for money. He is asking for something equivalent to the acknowledgment you just gave him — information, leverage, a record that establishes the exchange was mutual. He has information of his own to trade if the terms are right.';
+        addJournal('Salt merchant confirmed inner dock access management for 12-hour nightly window; willing to trade information for mutual acknowledgment record', 'evidence');
+      } else {
+        G.lastResult = 'The salt merchant relaxes when the offer acknowledges his real function. "Inner dock, midnight to morning, that\'s mine." He does not elaborate on what that means operationally. He says the price for a single passage is a straight commercial arrangement — specific goods, specific quantity, available now. The goods are obtainable. The arrangement is transactional and clean. He does not tell you what he sees from the salt row. But the passage is available if the terms are met.';
+        addJournal('Salt merchant: inner dock midnight-to-morning access available for commercial exchange; terms specific and obtainable', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  }
+
+);
+
 window.COSMORIA_STAGE1_ENRICHED_CHOICES = COSMORIA_STAGE1_ENRICHED_CHOICES;

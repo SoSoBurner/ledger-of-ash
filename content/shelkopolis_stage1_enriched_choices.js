@@ -1167,4 +1167,701 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   if (_shadowHook) SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(_shadowHook);
 })();
 
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT x2
+  {
+    archetypeGroup: 'combat',
+    label: "The counting house clerk is alone. The ledger he won't open is right there.",
+    tags: ['Combat', 'Confrontation', 'Direct'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The clerk keeps his hand flat on the ledger cover and his expression entirely still. He has been trained for exactly this kind of pressure — the guild factors all have. When your posture shifts, he reaches under the counter and presses something. A second clerk enters from the back room inside thirty seconds. Two clerks and a closed ledger is the same as one clerk and a closed ledger, except now there is a witness. You leave without the ledger.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a different route into the counting house records.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'pressuring counting house clerk');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The clerk lifts his hand from the ledger. He does it without meeting your eyes — a calculation, not a capitulation. The sealed ledger opens to the page he has been keeping covered: a manifest column with two sets of figures, one in standard guild ink, one in a lighter hand written over the top. The overwritten figures reduce three separate consignment tallies by a consistent margin — exactly the margin that appears in the registered duty records. The lighter hand\'s annotations reference a routing code that does not appear in the public manifest registry. The clerk says nothing while you read. He watches the door.';
+        G.stageProgress[1]++;
+        addJournal('Counting house sealed ledger opened — overwritten manifest figures match registered duty reductions; unregistered routing code present', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The clerk goes still when the pressure lands — and then, instead of the bell under the counter, he goes to the door and opens it himself. Three guild factors are in the commercial corridor outside. He does not say anything to them. He simply opens the door and stands back. The three factors look at you. The clerk goes back to his ledger. You are standing in a counting house in Shelkopolis with three guild factors in the doorway and a sealed ledger that is now definitely not opening for you today.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Counting house pressure failed — clerk escalated to guild factors; pressure notation likely in district record', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The clerk opens the ledger to a middle section — not the page you want, but close. The columns for last month\'s northern consignments are visible: the standard figures, the registered totals, and a third column header labeled \'reconciliation adjustment.\' The adjustment figures are all negative and they are all round numbers. Round-number adjustments across thirteen consecutive consignment lines are not coincidence. The clerk closes the ledger before you can read the authorization signatures at the column base.';
+        addJournal('Counting house ledger partially accessed — 13 consecutive round-number reconciliation adjustments visible; authorization column closed before reading', 'evidence');
+      } else {
+        G.lastResult = 'The clerk moves the ledger off the counter before you can reach it. His expression does not change. He has had this kind of conversation often enough that the ledger is now behind him on the shelf, spine out, while he is still talking about account access procedures. The ward mark on the doorframe catches the light — fresh chalk, renewed within the past few days. New wards on a counting house door mean someone is worried about what the ward protects.';
+        addJournal('Counting house ledger removed from access — doorframe ward mark freshly renewed', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'combat',
+    label: "The guild courier is carrying a sealed dispatch. This is the last alley before the relay post.",
+    tags: ['Combat', 'Confrontation', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The courier is faster than his build suggests — he takes the alley at a run when he sees your position and is through the gate at the far end before you close the angle. The relay post gate shuts behind him. The dispatch is inside the post. The alley is empty and the gate will not open without a guild courier token you do not have.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Circle to the relay post\'s secondary entrance while the courier files the dispatch.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'intercepting guild courier');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The courier stops when you step into the alley mouth — a trained stillness, not panic. He hands over the satchel without being asked for it. Inside: three sealed dispatches, one of which has a wax seal carrying a house mark that does not appear in the public guild registry. The contents of the unsealed dispatches are routine routing confirmations. The house-marked one is addressed to a name — Vethara Keln — with no locality, no district, no guild affiliation. Just the name. The courier says he has delivered to that name twice this month. Both times to a drop point, never a person.';
+        G.stageProgress[1]++;
+        addJournal('Guild courier intercepted — dispatch bears unregistered house mark; Vethara Keln recipient, drop point only, two prior deliveries this month', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The courier does not stop. He angles past you at a run and puts his shoulder into it as he goes. The satchel stays on his arm. You are in a guild district alley with a bruised shoulder and the relay post gate is already closing at the far end. The courier will log the interference at the relay post — that is standard guild courier protocol. Your description is now in the relay post record.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Courier interception failed — interference logged at relay post; description recorded', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The courier stops and holds the satchel closed. A standoff for eight seconds. Then he reaches in and hands you one envelope — the one on top, the one he was apparently willing to lose. The rest stay in the satchel. The one he hands you is a routing confirmation for a consignment that matches the reference numbers from the counting house ledger discrepancy. The consignment was confirmed as received. The manifest record shows it as still in transit.';
+        addJournal('Courier yielded one dispatch — routing confirmation contradicts manifest transit status for same consignment reference', 'evidence');
+      } else {
+        G.lastResult = 'The courier stops, reads the situation, and sets the satchel on the ground between you. He steps back from it. You can open it or not — his posture says he has decided this is not his problem anymore. Inside: six standard routing confirmations, all in guild-standard format, all for localities you recognize. Nothing unusual. He picks the satchel back up when you are done and continues to the relay post. Whatever the sensitive dispatch was, it was already delivered earlier today.';
+        addJournal('Courier satchel inspected — contents standard; sensitive dispatch already delivered prior to interception', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // MAGIC x2
+  {
+    archetypeGroup: 'magic',
+    label: "The ward marks on the sealed guild documents are layered. Someone added a second inscription.",
+    tags: ['Magic', 'Lore', 'Records'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The documents are behind the counting house grille and the grille requires a guild key to open. The ward marks are visible through the grille but reading them at this angle and distance loses the fine-grain sigil detail that would distinguish the layers. The documents sit one door away from a full reading.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a guild key or a different access angle to the documents.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'ward mark layering analysis on guild documents');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'Two layers on every sealed document in this stack. The outer layer is standard guild authentication — correctly inscribed, properly anchored, nothing unusual. The inner layer is a secondary binding that was not inscribed by the same hand. The inner inscription style uses a cipher-compression technique from a school of ward-writing that operates outside the Guild Authority\'s authorized curriculum — a regional tradition, specific enough to trace. The inner marks are not protecting the document. They are recording who touches it. Every time the document seal is broken, the inner ward logs the event in a remote registry that is not the guild record. Someone is watching the watchers.';
+        G.stageProgress[1]++;
+        addJournal('Guild document ward marks double-layered — inner inscription uses non-guild school, logs access to remote registry not visible in guild record', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The ward mark reading goes fine until the second layer, where the inner inscription responds to close examination with a mild alert pulse — not an alarm, just a notification. The counting house senior clerk feels it from across the room and looks up. She does not know what you were reading. But she walks over and adjusts the document stack so the ward marks face inward. The documents are now unreadable from your position and she is standing between you and them.';
+        addJournal('Ward mark alert pulse triggered — senior clerk repositioned documents; further reading blocked', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The outer ward is standard guild authentication. The inner layer is thinner — a compression cipher overlaid after the outer seal was applied. Whoever added the inner layer did it without breaking the outer seal, which means they had access to a ward-writing method that allows secondary inscription through an existing mark. That technique is not in the guild\'s publicly authorized curriculum. The inner mark references a document registry number that does not match the guild\'s own classification system.';
+        addJournal('Guild document inner ward layer uses post-seal inscription technique; references non-guild registry number', 'evidence');
+      } else {
+        G.lastResult = 'The ward marks are layered — that much is clear from the sigil density alone. Parsing which layer does what requires either more time in close range or a reference text for the cipher compression style used on the inner mark. The outer layer reads as standard authentication. The inner layer uses a compression technique that reduces the sigil footprint, which means it was designed to be hard to notice. It has been there for some time.';
+        addJournal('Guild document ward marks confirmed layered — inner layer uses compression technique designed to be inconspicuous; present some time', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'magic',
+    label: "That manifest column has a cipher running through the ordinary figures.",
+    tags: ['Magic', 'Lore', 'Records'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The manifest is on the clerk\'s desk, not the open reading counter, and the clerk does not leave his desk. The cipher column is visible from your position but not at a reading angle — you can see there is something there but not what it says. The public reading counter holds last quarter\'s filed manifests. The current one stays on the clerk\'s desk.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Read last quarter\'s filed manifests for the same cipher pattern instead.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'manifest cipher decoding');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The cipher is a substitution layer built into the standard duty-tally column — every seventh figure, reading down. Decoded: a series of dates, amounts, and a location reference. The dates correspond to consignment arrivals that are recorded as delayed in the official manifest. The amounts are consistent with the duty reduction figures in the counting house ledger. The location reference is a waypoint designation — not a locality in the standard guild routing system, but a designation used in the pre-guild trade network that predates the current administration by forty years. Someone is using old geography.';
+        G.stageProgress[1]++;
+        addJournal('Manifest cipher decoded — every 7th figure is a date/amount/location sequence; location is pre-guild waypoint designation; amounts match ledger duty reductions', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The cipher pattern looks like a standard accounting error at first — the kind of small figure misalignment that happens when a clerk copies from a draft. You spend twenty minutes on a false trail before you recognize the structure is intentional. By then, the manifest has been collected for filing and the clerk has noted the extended reading time in the session log. The cipher is gone with the manifest. The pattern you almost identified will have to be reconstructed from the filed copies.';
+        addJournal('Manifest cipher misread — lost to filing; 20-minute false trail logged by clerk', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The cipher runs in the duty-tally column, every seventh entry. The decoding resolves to a series of three-element codes: a date, an amount, and a single-letter identifier. There are eleven codes across the manifest. The amounts total to a figure that matches the discrepancy between the registered duty receipts and the counting house ledger adjustments. The single-letter identifiers repeat: K, V, K, V, K. Two parties, alternating. Someone is splitting something and recording it in the official document.';
+        addJournal('Manifest cipher partially decoded — 11 codes, amounts match ledger discrepancy, two alternating identifiers K and V', 'evidence');
+      } else {
+        G.lastResult = 'The manifest column has a structural irregularity — the figure spacing in the duty-tally section is inconsistent in a pattern that does not match standard clerical error. It is too regular to be accidental. The full cipher decoding requires a longer reading and a reference text for the substitution method being used. You can identify that the cipher exists and roughly where it runs. You cannot read what it says from here, in this time window.';
+        addJournal('Manifest cipher structure identified — regular spacing irregularity in duty-tally column; decoding requires more time and reference text', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // STEALTH x2
+  {
+    archetypeGroup: 'stealth',
+    label: "The guild factor walks the same commercial district route every second hour. He hasn\'t noticed anyone following.",
+    tags: ['Stealth', 'Covert', 'Observation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The commercial district is more crowded at this hour than it was when you mapped the factor\'s route — a textile delivery blocking the second junction and two guild clerks standing in the usual shadow position. The factor\'s route takes him through the crowd without pause. You lose the angle at the second junction and he is gone into the counting house row before you re-acquire. The route mapping needs a quieter hour.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Wait for a quieter hour and re-map the factor\'s route.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'shadowing guild factor through commercial district');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'Five blocks, three counting houses, one chapel alcove stop. At the third counting house, the factor does not enter through the public door. He goes around to the loading entrance and uses a factor\'s token on a second door that is not marked on the building\'s exterior registry posting. Inside, through the loading bay window: two other factors already waiting, a table with three document stacks, and a set of unlit candles that someone has arranged into a specific pattern — the same pattern used by the pre-guild trade arbitration system as a meeting signal. Whatever they are doing in that room, it is not standard guild business.';
+        G.stageProgress[1]++;
+        addJournal('Guild factor used unmarked loading entrance at third counting house — met two others with pre-guild trade arbitration signal arrangement', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The factor stops at the fourth block and looks back. He is not checking for a tail — he is looking at the chapel alcove he passes every circuit, a habit. But the timing puts his gaze on the exact spot where you are standing. He holds the look for two seconds without expression, then continues. His next circuit, he takes a different route. The commercial district factors talk to each other. By the end of the day, the route pattern has changed and you are part of the reason it changed.';
+        addJournal('Guild factor changed route — accidental eye contact; factor network likely notified', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Three blocks of clean following distance. The factor stops at the second counting house — not to enter, but to exchange a folded paper with a clerk who comes to the door specifically to meet him. The exchange takes four seconds. The clerk goes back inside. The factor continues his circuit. The folded paper was not a standard manifest form — the dimensions were wrong and the fold pattern was not the guild standard for routing documents. That exchange happens at the same counting house every circuit.';
+        addJournal('Guild factor makes paper exchange at second counting house every circuit — non-standard fold, not a routing document', 'evidence');
+      } else {
+        G.lastResult = 'Two clean blocks. Then the factor pauses at a ward mark on a doorframe — not checking it, touching it. His thumb finds the chalk edge of the mark the way you have seen guild factors navigate by touch when they do not want to be seen looking at their route. The ward mark he touched is on the door of a building with no public registry posting. He does not enter. He continues his circuit. A building in the commercial district with no registry posting is itself a finding.';
+        addJournal('Factor touched ward mark on unregistered building — deliberate navigation by touch; building has no public registry posting', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'stealth',
+    label: "The counting house closes to the public at the sixth bell. The clerks leave twenty minutes after.",
+    tags: ['Stealth', 'Covert', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'One clerk stays late. He is at the desk nearest the ledger stack and he does not move for the hour you wait across the street. The counting house lamp stays lit. The clerk does not leave. By the time the street quiets enough for a move on the back entrance, the night watch has begun its commercial district circuit and the window has closed.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Map the night watch circuit for a future attempt.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'after-hours counting house entry');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'The back entrance yields to the latch tool at the twenty-two minute mark — the window is exactly as wide as the clerks\' departure timing suggested. Inside: the closed ledger stack, unattended. The relevant pages are flagged already — someone has left silk markers in the discrepancy sections, recently placed, the silk still carrying the body warmth of recent handling. Someone else has been here, reading the same pages, within the past few hours. The figures they marked align precisely with the cipher pattern in the manifest column from the public reading counter.';
+        G.stageProgress[1]++;
+        addJournal('After-hours counting house entry — ledger pages pre-marked by another recent visitor; marked figures align with manifest cipher', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The back entrance is warded — a detection mark on the latch, not visible from the street. The ward activates on contact and a pale light pulses twice at the upper window across the alley. Someone is watching that window. You are moving before the third pulse and you do not stop moving for two blocks. The counting house ward system is active after hours. Your approach route is now known to whoever monitors it.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addJournal('Counting house after-hours ward activated — detection mark on latch; approach route observed', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'Inside the counting house in the twenty-minute window. The ledger stack is accessible. The relevant section — northern consignment manifests for the past six weeks — has had two pages removed. Not torn: the binding threads are clean-cut, done with a tool. The cut edges are recent. The pages were removed after the ledger was last officially reviewed, which according to the review log was four days ago. The section that references the unregistered routing codes is gone.';
+        addJournal('After-hours counting house entry — two ledger pages cleanly removed post-review; northern consignment section now incomplete', 'evidence');
+      } else {
+        G.lastResult = 'Inside and to the ledger stack before the night watch circuit begins. The relevant ledger is the heaviest one on the shelf and it takes longer than expected to locate the right section. You get twelve minutes of reading time before a light appears in the street outside the front window — not the night watch, just a late lamp being carried home. But it breaks the timing and you are out through the back before you have finished the column. You have three reference numbers that you did not have before. The rest waits.';
+        addJournal('Partial after-hours counting house read — three new reference numbers obtained; section not fully read', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // SUPPORT x2
+  {
+    archetypeGroup: 'support',
+    label: "The trade concession the factor wants is something you can arrange. He knows what he has in exchange.",
+    tags: ['Support', 'NPC', 'Negotiation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The factor listens to the concession proposal and nods slowly at the wrong parts — the parts that sound like the right answer but are not the actual offer. By the time you have made the real offer, his expression has already decided. He thanks you for the conversation and reaches for a routing form. The routing form means the conversation is over. Whatever he was protecting in the manifest, the concession did not reach it.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a different point of leverage for the manifest access.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'brokering trade concession for manifest access');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The factor sets down his routing form when the concession clears a certain threshold. He reaches past the standard manifests to a secondary stack — records that are filed but not indexed in the public registry. "Northern passage authorization, six weeks." He opens to a page. "This is what you want." Three consignment records with dual authorization signatures: one guild factor\'s mark, one with a cipher-compressed seal that matches the secondary ward inscription style from the guild documents. "The second signature isn\'t in the registry," he says. He does not say who it belongs to. He closes the file and holds it out. He is giving you a copy and he expects you to understand what that costs him.';
+        G.stageProgress[1]++;
+        addJournal('Factor produced secondary manifest with dual authorization — second signature is cipher-compressed, matches guild document inner ward style; not in registry', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The factor hears the concession and goes very still. Then he says, carefully, that he is not in a position to exchange access to filing records for trade arrangements of any kind, and that if you have a concern about the manifest, there is a formal inquiry process. He says it without looking at you. Two clerks across the room have stopped their work. The factor has just created a record of this conversation by conducting it in front of witnesses. The manifest is now untouchable through any informal channel.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Factor formalized refusal in front of witnesses — manifest now untouchable through informal channels', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The factor considers the concession for long enough that you know he has the authority to accept it. He reaches for the manifest stack and opens to a specific page — not the whole record, just one entry. Northern passage authorization, current month, with a consignment reference that matches the unregistered routing code from the cipher column. "I can\'t tell you who authorized the routing," he says. "But I can confirm the routing exists and the authorization carried." He closes the manifest. That is everything he is going to give.';
+        addJournal('Factor confirmed unregistered routing exists and carried authorization — identity of authorizer withheld', 'evidence');
+      } else {
+        G.lastResult = 'The concession clears enough of the factor\'s resistance that he stops routing you to the standard inquiry process. He opens the manifest index — not the manifest itself, the index. The northern consignment section has a three-week gap in the index entries. "Filing backlog," he says, which is what the index itself says. He knows what the index says. He is reading it to you anyway. The gap in the index is not a filing backlog. The entries that should be there are simply absent.';
+        addJournal('Factor confirmed three-week gap in northern consignment manifest index; called it a filing backlog', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'support',
+    label: "The clerk already knows the discrepancy threatens her standing. She just hasn\'t said it aloud yet.",
+    tags: ['Support', 'NPC', 'Persuasion'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The clerk\'s expression does not change when you make the connection for her. She has already made it. She set it aside. Whatever the cost of the discrepancy, she has decided the cost of addressing it is higher. She straightens the intake log without opening it. "I recommend the supplemental inquiry form." She says it the way someone says a phrase they have said many times. The window is closed.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'File the supplemental inquiry form as she recommends.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'making the ledger discrepancy her problem');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The clerk holds her pen over the intake log for three seconds without moving. Then she sets it down on the wrong side of the log — something she does not usually do, because the log is always exactly in the same position. "The discrepancy is in the section my review certification covers," she says, very quietly. "If it goes to audit without a correction from my section, the certification review flags me as the responsible clerk." Her pen stays on the wrong side. She opens the intake log. "Tell me what you found and I will tell you what I can correct for and what I cannot."';
+        G.stageProgress[1]++;
+        addJournal('Clerk opened intake log — discrepancy in her certification coverage; agreed to share what she can and cannot correct', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The clerk hears the implication and goes very still. Then she reaches for the incident log and begins writing in it — not a hostile act, a protective one. She is documenting the conversation before you can document it differently. "Any concern about record accuracy should be filed through the supplemental inquiry process." She doesn\'t look up while she writes. The entry she\'s making right now will appear in the section audit before your inquiry does.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Clerk logged the conversation pre-emptively — incident record filed before inquiry', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The clerk doesn\'t open the ledger, but she stops routing you to the oversight desk. "The discrepancy was flagged internally three weeks ago," she says, her voice low under the counter noise. "The flag came back marked reviewed. Nothing changed in the entries." She holds her pen over a fresh routing form without beginning to write. "Reviewed by whom is not in my section\'s record." The section that holds the reviewer\'s identity is the supplemental registry. She knows this. She says it without saying it.';
+        addJournal('Clerk confirmed internal flag on discrepancy — reviewer identity in supplemental registry', 'evidence');
+      } else {
+        G.lastResult = 'The clerk hears the argument and considers it for a full five seconds — long enough that you know she\'s done the calculation. Then she slides the routing form back. "The discrepancy is recorded. The oversight desk review is recorded." She opens her log and shows you the entry dates. "What I cannot tell you is what the review concluded. That\'s in a section of the record I don\'t access." She taps the date on the review entry. The review happened on a day the oversight desk was not officially in session.';
+        addJournal('Clerk showed review entry — oversight desk record dated to an unofficial session day', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  }
+
+);
+
 window.SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = SHELKOPOLIS_STAGE1_ENRICHED_CHOICES;
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — Physical pressure on guild factors or creditors
+  {
+    archetypeGroup: 'combat',
+    label: 'The counting house clerk has the sealed ledger. He will not have it for long.',
+    tags: ['Combat', 'Direct', 'Risk', 'Confrontation'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The clerk steps back from the counter before you finish moving — his left hand finds the bell rope without looking and he pulls it once, short. By the time the sound settles two factors are in the doorway and the ledger is under the counter. The guild knows how to end these conversations quickly. The entry on the counter record will read "threshold dispute, Category Three." You are now in a category.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Clear the building before the Category Three log reaches the registry.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'pressuring counting house clerk for sealed ledger');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The clerk reads your posture correctly and decides the bell rope is not worth the motion. He sets the ledger on the counter — not open, but down — and steps back. "The reference column," he says, which is not an offer but a concession. The reference column is enough: seven consignment tallies, three factors\' initials, one routing code that matches no registered manifest. You have it in thirty seconds. The clerk stays at the back of the room until you leave. He does not reach for the bell rope.';
+        G.stageProgress[1]++;
+        addJournal('Counting house: reference column accessed under pressure — routing code with no manifest match', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The clerk pulls the bell rope and it isn\'t the bell rope — it\'s a catch release for a drop panel in the counter, and the ledger disappears through it before the bell in the back room finishes its first ring. Two factors are in the doorway in under twenty seconds. The ledger is gone. The incident is logged. You leave before it becomes something with your name attached to it, but the door-side factor gets a look at your face.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Counting house: ledger secured before access — factor logged your face', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The clerk holds his ground for two seconds and then steps aside from the ledger without touching it — not consent, but absence of refusal. The ledger is sealed but the routing tabs are visible at the spine. You read the tabs: seven sections, two flagged with a notation you recognize as the guild\'s internal escalation marker. The section that matters is behind the second flag. It\'s enough to know it exists and which factor initialed the flag.';
+        addJournal('Counting house: ledger routing tabs read — two escalation-flagged sections identified', 'evidence');
+      } else {
+        G.lastResult = 'The clerk doesn\'t move and doesn\'t reach for the bell rope. He holds the ledger against his chest with both arms and meets your eyes. He\'s been in confrontations before — this isn\'t the first time someone has stood on the wrong side of this counter with bad intentions. He waits you out. The counting house stays quiet. The ledger stays sealed. You\'ve gained nothing and spent the kind of credit that doesn\'t recover in a single district.';
+        addJournal('Counting house standoff: clerk held position, ledger retained', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'combat',
+    label: 'The ambush on the guild courier was set before he left the building.',
+    tags: ['Combat', 'Direct', 'Risk', 'CombatEntry'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The courier takes a different route — a variation you didn\'t account for. By the time you reorient, he\'s three blocks ahead and inside the next guild post. The documents he was carrying are now logged under two seals. Whatever was in transit is no longer in transit. It has arrived.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Fall back and find another approach before the post logs receipt.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'clearing ambush from guild courier route');
+      G.stageProgress[1]++;
+
+      var result = rollD20('combat', (G.skills.combat || 0));
+      var target = 14;
+
+      if (result.isCrit) {
+        G.lastResult = 'The two ambush figures in the alley arch are amateurs — guild enforcers on a contract, not trained operatives. You clear the arch before they close on the courier and the courier makes the calculation quickly: whoever just helped him is safer than whoever just tried to stop him. He opens the document case. Inside: a manifest with a routing code that routes to an unregistered address, and a counter-seal from an office that doesn\'t appear in the guild directory. He lets you photograph the counter-seal in chalk on the alley wall before the ink dries on his memory of it.';
+        G.stageProgress[1]++;
+        addJournal('Guild courier document case: unregistered address manifest + counter-seal from unlisted office', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The ambush figures aren\'t alone — a third is at the alley exit you didn\'t check. The courier runs for the guild post when the third figure moves. You extract without injury but the document case goes with the courier and the three figures know your silhouette. Whatever the courier was carrying is now logged inside a guild post under emergency receipt protocol, which means two additional seals and a registry flag.';
+        addJournal('Ambush intervention failed — courier reached guild post, documents under emergency seals', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'You clear the two figures from the arch before they reach the courier. The courier doesn\'t wait to find out who helped him — he\'s already running the moment the second figure goes down. But the document case clips a wall bracket on his way out and the latch springs. One document falls. It\'s a routing slip, not a manifest, but the routing code on it doesn\'t match any registered channel in Shelkopolis. You pocket it before the figures recover and walk the other direction.';
+        addJournal('Routing slip recovered from dropped courier document — unregistered channel code', 'evidence');
+      } else {
+        G.lastResult = 'You reach the arch in time to place yourself between the courier and the two figures, which buys the courier four seconds and the document case stays with him. The figures back off when they see the math has changed. The courier continues to the guild post without looking back. You don\'t know what he was carrying, but you know someone wanted it stopped before it arrived. That\'s something. The two figures know your face now.';
+        addJournal('Courier protected but document case not accessed — ambush figures noted your face', 'discovery');
+      }
+
+      G.recentOutcomeType = 'action';
+      maybeStageAdvance();
+    }
+  },
+
+  // MAGIC ×2 — Ward analysis or cipher work
+  {
+    archetypeGroup: 'magic',
+    label: 'The ward marks on these guild documents were not applied by the same hand.',
+    tags: ['Knowledge', 'Lore', 'Records', 'Arcane'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The documents on the public table carry standard guild ward notation — correctly applied, nothing to read between the lines. Whatever you were looking for is not in the publicly visible layer. The sealed archive holds the older documents, and the reading room requires a registered introduction from a guild factor.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'A guild factor introduction opens the sealed archive.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'reading ward mark anomalies on sealed guild documents');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'Two mark systems on the same document: the outer seal is guild standard, applied by the registry notary whose initial appears in the corner. The inner ward — the one that governs who can open the seal without triggering the authentication alert — is a different notation entirely. Older style, regional, the kind used by independent scrivencraft practitioners before the guild standardized the method. Someone with pre-guild credentials applied an inner ward to a guild document. The outer seal exists to make that invisible. To anyone without the training to read both layers.';
+        G.stageProgress[1]++;
+        addJournal('Sealed guild document carries dual-layer wards — inner ward by pre-guild practitioner, outer seal as cover', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'You read the ward marks correctly but draw the wrong conclusion — what looks like a notation anomaly is actually a standard authentication variant used for documents in transit between guild districts. The clerk watching you from the reference desk has seen you spend ten minutes examining a routine document and is now deciding whether to log the interaction. She reaches for her ledger. You pick up a pamphlet from the rack and leave before she finishes writing.';
+        addJournal('Ward mark misread — clerk logged extended document examination', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The outer seal reads normally. The inner notation — applied before the seal, not after — uses a symbol set that the guild standardized away from fifteen years ago. Someone applied the inner ward using the old notation, then had a guild notary apply the outer seal over it. Either the notary didn\'t check the inner layer, or they were told not to. The document\'s reference number should be traceable through the registry archive.';
+        addJournal('Inner ward on sealed document uses pre-standard notation — applied before guild seal', 'evidence');
+      } else {
+        G.lastResult = 'The ward marks are unusual — not wrong, but unusual in a way that would require a reference text to be specific about. The outer notation is standard. The inner layer, readable only if you know to look for a second application, uses a form you\'ve seen but can\'t place without checking a notation index. The guild archive holds the pre-standardization notation manual. The reading room is open during two daily windows.';
+        addJournal('Guild document: dual-layer ward notation suspected, notation index needed for confirmation', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'magic',
+    label: 'The manifest column totals are right. The cipher in the margin is not.',
+    tags: ['Knowledge', 'Lore', 'Records', 'Cipher'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The margin notation is too compressed to read without a key — it could be bookkeeping shorthand, it could be something else. The guild archive holds the manifest notation standards manual, which would confirm whether this is authorized margin use. The reading room requires a registered introduction to access.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'A registered introduction opens the notation standards manual.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'decoding manifest margin cipher');
+      G.stageProgress[1]++;
+
+      var result = rollD20('lore', (G.skills.lore || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The margin notation is a substitution cipher using the manifest column headers as the key — elegant, obvious once you see it, invisible if you\'re only checking the column totals. The decoded message is a secondary routing instruction: the listed cargo goes to the registered consignee, and a percentage of it — encoded as a fraction of the fourth column — goes to an address in the northern commercial district that doesn\'t appear in any guild registry. The percentage has been constant across four manifests. This is a system, not an error.';
+        G.stageProgress[1]++;
+        addJournal('Manifest margin cipher decoded — systematic secondary routing to unregistered northern address', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The margin notation resolves as ordinary bookkeeping shorthand — a ledger assistant\'s notation system, nothing more, and you\'ve spent enough time staring at the manifest that the registry clerk has come over twice. On the second visit she asks if you\'d like to submit a formal records inquiry. The offer is polite and specific. It is also a way of getting your name attached to the document you\'ve been reading. You decline and step away from the table.';
+        addJournal('Manifest margin misread — registry clerk offered formal inquiry, interaction logged', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The margin notation uses a simple offset cipher — the kind a careful bookkeeper applies when the real routing can\'t appear in the main columns. You decode two of the four lines before you lose the key pattern. What you have: a fraction notation that maps to a secondary quantity, and a reference number that doesn\'t appear in the main manifest body. The reference number is the thread. It will appear somewhere else in the registry system.';
+        addJournal('Manifest margin: partial cipher decoded — secondary quantity fraction and reference number recovered', 'evidence');
+      } else {
+        G.lastResult = 'The margin notation is deliberate — the spacing is too consistent for casual jottings, and the characters are selected from the same subset across multiple lines. It\'s a cipher, but the key isn\'t in the document. Substitution ciphers of this type in merchant contexts usually use the manifest column headers, or the consignee address, or a shared document referenced in the routing instructions. You have two of those three available at this table.';
+        addJournal('Manifest margin: cipher confirmed, key not yet identified — column headers or address as candidates', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // STEALTH ×2 — Tailing or covert entry
+  {
+    archetypeGroup: 'stealth',
+    label: 'The guild factor takes the same route through the commercial district every morning.',
+    tags: ['Stealth', 'Observation', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The factor varies his route this morning — a new street, a covered arcade you hadn\'t mapped. By the time you reorient he\'s inside the guild post and the door is closed. Whatever the morning route was meant to show you, it showed you nothing today.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Fall back and map the route properly before the next morning.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'tailing a guild factor through the commercial district');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'The factor stops twice — once to exchange a sealed note with a clerk outside the Silkweaver counting house, once to check a ward mark on a doorframe in the lesser arcade that he pretends to examine as a scratch on the frame. Both stops are brief and both are clearly routine. At the guild post entrance he pauses and looks back along the street — a practiced check, not alarm. You\'re behind a cart vendor and he looks past you. The clerk who received the note didn\'t put it in a bag. She put it directly inside her coat. The ward mark on the doorframe was freshly applied — still faintly tacky.';
+        G.stageProgress[1]++;
+        addJournal('Factor route: sealed note to coat (not bag), freshly-applied ward mark checked — both irregular', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The factor doesn\'t look back — he stops. Mid-street, between the chandler stalls and the guild registry steps, he simply stops walking and waits. He doesn\'t look behind him. He counts something silently, you can see his lips move, and then continues. By the time he reaches the guild post you understand: he stops at random points to flush tails. He knows someone is behind him, or he always assumes someone is. Either way, he\'s logged the shape of your presence on his route without ever looking at you.';
+        addJournal('Factor uses counter-surveillance stops — presence noted without confirmation', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The factor makes one stop you hadn\'t mapped: the letter alcove in the Silkweaver\'s Chapel. He deposits something small and picks up something folded. The exchange takes eleven seconds. The chapel clock reads the second-watch morning hour — the same time Marta at the Amber Fountain noted for the regular collections from that alcove. The factor connects to the letter network you already know about. He is not just a user of it. His timing is too precise.';
+        addJournal('Factor uses Silkweaver letter alcove at second-watch hour — connected to known letter network', 'evidence');
+      } else {
+        G.lastResult = 'The factor takes his route without deviation and without looking back. He enters three buildings. You note all three: the Silkweaver counting house, the lesser arcade under the registry steps, and the guild post on Manifest Row. The lesser arcade stop is the anomaly — it\'s two blocks off the most direct route between the other two. He spends four minutes inside. It\'s worth knowing what\'s in the lesser arcade.';
+        addJournal('Factor route: lesser arcade stop anomalous — 4 minutes, 2 blocks off direct route', 'discovery');
+      }
+
+      G.recentOutcomeType = 'stealth';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'stealth',
+    label: 'The counting house closes at the fifth-watch bell. The back entrance does not lock until later.',
+    tags: ['Stealth', 'Infiltration', 'Risk'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The back entrance locks earlier than the posted schedule suggests — a recent change, no notice posted. You find the latch seated before you reach it and the ward mark on the frame freshly activated. Someone updated the lock schedule and didn\'t announce it. The front entrance closes at the same hour. The counting house is sealed for the night.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find another approach before the night patrol begins.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'entering the counting house after hours');
+      G.stageProgress[1]++;
+
+      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var target = 15;
+
+      if (result.isCrit) {
+        G.lastResult = 'The back entrance gives and the counting house after hours is a different space — the ward marks on the doorframes are visible in the low lamp, and two of them are active in a configuration that isn\'t standard locking. Someone has set them to notify on exit, not on entry. Whoever comes here after hours doesn\'t want a record of leaving. The manifest archive is open on the main table: a set of routing slips bundled with a factor\'s seal and an address in the northern district written in a hand different from the manifests themselves. You copy the address and reseal the bundle before you leave.';
+        G.stageProgress[1]++;
+        addJournal('After-hours counting house: exit-notify wards active, northern district address in different hand on routing bundle', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'You clear the back entrance and are three steps inside when the lamp at the far end of the main room flares — a ward trigger, not a person, but the light lasts thirty seconds and anyone on the street outside can see the glow through the shutter gap. You\'re back through the entrance before the light dies. The ward logged the entry. You don\'t know what the log connects to, but whoever reads it will know someone came after hours.';
+        addJournal('Counting house entry triggered ward log — after-hours attempt recorded', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The counting house interior after hours smells of lamp oil and old ledger leather. The main table holds three sealed routing bundles — too risky to open without knowing the ward configuration. But the manifest index above the archive shelf is unsecured: a list of reference numbers with factor initials. Two reference numbers in the index carry an additional notation that doesn\'t match any standard classification you recognize. You note them and clear the building in under four minutes.';
+        addJournal('After-hours counting house: manifest index accessed — two reference numbers with unrecognized classification', 'evidence');
+      } else {
+        G.lastResult = 'You clear the back entrance and make it to the manifest archive shelf before you hear footsteps on the upper floor — a night clerk, or a factor working late, the sound of a chair moving. You freeze and the footsteps settle without descending. You have time to read the manifest index at the top of the shelf before retreating. It\'s enough to confirm that certain reference numbers don\'t have corresponding entries in the public registry. The archive holds the full records.';
+        addJournal('After-hours counting house: late occupant upstairs — manifest index partial access, archive holds full records', 'discovery');
+      }
+
+      G.recentOutcomeType = 'stealth';
+      maybeStageAdvance();
+    }
+  },
+
+  // SUPPORT ×2 — Negotiation or information brokering
+  {
+    archetypeGroup: 'support',
+    label: 'The trade concession is worth more to him than the manifest access is worth to them.',
+    tags: ['Social', 'NPC', 'Negotiation', 'Commerce'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The factor considers the concession and declines without explaining why — a specific decline, not a general one. Whatever you offered has a problem you\'re not aware of. He straightens a stack of papers that doesn\'t need straightening and waits for you to leave. The ledger access is more protected than the concession covers.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a more valuable lever before the factor closes the window.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'leveraging trade concession for manifest access');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The factor listens to the concession offer and his expression does something careful and controlled that might be relief. He opens the ledger to the reference section and steps back from it. "I\'m going to check the northern corridor filing." He doesn\'t check the northern corridor filing — there is no northern corridor filing at this hour. He gives you four minutes and doesn\'t look back. The reference section holds seven entries with the routing anomaly you\'ve been tracing — all initialed by the same factor. He is not that factor.';
+        G.stageProgress[1]++;
+        addJournal('Ledger reference section accessed: 7 routing anomalies under single factor\'s initial', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The factor\'s expression shifts when you name the concession — not refusal, recognition. He knows what you\'re offering because he knows why you\'re asking. He closes the ledger before it\'s been opened and looks at the door. "This conversation didn\'t happen in this building." He says it with absolute precision, the way someone delivers a message they\'ve been asked to deliver. He picks up a routing form and begins filling it out for something else. The ledger goes into the locked drawer.';
+        addJournal('Factor recognized the concession offer as a test — ledger locked, interaction denied', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The factor accepts the concession and opens the ledger to the routing section — not the full ledger, the routing section only. It\'s enough. Two entries in the past three weeks carry a routing code that doesn\'t match any registered channel in the district registry. The factor watches you read them. "Those references were submitted through the northern desk," he says. "I don\'t handle the northern desk." He closes the ledger when you\'re done. The transaction is complete.';
+        addJournal('Ledger routing section: two entries with unregistered channel codes — northern desk submission', 'evidence');
+      } else {
+        G.lastResult = 'The factor takes the concession and gives you fifteen minutes with the ledger index — not the ledger itself, the index. The index lists reference numbers, dates, and factor initials. It\'s a starting point. Three reference numbers in the past month share an initial that doesn\'t appear in the factor directory posted at the registry entrance. Either the directory is incomplete or the initial belongs to someone operating outside the registered system.';
+        addJournal('Ledger index accessed: three references share an initial absent from factor directory', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    archetypeGroup: 'support',
+    label: 'The clerk knows the ledger discrepancy threatens her standing, not just the merchants\'.',
+    tags: ['Social', 'NPC', 'Persuasion', 'Records'],
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: {
+      text: 'The clerk listens to the framing and doesn\'t move. "Discrepancy resolution is Category Two. Category Two goes through the oversight desk." She sets a routing form on the counter. The form requires a registered factor as co-signatory. She knows you don\'t have a registered factor. The form is a door that looks like a form.',
+      xp: 0,
+      effects: [],
+      next: [{text: 'Find a registered factor co-signatory before the window closes.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(65, 'convincing clerk ledger discrepancy threatens her standing');
+      G.stageProgress[1]++;
+
+      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var target = 13;
+
+      if (result.isCrit) {
+        G.lastResult = 'The clerk stops writing when you explain what a Category Two discrepancy in her section means for the quarter audit. Her pen finds the edge of the routing form and scores a small line along it without her seeming to notice. "The entries were submitted through the supplemental registry. I processed them on instruction from the oversight desk." She opens her intake log without being asked. "If the oversight desk issued the instruction, the oversight desk carries the liability. Not this counter." She shows you the intake log. The oversight desk instruction is there. It has no counter-signature.';
+        G.stageProgress[1]++;
+        addJournal('Clerk showed intake log: oversight desk instruction for discrepant entries has no counter-signature', 'evidence');
+      } else if (result.isFumble) {
+        G.lastResult = 'The clerk hears the implication and goes very still. Then she reaches for the incident log and begins writing in it — not a hostile act, a protective one. She is documenting the conversation before you can document it differently. "Any concern about record accuracy should be filed through the supplemental inquiry process." She doesn\'t look up while she writes. The entry she\'s making right now will appear in the section audit before your inquiry does.';
+        G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
+        addJournal('Clerk logged the conversation pre-emptively — incident record filed before inquiry', 'complication');
+      } else if (result.total >= target) {
+        G.lastResult = 'The clerk doesn\'t open the ledger, but she stops routing you to the oversight desk. "The discrepancy was flagged internally three weeks ago," she says, her voice low under the counter noise. "The flag came back marked reviewed. Nothing changed in the entries." She holds her pen over a fresh routing form without beginning to write. "Reviewed by whom is not in my section\'s record." The section that holds the reviewer\'s identity is the supplemental registry. She knows this. She says it without saying it.';
+        addJournal('Clerk confirmed internal flag on discrepancy — reviewer identity in supplemental registry', 'evidence');
+      } else {
+        G.lastResult = 'The clerk hears the argument and considers it for a full five seconds — long enough that you know she\'s done the calculation. Then she slides the routing form back. "The discrepancy is recorded. The oversight desk review is recorded." She opens her log and shows you the entry dates. "What I cannot tell you is what the review concluded. That\'s in a section of the record I don\'t access." She taps the date on the review entry. The review happened on a day the oversight desk was not officially in session.';
+        addJournal('Clerk showed review entry — oversight desk record dated to an unofficial session day', 'discovery');
+      }
+
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  }
+
+);
