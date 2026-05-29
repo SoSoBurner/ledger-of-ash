@@ -4455,9 +4455,11 @@ function resolveCombatAction(action, abilityId) {
     resultText = '<strong>d20 roll: ' + roll + '</strong> + Might ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + (compAtkBonus ? ' + companion ' + compAtkBonus : '') + (nextAtkBonus ? ' + bonus ' + nextAtkBonus : '') + (stratAtkBonus ? ' + strategy ' + stratAtkBonus : '') + ' = <strong>' + total + '</strong><br>';
 
     if (hit) {
-      CS.enemy.hp = Math.max(0, CS.enemy.hp - baseDmg);
-      playerDamage = baseDmg;
-      resultText += 'Your strike connects. <em>' + CS.enemy.name + '</em> takes ' + baseDmg + ' damage.';
+      var _critBonus = (_archFamily === 'stealth' && roll >= 18) ? (Math.floor(Math.random() * 6) + 1) : 0;
+      var _totalDmg = baseDmg + _critBonus;
+      CS.enemy.hp = Math.max(0, CS.enemy.hp - _totalDmg);
+      playerDamage = _totalDmg;
+      resultText += 'Your strike connects. <em>' + CS.enemy.name + '</em> takes ' + baseDmg + ' damage' + (_critBonus ? ' + <strong>' + _critBonus + ' precision crit</strong>' : '') + '.';
       resultType = 'success';
     } else {
       resultText += 'Your strike is deflected. ' + CS.enemy.name + ' holds their ground.';
