@@ -1184,7 +1184,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'Two inscription layers. The outer layer is current Roazian coastal marking script — navigation and warning text for the tidal shelf, correctly inscribed, recently renewed. The inner layer is older and uses a different maritime tradition: a tidal cipher script that predates the current port authority by at least fifty years. The old script is a route marker. It designates a specific tidal window — six hours after the third bell — and a channel approach that bypasses the harbor gate sensors. The bypass channel is still physically passable. The cipher was inscribed before the harbor gate sensors existed. But someone renewed the outer layer of the stone within the past three weeks. They knew the inner inscription was there and they renewed the outer layer over it rather than replacing the stone. They wanted the inner inscription preserved.';
+        G.lastResult = 'Two inscription layers. The outer layer is current Roazian coastal marking script — navigation and warning text for the tidal shelf, correctly inscribed, recently renewed. The inner layer is older and uses a different maritime tradition: a tidal cipher script that predates the current port authority by at least fifty years. The old script is a route marker. It designates a specific tidal window — six hours after the third bell — and a channel approach that bypasses the harbor gate sensors. But someone renewed the outer layer within the past three weeks. They knew the inner inscription was there and renewed over it rather than replacing the stone. They wanted it preserved.';
         G.stageProgress[1]++;
         addJournal('Coastal marker stone: inner tidal cipher identifies gate-bypass channel approach window; outer layer renewed 3 weeks ago over inner inscription — deliberate preservation', 'evidence');
       } else if (result.isFumble) {
@@ -1226,7 +1226,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The ward on the archive cabinet is a detection-and-logging mark — not a lock, a recorder. Every time the cabinet is opened, the mark logs the access. But the mark is not reporting to the port authority. The ward\'s reporting anchor is set to a remote receiver outside the port authority building — the anchor symbol is a specific maritime guild sigil that the port authority does not use. Someone who is not port authority has been monitoring every time this archive is opened, and they have been doing it for at least six weeks, which is when the ward was inscribed. The cabinet holds the original authorization records for the inner dock. Whoever is watching knows every time those records are accessed.';
+        G.lastResult = 'The ward on the archive cabinet is a detection-and-logging mark — not a lock, a recorder. Every time the cabinet is opened, the mark logs the access. But the mark is not reporting to the port authority. The ward\'s reporting anchor is set to a remote receiver outside the port authority building — the anchor symbol is a specific maritime guild sigil that the port authority does not use. Someone who is not port authority has been monitoring every time this archive is opened, and they have been doing it for at least six weeks, which is when the ward was inscribed. Whoever is watching knows every time those records are accessed.';
         G.stageProgress[1]++;
         addJournal('Port archive cabinet ward is a remote-logging mark, not a lock — reports to maritime guild sigil receiver outside port authority; monitoring inner dock authorization access for 6 weeks', 'evidence');
       } else if (result.isFumble) {
@@ -1248,7 +1248,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH x2
   {
     archetypeGroup: 'stealth',
-    label: "The watched building, second floor, east window. There\'s a person inside who shouldn\'t be visible at all.",
+    label: "The watched building, second floor east window. Someone inside who shouldn\'t be visible at all.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1269,7 +1269,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       var target = 15;
 
       if (result.isCrit) {
-        G.lastResult = 'In through the warehouse loading bay beside the watched building, across the shared loft, down to the east room. The person inside is a port authority records clerk who has been in this room for three days — not held by force, held by the weight of knowing something. She is Dalve, she has been keeping secondary cargo records for the inner dock berths for six months, and she stopped going to work when the watcher coverage on her building doubled two weeks ago. She has the secondary records with her. All of them. They detail eleven months of unregistered berth activity, signed authorizations, and the name of the senior factor who authorized them. The name is in the port authority directory. He is currently listed as off-station.';
+        G.lastResult = 'In through the warehouse loading bay beside the watched building, across the shared loft, down to the east room. The person inside is a port authority records clerk who has been in this room for three days — not held by force, held by the weight of knowing something. She is Dalve, she has been keeping secondary cargo records for the inner dock berths for six months, and she stopped going to work when the watcher coverage on her building doubled two weeks ago. She has the secondary records with her. All of them. They detail eleven months of unregistered berth activity, signed authorizations, and the name of the senior factor who authorized them.';
         G.stageProgress[1]++;
         addJournal('Extracted records clerk Dalve from watched building — has 11 months of secondary inner dock records; senior factor name on authorizations listed as off-station', 'evidence');
       } else if (result.isFumble) {
@@ -1334,7 +1334,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
-    label: "The watcher has been standing in the salt row for four hours. He\'s not watching the harbor.",
+    label: "The watcher has been in the salt row for four hours. Not watching the harbor.",
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
     stageProgress: 1,
@@ -1355,7 +1355,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The watcher\'s name is Fen. He has been in the salt row for six weeks — not watching the harbor, watching the port authority records room window. "Someone is supposed to come out of that window with a document case," he says. He says it the way someone says something they have been waiting six weeks to say to the right person. "I don\'t know who sends me. The pay comes through the salt merchant at the end of the row. I was told to watch for a records clerk who would leave by the window rather than the door." He looks at the records room window. "She hasn\'t come yet." He tells you the pay schedule, the signal system, and the salt merchant\'s name without being asked for any of it. He has decided the thing he is involved in is larger than he understood when he agreed to it.';
+        G.lastResult = 'The watcher\'s name is Fen. He has been in the salt row for six weeks — not watching the harbor, watching the port authority records room window. "Someone is supposed to come out of that window with a document case," he says. "I don\'t know who sends me. The pay comes through the salt merchant at the end of the row. I was told to watch for a records clerk who would leave by the window rather than the door." He looks at the records room window. "She hasn\'t come yet." He tells you the pay schedule, the signal system, and the salt merchant\'s name without being asked for any of it.';
         G.stageProgress[1]++;
         addJournal('Watcher Fen: watching port authority records room window for records clerk leaving by window with document case; paid through salt merchant row; 6 weeks, no contact yet', 'evidence');
       } else if (result.isFumble) {
@@ -1377,7 +1377,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
-    label: "The salt merchant controls port access. He knows it. He\'s waiting for someone to acknowledge it.",
+    label: "The salt merchant controls port access. He knows it. He\'s waiting for acknowledgment.",
     tags: ['Support', 'NPC', 'Negotiation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1398,7 +1398,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The salt merchant sets his display weight down when the offer acknowledges his actual function rather than his nominal one. "Port authority manages the front gate. I manage what moves through the inner dock." He says it plainly, without pride — a statement of operational reality. "Six months ago I was approached by someone from the port authority factor\'s office. They needed cargo to move through the inner dock without appearing in the external manifest. I agreed because I was paid well and the alternative was not offered as optional." He turns the display weight in his hand. "I kept a list of every movement. I kept it because I knew I would need it." He retrieves the list from under the display counter and hands it to you.';
+        G.lastResult = 'The salt merchant sets his display weight down when the offer acknowledges his actual function rather than his nominal one. "Port authority manages the front gate. I manage what moves through the inner dock." "Six months ago I was approached by someone from the port authority factor\'s office. They needed cargo to move through the inner dock without appearing in the external manifest. I agreed because I was paid well and the alternative was not offered as optional." He turns the display weight in his hand. "I kept a list of every movement. I kept it because I knew I would need it." He retrieves the list from under the display counter and hands it to you.';
         G.stageProgress[1]++;
         addJournal('Salt merchant produced 6-month list of inner dock off-manifest cargo movements — approached by port authority factor\'s office; coerced participation; kept records for protection', 'evidence');
       } else if (result.isFumble) {

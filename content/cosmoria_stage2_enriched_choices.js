@@ -1524,7 +1524,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The compound transit staging area has a second floor. The stairs aren't on the building plans.",
+    label: "The transit staging area has a second floor. The stairs aren't on the building plans.",
     tags: ['Airship', 'Stage2'],
     tag: 'bold',
     xpReward: 84,
@@ -1539,7 +1539,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.staging_second_floor_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The building plans on file at the Harbor Authority show a single-story staging structure, two cargo bays, standard internal layout. The exterior wall on the harbor side of the building rises a full three meters above the roofline shown on those plans — the extra height is visible from the sea wall and from any vantage above the dock level. Inside, behind a false partition at the back of bay two, an iron stair leads up. The upper floor is not finished as a storage space. It has a desk, a lamp bracket, and a tide table pinned to the wall — the same discontinued Cosmouth tide calendar Nerissa uses for comparison. Someone works here on the nights the airships load.';
+        G.lastResult = 'The building plans on file show a single-story staging structure, two cargo bays, standard internal layout. The exterior wall on the harbor side rises a full three meters above the roofline shown on those plans — the extra height is visible from the sea wall and from any vantage above the dock level. Inside, behind a false partition at the back of bay two, an iron stair leads up. The upper floor is not finished as a storage space. It has a desk, a lamp bracket, and a tide table pinned to the wall — the same discontinued Cosmouth tide calendar Nerissa uses for comparison. Someone works here on the nights the airships load.';
         addJournal('Staging compound: unlisted second floor behind false partition — desk, discontinued Cosmouth tide calendar on wall, exterior height inconsistent with filed building plans', 'evidence', `cos-secondfloor-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -1549,7 +1549,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.staging_second_floor_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The building plans show a single-story structure. The exterior wall height is inconsistent with that — visible from the sea wall lookout if the angle is right. Inside, getting past the cargo bay and into the back of the structure reveals a false partition. The partition is not locked. Behind it, iron stairs. The upper space is occupied — lamp bracket, a work surface, papers. The papers go back in place before the building\'s exterior sounds suggest someone has arrived at the bay door.';
+        G.lastResult = 'The building plans show a single-story structure. The exterior wall height is inconsistent with that — visible from the sea wall lookout. Inside, getting past the cargo bay to the back reveals a false partition. The partition is not locked. Behind it, iron stairs. The upper space is occupied — lamp bracket, a work surface, papers. The papers go back before exterior sounds suggest someone has arrived at the bay door.';
         addJournal('Staging compound second floor accessed — unlisted in building plans, occupied work space, papers recovered', 'intelligence', `cos-secondfloor-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -1820,7 +1820,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Selka took a room off the rental list for six weeks. She won't say who stayed.",
+    label: "Selka took a room off the rental list for six weeks. Won't say who stayed.",
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 65,
@@ -1852,7 +1852,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The compound transit manifest has a third copy. Selka has been holding it for two months.",
+    label: "The transit manifest has a third copy. Selka has been holding it for two months.",
     tags: ['NPC', 'Maritime', 'Stage2'],
     tag: 'bold',
     plot: 'main',
@@ -1885,7 +1885,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The archive has a second entrance. Coralyn uses it only after the public reading room closes.",
+    label: "The archive has a second entrance. Coralyn uses it after the reading room closes.",
     tags: ['Maritime', 'Stage2'],
     tag: 'bold',
     xpReward: 76,
@@ -1951,7 +1951,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A loading receipt is stamped twice — once by the Harbor Authority, once by an office without a name.",
+    label: "A loading receipt stamped twice: once by the Harbor Authority, once by an unnamed office.",
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
     xpReward: 70,

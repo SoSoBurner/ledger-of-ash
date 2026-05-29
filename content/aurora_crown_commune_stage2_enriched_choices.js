@@ -940,7 +940,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Theron's porter log has a seven-day blank. The dome was sealed for an air maintenance cycle.",
+    label: "Theron's porter log has a seven-day blank. The dome was sealed for maintenance.",
     tags: ['Dome', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -987,7 +987,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_sera_overnight_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Sera has a bedroll under her desk — visible because she didn\'t move it when she stood up. She opens the third drawer before she sits and puts a folder on the desk without covering the bedroll first. "I found the internal compliance review." The folder is four pages. A dome administration review of the filtration intake anomalies, commissioned three months ago, completed two months ago, never entered into the public record. The review\'s conclusion: the anomalies are consistent with intentional compound dosing. The review was classified and filed in the administration archive under a technical maintenance category. The administrator who classified it was the Collegium liaison\'s counterpart in the commune executive. She holds up the page with the signature. "This is who buried it."';
+        G.lastResult = 'Sera has a bedroll under her desk — visible because she didn\'t move it when she stood up. She opens the third drawer before she sits and puts a folder on the desk without covering the bedroll first. "I found the internal compliance review." The folder is four pages. A dome administration review of the filtration intake anomalies, commissioned three months ago, completed two months ago, never entered into the public record. The review\'s conclusion: the anomalies are consistent with intentional compound dosing. It was classified and filed under a technical maintenance category. The administrator who classified it was the Collegium liaison\'s counterpart in the commune executive. She holds up the page with the signature. "This is who buried it."';
         addJournal('Internal compliance review found — confirms intentional dosing, classified by commune executive at liaison instruction', 'evidence', 'aur-sera-overnight-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1037,7 +1037,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Cadrin Sealwater ran the numbers on his own. He's been sitting on the result for two weeks.",
+    label: "Cadrin ran the numbers himself. He's been sitting on the result for two weeks.",
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 73,
     fn: function() {
@@ -1331,7 +1331,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A transit rider from the northern circuit knows Aurora Crown's Collegium liaison by a different name.",
+    label: "A northern circuit transit rider knows the Collegium liaison by a different name.",
     tags: ['Stage2', 'CrossLocality', 'Charm'],
     xpReward: 80,
     fn: function() {
@@ -1345,7 +1345,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_liaison_alias_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The transit rider is a northern circuit regular — Soreheim to the upper localities, quarterly run. She knows the Collegium liaison who visits Aurora Crown because she has carried sealed correspondence for them three times. The name on the correspondence she carried does not match the name in the Aurora Crown dome administration register. She says the name she knows without being asked twice. You write it down. It is a Soreheim institutional name — not a Collegium one. The liaison is operating under a Collegium credential that belongs to a position that may not exist. The northern circuit sees everyone who moves between localities. The rider looks at what you wrote. "That person moves around a lot," she says. "Quietly."';
+        G.lastResult = 'The transit rider is a northern circuit regular — Soreheim to the upper localities, quarterly run. She knows the Collegium liaison who visits Aurora Crown because she has carried sealed correspondence for them three times. The name on the correspondence she carried does not match the name in the Aurora Crown dome administration register. She says the name she knows without being asked twice. You write it down. It is a Soreheim institutional name — not a Collegium one. The liaison is operating under a Collegium credential that belongs to a position that may not exist. The rider looks at what you wrote. "That person moves around a lot," she says. "Quietly."';
         addJournal('Liaison name on northern circuit correspondence differs from dome register — Soreheim institutional name, possible fabricated Collegium credential', 'evidence', 'aur-liaison-alias-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1357,6 +1357,563 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'The northern circuit rider knows the liaison from transit work. She does not give the full name unprompted, but when you describe the person — the Collegium coat, the sealed documentation, the regular Aurora Crown visits — she nods and says a name. It is not the name in the dome administration register. She does not explain the difference. "I carry what I\'m given. I note who gave it." She finishes her drink. "That name has come up in more than one direction on the circuit." She does not say more. She does not need to.';
         addJournal('Transit rider gives different name for liaison — northern circuit name diverges from dome register, described as multi-directional presence on circuit', 'intelligence', 'aur-liaison-alias-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+
+  // ── NEW BATCH: DOME FILTRATION RECORDS & GLYPH SURGE DATA (5) ───────────────
+
+  {
+    label: "The intake manifold pressure log shows a spike that wasn't in the official summary.",
+    tags: ['Dome', 'Stage2', 'Lore'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'comparing raw intake manifold pressure data against filed summary report');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_pressure_log_discrepancy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The raw pressure data terminal in the stabilizer corridor prints a continuous paper tape — not a screen, tape, which means it cannot be edited after the fact. You unroll the tape to the date of the first Northern Provision Compact delivery. A pressure spike runs for eleven minutes at 1.4 times the standard draw rate. The filed monthly summary for the same period lists intake pressure as within normal parameters for the entire month. The summary was generated from the same system. The tape and the summary describe different events. Someone reported the tape as normal and the tape was still running.';
+        addJournal('Raw intake pressure tape shows spike not in filed summary — tape irremovable, summary falsified for delivery period', 'evidence', 'aur-pressure-spike-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The pressure tape terminal is mounted behind the stabilizer duty desk — accessible only while the duty officer steps away, which she does not. She clocks your interest before you reach the terminal housing and sets her clipboard down on the desk with the deliberate calm of someone who has been briefed on external access. The terminal is in the duty zone. The duty zone requires a signed access pass. She has the forms. The forms require the marshal\'s countersignature. Sera\'s office is across the corridor. You can ask her yourself.';
+        addJournal('Pressure tape terminal in duty zone — access pass required, marshal countersignature needed', 'complication', 'aur-pressure-spike-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_pressure_log_discrepancy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The pressure tape shows an elevated draw period on the delivery date — eleven minutes, 1.4 times normal. You check the filed summary for the same month. Normal parameters across the whole month. The summary and the tape are from the same system but they do not agree about those eleven minutes. The tape is paper. It keeps printing regardless of what is filed. You note the date and the duration. The smell of the stabilizer corridor — filtered air, faint trace of glyph-burn, something waxy at the lower ventilation seam — sits in your throat on the walk back.';
+        addJournal('Intake pressure spike on delivery date absent from monthly summary — raw tape and filed report diverge', 'evidence', 'aur-pressure-spike-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The glyph-surge threshold alarm was disabled. The disable log entry is missing a name.",
+    tags: ['Dome', 'Stage2', 'Craft'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing the glyph-surge threshold alarm disable event in the stabilizer panel log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_alarm_disable_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The stabilizer panel log runs in two columns: event and authorizing party. Every disable event in the log has a name in the second column except one — the disable event three weeks before the first Northern Provision Compact delivery. That entry reads "technical services" without a personal identifier. Dome protocol requires an individual name for any threshold modification. "Technical services" is not a person. The alarm that should have triggered when glyph-surge concentrations exceeded the dome\'s residential safety threshold was silenced before the compound deliveries began, under an authorization that names no one. The silence was deliberate and the deliberateness was hidden.';
+        addJournal('Surge alarm disable log missing authorizing name — blanket "technical services" entry, pre-dates first delivery, protocol violation', 'evidence', 'aur-alarm-disable-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The stabilizer panel log access requires a dome maintenance certification code — a physical key tag, not a password. The duty officer at the stabilizer station checks your hands for the tag before she says anything else. External parties can submit a log access request to the stabilizer administration office. The office processes requests in five working days. She says this without particular inflection. The panel log is two meters from where you are standing.';
+        addJournal('Stabilizer panel log requires physical key tag — access request process, five working days', 'complication', 'aur-alarm-disable-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_alarm_disable_traced = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'One entry in the stabilizer panel log has no name in the authorizing party column. Every other entry does — date, event, name, certification number. This one has "technical services" and nothing else. The event is a threshold alarm disable, dated three weeks before the first delivery. Protocol requires a name. The entry doesn\'t have one. Whatever standard prevented the dome\'s alarm from sounding when the compound concentrations rose, it was turned off by someone who did not want to be identified in the log.';
+        addJournal('Surge alarm disabled by unnamed "technical services" entry — protocol violation, predates deliveries', 'evidence', 'aur-alarm-disable-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The filtration intake flow rate was throttled down for eight hours during each delivery.",
+    tags: ['Dome', 'Stage2', 'Survival'],
+    xpReward: 71,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(71, 'examining filtration flow rate records against delivery timestamps in the eastern corridor log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_flow_throttle_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The eastern corridor log keeps flow rate data in hourly blocks on paper cards slotted into a wall-mounted holder — low-tech, designed as a backup for the digital system. You pull the cards for every delivery date. Each one shows the same pattern: flow rate drops to thirty percent of standard for an eight-hour window beginning two hours after the delivery vehicle logs in at the intake bay. A reduced flow rate in the intake means compounds introduced during that window dwell longer before the air exchanges out. The amber residue and the extended dwell time work together. A compound introduced at thirty percent flow dwell concentrates in the air supply. It does not dilute. It accumulates.';
+        addJournal('Flow rate throttled to 30% during 8hr window on every delivery date — compound dwell concentration multiplied, paper card log confirms', 'evidence', 'aur-flow-throttle-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The paper card holder is in the eastern corridor behind a maintenance gate — accessible to credentialed dome staff only during active rotation. A crew running thermal conduit work has the gate open, but the foreman plants himself between you and the card holder before you reach it. "Maintenance documentation is for maintenance personnel." He is not unkind. He also does not move. The cards sit in their slots two meters away and the flow data on them belongs to a date range that could change everything.';
+        addJournal('Flow rate card holder behind maintenance gate — crew foreman blocked access during active rotation', 'complication', 'aur-flow-throttle-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_flow_throttle_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The flow rate cards for the delivery dates all show the same eight-hour low-rate window. Thirty percent of standard, starting two hours after vehicle arrival. The window ends and flow returns to normal. Every delivery, same window, same reduction. A throttled flow rate means whatever enters the intake during that window stays in the air system longer. The filtered air smell in the corridor is slightly different here than in the residential sections — cleaner, more mineral. In the residential sections it carries something else underneath.';
+        addJournal('Flow rate throttled on every delivery date — 8hr window at 30% draw, consistent across all deliveries', 'evidence', 'aur-flow-throttle-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The dome's air quality certification has been renewed annually. The certifier is the supplier.",
+    tags: ['Dome', 'Stage2', 'Lore'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'tracing the air quality certification authority against Northern Provision Compact registration records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_certifier_conflict_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The dome air quality certification is posted on the administration board near the main gate — a public record, required for any enclosed settlement under Collegium infrastructure standards. The certifying authority is the Northern Settlements Technical Consortium, a Collegium-aligned body. You pull the Consortium\'s registered membership list from the commune archive. Northern Provision Compact is a member-organization of the Consortium. The entity certifying Aurora Crown\'s air quality as safe and the entity supplying the compound being introduced into the air supply are the same organizational family. The certification was most recently renewed six weeks after the first delivery.';
+        addJournal('Air quality certifier is same organizational family as supplier — Consortium member Northern Provision Compact, certification renewed post-delivery', 'evidence', 'aur-certifier-conflict-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The certification authority research requires cross-referencing the Consortium membership list, which sits in the inter-settlement registry system. The search generates an access log entry for the Consortium\'s administrative notice system — standard procedure for membership list queries. The Consortium receives a notification that its membership records were accessed by an external party at Aurora Crown. This is automatic. You could not have known before running the search. Someone at the Consortium now knows someone in Aurora Crown is checking who they are.';
+        addJournal('Consortium membership search triggered access notification — external party flag sent to Consortium administration', 'complication', 'aur-certifier-conflict-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_certifier_conflict_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The air quality certification posted at the main gate names the Northern Settlements Technical Consortium as certifying authority. The Consortium\'s membership list includes Northern Provision Compact. The certifier and the supplier are members of the same body. The certification was renewed after the deliveries began. The dome\'s posted proof of safe air was produced by an organization whose member is introducing the compound into the dome\'s air system. You write the Consortium\'s name next to the supplier\'s name in your notes. The two names share a line.';
+        addJournal('Air quality certifier Consortium includes supplier as member — certification renewed after deliveries began, conflict of interest confirmed', 'evidence', 'aur-certifier-conflict-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The dome's original filtration schematics were replaced four months ago. The old ones are missing.",
+    tags: ['Dome', 'Stage2', 'Stealth'],
+    xpReward: 73,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(73, 'locating the original dome filtration schematics before their replacement by Collegium-filed versions');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_original_schematics_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The dome archive index lists two sets of filtration schematics: the current version and the prior version, which should have been archived in the technical records section. The technical records section has the current version and a placeholder noting the prior version was "removed for revision." But the dismissed technician kept a personal copy. She pulls it from the sleeve under her worktable — the same sleeve as the anomaly log. The original schematic shows no condensate secondary loop, no eastern residential vent junction, no second manifold housing in the undocumented corridor. Every distribution pathway that now carries compound exposure through the dome was added after the original design. The dome was modified to deliver what is in it now.';
+        addJournal('Original schematic shows no secondary loop or undocumented manifold — all compound pathways added post-construction, dome modified for delivery', 'evidence', 'aur-original-schema-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The technical records section of the dome archive is undergoing a scheduled reorganization — a clerk in there is pulling and re-sorting a filing system that occupies three shelving units. Access to the section during reorganization requires a supervisor signature. The supervisor is the same administrator whose signature appeared on the council minutes suppression order. The clerk looks at you the way someone looks at a problem they have been asked not to create. She is very sorry. She cannot help.';
+        addJournal('Technical records section closed for reorganization — supervisor authorization required, same signatory as suppressed council minutes', 'complication', 'aur-original-schema-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_original_schematics_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The dismissed technician\'s copy of the original schematic differs from the current posted version in ways that take a moment to see clearly: the secondary condensate loop is absent, the eastern residential vent junction does not appear, the undocumented manifold housing in the eastern corridor is not there. The distribution infrastructure that carries compound exposure through the dome was not in the original design. It was added. The schematic in the dome archive was replaced to match the modified infrastructure rather than the original build. You set the two versions side by side on her table. The differences are exact.';
+        addJournal('Original schematic missing secondary loop and undocumented manifold — modifications to dome post-construction created compound delivery pathways', 'evidence', 'aur-original-schema-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NEW BATCH: NPC ENCOUNTERS — SERA, MARIEL, CADRIN, LIORA, THERON (6) ────────
+
+  {
+    label: "Sera Whiteglass has written up a formal complaint. She hasn't filed it yet.",
+    tags: ['NPC', 'Stage2', 'Craft'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'pressing Warden Sera Whiteglass on the unsubmitted formal complaint on her desk');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_warden_sera_whiteglass = true;
+        G.flags.aurora_sera_complaint_revealed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Sera doesn\'t hide the document — it\'s on top of the pile, face-up. A formal dome security complaint, three pages, addressed to the Collegium Regional Oversight Board. She has signed it. She has not dated it. She looks at it while you look at it. "Filing it names the commune executive who buried the compliance review," she says. "The executive has authority to place my office under administrative review if she chooses to respond that way." She aligns the pages with one hand. "I have been trying to determine whether the evidence is strong enough that the review would not matter." She sets the pen on the top page. "Tell me what you have found."';
+        addJournal('Sera\'s complaint drafted and signed — not dated, held pending sufficient evidence to withstand commune executive retaliation', 'evidence', 'aur-sera-complaint-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Sera turns the document face-down before you are fully through the door. Not urgently — the deliberate movement of someone who has already decided. "Procedural actions under active dome security review are not for external discussion." She sets her pen beside the upturned page. Her jaw is set in the same way it was the first time you met her — a decision already completed, waiting for the right moment to act on it. She asks what brought you back to her office. The document stays face-down for the entire conversation.';
+        addJournal('Sera turned complaint face-down — active review prevents external discussion, decision already made', 'complication', 'aur-sera-complaint-fail-' + G.dayCount);
+      } else {
+        G.flags.met_warden_sera_whiteglass = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The document on Sera\'s desk is three pages, signed, addressed to the Collegium Regional Oversight Board. She doesn\'t cover it. "I drafted it four days ago," she says. "I have not sent it because filing it triggers an automatic administrative review of this office, and the person who can authorize that review is the same person who buried the compliance report." She smooths the top page once. "I need the evidence to be complete enough that the review cannot dismiss it." She looks at you. "What have you found since we last spoke?"';
+        addJournal('Sera complaint drafted, not filed — waiting on complete evidence to withstand commune executive administrative review', 'intelligence', 'aur-sera-complaint-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Mariel Sealwater heard the liaison's name from a second source. It wasn't the same name.",
+    tags: ['NPC', 'Stage2', 'Stealth'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'asking Mariel Sealwater about a second name she has heard associated with the Collegium liaison');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_mariel_sealwater = true;
+        G.flags.aurora_mariel_second_name = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Mariel wipes down the same section of counter twice before she answers — a tell she doesn\'t seem to know she has. "A transit rider stayed here last month. She mentioned the liaison by name while talking to another guest. The name was different from the one in the dome register." She sets down the cloth. "I notice things. I notice names especially." She writes the name she heard on the back of a room-booking slip and sets it on the counter between you. "I have not told anyone else this." The dome\'s ventilation hum is low and continuous in the background. She picks up the cloth again and goes back to the counter.';
+        addJournal('Mariel heard liaison called by different name from transit rider — wrote it down, disclosed only to player', 'evidence', 'aur-mariel-name-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.lastResult = 'Mariel sets the room ledger down and looks at the hooks behind the counter before she answers. There is a standing instruction from dome administration about discussing Collegium liaison visits with external parties. She names it again, the same phrasing as before. "I follow it." She picks up the room ledger. The inn continues around you — the low dome-filtered air moving through the common room vents, a draft from the kitchen passage, the particular dampened quality of sound inside a sealed structure. She does not look up from the ledger.';
+        addJournal('Mariel declined to share — standing instruction on Collegium liaison discussions', 'complication', 'aur-mariel-name-fail-' + G.dayCount);
+      } else {
+        G.flags.met_mariel_sealwater = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Mariel polishes the counter for a moment before she speaks. "A transit rider mentioned the liaison in conversation last month. Used a different name than the one in the dome register." She does not offer the name unprompted. "I noticed. I write things down." She opens the ledger to the relevant week, not the memory book — the official room register. The transit rider\'s booking is on the page. She taps the entry without naming the rider or the name. "The information is there if you know how to read it."';
+        addJournal('Mariel confirms second name heard for liaison via transit rider — points to room register without naming it directly', 'intelligence', 'aur-mariel-name-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Cadrin Sealwater found the supplier's registration date. It's three weeks before the delivery contract.",
+    tags: ['NPC', 'Stage2', 'Lore'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'asking Cadrin Sealwater about the Northern Provision Compact registration date he found');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_cadrin_sealwater = true;
+        G.flags.aurora_cadrin_registration_date = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Cadrin has the registration search result folded in the ledger margin — kept in plain sight. Northern Provision Compact is registered in the northern settlements commercial registry. Registration date: twenty-three days before the Aurora Crown delivery contract was signed. The same registration also appears in the Harvest Circle field drainage system records, starting eleven days after the registration date. The entity was created, given a contract in two localities, and began operations in under a month. "A company that has existed for twenty-three days does not have a filtration compound supply infrastructure," Cadrin says. "Someone gave it one." He slides the search result across the counter.';
+        addJournal('Northern Provision Compact registered 23 days before delivery contract — two-locality operation within first month, infrastructure pre-existing registration', 'evidence', 'aur-cadrin-regdate-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Cadrin straightens the ledger on the counter and looks at the finance committee notification still in the tray behind him. "The committee chair has asked me to document all external party access to supply records going forward." He says it with the care of someone choosing each word. "I\'m going to need to log this conversation." He pulls a form from under the counter. He\'s not refusing. He is noting that whatever he says next will be in writing, with your name on it, in the committee\'s records. He has the form ready before you\'ve decided whether to continue.';
+        addJournal('Cadrin logging all external record access per committee chair instruction — conversation will be documented', 'complication', 'aur-cadrin-regdate-fail-' + G.dayCount);
+      } else {
+        G.flags.met_cadrin_sealwater = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Cadrin opens the ledger to the registration search note he left folded in the margin. "Northern Provision Compact registered twenty-three days before the delivery contract was signed here." He reads the date aloud, then puts his finger on the contract date in the ledger. "Twenty-three days to set up a supply infrastructure capable of delivering specialized filtration compounds monthly." He underlines the gap. He doesn\'t speculate. He underlines the gap the way a person underlines something that does the arguing on its own.';
+        addJournal('NPC registered 23 days before delivery contract — registration-to-supply timeline impossible for legitimate startup', 'evidence', 'aur-cadrin-regdate-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Liora Sealwater recognizes the compound profile. She treated something like it before.",
+    tags: ['NPC', 'Stage2', 'Lore'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'asking Liora Sealwater whether she has seen the amber residue compound profile in a prior context');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_liora_sealwater = true;
+        G.flags.aurora_liora_prior_exposure = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Liora is quiet for a long moment when you describe the compound profile. Then she goes to the shrine\'s treatment cabinet and brings out a reference card — not a current resource, an old one, edges softened with handling. "Seven years ago I worked a seasonal posting at a research commune in the southern circuit. A compound with this profile was used in a controlled study of glyph-sensitivity mapping in a closed air environment." She sets the reference card on the counter. "It was supposed to be harmless at low concentrations. The study was stopped." She turns the card over. On the back is a date — the date the study ended. "I kept this because of that date."';
+        addJournal('Liora identifies compound from prior research-commune study — glyph-sensitivity mapping in closed air environment, study stopped, date noted', 'evidence', 'aur-liora-prior-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = 'Liora straightens the candle at the memorial stone and folds her hands in her lap before she responds. The shrine\'s low continuous ventilation hum moves through the space between you. "I am not a compound specialist. I am a shrine attendant." She says it without apology, precisely. "What you are describing is outside what I can assess." She looks at the candle. She is telling the truth and also, in some way she has decided not to name, she is not saying everything she knows. The distinction is visible in the way she holds her hands. She does not add to what she has said.';
+        addJournal('Liora declined compound profile discussion — stated outside her role, manner suggested more known', 'complication', 'aur-liora-prior-fail-' + G.dayCount);
+      } else {
+        G.flags.met_liora_sealwater = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Liora listens to the compound profile description and is still for a moment longer than usual — the kind of stillness that is not hesitation but recognition. "I have seen something like this profile before. Not here." She goes to the treatment cabinet and checks something inside it without bringing it out. "A research context, years ago, southern circuit." She closes the cabinet. "The compound class was associated with glyph-sensitivity monitoring in controlled environments." She turns back. "Not treatment. Monitoring." The memorial candle sends a thin ribbon of smoke toward the dome venting grate. She watches it. "The study ended."';
+        addJournal('Liora recognizes compound from southern circuit research — glyph-sensitivity monitoring application, study discontinued', 'intelligence', 'aur-liora-prior-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Theron moved something from the east bay on a day his log shows him off-rotation.",
+    tags: ['NPC', 'Stage2', 'Survival'],
+    xpReward: 71,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(71, 'confronting Theron Sealwater with the east bay movement on his off-rotation day');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_theron_sealwater = true;
+        G.flags.aurora_theron_off_rotation_move = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Theron\'s hand goes to the door frame seal the moment you name the date. He keeps it there. "I was asked to come in." He looks at the door frame. "Not by the rotation office. By the liaison office." He accounts for a moment, thumb pressing into the seal. "I moved two crates from the east bay to a secondary holding space in the lower conduit section. I was told it was a maintenance coordination issue." He looks at his hand. "There is no maintenance record I can find for that movement. I am telling you this because I have been trying to find that record for three weeks."';
+        addJournal('Theron moved crates off-rotation on liaison request — no maintenance record for the movement, trying to locate it for 3 weeks', 'evidence', 'aur-theron-offrot-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.lastResult = 'Theron puts the routing board down on the desk before he turns to face you, and the movement is deliberate enough that it is its own answer. "The compliance notation is still attached to my transit log from the earlier access query." He says it without inflection. "Any external party discussing my rotation records with me while that notation is active goes into the secondary log." He picks up the routing board. "I can\'t help you right now." He is not angry. He is working within the constraints of a system that has been used to contain him and he knows it.';
+        addJournal('Theron compliance notation prevents discussion — secondary log triggered for external rotation record queries', 'complication', 'aur-theron-offrot-fail-' + G.dayCount);
+      } else {
+        G.flags.met_theron_sealwater = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Theron stands with one hand on the door frame and confirms the date you name without asking how you know it. "I came in off-rotation. Liaison office request, not the rotation office." His fingers press against the seal edge. "I moved two crates. I wrote it in my personal log, not the rotation log, because the movement order didn\'t come through proper channels." He does not say where the crates went. He taps the door frame once with two fingers. "I\'ve been looking for the official movement record since then. There isn\'t one."';
+        addJournal('Theron confirms off-rotation crate move on liaison request — entered in personal log only, no official movement record', 'evidence', 'aur-theron-offrot-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Sera tested the office air. The result is why she moved her desk.",
+    tags: ['NPC', 'Stage2', 'Craft'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'noticing Sera Whiteglass moved her desk away from the air vent and asking about the personal test result');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_warden_sera_whiteglass = true;
+        G.flags.aurora_sera_office_test = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Sera\'s desk is against the south wall, away from the ventilation grate in the north corner — moved recently, the original position visible in faint scuff marks on the floor. She doesn\'t comment until you ask directly. Then she opens the bottom drawer and sets a sealed sample container on the desk between you. A dome air sample, date-labeled, from the grate where her desk stood. "The concentration at that vent is four times the residential average," she says. "The marshal\'s office is on the intake corridor. I have been breathing this longer than the residential sections." She sets the assay result beside the container. The result paper has a bloom of dark blue from edge to edge.';
+        addJournal('Sera ran personal air test — intake corridor vent 4x residential average, assay paper full bloom, desk moved as personal protective measure', 'evidence', 'aur-sera-office-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Sera notices you noticing the desk before you say anything, and her answer arrives before the question does. "Furniture placement in a marshal\'s office is an operational security matter." She says it evenly, without pause. "I don\'t discuss internal office configuration with external parties." She straightens the paper on top of the pile. Her jaw is set. The desk is against the south wall and the ventilation grate is in the north corner and the distance between them is about two meters of meaning she has decided not to share today.';
+        addJournal('Sera declined to discuss desk placement — named it operational security, manner closed', 'complication', 'aur-sera-office-fail-' + G.dayCount);
+      } else {
+        G.flags.met_warden_sera_whiteglass = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Sera looks at the scuff marks on the floor where her desk used to be, then at you. "I moved it three days ago." She reaches into the bottom drawer and brings out a small sealed sample tube — a dome air sample, labeled with the grate position and a date. "I ran an assay." She doesn\'t open the drawer all the way. "The concentration at the north grate is higher than the residential average." She puts the tube back. "The marshal\'s office is directly on the filtration intake corridor. I wanted to know what I was working in." She caps the pen on her desk. "Now I know."';
+        addJournal('Sera moved desk after personal air test — intake corridor grate concentration above residential average, test result kept in desk drawer', 'intelligence', 'aur-sera-office-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NEW BATCH: RESIDUE SUPPRESSION EVIDENCE TRAILS (4) ──────────────────────
+
+  {
+    label: "The amber residue is soluble in water. The drinking supply runs through the same loop.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'testing amber residue solubility against the condensate potable water loop at the thermal junction');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_residue_water_soluble = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The dismissed technician\'s lab shelf has a small solubility testing kit — field-grade, the kind used for intake compound assessments. You dissolve a scraping of amber residue from the intake throat sample in ten milliliters of water. The compound dissolves cleanly within forty seconds: no particulate, no cloudiness, complete dissolution. A compound that is fully water-soluble and is present in the dome\'s condensate channel — which Orvyn confirmed feeds into the potable water distribution system — is entering the drinking supply at every condensation cycle. The dome\'s residents are being exposed through two separate pathways simultaneously: air and water. The amber ring on the intake throat is not the only delivery mechanism.';
+        addJournal('Amber residue fully water-soluble — potable water loop carries compound via condensate cycle, dual air-water exposure confirmed', 'evidence', 'aur-water-soluble-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The solubility test requires a residue sample large enough to dissolve cleanly, which means scraping from the intake throat — and the intake throat requires a dome maintenance clearance to access without supervision. You get close enough to smell the amber line before a labor crew working the conduit bank clocks your position. The foreman waves you back without raising his voice. The clearance form for unsupervised intake access requires three business days and a health certification. He says this helpfully. He does not move until you do.';
+        addJournal('Solubility test blocked — intake throat access requires 3-day clearance and health certification', 'complication', 'aur-water-soluble-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_residue_water_soluble = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The residue sample dissolves in water. You use the field kit from the technician\'s shelf: ten milliliters, forty seconds, clean dissolution. Completely water-soluble, no particulate. Orvyn said the condensate loop feeds back into the potable water distribution system through the thermal junction. A compound that dissolves completely in water and is present in a condensate cycle that serves the dome\'s drinking supply is entering it every time the condensate cycle runs. The waxy amber trace at the intake throat is the first point. The tap is another.';
+        addJournal('Residue water-soluble — condensate-to-potable-water pathway confirmed as second exposure route', 'evidence', 'aur-water-soluble-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The residue accumulation pattern shows delivery day and the day after are both elevated.",
+    tags: ['Stage2', 'Lore'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'mapping residue accumulation in drainage channel against delivery schedule across six months');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_residue_accumulation_mapped = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The drainage channel residue is thicker in some sections than others — not uniformly distributed. You measure the deposit depth at six points along the channel with a probe the technician keeps for intake assessments. Plotting the measurements against the delivery calendar produces a pattern: the heaviest deposits sit at the points nearest the intake manifold, and the depth peaks at delivery-day concentrations that are roughly twice the mid-cycle average. But the deposit at the secondary loop junction — the point Orvyn identified — is heaviest the day after delivery, not delivery day itself. The compound takes one cycle to reach peak concentration in the recirculation loop. The exposure is still rising when residents wake up the following morning.';
+        addJournal('Residue depth map shows peak at intake on delivery day, peak at secondary loop junction day after — exposure still rising on day two', 'evidence', 'aur-residue-map-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The drainage channel access from a second entry point — a different panel than the one you used before — is locked on a safety rotation protocol that only cycles open during scheduled maintenance windows. The next window is in eleven days. A dome steward doing perimeter rounds marks you in the corridor log when you try the panel. She writes the location and the time. She does not stop or speak to you. The notation is enough.';
+        addJournal('Second drainage access panel locked on rotation protocol — marked in perimeter log, next window 11 days', 'complication', 'aur-residue-map-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_residue_accumulation_mapped = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The deposit measurements from six points in the drainage channel plot a clear gradient when you set them against the delivery dates. Heaviest at the intake manifold end. Progressively lighter as the channel runs outward. The secondary loop junction — where Orvyn said the condensate cycle feeds back into the distribution system — shows a delayed peak: lighter on delivery day, heavier the day after. The compound cycles through and concentrates downstream. Whatever the residents breathe and drink on delivery day is less than what they breathe and drink twenty-four hours later.';
+        addJournal('Residue gradient peaks downstream on day-after delivery — compound concentration highest 24hrs post-introduction', 'evidence', 'aur-residue-map-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The compound's glyph-interaction leaves a trace on skin. The intake workers show it.",
+    tags: ['Stage2', 'Survival'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'observing glyph-trace markers on intake corridor workers and cross-referencing with dismissed technician log');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_skin_trace_observed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The dismissed technician\'s log describes a secondary marker she noticed in herself six weeks into the compound period: a faint pale discoloration on the inner wrists and the backs of the hands, variable with exposure level, consistent with glyph-reactive compound interaction at skin-contact concentration. She shows you her wrists. The marks are still there, lighter but present. You go back to the intake corridor and observe the labor crew on rotation. Two of the four workers — the two who work the manifold end of the corridor — have the same faint pale marks on their wrists. They have not been told what the marks mean. The foreman\'s wrists are clean. He rotates between sections. They do not.';
+        addJournal('Glyph-trace skin marks observed on two intake corridor workers — matches technician\'s own markers, foreman clean due to rotation, workers not informed', 'evidence', 'aur-skin-trace-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'You get close enough to the intake corridor workers to see their hands, but not their wrists — the crew is working in close quarters at the manifold end and the foreman is standing between the work and the corridor. He does not speak to you. He watches you from that position for long enough that you understand the observation is over. A labor scribe at the far end of the corridor writes something in the work log. You do not know what.';
+        addJournal('Worker observation blocked — foreman positioned between you and manifold crew, labor scribe noted presence', 'complication', 'aur-skin-trace-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_skin_trace_observed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Two of the intake corridor workers have faint pale marks on the backs of their hands and inner wrists — visible when the manifold access panel light catches at the right angle. The dismissed technician described the same marks in her own log, dated four weeks into the compound period. You check her wrists when you return to her residence. The marks are still present, three months later. The workers at the manifold end are showing the same compound interaction she documented in herself. They are still working that section.';
+        addJournal('Two intake workers show glyph-trace wrist marks matching technician\'s own documented markers — workers still on the section', 'evidence', 'aur-skin-trace-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The suppression schedule is not monthly. It follows the commune's civic assembly calendar.",
+    tags: ['Stage2', 'Craft'],
+    xpReward: 77,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(77, 'overlaying delivery dates against the Aurora Crown civic assembly calendar to find the dosing pattern');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_assembly_dosing_pattern = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The civic assembly calendar is posted near the dome\'s community board — Aurora Crown holds quarterly assemblies and six-week council review sessions, all dates fixed at the start of each cycle. You overlay the delivery dates against the calendar. Every delivery falls between four and six days before either a full civic assembly or a council review session. The compound\'s peak concentration, given the dwell extension and the day-after accumulation pattern, would reach its highest level in residents during the assembly or review itself. The dosing schedule was not chosen for operational convenience. It was calibrated to produce maximum glyph-sensitivity suppression during the commune\'s deliberative governance events.';
+        addJournal('Deliveries 4-6 days pre-assembly/review — peak compound concentration timed to civic governance events, suppression of deliberative capacity confirmed', 'evidence', 'aur-assembly-pattern-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The community board near the assembly hall has had the civic calendar removed for the current quarter — replaced with a notice about a dome infrastructure maintenance posting period that requires the space. A steward at the hall entrance notes your interest in the board and writes it down. The assembly schedule is in the dome archive. The archive access log will show another entry under your name. The tray of notifications in Cadrin\'s counter behind him has grown by one since this morning.';
+        addJournal('Civic calendar removed from community board — archive access required, another access log entry generated', 'complication', 'aur-assembly-pattern-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_assembly_dosing_pattern = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Six deliveries. Six civic assembly or council review events. You put the delivery dates next to the assembly calendar dates. Every delivery precedes a governance event by four to six days. Given the dwell extension and the residue accumulation pattern, peak concentration in the dome\'s air supply falls on the day of the assembly or the day before. The schedule is not convenient for a supplier\'s logistics. It is tuned to the commune\'s deliberative calendar. Whatever the compound does to glyph-sensitivity, it is being applied specifically when residents gather to make communal decisions.';
+        addJournal('Delivery schedule maps to pre-assembly timing — peak compound concentration falls on civic governance days', 'evidence', 'aur-assembly-pattern-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // ── NEW BATCH: CROSS-LOCALITY CONNECTIONS (2) ───────────────────────────────
+
+  {
+    label: "The compound was found at an eastern circuit settlement. That settlement no longer exists.",
+    tags: ['Stage2', 'CrossLocality', 'Lore'],
+    xpReward: 83,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(83, 'tracing Northern Provision Compact compound use to a dissolved eastern circuit settlement');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_eastern_settlement_precedent = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The settlement dissolution archive has a four-year-old entry: a commune in the eastern circuit, Verath Crossing, dissolved by collective vote eighteen months after a dome infrastructure upgrade. The upgrade was authorized by the same Collegium regional technical authority that authorized Aurora Crown\'s sensor recalibration. Verath Crossing\'s dissolution petition cited community fatigue, reduced civic participation, and a collapse of the resident governance council over a twelve-month period. The petition was unanimous. The archived medical records for the settlement show a respiratory and fatigue complaint pattern that begins three months before the infrastructure upgrade and continues until dissolution. The Northern Provision Compact name does not appear in Verath Crossing\'s records. The Collegium technical authority does.';
+        addJournal('Verath Crossing dissolved 4 years prior — same Collegium technical authority, same symptom pattern, governance collapse, unanimous dissolution 18mo post-upgrade', 'evidence', 'aur-verath-link-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The settlement dissolution archive is accessible in the inter-settlement registry system, but the eastern circuit entries sit behind a historical records tier that requires a clerk to pull manually — the digital index stops at settlements dissolved in the last two years. The clerk at the registry counter takes the request and explains that historical record pulls for external parties go into the research queue. The research queue has a three-week backlog. She stamps your request and puts it in the tray. The Verath Crossing records exist. You will not see them today.';
+        addJournal('Settlement dissolution archive historical tier requires clerk pull — research queue, three-week backlog', 'complication', 'aur-verath-link-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_eastern_settlement_precedent = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The dissolution archive has an entry for Verath Crossing: a dome commune in the eastern circuit, dissolved by collective vote four years ago. The dissolution petition cites civic fatigue and governance collapse over an eighteen-month period following a Collegium-authorized infrastructure upgrade. The settlement\'s medical records in the archive show respiratory and fatigue complaints that match the pattern Liora has been tracking. The Collegium technical authority named in the Verath Crossing upgrade is the same one named in Aurora Crown\'s sensor recalibration documents. The precedent exists. This has happened before.';
+        addJournal('Verath Crossing dissolution — same Collegium authority, same symptom timeline, governance collapse preceding unanimous dissolution vote', 'evidence', 'aur-verath-link-part-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Collegium liaison used the same credential at three localities in the same week.",
+    tags: ['Stage2', 'CrossLocality', 'Stealth'],
+    xpReward: 81,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(81, 'cross-referencing Collegium liaison credential usage across three locality archive access logs');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.aurora_credential_multi_locality = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The inter-settlement access log is a shared registry. You pull the liaison\'s credential code across all registered localities. In the third week of the second month of deliveries, the credential appears in three locality access logs: Aurora Crown, Harvest Circle, and a third settlement — Tidal Bridge, on the eastern transit route. Three access events, three localities, five-day window. The transit time between Aurora Crown and Harvest Circle alone is two days. The credential is being used simultaneously across the settlement network. There are at least two people operating under the same credential code, or the credential has been compromised and distributed. Either way, the liaison is not a single individual.';
+        addJournal('Liaison credential used in 3 localities within 5 days — physical transit impossible, credential shared or distributed across multiple operators', 'evidence', 'aur-multicred-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'The inter-settlement credential access log query requires a formal research authorization from the Collegium registry office — a process that generates a notification to the Collegium\'s administrative security division when an external party queries a credential code across multiple localities. The notification is generated before the authorization completes. The Collegium\'s administrative security division now knows someone at Aurora Crown is searching for cross-locality credential usage. The search is documented in two systems: the registry authorization queue and the security division notification log. You have not seen the access log. You have told the Collegium you were looking for it.';
+        addJournal('Cross-locality credential query notified Collegium security division before authorization completed — search documented, access log not seen', 'complication', 'aur-multicred-fail-' + G.dayCount);
+      } else {
+        G.flags.aurora_credential_multi_locality = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The inter-settlement access log shows the liaison credential active in three localities within a five-day window. You check the transit schedule between them. Aurora Crown to Harvest Circle: two days minimum. Harvest Circle to Tidal Bridge: another two days. The credential was used in all three within five days, across routes that would take longer than five days to travel. Either the credential is in more than one person\'s possession or the access is being generated remotely. The liaison who visits the inn once a quarter is not the only operator using that code.';
+        addJournal('Liaison credential active in 3 localities in 5 days — physical transit impossible, multiple operators or remote credential use', 'evidence', 'aur-multicred-part-' + G.dayCount);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

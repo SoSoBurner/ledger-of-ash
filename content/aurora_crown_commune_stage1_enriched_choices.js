@@ -1196,7 +1196,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // MAGIC x2
   {
     archetypeGroup: 'magic',
-    label: "The ward mark on that dome panel is six weeks old. The panel it protects is brand new.",
+    label: "The ward mark is six weeks old. The panel underneath is brand new.",
     tags: ['Magic', 'Lore', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1323,7 +1323,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
-    label: "The overseer takes the same route every third shift. Right now she\'s ahead by one junction.",
+    label: "The overseer takes the same route every third shift. She\'s one junction ahead.",
     tags: ['Stealth', 'Covert', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1366,7 +1366,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
-    label: "The injured dome worker hasn\'t reported to the medical station. She has a reason for that.",
+    label: "The dome worker hasn\'t reported to medical. She has a reason for that.",
     tags: ['Support', 'NPC', 'Care'],
     xpReward: 65,
     stageProgress: 1,
@@ -1387,7 +1387,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'Ressa lets you wrap the wrist properly and doesn\'t speak until you\'re tying the knot. "Medical reports go to the coordinator\'s office now. Not to the medical station — to the coordinator." Her other hand finds the edge of her work chit and folds it once, the way she apparently does with every piece of paper she\'s thinking about. "First time I reported a workplace injury under the new system, I lost my maintenance rotation access for six days. The report said it was for recovery observation. I was working full capacity by the second day." She looks at the wrist. "This is fine. I\'ll manage." The coordinator\'s office routing of medical reports started eight weeks ago. Same week as the rotation changes.';
+        G.lastResult = 'Ressa lets you wrap the wrist properly and doesn\'t speak until you\'re tying the knot. "Medical reports go to the coordinator\'s office now. Not to the medical station — to the coordinator." Her other hand finds the edge of her work chit and folds it once, the way she apparently does with every piece of paper she\'s thinking about. "First time I reported a workplace injury under the new system, I lost my maintenance rotation access for six days. The report said it was for recovery observation. I was working full capacity by the second day." She looks at the wrist. "This is fine. I\'ll manage." The coordinator\'s office routing started eight weeks ago.';
         G.stageProgress[1]++;
         addJournal('Dome worker: medical reports now route to coordinator, not medical station — worker lost rotation access after reporting; 8 weeks ago same time as rotation changes', 'evidence');
       } else if (result.isFumble) {
