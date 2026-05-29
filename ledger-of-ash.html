@@ -10967,6 +10967,19 @@ function adaptEnrichedChoice(c) {
   if (_coreInvest) _rivalMod = 0;
   // Derive tag using shared getChoiceTier (handles explicit scalar, semantic tag arrays, legacy arrays)
   var _derivedTag = getChoiceTier(c);
+  // DC weighting: if choice roll stat matches player's primary archetype stat, reduce DC by floor(statVal/2)
+  var _primaryDcReduce = 0;
+  if (c.roll && G && G.archetype && typeof getArchetypeFamily === 'function') {
+    var _aeFamily = getArchetypeFamily();
+    var _aeKeyNorm = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+    var _aeRollSk = _aeKeyNorm[c.roll] || c.roll;
+    var _aePrimaryMap = {combat:'combat', magic:'lore', stealth:'stealth', support:'persuasion'};
+    var _aePrimarySk = _aePrimaryMap[_aeFamily];
+    if (_aePrimarySk && _aeRollSk === _aePrimarySk) {
+      var _aeStatVal = (G.skills && G.skills[_aePrimarySk]) || 0;
+      _primaryDcReduce = Math.floor(_aeStatVal / 2);
+    }
+  }
   return {
     text: c.label,
     tag: _derivedTag,
@@ -10982,7 +10995,7 @@ function adaptEnrichedChoice(c) {
       if (c.failResult) {
         var _KEY_NORM_G = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
         var _gSk = _KEY_NORM_G[c.skill||''] || c.skill || 'lore';
-        var _gDC = getChoiceDC(c, _rivalMod);
+        var _gDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
         var _gVal = (G.skills && G.skills[_gSk]) || 0;
         var _gRoll = Math.floor(Math.random() * 20) + 1;
         if (G && G._pendingDcReduce) G._pendingDcReduce = 0;
@@ -11016,7 +11029,7 @@ function adaptEnrichedChoice(c) {
         var _ri = G._lastRollInfo;
         G._lastRollInfo = null;
         if (!_gateShown) {
-          var _riDC = getChoiceDC(c, _rivalMod);
+          var _riDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
           var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
           var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
           var _riSKD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
@@ -11153,6 +11166,13 @@ function prioritizeChoices(choices, maxCount) {
     var _cid = c.cid || c.id || '';
     if (typeof _cid === 'string' && _cid.indexOf('__combat_ability__') === 0) return false;
     return true;
+  });
+  // Filter archetype-exclusive choices — remove if archetypeGroup set and player family doesn't match
+  choices = choices.filter(function(c) {
+    if (!c.archetypeGroup) return true;
+    var _family = (G && G.archetype && typeof getArchetypeFamily === 'function') ? getArchetypeFamily() : null;
+    if (!_family) return true;
+    return c.archetypeGroup === _family;
   });
   var TIERS = { 'main': 1, 'side': 2, 'enriched': 3, 'utility': 4 };
   var sorted = choices.filter(Boolean).slice().sort(function(a, b) {
