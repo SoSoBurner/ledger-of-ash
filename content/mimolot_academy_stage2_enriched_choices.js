@@ -1019,6 +1019,668 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+
+  // === FORBIDDEN KNOWLEDGE TRAFFICKING — ~6 choices ===
+
+  {
+    label: "Sarith's 'theoretical materials' ledger column has no description and no recipient name.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'auditing Sarith Quillfire theoretical-materials ledger column');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_sarith_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Sarith opens the ledger to the column without asking which one — she has been watching it herself. Eleven entries across five months, each listing a weight and a category code but no recipient, no description, no faculty sponsor. The category code is her own shorthand for materials she could not classify against the standard schedule, penciled in rather than printed. She checks the dates against the night-dock register Myra maintains. Seven of eleven entries correspond to Draith Calver's twelve-day arrival cycle. She has known this for three weeks. Nobody asked before.`;
+        addJournal('Sarith ledger: theoretical-materials column matches Draith courier cycle, 7 of 11 entries — no recipient, no description', 'evidence', 'mim-sarith-col-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Sarith's desk is shared today with a senior clerk from the Academy accounts office conducting a quarterly receipts audit. The ledger is in use. The senior clerk notes the inquiry, writes the name in his audit log, and suggests a formal access request through the Academy administration office. The ledger column that mattered is now associated with an audit log entry that will travel to the administration office before the week ends.`;
+        addJournal('Theoretical-materials column inquiry logged in quarterly audit — administration referral pending', 'complication', 'mim-sarith-col-fail-' + G.dayCount);
+      } else {
+        G.flags.met_sarith_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Sarith opens the ledger to the column and reads through it with her finger tracing the rows — the habit of someone who has done this before, alone, looking for a pattern. Eleven entries. No recipient name on any of them. The category code is her own, not a standard designation, applied when she could not match an item to the existing schedule. The weights are recorded in a unit notation she recognizes as field shorthand. Not Academy notation. Something older and more portable.`;
+        addJournal('Sarith ledger: theoretical-materials column — 11 entries, no recipients, field-shorthand weight notation', 'evidence', 'mim-sarith-col-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The restricted wing smells of something that isn't in the academy's reagent catalog.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'identifying unregistered reagent odor in restricted Academy wing');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_unregistered_reagent_identified = true;
+        G.lastResult = `The smell is faint and specific: a low mineral sharpness under the standard chalk-and-vellum baseline, not volatile enough to be recent, not faded enough to be old. It matches the residue profile of glyph-reactive binding agents — substances used in prepared suppression compound, not in theoretical research. They leave this trace on porous stone for four to six weeks after contact. The restricted wing's outer corridor has been used for transit storage, not access, and the compound passed through here recently enough that the stone still carries it.`;
+        addJournal('Restricted wing: suppression compound binding-agent trace in corridor — transit storage use within 4-6 weeks', 'evidence', 'mim-reagent-smell-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `A maintenance worker is re-sealing the corridor tiles at the restricted wing approach — routine work, by schedule, he says, though the schedule board at the facilities desk does not show this section flagged for maintenance today. He notices the attention paid to the floor and asks for an access credential. When it cannot be produced, he flags the approach on his work sheet and radios the facilities office. The corridor is off limits pending completion of the sealing work, which he estimates at two days.`;
+        addJournal('Restricted wing approach sealed — unscheduled maintenance, access flagged', 'complication', 'mim-reagent-smell-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The smell is real and specific enough to isolate — not the standard chalk-and-vellum baseline of the archive corridor, not the lamp-oil residue of the reading room, but something sharper and mineral beneath both. It belongs to a class of binding reagents not on the Academy's catalog of approved materials. Something moved through this corridor that was neither textbook nor equipment. The stone floor carries it in the grain. Whatever it was, it was here recently.`;
+        addJournal('Restricted wing: unregistered binding-reagent odor in corridor stone — non-catalog material transported recently', 'evidence', 'mim-reagent-smell-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The glyph resonance text has marginalia in two different hands — neither is faculty.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing non-faculty marginalia in restricted glyph resonance text');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_marginalia_identified = true;
+        G.lastResult = `The first hand is a field notation style — abbreviated, practical, the writing of someone who takes notes while doing something rather than reading. The second is tighter and more deliberate, adding corrections to the first hand's notes in places. Together they constitute a working commentary on the theoretical text's applicability to active suppression compound production: which equations translate directly, which require adjustment for material purity. This is not scholarship. This is production planning, written into a restricted theoretical text by people who had access to it before it was classified.`;
+        addJournal('Glyph resonance marginalia: field + correction hands map compound production steps — written before classification', 'evidence', 'mim-marginalia-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The text is in the restricted section. The reading room attendant who escorted access to it checks back at the table before enough pages are turned to reach the annotated section. She logs the page the text is open to, closes it to the title page, and returns it to the restricted-access shelf. Marginal annotations in restricted texts are a preservation concern, she explains, and further handling requires a preservation supervision request. That form routes to the archive committee.`;
+        addJournal('Restricted text access closed — preservation protocol invoked before annotated section reached', 'complication', 'mim-marginalia-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Two distinct hands worked through this text before the classification seal went on. Both are outside any faculty writing style in the open-access reading records — not academic register, not institutional script. One makes brief numerical notes at equation margins. The other adds corrections to the first hand's figures in a smaller, tighter stroke. Someone was using this theoretical text as a working reference, not a research object. They returned it to the shelf.`;
+        addJournal('Glyph resonance text: two non-faculty annotating hands — numerical notes and corrections, working use pattern', 'evidence', 'mim-marginalia-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Three crate labels list Watchers Perch as a transit waypoint, not a destination.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'auditing Watchers Perch transit-waypoint crate labels in loading records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_watchers_perch_waypoint_confirmed = true;
+        G.lastResult = `Watchers Perch does not have a receiving dock — it is a cave site with a modified access tunnel, not a supply terminus. Three crate labels routing through it as a waypoint point to a final destination field that is blank. Myra's cargo log has the weight notations for the same three crates: the combined mass is consistent with processed compound in transit-grade containment, not raw materials. Whatever was in those crates passed through the cave site and continued moving somewhere the paperwork chose not to record.`;
+        addJournal('Three crates routed via Watchers Perch with blank final destinations — weights match processed compound transit', 'evidence', 'mim-waypoint-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.lastResult = `The loading records for the Watchers Perch route are filed under a separate category from standard Academy deliveries — a designation Myra's supervisor added to the filing system eight months ago. The supervisor handles those files directly. He is not on shift. The records stay where they are. The supervisor's desk, Myra says carefully, is not the kind of desk that gets looked at without his presence.`;
+        addJournal('Watchers Perch loading records held by supervisor — separate category, supervisor absent', 'complication', 'mim-waypoint-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Three crates in the loading records list Watchers Perch as a transit point with a blank final destination. Watchers Perch is not a supply terminus — it has no receiving dock, no storage facility, no Academy personnel assigned to it. A transit waypoint at a cave site with no onward destination on record means the paperwork stops before the journey does. The crates moved through there and continued somewhere the manifest does not say.`;
+        addJournal('Watchers Perch listed as transit waypoint on three crates — blank final destination, no receiving infrastructure at site', 'evidence', 'mim-waypoint-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Fairhaven courier's seal matches the wax type on the restricted archive gate.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'comparing courier wax seal to restricted archive gate wax');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_wax_match_confirmed = true;
+        G.lastResult = `The wax on the restricted archive gate and the wax on Draith Calver's courier receipt are the same compound — identical mineral colorant ratio, identical hardness, the specific formulation produced by one supplier in Fairhaven and not available through any local chandlery. The seal press used on the archive gate left a tool mark in the base wax that matches the press face on the courier's authentication seal. Same wax, same press tool. The gate was sealed by the same hand that issued the courier's pre-clearance.`;
+        addJournal('Archive gate wax matches Draith courier seal — same press tool, same Fairhaven mineral wax, same hand', 'evidence', 'mim-wax-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Close examination of the archive gate seal requires approaching the gate with evident intent. A faculty proctor making rounds arrives at the same moment. He does not ask what is being examined; he simply waits. The wait is polite, patient, and complete. When the area is vacated, he checks the gate hardware with a gloved hand and notes something on his duty sheet. The gate's hardware condition is now logged by someone who saw the approach.`;
+        addJournal('Archive gate approach observed by proctor — hardware inspection logged on duty sheet', 'complication', 'mim-wax-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The wax on the restricted archive gate is not standard Academy sealing wax — it is a harder compound with a faint mineral coloration, the kind sourced from a specific Fairhaven supplier rather than the local chandlery that fills the Academy's standard supply orders. Draith Calver's courier receipts use the same wax type. The formulation is specific enough to suggest a shared supply source. Both seals came from the same direction.`;
+        addJournal('Archive gate wax matches Draith courier receipt wax — Fairhaven mineral compound, non-local supply', 'evidence', 'mim-wax-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The shipment weights don't match what glyph damping theory actually requires.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'cross-checking shipment weights against glyph damping theoretical material requirements');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_shipment_weight_discrepancy = true;
+        G.lastResult = `Theoretical glyph damping work requires reagents in milligram quantities for controlled experiments. The off-manifest shipments through the east gate list weights in kilograms — three orders of magnitude beyond laboratory scale. At kilogram quantities, these materials are not research supplies. They are production feedstock. The theoretical research at the Academy provided the formula; the shipments provided what the formula requires at a scale that corresponds to distributed field deployment, not academic study. The Academy's role in this was never theoretical at all.`;
+        addJournal('Shipment weights at kilogram scale — three orders beyond lab use, consistent with distributed field deployment of compound', 'evidence', 'mim-weight-discrepancy-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The materials schedule for the glyph resonance track is a restricted faculty document — it lists reagent quantities by research phase and is not available for cross-referencing against intake records without a formal comparative request. The faculty secretary's office handles comparative requests. The process requires a purpose statement and a faculty sponsor. The materials schedule and the intake records, kept in two separate offices in two separate buildings, continue to be inaccessible in combination.`;
+        addJournal('Materials schedule comparison blocked — separate offices, faculty sponsor required for cross-reference', 'complication', 'mim-weight-discrepancy-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The reagent quantities in the off-manifest shipment logs are wrong for laboratory research — too large by a factor that eliminates any plausible academic use. Glyph damping theoretical work uses trace amounts measured carefully. The night-dock entries log kilograms. The excess is not a rounding error or a cataloging convention. At these weights, the materials are feedstock, not samples. Research was the cover. Something else was the purpose.`;
+        addJournal('Off-manifest reagent weights at production scale — laboratory cover inconsistent with kilogram quantities logged', 'evidence', 'mim-weight-discrepancy-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // === NPC ENCOUNTERS — ~7 choices ===
+
+  {
+    label: "Quenra's restricted access list has forty names. Thirty-seven of them are faculty.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'cross-referencing faculty restricted access with Tutor-Magistrate Quenra Quillfire');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_quenra_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Quenra shows the three non-faculty names on the restricted access list without being asked — she has already circled them in pencil, the circles faint but deliberate. All three received their clearance codes through a Mimolot administrative channel that does not route through faculty authorization at all. The clearance code format matches the one used in the northern convoy staging documentation she cannot officially share. She taps the margin beside the circled names. "These three were given faculty-equivalent access by someone who is not on this list."`;
+        addJournal('Restricted access: 3 non-faculty names hold faculty-equivalent clearance via non-standard admin channel', 'evidence', 'mim-quenra-rlist-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Quenra files a faculty access report citing an unauthorized query about restricted list personnel before the question finishes. The report goes to the Academy compliance wing. Three other faculty members receive notification about the inquiry within the hour — she shows the automated distribution list as she explains the procedure. The report is filed, the names are still there, and the path to reaching them is now significantly narrower than it was before walking through this door.`;
+        addJournal('Unauthorized restricted list query logged — compliance wing notified, faculty distribution sent', 'complication', 'mim-quenra-rlist-fail-' + G.dayCount);
+      } else {
+        G.flags.met_quenra_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Quenra confirms the three non-faculty entries without opening the clearance code records — she cannot open those without a chancellor authorization, and the chancellor was away at a polity assembly during the week the codes were issued. She says this carefully, as if she has thought about what it implies and decided that confirming the sequence is different from discussing the content. Someone signed the chancellor's authorization in the chancellor's absence. The signature line is not blank.`;
+        addJournal('Non-faculty restricted access dated to chancellor absence — alternate signatory on authorization', 'evidence', 'mim-quenra-rlist-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Ilys knows which students don't come back after certain seminars.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'drawing out Ilys Quillfire on students absent after specific seminars');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_ilys_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Ilys sets a cup on the counter without being asked and speaks quietly, the way innkeepers learn to speak in common rooms with uncertain acoustics. Four students from the glyph resonance track checked out of their rooms the morning after a specific seminar in the restricted wing — not after the publicly listed sessions, but after the off-calendar one the visiting lecturer runs three times a term. All four listed "extended field placement" as their departure reason. Two came back after a month. Two did not come back at all. She remembers all four. She keeps the room ledger.`;
+        addJournal('Four glyph resonance students departed after restricted off-calendar seminar — two did not return', 'evidence', 'mim-ilys-students-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.lastResult = `The common room is busy — a faculty gathering running late, three tables occupied, voices carrying. Ilys moves between tables with practiced economy, refilling cups without pausing. She hears the question and gives a short, complete answer: "I run an inn. I don't track why guests leave." The answer is not hostile. It is the answer she gives when the room is full. Come back when the tables are empty.`;
+        addJournal('Ilys Quillfire deflected — common room occupied, return required', 'complication', 'mim-ilys-students-fail-' + G.dayCount);
+      } else {
+        G.flags.met_ilys_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Ilys confirms the pattern without needing to check the ledger — she has already noticed it. Students on the glyph resonance track who attend the off-calendar seminars check out at irregular hours, often before dawn. Most come back. A few do not. She has not reported this to anyone because the Academy does not ask innkeepers about student movement patterns, and she was not certain it was her business to volunteer. She is now less certain of that.`;
+        addJournal('Ilys Quillfire: glyph resonance students depart after off-calendar seminars — some do not return', 'evidence', 'mim-ilys-students-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Velis noticed a second set of footprints at the shrine door. Not students, not faculty.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'drawing out Velis Quillfire on unidentified visitors to the Memory Hall shrine');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_velis_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Velis maintains the shrine entry mat daily — it is a ritual practice as much as a cleaning task, and she knows the dust patterns that accumulate between the morning and evening maintenance passes. Two mornings a month, she finds boot impressions that do not match student or faculty shoe patterns: wider sole, heavier tread, the kind worn for extended outdoor walking rather than campus corridors. The impressions appear on the evenings before the off-calendar seminars and are gone by morning. Someone visits the shrine's archive section after the hall closes, reads the pre-suppression inscriptions, and leaves before dawn.`;
+        addJournal('Memory Hall shrine: heavy-sole boot prints appear night before off-calendar seminars — pre-suppression inscriptions accessed after hours', 'evidence', 'mim-velis-prints-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = `Velis is mid-way through the evening ritual preparation when the question interrupts it. She stops what she is doing, which is worse than a refusal — stopping the ritual means starting it again from the beginning, which she does not explain but demonstrates by returning to the shrine threshold and beginning a preparation sequence that clearly has a fixed form. She does not ask for quiet. She simply proceeds. The question hangs unanswered in the lamplight of the hall until the moment has passed entirely.`;
+        addJournal('Velis Quillfire: ritual interrupted — approach timing was wrong, return at neutral moment', 'complication', 'mim-velis-prints-fail-' + G.dayCount);
+      } else {
+        G.flags.met_velis_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Velis confirms the boot prints without surprise — she has been waiting for someone to ask about them. Heavy tread, wide sole, appearing twice a month on the entry mat's fine dust. She has swept them away each morning without recording them, because the hall's visitor log requires a name, and she has no name to write. She knows they are not students. She knows they are not faculty. "They come for the inscriptions," she says. "The old ones, on the north interior wall."`;
+        addJournal('Velis Quillfire: unidentified heavy-tread visitors access Memory Hall north wall inscriptions twice monthly', 'evidence', 'mim-velis-prints-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Myra's personal cargo log has an entry she crossed out and then re-entered three weeks later.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'drawing out Myra Quillfire on a corrected and re-entered cargo log entry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_myra_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Myra opens the log to the page before being asked — she has tabs marking the entries she keeps returning to. The crossed-out entry was a crate she logged on delivery, then was told not to log, then re-entered three weeks later when the instruction not to log it was itself reversed. The supervisor who told her not to log it did so verbally, no written order; the one who told her to re-enter it gave her a written instruction on Academy letterhead with no signature block. She kept both the verbal record in her personal notes and the written instruction. She has had them both for eleven weeks. She pushes the log across the counter with both documents folded inside it.`;
+        addJournal('Myra Quillfire: suppressed-then-reinstated cargo entry — verbal suppression, unsigned re-entry instruction', 'evidence', 'mim-myra-log-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.lastResult = `The personal cargo log is personal property and not required to be shared with external inquirers — Myra's supervisor established this in a staff briefing six months ago, she explains, which means the question and Myra's refusal are both on the right side of the same rule. She does not seem pleased about either. The log stays on the shelf behind her. The supervisor in question is visible through the loading bay door.`;
+        addJournal('Myra Quillfire personal log: external inquiry blocked by supervisor policy — supervisor present', 'complication', 'mim-myra-log-fail-' + G.dayCount);
+      } else {
+        G.flags.met_myra_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Myra shows the crossed-out entry and the re-entered one side by side. A crate logged on arrival, then verbally ordered off the record by her supervisor, then re-entered three weeks later under a written instruction she received without a signature. She followed all three instructions. She does not know why any of them were given. The re-entry instruction, she says, arrived on the same day the restricted stacks gate hardware was updated — she noticed because the facilities crew passed through the loading bay that afternoon, which was unusual.`;
+        addJournal('Myra Quillfire: suppressed cargo entry reinstated on day restricted stacks were resealed — convergent timing', 'evidence', 'mim-myra-log-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Sarith filed a discrepancy notice four months ago. Nobody responded.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'drawing out Sarith Quillfire on an unanswered discrepancy notice');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_sarith_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Sarith reaches into the shelf behind her counter without leaving her seat and produces a carbon copy of the discrepancy notice — she kept one; the original went to the faculty administration office four months ago and has not come back with an acknowledgment. The discrepancy is a category code she had no record of applied to three separate acquisitions, all in the same week. She noted the acquisition weight, the category code, and the absence of any corresponding item in the Academy's materials schedule. The copy is annotated in her own hand with the follow-up dates: four attempts to reach the administration office, four non-responses. The fifth attempt, she says, produced a verbal instruction not to re-file.`;
+        addJournal('Sarith discrepancy notice: 4 unanswered follow-ups, verbal instruction not to re-file on 5th', 'evidence', 'mim-sarith-notice-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Sarith's counter has its quarterly audit flag active — she mentions this before anything else, a procedural note she is required to give to any external inquirer. Any question she answers during an active audit flag period is included in the quarterly audit record. She is not refusing; she is warning. The questions asked here, and her answers, are going into a document that travels to the administration office. The audit flag runs for another six days.`;
+        addJournal('Sarith Quillfire: quarterly audit flag active — all inquiries logged in administration record for 6 more days', 'complication', 'mim-sarith-notice-fail-' + G.dayCount);
+      } else {
+        G.flags.met_sarith_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Sarith confirms the discrepancy notice without opening the counter drawer — she remembers the entries and the non-response without needing the copy. Three acquisitions, unknown category code, no materials schedule match. She filed the notice through the standard channel and received nothing back. Four months of nothing. She does not interpret this as an oversight. "When an office doesn't respond to a discrepancy notice, that is itself a response," she says, and the phrasing is precise enough that she has clearly said it before, to herself, while waiting.`;
+        addJournal('Sarith discrepancy notice: four months, no acknowledgment — non-response interpreted as deliberate', 'evidence', 'mim-sarith-notice-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Myra logged a delivery where the porter who signed for it doesn't match any staff record.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'tracing Myra Quillfire ghost-porter signature in delivery record');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.met_myra_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The porter's name in the delivery record — written in a hand Myra confirms is not hers — checks against the Academy's full staffing registry including the temporary labour pool and the external maintenance contractors. No match. The signature is a name that has no employment record, no payroll entry, no duty assignment. Myra points to the next entry in her log: a weight confirmation written by herself, thirty minutes later, for a crate she says she did not see signed in. The ghost porter's delivery completed before she was there to receive it. Someone moved the crate through the loading bay using a name that does not exist and was gone before the shift started.`;
+        addJournal('Ghost-porter signature on delivery — name not in staffing registry, crate moved before shift began', 'evidence', 'mim-myra-ghost-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.lastResult = `The staffing registry is a human resources document maintained by the Academy administration office — external access for cross-referencing delivery records against staff names requires a formal HR inquiry form, countersigned by a faculty member. Myra explains this while the supervisor moves between the loading bay and the dock exterior on a routine check cycle. The form, she says, takes three working days to process. The crate in question moved through seven weeks ago.`;
+        addJournal('Ghost-porter cross-reference blocked — HR inquiry form required, faculty counter-signature needed', 'complication', 'mim-myra-ghost-fail-' + G.dayCount);
+      } else {
+        G.flags.met_myra_quillfire = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `Myra checked the porter's name against the staffing list herself — it was the first thing she did when she noticed the delivery record. No match anywhere in the staff registry, the temporary pool, or the contractor list. She tried the maintenance contractor records separately, thinking it might be an off-site hire. Nothing. The name on the delivery record is not a person the Academy employed. The crate signed in under that name is one of the ones in the theoretical-materials column.`;
+        addJournal('Ghost-porter name absent from all Academy registries — delivery corresponds to theoretical-materials column entry', 'evidence', 'mim-myra-ghost-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // === SUPPRESSION COMPOUND THEORETICAL BASIS — ~5 choices ===
+
+  {
+    label: "The formula's pressure tolerance range is ten times what academic damping work would need.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'analyzing suppression formula pressure tolerance parameters against academic use');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_formula_scale_confirmed = true;
+        G.lastResult = `The theoretical formula's upper pressure tolerance is set at a level that corresponds to sustained open-site glyph suppression across a zone several hundred meters in radius. Academic damping work — the application the formula's classification paperwork cites — requires a tolerance two orders of magnitude lower, for controlled single-chamber experiments. The upper range was not included for academic purposes. It was included because the formula was designed from the beginning for deployment at a scale that has nothing to do with what the Academy's curriculum covers. The theoretical work here was product development with a pedagogical label.`;
+        addJournal('Formula pressure tolerance 100x academic need — designed for open-site zone suppression, not laboratory use', 'evidence', 'mim-formula-scale-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The formula details are in the restricted stacks. The attendant at the reading room desk tracks which sections visitors move toward and flags restricted-stack approaches automatically in the duty log. The approach was logged before the restricted gate was reached. A proctor arrives in the reading room six minutes later — not running, not hurrying, just present. The formula's parameters are still behind the sealed gate. The approach is now in the duty log for the third time this week.`;
+        addJournal('Formula access attempt logged — proctor arrival timed, restricted approach flagged again', 'complication', 'mim-formula-scale-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The pressure tolerance range in the formula exceeds what any controlled academic experiment would require by a significant margin. Laboratory damping applications work at low tolerances, carefully bounded to prevent cascade effects in a contained setting. The upper range in this formula is designed for a different environment: open site, larger area, sustained application. The theoretical framing around it describes laboratory use. The formula itself does not match that description.`;
+        addJournal('Formula upper pressure range inconsistent with laboratory framing — parameters match open-site sustained deployment', 'evidence', 'mim-formula-scale-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The suppression compound has a stabilizer compound only available outside Academy supply channels.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing suppression compound stabilizer to non-Academy supply source');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_stabilizer_sourced = true;
+        G.lastResult = `The stabilizer component in the compound formula is not on the Academy's approved reagent list and has never been on it — it is a processed extract from a specific cave mineral deposit, the kind formed only under sustained glyph pressure over long periods. The only documented source for it in the region is the Watchers Perch cave system, which was producing a natural form of the compound in the pressure regulation layers before the modifications reversed the site's function. The modifications that reversed the safety system also created the extraction conditions the stabilizer requires. The cave was converted from a suppression buffer into a production site.`;
+        addJournal('Stabilizer sourced from Watchers Perch mineral deposit — site converted from safety buffer to production via modifications', 'evidence', 'mim-stabilizer-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The Academy's reagent catalog is a public document. The stabilizer component is not in it, which should make the question simple — except that clarifying exactly what is being looked for requires referencing the formula, which is in the restricted stacks, which requires faculty authorization. The reference desk attendant notes the specific inquiry in her assistance log, which is reviewed by the faculty librarian weekly. A specific inquiry about a compound component that requires the restricted formula to name is now in the weekly review log.`;
+        addJournal('Stabilizer inquiry logged — requires restricted formula reference, in weekly faculty review queue', 'complication', 'mim-stabilizer-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The stabilizer component is absent from the Academy's reagent catalog, which means the Academy cannot produce the compound internally — not because they lack the formula, but because they cannot source one of its components through normal supply channels. The component is a processed cave mineral extract. The processing requires sustained glyph pressure environments. The Academy doesn't have that environment. Watchers Perch, modified as it was, would.`;
+        addJournal('Compound stabilizer absent from Academy catalog — requires glyph pressure extraction environment, Watchers Perch consistent match', 'evidence', 'mim-stabilizer-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The earliest version of the formula lacked the deployment mechanism. It was added later.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'tracing iterative additions to suppression formula draft sequence');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_formula_versioning_mapped = true;
+        G.lastResult = `The draft sequence in Quenra's unrestricted research notes — the versions predating the classification — shows the formula in three distinct stages. The first two are theoretical damping work, consistent with academic application. The third draft adds a dispersal mechanism that has no academic function: a carrier compound that makes the suppression effect airborne and persistent across terrain rather than contained to a single surface. The third draft is dated six weeks after the Fairhaven phantom monograph's citation first appears in the research stack. The deployment mechanism came from outside the Academy. The faculty developed the theory; someone else added the weapon.`;
+        addJournal('Formula draft 3 adds airborne dispersal mechanism — dated 6 weeks after phantom monograph citation, external origin', 'evidence', 'mim-formula-versions-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `Quenra's research notes are faculty property filed under her departmental records — the unrestricted drafts are accessible by faculty request, but the access process requires a stated academic purpose from an enrolled or affiliated researcher. External access without affiliation requires a visiting researcher application, which takes three weeks to process. The notes sit in a cloth folder in the open-shelf section of the departmental archive, visible from the doorway, inaccessible by procedure for twenty-one days.`;
+        addJournal('Quenra research notes access blocked — visiting researcher application required, 3-week process', 'complication', 'mim-formula-versions-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The draft sequence shows the formula evolving across three versions. The first two fit the academic application described in the classification paperwork: damping theory for controlled experiments. The third adds a component that does not fit that description — a carrier mechanism for terrain-scale dispersal. The gap between the second and third drafts is six weeks. Something arrived during those six weeks that changed the direction of the work.`;
+        addJournal('Formula draft sequence: dispersal mechanism added in third version, 6-week gap from academic drafts', 'evidence', 'mim-formula-versions-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Watchers Perch modification schematics show a conversion, not a construction project.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 75,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'analyzing Watchers Perch modification schematics against original installation records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_watchers_perch_conversion_confirmed = true;
+        G.lastResult = `The modification schematics, cross-referenced against the Memory Hall inscriptions Velis opened, are not the plans for a new installation. Every structural change documented in the schematics corresponds to an existing element of the original pressure-regulation architecture: valve positions reversed, flow channels redirected, pressure accumulation points converted from release nodes to retention chambers. The people who designed the modification had the original schematics. They knew exactly what the site was built to do, and they reversed it with precision. Intentional conversion, not accidental damage, not improvised addition. Someone understood the original system completely before they dismantled it.`;
+        addJournal('Watchers Perch schematics: each modification reverses an original safety element — precision conversion with original plans in hand', 'evidence', 'mim-conversion-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The modification schematics are filed with the grounds and facilities office as a completed project archive — sealed at project completion, accessible to faculty with relevant departmental credentials. The facilities clerk pulls the access requirement card without looking for it, which means she has pulled it recently. Someone else has already asked for these documents. The name on the most recent access request is not readable from the counter. The schematics are behind the credential requirement regardless.`;
+        addJournal('Watchers Perch schematics access blocked — prior inquiry on record, faculty credential required', 'complication', 'mim-conversion-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The modification schematics show changes made to existing infrastructure rather than new construction: redirected channels, repositioned valves, accumulation chamber conversions. All of it corresponds to elements described in the Memory Hall inscriptions as pressure-regulation mechanisms. This was a conversion project. The original system was understood and systematically reversed. Whatever was built at Watchers Perch originally, the modification was designed to make it do the opposite.`;
+        addJournal('Watchers Perch modifications reverse original safety mechanisms element by element — systematic conversion', 'evidence', 'mim-conversion-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The compound's degradation timeline makes it useless for anything except population-scale application.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'analyzing suppression compound degradation timeline against academic vs field application');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_degradation_timeline_mapped = true;
+        G.lastResult = `The compound degrades to inert components within eight hours of dispersal — which means it cannot be stockpiled in active form, must be produced continuously near its deployment site, and must be applied over a large area to achieve effect before degradation neutralizes it. This is not the profile of a controlled research agent. It is the profile of a weapon designed for mass deployment: too unstable to store, too short-lived to use on individuals, exactly suited for broad ambient release across an inhabited area. The Academy's theoretical framing as a research compound is not just a cover. It is the only legal description available for something with these properties, because the legal category for what this actually is does not exist in any administrative framework that would permit its development here.`;
+        addJournal('Compound degradation profile: 8-hour window, requires continuous production near deployment — optimized for mass ambient release, not research', 'evidence', 'mim-degradation-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The compound's technical parameters are detailed in the restricted formula. The restricted formula requires faculty authorization to access. The question touches enough specific technical detail that the reading room attendant, when asked for help locating relevant sections of the unrestricted literature, refers the inquiry to the faculty science liaison. The science liaison's schedule is booked through the end of the week. The referral is logged with a notation about the nature of the inquiry.`;
+        addJournal('Compound parameter inquiry referred to faculty liaison — specific technical detail triggered referral, inquiry logged', 'complication', 'mim-degradation-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The degradation timeline in the theoretical literature — the sections accessible without restriction — describes a compound that becomes inert within hours of dispersal. That window is too short for controlled laboratory use and too short for targeted individual application. It is exactly right for broad area deployment where the goal is saturation rather than precision. The compound's usefulness is directly proportional to the size of the area it covers. The Academy's framing as a research agent does not fit its properties.`;
+        addJournal('Compound degradation timeline inconsistent with research application — optimized for broad area saturation', 'evidence', 'mim-degradation-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  // === EXTERNAL AGENTS WITH ACADEMY ACCESS — ~4 choices ===
+
+  {
+    label: "The three external clearance codes share a common registration block in the admin ledger.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing shared registration block for external Academy clearance codes');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_clearance_block_traced = true;
+        G.lastResult = `The three external clearance codes were issued on the same afternoon, logged in a sequential registration block in the administrative ledger — the kind of block that appears when a single processing session issues multiple codes. One issuing clerk's initials appear on all three entries. The clerk's employment record shows a twelve-week posting to the Academy from the Collegium Transit Certification division — the same division that registered the Crown Research Protocol exemption code. The clerk completed the posting and returned to Fairhaven four months ago. All the clearance infrastructure for the external agents was installed by a Collegium employee on temporary assignment, in a single afternoon, and left in place when she departed.`;
+        addJournal('Three external clearances issued same afternoon by Collegium Transit clerk on temporary posting — infrastructure left after departure', 'evidence', 'mim-clearance-block-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The administrative ledger is a restricted document — it records internal processing codes and cannot be accessed without a faculty administrative credential and a stated purpose. The clerk at the administrative desk notes the inquiry, writes a reference number, and explains that ledger access requests are reviewed by the Dean's administrative secretary on a ten-day cycle. The inquiry is in the queue. The queue is a list. The list is in the same office as the ledger.`;
+        addJournal('Admin ledger access blocked — 10-day Dean review cycle, inquiry queued', 'complication', 'mim-clearance-block-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The three external clearance codes appear in a sequential block in the admin ledger — not issued over time, but in a single session, by the same initials. Sequential issuance in one block is the processing pattern for a coordinated credential setup rather than three separate requests. The initials belong to a temporary posting from outside the Academy. The posting is complete; the employee is no longer on site. The clearances she installed are still active.`;
+        addJournal('Three external clearances issued in single sequential block by temporary posting employee — clearances remain active after departure', 'evidence', 'mim-clearance-block-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "One external agent attended a faculty-only thesis committee session. The committee has no record of it.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'cross-checking external agent attendance against faculty thesis committee records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_agent_committee_access = true;
+        G.lastResult = `The thesis committee session log is kept by the faculty secretary and is a public administrative record, open to academic readers. One session on the glyph resonance track lists five attendees; the faculty membership rolls account for four of them. The fifth name — written in the same compressed hand as the charter exemptions — does not appear on any faculty list, adjunct list, or invited examiner record. The committee secretary, when tracked down in the archive corridor, confirms she did not write the fifth name. It was there when she filed the log. Somebody attended a closed faculty thesis committee meeting and added their own name to the session record afterward.`;
+        addJournal('External agent name added to thesis committee session log post hoc — committee secretary did not write it', 'evidence', 'mim-committee-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The thesis committee session log is kept in the faculty secretary's administrative files — open by designation, but the faculty secretary's office door is locked at the moment of inquiry, with a "Staff Meeting in Progress" card. The card is new: it was not on the door this morning, based on the dust pattern around the card holder, which was recently cleaned. The meeting in progress, if it exists, was convened after the approach to the archive corridor began.`;
+        addJournal('Faculty secretary office locked after approach observed — staff meeting card newly placed', 'complication', 'mim-committee-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The thesis committee session log lists five attendees for a glyph resonance session where only four faculty members are authorized to participate. The fifth name does not correspond to any faculty member, adjunct, or invited examiner on the rolls. The name is in the session record. It was not removed. Whoever it belongs to was either present at a closed faculty session without authorization, or added their name to the record afterward without being present. Both possibilities are significant.`;
+        addJournal('Thesis committee session log: unidentified fifth attendee at faculty-only glyph resonance session', 'evidence', 'mim-committee-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The external agents' key return dates all fall on the same day as Draith Calver's arrivals.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'correlating external agent key return dates with Draith Calver courier arrival schedule');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_agent_courier_sync_confirmed = true;
+        G.lastResult = `The key return log for external access passes tracks the dates each holder returned their pass after a session — a routine record kept at the facilities desk without particular attention. The three external clearance holders returned their passes on five separate occasions over four months. All five return dates match Draith Calver's twelve-day arrival cycle to within a six-hour window. They were not at the Academy to do research. They were at the Academy to receive what Draith brought, transfer what they took from the restricted wing, and depart on the same day the courier left. The Academy's facilities desk was keeping the coordination record without knowing it.`;
+        addJournal('External agent key returns correlate with Draith courier arrivals on 5 of 5 occasions — transfer operation using Academy access infrastructure', 'evidence', 'mim-agent-courier-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.lastResult = `The key return log is at the facilities desk — a casual record, not a restricted document, but the facilities desk is in the middle of a shift changeover when the log is requested. The outgoing clerk does not have authority to release administrative records; the incoming clerk has not yet signed on. The log stays where it is for forty minutes while the handover completes. By the time access is available, the window for same-day correlation against Myra's cargo log has closed.`;
+        addJournal('Key return log access delayed by shift changeover — same-day correlation window lost', 'complication', 'mim-agent-courier-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The key return log shows the external access holders returning their passes in clusters — not randomly distributed, but falling consistently within a narrow window. Cross-referenced against Myra's twelve-day courier cycle notes, four of five return dates align with Draith Calver's off-schedule arrivals. The external agents and the courier were operating on the same schedule. Their Academy visits were not independent.`;
+        addJournal('External agent key returns align with courier arrival schedule on 4 of 5 logged dates', 'evidence', 'mim-agent-courier-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The visiting faculty endorsement for one external agent is signed by someone who died two years ago.",
+    tags: ['Academy', 'Stage2'],
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'verifying visiting faculty endorsement signature against faculty mortality records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.mim_dead_endorser_confirmed = true;
+        G.lastResult = `The endorsement is from Emeritus Scholar Tavan Relle, whose faculty memorial was held eighteen months ago — the memorial is documented in the Academy's public record and the faculty necrology. Relle's signature appears on the external agent's access endorsement dated eight months ago, six months after his death. The signature is a close copy of his archival script, close enough that it passed the faculty registrar's desk without question. The endorsement granted access to the restricted wing and the cadaveric chemistry suite. The forged signature carried faculty-level authority for ten months before the access pass was eventually returned. Nobody checked the endorser's status at the time of filing.`;
+        addJournal('External agent endorsed by dead faculty member — forged signature of Emeritus Relle, filed 6 months after his death', 'evidence', 'mim-dead-endorser-' + G.dayCount);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = `The faculty endorsement files are administrative records and access requires a purpose statement reviewed by the faculty secretary. The faculty secretary's assistant logs the inquiry and provides the review process timeline: five working days. She also notes, without elaboration, that external inquiries about endorsement records are forwarded to the faculty governance office as a matter of protocol. The forwarding is automatic. The governance office receives the log of the inquiry before the inquiry is even processed.`;
+        addJournal('Endorsement file inquiry automatically forwarded to faculty governance — 5-day review, governance notified immediately', 'complication', 'mim-dead-endorser-fail-' + G.dayCount);
+      } else {
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = `The endorsing faculty member's name on one external agent's access file does not appear on the current faculty or emeritus rolls. A check against the faculty necrology — posted in the archive corridor outside the memorial reading room — locates the name immediately. He died two years ago. The endorsement on the access file is dated eight months ago. Either the record is wrong about the date, or the signature is wrong about the signatory. The signature is in the file. The man is in the necrology.`;
+        addJournal('External agent endorsement signed by faculty member who died 18 months before endorsement date', 'evidence', 'mim-dead-endorser-partial-' + G.dayCount);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
 ];
 
 window.MIMOLOT_STAGE2_ENRICHED_CHOICES = MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES;
