@@ -663,13 +663,13 @@
   // patrol_guard and border_enforcer are law enforcement — they route through
   // enterAuthorityConfrontation(), not enterCombat(). Excluded here.
   window.BIOME_ENCOUNTER_POOLS = {
-    plains:       ['frontier_militia', 'hostile_debtor', 'guild_enforcer'],
-    highland:     ['iron_accord_enforcer', 'veteran_mercenary', 'frontier_militia'],
-    coastal:      ['dock_enforcer', 'smuggler_lookout', 'hired_muscle'],
-    mountain:     ['iron_accord_soldier', 'veteran_mercenary', 'iron_accord_enforcer'],
-    forest:       ['shadowhands_watcher', 'village_thug', 'red_hood_operative'],
-    'ash-zone':   ['road_bandit', 'hostile_debtor', 'faction_agent'],
-    'ice-locked': ['iron_accord_soldier', 'road_bandit', 'frontier_militia']
+    plains:       ['plains_dust_hound', 'plains_grazer_bull', 'plains_scavenger_kite'],
+    highland:     ['highland_rockjaw', 'highland_ridge_viper', 'highland_fog_stalker'],
+    coastal:      ['coastal_shorecat', 'coastal_tide_crawler'],
+    mountain:     ['mountain_ironwing', 'mountain_stoneback', 'mountain_crevice_asp'],
+    forest:       ['forest_shadowmaw', 'forest_vine_horror', 'forest_needle_crow'],
+    'ash-zone':   ['ash_zone_cinder_rat', 'ash_zone_ember_hound'],
+    'ice-locked': ['ice_locked_frostgrip', 'ice_locked_polar_asp']
   };
 
   // ---------------------------------------------------------------------------
@@ -843,7 +843,25 @@
             : 'plains';
         }
         b = b || 'plains';
-        var pool = (typeof BIOME_ENCOUNTER_POOLS !== 'undefined' && window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[b]) || ['road_bandit'];
+
+        // Heat-gated authority encounter — fires INSTEAD of creature on high heat
+        var _polity = (G.flags && G.flags._corridor_polity) || null;
+        var _heat = _polity && G.heat && G.heat[_polity] || 0;
+        if (_heat >= 5 && Math.random() < 0.4) {
+          // High heat: authority confrontation instead of creature
+          if (typeof enterAuthorityConfrontation === 'function') {
+            enterAuthorityConfrontation(_polity + '_patrol', ctx);
+            return;
+          }
+        } else if (_heat >= 3 && Math.random() < 0.2) {
+          // Notice heat: possible authority encounter in addition to creature
+          if (typeof enterAuthorityConfrontation === 'function') {
+            enterAuthorityConfrontation(_polity + '_roadwarden', ctx);
+            return;
+          }
+        }
+        // Otherwise: normal creature encounter
+        var pool = (typeof BIOME_ENCOUNTER_POOLS !== 'undefined' && window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[b]) || ['plains_dust_hound'];
         var enemy = pool[Math.floor(Math.random() * pool.length)];
         if (typeof enterCombat === 'function') enterCombat(enemy, { isBoss: false });
       }

@@ -96,7 +96,40 @@ window.ENEMY_STATS = {
   extraction_guard_polar:     { name:'Polar Extraction Guard',     hp:19, atk:5, def:4, desc:'Resource operation security at extreme latitude. Highly paid, highly dangerous.', loot:[], group:'polar_dome' },
   dome_steward_polar:         { name:'Polar Dome Steward',         hp:16, atk:4, def:5, desc:'Environmental management authority. Treats the dome as more important than its occupants.', loot:[], group:'polar_dome' },
   concord_field_operative:    { name:'Concord Field Operative',    hp:20, atk:5, def:5, desc:'Research Concord deployment. Collects samples and eliminates complications.', loot:[], group:'polar_dome' },
-  polar_enforcement_agent:    { name:'Polar Enforcement Agent',    hp:22, atk:6, def:5, desc:'Authority at the edge of the world. No oversight. No hesitation.', loot:[], group:'polar_dome' }
+  polar_enforcement_agent:    { name:'Polar Enforcement Agent',    hp:22, atk:6, def:5, desc:'Authority at the edge of the world. No oversight. No hesitation.', loot:[], group:'polar_dome' },
+
+  // ── BIOME WILDERNESS CREATURES ───────────────────────────
+  // Plains
+  plains_dust_hound:    { name:'Plains Dust Hound',    hp:14, atk:4, def:2, desc:'Pack hunter native to open flatlands. Fast and low to the ground.', loot:['hide_scrap'], group:'plains_creature' },
+  plains_grazer_bull:   { name:'Grazer Bull',           hp:20, atk:5, def:3, desc:'Large horned herbivore. Docile until cornered or panicked.', loot:['thick_hide'], group:'plains_creature' },
+  plains_scavenger_kite:{ name:'Scavenger Kite',        hp:10, atk:4, def:1, desc:'Carrion bird the size of a large dog. Flocks follow wounded prey.', loot:['feather_bundle'], group:'plains_creature' },
+
+  // Highland
+  highland_rockjaw:     { name:'Highland Rockjaw',      hp:18, atk:6, def:4, desc:'Armored predator that hunts the boulder fields. Slow but relentless.', loot:['stone_chitin'], group:'highland_creature' },
+  highland_ridge_viper: { name:'Ridge Viper',           hp:12, atk:7, def:1, desc:'Fast-striking serpent. Venom causes numbness in the extremities.', loot:['venom_sac'], group:'highland_creature' },
+  highland_fog_stalker: { name:'Fog Stalker',           hp:16, atk:5, def:3, desc:'Cat-like predator. Uses morning mists to approach prey undetected.', loot:['pelt_quality'], group:'highland_creature' },
+
+  // Coastal
+  coastal_shorecat:     { name:'Shorecat',              hp:15, atk:5, def:2, desc:'Amphibious predator with barbed claws adapted for rocky shorelines.', loot:['barbed_claw'], group:'coastal_creature' },
+  coastal_tide_crawler: { name:'Tide Crawler',          hp:22, atk:4, def:5, desc:'Armored crustacean. Attacks when disturbed from tidal pools.', loot:['shell_plate'], group:'coastal_creature' },
+
+  // Mountain
+  mountain_ironwing:    { name:'Mountain Ironwing',     hp:20, atk:6, def:3, desc:'Large raptor with iron-hard beak. Nests on cliffsides, hunts the passes.', loot:['ironwing_feather'], group:'mountain_creature' },
+  mountain_stoneback:   { name:'Stoneback',             hp:24, atk:5, def:5, desc:'Heavy quadruped with stone-like dorsal plates. Charges when territory is crossed.', loot:['stone_plate_shard'], group:'mountain_creature' },
+  mountain_crevice_asp: { name:'Crevice Asp',           hp:11, atk:8, def:1, desc:'Thin serpent that hides in rock cracks. Strike is fast and venomous.', loot:['asp_venom'], group:'mountain_creature' },
+
+  // Forest
+  forest_shadowmaw:     { name:'Shadowmaw',             hp:17, atk:6, def:3, desc:'Ambush predator that freezes in place between moves. Hard to track.', loot:['dark_pelt'], group:'forest_creature' },
+  forest_vine_horror:   { name:'Vine Horror',           hp:25, atk:4, def:4, desc:'Fungal entity that uses vine-like tendrils to immobilize prey.', loot:['fungal_core'], group:'forest_creature' },
+  forest_needle_crow:   { name:'Needle Crow',           hp:9, atk:5, def:1, desc:'Small corvid with hardened beak spines. Lethal in flocks of three or more.', loot:['spine_quill'], group:'forest_creature' },
+
+  // Ash-zone
+  ash_zone_cinder_rat:  { name:'Cinder Rat',            hp:12, atk:4, def:1, desc:'Heat-adapted rodent with scorch-resistant hide. Gnaws through gear left on the ground.', loot:['scorch_hide'], group:'ash_creature' },
+  ash_zone_ember_hound: { name:'Ember Hound',           hp:18, atk:6, def:2, desc:'Pack predator adapted to volcanic terrain. Runs hot to the touch.', loot:['ember_pelt'], group:'ash_creature' },
+
+  // Ice-locked
+  ice_locked_frostgrip: { name:'Frostgrip',             hp:21, atk:5, def:4, desc:'Large four-limbed predator with ice-white coat. Hunts in pairs on frozen routes.', loot:['frost_pelt'], group:'ice_creature' },
+  ice_locked_polar_asp: { name:'Polar Asp',             hp:13, atk:6, def:2, desc:'Cold-water serpent. Conceals itself under ice film.', loot:['cold_venom_sac'], group:'ice_creature' }
 };
 
 window.BESTIARY_LOOKUP = {
