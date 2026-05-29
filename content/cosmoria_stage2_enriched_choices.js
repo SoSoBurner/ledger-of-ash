@@ -1155,6 +1155,898 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
+  },
+
+  // ── NEW EXPANSION — Maritime Archive Arc (+25) ──
+
+  {
+    label: "Coralyn's archive shelf has no catalog entry. The spines face inward.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'risky',
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'cross-referencing uncataloged archive shelf against public index');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.coralyn_hidden_shelf_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Coralyn squares the catalog binder against the counter edge before opening it — both hands, a precise alignment. The shelf in question holds eleven bound volumes, spines reversed. None appear in the public index. She opens the catalog to the relevant section and points to a gap in the sequential numbers: entries 1140 through 1150 are listed as ADMINISTRATIVE HOLD, no description, no access date, no reviewing officer recorded. The hold notation is in a different ink weight from the surrounding entries. It was added after the original catalog was compiled, and the person who added it did not sign the margin.';
+        addJournal('Cosmoria archive: uncataloged shelf — entries 1140-1150 under administrative hold, added after catalog compiled, unsigned', 'evidence', `cos-shelf-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The shelf is behind the archive counter. Non-archivist access to the counter area requires a registered researcher credential. Coralyn processes the credentialing request at the front desk and notes the name in the inquiry log — the log that routes to the Harbor Captain\'s administrative office. The shelf stays behind the counter. The access log has a new entry. The ink is still wet on the date line when the door closes.';
+        addJournal('Archive counter access denied — credentialing inquiry logged, routed to Harbor Captain', 'complication', `cos-shelf-fail-${G.dayCount}`);
+      } else {
+        G.flags.coralyn_hidden_shelf_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The catalog gap is visible without going behind the counter — the sequential numbers skip a block, and the printed index entry reads ADMINISTRATIVE HOLD in abbreviated form. Coralyn confirms the volumes exist. "That block has been under hold for fourteen months." She squares the binder against the desk edge before closing it. "The hold was applied by an authority code that does not correspond to any currently active administrative office I have a record for." She has checked. More than once.';
+        addJournal('Cosmoria archive: catalog entries 1140-1150 under hold from unidentified authority code — 14 months, Coralyn confirmed code unmatched in current records', 'intelligence', `cos-shelf-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The airship dock has a manifest office that is not in the public directory.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'bold',
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'locating and accessing the unlisted airship dock manifest office');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.unlisted_manifest_office_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The door at the north end of the dock service corridor is unmarked — no directory plate, no posted hours, no access requirement notice. Inside, a single standing desk holds a stack of manifest duplicates in a format distinct from the public copies: these carry a handwritten column on the right margin labeled "DL" with single-letter entries. Salt crust on the windowsill indicates the window has not been opened in months. A fresh cargo crane schedule is pinned to the board above the desk. Someone visits this office regularly but does not advertise its existence. The DL entries, cross-referenced against the night airship departure log, all precede departures by the same interval: six to eight hours.';
+        addJournal('Unlisted manifest office at dock north corridor: duplicate manifests with handwritten DL column — entries precede every night departure by 6-8 hours', 'evidence', `cos-manifestoffice-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'The corridor is narrower than it appears from the dock entry — salt timber and low light, rigging lines stacked against the east wall. A dock supervisor comes out of the service stair before the unmarked door is reached. He does not ask a question. He stands in the corridor, blocking the approach by presence alone, and waits to see what happens next. He has a pocket ledger clipped to his belt and his hand rests near it. The corridor is a dead end from this point. He knows that.';
+        addJournal('North dock corridor approach blocked — dock supervisor presence without verbal challenge, observation logged in pocket ledger', 'complication', `cos-manifestoffice-fail-${G.dayCount}`);
+      } else {
+        G.flags.unlisted_manifest_office_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The unmarked door at the dock\'s north service corridor opens to an unoccupied office. A standing desk, a pinboard with a cargo crane schedule, a stack of manifest duplicates in a format the public archive does not carry. The right margin of each duplicate carries a handwritten column not present on the public version. The column header is "DL." The entries are single letters. There is no time to cross-reference them before voices in the corridor outside move closer.';
+        addJournal('Unlisted dock office: manifest duplicates with handwritten DL margin column, format not in public archive — cross-reference incomplete', 'intelligence', `cos-manifestoffice-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Nerissa's shrine records predate the suppression pattern by eleven months.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    plot: 'main',
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'tracing Nerissa Tideglass shrine records against the suppression timeline');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.nerissa_predates_suppression = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Nerissa spreads the full observation ledger on the shrine\'s record table — two years and three months, dated entries, tide amplitude and glyph activity side by side. Salt air moves through the open seaward arch. The first anomalous tidal entry predates the earliest sealed container declaration by eleven months exactly. She traces the entry with a careful finger. "I recorded a dual-tide amplitude event that didn\'t match any seasonal model I had. I couldn\'t explain it and I didn\'t try." She pauses. "Someone was testing the schedule. This is from before they committed to it." The first event was a trial run.';
+        addJournal('Nerissa shrine record: anomalous tidal event 11 months before first sealed container — pattern implies operational trial run preceding full deployment', 'evidence', `cos-nerissa2-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = 'Nerissa closes the observation ledger before it is fully on the table. "The shrine\'s records are devotional documents, not administrative ones. Pulling them for a civil audit purpose requires a written request through the polity\'s religious liaison office." She says it gently, which makes it harder to argue with. The salt-scented wind from the harbor arch moves through the silence. She has not decided to refuse — she has decided she needs the form first.';
+        addJournal('Sea shrine records access declined — religious liaison office form required for civil audit use', 'complication', `cos-nerissa2-fail-${G.dayCount}`);
+      } else {
+        G.flags.nerissa_predates_suppression = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Nerissa opens the ledger to the earliest anomalous entry and sets it on the table without prompting. The date is eleven months before the first sealed container declaration in Tavian\'s bonded transit log. "I had no framework for it at the time," she says. "The amplitude was within normal range but the dual-tide correlation was unusual." She marks the entry with a ribbon and leaves the ledger open. The discrepancy was real before the operation existed in the documentary record.';
+        addJournal('Nerissa shrine ledger: anomalous tidal entry 11 months before first bonded transit declaration — pre-dates documentary evidence of operation', 'intelligence', `cos-nerissa2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Marrow's cargo logs have two weight columns. The second set never matches the manifest.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'risky',
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'cross-referencing cargo weight columns against night airship manifests with Marrow');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.marrow_dual_weight_column = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Marrow sets the cargo log on the desk without sitting down. His hands stay at his sides while he speaks. The second weight column is a private manifest addendum — required by a non-coastal authority, he says the name of the office flatly, the same tone he uses for tidal forecasts. The addendum cites a classification that does not exist in the public shipping registry. He opens the chart table drawer, removes a folded copy of the addendum authorization, and places it on the desk between you. He does not push it toward you. "It came with the waiver instruction," he says. "The same week."';
+        addJournal('Marrow cargo log: second weight column added per non-coastal authority addendum — classification unregistered in public shipping registry, authorization held in chart table', 'evidence', `cos-marrow2-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Marrow listens to the question about the dual columns and then asks for the purpose of the inquiry in writing. The form is pre-positioned on the corner of the desk — a practiced reach, not a search. Brine and rope-tar smell moves through the Harbor Captain\'s office from the dock-facing window. He dates the form himself. The inquiry is now logged in the administrative record and linked to the access log already in Coralyn\'s archive. Two logs. One name.';
+        addJournal('Cargo log dual-column inquiry — Harbor Captain logged and cross-filed with archive access record', 'complication', `cos-marrow2-fail-${G.dayCount}`);
+      } else {
+        G.flags.marrow_dual_weight_column = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Marrow acknowledges the second column exists. "Private manifest addendum. Required by the waiver authority." His hands stay at his sides. He does not open the chart table. "The second column records what the addendum requires me to record. It does not match the public manifest because it is not the public manifest." He marks three entries with a grease pencil — the highest variance between the two columns — and steps back from the desk. He does not explain why those three. He does not need to.';
+        addJournal('Marrow confirms dual-column private addendum — variance entries marked without explanation, three highest-variance nights identified', 'intelligence', `cos-marrow2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The harbormaster's authority log shows a gap. Eight months, no routing disputes filed.",
+    tags: ['Harbor Authority', 'Stage2'],
+    tag: 'risky',
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'auditing harbormaster routing dispute log for the sealed container period');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.harbormaster_gap_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The harbormaster\'s routing dispute log is a public instrument — posted quarterly, available at the Harbor Authority intake desk. A busy port generates routing disputes: berth conflicts, priority challenges, cargo staging disagreements. Cosmoria\'s log runs dense for the year before the sealed container period and dense for the months after. The eight months in the middle carry four entries, all minor, none involving night platform operations. Every operator who might have challenged the sealed container priority routing stayed silent. The silence is coordinated or coerced. Neither option is recorded in the log.';
+        addJournal('Harbormaster dispute log: 8-month gap in night platform challenges during sealed container period — pre- and post-period logs dense, gap structurally anomalous', 'evidence', `cos-hmgap-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The Harbor Authority intake desk processes the log request and sets the current quarter\'s volume on the counter. The counter clerk notes the inquiry in the administrative log — the one that routes to Marrow Tideglass\'s office by end of day — before opening the volume to the index page. The previous quarters are in the archive section, which requires a separate access form. The form is two pages. The clerk has already filled in the date.';
+        addJournal('Harbormaster dispute log: only current quarter accessible at intake — prior quarter access requires separate form, inquiry logged to Harbor Captain', 'complication', `cos-hmgap-fail-${G.dayCount}`);
+      } else {
+        G.flags.harbormaster_gap_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Three years of routing dispute logs laid out in sequence show a clear difference in the eight-month sealed container period. Normal operational tempo generates fifteen to twenty entries per quarter. The sealed container quarters carry four total. A busy working port doesn\'t go quiet on its own. Operators who file disputes regularly either stopped or were told not to. The log doesn\'t record either possibility.';
+        addJournal('Harbormaster log: dispute entries drop from 15-20/quarter to 4 total across 8-month sealed container period', 'intelligence', `cos-hmgap-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Tavian's bonded transit column links to a Fairhaven trade house that closed two years ago.",
+    tags: ['Maritime', 'Stage2', 'Cross-Locality'],
+    tag: 'risky',
+    plot: 'main',
+    xpReward: 82,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(82, 'cross-referencing Tavian bonded transit buyer records against Fairhaven trade house registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.fairhaven_trade_house_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The bonded transit buyer field in Tavian\'s ledger lists a Fairhaven trade house name for thirty-eight of the forty-one sealed container entries. A Fairhaven commercial registry cross-check — Tavian keeps one on the shelf behind his desk, updated annually — shows the trade house dissolved two years ago, six months before the first sealed container arrived. A dissolved buyer cannot complete bonded transit. Tavian sets the registry page next to his ledger and flattens both with the heel of his hand. "I processed those entries. The buyer name cleared the system." He means the name was in the system. Not that the house existed.';
+        addJournal('Tavian bonded transit buyer: Fairhaven trade house on 38 of 41 entries — dissolved 2 years ago, 6 months before first sealed cargo, name still active in system', 'evidence', `cos-fairhaven-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Tavian opens his mouth and then closes it. The bonded transit buyer records fall under the active Cosmouth administrative audit — he explained this. His hands press flat on the desk. The audit notice in the document tray behind him is still white at the edges. Someone filed it three days ago, timed to sit directly across the path of exactly this question. The timing is not a coincidence and Tavian knows it and knows that pointing it out would be a formal allegation requiring a signed statement.';
+        addJournal('Bonded transit buyer records blocked — Cosmouth audit filed 3 days prior, timing noted by Tavian', 'complication', `cos-fairhaven-fail-${G.dayCount}`);
+      } else {
+        G.flags.fairhaven_trade_house_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The buyer field in the bonded transit entries carries a Fairhaven trade house name. Tavian pulls the commercial registry from the shelf without being asked — he reaches past the caulking mallet and a stack of tariff references to get it. The trade house dissolved two years ago. "The system accepted the entry," he says. "The name was in the validation index even after dissolution. I didn\'t know the house had closed." He reads the dissolution date again. He knew something was wrong with the entries. He didn\'t know the buyer was already gone.';
+        addJournal('Bonded transit buyer: Fairhaven trade house dissolved 2 years before first cargo — still in validation index, Tavian confirmed entries cleared system without flagging dissolution', 'intelligence', `cos-fairhaven-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The harbormaster's counter-seal on the night manifest is always the same two initials.",
+    tags: ['Harbor Authority', 'Stage2'],
+    tag: 'risky',
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing the Harbor Authority counter-seal pattern on night manifests');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.harbor_counterseal_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Standard Harbor Authority procedure rotates the counter-sealing officer across a pool of eight registered signatories. Night manifests carry the initials of whoever was on duty. The sealed container departures carry the same two initials — every one, eight months, forty-one manifests. The duty rotation log is a public instrument. On sealed container nights the duty assignment was changed at short notice, always to the same officer, always without a recorded reason. The officer retired from the Harbor Authority six weeks ago. The retirement was effective immediately, no transition period.';
+        addJournal('Harbor Authority counter-seal: same two initials on all 41 sealed-container manifests — duty assignment changed at short notice each time, officer retired immediately 6 weeks ago', 'evidence', `cos-counterseal-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The duty rotation log for the Harbor Authority counter-sealing pool is an administrative record, not a public instrument. The duty clerk at the front desk explains this clearly and offers the public manifest index as an alternative. She fills in the inquiry form — name, purpose, date — before completing the explanation. The form goes into the outgoing administrative tray. Marrow Tideglass\'s office receives administrative tray items twice daily.';
+        addJournal('Harbor Authority duty rotation log: administrative record, not public — inquiry logged to Harbor Captain twice-daily tray', 'complication', `cos-counterseal-fail-${G.dayCount}`);
+      } else {
+        G.flags.harbor_counterseal_identified = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The night manifests in the public archive carry the counter-sealing initials clearly — it is a required field. Comparing the initials across sealed container departures takes under twenty minutes. The same two letters appear on every manifest for eight months. Harbor Authority counter-sealing rotates. This did not. The rotation records themselves are administrative, not public, but the manifests tell the same story from the outside.';
+        addJournal('Night manifest counter-seal: same initials on all sealed-container manifests over 8 months — rotation pattern broken, rotation log not accessible', 'intelligence', `cos-counterseal-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Selka's inn had a standing reservation for five rooms on every sealed container night.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'reviewing Selka Tideglass booking records for the sealed container nights');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.selka_five_rooms_pattern = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Selka opens the main booking ledger this time, not the private one. She thumbs to the sealed container dates without hesitation — she has looked at them herself. Five rooms reserved on each of forty-one nights, same account name, same single-night stay pattern. "They never used more than three. Two rooms sat empty every time." She turns the ledger toward you and points to the reservation block with one finger. "Pre-reserved capacity. Someone needed to know those rooms would be available." She lowers her voice. "And needed to know I\'d be too busy with a full booking to notice what else was happening on the dock."';
+        addJournal('Selka inn: 5 rooms pre-reserved on every sealed container night for 8 months — same account, same single-night pattern, 2 rooms consistently unused', 'evidence', `cos-selka3-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Selka wipes down the counter — a long, deliberate pass across a surface that doesn\'t need it. "A harbor inn that discusses booking patterns with strangers loses its trade inside a month." She sets the cloth down. "Whatever brought you to Cosmoria, the answer isn\'t in my ledger." She picks the cloth back up. Her thumb finds a scratch on the counter edge and works at it without looking down. She is done with this conversation and she is going to wait out the silence until whoever is standing across from her understands that.';
+        addJournal('Selka declined booking pattern inquiry — harbor discretion cited, conversation ended', 'complication', `cos-selka3-fail-${G.dayCount}`);
+      } else {
+        G.flags.selka_five_rooms_pattern = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Selka confirms a standing block reservation pattern without opening the ledger. "Five rooms, single night, same account for the past several months. They haven\'t used all five on any given night." She picks up the cloth and holds it. "I noticed because unused reserved rooms cost me other bookings. It happened too regularly to be coincidence." She doesn\'t say the account name. She glances at the ledger shelf, then back.';
+        addJournal('Selka confirmed 5-room standing block reservation on sealed container nights — same account, single night, rooms consistently underused', 'intelligence', `cos-selka3-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The airship lane suppression schedule runs six weeks ahead of the public shipping calendar.",
+    tags: ['Airship', 'Stage2'],
+    tag: 'risky',
+    plot: 'main',
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'cross-referencing airship lane suppression schedule against public shipping calendar');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.suppression_schedule_lead = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Airship Lane Registry posts suppression windows — mandatory routing restrictions, weather or administrative — in the public calendar thirty days in advance. Laid against the sealed container departure dates, the suppression windows appear on schedule precisely six weeks before each departure, not thirty days. Six weeks is the internal planning window, not the public one. Someone with access to the internal scheduling layer was building the departure plan against a calendar the public did not have access to. The sealed container operation was planned from inside the lane registry\'s administrative process.';
+        addJournal('Airship lane suppression windows precede sealed container departures by 6 weeks — matches internal planning cycle, not 30-day public calendar; operation planned from inside registry', 'evidence', `cos-suppress-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The Airship Lane Registry maintains its own administrative calendar that is not the same document as the public shipping calendar. A registry clerk processes the comparison request — logs it, stamps it, explains that the internal scheduling calendar is an operational document requiring a route operator credential to access. The public calendar is available at the port authority reading stand. The inquiry goes into the administrative log. It will reach the night platform supervisor\'s desk by evening.';
+        addJournal('Airship Lane Registry internal calendar access denied — operator credential required, inquiry logged to port authority', 'complication', `cos-suppress-fail-${G.dayCount}`);
+      } else {
+        G.flags.suppression_schedule_lead = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The public shipping calendar and the sealed container departure dates, compared date by date, show that suppression windows appear six weeks before each departure rather than the standard thirty-day public notice. The registry\'s public notice cycle is thirty days. Six weeks implies either an internal document or advance notification from someone within the registry process. The suppression windows did not create the departure schedule — the departure schedule created the suppression windows, and the windows were built with more lead time than the public calendar provides.';
+        addJournal('Airship lane suppression windows: 6-week lead vs 30-day public cycle — suppression windows appear to be scheduled around departures, not vice versa', 'intelligence', `cos-suppress-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The compound transit route runs through a corridor that has no listed operator.",
+    tags: ['Airship', 'Stage2'],
+    tag: 'bold',
+    xpReward: 80,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(80, 'tracing the unlisted airship corridor operator in the lane registry');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.unlisted_corridor_operator = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The airship lane registry lists every active corridor with a registered operator. The corridor used by the night airship for sealed container departures shows an operator field that reads: COSMOUTH ADMINISTRATIVE CONTINUITY — TRANSIT PROVISIONAL. The provisional designation means the corridor operates under a temporary grant of use, not a standard operator license. Provisional grants expire after ninety days and require renewal. This provisional grant has been renewed eleven times in fourteen months. Each renewal was processed by the same two-letter authorization code that appears on the night manifest counter-seal. The same person approved the corridor and sealed the manifests.';
+        addJournal('Night airship corridor operator: Cosmouth Administrative Continuity provisional grant — renewed 11 times in 14 months by same authorization code that counter-sealed manifests', 'evidence', `cos-corridor-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'The airship lane registry is an administrative database administered jointly by the Cosmouth and Harbor Authority offices. Corridor operator information for active routes requires a route operator credential or a joint authority referral. The clerk at the registry desk fills in two forms before explaining either requirement. The forms go to separate offices. The smell of brine-preserved rope comes through the registry\'s street-side window. By tomorrow morning, two offices will have a record of the same inquiry from the same name.';
+        addJournal('Airship corridor operator data requires joint Cosmouth/Harbor Authority referral — two forms filed, inquiry cross-logged in both offices', 'complication', `cos-corridor-fail-${G.dayCount}`);
+      } else {
+        G.flags.unlisted_corridor_operator = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The night airship corridor shows a provisional operator designation in the lane registry rather than a standard operator license. The provisional grant field reads "Cosmouth Administrative Continuity." Provisional grants are supposed to expire at ninety days. This one has been renewed. The renewal log is accessible — it is part of the provisional grant record. The grant has been renewed eleven times. The authorization code on each renewal is the same two-letter code.';
+        addJournal('Night airship corridor: provisional operator grant renewed 11 times — Cosmouth Administrative Continuity designation, same two-letter auth code on each renewal', 'intelligence', `cos-corridor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The harbormaster's written objection was returned unsigned. No record of who received it.",
+    tags: ['Harbor Authority', 'Stage2'],
+    tag: 'risky',
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'tracing the routing of Marrow\'s written objection to the sealed cargo waivers');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.marrow_objection_returned = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Marrow shows the returned objection without being asked to sit. The document bears a stamp he has never been able to identify — not a Cosmouth administrative mark, not a Harbor Authority seal, a third mark in the lower margin that does not appear in any of the polity directory formats he has checked. The objection was returned by courier, no cover letter, no recipient signature, no routing record attached. It came back in the same envelope he sent it in, resealed. The same envelope. "Whoever received it had access to my outgoing correspondence before it reached its destination," he says. He says it flat.';
+        addJournal('Marrow\'s written objection returned in original envelope, resealed — unidentified third-mark stamp in margin, no recipient signature, no routing record; implies courier intercept', 'evidence', `cos-objection-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Marrow listens to the question and then straightens the papers on the corner of his desk — a small, precise alignment, the same habit as squaring a form. "My administrative correspondence is an internal Harbor Authority matter." He does not open the objection file. "What you\'re asking requires a formal Harbor Authority process inquiry. I can provide the form." He reaches for the drawer without hostility. He has made this offer before and the offer has an answer that is part of the process.';
+        addJournal('Marrow declined objection file question — formal Harbor Authority process inquiry form offered', 'complication', `cos-objection-fail-${G.dayCount}`);
+      } else {
+        G.flags.marrow_objection_returned = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Marrow confirms the objection was returned. He doesn\'t get up or open a file. "Sent to the Cosmouth administrative office named in the waiver instruction. Came back a week later. No cover letter, no signature." His hands stay at his sides. "The return had a stamp I couldn\'t place." He identifies the Cosmouth office by name. The name matches the override authority on the dock platform weight reclassification.';
+        addJournal('Marrow objection returned unsigned from Cosmouth administrative office — same office named in dock platform weight reclassification override', 'intelligence', `cos-objection-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The compound transit staging area has a second floor. The stairs aren't on the building plans.",
+    tags: ['Airship', 'Stage2'],
+    tag: 'bold',
+    xpReward: 84,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(84, 'locating the unlisted second floor in the airship compound transit staging area');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.staging_second_floor_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The building plans on file at the Harbor Authority show a single-story staging structure, two cargo bays, standard internal layout. The exterior wall on the harbor side of the building rises a full three meters above the roofline shown on those plans — the extra height is visible from the sea wall and from any vantage above the dock level. Inside, behind a false partition at the back of bay two, an iron stair leads up. The upper floor is not finished as a storage space. It has a desk, a lamp bracket, and a tide table pinned to the wall — the same discontinued Cosmouth tide calendar Nerissa uses for comparison. Someone works here on the nights the airships load.';
+        addJournal('Staging compound: unlisted second floor behind false partition — desk, discontinued Cosmouth tide calendar on wall, exterior height inconsistent with filed building plans', 'evidence', `cos-secondfloor-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'The staging compound exterior is visible from the public dock walkway. The interior is not — the cargo bay doors are sealed and the side entry requires a bonded carrier credential. A harbor watchman on the dock walkway has noticed the observation of the building\'s exterior height. He does not approach immediately. He notes the position in a small log and resumes his patrol along the seawall, moving in a direction that will put him between the building and the dock exit in about ninety seconds.';
+        addJournal('Staging compound exterior observation noted by harbor watchman — logged, patrol repositioned to block dock exit', 'complication', `cos-secondfloor-fail-${G.dayCount}`);
+      } else {
+        G.flags.staging_second_floor_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The building plans show a single-story structure. The exterior wall height is inconsistent with that — visible from the sea wall lookout if the angle is right. Inside, getting past the cargo bay and into the back of the structure reveals a false partition. The partition is not locked. Behind it, iron stairs. The upper space is occupied — lamp bracket, a work surface, papers. The papers go back in place before the building\'s exterior sounds suggest someone has arrived at the bay door.';
+        addJournal('Staging compound second floor accessed — unlisted in building plans, occupied work space, papers recovered', 'intelligence', `cos-secondfloor-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Guildheart Hub transfer records show the same agent as Cosmoria. Different name, same seal.",
+    tags: ['Cross-Locality', 'Stage2'],
+    tag: 'risky',
+    plot: 'main',
+    xpReward: 86,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(86, 'cross-referencing Guildheart Hub transfer records against the Cosmoria sealed container agent');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.guildheart_agent_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Guildheart Hub transfer register — accessible in the public filing of the maritime trade compact — shows thirty transfer entries for the same cargo classification over fourteen months, all routed from Guildheart to Cosmoria with a brief hold at the Hub. The agent of record at Guildheart uses a different name than the Cosmoria agent but the seal mark on the authorization letters is identical: the same charter seal Selka noted in her margin. One operation, two identities, one seal. The Guildheart entries predate the Cosmoria sealed container declarations. Guildheart was the staging point before the route moved.';
+        addJournal('Guildheart Hub transfer register: 30 entries same cargo class over 14 months, same charter seal as Cosmoria agent — different name, Guildheart entries predate Cosmoria declarations by 2 months', 'evidence', `cos-guildheart-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The Guildheart Hub transfer register is available under the maritime trade compact as a public access document — in theory. The copy held at Cosmoria\'s Harbor Authority reference desk is nine months out of date. The current register is held at the Guildheart Hub itself, or at the maritime trade compact office in Cosmouth, neither of which is accessible from Cosmoria without a formal request that logs the inquiry in the compact\'s administrative system.';
+        addJournal('Guildheart Hub transfer register: Cosmoria copy 9 months out of date — current copy requires Guildheart or Cosmouth access, formal request logs inquiry', 'complication', `cos-guildheart-fail-${G.dayCount}`);
+      } else {
+        G.flags.guildheart_agent_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Guildheart Hub entries in the maritime trade compact register show the same cargo classification appearing before it appears in Cosmoria\'s bonded transit log. The agent name is different. The seal on the authorization letters, traced from a copy obtained from Selka\'s margin notation, matches the charter seal on the Guildheart entries. The route moved from Guildheart to Cosmoria. The agent changed names and the seal came with them.';
+        addJournal('Guildheart Hub entries precede Cosmoria bonded transit entries — different agent name, same charter seal, route relocated from Guildheart to Cosmoria', 'intelligence', `cos-guildheart-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The airship lane suppression notifications use a routing code that expired three years ago.",
+    tags: ['Airship', 'Stage2'],
+    tag: 'risky',
+    xpReward: 74,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'auditing the routing code on airship lane suppression notifications');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.suppression_expired_code = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Every airship lane suppression notification carries a routing authority code in the header — a reference number that identifies the issuing office. The routing code on the sealed container suppression windows is RX-74-COSM. That code was retired three years ago when the issuing office was absorbed into the Cosmouth Fleet Authority. The current code for that office is different. RX-74-COSM was never officially suspended — it was simply stopped being used when the office reorganized. Someone with access to the old code structure has been issuing suppression notifications under a code that the system still processes because it was never formally expired. The notifications are technically valid. The authority that issued them no longer exists.';
+        addJournal('Airship suppression notifications use routing code RX-74-COSM — retired 3 years ago, never formally expired, issuing office dissolved, notifications technically valid', 'evidence', `cos-expiredcode-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The lane suppression notification archive is an administrative record maintained jointly by the Airship Lane Registry and the Cosmouth Fleet Authority. The duty clerk at the registry desk explains the joint administration arrangement — in detail, from the beginning, without being asked — and produces two referral forms before the question about routing codes is finished. The smell of brine and coal-fired lifting gas hangs in the registry\'s small lobby. Both forms require institutional affiliation.';
+        addJournal('Lane suppression archive: joint Cosmouth/Registry administration — dual referral forms required, institutional affiliation field blocks non-credentialed access', 'complication', `cos-expiredcode-fail-${G.dayCount}`);
+      } else {
+        G.flags.suppression_expired_code = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The routing code on the suppression notifications can be checked against the public header format on any Airship Lane Registry posting. RX-74-COSM appears in the header of every sealed container suppression window. The current routing code directory — posted at the registry desk — shows no entry for RX-74-COSM. The directory was last updated two years ago. The code isn\'t in the current directory. It was issued anyway and the system processed it.';
+        addJournal('Suppression notifications use routing code RX-74-COSM — absent from current registry directory, system still processing, origin unclear', 'intelligence', `cos-expiredcode-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A third clerk handles the sealed container intake. Not on the Harbor Authority staff list.",
+    tags: ['Harbor Authority', 'Stage2'],
+    tag: 'risky',
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(72, 'cross-checking Harbor Authority staff list against the third intake clerk');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.third_intake_clerk_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Harbor Authority staff list is posted in the public intake lobby — a standard transparency requirement. Two intake clerks listed. A third person processes sealed container arrivals on the nights they appear — visible at the intake desk for a four-hour window, then gone. Cross-referencing the staff list with the sealed container arrival logs: the third clerk\'s presence corresponds exactly to sealed container nights. She is not on the staff list. The signature on the sealed container intake forms is not a match to either listed clerk. It is clean, unhurried, consistent — practiced. She signs forms for a job she does not officially hold.';
+        addJournal('Harbor Authority intake: unlisted third clerk present only on sealed container nights — signature on intake forms not matching either listed staff, presence confirmed across 11 nights', 'evidence', `cos-thirdclerk-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The Harbor Authority intake lobby is staffed during posted hours. The intake forms are administrative records, not public instruments. The desk clerk — the listed one — processes the request correctly, notes the purpose, and sets the denial form on the counter with the date already filled in. She does this with the ease of someone who has handled this exact category of request enough times to have the form memorized. She does not look at the staff list posted on the lobby wall behind her.';
+        addJournal('Harbor Authority intake form access denied — unlisted clerk pattern unconfirmed, inquiry logged by listed staff', 'complication', `cos-thirdclerk-fail-${G.dayCount}`);
+      } else {
+        G.flags.third_intake_clerk_found = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The staff list in the intake lobby shows two clerks. The sealed container arrival forms carry a third signature — different hand, different style. The listed clerks sign with a running hand; this signature is precise, separated letters. Cross-referencing with the arrival dates: the third signature appears only on sealed container intake forms. Both listed clerks were present on those same nights. The third person handled only the sealed container paperwork.';
+        addJournal('Harbor Authority intake: sealed container forms carry third signature not matching listed staff — present only on sealed container nights, other staff also on duty', 'intelligence', `cos-thirdclerk-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The night airship booking record lists a Shelkopolis address that doesn't exist.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'risky',
+    xpReward: 68,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(68, 'tracing the Shelkopolis address in the night airship booking record');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.shelkopolis_address_false = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The airship booking record for the night route lists a Shelkopolis origin address for the sealed container consignee — a street and district. The Shelkopolis civic directory, held in the Harbor Authority\'s reference shelf, shows no such street in that district. The district exists. The street does not. Marrow Tideglass has the civic directory open on his desk when the question is raised — he looked it up four months ago. He turns to the page without searching for it. "I filed a discrepancy notice," he says. "The notice was logged as resolved." He closes the directory to the same page and sets it where it was.';
+        addJournal('Night airship consignee address in booking record: street does not exist in Shelkopolis district — Marrow filed discrepancy notice, logged as resolved without correction', 'evidence', `cos-address-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Airship booking records are operational documents held by the route operator, not the Harbor Authority. The night route operator has an administrative address but does not maintain a public intake desk. A request routed through the Harbor Authority desk produces a referral form. The form goes to the route operator via the administrative tray. By the time a response arrives, the relevant departure will have occurred twice more.';
+        addJournal('Night airship booking records held by route operator — Harbor Authority referral form filed, response timeline unclear', 'complication', `cos-address-fail-${G.dayCount}`);
+      } else {
+        G.flags.shelkopolis_address_false = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The booking record consignee address is in the Harbor Authority\'s reference copy of the night manifest — accessible as a public filing. The Shelkopolis civic directory is on the reference shelf. The street in the consignee address does not appear in the district listed. Either the address was recorded incorrectly on every booking for eight months, or it was never a real address to begin with. The error appears on forty-one consecutive manifests.';
+        addJournal('Night airship consignee address: Shelkopolis street does not appear in civic directory — same false address on 41 consecutive manifests', 'intelligence', `cos-address-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Coralyn's secondary ledger matches Fairhaven harbor records by eleven entries.",
+    tags: ['Maritime', 'Stage2', 'Cross-Locality'],
+    tag: 'risky',
+    xpReward: 78,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'cross-referencing Coralyn secondary ledger against Fairhaven harbor records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.coralyn_fairhaven_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Coralyn squares the Fairhaven harbor summary against the desk edge before opening both documents side by side. Eleven entries in her secondary ledger — the parallel record she runs alongside the official archive — correspond to cargo declarations that appear in the Fairhaven harbor records two to three weeks before they appear in Cosmoria\'s registry. The cargo moves from Fairhaven to Cosmoria before it is officially declared at either end. Coralyn traces the pattern with her finger without speaking. The secondary ledger was her way of documenting that the official records lagged behind reality. She has been keeping a parallel record because the archive\'s own filing was unreliable.';
+        addJournal('Coralyn secondary ledger: 11 entries match Fairhaven harbor records, Fairhaven filing 2-3 weeks prior to Cosmoria registry — cargo moved before official declaration at either port', 'evidence', `cos-fairhaven2-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Coralyn squares the top form on the counter against the edge — both hands, a precise alignment — before answering. Fairhaven harbor records are held by the Fairhaven Harbor Authority and are not available in Cosmoria\'s archive. Requesting a cross-jurisdiction record comparison requires a formal maritime trade compact inquiry, which routes through the same Cosmouth administrative office that issued the waiver instruction. She says this without particular expression. The pathway back leads through the same door the problem came from.';
+        addJournal('Cross-jurisdiction Fairhaven record comparison blocked — routes through Cosmouth administrative office named in waiver', 'complication', `cos-fairhaven2-fail-${G.dayCount}`);
+      } else {
+        G.flags.coralyn_fairhaven_link = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Coralyn opens the secondary ledger to a page flagged with a strip of paper. Eleven entries are marked. "These appear in the Fairhaven harbor summary — I receive a monthly copy through the maritime compact — before they appear in our own registry." She sets the Fairhaven summary next to the ledger page. The dates are clear. Cargo was declared at Fairhaven two to three weeks before Cosmoria\'s registry shows any record of it. The cargo moved between ports before either port\'s paperwork caught up.';
+        addJournal('Coralyn ledger cross-reference: 11 cargo entries appear in Fairhaven harbor summary 2-3 weeks before Cosmoria registry — movement predates both official declarations', 'intelligence', `cos-fairhaven2-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The tide gauge bracket has notch marks that don't match the Harbor Authority's published calibration.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'risky',
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'cross-referencing tide gauge calibration marks against Harbor Authority published data');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.tide_gauge_discrepancy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Harbor Authority publishes calibration figures for every tide gauge bracket on the dock system — a public safety document. The bracket nearest the night airship platform carries notch marks at intervals that differ from the published calibration by a consistent margin: each notch is two centimeters lower than the published figure. Tide water registering against these marks would appear to show a lower-amplitude reading than was actually present, underreporting tide height for any observation made from this bracket. If the sealed container weights were calculated against the tide amplitude readings from this bracket, the weight discrepancy would be systematically understated. The bracket serves the record. The record serves the operation.';
+        addJournal('Night platform tide gauge: notch marks 2cm below published calibration — consistent margin, underreports tide amplitude, would systematically understate weight discrepancy if used for container calculations', 'evidence', `cos-tidegauge-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The night platform tide gauge bracket is within the pre-departure staging zone. Saltwick, the night platform lead, is at the gangway position before the bracket is close enough to read against the published calibration figures. He does not explain the restriction this time. He stands between the bracket and the approach. His pocket ledger is already open.';
+        addJournal('Tide gauge bracket access blocked by Saltwick — pre-departure staging zone, observation prevented before calibration comparison possible', 'complication', `cos-tidegauge-fail-${G.dayCount}`);
+      } else {
+        G.flags.tide_gauge_discrepancy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The published calibration figures are available at the Harbor Authority safety board, posted. The tide gauge bracket near the night platform can be read from the dock walkway without entering the staging zone. The notch marks sit lower than the published calibration. The discrepancy is consistent and uniform — not wear, not damage. Each notch is set at the same distance below the published standard. Lower notches mean lower reported readings.';
+        addJournal('Night platform tide gauge notch marks consistently below published calibration — uniform discrepancy, systematic underreporting of tide amplitude', 'intelligence', `cos-tidegauge-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Tavian's counter stamper leaves a double impression on every sealed container receipt.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'examining sealed container receipts from the Floating Market for counter-stamp irregularity');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.tavian_double_stamp = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Tavian\'s counter stamper produces a standard Floating Market transit receipt. Every sealed container receipt in the past eight months carries a faint second impression offset by two millimeters — visible under the archive lamp at a low angle. A second impression means the stamper was inked twice on these receipts, which creates a duplicate in the stamper\'s carbon block. Tavian keeps the carbon block under the counter in a locked box. The carbon block would carry a copy of every receipt issued. "I don\'t use a carbon block," he says. He is looking at the box when he says it.';
+        addJournal('Floating Market sealed container receipts: double stamp impression, 2mm offset — implies carbon block duplicate unknown to Tavian, locked box under counter', 'evidence', `cos-stamp-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Tavian closes the ledger and sets his hand on the cover before answering. "Receipts are operational documents. Reviewing them for physical irregularities isn\'t an access category I can authorize without a Trade Hall credential or a Cosmouth audit referral." He is correct. He also moved the ledger before explaining the rule, which is a sequence that tells its own story. The active audit makes the timing of this interaction impossible to untangle from the audit process.';
+        addJournal('Receipt review declined — access category requires Trade Hall credential, Tavian closed ledger before citing rule', 'complication', `cos-stamp-fail-${G.dayCount}`);
+      } else {
+        G.flags.tavian_double_stamp = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The sealed container receipts in the archive have a faint second impression visible at an angle — the stamper was applied twice on these specific documents. Standard receipts in the same period don\'t show the double impression. The variation is consistent across all sealed container receipts. Tavian examines the comparison himself and says nothing for a moment. "I stamp once," he says. "Standard procedure." He is not disputing the observation. He is telling you it wasn\'t him.';
+        addJournal('Sealed container receipts carry double stamp impression not present on standard receipts — same period, consistent variation, Tavian states he stamps once', 'intelligence', `cos-stamp-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The crane rigging schedule for berth seven runs twenty minutes longer than any other berth.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'risky',
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'auditing crane rigging schedules for berth seven against other berths');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.berth_seven_crane_schedule = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The crane rigging schedule is posted at the dock foreman\'s booth — a public safety posting. Every berth has a standard rigging window for cargo load at its official weight classification. Berth seven\'s posted rigging window is twenty-three minutes longer than the weight classification on the painted-over quay marks would require. The window matches the classification that was painted over — the original lower weight classification. The rigging crew knows the true weight. The paperwork says otherwise. They gave themselves the time the actual containers need while the documents claim they don\'t.';
+        addJournal('Berth seven crane rigging schedule: 23 minutes longer than current painted-over weight classification requires — schedule matches original lower-classification timing, crew adjusted for true weight', 'evidence', `cos-crane-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The dock foreman\'s booth is occupied. The foreman looks up from his schedule board when the approach comes and sets a hand on the top of the crane schedule clipboard before anything is said. "Rigging schedules are operational documents. Posted for crew use, not for public review." He pulls the clipboard down from its hook and holds it. The schedule board behind him remains visible — rows and berth numbers, rigging windows written in chalk. The chalk is fresh. Someone changed a number recently.';
+        addJournal('Crane rigging schedule access blocked by dock foreman — clipboard removed, chalk schedule board showed recent alteration', 'complication', `cos-crane-fail-${G.dayCount}`);
+      } else {
+        G.flags.berth_seven_crane_schedule = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The posted rigging schedule is visible from the dock walkway. Berth seven\'s rigging window is visibly longer than the adjacent berths — twenty-plus minutes longer, written in the same chalk format. The adjacent berths handle similar cargo classifications. The extra time is not explained by the posted classification. The rigging crew at berth seven has to know how much time they actually need, and they posted the truth.';
+        addJournal('Berth seven rigging schedule: 20+ minutes longer than adjacent comparable berths — crew posted actual required time, inconsistent with documented weight classification', 'intelligence', `cos-crane-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Selka took a room off the rental list for six weeks. She won't say who stayed.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'pressing Selka Tideglass on the off-list room and its occupant');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.selka_off_list_room = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Selka wipes the counter once before answering — a single, slow pass. "Six weeks, end room on the north hall. Taken off the list." She doesn\'t say who told her to do it. The word she uses is "arrangement." She opens the private log to the page and turns it toward you without being asked — the column where she normally notes correspondence notations is blank for those six weeks, which is not how she operates. "No letters. No departures before dark. They didn\'t use the room the way the others did." She closes the log with both hands. She knows what the others were doing. The six-week guest was something different.';
+        addJournal('Selka: end north-hall room off rental list for 6 weeks — no correspondence notations, no pattern matching agent use, arrangement basis, guest identity declined', 'evidence', `cos-selka4-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Selka sets the cloth down on the counter without looking up. "A harbor inn that can\'t keep a private arrangement private isn\'t worth using. I\'ve been in this business twenty-two years." She picks the cloth back up. "Whoever stays in my rooms stays in my rooms. That\'s the service." She is not angry. She is simply done. The counter is cleaner than it has been all day.';
+        addJournal('Selka declined off-list room inquiry — 22-year professional discretion cited, conversation ended', 'complication', `cos-selka4-fail-${G.dayCount}`);
+      } else {
+        G.flags.selka_off_list_room = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Selka confirms a room was off the list for six weeks. "Long-stay arrangement. Not unusual for harbor work." She pauses. "Different from the other regulars." She doesn\'t elaborate on what the other regulars were doing. She looks at the shelf where the private log sits and doesn\'t move to open it. "The arrangement ended on its own. No notice, no checkout. The room was just empty one morning." She picks up the cloth and finds the scratch on the counter edge again.';
+        addJournal('Selka confirmed 6-week off-list room — arrangement ended without checkout, described as distinct from regular agent pattern', 'intelligence', `cos-selka4-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The compound transit manifest has a third copy. Selka has been holding it for two months.",
+    tags: ['NPC', 'Maritime', 'Stage2'],
+    tag: 'bold',
+    plot: 'main',
+    xpReward: 88,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(88, 'recovering the third manifest copy from Selka Tideglass');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.selka_third_manifest_copy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Selka reaches under the counter without hesitation — past the private log, past the cloth she uses for wiping, to a flat cloth envelope tucked against the back wall. She sets it on the counter between you without explanation. The compound transit manifest inside is a third copy: a format that matches neither the public manifest from the Harbor Authority nor the night platform operational duplicate. It carries all three: the DL column, the BCR column, and a fourth column not present on either other version — a column headed "OP" with single-digit entries. The envelope arrived with the agent six weeks ago. "She forgot it," Selka says. "Or left it deliberately. I kept it either way."';
+        addJournal('Selka: third manifest copy recovered — carries DL, BCR, and unlisted OP column with single-digit entries, left by agent 6 weeks ago, held by Selka since', 'evidence', `cos-thirdmanifest-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.lastResult = 'Selka listens to the question about the manifest and then straightens the stack of booking slips on the counter — a small, composed gesture. "I don\'t hold documents that aren\'t mine. What a guest leaves is returned to them or disposed of." She says this looking directly at the counter surface. The cloth is in her hand but she doesn\'t wipe anything. She is telling a partial truth and she knows the listener knows it and she has decided that is acceptable.';
+        addJournal('Selka denied holding any manifest — partial truth suspected, counter-straightening gesture noted', 'complication', `cos-thirdmanifest-fail-${G.dayCount}`);
+      } else {
+        G.flags.selka_third_manifest_copy = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Selka considers the question for three seconds — long enough that the pause is a decision, not a hesitation. She reaches under the counter and puts a cloth envelope flat between you. "Left six weeks ago. I wasn\'t sure what to do with it." The manifest inside is a format not found in the Harbor Authority archive or the night platform records. It has columns the other versions don\'t. She keeps her hand near the envelope while it is opened. She has read it. She knows what she has been sitting on.';
+        addJournal('Selka produced third manifest copy — unfamiliar format with additional columns, held 6 weeks, Selka has read contents', 'intelligence', `cos-thirdmanifest-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The archive has a second entrance. Coralyn uses it only after the public reading room closes.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'bold',
+    xpReward: 76,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'accessing the archive second entrance after hours to meet Coralyn privately');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.coralyn_after_hours = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The second entrance is an unmarked door off the service alley behind the archive — brine-salt encrusted, iron handle worn smooth. Coralyn opens it without surprise. She has been waiting. She carries the secondary ledger and two other volumes she has not shown in public reading hours. "There are things in the archive I cannot show you during the day." She sets them on the sorting table without lighting the main lamp — uses the small desk lamp only. The volumes are the eleven from the administrative hold shelf. She has keys to the hold section. She has had them for fourteen months. She copied them before the hold was applied.';
+        addJournal('Coralyn met after hours — produced 11 administrative hold volumes and secondary ledger, has had hold-section keys since before hold applied, copied before restriction', 'evidence', `cos-afterhours-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The service alley behind the archive is watched — not by Harbor Authority, by a person sitting on a crate near the far end who is not working. The second door does not open when the handle is tried. A lamp goes on in a window above the alley, briefly. The light goes off again. Someone in the building saw the approach and made a decision about it. Coralyn\'s rooms are above the archive. She chose not to open the door.';
+        addJournal('Archive second entrance: alley observed by unknown party, door not opened — lamp signal from above suggests Coralyn chose against after-hours meeting', 'complication', `cos-afterhours-fail-${G.dayCount}`);
+      } else {
+        G.flags.coralyn_after_hours = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Coralyn opens the service door herself — she is already on the alley side when the approach comes, carrying a small lamp and the secondary ledger. "I can\'t show these during open hours." She leads to the sorting room and spreads two documents she has not produced in any previous meeting. "The hold section has eleven volumes. I have access to the hold section." She does not explain how. She turns to the first of the two documents and begins reading it aloud, slowly, so there is time to write.';
+        addJournal('Coralyn met after hours — produced 2 documents not shown during day access, confirmed access to administrative hold section with 11 volumes', 'intelligence', `cos-afterhours-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Nerissa's tide blessing register records a visitor who does not appear in the inn books.",
+    tags: ['NPC', 'Stage2'],
+    tag: 'risky',
+    xpReward: 67,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(67, 'cross-referencing Nerissa shrine blessing register against Selka inn booking records');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.nerissa_shrine_visitor = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The shrine blessing register records every supplication by name and date — a devotional record, not a civic one, and Nerissa treats the privacy of it seriously. She opens it for this comparison without a formal request. Fourteen names in the sealed container period appear in the blessing register but not in any inn booking record in Cosmoria. Fourteen people who came to the shrine but did not stay in the city overnight by any record available. One name appears three times, all three on nights a sealed container departed. "I remember that one," Nerissa says. She touches the entry with the tip of her finger and does not elaborate.';
+        addJournal('Nerissa blessing register: 14 names absent from inn records during sealed container period — one name appears 3 times, all on sealed container departure nights, Nerissa remembers the visitor', 'evidence', `cos-shrine-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
+        G.lastResult = 'Nerissa closes the blessing register before it is on the table. "The shrine record is a devotional document. Using it for a civil cross-reference would require the blessing of the high tide office and I am not in a position to give that without a formal written request." She says it with genuine regret, which makes it worse. The sea smell comes through the shrine\'s open arch and the sound of the harbor crane reaches them both without filling the silence.';
+        addJournal('Nerissa blessing register: civil cross-reference declined — high tide office formal written request required', 'complication', `cos-shrine-fail-${G.dayCount}`);
+      } else {
+        G.flags.nerissa_shrine_visitor = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Nerissa opens the register to the sealed container period and lets the comparison proceed without speaking. Several names appear in her record that are not in the inn booking records cross-referenced against it. "The shrine serves travelers who don\'t always stay in the city," she says. "That\'s not unusual." She pauses at one entry — three appearances, same name — and keeps her finger near the page. "This one I remember. Not because of the name." She looks at the departure date column on the tide observation sheet next to the register.';
+        addJournal('Nerissa blessing register cross-reference: names without inn bookings during sealed container period — one three-time visitor on departure nights, Nerissa recalls without specifics', 'intelligence', `cos-shrine-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "A loading receipt is stamped twice — once by the Harbor Authority, once by an office without a name.",
+    tags: ['Harbor Authority', 'Stage2'],
+    tag: 'risky',
+    xpReward: 70,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(70, 'tracing the unnamed office stamp on the sealed container loading receipts');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.unnamed_office_stamp = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Harbor Authority stamp on the loading receipts is standard — registered, listed in the Harbor Authority directory with a matching seal number. The second stamp carries no office name, no seal number, no issuing authority text. It is a geometric mark: a rectangle bisected by a horizontal line, three dots below. Coralyn has seen it before. She squares the receipt against the desk edge before speaking. "That mark appeared on three documents I was asked to archive without a routing sheet. The routing sheet tells me which collection they belong to. Documents without routing sheets get held in the uncataloged section." The same section with the inward-facing spines.';
+        addJournal('Loading receipt second stamp: unnamed geometric mark with no office attribution — Coralyn links same mark to 3 previously unrouted archive documents in uncataloged hold section', 'evidence', `cos-namelessstamp-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The loading receipt in question is an operational document filed with the Harbor Authority, not the public archive. Accessing it requires an authorization form. The clerk who processes the form notes the specific document number in the administrative log — the one that routes to Marrow Tideglass\'s office. The document number will identify exactly which receipt was requested. The form is in the tray before the question is finished.';
+        addJournal('Loading receipt access blocked — document number logged to Harbor Captain administrative tray before form completed', 'complication', `cos-namelessstamp-fail-${G.dayCount}`);
+      } else {
+        G.flags.unnamed_office_stamp = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The second stamp on the loading receipt is visible on a copy in the public archive — loading receipts are filed there as part of the cargo record. The Harbor Authority stamp is listed in the directory. The second mark has no name, no number, no issuing authority. It is purely geometric. Coralyn, when shown a rubbing of it, looks at it for a long moment and then squares it against the desk edge before saying anything. "I have seen that mark. Not often."';
+        addJournal('Loading receipt second stamp: unnamed geometric mark on public archive copy — Coralyn recognizes it, confirms she has seen it elsewhere', 'intelligence', `cos-namelessstamp-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The port surgeon's injury log has no entries for sealed container loading nights.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'risky',
+    xpReward: 65,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(65, 'auditing port surgeon injury log against sealed container loading nights');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.port_surgeon_log_gap = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The port surgeon keeps an injury log as a public health record — dock injuries, tide exposure, crane accidents, splinter wounds. Night loading operations generate the most entries because visibility is lower and the work is heavier. The sealed container loading nights — forty-one of them — generate zero entries each. No dock hand reported any injury on any of those nights. On every surrounding night the log runs at its usual rate: two to six entries. A crew loading heavy containers in the dark without a single minor injury across forty-one nights means either the work went perfectly every time, or the crew reported nothing because reporting would generate a record of who was there.';
+        addJournal('Port surgeon injury log: zero entries on all 41 sealed container loading nights — surrounding nights normal rate 2-6 entries, gap implies deliberate non-reporting by crew', 'evidence', `cos-surgeon-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The port surgeon\'s clinic is at the harbor end of the administrative row. The surgeon is in but the injury log is an internal clinical record, not a public health posting. Access requires a public health authority referral — which sits within the Harbor Captain\'s administrative jurisdiction. The surgeon explains this clearly and without particular concern. He has a queue of actual patients. The referral form is standard. It generates a record.';
+        addJournal('Port surgeon injury log: clinical internal record, public health authority referral required — logs through Harbor Captain jurisdiction', 'complication', `cos-surgeon-fail-${G.dayCount}`);
+      } else {
+        G.flags.port_surgeon_log_gap = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The port surgeon confirms the pattern without opening the log. "Night loading is our busiest period for minor injuries. Splinters, rope-burn, tide-platform slips." He thinks for a moment. "There are nights I see nothing from the night platform. I assumed the conditions were calm." The sealed container dates, listed in sequence, draw a pause. "Every one of those nights was quiet for me." He pulls the log and runs a finger down the dates without saying anything else.';
+        addJournal('Port surgeon confirmed zero injury entries on sealed container nights — night loading normally generates consistent minor injury reports, gap noted by surgeon', 'intelligence', `cos-surgeon-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The cargo crane bell rings seven times before a sealed container lift. Standard is four.",
+    tags: ['Maritime', 'Stage2'],
+    tag: 'risky',
+    xpReward: 66,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(66, 'cross-referencing crane bell count against safety protocol for sealed container lifts');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      if (result.isCrit) {
+        G.flags.crane_bell_count = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Harbor Authority crane safety protocol is posted at the dock foreman\'s station: four bell rings before any cargo lift. The sealed container lifts are preceded by seven rings — the dock foreman\'s log records the count, which is a required safety notation. Seven rings is the protocol for lifts over the declared weight threshold for the berth. Berth seven\'s painted-over classification does not trigger the seven-bell protocol by the current posted markings. The crane crew is following the real weight requirement, not the paperwork. Their own safety protocol records the discrepancy in a document that goes to the Harbor Authority at the end of each shift.';
+        addJournal('Crane bell count for sealed container lifts: 7 rings vs posted 4-ring standard — 7-ring protocol for over-threshold lifts, crane crew following actual weight, shift log records count to Harbor Authority daily', 'evidence', `cos-cranebell-crit-${G.dayCount}`);
+      } else if (result.isFumble) {
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The dock foreman\'s safety log is an operational record, not a public document. The foreman closes the log when the approach reaches his station and sets a hand flat on the cover. "Crane safety protocol documentation is crew-use only." He does not raise his voice. Behind him, the crane bell count for the evening\'s first lift sounds: four rings, standard. Whatever was going to be seen is not available tonight.';
+        addJournal('Crane safety log access blocked by dock foreman — log closed before crane bell count could be confirmed', 'complication', `cos-cranebell-fail-${G.dayCount}`);
+      } else {
+        G.flags.crane_bell_count = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The Harbor Authority safety protocol is posted clearly: four bell rings standard, seven for over-threshold lifts. During a sealed container loading, the bell rings seven times. A dock hand nearby counts them automatically — a habit, heads come up on the dock for a seven-ring lift. "Heavy load," he says, confirming the protocol triggers, then looks away. Seven rings means the crane crew is treating the containers as over-threshold. The paperwork says they\'re not.';
+        addJournal('Sealed container crane lift: 7 bell rings observed, crew and dock hands confirm over-threshold protocol — paperwork weight classification does not trigger 7-ring requirement', 'intelligence', `cos-cranebell-partial-${G.dayCount}`);
+      }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
   }
 
 ];
