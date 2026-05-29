@@ -11144,6 +11144,15 @@ function _getAuthorityEncounterChoice(polity) {
 function prioritizeChoices(choices, maxCount) {
   if (!Array.isArray(choices)) return choices;
   var cap = (typeof maxCount === 'number' && maxCount > 0) ? maxCount : 8;
+  // Strip combat-context ability choices — these belong only in the enterCombat panel,
+  // never in the story choice panel. Guards against leakage via backup-choice queue or
+  // any condition() bug that routes them through loadStageChoices.
+  choices = choices.filter(function(c) {
+    if (!c) return false;
+    var _cid = c.cid || c.id || '';
+    if (typeof _cid === 'string' && _cid.indexOf('__combat_ability__') === 0) return false;
+    return true;
+  });
   var TIERS = { 'main': 1, 'side': 2, 'enriched': 3, 'utility': 4 };
   var sorted = choices.filter(Boolean).slice().sort(function(a, b) {
     var ta = TIERS[a.plot] || (a.isUtility ? 4 : 3);
