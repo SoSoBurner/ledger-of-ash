@@ -10748,7 +10748,10 @@ function scheduleLivingDescUpdate() {
   _el.style.opacity = '0';
   setTimeout(function() {
     buildLivingDesc(G.location, G);
-    _el.style.opacity = '1';
+    // Re-query after buildLivingDesc — updateEnvironmentPanel may have replaced
+    // the env-panel innerHTML during the 150ms window, detaching the old _el node.
+    var _elFresh = document.querySelector('#env-panel .env-desc');
+    if (_elFresh) _elFresh.style.opacity = '1';
     G._narrationFading = false;
   }, 150);
 }
