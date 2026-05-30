@@ -9778,7 +9778,7 @@ function getDefaultG() {
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
     discoveries:{}, contacts:{}, suspects:{},
-    investigationProgress:0, flags:{recovery_thread_available:false, stage2_faction_contact_made:false}, rivalId:null,
+    investigationProgress:0, flags:{recovery_thread_available:false, stage2_faction_contact_made:false, combat_intro_shown:false}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
     nomdara_last_visit_locality:null,
@@ -17397,6 +17397,11 @@ function enterCombat(enemyKey, context) {
 
   addNarration('Combat', html);
   addJournal('Entered combat with ' + enemy.name + '.', 'field_note', 'combat_entry_' + enemyKey + '_' + (G.dayCount||0));
+
+  if (G.flags && !G.flags.combat_intro_shown) {
+    G.flags.combat_intro_shown = true;
+    setTimeout(function() { showToast('Press, Defend, Talk, or Retreat — each costs something different.'); }, 350);
+  }
 
   const choices = [
     {text:'Press forward. Take the initiative.', skill:'combat', tag:'bold', align:'chaotic', cid:'__combat_press__'+enemyKey},
