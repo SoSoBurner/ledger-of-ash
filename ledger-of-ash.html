@@ -1942,10 +1942,11 @@ input, button, select, textarea { font-family: inherit; }
       </div>
       <div id="hud-stage-progress-wrap" class="pressure-bar-row" style="display:none;padding:0 14px 6px;">
         <div class="pressure-bar-label" style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;">
-          <span>THREADS</span><span id="hud-stage-progress-val"></span>
+          <span id="hud-stage-progress-label">THREADS</span><span id="hud-stage-progress-val"></span>
         </div>
         <div class="skill-bar-track"><div id="hud-stage-progress" class="skill-bar-fill" style="background:var(--discovery);width:0%"></div></div>
       </div>
+      <div id="hud-stage-goal" style="display:none;padding:2px 14px 4px;font-family:var(--font-body);font-size:10px;color:var(--ink-faint);letter-spacing:0.04em;font-style:italic;"></div>
       <div id="hud-stage-hint" style="display:none;padding:2px 14px 6px;font-family:var(--font-body);font-size:10px;color:var(--accent-gold);letter-spacing:0.04em;"></div>
       <div class="l-divider"></div>
       <div class="l-axis">
@@ -16580,13 +16581,28 @@ function updateHUD() {
   // Investigation progress bar
   var spKey = G.stage === 'Stage I' ? 1 : 2;
   var spVal = (G.stageProgress && G.stageProgress[spKey]) || 0;
-  var spMax = G.stage === 'Stage I' ? 20 : (G.stage === 'Stage II' ? 12 : 10);
+  var spMax = G.stage === 'Stage I' ? 5 : (G.stage === 'Stage II' ? 12 : 10);
   var spEl = document.getElementById('hud-stage-progress');
   var spWrap = document.getElementById('hud-stage-progress-wrap');
   var spValEl = document.getElementById('hud-stage-progress-val');
+  var spLabelEl = document.getElementById('hud-stage-progress-label');
   if (spEl) spEl.style.width = Math.min(100, (spVal / spMax) * 100) + '%';
   if (spValEl) spValEl.textContent = Math.min(spVal, spMax) + ' / ' + spMax;
-  if (spWrap) spWrap.style.display = spVal > 0 ? 'block' : 'none';
+  // Stage I: always show the bar so the goal is visible from the start
+  if (spWrap) spWrap.style.display = (G.stage === 'Stage I' || spVal > 0) ? 'block' : 'none';
+  // Stage-specific bar label
+  if (spLabelEl) spLabelEl.textContent = G.stage === 'Stage I' ? 'REPUTATION' : 'THREADS';
+  // Stage I macro goal line
+  var spGoalEl = document.getElementById('hud-stage-goal');
+  if (spGoalEl) {
+    if (G.stage === 'Stage I') {
+      var sp1 = (G.stageProgress && G.stageProgress[1]) || 0;
+      spGoalEl.textContent = sp1 >= 5 ? 'Stage I \u2014 ready to advance.' : 'Stage I \u2014 build your reputation.';
+      spGoalEl.style.display = 'block';
+    } else {
+      spGoalEl.style.display = 'none';
+    }
+  }
   // Stage gate hint (cap reached but stage not yet advanced)
   var _hintEl = document.getElementById('hud-stage-hint');
   if (_hintEl) {
