@@ -195,6 +195,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
           : `Windrider receives the briefing without expression and confirms the Roadwardens have noticed the same pattern through different means. He asks you to keep reporting. He offers nothing in return — no resources, no cover, no reciprocal intelligence. The risk stays yours. The contact is established regardless.`;
         addJournal('Roadwarden command contact established', 'contact_made', `shelk-windrider-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('shelk', 1);
         if (arch === 'combat') G.rivalId = 'warden_captain';
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `The briefing runs without interruption. At the end, one question arrives: "How did you come to hold sealed documentation from a restricted chapel intermediary?" The answer doesn't satisfy. Something goes into the duty log before the sentence is finished. The exit carries a new entry in the Roadwarden enforcement record, no alliance, and a captain who has now categorized this as a variable he needs to account for.`;
@@ -263,6 +264,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
           : `You give the representative enough to establish that you're operating with purpose, and hold enough back that the purpose stays yours. They leave without pressing further. The rival clock advances regardless. That was always going to happen.`;
         addJournal('Warden Order contact — productive first meeting', 'contact_made', `shelk-warden-contact-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('shelk', 1);
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.warden_order = (G.factionHostility.warden_order||0) + 2;
         G.lastResult = `The meeting breaks down at the third question. Something you say — the phrasing, the hesitation — reads to the representative as concealment. They straighten in their chair and stop asking questions. The inn common room continues its evening noise behind the silence. They leave with a formal note already half-written, not turned toward you. The Warden Order's posture toward you has shifted: not unaffiliated, not neutral. A risk to be managed, and they have the tools for it.`;
@@ -298,6 +300,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
           : `The confrontation stalls when the captain says something that doesn't match their assignment profile. They have doubts about what they're supposed to find. You establish enough mutual interest to arrive at a working arrangement. Neither party articulates what trust looks like in this context, because it doesn't exist yet.`;
         addJournal('Rival contact negotiated — temporary alliance', 'evidence', `shelk-rival-negotiated-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('shelk', 1);
         G.stage2_rival_status = 'hostile';
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.lastResult = `The encounter goes wrong fast. The captain had a prepared position and you walked into it. They name you as an operative of unknown allegiance and say it in the flat voice of someone already composing the report. By the time you're back on the street the filing is already in progress. This captain will be waiting at the next gate.`;
@@ -1317,6 +1320,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The second representative asks the same questions in a different sequence. The variation is the tell — she's checking whether your answers change with a new face asking them. They don't. When you give her the same responses in the same order, she leans back and stops writing. "The first one wasn't authorized to share this. You've seen the Panim co-sign documentation." It is a statement, not a question. You have just confirmed something she already knew. She gives you, in exchange, the name of the party who holds the Panim authorization block — a name you haven't reached through any other channel.`;
         addJournal('Warden Order second rep — Panim authorization holder named in exchange for confirmation of existing intel', 'evidence', `shelk-warden2-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('shelk', 1);
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.lastResult = `The second representative's note-taking is faster than the first one's. By the third question something in your framing contradicts the previous session's record — a detail that has changed between the two encounters. She underlines something without comment. The meeting ends with her standing before you finish your last answer. The Warden Order now has a documented inconsistency attached to your name in their inquiry record. The rival clock advances by two.`;
         addJournal('Warden Order second rep — documented inconsistency recorded, rival+2', 'complication', `shelk-warden2-fail-${G.dayCount}`);

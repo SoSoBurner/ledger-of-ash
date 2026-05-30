@@ -322,6 +322,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Arbiter Rellick Dunmore has an office at the end of the corridor that gets no traffic. He's been watching the door from the moment it opened. The review form he filed is produced without being asked — he has it ready, which means he has been waiting for this. The completion stamp is his, dated the same week the exemption hit the audit threshold. He hasn't touched the file since. "I was told the review had been handled through the charter desk and that a completion form was a procedural courtesy." He was told by a name he writes on a slip and doesn't say aloud. He slides the slip across. "I kept a copy."`;
         addJournal('Arbiter Dunmore filed fraudulent review completion — directed by named party, kept copy of instruction', 'evidence', `guild-arbiter-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('shelk', 1);
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Arbiter Dunmore closes his office door before the question is two sentences long. Through the glass panel he shakes his head once. Not aggressive — exhausted. The corridor outside his office smells of old paper and nervous sweat. He is not going to help, and whatever he knows has already cost him something. The door stays closed. A clerk passes behind you without slowing. The corridor returns to its ordinary pace as if the closed door were unremarkable. Perhaps it has been closed a long time.`;
         addJournal('Arbiter Dunmore refused approach — appears aware and frightened, door closed', 'complication', `guild-arbiter-fail-${G.dayCount}`);
@@ -379,6 +380,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Broker Fen Callard runs the bonding desk out of a narrow office with a window that faces the canal lock gates rather than the street. He doesn't wait for the full question. The waiver forms are already on the desk — he pulled them this morning. "The three loads came through with a pre-signed waiver of bonding obligation, authorized under a Union freight council instrument I've never seen before or since." He smooths one corner of the topmost form. "If those loads were lost or seized, nobody was going to pay for them. Not the Hub, not the shipper, not my office. The instrument designated liability to a party whose name is a guild mark rather than a person."`;
         addJournal('Bonding house: charter-exempt loads carried pre-signed liability waiver — guild mark matches Sable charter subsidiary notation', 'evidence', `guild-bonding-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('shelk', 1);
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Callard's desk faces the door, which means he sees the approach before any word is said. "Bonding records are client-privileged. I don't discuss specific freight accounts without an Arbiter review order." The canal lock outside runs through a full cycle while the silence holds. His hand rests on the closed ledger in a way that has nothing to do with keeping it shut and everything to do with not moving it.`;
         addJournal('Bonding house inquiry refused — client privilege cited, broker visibly on alert', 'complication', `guild-bonding-fail-${G.dayCount}`);
@@ -1085,6 +1087,72 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Notice Board: notice posted under Tinmarch\'s mark then pulled before he arrived — retraction filed on external instruction, original content unknown', 'intelligence', 'guild-renn-partial-' + G.dayCount);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The Collegium ledger signatures look identical across three different notary stamps — too consistent for authentic documents",
+    tags: ['Stage2', 'Investigation'],
+    skill: 'spirit',
+    xpReward: 82,
+    fn: function() {
+      var result = rollD20('spirit', {dc: 13, locality: 'guildheart_hub', label: 'Document forgery analysis'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Three Collegium notary stamps share identical ink dispersion patterns — physically impossible if authentic. The ledgers were batch-stamped by one hand.', 'evidence');
+        G.lastResult = 'Your analysis of the stamp impressions is conclusive: identical ink dispersion radius, same micro-fracture in the left serif. One forger made three notary identities.';
+      } else if (result.isFumble) {
+        G.lastResult = 'A librarian notices you holding documents up to the light. You replace them quickly but your access to this section is now monitored.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'The stamps are too consistent — real notaries have different pressure habits. These were made by one person mimicking multiple identities.';
+      } else {
+        G.lastResult = 'You spot anomalies but lack the materials to confirm forgery without lab access.';
+      }
+    }
+  },
+  {
+    label: "The Collegium archivist knows more than he is saying — pressing him directly from a position of authority might break the rehearsed deflection",
+    tags: ['Stage2', 'Confrontation'],
+    skill: 'might',
+    xpReward: 75,
+    fn: function() {
+      var result = rollD20('might', {dc: 14, locality: 'guildheart_hub', label: 'Archivist confrontation'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Archivist confirmed the ledger gap was flagged internally but suppressed by directive from the head registrar.', 'evidence');
+        G.flags.guildheart_archivist_broken = true;
+        G.lastResult = 'You hold his gaze until the deflection collapses. He tells you: the gap was internally flagged. The head registrar ordered it buried. He has the original complaint letter.';
+      } else if (result.isFumble) {
+        addHeat('shelk', 1);
+        G.lastResult = 'He calls for a floor supervisor. You withdraw before the scene escalates, but your presence here will be noted.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'He gives you a date range — three weeks where ledger entries were systematically amended. Not missing. Replaced.';
+      } else {
+        G.lastResult = 'He holds firm. Whatever fear he has of you is less than whatever keeps him quiet.';
+      }
+    }
+  },
+  {
+    label: "The senior registrar is tired and overworked — a sympathetic ear and genuine interest in her burden might open the record you need",
+    tags: ['Stage2', 'Social'],
+    skill: 'charm',
+    xpReward: 72,
+    fn: function() {
+      var result = rollD20('charm', {dc: 12, locality: 'guildheart_hub', label: 'Registrar rapport'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Senior registrar confirmed: the backlog is manufactured. Requests are accepted and filed as processing indefinitely to prevent investigators from timing the suppression window.', 'evidence');
+        G.lastResult = 'She appreciates the question — no one has. Over the next hour she explains exactly how the backlog works: intentional, calibrated delay. Not paperwork failure. Policy.';
+      } else if (result.isFumble) {
+        G.lastResult = 'Your approach reads as flattery and she withdraws. She has seen too many people try this. You have used this angle; it is closed now.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'She vents, which is useful. The backlog is not random — someone sets the priority queue and certain categories of requests never reach the top.';
+      } else {
+        G.lastResult = 'She is too guarded. Sympathy alone is not a sufficient currency here.';
+      }
     }
   },
 
