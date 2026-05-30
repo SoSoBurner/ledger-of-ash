@@ -260,14 +260,20 @@ test.describe('UI Feature Review', () => {
     const hasRollResult = /roll-result/.test(narrativeHtml);
     const hasDC         = /vs\s*DC\s*\d+/i.test(narrativeHtml);
     const hasD20        = /d20/i.test(narrativeHtml);
+    // Check both render paths for the stage modifier:
+    //   div path  → .roll-result div (resolveEnrichedChoice)
+    //   span path → <span> in _authorityResolvePhase1/2
+    const hasPressure   = narrativeHtml.includes('pressure') || narrativeHtml.includes('Stage II');
 
-    if (hasRollResult && hasDC && hasD20) {
-      record('F5', 'Stage DC modifier in roll result', 'PASS', 'roll-result div with d20/DC values present');
+    if (hasRollResult && hasDC && hasD20 && hasPressure) {
+      record('F5', 'Stage DC modifier in roll result', 'PASS', 'Stage pressure label present on roll path (div or span)');
+    } else if (hasRollResult && hasDC && hasD20) {
+      record('F5', 'Stage DC modifier in roll result', 'PARTIAL', 'roll-result present but stage pressure label missing');
     } else if (!btnVisible) {
       record('F5', 'Stage DC modifier in roll result', 'PARTIAL', 'No choice button visible to click; roll not triggered');
     } else if (hasRollResult || hasDC) {
       record('F5', 'Stage DC modifier in roll result', 'PARTIAL',
-        `rollResult:${hasRollResult}, hasDC:${hasDC}, hasD20:${hasD20}`);
+        `rollResult:${hasRollResult}, hasDC:${hasDC}, hasD20:${hasD20}, hasPressure:${hasPressure}`);
     } else {
       record('F5', 'Stage DC modifier in roll result', 'FAIL',
         `No roll-result found. HTML length: ${narrativeHtml.length}. HasRollResult:${hasRollResult}`);

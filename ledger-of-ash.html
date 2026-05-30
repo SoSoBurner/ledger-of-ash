@@ -1431,7 +1431,8 @@ input, button, select, textarea { font-family: inherit; }
   padding: 16px 18px; margin-bottom: 14px; border-radius: 2px;
   box-shadow: 0 4px 16px rgba(110,16,16,.2);
 }
-.encounter--boss { border-left-color: var(--danger) !important; border-color: var(--danger) !important; box-shadow: 0 4px 20px rgba(190,40,40,.35) !important; }
+.encounter--boss { border-left: 3px solid var(--accent-gold, #d89a2c) !important; border-color: var(--accent-gold, #d89a2c) !important; background: rgba(216,154,44,0.06); box-shadow: inset 0 0 24px rgba(190,40,40,0.08), 0 4px 20px rgba(190,40,40,.35) !important; }
+.encounter--boss .combat-location { color: var(--accent-gold, #d89a2c); font-size: 10px; letter-spacing: 4px; }
 .combat-location { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--blood-bright); text-transform: uppercase; margin-bottom: 10px; }
 .combat-intent { font-family: 'Crimson Pro', serif; font-size: 16.5px; color: var(--ink); line-height: 1.65; font-style: italic; margin-bottom: 8px; }
 .combat-companions { font-size: 12.1px; color: var(--jade-bright); margin-bottom: 6px; font-family: var(--font-display); letter-spacing: 1px; }
@@ -9491,7 +9492,10 @@ function _authorityResolvePhase1(authorityKey, polity, heatLevel, outcome, roll,
   var dc_risky = 12 + heatLevel;
   var dc        = outcome === 'comply' ? dc_safe : dc_risky;
   var success   = (roll + skillVal) >= dc;
-  var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + '</span>';
+  var _aStageNum = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
+  var _aStageRoman = ['','II','III','IV','V'][_aStageNum] || '';
+  var _aStageSuffix = _aStageNum > 0 ? ' <span style="color:var(--ink-faint);font-size:11px">(Stage ' + _aStageRoman + ' pressure +' + _aStageNum + ')</span>' : '';
+  var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix + '</span>';
   addNarration('', rollLabel);
 
   if (success) {
@@ -9519,7 +9523,10 @@ function _authorityResolvePhase2(authorityKey, polity, heatLevel, outcome, roll,
   if (outcome === 'attempt_escape') {
     var dc      = 14;
     var success = (roll + skillVal) >= dc;
-    var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + '</span>';
+    var _aStageNum2 = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
+    var _aStageRoman2 = ['','II','III','IV','V'][_aStageNum2] || '';
+    var _aStageSuffix2 = _aStageNum2 > 0 ? ' <span style="color:var(--ink-faint);font-size:11px">(Stage ' + _aStageRoman2 + ' pressure +' + _aStageNum2 + ')</span>' : '';
+    var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix2 + '</span>';
     addNarration('', rollLabel);
     if (success) {
       addHeat(polity, 1);
@@ -13075,6 +13082,7 @@ function checkStageAdvance() {
     G.stage = 'Stage II'; G.stageLabel = 'Local Inter-Polity';
     G.flags.principalities_route_unlocked = true;
     showTransitionBanner('Stage II — The Scope Expands');
+    showToast('Chapter II has begun. The threads grow tighter.');
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE II UNLOCKED &#x2014; The world widens. You may now travel beyond your origin polity where routes support it.</em>');
     addJournal('Advanced to Stage II: Local Inter-Polity. New regions accessible.');
     G.history.push('Completed Stage I. Entered the wider world at Level 5.');
@@ -17262,6 +17270,15 @@ function showSaveModal(mode) {
 // Legacy key helper (used by death screen cleanup)
 function saveKey() {
   return (G && G.lastUsedSlot) || 'loa_slot_1';
+}
+
+// ── WATCHFULNESS ─────────────────────────────────────────
+function addWatchfulness(n) {
+  var _prev = G.watchfulness || 0;
+  G.watchfulness = _prev + (n || 1);
+  if ((_prev < 3 && G.watchfulness >= 3) || (_prev < 5 && G.watchfulness >= 5) || (_prev < 7 && G.watchfulness >= 7)) {
+    showToast('You\'ve been noticed. The pressure is building.');
+  }
 }
 
 // ── TOAST ────────────────────────────────────────────────
