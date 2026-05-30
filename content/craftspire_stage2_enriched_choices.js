@@ -264,7 +264,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.certification_backlog_exposed = true;
         G.investigationProgress++;
-        G.lastResult = 'She points to the tray without explaining it. The forms are dated daily but the test columns are empty — blank where a result should appear. The tray holds the familiar weight of certification paperwork: heavy guild stock, the ink still faintly sharp from the morning stamp run. "Allocation sheets come in certified. I process them certified." She turns back to her desk. The stack is real. The gap between the date stamps and any visible test record is real. She does not say anything else, and the sound of the forge floor carries up through the wall behind her.`;
+        G.lastResult = 'She points to the tray without explaining it. The forms are dated daily but the test columns are empty — blank where a result should appear. The tray holds the familiar weight of certification paperwork: heavy guild stock, the ink still faintly sharp from the morning stamp run. "Allocation sheets come in certified. I process them certified." She turns back to her desk. The stack is real. The gap between the date stamps and any visible test record is real. She does not say anything else, and the sound of the forge floor carries up through the wall behind her.';
         addJournal('Certification forms show no test results — materials arrive pre-certified via allocation sheet', 'intelligence', `craft-inspector-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -1037,7 +1037,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.flags.copy_warden_observed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The authentication desk protocols were formalized nine years ago. The Copy Warden's name appears on documentation that predates the protocol — he is listed as a procedural consultant during the transition year. He helped define what a legitimate stamp was supposed to look like. He knows the system from the drafting stage, not just the operating stage.';
+        G.lastResult = 'The authentication desk protocols were formalized nine years ago. The Copy Warden name appears on documentation that predates the protocol — he is listed as a procedural consultant during the transition year. He helped define what a legitimate stamp was supposed to look like. He knows the system from the drafting stage, not just the operating stage.';
         addJournal('Craftspire Copy Warden served as procedural consultant during authentication system implementation 9 years ago — knows system architecture from drafting stage. Source: Transition-year documentation.', 'intelligence', `craft-wardenseniority-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -1091,7 +1091,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.flags.suppression_craftspire_link = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The binding resin and the copper-base alloy both appear in the Craftspire ledger under craft-material classifications — legitimate enough at the point of entry. Following the allocation records forward, both materials route to a consortium supplier rather than a named workshop. The consortium's charter lists Craftspire as its home registration. Its outgoing allocation records reference delivery addresses that are not workshops. Three of those addresses cross-reference to the batch delivery bays connected to the unlisted charter exemption. The trail was not hidden. It was buried in volume.';
+        G.lastResult = 'The binding resin and the copper-base alloy both appear in the Craftspire ledger under craft-material classifications — legitimate enough at the point of entry. Following the allocation records forward, both materials route to a consortium supplier rather than a named workshop. The consortium charter lists Craftspire as its home registration. Its outgoing allocation records reference delivery addresses that are not workshops. Three of those addresses cross-reference to the batch delivery bays connected to the unlisted charter exemption. The trail was not hidden. It was buried in volume.';
         addJournal('Craftspire ledger links binding resin and copper-base alloy to consortium deliveries at unlisted charter-exemption bays — same bays as batch delivery routing. Trail buried in document volume, not obscured. Source: Craftspire allocation records.', 'evidence', `craft-supplychain-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = 'The allocation records for the relevant material categories are part of the bonded-store documentation — the same category that routes above the Material Ledger Office. Access requires a Collegium authorization code. The trail exists. It is accessible only to whoever controls that authorization chain.';
@@ -1100,7 +1100,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
         G.flags.suppression_craftspire_link = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The material inputs follow a path through the ledger that looks ordinary until the allocation stage. At allocation, they stop going to named workshops and start going to a consortium entry — a legitimate registration, Craftspire-based, with a charter that covers a wide category of material distribution. The consortium's outgoing records are in a separate ledger series. That series is filed and accessible. It is simply very long.';
+        G.lastResult = 'The material inputs follow a path through the ledger that looks ordinary until the allocation stage. At allocation, they stop going to named workshops and start going to a consortium entry — a legitimate registration, Craftspire-based, with a charter that covers a wide category of material distribution. The consortium outgoing records are in a separate ledger series. That series is filed and accessible. It is simply very long.';
         addJournal('Craftspire material inputs routed to consortium at allocation stage — consortium outgoing records exist but filed across a very long series. Source: Material Ledger Office allocation records.', 'evidence', `craft-supplychain-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
