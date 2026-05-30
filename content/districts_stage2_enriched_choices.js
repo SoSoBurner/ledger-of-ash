@@ -159,7 +159,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(72, 'making Red Hood broker contact');
+      gainXp(72, 'reaching the Red Hood broker');
       G.flags.met_broker_anneth_torv = true;
       G.flags.stage2_faction_red_hood_contacted = true;
       G.lastResult = 'The counter clerk disappears into the back and a different woman comes forward — the one in the red shawl, closer now. She introduces herself as Broker Anneth Torv, says it like a credential rather than a name. Her register is Kerroun market — short sentences, a small laugh before any refusal, numbers always spoken in multiples of three. Her tell is that she wears a thin iron ring on her smallest finger and turns it inward before she quotes a price, so the ring-face reads only to her. She wants a specific courier satchel recovered from a Reckoning Quarter confiscation shelf — a satchel the Red Hood lost when a courier was picked up last week.';
@@ -227,7 +227,7 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     xpReward: 64,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(64, 'establishing Verdant Row network contact');
+      gainXp(64, 'building the Verdant Row network');
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.verdant_row_contact = true;
@@ -236,11 +236,11 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The meeting ends before the second cup is poured. No raised voices, no explanation — just a hand gesture that says the conversation is closed, and the same grey-haired man gathering his papers in an order that means he won't be carrying anything else out of this room. Somewhere in the network, a profile note is being written. The words won't be hostile. They'll be worse: uncertain. The circuit protects itself by not moving on uncertain things.`;
-        addJournal('Verdant Row contact: reliability concern, profile flagged for review', 'complication', `vr-contact-fail-${G.dayCount}`);
+        addJournal('Verdant Row network: reliability concern, profile flagged for review', 'complication', `vr-contact-fail-${G.dayCount}`);
       } else {
         G.flags.verdant_row_contact = true;
         G.lastResult = `The grey-haired man studies the evidence summary for a long moment, then folds it along a crease that wasn't there before. He slides a small printed card across the table — a botanical illustration on one side, a sequence of three symbols on the other. "That's the signal for this circuit. Use it when you have something worth moving." The relationship is thin at this stage. The circuit will carry what's sent through it, but trust here is built incrementally, not granted.`;
-        addJournal('Verdant Row contact established — basic network access', 'evidence', `vr-contact-partial-${G.dayCount}`);
+        addJournal('Verdant Row network established — basic circuit access confirmed', 'evidence', `vr-contact-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -499,9 +499,9 @@ var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The man in the embroidered grey coat sets down his drink and turns his head slightly — the angle of someone retrieving something from memory rather than improvising. "Old money. Been very busy lately." He names a family. The name matches the dissolved noble entity that surfaced in the Aurora Heights filings: a house formally struck from the living registry three years ago, legal entity never deregistered. He doesn't know that. To him it's just gossip about money moving in old channels.`;
-        addJournal('High quarter social: dissolved noble entity name confirmed by elite contact', 'evidence', `hq-social-${G.dayCount}`);
+        addJournal('High quarter social: dissolved noble entity name confirmed by senior source', 'evidence', `hq-social-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The question lands in the middle of a salon conversation and the room's temperature drops by a degree. The woman in pearls who hosted the introduction doesn't look at either of you while she moves the conversation elsewhere, but she's noticed. The inquiry was too direct for this circuit — the high quarter trades in implication, not named concerns. The contact won't be available for follow-up introductions. The reputation cost is quiet and durable.`;
+        G.lastResult = `The question lands in the middle of a salon conversation and the room's temperature drops by a degree. The woman in pearls who hosted the introduction doesn't look at either of you while she moves the conversation elsewhere, but she's noticed. The inquiry was too direct for this circuit — the high quarter trades in implication, not named concerns. The door is closed to follow-up introductions. The reputation cost is quiet and durable.`;
         addJournal('High quarter social: inquiry too direct — reputation decline', 'complication', `hq-social-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -779,11 +779,11 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The junior Warden's expression closes off mid-sentence — not hostile, just the practiced stillness of someone who has learned to recognize a conversation that could land in a report. He straightens the front of his coat and uses the phrase Wardens use when they need to end something without admitting it: "That's an internal matter." The meeting is over. Somewhere in the watch station's notation log, this visit is being recorded by the duty officer who has been watching from the far corridor.`;
-        addJournal('Warden junior officer contact: internal matter deflection, watch notation recorded', 'complication', `dist-warden-split-fail-${G.dayCount}`);
+        addJournal('Warden junior officer: internal matter deflection, watch notation recorded', 'complication', `dist-warden-split-fail-${G.dayCount}`);
       } else {
         G.flags.dist_warden_faction_split = true;
         G.investigationProgress++;
-        G.lastResult = `The junior Warden confirms the re-routing orders without producing documentation — he doesn't have it, and he's not sure his supervisor does either. "The code came through the administrative channel, not the watch channel. That's not standard." He says it carefully, the way someone chooses words when they expect the conversation to be reported. The re-routing on those specific nights pulled three watch rotations off the low ward boundary simultaneously. He notices the coincidence. He hasn't officially noticed it.`;
+        G.lastResult = `The junior Warden confirms the re-routing orders without producing documentation — he doesn't have it, and he's not sure his supervisor does either. "The code came through the administrative channel, not the watch channel. That's not standard." He says it carefully, the way someone chooses words when they expect the conversation to be reported. The re-routing on those specific nights pulled three watch rotations off the low ward boundary simultaneously. He notices the coincidence. He has not filed it anywhere.`;
         addJournal('Warden junior officer: three simultaneous low ward patrol re-routes confirmed via non-standard admin channel', 'intelligence', `dist-warden-split-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -917,7 +917,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
         addJournal('Aurora Heights solicitor Mave Orren: dissolved house charter held by incompetency-adjudicated heir, court administrator unnamed — sealed registry response confirmed', 'evidence', `dist-solicitor-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Mave Orren is not available — her door is answered by a junior clerk who takes the name and the request and closes the door while writing it down. Within the hour, a message arrives at the counter of wherever the day was spent: professional obligations prevent further discussion of matters related to that area of inquiry. The phrasing is precise and attorney-registered. Whatever Orren is protecting by not finishing that sentence, she has now formally protected it.`;
-        addJournal('Aurora Heights solicitor: formal professional non-contact notice issued', 'complication', `dist-solicitor-fail-${G.dayCount}`);
+        addJournal('Aurora Heights solicitor: formal professional refusal issued — further approach declined', 'complication', `dist-solicitor-fail-${G.dayCount}`);
       } else {
         G.flags.dist_solicitor_second_pass = true;
         G.investigationProgress++;
@@ -1240,7 +1240,7 @@ COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
       if (roll.isCrit) {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
         addJournal('Common quarter transit alcove: new iron mounting brackets installed recently — dimensions match sealed container staging rack, not standard transit equipment.', 'evidence');
-        G.lastResult = 'The alcove is built into the market wall at the transit node junction, officially a resting point for cart-pullers changing shift. The new iron brackets bolted to the inner wall are not cart-rest hardware — they are mounting points, configured in the horizontal-and-vertical grid pattern of a container staging rack. The bolt holes are clean, drilled within the week. The bracket dimensions match standard container-rack width exactly. The alcove is being fitted as a temporary container staging point at one of the busiest transit junctions in the common quarter. The installation is not yet complete. Whoever ordered it expects to use it soon.';
+        G.lastResult = 'The alcove is built into the market wall at the transit node junction, registered as a resting point for cart-pullers changing shift. The new iron brackets bolted to the inner wall are not cart-rest hardware — they are mounting points, configured in the horizontal-and-vertical grid pattern of a container staging rack. The bolt holes are clean, drilled within the week. The bracket dimensions match standard container-rack width exactly. The alcove is being fitted as a temporary container staging point at one of the busiest transit junctions in the common quarter. The installation is not yet complete. Whoever ordered it expects to use it soon.';
       } else if (roll.isFumble) {
         G.lastResult = 'The alcove is occupied by two cart-pullers on break, lunch spread between them, who object loudly to the attention on the wall hardware. Their objection carries far enough to bring a market constable over. The constable does not cite anything, but notes the wall examination in his patrol log — unauthorized inspection of transit infrastructure is a gray area, and he decides by logging it rather than citing. The cart-pullers watch the departure. The hardware examination is now a logged incident in the market constabulary record.';
       } else {

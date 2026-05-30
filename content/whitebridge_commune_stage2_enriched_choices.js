@@ -559,7 +559,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Emret is in the middle of a route debrief with two commune wardens when you approach the shelter hall bench. The wardens do not ask you to leave, but their posture makes the bench unavailable. She catches your eye once — a flat, assessing look that means she knows what you're asking and is not ready to make it part of a formal record within earshot of the Compacts. The wardens finish their questions. She moves toward the bath-house without pausing.`;
-        addJournal('Surveyor in official debrief — contact window closed with wardens present', 'complication', `wb-surveyor-fail-${G.dayCount}`);
+        addJournal('Surveyor in mandatory route debrief — access window closed with wardens present', 'complication', `wb-surveyor-fail-${G.dayCount}`);
       } else {
         G.flags.wb_surveyor_witness = true;
         G.investigationProgress++;
@@ -1078,7 +1078,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The Commune Council has three members who voted against the exemption protocol.',
     tag: 'safe',
     skill: 'charm',
-    failResult: 'The shelter hall back room is occupied by a mending session. The council member who is available when contact is re-attempted explains that the minority dissent is already in the posted session minutes — nothing said there is private, and they do not discuss council strategy outside the chamber.',
+    failResult: 'The shelter hall back room is occupied by a mending session. The council member who is available when the approach is made again explains that the minority dissent is already in the posted session minutes — nothing said there is private, and they do not discuss council strategy outside the chamber.',
     fn: function() {
       var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       advanceTime(1);
@@ -1092,7 +1092,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Three council members who voted against exemption protocol willing to support formal suspension motion — need Arbiter endorsement to table it.', 'evidence');
         G.lastResult = 'The three meet in the back room of the shelter hall, where the smell of oiled rope and damp wool is strong enough to suggest the room has been a meeting place for a long time. They voted against the exemption protocol as bloc — not enough to defeat it but enough to force a recorded minority dissent, which they exercised carefully. They name what they need: Arbiter Nyra Thawmark\'s endorsement on a formal suspension motion. With it, the motion reaches the full Council agenda and the crossing authority is paused. Without it, the motion dies at the Arbiter\'s desk. They have been waiting for someone to build the evidence that moves Nyra.';
       } else if (roll.isFumble) {
-        G.lastResult = 'The shelter hall back room is occupied by a mending session, which is not the meeting that was arranged. The three council members who voted against the protocol are not here, and the one who is available when contact is re-attempted explains — with tired patience — that the minority dissent is a matter of public record, not private correspondence. Whatever they said in that session is already in the posted minutes. They will not discuss strategy outside the Council chamber.';
+        G.lastResult = 'The shelter hall back room is occupied by a mending session, which is not the meeting that was arranged. The three council members who voted against the protocol are not here, and the one who is available when the approach is made again explains — with tired patience — that the minority dissent is a matter of public record, not private correspondence. Whatever they said in that session is already in the posted minutes. They will not discuss strategy outside the Council chamber.';
       } else {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.flags.wb_council_minority_faction = true;
@@ -1135,7 +1135,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 'wb_compound_destination_north',
-    label: 'The cylinders are going north. The route ends somewhere that does not officially exist.',
+    label: 'The cylinders are going north. The route ends somewhere with no record on the ledger.',
     tag: 'bold',
     skill: 'spirit',
     fn: function() {
