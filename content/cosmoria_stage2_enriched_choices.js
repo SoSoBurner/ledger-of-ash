@@ -2050,68 +2050,100 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The wax seals on three archive boxes show stress fractures consistent with re-sealing — the documents inside were accessed after official closure",
-    tags: ['Stage2', 'Investigation'],
+    label: "Three archive boxes: wax seals re-fractured. Post-closure access.",
+    tags: ['Stage2', 'Maritime'],
+    tag: 'risky',
     skill: 'spirit',
     xpReward: 78,
     fn: function() {
-      var result = rollD20('spirit', {dc: 13, locality: 'cosmoria', label: 'Wax seal analysis'});
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(78, 'analyzing wax seal fractures on archive boxes for post-closure access');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('spirit', (G.skills.spirit||0) + Math.floor(G.level/3));
       if (result.isCrit) {
-        G.stageProgress[2]++;
-        addJournal('Wax fracture analysis confirms post-closure access — documents were removed and replaced within the sealed chain of custody.', 'evidence');
-        G.lastResult = 'The fracture patterns do not lie: these were opened after official sealing. Documents were removed, likely replaced with substitutes, and re-sealed with a close but imperfect match.';
+        G.flags.wax_seal_fractures_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Wax fracture analysis confirms post-closure access — documents were removed and replaced within the sealed chain of custody.', 'evidence', 'cos-waxseal-crit-' + G.dayCount);
+        G.lastResult = 'The fracture patterns are not degradation — the angles are wrong for that, and the color at the stress point matches a second wax application. These three boxes were opened after the official sealing date. The documents inside were removed, likely replaced with substitutes, and re-sealed with a close but imperfect match. The person who re-sealed them knew what they were doing, but not quite well enough.';
       } else if (result.isFumble) {
-        G.lastResult = 'The wax crumbles under your examination, breaking the seal visibly. You replace what you can — the evidence of tampering is now yours to explain.';
-      } else if (result.isSuccess) {
-        G.stageProgress[2]++;
-        G.lastResult = 'Re-sealing stress fractures confirmed. These boxes were opened after the official closure date. Someone had continuing access to sealed archives.';
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The wax crumbles under examination, breaking the seal visibly. The damage is now attributable to this handling. The archive clerk notes the incident before it is explained. The boxes are removed from the study area while a report is drafted. What was already a closed record is now inaccessible for reasons that are partly on record as a handling failure.';
+        addJournal('Archive box seals damaged during examination — incident report filed by clerk, access suspended', 'complication', 'cos-waxseal-fail-' + G.dayCount);
       } else {
-        G.lastResult = 'Fractures are present but could be environmental. You cannot rule out temperature-caused cracking without a comparison sample.';
+        G.flags.wax_seal_fractures_confirmed = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Re-sealing stress fractures confirmed across all three boxes. The fracture pattern at the edge of each seal is too clean for environmental cracking — it follows the seal line, which means the wax was heated and re-applied. These boxes were opened after their official closure date. Someone maintained access to sealed archives after the records were supposed to be locked.';
+        addJournal('Three archive boxes show post-closure re-sealing fractures — access continued after official closure', 'evidence', 'cos-waxseal-partial-' + G.dayCount);
       }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
   {
-    label: "The archive clerk is stalling in a way that suggests he is waiting for someone — cutting through the hesitation directly may prevent an ambush",
+    label: "The archive clerk is stalling. He is waiting for someone.",
     tags: ['Stage2', 'Confrontation'],
+    tag: 'bold',
     skill: 'might',
     xpReward: 76,
     fn: function() {
-      var result = rollD20('might', {dc: 14, locality: 'cosmoria', label: 'Clerk confrontation'});
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(76, 'confronting archive clerk about deliberate stall behavior');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('might', (G.skills.might||0) + Math.floor(G.level/3));
       if (result.isCrit) {
-        G.stageProgress[2]++;
         G.flags.cosmoria_clerk_flipped = true;
-        addJournal('Archive clerk confirmed a standing instruction: delay any investigator asking for Tier 3 shipping ledgers and log their name to a separate registry.', 'evidence');
-        G.lastResult = 'You read the delay correctly. Under direct pressure he breaks: a standing instruction to delay investigators and record their identities to a private log. He gives you the contact who placed it.';
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Archive clerk broke under pressure: standing instruction to delay investigative requests for Tier 3 shipping ledgers and log names to a private registry — source named.', 'evidence', 'cos-clerk-crit-' + G.dayCount);
+        G.lastResult = 'The delay was deliberate. Under direct pressure the clerk breaks — a standing instruction to hold any outside party asking about Tier 3 shipping ledgers and log their name to a private registry alongside the request. He names the authority who placed the instruction. The name belongs to an administrative office that was dissolved two years ago. The instruction has been running on inertia since then.';
       } else if (result.isFumble) {
         addHeat('cosmouth', 1);
-        G.lastResult = 'The person he was waiting for arrives before you resolve it. You exit without the information and with a face seen.';
-      } else if (result.isSuccess) {
-        G.stageProgress[2]++;
-        G.lastResult = 'He admits the instruction exists. He will not give the name but confirms: someone with authority placed a watch on investigative requests.';
+        G.lastResult = 'The person the clerk was waiting for arrives before the confrontation resolves. A Cosmouth administrative representative, polite, prepared, with a form that requests the purpose of the visit in writing. The clerk relaxes visibly. Nothing further is learned here today. A face has been seen and a heat increment has been earned.';
+        addJournal('Clerk confrontation interrupted by Cosmouth administrative representative — inquiry formally logged', 'complication', 'cos-clerk-fail-' + G.dayCount);
       } else {
-        G.lastResult = 'He holds his composure. The stall continues.';
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'The clerk does not break, but he stops stalling. Under direct pressure he confirms: an instruction exists to delay certain categories of outside inquiry and log the details. He will not name the source. "I process the instruction. I did not place it." He goes back to the ledger. The delay is over. The ledger is open. What was being protected from view is now accessible.';
+        addJournal('Archive clerk confirmed: standing instruction delays investigative requests, logs identities — source not disclosed', 'intelligence', 'cos-clerk-partial-' + G.dayCount);
       }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
   {
-    label: "The harbor master remembers every unusual shipment by feel — a shared drink and genuine curiosity might surface what records cannot",
-    tags: ['Stage2', 'Social'],
+    label: "The harbor master's recall goes back further than the records.",
+    tags: ['Stage2', 'NPC'],
+    tag: 'risky',
     skill: 'charm',
     xpReward: 74,
     fn: function() {
-      var result = rollD20('charm', {dc: 12, locality: 'cosmoria', label: 'Harbor master rapport'});
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(74, 'drawing out harbor master memory of unscheduled night shipments');
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      if (!G.worldClocks) G.worldClocks = {};
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
-        G.stageProgress[2]++;
-        addJournal('Harbor master recalled three unscheduled night shipments six months before the audit. They were logged under a provisional transit code that no longer exists in the system.', 'evidence');
-        G.lastResult = 'He remembers every ship that came at night and left before the morning count. Three such shipments six months before the audit. Logged under a transit code that has since been deleted from the master registry.';
+        G.flags.met_harbor_master = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Harbor master recalled three unscheduled night shipments six months before the audit — logged under transit code later deleted from the master registry. Named the cargo broker.', 'evidence', 'cos-harbmaster-crit-' + G.dayCount);
+        G.lastResult = 'He remembers every ship that came at night and left before the morning count. Three such shipments six months before the audit — he names the dates without checking anything. "Logged under a transit code I haven\'t seen since." He pulls the current transit code directory, finds no entry, and sets it down. "Someone cleaned the directory. The ships were real. I loaded two of them myself." He names the cargo broker who handled all three.';
       } else if (result.isFumble) {
-        G.lastResult = 'You push the charm too hard and he reads it as an angle. He finishes his drink and excuses himself before you get anything useful.';
-      } else if (result.isSuccess) {
-        G.stageProgress[2]++;
-        G.lastResult = 'He does not give dates, but he gives you a name: the cargo broker who handled all three shipments. Someone you should ask about unusual night work.';
+        G.lastResult = 'The approach reads as an angle before the second sentence finishes. He closes the drink back on the counter and straightens in his chair. "I\'ve had this conversation before, in different forms." He is done. He stays polite, but the door back into his memory has closed. He knows how to wait out a conversation that has nothing in it for him.';
+        addJournal('Harbor master disengaged — approach read as investigative, no information recovered', 'complication', 'cos-harbmaster-fail-' + G.dayCount);
       } else {
-        G.lastResult = 'Pleasant enough, but professionally tight. The harbor master has survived many conversations like this by saying nothing.';
+        G.flags.met_harbor_master = true;
+        G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'He does not give dates, but he gives a name: the cargo broker who handled three shipments that came in at night and did not appear in the standard morning count. "Unusual work," he says. "Night delivery, early departure, no loading crew overlap." He is not sure the name is still at the same berth. He says it like someone who has been waiting for the right question and is not entirely surprised that it arrived today.';
+        addJournal('Harbor master named cargo broker linked to three unscheduled night shipments — no dates given, delivery pattern described', 'intelligence', 'cos-harbmaster-partial-' + G.dayCount);
       }
+      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
 
