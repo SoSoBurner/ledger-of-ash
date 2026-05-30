@@ -9288,7 +9288,7 @@ let G = {
   name:'', archetype:null, background:null,
   level:1, xp:0, renown:0,
   hp:20, maxHp:20, gold:20,
-  skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
+  skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0,craft:0},
   traits:[], location:'shelkopolis',
   timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
   stage:'Stage I', stageLabel:'Grass Roots',
@@ -9754,7 +9754,7 @@ function getAllLegends() {
 function getDefaultG() {
   return {
     name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
-    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
+    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0,craft:0},
     traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
     stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
     factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
@@ -9903,8 +9903,8 @@ function initCreate() {
   // Populate stat boost grid
   const sbg = document.getElementById('stat-boost-grid');
   if (sbg) {
-    const _SKILL_DISPLAY = {combat:'Might',survival:'Vigor',persuasion:'Charm',lore:'Wits',stealth:'Finesse',craft:'Spirit'};
-    const skills = ['combat','survival','persuasion','lore','stealth','craft'];
+    const _SKILL_DISPLAY = {might:'Might',vigor:'Vigor',charm:'Charm',wits:'Wits',finesse:'Finesse',spirit:'Spirit'};
+    const skills = ['might','vigor','charm','wits','finesse','spirit'];
     sbg.innerHTML = '';
     skills.forEach(sk => {
       const btn = document.createElement('div');
@@ -9915,8 +9915,8 @@ function initCreate() {
       btn.addEventListener('click', () => {
         document.querySelectorAll('#stat-boost-grid .card').forEach(c => c.classList.remove('selected'));
         btn.classList.add('selected');
-        // Store display key (matches archetype.skills format) so prevBoost comparison works after archetype select
-        G._createStatBoost = ({combat:'might',survival:'vigor',persuasion:'charm',lore:'wits',stealth:'finesse',craft:'spirit'})[sk] || sk;
+        // Store new display key directly — archetype.skills already uses new keys
+        G._createStatBoost = sk;
         checkBeginReady();
       });
       sbg.appendChild(btn);
@@ -10194,12 +10194,11 @@ function _beginLegendCore() {
   G.caseCode = _makeCaseCode(G.runId);
   G.lastUsedSlot = 'loa_slot_1';
   G.choiceCount = G.choiceCount || 0;
-  var _SK_NORM_INIT = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
   var _rawArchSkills = G.archetype.skills || {};
-  G.skills = {};
-  Object.keys(_rawArchSkills).forEach(function(k){ G.skills[_SK_NORM_INIT[k]||k] = _rawArchSkills[k]; });
+  G.skills = {craft:0};
+  Object.keys(_rawArchSkills).forEach(function(k){ G.skills[k] = _rawArchSkills[k]; });
   if (G._createStatBoost) {
-    var _boostKey = _SK_NORM_INIT[G._createStatBoost] || G._createStatBoost;
+    var _boostKey = G._createStatBoost;
     G.skills[_boostKey] = (G.skills[_boostKey] || 0) + 1;
   }
   G.maxHp = G.archetype.hp; G.hp = G.maxHp;
@@ -10932,8 +10931,8 @@ function applyTensionModifier(npcRole) {
 // Stage-aware arrival choices after travel — replaces hardcoded generic three
 
 // Skill display names — internal key → player-facing label
-const SKILL_DISPLAY = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
-const _KEY_NORM_GLOBAL = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+const SKILL_DISPLAY = {might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit',craft:'Craft',combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm'};
+const _KEY_NORM_GLOBAL = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
 /** Return player-facing skill label for any key (internal or display). */
 function skillDisplay(key) {
   var _sk = _KEY_NORM_GLOBAL[key] || key;
@@ -10980,9 +10979,9 @@ function adaptEnrichedChoice(c) {
   var _primaryDcReduce = 0;
   if (c.roll && G && G.archetype && typeof getArchetypeFamily === 'function') {
     var _aeFamily = getArchetypeFamily();
-    var _aeKeyNorm = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+    var _aeKeyNorm = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
     var _aeRollSk = _aeKeyNorm[c.roll] || c.roll;
-    var _aePrimaryMap = {combat:'combat', magic:'lore', stealth:'stealth', support:'persuasion'};
+    var _aePrimaryMap = {combat:'might', magic:'wits', stealth:'finesse', support:'charm'};
     var _aePrimarySk = _aePrimaryMap[_aeFamily];
     if (_aePrimarySk && _aeRollSk === _aePrimarySk) {
       var _aeStatVal = (G.skills && G.skills[_aePrimarySk]) || 0;
@@ -11002,8 +11001,8 @@ function adaptEnrichedChoice(c) {
       // failResult gate: pre-roll before fn executes, keeping one consistent roll display
       var _gateShown = false;
       if (c.failResult) {
-        var _KEY_NORM_G = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
-        var _gSk = _KEY_NORM_G[c.skill||''] || c.skill || 'lore';
+        var _KEY_NORM_G = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
+        var _gSk = _KEY_NORM_G[c.skill||''] || c.skill || 'wits';
         var _gDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
         var _gVal = (G.skills && G.skills[_gSk]) || 0;
         var _gRoll = Math.floor(Math.random() * 20) + 1;
@@ -11403,7 +11402,7 @@ function loadStageChoices(locId) {
       tag: 'risky', align: 'neutral',
       action: function() {
         document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
-        var _sk = (G.skills && G.skills.lore) || 0;
+        var _sk = (G.skills && G.skills.wits) || 0;
         var _r = Math.floor(Math.random()*20)+1;
         var _dc = 13;
         var _ok = (_r + _sk) >= _dc;
@@ -11422,7 +11421,7 @@ function loadStageChoices(locId) {
       tag: 'safe', align: 'neutral',
       action: function() {
         document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
-        var _sk = (G.skills && G.skills.lore) || 0;
+        var _sk = (G.skills && G.skills.wits) || 0;
         var _r = Math.floor(Math.random()*20)+1;
         var _dc = 11;
         var _ok = (_r + _sk) >= _dc;
@@ -11947,13 +11946,13 @@ function pickNightEncounterKey() {
 }
 
 function rollD20(skill, bonus) {
-  var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+  var _KEY_NORM = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
   var _sk = _KEY_NORM[skill] || skill;
   var roll = Math.floor(Math.random() * 20) + 1;
   var statValue = (typeof G !== 'undefined' && G && G.skills && typeof G.skills[_sk] === 'number') ? G.skills[_sk] : 0;
   var penalty = (typeof G !== 'undefined' && G && G._rivalDCPenalty) ? G._rivalDCPenalty : 0;
   var sleepless = (typeof G !== 'undefined' && G && G.consecutiveSleepless) ? Math.min(G.consecutiveSleepless, 3) : 0;
-  var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (_sk === 'combat' || _sk === 'survival')) ? 1 : 0;
+  var campoutMod = (G && G._campoutPenalty && G.dayCount === (G.campoutDay + 1) && (_sk === 'might' || _sk === 'vigor')) ? 1 : 0;
   var travelFatiguedMod = (G && G.flags && G.flags.travel_fatigued) ? 1 : 0;
   var total = roll + statValue + (bonus || 0) - penalty - sleepless - campoutMod - travelFatiguedMod;
   if (typeof G !== 'undefined' && G) {
@@ -12404,12 +12403,14 @@ function handleChoice(choice) {
 
 function getTraitBonus(skill) {
   if (!G || !G.traits) return 0;
-  var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+  var _KEY_NORM = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
   var _sk = _KEY_NORM[skill] || skill;
+  // Reverse map for looking up old-key objects (bgTraitBonus uses old keys)
+  var _KEY_OLD = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
   return G.traits.reduce(function(sum, t) {
     if (!t) return sum;
-    // Format A: {skillBonus:{combat:1}} — background passive traits
-    if (t.skillBonus) return sum + (t.skillBonus[_sk] || 0);
+    // Format A: {skillBonus:{combat:1}} — background passive traits (old keys)
+    if (t.skillBonus) return sum + (t.skillBonus[_KEY_OLD[_sk] || _sk] || t.skillBonus[_sk] || 0);
     // Format C: {bonusSkill:'might', bonus:1} — archetype definitions (display key, bonusSkill alias)
     if (t.bonusSkill) {
       var _csk = _KEY_NORM[t.bonusSkill] || t.bonusSkill;
@@ -12428,12 +12429,14 @@ function getTraitBonus(skill) {
 }
 
 function getEquipmentBonus(skill) {
-  var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+  var _KEY_NORM = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
   var _sk = _KEY_NORM[skill] || skill;
-  let bonus = 0;
-  if (G.equipped && G.equipped.weapon && G.equipped.weapon.skillBonus === _sk) bonus += G.equipped.weapon.bonus || 0;
-  if (G.equipped && G.equipped.armor && G.equipped.armor.skillBonus === _sk) bonus += G.equipped.armor.bonus || 0;
-  if (G.equipped && G.equipped.tool && G.equipped.tool.skillBonus === _sk) bonus += G.equipped.tool.bonus || 0;
+  var bonus = 0;
+  // item.skillBonus may be old key — normalize it before comparing to _sk (new key)
+  function _normSb(sb) { return _KEY_NORM[sb] || sb; }
+  if (G.equipped && G.equipped.weapon && _normSb(G.equipped.weapon.skillBonus) === _sk) bonus += G.equipped.weapon.bonus || 0;
+  if (G.equipped && G.equipped.armor && _normSb(G.equipped.armor.skillBonus) === _sk) bonus += G.equipped.armor.bonus || 0;
+  if (G.equipped && G.equipped.tool && _normSb(G.equipped.tool.skillBonus) === _sk) bonus += G.equipped.tool.bonus || 0;
   return bonus;
 }
 
@@ -12486,7 +12489,7 @@ function applyEffect(fx) {
     case 'xp':        gainXp(fx.n || fx.amount || 0); break;
     case 'flag':      G.flags = G.flags || {}; G.flags[fx.key] = fx.value !== undefined ? fx.value : true; break;
     case 'stat': {
-      var _KEY_EFX = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+      var _KEY_EFX = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
       var _sk = _KEY_EFX[fx.skill] || fx.skill;
       G.skills[_sk] = Math.min(10, (G.skills[_sk] || 0) + (fx.n || 0));
       break;
@@ -13179,12 +13182,12 @@ function showLevelUpScreen() {
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
 
   const STAT_DISPLAY = [
-    { key:'combat',     name:'Might',   hint:'Governs combat rolls, forced entry, and feats of physical strength.' },
-    { key:'stealth',    name:'Finesse', hint:'Governs stealth, picking locks, sleight of hand, and precision strikes.' },
-    { key:'survival',   name:'Vigor',   hint:'Governs endurance, resistance to wounds, and survival checks.' },
-    { key:'lore',       name:'Wits',    hint:'Governs research, lore, trap disarmament, and tactical reads.' },
-    { key:'persuasion', name:'Charm',   hint:'Governs persuasion, deception, social maneuvering, and first impressions.' },
-    { key:'craft',      name:'Spirit',  hint:'Governs healing, crafting, ritual knowledge, and attunement to the unseen.' },
+    { key:'might',   name:'Might',   hint:'Governs combat rolls, forced entry, and feats of physical strength.' },
+    { key:'finesse', name:'Finesse', hint:'Governs stealth, picking locks, sleight of hand, and precision strikes.' },
+    { key:'vigor',   name:'Vigor',   hint:'Governs endurance, resistance to wounds, and survival checks.' },
+    { key:'wits',    name:'Wits',    hint:'Governs research, lore, trap disarmament, and tactical reads.' },
+    { key:'charm',   name:'Charm',   hint:'Governs persuasion, deception, social maneuvering, and first impressions.' },
+    { key:'spirit',  name:'Spirit',  hint:'Governs healing, crafting, ritual knowledge, and attunement to the unseen.' },
   ];
 
   addNarration('', '<em class="level-up-msg">&#x2014; LEVEL ' + G.level + ' REACHED &#x2014;</em><br><span style="color:var(--gold-dim);font-size:13px">' + getRenownedTitle() + ' &middot; ' + (G.stageLabel||G.stage) + '</span>');
@@ -15352,7 +15355,7 @@ function showCharSheet() {
     }).join('') + '</div></div>' +
 
     (function(){
-      var _SKILL_DISPLAY = {might:'Might',vigor:'Vigor',charm:'Charm',wits:'Wits',finesse:'Finesse',spirit:'Spirit',combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+      var _SKILL_DISPLAY = {might:'Might',vigor:'Vigor',charm:'Charm',wits:'Wits',finesse:'Finesse',spirit:'Spirit',craft:'Craft',combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm'};
       var _eqLines = [];
       ['weapon','armor','tool'].forEach(function(slot) {
         var _item = G.equipped && G.equipped[slot];
@@ -15471,7 +15474,7 @@ function showCharSheet() {
       return '<div class="char-stat-row" style="align-items:center">' +
         '<span class="char-stat-key">' + cap(slot) + '</span>' +
         '<span class="char-stat-val char-equip-val" style="flex:1">' + (item
-          ? item.name + ' <span style="color:var(--gold-dim);font-size:11px">(+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'}[item.skillBonus] || item.skillBonus||'') + ')</span>'
+          ? item.name + ' <span style="color:var(--gold-dim);font-size:11px">(+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Craft',might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit'}[item.skillBonus] || item.skillBonus||'') + ')</span>'
           : '<span style="color:var(--ink-faint)">&#x2014;</span>') + '</span>' +
         (item ? '<button class="btn btn-ghost btn-xs" onclick="unequipItem(\'' + slot + '\');showCharSheetTab(\'equipment\')" style="flex-shrink:0;margin-left:8px">Unequip</button>' : '') +
       '</div>';
@@ -15498,7 +15501,7 @@ function showCharSheet() {
               return '<div class="char-stat-row" style="align-items:center">' +
                 '<span class="char-stat-key" style="flex:1">' + item.name +
                 (item.equipped ? ' <span style="color:var(--jade-bright);font-size:9px;font-family:Cinzel,serif;letter-spacing:1px">EQUIPPED</span>' : '') +
-                (item.skillBonus ? ' <span style="color:var(--ink-faint);font-size:11px">+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'}[item.skillBonus] || item.skillBonus) + '</span>' : '') +
+                (item.skillBonus ? ' <span style="color:var(--ink-faint);font-size:11px">+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Craft',might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit'}[item.skillBonus] || item.skillBonus) + '</span>' : '') +
                 '</span>' + btn + sellBtn +
               '</div>';
             }).join('')) +
@@ -16176,6 +16179,9 @@ function migrateState(loaded) {
       loaded.skills.charm   = loaded.skills.persuasion|| 0; delete loaded.skills.persuasion;
       loaded.skills.spirit  = loaded.skills.craft     || 0; delete loaded.skills.craft;
     }
+    // Ensure craft (crafting DC stat, separate from spirit) exists
+    if (!loaded.skills) loaded.skills = {};
+    if (loaded.skills.craft === undefined) loaded.skills.craft = 0;
   }
   if (!loaded.seenChoices) loaded.seenChoices = {};
   if (!loaded.startingLocality) loaded.startingLocality = loaded.location || 'shelkopolis';
@@ -16579,7 +16585,7 @@ function updateHUD() {
   const sk = document.getElementById('hud-skills');
   if (sk) {
     sk.innerHTML = '';
-    var _SKILL_LABELS = { might:'Might', finesse:'Finesse', vigor:'Vigor', wits:'Wits', charm:'Charm', spirit:'Spirit', combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Spirit' };
+    var _SKILL_LABELS = { might:'Might', finesse:'Finesse', vigor:'Vigor', wits:'Wits', charm:'Charm', spirit:'Spirit', craft:'Craft', combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm' };
     Object.entries(G.skills||{}).forEach(([k,v]) => {
       const r = document.createElement('div'); r.className='skill-item';
       const pct=Math.round((v/20)*100);
@@ -17234,7 +17240,7 @@ function getCombatAbilityChoices(enemyKey) {
     (function(_aid){ choices.push({
       text: a.name + (spent ? ' [spent]' : ''),
       disabled: spent,
-      skill: (_KEY_NORM_GLOBAL[a.skill] || a.skill || 'combat'),
+      skill: (_KEY_NORM_GLOBAL[a.skill] || a.skill || 'might'),
       tag: 'combat',
       cid: '__combat_ability__' + (enemyKey || '') + '__' + _aid,
       result: a.successEffect || 'The ability fires.',

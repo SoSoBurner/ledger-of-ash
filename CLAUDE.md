@@ -138,23 +138,28 @@ Pre-existing bug: Stage 1 choices use semantic tags that don't match `BOLD_TAGS`
 
 ## Skill Keys
 
-`G.skills` always uses internal keys — never display names:
+`G.skills` uses display-name keys directly. Content and engine code both use these:
 
-| Internal key | Display name |
-|---|---|
-| `combat` | Might |
-| `stealth` | Finesse |
-| `survival` | Vigor |
-| `lore` | Wits |
-| `persuasion` | Charm |
-| `craft` | Spirit |
+| G.skills key | Display name | Notes |
+|---|---|---|
+| `might` | Might | Physical force, combat |
+| `vigor` | Vigor | Endurance, survival |
+| `wits` | Wits | Knowledge, investigation |
+| `charm` | Charm | Persuasion, social |
+| `finesse` | Finesse | Stealth, precision |
+| `spirit` | Spirit | Magic, willpower |
+| `craft` | (internal) | Crafting DCs only — not in skill HUD, not levelable |
 
-Some call sites pass display keys. All functions reading `G.skills[skill]` must normalize first:
+Old internal keys (combat/survival/lore/stealth/persuasion) are accepted by rollD20 via `_KEY_NORM` normalization for backward compatibility with old content files. New content must use display-name keys.
+
+Some call sites pass old internal keys. All functions reading `G.skills[skill]` must normalize first:
 ```js
-var _KEY_NORM = {might:'combat',finesse:'stealth',vigor:'survival',wits:'lore',charm:'persuasion',spirit:'craft'};
+var _KEY_NORM = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
 var _sk = _KEY_NORM[skill] || skill;
 ```
-`rollD20`, `getTraitBonus`, `getEquipmentBonus` all fixed Apr 2026. Apply same pattern to any new roll helper.
+`rollD20`, `getTraitBonus`, `getEquipmentBonus` all fixed May 2026. Apply same pattern to any new roll helper.
+
+**G.traits format note:** `bgTraitBonus` objects still use old internal keys (e.g. `{combat:1}`). `getTraitBonus` handles this via an internal `_KEY_OLD` reverse-lookup. Do not change bgTraitBonus key format — it would break backward compatibility with saves.
 
 ## G Object Rules
 
@@ -166,7 +171,7 @@ var _sk = _KEY_NORM[skill] || skill;
 
 **`G.worldClocks` object trap:** Any `G.worldClocks` key initialized to `{}` or an object (not 0) renders as `[object Object]` in the sidebar. All keys in the G defaults must be integers (0).
 
-**G.traits dual format (critical):** Background traits: `{skillBonus:{combat:1}, passive:true, source:'background'}`. Archetype/item traits: `{skill:'combat', bonus:1, condition?}`. Any function reading `G.traits` must handle BOTH formats. Never add a third format.
+**G.traits dual format (critical):** Background traits: `{skillBonus:{combat:1}, passive:true, source:'background'}` — skillBonus object uses OLD internal keys. Archetype/item traits: `{skill:'combat', bonus:1, condition?}` — skill field may be old or new key. Any function reading `G.traits` must handle BOTH formats and normalize via `_KEY_NORM`. Never add a third format.
 
 ## Skill Display
 
