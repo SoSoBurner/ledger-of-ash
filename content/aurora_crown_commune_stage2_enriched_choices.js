@@ -1919,6 +1919,73 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The filtration manifold readings are off — a trained hand could recalibrate without alerting the duty log",
+    tags: ['Stage2', 'Investigation'],
+    skill: 'spirit',
+    xpReward: 80,
+    fn: function() {
+      var result = rollD20('spirit', {dc: 13, locality: 'aurora_crown_commune', label: 'Recalibrate manifold'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('The manifold calibration log shows three unauthorized resets — each timed to a scheduled inspection. Someone was erasing evidence of power diversion.', 'evidence');
+        G.lastResult = 'You recalibrate the manifold and pull the maintenance history. Three deliberate resets, each timed to coincide with external inspections. This is sabotage with a schedule.';
+      } else if (result.isFumble) {
+        addHeat('shelk', 1);
+        G.lastResult = 'The manifold alarm trips before you finish. A duty officer appears. You explain it as a routine check — they do not look convinced.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'You recalibrate it cleanly. The log shows three resets — deliberate, timed. Someone with maintenance access was covering their tracks.';
+      } else {
+        G.lastResult = 'The calibration panel locks you out after the second attempt. You retreat before anyone notices the failed access request.';
+      }
+    }
+  },
+  {
+    label: "A maintenance supervisor is physically blocking the corridor — direct negotiation from strength is the fastest path through",
+    tags: ['Stage2', 'Confrontation'],
+    skill: 'might',
+    xpReward: 70,
+    fn: function() {
+      var result = rollD20('might', {dc: 13, locality: 'aurora_crown_commune', label: 'Corridor confrontation'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.flags.aurora_supervisor_cleared = true;
+        G.lastResult = 'Your posture and tone cut through his rehearsed obstruction. He steps aside and gives you a name — the person who told him to hold this corridor on inspection days.';
+      } else if (result.isFumble) {
+        addHeat('shelk', 2);
+        G.lastResult = 'The confrontation escalates. He calls for security. You withdraw — the incident will be logged.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'He yields the corridor without naming anyone. The way he looks over his shoulder tells you someone upstream told him to hold this post.';
+      } else {
+        G.lastResult = 'He holds his ground. You cannot press further without drawing attention. You find another route.';
+      }
+    }
+  },
+  {
+    label: "The restricted equipment bay has a staff-only entrance — but the ventilation access is unwatched and wide enough",
+    tags: ['Stage2', 'Infiltration'],
+    skill: 'finesse',
+    xpReward: 80,
+    fn: function() {
+      var result = rollD20('finesse', {dc: 14, locality: 'aurora_crown_commune', label: 'Ventilation access'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Equipment bay inventory shows three filtration cores listed as decommissioned but absent from the disposal log.', 'evidence');
+        G.lastResult = 'Through the ventilation access you reach the equipment bay unseen. Three filtration cores are logged as decommissioned — but missing from the disposal register. Someone moved them.';
+      } else if (result.isFumble) {
+        addHeat('shelk', 1);
+        G.lastResult = 'A guard on a non-standard patrol catches your movement in the vent. You drop and walk out with a cover story, but they have your face now.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'You make it through. The inventory discrepancy is real — decommissioned equipment with no disposal paperwork. A ghost supply chain.';
+      } else {
+        G.lastResult = 'The vent is louder than expected. You retreat before reaching the bay.';
+      }
+    }
+  },
+
 ];
 
 window.AURORA_STAGE2_ENRICHED_CHOICES = AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES;

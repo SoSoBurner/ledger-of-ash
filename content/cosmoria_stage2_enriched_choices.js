@@ -2047,7 +2047,73 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
-  }
+  },
+
+  {
+    label: "The wax seals on three archive boxes show stress fractures consistent with re-sealing — the documents inside were accessed after official closure",
+    tags: ['Stage2', 'Investigation'],
+    skill: 'spirit',
+    xpReward: 78,
+    fn: function() {
+      var result = rollD20('spirit', {dc: 13, locality: 'cosmoria', label: 'Wax seal analysis'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Wax fracture analysis confirms post-closure access — documents were removed and replaced within the sealed chain of custody.', 'evidence');
+        G.lastResult = 'The fracture patterns do not lie: these were opened after official sealing. Documents were removed, likely replaced with substitutes, and re-sealed with a close but imperfect match.';
+      } else if (result.isFumble) {
+        G.lastResult = 'The wax crumbles under your examination, breaking the seal visibly. You replace what you can — the evidence of tampering is now yours to explain.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'Re-sealing stress fractures confirmed. These boxes were opened after the official closure date. Someone had continuing access to sealed archives.';
+      } else {
+        G.lastResult = 'Fractures are present but could be environmental. You cannot rule out temperature-caused cracking without a comparison sample.';
+      }
+    }
+  },
+  {
+    label: "The archive clerk is stalling in a way that suggests he is waiting for someone — cutting through the hesitation directly may prevent an ambush",
+    tags: ['Stage2', 'Confrontation'],
+    skill: 'might',
+    xpReward: 76,
+    fn: function() {
+      var result = rollD20('might', {dc: 14, locality: 'cosmoria', label: 'Clerk confrontation'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.flags.cosmoria_clerk_flipped = true;
+        addJournal('Archive clerk confirmed a standing instruction: delay any investigator asking for Tier 3 shipping ledgers and log their name to a separate registry.', 'evidence');
+        G.lastResult = 'You read the delay correctly. Under direct pressure he breaks: a standing instruction to delay investigators and record their identities to a private log. He gives you the contact who placed it.';
+      } else if (result.isFumble) {
+        addHeat('cosmouth', 1);
+        G.lastResult = 'The person he was waiting for arrives before you resolve it. You exit without the information and with a face seen.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'He admits the instruction exists. He will not give the name but confirms: someone with authority placed a watch on investigative requests.';
+      } else {
+        G.lastResult = 'He holds his composure. The stall continues.';
+      }
+    }
+  },
+  {
+    label: "The harbor master remembers every unusual shipment by feel — a shared drink and genuine curiosity might surface what records cannot",
+    tags: ['Stage2', 'Social'],
+    skill: 'charm',
+    xpReward: 74,
+    fn: function() {
+      var result = rollD20('charm', {dc: 12, locality: 'cosmoria', label: 'Harbor master rapport'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Harbor master recalled three unscheduled night shipments six months before the audit. They were logged under a provisional transit code that no longer exists in the system.', 'evidence');
+        G.lastResult = 'He remembers every ship that came at night and left before the morning count. Three such shipments six months before the audit. Logged under a transit code that has since been deleted from the master registry.';
+      } else if (result.isFumble) {
+        G.lastResult = 'You push the charm too hard and he reads it as an angle. He finishes his drink and excuses himself before you get anything useful.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'He does not give dates, but he gives you a name: the cargo broker who handled all three shipments. Someone you should ask about unusual night work.';
+      } else {
+        G.lastResult = 'Pleasant enough, but professionally tight. The harbor master has survived many conversations like this by saying nothing.';
+      }
+    }
+  },
 
 ];
 

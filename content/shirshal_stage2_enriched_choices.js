@@ -1595,6 +1595,71 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The administrative seals on the compliance ledger pages show different font degradation rates — some pages are newer than their recorded dates",
+    tags: ['Stage2', 'Investigation'],
+    skill: 'spirit',
+    xpReward: 80,
+    fn: function() {
+      var result = rollD20('spirit', {dc: 13, locality: 'shirshal', label: 'Document dating analysis'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Font degradation analysis: 14 pages in the compliance ledger are less than 8 months old but carry dates from three years prior. Retroactive document insertion.', 'evidence');
+        G.lastResult = 'Font degradation does not lie about age. Fourteen pages in this ledger are physically less than eight months old — but stamped three years prior. The compliance record was fabricated in retrospect.';
+      } else if (result.isFumble) {
+        G.lastResult = 'You need better light for the analysis. When you ask for a lamp, the duty archivist notices what you are examining.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'At least half a dozen pages are newer than their listed dates. The degradation differential is clear. Someone inserted pages into a historical record.';
+      } else {
+        G.lastResult = 'Inconclusive without a comparison sample from the same paper batch.';
+      }
+    }
+  },
+  {
+    label: "The records officer has stopped pretending to search and is simply waiting for you to leave — confronting the stall directly ends the performance",
+    tags: ['Stage2', 'Confrontation'],
+    skill: 'might',
+    xpReward: 72,
+    fn: function() {
+      var result = rollD20('might', {dc: 13, locality: 'shirshal', label: 'Records officer confrontation'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Records officer confirmed: a standing hold order on investigative requests for pre-consolidation era documents, placed by the current compliance head.', 'evidence');
+        G.lastResult = 'You name the stall precisely: you are not searching, you are waiting. He drops the performance. The hold was placed by the compliance head six weeks after the consolidation. He gives you the order number.';
+      } else if (result.isFumble) {
+        addHeat('shirsh', 1);
+        G.lastResult = 'He escalates to a supervisor. You exit before the confrontation formalizes — but the access log will show your presence.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'He admits he cannot produce the records. Not because they do not exist — because they have a hold status he cannot override at his level.';
+      } else {
+        G.lastResult = 'He maintains the performance. The order he follows comes from someone with more authority than you can currently threaten.';
+      }
+    }
+  },
+  {
+    label: "The compliance auditor has been running the same review loop for three years — someone who acknowledges the absurdity might earn her trust",
+    tags: ['Stage2', 'Social'],
+    skill: 'charm',
+    xpReward: 74,
+    fn: function() {
+      var result = rollD20('charm', {dc: 13, locality: 'shirshal', label: 'Auditor rapport'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Senior compliance auditor confirmed that flagged anomaly reports are filed, reviewed, and returned with insufficient basis for action regardless of contents. The review process is a mechanism for burying findings.', 'evidence');
+        G.lastResult = 'She laughs at something that stopped being funny two years ago. The anomaly review process is not a dead end — it is the point. Every flag filed is a flag contained. She knows because she keeps filing them.';
+      } else if (result.isFumble) {
+        G.lastResult = 'She has heard the sympathetic approach before from people who were looking for something to use. She closes off entirely.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'She will not give you names, but she gives you a number: the percentage of anomaly reports that have ever resulted in a formal escalation. It is zero.';
+      } else {
+        G.lastResult = 'She is professionally warm and says nothing actionable. The walls stay up.';
+      }
+    }
+  },
+
 ];
 
 window.SHIRSHAL_STAGE2_ENRICHED_CHOICES = SHIRSHAL_STAGE2_ENRICHED_CHOICES;

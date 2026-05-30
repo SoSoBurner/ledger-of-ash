@@ -1105,6 +1105,70 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The contamination sensor array has calibration drift that a careful technician could use to reconstruct original readings",
+    tags: ['Stage2', 'Investigation'],
+    skill: 'spirit',
+    xpReward: 80,
+    fn: function() {
+      var result = rollD20('spirit', {dc: 13, locality: 'glasswake_commune', label: 'Sensor calibration reconstruction'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Original sensor readings reconstructed from calibration drift: contamination levels were 4x reported values during the suppressed period.', 'evidence');
+        G.lastResult = 'The drift pattern is a fingerprint. You reconstruct the original readings: contamination was four times what was reported. The sensors were adjusted, not miscalibrated.';
+      } else if (result.isFumble) {
+        G.lastResult = 'The reconstruction overwrites a calibration baseline. You reset the sensor to avoid leaving a trace of your access, losing the data.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'Rough reconstruction confirms suppression: actual contamination substantially higher than filed reports. Someone adjusted the output threshold.';
+      } else {
+        G.lastResult = 'Inconclusive without the original reference data you do not have access to.';
+      }
+    }
+  },
+  {
+    label: "A monitoring post guard is demanding documentation you do not have — physical presence and command tone may be enough",
+    tags: ['Stage2', 'Confrontation'],
+    skill: 'might',
+    xpReward: 72,
+    fn: function() {
+      var result = rollD20('might', {dc: 13, locality: 'glasswake_commune', label: 'Monitoring post bluff'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        G.lastResult = 'Your bearing reads as authority he was not prepared to question. He waves you through and mentions — unprompted — that the last inspection team asked about the same access point.';
+      } else if (result.isFumble) {
+        addHeat('shelk', 1);
+        G.lastResult = 'He calls it in. You exit the way you came before a supervisor arrives.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'He steps aside. The confidence read as authority. The post is accessible for now.';
+      } else {
+        G.lastResult = 'He is not convinced. You need documentation or another route.';
+      }
+    }
+  },
+  {
+    label: "The lead contamination researcher is publishing the official findings — her private doubts may surface in a genuine conversation",
+    tags: ['Stage2', 'Social'],
+    skill: 'charm',
+    xpReward: 76,
+    fn: function() {
+      var result = rollD20('charm', {dc: 13, locality: 'glasswake_commune', label: 'Researcher rapport'});
+      if (result.isCrit) {
+        G.stageProgress[2]++;
+        addJournal('Lead researcher confirmed her original data was altered before publication. The altered figures came back to her as the official record.', 'evidence');
+        G.lastResult = 'She has been waiting for someone to ask the right question. Her original measurements never matched what she was told to publish. She still has the working copies — somewhere she cannot access from here.';
+      } else if (result.isFumble) {
+        G.lastResult = 'She shuts down the moment you push. She has been approached before. You will not get another chance with her through this route.';
+      } else if (result.isSuccess) {
+        G.stageProgress[2]++;
+        G.lastResult = 'She says enough: the numbers she published were not the numbers she measured. She cannot elaborate here. Someone might be watching.';
+      } else {
+        G.lastResult = 'She is cordial and says nothing of use. The professional distance holds.';
+      }
+    }
+  },
+
 ];
 
 window.GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES;
