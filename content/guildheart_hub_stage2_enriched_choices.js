@@ -267,6 +267,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Shelk notary cipher is pre-reform dead-notary seal — valid only through unclosed Guildheart procedural window', 'evidence', `guild-notary-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `Cross-polity seal verification requires a formal authentication request routed through the Shelkopolis Consular Bureau at Guildheart Hub. The request window is open second and fourth tide-turn mornings. The duty clerk takes the inquiry and logs the date and time. The Consular Bureau log is shared with the Shelk Roadwarden coordination desk. Asking this question officially is putting the question where the Roadwarden captain Nyra described can see it.`;
         addJournal('Notary seal verification request logged — Shelk Consular Bureau shares log with Roadwarden coordination desk', 'complication', `guild-notary-fail-${G.dayCount}`);
       } else {
@@ -295,6 +296,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Northeast waypoint in Shelk private freight covenant — pre-consolidation inspection exemption, pencil notation reads ACTIVE PER RIDER', 'evidence', `guild-waypoint-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('union', 1);
         G.lastResult = `The supplementary annex volumes are in a restricted reference bay behind the main registry. A senior clerk intercepts the approach before the bay is reached. "Supplementary annexes require a research credential filed twenty-four hours in advance." The credential form is taken from the rack. It asks for institutional affiliation and the specific annex number — which requires knowing which annex to request. The form is asking for the answer to the question being asked. The senior clerk waits.`;
         addJournal('Shelk charter annex access blocked — credential form requires specific annex number as prerequisite', 'complication', `guild-waypoint-fail-${G.dayCount}`);
       } else {
@@ -638,6 +640,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Guildheart factor Toven: Collegium routing block with sequential manifest numbers — batch bypass of standard separation protocol.', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('union', 1);
         G.lastResult = 'The manifest stack on the counter gets straightened into precise alignment before the answer comes. "Collegium orders process the same as any other order at this desk. Routing number queries go through the transit clerk upstairs." No eye contact. The stack was already aligned. The straightening is not about the stack. The routing desk continues around this stillness — chalk figures posted on the transit board, the scratch of pen on manifest, a runner collecting a bound ledger from the end of the counter. Toven does not watch any of it.';
       } else {
         G.flags.met_factor_toven = true;
@@ -662,6 +665,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Guildheart transit records: Collegium sealed order — linen-weight paper, iron-grey quill seal, blank freight category, non-sequential order number.', 'evidence');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('union', 1);
         G.lastResult = 'The transit records cabinet requires a routing clerk credential. The duty clerk at the desk takes your inquiry form, stamps it, and sets it in a tray marked PENDING SUPERVISOR REVIEW. "Three-day turnaround on non-standard access requests." The inquiry is now in a tray that someone from the Collegium routing block will eventually see. The desk smells of fresh ink and old wood. Three days is enough time for whoever placed that order to know someone is looking.';
         addJournal('Guildheart transit records: access request logged — pending supervisor review, Collegium routing notification possible.', 'complication');
       } else {
@@ -978,6 +982,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Counting House dual-column gap: fixed monthly sum routed to unrecognized Union subsidiary mark — charter desk certified no review required', 'evidence', 'guild-porter-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('union', 1);
         G.lastResult = 'Porter Ledgermere is at the counter when the approach begins and behind a closed door before it ends. A junior clerk takes over the desk and produces a standard reconciliation inquiry form — seven-day processing window, institutional affiliation required. The form asks for the specific account series in question, which requires knowing the account number before the inquiry is filed. The Counting House door does not reopen for the rest of the morning.';
         addJournal('Counting House access blocked — inquiry form requires account number as prerequisite; Porter Ledgermere withdrew', 'complication', 'guild-porter-fail-' + G.dayCount);
       } else {
@@ -1011,6 +1016,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Sena Ledgermere: charter dispute mediation recommendation overridden — modified outcome pre-written before hearing closed, source unknown', 'evidence', 'guild-sena-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('union', 1);
         G.lastResult = 'Sena Ledgermere meets directness with procedural precision — she cites three separate provisions of Union arbitration confidentiality before the question is finished. A formal transcript request requires a joint application from both original dispute parties. Neither party has filed one. She writes the application reference number on a slip and sets it on the edge of the table. "If both parties agree to release, the record opens. Until then I am not the path."';
         addJournal('Arbitration Hall: charter dispute transcript sealed pending joint application — Sena Ledgermere cited three confidentiality provisions', 'complication', 'guild-sena-fail-' + G.dayCount);
       } else {
@@ -1044,6 +1050,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Freight Exchange: Hearthmark holds Shelk-format charter-exempt manifest off queue — same northeast waypoint, three different buyer names in four months, no floor record generated', 'evidence', 'guild-orin-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('union', 1);
         G.lastResult = 'Orin Hearthmark logs the inquiry — floor brokers are required to record all approach contacts on the Exchange record, buyer, seller, or unaffiliated. He writes down the time and a physical description before saying a word. The contact log goes to the Exchange supervisor at end of session. He folds the manifest under his arm and moves to the far end of the floor without another glance back. He has been here long enough to know which conversations to make visible.';
         addJournal('Freight Exchange contact logged by Hearthmark before any question answered — Exchange supervisor receives contact record at session end', 'complication', 'guild-orin-fail-' + G.dayCount);
       } else {
@@ -1077,6 +1084,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Notice Board retraction from Tinmarch references non-existent posting — reference number outside normal sequence; Tinmarch holds written instruction from unknown party directing him to retract', 'evidence', 'guild-renn-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('union', 1);
         G.lastResult = 'The board is read. The retraction slip is there, Tinmarch\'s name clear on it. A board monitor — one of four who rotate through the notice hall — is already beside you before the second reading is finished. He asks for the inquiry purpose and writes it down. Notice board monitoring is routine during active registration cycles, he says. The slip stays on the board. The inquiry goes into the monitor\'s daily log, which is filed with the Hub\'s registration desk at close of session.';
         addJournal('Notice Board inquiry logged by board monitor — daily log filed with Hub registration desk', 'complication', 'guild-renn-fail-' + G.dayCount);
       } else {
@@ -1102,6 +1110,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Three Collegium notary stamps share identical ink dispersion patterns — physically impossible if authentic. The ledgers were batch-stamped by one hand.', 'evidence');
         G.lastResult = 'Your analysis of the stamp impressions is conclusive: identical ink dispersion radius across all three, the same micro-fracture in the left serif of the authentication mark — a physical defect in the die that cannot be replicated by two different tools. One forger made three notary identities using a single die set. The Collegium believes it has three independent notaries validating these ledgers. It has one person with three stamps.';
       } else if (result.isFumble) {
+        addHeat('union', 1);
         G.lastResult = 'A librarian notices you holding documents up to the high window for light — it is not a standard reading posture and she reads it correctly. You replace the documents in the correct order and take your seat with practiced calm. She does not approach, but she positions herself with a clear view of the section. Your access to these shelves is now monitored for the remainder of your time in the building.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;

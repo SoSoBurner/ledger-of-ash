@@ -98,6 +98,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Noble rivalry instrumentalized — deeper layer found', 'evidence', `shelk-noble-layer-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `Your question about trade disruption timing lands on the desk of a House Shelk factor who has been waiting for someone to ask it. He doesn't answer. He copies your guild travel permit number into his personal ledger and thanks you for your time. By evening your name is registered at the civic records counter as a person of interest in an active trade inquiry.`;
         addJournal('Registered as trade inquiry person of interest', 'complication', `shelk-noble-register-${G.dayCount}`);
       } else {
@@ -164,6 +165,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Lady Isabella Shelk contact made', 'evidence', `shelk-isabella-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        addHeat('shelk', 1);
         G.lastResult = `The gate staff takes your name, disappears inside for three minutes, and returns with the same expression they left with. Lady Isabella is unavailable to persons without standing in the Iron Accord registry. Your name goes into the household visitor log — the kind that gets shared with Roadwarden Command during courtesy briefings. You walk back down the hill more visible than you came up. Isabella's public record filing with the South Market Commerce House is another route — one that doesn't require an appointment.`;
         addJournal('Estate entry refused — flagged', 'complication', `shelk-isabella-fail-${G.dayCount}`);
       } else {
@@ -644,6 +646,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Panim courier located — undelivered conditional co-sign endorsement; anonymous second approval required', 'evidence', `shelk-panim-courier-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        addHeat('shelk', 1);
         G.lastResult = `The boarding house registers you in its visitor log before allowing you to inquire about current guests. The courier's room number is not shared. The house manager sends a note up and waits. The response comes down as a sealed slip: no meeting, no name given, and a Panim trade authority mark pressed into the wax that carries consular weight. The visitor log with your name in it will be available for review by any Roadwarden conducting a trade inquiry in this district. The courier stays unreachable.`;
         addJournal('Panim courier — consular protection invoked, visitor log entry made', 'complication', `shelk-panim-courier-fail-${G.dayCount}`);
       } else {
@@ -758,6 +761,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Amendment lapses in 5 days — Panim senior mediator Odel Farris holds co-sign, condition unnamed in amendment text', 'evidence', `shelk-deadline-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The Collegium procedural office is staffed by two clerks, neither of whom acknowledges amendment timelines as a subject for external inquiry. One of them sets a form on the counter: a request for procedural information, requiring a charter standing citation to process. You do not have standing. Your name goes into the inquiry log as a matter of standard procedure. The log is reviewed by the Collegium administrative Arbiter every three days.`;
         addJournal('Collegium procedural inquiry refused — name in review log', 'complication', `shelk-deadline-fail-${G.dayCount}`);
       } else {
@@ -787,6 +791,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ward maintenance node modified — routing plate repositioned for outward surge channeling, fourteen credentialed persons in registry', 'evidence', `shelk-node-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The maintenance node is in a bonded access zone managed by the city's ward infrastructure office. Entry without a maintenance certification produces a formal infraction notice — the kind that goes to the Roadwarden records desk and flags your name for any subsequent access inquiry in that district. You get close enough to see the inspection cap is sealed and recent. That is all you get.`;
         addJournal('Ward node access refused — infraction notice issued, name flagged with Roadwardens', 'complication', `shelk-node-fail-${G.dayCount}`);
       } else {
@@ -815,6 +820,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Shell subsidiary co-signatory addendum: Shelkopolis notarial office — same office certified cross-polity suppression order', 'evidence', `shelk-proxy-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The probate records for the founding signatory's estate are held in the civil succession archive, which requires a family standing petition or a magistrate's review order to access. Neither is available on the current day. The archive clerk notes your name and your stated purpose in the request queue. Succession records inquiries are shared with the estate's registered notarial office as a courtesy notification. That office will receive a summary of this request within two business days.`;
         addJournal('Probate record access refused — notarial office courtesy notification will be sent', 'complication', `shelk-proxy-fail-${G.dayCount}`);
       } else {
@@ -966,6 +972,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Titan Tower crane logs: Ironspool night crates at 60-80 stone — intake slips declare 12 stone; crane operator initialed all discrepancy entries', 'evidence', `shelk-craneweight-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        addHeat('shelk', 1);
         G.lastResult = `The crane house is active during loading hours and the operator on duty does not leave the lever platform for non-crew. You can get to the log board from the dock level, but pulling oilskin records from an active crane station without authorization is the kind of action that brings a Roadwarden patrol within twenty minutes. The counterweight arm swings overhead. The operator at the platform has already marked the time in the duty log. He does this whenever someone lingers near the crane house records without a dock credential.`;
         addJournal('Titan Tower crane house access refused during active loading — duty log notation made', 'complication', `shelk-craneweight-fail-${G.dayCount}`);
       } else {
@@ -996,6 +1003,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Collegium docket — four entries suppressed under emergency seal, three-signature process confirmed', 'evidence', `shelk-docket-gap-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The reading room attendant asks to see your access authorization before the docket reaches the table. What you carry covers registry cross-reference, not active arbiter records. She is polite and exact. Your name goes into the request log — a log that the Collegium Arbiter's office reviews each week as part of its standard oversight cycle. The door is closed correctly and without hostility, which is worse than if it had been slammed.`;
         addJournal('Collegium docket request refused — name entered in review log', 'complication', `shelk-docket-fail-${G.dayCount}`);
       } else {
@@ -1025,6 +1033,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Inquisitor Orveth — three of four suppressed cases named; fourth withheld; charter amendment objection confirmed', 'evidence', `shelk-orveth-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        addHeat('shelk', 1);
         G.lastResult = `You reach the table at the wrong interval — Orveth has a companion already seated, a Collegium liaison you don't recognize who watches your approach with a registry clerk's patience. Orveth receives you briefly and formally. The companion writes nothing down and does not look away. The exchange lasts under two minutes and produces nothing except a clear record that someone came looking for the Inquisitor outside official channels. The companion is still at the table when you leave.`;
         addJournal('Orveth approach observed by Collegium liaison — no information gained', 'complication', `shelk-orveth-fail-${G.dayCount}`);
       } else {
@@ -1081,6 +1090,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Collegium amendment — Panim co-sign still absent; two signatures affixed; double-sealed with Shelk subsidiary stamp', 'evidence', `shelk-amendment-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
+        addHeat('shelk', 1);
         G.lastResult = `The courier envelope is handed off at the registry counter three desks from where you're standing. By the time you've moved to a better angle the handoff is complete and the envelope is already behind the counter partition. The clerk who received it looks up — not at you, at the space you just left. She marks something in her own ledger. The timing was off by thirty seconds and thirty seconds was enough to be noticed without seeing anything.`;
         addJournal('Amendment tracking attempt observed — no document access', 'complication', `shelk-amendment-fail-${G.dayCount}`);
       } else {
@@ -1109,6 +1119,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Orveth fourth case — suppressed by Director of Civic Charter Integrity, an unpublished office; self-suppression confirmed', 'evidence', `shelk-fourth-case-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The Civic Repository sub-level requires a separate access notation that you don't hold. The sub-level attendant checks her authorized-access list while you wait. Your name is not on it. She offers to submit a formal access request on your behalf, which would be reviewed in seven to fourteen days. She begins writing the request form before you answer. The pending request will be visible to whoever monitors new sub-level access applications. That is everyone with a reason to watch.`;
         addJournal('Civic Repository sub-level access denied — pending request submitted and visible', 'complication', `shelk-fourth-case-fail-${G.dayCount}`);
       } else {

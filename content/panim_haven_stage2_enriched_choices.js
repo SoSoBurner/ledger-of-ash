@@ -60,6 +60,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Elior Sepulcher — sealed backlog confirmed with stall pattern', 'evidence', `panim-elior-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        addHeat('panim', 1);
         G.lastResult = `Elior listens to your opening and produces a procedural objection form before you finish the second sentence. The request is irregular by mediation hall standards — your standing isn't established in the right channels. The form goes into the hall's record within the hour. Your name, your inquiry, your presence in Panim Haven are all now formally noted at the Mediation Hall level.`;
         addJournal('Mediation Hall formally aware — access restricted', 'complication', `panim-elior-fail-${G.dayCount}`);
       } else {
@@ -242,6 +243,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
+        addHeat('panim', 2);
         G.lastResult = `The seal alert is silent — no bell, no visible mechanism. The guard arrives four minutes later at a walk, not a run, which means the response protocol is routine. Out through the lane corridor before the lamp swings through the registry door. The entry is logged regardless. By morning the Mediation Hall has a formal security inquiry open with a description already circulating to the district watch posts.`;
         addJournal('Registry alert triggered — security inquiry opened', 'complication', `panim-registry-fail-${G.dayCount}`);
       } else {
@@ -696,6 +698,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The family is from the northern district and paid in advance — memorial coin, the exact denomination Merev noted in her inn records. Their receipt carries a reference number that traces to the phantom contract cluster in the afterlife ledger. They came to collect their father's remains and were told by a clerk that the service had not been completed. The clerk offered a refund form. The family refused and kept the receipt. It is in the eldest daughter's travel pouch right now. She hands it over without hesitation when the purpose is explained.`;
         addJournal('Family receipt matches phantom contract cluster — direct link to ledger falsification', 'evidence', `panim-family-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('panim', 1);
         G.lastResult = `The family's grief is real and the conversation is wrong from the first word — the framing lands as official interrogation rather than witness exchange. The eldest son asks for credentials and the intake clerk nearby turns to watch. The request cannot be met in a way that satisfies either party. The family withdraws with their receipt and their distrust. The clerk makes a note in the intake log. Whatever the family saw, it will not be available through this avenue again.`;
         addJournal('Family approach failed — intake clerk logged interaction', 'complication', `panim-family-fail-${G.dayCount}`);
       } else {
@@ -760,6 +763,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Caldor appointment chain fabricated — notaries appointed and deployed within same month', 'evidence', `panim-notary-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('panim', 1);
         G.lastResult = `Notary appointment records require a civic certification number to access beyond the public summary. The certification number is issued by the district registry, which is the same body currently running the oversight review. The counter clerk is apologetic and specific: access to notary appointment chains is restricted for the review's duration. The restriction applies to the same records and the same time window needed to trace Caldor's chain.`;
         addJournal('Notary appointment records blocked — district registry restriction active', 'complication', `panim-notary-fail-${G.dayCount}`);
       } else {
@@ -992,6 +996,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Panim Archives transfer log — five sealed document moves under Caldor Sepulcher notation', 'evidence', `panim-pelor-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        addHeat('panim', 1);
         G.lastResult = `The movement toward the desk shelf is read before it completes. Pelor does not raise his voice — he sets a hand flat on the counter and waits, which is a more effective stop than any door. "Working records are not reading room materials." The phrasing is procedural and carries the weight of someone who has used it before to cover for something specific. Your name goes into the reading room admission log under a category reserved for flagged visits. That log is reviewed by the archive duty officer each morning.`;
         addJournal('Archives reading room flagged visit — Pelor logged admission under review category', 'complication', `panim-pelor-fail-${G.dayCount}`);
       } else {
@@ -1535,6 +1540,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('3 ecclesiastical sealed transfers cleared harbor without dock log — archive shows no receipt', 'evidence', `pan-harbor-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('panim', 1);
         G.lastResult = `Harbor manifests for incoming cargo are managed under port authority registry, a separate administrative body from the civic and mediation records systems. The port authority registry office is on the harbor-side of the district, a substantial walk from the archive. Port manifest access requires a registered purpose code — a category designation that identifies the requester as a licensed trader, civic auditor, or credentialed researcher. None of those designations are currently on hand. The port gate warden takes note of the inquiry before the question is fully finished.`;
         addJournal('Port manifest access blocked — purpose code required, harbor warden logged inquiry', 'complication', `pan-harbor-fail-${G.dayCount}`);
       } else {
@@ -1630,6 +1636,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Standard review requests for sealed records carry a ten-day processing window under mediation charter. All three requests for these specific records were denied in under six hours — well inside the window for a procedural review, let alone a substantive one. The denial letters are identical in language, down to the punctuation, with only the request date and the requester's name changed. They were not drafted in response to each request. They were drafted once, in advance, and held ready for the moment a request arrived. Someone anticipated the requests before they were filed.`;
         addJournal('3 review requests denied same day — identical denial letters drafted in advance, anticipatory blocking', 'evidence', `pan-denial-crit-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('panim', 1);
         G.lastResult = `The mediation oversight log is a restricted administrative record — available to credentialed parties with a legitimate review standing. Review standing requires either a civic audit mandate or a formal party-of-record designation from the mediation chamber. Neither designation is currently held here. The oversight office clerk provides the relevant charter section number for future reference and marks the inquiry in the visitor log. The entry is written in the same moment the question is asked, before the answer has been given.`;
         addJournal('Oversight log access blocked — no review standing, inquiry logged on arrival', 'complication', `pan-denial-fail-${G.dayCount}`);
       } else {

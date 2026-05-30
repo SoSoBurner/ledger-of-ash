@@ -255,6 +255,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Pallmark Reach decommission witness: registrar transferred to Cosmouth regional office, transfer confirmation removed from personnel log', 'evidence', `cos-witness-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('cosmouth', 1);
         G.lastResult = `Coralyn squares the personnel inquiry form against the counter edge before she slides it across — both hands, a precise alignment — and explains the countersignature requirement without raising her voice. The Harbor Captain's administrative office receives the request before the hour is out. She has already signed her own name in the notification field. The inquiry is now linked in writing to both the archive and Marrow Tideglass's administrative log, and Coralyn is on record as having processed it correctly. Two clerks know the question has been asked. So does she.`;
         addJournal('Personnel record request for decommission witness — routed through Harbor Captain administrative office', 'complication', `cos-witness-fail-${G.dayCount}`);
       } else {
@@ -693,6 +694,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Cosmoria records office: Collegium sealed filing COL-7-RESTRICTED-COSM-14 — clerk Mevra processed denial correctly but marked the grey-tab cabinet.', 'evidence');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('cosmouth', 1);
         G.lastResult = 'Mevra stamps the request, notes the Collegium restriction, and adds a second notation: INQUIRY LOGGED PER COLLEGIUM PROTOCOL 14. The protocol requires that any access attempt on a sealed Collegium filing be reported to the issuing office within one business day. Port noise carries in through the records window — rope loads against iron cleats, cargo being staged for the next long-haul departure. She is sorry. This is the procedure.';
 
         addJournal('Cosmoria records office: sealed filing access attempt — Collegium Protocol 14 notification triggered.', 'complication');
@@ -1042,6 +1044,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Harbor Registry: Halv Tidereach holds decommissioned-vessel licensing folio — renewed same morning, three pulls in eight days', 'evidence', `cos-halv-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('cosmouth', 1);
         G.lastResult = 'The circulation log is an administrative record, not a public document. The duty archivist explains the distinction and offers the public index instead. While the index is being processed, a clerk at the far desk writes a brief note and places it in the outgoing administrative tray. The tray routes to the Harbor Captain\'s office. A registry inquiry has been logged, and the name given at the desk is now in the system.';
         addJournal('Harbor Registry circulation log access denied — inquiry logged, routed to Harbor Captain', 'complication', `cos-halv-fail-${G.dayCount}`);
       } else {
@@ -1179,6 +1182,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Cosmoria archive: uncataloged shelf — entries 1140-1150 under administrative hold, added after catalog compiled, unsigned', 'evidence', `cos-shelf-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('cosmouth', 1);
         G.lastResult = 'The shelf is behind the archive counter. Non-archivist access to the counter area requires a registered researcher credential. Coralyn processes the credentialing request at the front desk and notes the name in the inquiry log — the log that routes to the Harbor Captain\'s administrative office. The shelf stays behind the counter. The access log has a new entry. The ink is still wet on the date line when the door closes.';
         addJournal('Archive counter access denied — credentialing inquiry logged, routed to Harbor Captain', 'complication', `cos-shelf-fail-${G.dayCount}`);
       } else {
@@ -1444,6 +1448,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Airship lane suppression windows precede sealed container departures by 6 weeks — matches internal planning cycle, not 30-day public calendar; operation planned from inside registry', 'evidence', `cos-suppress-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('cosmouth', 1);
         G.lastResult = 'The Airship Lane Registry maintains its own administrative calendar that is not the same document as the public shipping calendar. A registry clerk processes the comparison request — logs it, stamps it, explains that the internal scheduling calendar is an operational document requiring a route operator credential to access. The public calendar is available at the port authority reading stand. The inquiry goes into the administrative log. It will reach the night platform supervisor\'s desk by evening.';
         addJournal('Airship Lane Registry internal calendar access denied — operator credential required, inquiry logged to port authority', 'complication', `cos-suppress-fail-${G.dayCount}`);
       } else {
@@ -1477,6 +1482,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         addJournal('Night airship corridor operator: Cosmouth Administrative Continuity provisional grant — renewed 11 times in 14 months by same authorization code that counter-sealed manifests', 'evidence', `cos-corridor-crit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        addHeat('cosmouth', 1);
         G.lastResult = 'The airship lane registry is an administrative database administered jointly by the Cosmouth and Harbor Authority offices. Corridor operator information for active routes requires a route operator credential or a joint authority referral. The clerk at the registry desk fills in two forms before explaining either requirement. The forms go to separate offices. The smell of brine-preserved rope comes through the registry\'s street-side window. By tomorrow morning, two offices will have a record of the same inquiry from the same name.';
         addJournal('Airship corridor operator data requires joint Cosmouth/Harbor Authority referral — two forms filed, inquiry cross-logged in both offices', 'complication', `cos-corridor-fail-${G.dayCount}`);
       } else {

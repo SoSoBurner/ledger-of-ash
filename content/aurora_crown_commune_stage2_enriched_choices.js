@@ -303,6 +303,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Filtration supplier change authorized by dormant charter committee — compound class unregistered', 'evidence', `aur-sera-supplier-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The procurement file sits in the dome administration archive under a classification tier that requires Sera's own counter-authorization to access — a protocol she put in place after the quarantine bypass anomalies. She initiates the authorization while you watch, which generates a security log entry for the archive access. Someone auditing the dome's archive activity will see it. The file will take until the following morning to clear. She notes the time. You note the log.`;
         addJournal('Procurement archive access flagged — security log entry generated', 'complication', `aur-sera-supplier-fail-${G.dayCount}`);
       } else {
@@ -396,6 +397,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Dismissed technician log shows compound introduction noted and anomaly recorded — dismissal followed four days later', 'evidence', `aur-tech-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        addHeat('shelk', 1);
         G.lastResult = `The quarter near the filtration access is small enough that a stranger moving through it at an off-hour is noticed before they reach the address. A dome steward falls in behind you two blocks out — routine, unhurried, but consistent. When you reach the technician's residence the door doesn't open. The following morning a notation appears in the dome administration visitor log: external party, filtration quarters, unannounced, evening hours. Someone added a cross-reference to your name at the dome checkpoint.`;
         addJournal('Filtration quarters patrol noted — steward surveillance triggered, visitor log entry created', 'complication', `aur-tech-fail-${G.dayCount}`);
       } else {
@@ -427,6 +429,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Dome sealant surplus received and logged — nine-tenths transferred off-book, no outbound record', 'evidence', `aur-cadrin-sealant-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The finance committee notification went out when you accessed the main supply ledger earlier. When you pull the dome sealant line item separately, a second notification generates automatically — two external access events in the same ledger category triggers an escalation flag. Cadrin shows you the escalation notice on his screen with the expression of someone who has now been involved in something he didn't choose. "The committee chair will have this before the end of the day," he says. He closes the ledger.`;
         addJournal('Second ledger access triggered escalation flag — finance committee chair notified', 'complication', `aur-cadrin-sealant-fail-${G.dayCount}`);
       } else {
@@ -458,6 +461,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Liaison credential used on days liaison absent — insider operating under borrowed access code', 'evidence', `aur-cred-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `The archive access log sits behind the dome security classification tier — the same tier Sera's authorization unlocked for you once already. Pulling it a second time from a different entry point generates a duplicate access flag. The security system marks the pattern as anomalous. A log entry is created, timestamped, and routed to Sera's security queue. She will see it by morning. Whether she reads it as your diligence or your overreach depends on what she already thinks of you.`;
         addJournal('Duplicate archive access flag generated — Sera notified via security queue', 'complication', `aur-cred-fail-${G.dayCount}`);
       } else {
@@ -551,6 +555,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Liaison departs with undocumented second case on 4 of 6 visits — Pella cross-reference log kept privately', 'evidence', `aur-pella-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('shelk', 1);
         G.lastResult = `Pella pulls the entry log and reads through the Collegium liaison visits before she responds. "Collegium-credentialed parties have transit protocol privacy status under dome security agreement." She closes the log. "I cannot share transit records for credentialed parties without a dome security officer's written release." She marks your request in the transit inquiry ledger with a time and a date. The inquiry notation will be visible to dome security when they review the day's log. It is not a threat. It is simply how the system works.`;
         addJournal('Liaison transit records protected — dome security privacy protocol, written release required', 'complication', `aur-pella-fail-${G.dayCount}`);
       } else {

@@ -85,6 +85,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The dispute documentation includes the original commissioning party's charter subsidiary code — a reference that matches the sealed charter buyer identified by Thalen Sunweave in Fairhaven. The commissioning party is now in default on the final payment, and the adjudication file is a matter of public record. Orvak provides the full documentation without hesitation, squaring the pages against the desk edge as he hands them across. The cold at altitude carries its own weight in a room this quiet.`;
         addJournal('Container commission dispute reveals charter subsidiary code — matches Fairhaven suppression buyer', 'evidence', `sun-orvak-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('soreheim', 1);
         G.lastResult = `Orvak sets his quill down and folds his hands over the adjudication docket. Active proceedings are confidential by charter — both parties receive notice of any external inquiry into the dispute, a rule he explains without inflection, because it is simply the rule. He logs your name and the nature of your interest in the margin register before the conversation is over. Both parties will know someone asked before the day is out. He picks the quill back up and waits for you to leave.`;
         addJournal('Trade adjudication confidential — interest logged, parties notified', 'complication', `sun-orvak-fail-${G.dayCount}`);
       } else {
@@ -707,6 +708,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan sets the classification index on the reading ledge and opens it to the second tier — a section whose spine crease shows it is rarely opened from the outside. The tier exists as an internal notation cross-referenced only through convoy staging authorizations. Every entry is marked with a Guildheart-issued clearance code. None of those codes appear in any public index he can produce. The dry air off the high-plain moves through the registry window. The codes are real. Their public counterparts are not.`;
         addJournal('Registry second tier — convoy staging authorization, Guildheart clearance codes missing from public index', 'evidence', `sun-taldan2-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('soreheim', 1);
         G.lastResult = `Taldan receives the query and routes it to his compliance review cycle before answering — the cycle requires fourteen days and a formal cross-reference audit from the requesting party. He explains this procedure without apology. Access to the second tier is suspended pending audit completion. The timing, he does not say, is not accidental. He sets the index back on the shelf with both hands, spine facing inward.`;
         addJournal('Registry access suspended — compliance review triggered', 'complication', `sun-taldan2-fail-${G.dayCount}`);
       } else {
@@ -739,6 +741,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Registry intake: 43 missing files, transferred with no destination — during container calibration window', 'evidence', `sun-intake-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        addHeat('soreheim', 1);
         G.lastResult = `The intake ledger is a restricted working document — only registry staff read it in sequence. Taldan's junior archivist notes the request in her own log before replying. Registry sequence continuity is a staff quality-assurance matter, not a subject of external audit. The answer is brief and the pen keeps moving in her log. The entry will go to Taldan's morning report.`;
         addJournal('Registry intake ledger — restricted document, query logged', 'complication', `sun-intake-fail-${G.dayCount}`);
       } else {
@@ -798,6 +801,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The ward seals on the registry's reading-room door are new — the resin is paler than the stone surround, not yet darkened by the altitude-damp that greys everything else in Sunspire. A ward craftsman's date mark is pressed into the seal base: four months ago, one week after the first suppression request arrived. Taldan had the seals upgraded not to comply with the pressure but to protect the collection from a different kind of access. The seals block glyph-assisted extraction, not physical entry.`;
         addJournal('Registry ward seals upgraded 1 week after first suppression request — Taldan blocked glyph-assisted extraction proactively', 'evidence', `sun-wards-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('soreheim', 1);
         G.lastResult = `Registry maintenance records are working documents — not available for external review. A craftsman near the door asks if there is a fault with the seals and writes something in a maintenance log when the answer involves anything other than "no." The entry will go to the registry's patron liaison. The seal resin near the door frame is paler than the surrounding stone and does not explain itself.`;
         addJournal('Ward seal maintenance records not available — query logged', 'complication', `sun-wards-fail-${G.dayCount}`);
       } else {
@@ -856,6 +860,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The cross-reference notation appears in eight index entries across the glyph countermeasure section — a two-letter locality code, "WH," that does not correspond to any Sunspire district or registry sub-collection. Running the code against the Roadwarden registry of waypoints produces one match: Watchers Perch Halt, a northern transit rest-point two days' convoy travel from Sunspire. The cross-reference was added during the suppression period. Someone was routing registry materials through a Roadwarden-designated convoy waypoint.`;
         addJournal('Registry cross-ref "WH" = Watchers Perch Halt — convoy waypoint linked to 8 glyph countermeasure entries during suppression period', 'evidence', `sun-crossref-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('soreheim', 1);
         G.lastResult = `The index notation requires the classification key to decode — without it, the two-letter code is ambiguous. The classification key is a restricted reference held by the Overseer's office. Taldan is not in the building. His junior archivist can provide the key on his authorization only. The wind off the high-plain moves through the registry window and the index sits open at the anomalous entry while she explains procedure.`;
         addJournal('Registry cross-reference code undecoded — classification key requires Overseer authorization', 'complication', `sun-crossref-fail-${G.dayCount}`);
       } else {
@@ -1124,6 +1129,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The Roadwarden's public map and the convoy handler's internal route sheet differ by two waypoints. The first is a timber-frame rest stop three hours north — marked on the handler sheet as "WH-1, charter maintenance." The second, six hours further, is marked "WH-2, inspection hold." Both use the same "WH" designation from the registry cross-reference index. The public map shows uninterrupted forest corridor across both locations. The waypoints exist as operational infrastructure without a public record.`;
         addJournal('Northern staging road: 2 unlisted waypoints WH-1 and WH-2 — match registry cross-reference "WH" code', 'evidence', `sun-waypoints-${G.dayCount}`);
       } else if (result.isFumble) {
+        addHeat('soreheim', 1);
         G.lastResult = `The Roadwarden post at Sunspire's north gate handles waypoint map queries only during first-bell hours. This is not first-bell. The warden on duty logs the query and notes it for the morning officer. The convoy handler's internal route sheet is syndicate property and not available for comparison. Wind carries the smell of pine resin off the upper branches, steady and cold at this elevation.`;
         addJournal('Waypoint map query — first-bell hours only, query logged for morning officer', 'complication', `sun-waypoints-fail-${G.dayCount}`);
       } else {
