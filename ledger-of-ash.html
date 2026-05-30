@@ -2874,6 +2874,13 @@ function getArchetypeFamily() {
   return 'support';
 }
 
+var STARTER_ABILITIES = {
+  combat:  {id:'pressure_strike', name:'Pressure Strike', desc:'Once per rest: your next might roll gains +3 and on success the enemy loses their next defensive action.', type:'active', cooldown:'rest'},
+  stealth: {id:'shadow_step',     name:'Shadow Step',     desc:'Once per rest: move through a guarded area without triggering a roll.', type:'active', cooldown:'rest'},
+  support: {id:'field_assess',    name:'Field Assessment', desc:'Once per day: before making any skill roll, assess the situation for +2. Declare before rolling.', type:'active', cooldown:'day'},
+  magic:   {id:'pattern_recall',  name:'Pattern Recall',  desc:'Once per rest: reroll any wits roll and take the better result.', type:'active', cooldown:'rest'}
+};
+
 // Returns archetype-appropriate weighted encounter choices to append to standard choices
 function getArchetypeEncounterOption(cid) {
   const family = getArchetypeFamily();
@@ -12779,6 +12786,15 @@ const COMBAT_SCALING_TABLE = {
 };
 window.COMBAT_SCALING_TABLE = COMBAT_SCALING_TABLE;
 
+function awardAbility(abilityDef) {
+  if (!G.abilities) G.abilities = [];
+  var already = G.abilities.some(function(a) { return a.id === abilityDef.id; });
+  if (already) return;
+  G.abilities.push(abilityDef);
+  showToast('Ability unlocked: ' + abilityDef.name);
+  updateHUD();
+}
+
 function checkLevelUp() {
   const stageCap = STAGE_LEVEL_CAP[G.stage] || 20;
   if (G.level >= stageCap) {
@@ -12797,6 +12813,10 @@ function checkLevelUp() {
     _awaitingLevelUp = true;
     G.xp -= needed;
     G.level++;
+    if (G.level === 2 && (!G.abilities || G.abilities.length === 0)) {
+      var _fam = getArchetypeFamily();
+      if (STARTER_ABILITIES[_fam]) awardAbility(STARTER_ABILITIES[_fam]);
+    }
     checkStageAdvance();
     updateHUD();
     showLevelUpScreen();
