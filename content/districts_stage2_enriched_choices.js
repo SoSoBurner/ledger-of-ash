@@ -935,7 +935,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'pressing low ward off-books cargo workers');
-      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
+      var result = rollD20('might', (G.skills.might||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `A worker with a crooked jaw and hands that haven't quite healed right leans back in his chair and stares at the ceiling while he talks. One container seal blew during transit — a dry failure, not a chemical one, but it pulled the lid up for a few seconds. "Racks inside. Padded. Rows of vials, each one labeled." He taps his forearm where the label would have been. The notation was a dosage figure. Below it, a Soreheim military classification stamp in standard command red. He closed the lid and said nothing to anyone for four months.`;
@@ -953,6 +953,429 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     }
   }
 ];
+
+// ── DISTRICT EXPANSION CHOICES (15 new sp2 increments) ─────────────────
+
+// Added to AURORA_HEIGHTS extension
+AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_ah_registry_ghost_confirmation',
+    label: 'The registry records a dissolved entity as active. Someone keeps paying the filing fee.',
+    tag: 'risky',
+    skill: 'wits',
+    fn: function() {
+      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'tracing active entity maintenance payments in Aurora Heights registry');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Aurora Heights registry: dissolved house annual maintenance fee paid for three consecutive years post-dissolution — payment sourced to Iron Ledger Ward financial account.', 'evidence');
+        G.lastResult = 'The noble registry levies an annual maintenance fee to keep a charter entity active in the registry rolls. The dissolved house has had that fee paid for three consecutive years — well after the dissolution date. The payment source, logged under the registry\'s routine annual transaction record, is an Iron Ledger Ward financial account number. The registry clerk did not flag the payment as anomalous because the fee was correct and the account was solvent. A dead entity has been maintained, deliberately, by a live account the dissolution papers never closed.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The registry clerk pulls the maintenance fee transaction log and pauses on the relevant column. She sets the log back on the shelf before answering. Payment records for active entities are administratively confidential — releasing them outside a formal audit process would expose the registry to a penalty under the Aurora Heights charter confidentiality ordinance. She describes the ordinance in detail. The fee log goes back where it came from.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Aurora Heights registry: dissolved house maintenance fees paid post-dissolution — source account not disclosed, payment confirmed active.', 'intelligence');
+        G.lastResult = 'The registry clerk confirms — without showing the payment log — that the maintenance fee for the entity in question is current. She will not confirm the source. She checks twice before answering, which means she already knows the entry is irregular and has decided on the shape of her answer in advance. The entity is not lapsed. Someone is keeping it active. The fee amount and the regularity of payment are consistent with an institutional payer, not an individual.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to IRONSPOOL_WARD extension
+IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_iron_guild_stamp_forgery',
+    label: 'The modified containers carry a guild certification stamp. That stamp was not requested.',
+    tag: 'risky',
+    skill: 'spirit',
+    fn: function() {
+      var roll = rollD20('spirit', (G.skills.spirit||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'tracing unauthorized guild certification on modified containers');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Ironspool Ward: modified containers stamped with guild certification that was never filed — stamp issued by suspended certification officer, three months after suspension.', 'evidence');
+        G.lastResult = 'The guild certification stamp on the modified containers traces to a certification officer who was suspended from practice eight months ago for procedural violations. His stamp code is live in the registry because no one filed the suspension in the certification database — a separate system from the disciplinary record. He issued three certifications in the two months after his suspension: all three cover the same container modification spec. The certifications are technically valid by database, null by authority. The gap between those two facts was the operational window.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The guild certification office handles stamp verification through a formal inquiry process that takes four working days. The officer at the inquiry counter accepts the request, notes the stamp code, and marks it for review. Whatever the review finds, it will go to the certification database administrator, not to the requesting party. The stamp on the modified containers is now flagged for review by the same institution that issued it. The outcome will not be visible from outside.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Ironspool: container certification stamp traced to inactive officer code — certification dated after officer went off-register.', 'intelligence');
+        G.lastResult = 'The stamp code cross-references in the guild certification database to an officer name and a date. The date on the certification is four months after the officer\'s last active registration entry. Either the officer continued issuing stamps without active status, or the stamp was applied by someone who had access to his tools. Both possibilities mean the certification is not what it appears. The container modifications carry paperwork designed to pass a quick check without surviving a close one.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to VERDANT_ROW extension
+VERDANT_ROW_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_vr_suppression_notice_source',
+    label: 'The "Northern Glyph Oversight Commission" left a physical address. It does not exist.',
+    tag: 'risky',
+    skill: 'wits',
+    fn: function() {
+      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'tracing the Northern Glyph Oversight Commission return address');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Verdant Row: suppression notice return address is an empty building — postal service accepted delivery without verification, building leased under charter subsidiary name.', 'evidence');
+        G.lastResult = 'The address on the suppression notice is a building in the Iron Ledger Ward transit corridor. The building exists: a narrow commercial structure, two stories, ground floor currently empty. The postal service delivered the notice from this address because the letterhead was legitimate-form and the postage was paid. The building lease was filed with the Iron Ledger Ward property office under the same charter subsidiary code from the Aurora Heights records. The entity that suppressed the healers\' findings holds a lease on a building it has never used for anything but a mailing address.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The building at the return address has a new lock and a property management sign in the window. The management company is a registered entity, distinct from whatever sent the notice. The property manager, reached through the management company number, declines to discuss current or former lessees without a formal request through the property registry. The request takes five days. Whoever used this address anticipated the inquiry and transferred the lease before it arrived.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Northern Glyph Oversight Commission return address is empty commercial building — postal service confirmed outgoing deliveries from this address.', 'intelligence');
+        G.lastResult = 'The building at the return address on the suppression notice is a two-story commercial unit, ground floor empty, windows clean. A postal service routing label on the door confirms it as an outgoing mail point — packages accepted here, delivered from here. The postal clerk on the street nearby knows the address only by the regular morning collection. No occupant is ever present for the collection: the outgoing mail is left in a sealed box inside the entry. Someone maintains the correspondence infrastructure for this address without ever being seen at it.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to GRANARY_STEPS extension
+GRANARY_STEPS_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_granary_false_weight_pattern',
+    label: 'The manifest weights cluster at exactly the exemption threshold. That precision is intentional.',
+    tag: 'safe',
+    skill: 'wits',
+    failResult: 'The manifest batch files for the past two months are in active administrative review. External access during an active cycle is suspended under Granary Steps records protocol. The files that would show the weight clustering are precisely the ones locked for internal review.',
+    fn: function() {
+      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'analyzing manifest weight distribution at Granary Steps threshold');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Granary Steps: fraudulent manifests all declare weight within two kilos of agricultural inspection exemption threshold — statistically impossible as coincidence.', 'evidence');
+        G.lastResult = 'Eleven fraudulent manifests, spread across two months, each with a different declared commodity. Twelve different submitters. One thing in common: every declared weight lands within two kilos of the agricultural inspection exemption threshold — the weight below which cargo passes without physical check. Statistically, legitimate loads cluster around their actual weights, not administrative thresholds. Every single load landing just below the threshold means someone calculated each declaration against the cutoff, not against the cargo. The exemption system was gamed systematically, by multiple parties working from the same number.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The manifest batch files for the past two months are in active administrative review — a routine audit cycle that happens every quarter. External access during an active review is suspended under the Granary Steps records protocol. The review takes three weeks. The batch files that would show the weight clustering pattern are exactly the ones currently locked for internal review. The timing is either coincidental or it isn't.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Granary Steps: seven manifests declare weight at or just below exemption threshold — pattern warrants further weight cross-check.', 'intelligence');
+        G.lastResult = 'Seven manifests visible in the open section of the batch log, each declaring a weight that sits just below the agricultural inspection exemption threshold. The variance between the lowest and the highest declared weight across all seven is smaller than the variance in a single legitimate grain convoy. Real cargo does not weigh almost exactly the same amount across seven separate loads by seven separate parties. Something is calibrating the declarations, and the calibration point is the threshold.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to IRON_LEDGER_WARD extension
+IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_ilw_escrow_withdrawal_pattern',
+    label: 'The escrow account sends funds in irregular bursts. Each burst follows a compound shipment.',
+    tag: 'risky',
+    skill: 'wits',
+    fn: function() {
+      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'tracing escrow account withdrawal timing against compound shipment schedule');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Iron Ledger Ward escrow: outgoing transfers post-date compound shipment confirmations by 3 days consistently — payment-on-delivery structure for suppression compound distribution.', 'evidence');
+        G.lastResult = 'The public-facing disbursement summary for the Northern Provision Compact account — required to be posted at the Iron Ledger Ward transit office under transparency protocol — shows seven outgoing transfers over six months. Laid alongside the container transit records from the shadow manifests, a three-day lag appears consistently between each confirmed shipment and the corresponding outgoing transfer. Payment-on-delivery, logged three days after the delivery window closes. The escrow account is not an administrative holding structure. It is a live payment system for active compound distribution.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
+        G.lastResult = 'The Iron Ledger Ward transit office is mid-audit cycle — the Shadowhands review that began two sessions ago has not concluded. The public disbursement summary has been removed from the posting board for the duration of the audit. The posting board carries a Shadowhands seal in the frame where the summary normally hangs. Whatever the audit is examining, it covers the exact document needed. The audit will conclude when it concludes.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Iron Ledger Ward: escrow account outgoing transfers logged at irregular intervals — timing consistent with post-delivery payment schedule.', 'intelligence');
+        G.lastResult = 'The posted disbursement summary is available in the transit office lobby — required transparency posting. Seven outgoing transfers, irregular dates, irregular amounts. The irregular amounts are consistent with per-unit delivery pricing rather than fixed administration costs. None of the outgoing transfers correspond to any publicly filed service contract. An account that disburses at irregular intervals in irregular amounts with no filed contract is paying for something that was never formally agreed.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to RECKONING_QUARTER extension
+RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_rq_magistrate_authorization_chain',
+    label: 'The magistrate who authorized the patrol re-routes has a superior who does not know.',
+    tag: 'bold',
+    skill: 'charm',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'approaching the Reckoning Quarter magistrate supervisor about unauthorized authorizations');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.dist_magistrate_superior_turned = true;
+        addJournal('Reckoning Quarter: senior magistrate confirms subordinate lacked authority to issue district watch re-routes — opened internal review, will cooperate with evidence presentation.', 'evidence');
+        G.lastResult = 'The senior magistrate is a methodical man who runs his office with the attention of someone who expects to be held accountable for what leaves it. He listens to the authorization code sequence with increasing stillness. His subordinate\'s code block does not extend to cross-district watch re-routing — that authority sits two levels higher. He reads the code against his own reference table twice. "This was not issued through my office." He opens a review file on his desk while the conversation is still happening. He will cooperate with any formal presentation of evidence. He wants his office\'s name separated from this.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The magistrate\'s senior clerk intercepts the approach before the office door is reached and channels it into the formal inquiry queue. Requests about magistrate authorization records go through the judicial records office, not the magistrate\'s personal staff. The queue runs six working days. The senior magistrate is available by appointment for parties with formal standing in active proceedings, which this approach does not have. The clerk takes the name and closes the anteroom door.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Reckoning Quarter: senior magistrate acknowledged authorization code anomaly — would not confirm details but did not deny review interest.', 'intelligence');
+        G.lastResult = 'The senior magistrate does not confirm or deny the subordinate authorization on the first meeting. He confirms that he knows the code format and that his office maintains records of all authorizations issued under his jurisdiction. He suggests a formal inquiry request. The suggestion is made with enough precision — naming the specific code prefix that would need to appear in such a request — that it is not a brush-off. He is telling you what form the question needs to take before he can answer it on record.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to SCRIPTORIUM_STEPS extension
+SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_ss_scholar_cross_reference',
+    label: 'Three researchers have assembled the same picture from different pieces. They need to compare.',
+    tag: 'safe',
+    skill: 'charm',
+    failResult: 'Quenra Quillfire is mid-review cycle, Toman Iceveil is at the transit archive, and Serin Sunweave is unavailable until tomorrow. The window that would allow all three in the same room does not open today. The comparison waits.',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'convening the three independent Scriptorium researchers');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.dist_scholars_convened = true;
+        addJournal('Three Scriptorium scholars cross-compared findings — confirmed shared charter entity across three independent research threads. Scholarly consensus established.', 'evidence');
+        G.lastResult = 'Quenra Quillfire brings the compound analysis. Toman Iceveil brings the administrative transit records. Serin Sunweave brings the genealogical research on the dissolved house. Set side by side in Quenra\'s cramped research room, the three bodies of work triangulate on a single entity: the same charter subsidiary, appearing independently in chemical supply chains, administrative override filings, and the estate records of a house that formally does not exist. The three scholars have been working in parallel without knowing it. The convergence is not theory. Each has a different physical document confirming the same center.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Quenra Quillfire is the right starting point, but she is in the middle of a term submission review that runs another four days. Toman Iceveil is at the transit archive across the city until evening. The convening requires all three available simultaneously — that is the only way the comparison works — and today has not produced that window. The delay is ordinary academic timing, not resistance. The meeting will happen. It will happen later.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.dist_scholars_convened = true;
+        addJournal('Scriptorium scholars cross-reference: two of three assembled, third pending — partial overlap confirms shared charter entity across two research threads.', 'intelligence');
+        G.lastResult = 'Quenra and Toman compare findings without Serin — she is held up at the transit archive. Two threads, two separate bodies of research, the same charter subsidiary appearing in both from different angles. Quenra found it in compound supply chain documentation. Toman found it in administrative approval chains for transit overrides. The entity is the connection between a chemical operation and an administrative one. The third thread will close the loop when Serin returns. Two out of three is already not coincidence.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to HIGH_QUARTER extension
+HIGH_QUARTER_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_hq_patron_faction_network',
+    label: 'A high quarter patron funds the charter research. She wants the finding before anyone else.',
+    tag: 'bold',
+    skill: 'charm',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'navigating high quarter patron offer for exclusive charter finding');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.dist_high_quarter_patron = true;
+        addJournal('High quarter patron Essa Forren committed full research access in exchange for first disclosure rights — hostile to charter entity, rival house interest confirmed.', 'evidence');
+        G.lastResult = 'Essa Forren is the kind of patron who keeps her interests invisible until the moment she lets you see one. She sits across the inlaid table in the Pale Annex drawing room and slides a letter of introduction toward you without preamble — access to the Forren family archive, the Aurora Heights estate filing library, and two private scholars who have been researching the dissolved house for three years on her commission. She wants the final finding before publication. Her interest is not civic: the dissolved house\'s estate administrator blocked a land arbitration her family has been pursuing for six years. She wants the charter entity named and its authority dissolved.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'Essa Forren\'s social secretary intercepts the meeting request and converts it into a card left at the drawing room door: a polite note that Lady Forren is not presently accepting unsolicited research consultations. The card is cream-colored, the handwriting formal, and the intent clear. In this circuit, unsolicited means unvouched. Whoever arranged the introduction did not carry the weight needed to open this door. The drawing room stays closed.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.dist_high_quarter_patron = true;
+        addJournal('High quarter patron expressed interest in charter entity exposure — offered conditional archive access, terms under negotiation.', 'intelligence');
+        G.lastResult = 'Essa Forren holds the letter of introduction long enough to read it twice and sets it face down before responding. She does not confirm her commission but does not deny it either. She speaks about the dissolved house\'s estate administrator with a specificity that is its own confirmation. What she offers is conditional — preliminary archive access, terms to be negotiated at a second meeting with her solicitor present. The offer is real. The conditions attached to it are the part that requires careful reading.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to COMMON_QUARTER extension
+COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_cq_transit_node_discovery',
+    label: 'The transit node alcove near the market has had new hardware bolted to it.',
+    tag: 'risky',
+    skill: 'vigor',
+    fn: function() {
+      var roll = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'examining new hardware at the common quarter transit node alcove');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Common quarter transit alcove: new iron mounting brackets installed recently — dimensions match sealed container staging rack, not standard transit equipment.', 'evidence');
+        G.lastResult = 'The alcove is built into the market wall at the transit node junction, officially a resting point for cart-pullers changing shift. The new iron brackets bolted to the inner wall are not cart-rest hardware — they are mounting points, configured in the horizontal-and-vertical grid pattern of a container staging rack. The bolt holes are clean, drilled within the week. The bracket dimensions match standard container-rack width exactly. The alcove is being fitted as a temporary container staging point at one of the busiest transit junctions in the common quarter. The installation is not yet complete. Whoever ordered it expects to use it soon.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The alcove is occupied by two cart-pullers on break, lunch spread between them, who object loudly to the attention on the wall hardware. Their objection carries far enough to bring a market constable over. The constable does not cite anything, but notes the wall examination in his patrol log — unauthorized inspection of transit infrastructure is a gray area, and he decides by logging it rather than citing. The cart-pullers watch the departure. The hardware examination is now a logged incident in the market constabulary record.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Common quarter transit alcove: new bolt hardware visible on inner wall — installation pattern inconsistent with standard cart-rest fittings.', 'intelligence');
+        G.lastResult = 'The new bolt holes are visible from the alcove entrance without entering — the iron brackets catch the market torchlight at an angle that makes the fresh metal obvious. The bracket configuration is not standard transit-node equipment. Cart-rest hardware mounts at handle height; these brackets sit at mid-chest and knee level, in the paired configuration that holds a rack. One cart-puller nearby watches the examination without comment. He has seen the installation happening but was not told what it is for.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+  {
+    id: 'dist_cq_guild_post_faction',
+    label: 'The guild post clerk tracks which firms skip the standard intake window. She is tired of it.',
+    tag: 'safe',
+    skill: 'charm',
+    failResult: 'Peva Thorns handles the post intake window at full queue pace and does not have space for an unsolicited conversation. Guild intake records are not public record. The queue builds behind the exchange and she returns to it without further comment.',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'building rapport with the guild post intake clerk');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.dist_guild_post_clerk_turned = true;
+        addJournal('Common quarter guild post: intake clerk Peva Thorns identified three firms that bypass standard intake using charter authorization — all three linked to same subsidiary code.', 'evidence');
+        G.lastResult = 'Peva Thorns has worked the guild post intake window for nine years. She opens her personal tracking log — not the official one, a small cloth-covered book she keeps under the counter — and reads from it without looking up. Three firms that bypass the standard intake window using charter authorization instead of guild forms. She started tracking them because the charter authorizations all carry the same subsidiary code, which does not appear in any guild registration directory she has access to. Three firms, same code, all moving cargo through the transit node without a guild record. She wants to know what the code is. She will share everything she has in exchange for that answer.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'Peva Thorns handles the post intake window with the tempo of someone who has been managing a queue since before the morning meal. The conversation starts well, but the second specific question shifts her register — she stops writing and looks up. Intake records are guild property, not public record, and sharing them with parties not in an active guild filing involves a protocol she cannot shortcut. She says it without apology. The queue behind builds up during the exchange. She returns to it.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.dist_guild_post_clerk_turned = true;
+        addJournal('Common quarter guild post: intake clerk confirmed charter authorization bypass by at least two firms — subsidiary code appears on each authorization.', 'intelligence');
+        G.lastResult = 'Peva Thorns confirms the bypass without producing the tracking log. Two firms she can name — she will not write them down here. Both use charter authorization in place of guild intake forms. She knows because her job is to log the form type, and charter authorization is rare enough that she notices it every time. Both firms use the same authorization format. She has been waiting to see if anyone else noticed. She suggests a second conversation somewhere that is not the guild post window.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
+
+// Added to LOW_WARD extension (3 more)
+LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
+  {
+    id: 'dist_lw_ward_elder_reckoning',
+    label: 'The ward elder has watched three sets of outsiders come through. She knows the pattern now.',
+    tag: 'safe',
+    skill: 'charm',
+    failResult: 'Cosset is not at the water pump bench today. The neighbor who usually knows her whereabouts says she is visiting a relative in the upper ward. The ward has registered the inquiry and is waiting to see what kind of inquiry it is before deciding what to do with it.',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'meeting the low ward elder who has tracked three rounds of outside interest');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.dist_ward_elder_alliance = true;
+        addJournal('Low ward elder Cosset confirms three prior inquiry groups — first two disappeared, third left quietly. She will provide ward access and community confirmation in exchange for genuine exposure.', 'evidence');
+        G.lastResult = 'Cosset is seventy and has lived in the low ward for fifty of those years, which means she has watched what happens to people who ask questions about certain things. The first group: two people, six months ago, asked about the overnight cargo. Disappeared from the ward the following week. The second group: a single researcher, left quietly after a letter arrived at her address. The third group is the present inquiry. Cosset has been watching the approach for two days. She will provide unrestricted ward access — people will speak who would not speak to an outsider — in exchange for a commitment to expose whatever is found, rather than file and withdraw.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'Cosset is not in the location she was said to use. The neighbor who usually knows her whereabouts says she is visiting a relative in the upper ward. Two people nearby follow the departure from the low ward at a distance long enough to be noted but not long enough to be confronted. The ward elder knows an inquiry has come. She has chosen to be somewhere else while she decides what to do about it. The visit has been registered by the ward\'s own awareness network.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.dist_ward_elder_alliance = true;
+        addJournal('Low ward elder: acknowledged prior inquiry groups and current awareness — willing to facilitate ward access if approach proves credible.', 'intelligence');
+        G.lastResult = 'Cosset receives the visit at a bench outside the water pump, which means it is a public meeting — nothing said here is secret, but nothing said here can be denied later. She asks two questions before answering any: who else has been told, and what happens when the filing is done. She is not hostile; she is assessing exit risk. The ward has been the site of inquiry before, and the ward absorbed the consequences while the inquirers left. She will help if she believes the help goes somewhere. She is not yet sure it does.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+  {
+    id: 'dist_lw_eviction_paper_trail',
+    label: 'Five evictions in the low ward share the same notary mark. None of those tenants complained.',
+    tag: 'risky',
+    skill: 'vigor',
+    fn: function() {
+      var roll = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'gathering eviction notices across the low ward to find shared notary mark');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Five low ward evictions carry same unregistered notary mark — all five within six months, all properties adjacent to dome terminal delivery path. Pattern is systematic displacement.', 'evidence');
+        G.lastResult = 'Five eviction notices, collected from the ward through the morning. Every one of them carries the same notary seal impression in the lower right corner — the unregistered mark that Bela Croft described. Five separate tenants, five separate properties, served over six months. When marked on a rough ward map: all five properties sit along the two-block radius around the dome terminal delivery route. The displacement pattern is not random. The delivery infrastructure needed clear access, and the evictions provided it, using paperwork that no notary registry can trace.';
+      } else if (roll.isFumble) {
+        G.worldClocks = G.worldClocks || {};
+        G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
+        G.lastResult = 'The second door closes before the third is reached. Word of the notice collection has moved faster than the walk between properties. The community is not hostile, but it is wary — notices mean trouble, and whoever is asking about the notices is either connected to the trouble or going to bring more of it. By the fourth property, a community health worker is walking alongside, not blocking, just present. The notice collection ends with two documents and a lot of doors that did not open.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Three eviction notices recovered in low ward — all carry same notary mark, two properties adjacent to dome terminal delivery path.', 'intelligence');
+        G.lastResult = 'Three notices, from three different households willing to share them. All three carry the same notary seal in the lower corner — the unregistered stamp Bela Croft described. Two of the three properties face the lane that runs parallel to the dome terminal delivery gate. The third is one block over. Three is enough to establish that the pattern is not coincidence. It is not yet enough to establish who holds the stamp.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+  {
+    id: 'dist_lw_compound_exposure_firsthand',
+    label: 'A ward resident describes the symptoms from the inside. She did not choose to be exposed.',
+    tag: 'safe',
+    skill: 'spirit',
+    failResult: 'The conversation begins well but the question about the dome terminal timeline comes too early. She pulls back — she has spoken to outsiders before who used her experience to make an argument and then left the ward while she stayed in it. The meeting ends before the calendar appears.',
+    fn: function() {
+      var roll = rollD20('spirit', (G.skills.spirit||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'receiving firsthand compound exposure testimony from low ward resident');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Low ward resident firsthand exposure account: cognitive fog, glyph-sense disruption, timeline matching dome terminal delivery windows exactly.', 'evidence');
+        G.lastResult = 'Her name is Imber and she speaks with the precision of someone who has been cataloguing her own decline. Six weeks of cognitive fog: difficulty recalling proper names, losing sentence structure mid-thought, a persistent sense that something she knows is just out of reach. Glyph-sense disrupted — she works with ward marking seals and the sensitivity she relies on has gone flat. She has been charting the bad days against the calendar. Every severe episode falls within twenty-four hours of a dome terminal delivery window. She kept the calendar. She hands it across.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The conversation begins in the right register — careful, non-clinical, genuinely respectful of what the person has been through. But the question about the dome terminal timeline comes too early, before the trust is built. She pulls back. She has talked to people before who used her experience to make an argument and then left the ward while she stayed in it. She is not wrong to be careful. The conversation ends before the calendar appears.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Low ward: compound exposure symptoms confirmed by firsthand account — glyph-sense disruption and cognitive fog, approximate timeline given.', 'intelligence');
+        G.lastResult = 'She confirms the symptoms without producing documentation — cognitive fog, glyph-sense disruption, bad weeks following dome terminal activity. She does not have a calendar but she remembers two specific severe episodes and both of the dates she names fall inside the known delivery windows. She does not call it proof. She calls it what she noticed. She is still noticing it. The symptoms have not resolved since the deliveries started.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  }
+);
 
 window.AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES;
 window.IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES;

@@ -805,9 +805,392 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = 'Near the north approach. A figure by the toll station — not a regular keeper, the posture is wrong. She sees you at the same moment you see her, and the calculation happens in under a second. By the time you reach the station she is across the bridge and into the market side. The keeper at the window says she did not give her name. The toll book shows only the crossing type: administrative passage. No name required.';
-      addJournal('An unidentified figure at Whitebridge departed on sight — toll record shows administrative passage classification, no name required. Source: Whitebridge Commune north approach toll station.', 'complication', `wb-recognized-${G.dayCount}`);
+      addJournal('An unidentified figure at Whitebridge departed on sight — toll record shows administrative passage classification, no name required. Source: Whitebridge Commune north approach toll station.', 'complication', 'wb-recognized-' + G.dayCount);
       G.recentOutcomeType = 'complication';
       maybeStageAdvance();
+    }
+  },
+
+  // ── EXPANSION CHOICES (13 new sp2 increments) ─────────────────────────
+
+  {
+    id: 'wb_iron_banding_weight',
+    label: 'The bridge ironwork carries load memory. Stone does not lie.',
+    tag: 'risky',
+    skill: 'might',
+    fn: function() {
+      var roll = rollD20('might', (G.skills.might||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'testing bridge structural banding by hand');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Whitebridge banding: two anchor points show stress fracture lines consistent with repeated lateral load — not weather damage.', 'evidence');
+        G.lastResult = 'The iron anchor bolt at the south midspan rail gives a fraction under hand pressure — old movement, not new. You work along the banding for three minutes while a warden looks elsewhere. The fracture lines on two anchor points are lateral and repeated: not frost heave, not flood uplift. Something heavy rested against the same rail position many times. The bolt grooves are scored in a line eighteen centimeters long, the width of a standard container base. The bridge has been used as a shelf, regularly.';
+      } else if (roll.isFumble) {
+        addHeat('sheresh', 1);
+        G.lastResult = 'The anchor bolt examination draws the midspan warden over before the second point is tested. He records the interaction in the gate log under a category labeled structural interference — not a penalty, but a formal notation. Your name and a physical description go into the log beside the post number. The Compacts treats the bridge infrastructure as a protected asset. Touching it without a maintenance authorization is a citable infraction. The notation will follow any future petition to the Arbiter.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Whitebridge banding: south rail anchor shows lateral scoring pattern inconsistent with normal transit load.', 'intelligence');
+        G.lastResult = 'The south rail anchor bolt feels wrong under the hand before the eye can confirm why. Running a thumb along the lower flange of the iron banding, the scoring is lateral, consistent across three adjacent brackets. Frost scoring runs vertical; this does not. The pattern matches what a container edge leaves when it rests against iron without being secured. Whatever rested here rested in the same position repeatedly. The warden at the west bank turns his circuit and you step back from the post.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_loss_ledger_death_pattern',
+    label: 'The Loss Ledger has a season without a single death entry.',
+    tag: 'risky',
+    skill: 'wits',
+    fn: function() {
+      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'reading the Loss Ledger gap season');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Whitebridge Loss Ledger: entire season with zero death entries — same period as the missing hauler expedition. Administrative suppression confirmed.', 'evidence');
+        G.lastResult = 'The Loss Ledger runs without gap for eleven years — one or two deaths per season, sometimes more when the shelf routes go hard. Then an eight-week block with nothing. Not one bereavement filing, not one missing-person entry. The commune does not go eight weeks without a crossing death in winter. Nyra opens the session records for that period: nine arbitration hearings logged, nothing related to loss. The nine haulers who left on the northern grain convoy route departed at the start of that block. No loss claim was ever filed because the Loss Ledger was left clean.';
+      } else if (roll.isFumble) {
+        addHeat('sheresh', 1);
+        G.lastResult = 'The Loss Ledger is a restricted Compacts record. Nyra removes it from the reference shelf and sets it in the locked cabinet behind her desk without explanation. The commune arbitration protocol permits restricted access review only during active proceedings with standing petition. Bringing the ledger to the public counter violated protocol. She writes the notation. The ledger stays locked. The gap season stays invisible.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Whitebridge Loss Ledger: eight-week gap in death entries coinciding with missing hauler expedition window.', 'evidence');
+        G.lastResult = 'The Loss Ledger is accessible in the reference alcove for calendar-year review. Paging through the seasonal entries, a gap appears: eight weeks with no filings. The surrounding seasons are normal — a drowning here, a cold exposure there, the ordinary cost of running crossings in winter. The gap sits at the same point in the calendar as the departure date the shelter elder named for the missing nine-hauler expedition. Someone decided those deaths did not belong in this record.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_route_warden_cold_read',
+    label: 'Route Warden Seldis Morn still works the day shift. Her tells are visible.',
+    tag: 'bold',
+    skill: 'charm',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'cold-reading Warden Seldis Morn at the east gate');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.wb_seldis_morn_read = true;
+        addJournal('Warden Seldis Morn confirmed off-schedule presence on priority crossing nights — acknowledged clearing entries outside her posted rotation.', 'evidence');
+        G.lastResult = 'Seldis Morn processes the crossing queue with one hand on the gate log and one eye on the midspan, the reflex of someone who watches the bridge the way a gambler watches a card table. She answers routine questions with routine language until the gate-book signature column is mentioned. Her hand does not move from the log. Her breath slows. "I sign where I am asked to sign." She does not say by whom. She does not meet the eye again. She has confirmed the clearances were given under instruction and she is not going to name the instruction source here, on the day gate, where anyone can see.';
+      } else if (roll.isFumble) {
+        addHeat('sheresh', 1);
+        G.lastResult = 'Seldis Morn flags the crossing declaration before the second word. Insufficient route intent — a formal citation that requires written response within three working days. She writes it with the practiced ease of someone who has waited for a reason to file it. The citation goes into the gate log beside the crossing record. It will be visible to any Compacts review of the log for the next cycle. She has turned a conversation into a document, and the document now has your name on it.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Warden Seldis Morn: non-routine response when off-schedule signature column mentioned — deflected without denying.', 'intelligence');
+        G.lastResult = 'Seldis Morn fields the crossing queue with no observable distraction until the gate-book comes up. She does not stop writing. She does not look up. "The log is public record." She stamps the crossing entry and moves to the next party in the queue. The non-response is precise — she did not deny the off-schedule signatures. She told you they were already visible, which is a different thing. The response has the shape of someone who has decided exactly how much to say and says exactly that.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_exemption_fee_cash_trail',
+    label: 'The diplomatic exemption fee was never collected. But the ledger shows a receipt.',
+    tag: 'risky',
+    skill: 'wits',
+    fn: function() {
+      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'tracing the phantom exemption fee receipt');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Whitebridge toll ledger: diplomatic exemption fee receipt forged — cash never reached commune treasury, entry created to close the record.', 'evidence');
+        G.lastResult = 'The toll ledger carries a receipt stamp for each exemption crossing: fee waived, compensated by Collegium disbursement. Brenoc opens the receipt column against the disbursement column. The receipt stamp dates are in the ledger. The corresponding disbursements are not — they appear as outstanding credit notes, the same seven months of unpaid Collegium reimbursement. The receipt stamp was entered before the disbursement arrived. In six cases, the disbursement never arrived at all. Someone stamped the receipt to close the record and walked away. The commune absorbed the cost without ever knowing the receipt was fabricated.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'Brenoc closes the ledger when the receipt column is mentioned directly. The fee records are a financial document of the commune Compacts — cross-referencing them with disbursement records outside a formal audit request is not a procedure he can authorize at his desk. He will provide the audit request form. The form requires three signatures, two of which sit in offices that are currently occupied with active arbitration proceedings. The ledger stays closed.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Whitebridge toll: receipt column entries present but disbursement column shows outstanding credit notes for same dates.', 'evidence');
+        G.lastResult = 'Brenoc allows a single column comparison without opening the restricted disbursement section. The receipt stamps for the diplomatic exemption crossings are in the ledger — the standard entry that closes each fee record. The credit note column beneath shows the same crossings still marked outstanding. A receipt is issued when a fee is paid or compensated. A credit note is issued when compensation has been promised but not received. Both entries exist for the same crossings. That is not possible under standard Compacts accounting.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_refugees_cluster_date',
+    label: 'Three refugee arrivals give the same escort description without comparing notes.',
+    tag: 'safe',
+    skill: 'charm',
+    failResult: 'The shelter keeper stops the second interview before it begins. New arrivals are within their silence window, and the keeper enforces it without apology — it is the first protection the commune extends. The three refugees remain together in the hall, blankets in commune grey, and the shared detail that connects them stays unspoken for now.',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'speaking with clustered refugee arrivals about their escort');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Three refugees independently describe same escort: grey coat, no guild mark, carried cylinder satchel. Arrived via sealed-gate route.', 'evidence');
+        G.lastResult = 'The three sit apart in the shelter hall, wool blankets in commune grey, not acquainted. Each gives the same detail without prompting: a grey-coated escort, no visible guild mark, carrying a satchel with sealed cylinder pockets. Each describes the escort stopping at a point short of the gate and handing over papers without entering the commune registry. Two of the three note that the escort\'s coat had a faint chemical smell — the kind that clings to fabric after handling sealed containers. They were moved through the bridge gate system without their names appearing in any arrival record they can verify.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The shelter keeper stops the second interview before it begins. Intake protection applies to all three arrivals — they are within their silence window and the keeper is within her authority to enforce it. She is not unkind about it. The silence window is the first thing the commune offers arrivals who have had difficult passages. The common thread between the three, whatever it is, stays inside the shelter hall for three more days.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Two refugees describe grey-coated escort with cylinder satchel; third confirms but will not speak further.', 'intelligence');
+        G.lastResult = 'Two of the three will speak. The third wraps her blanket tighter and turns toward the wall — not hostility, a boundary. The two who talk give overlapping details: same coat color, same satchel type, same wordless efficiency at the gate. Neither knows the escort\'s name. Both note the papers were pre-stamped when handed over, not filled out at the crossing. Whoever prepared the documents knew in advance exactly which gate would be open and which clerk would be on duty.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_ice_shelf_supply_cache',
+    label: 'The ice shelf supply cache should have three weeks of stores. It has ten days.',
+    tag: 'risky',
+    skill: 'vigor',
+    fn: function() {
+      var roll = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'physically counting the ice shelf supply cache');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Whitebridge ice shelf cache: systematic depletion pattern — supplies removed on same schedule as diplomatic exemption crossing windows.', 'evidence');
+        G.lastResult = 'The cache is a stone alcove built into the north bridgework, accessible from the shelf side only — legitimate evacuation stores for ice-bound expeditions. The supply register shows three weeks of stores requisitioned and delivered. The physical count takes twenty minutes in the cold and comes up ten days short. Cross-referencing the removal dates in the register against the crossing log: every depletion entry falls within twenty-four hours of a diplomatic exemption crossing. The stores were not consumed by expeditions. They were used to pad cargo manifests — bulk weight to balance false declarations.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The cache access requires a Route Warden escort — a rule posted on the north bridgework approach that is impossible to miss once the warden who posted it is standing next to it. He is pleasant about it. The escort form goes through the gate log. A warden will be assigned within forty-eight hours. Until then, the cache alcove stays locked and the supply register stays in the warden station. Cold wind off the shelf makes the wait immediately tangible.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Ice shelf cache: physical count 10 days short of register — depletion dates not logged under standard expedition removal procedure.', 'intelligence');
+        G.lastResult = 'The warden escort requirement is on paper but the duty warden is occupied at the west gate. The cache alcove opens with the standard crossing-station key. Physical count against the register: ten days short of declared stores. The removal entries in the register are dated but carry no expedition reference number — standard removal procedure requires one. Someone took stores without logging the expedition they were meant to serve. The cold coming off the shelf makes the empty shelf space feel larger than it is.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_guild_factor_faction',
+    label: 'The Guild Factor here collects more than tolls. She has a second ledger.',
+    tag: 'bold',
+    skill: 'finesse',
+    fn: function() {
+      var roll = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'accessing the guild factor secondary ledger at the crossing station');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.wb_guild_factor_turned = true;
+        addJournal('Guild Factor secondary ledger: records side payments to six crossing-station staff — matches diplomatic exemption crossing dates exactly.', 'evidence');
+        G.lastResult = 'The Guild Factor keeps her secondary ledger in a velvet-lined map case behind the transit desk. The case is locked, but not to someone who noted where she set the key during the queue exchange. Six entries, six payments, each dated: staff names, amounts, and a column labeled "coordination fee." The staff are crossing-station clerks, a gate warden, and one Night-Lantern inspector. Every coordination fee date falls on a day the diplomatic exemption was used. She is paying them to look away on the right nights, and she has been recording it for her own protection.';
+      } else if (roll.isFumble) {
+        addHeat('sheresh', 1);
+        G.lastResult = 'The Guild Factor\'s transit desk is elevated specifically to maintain sightlines over the crossing queue and into the map-case alcove. She catches the attention on the case within seconds and comes off the platform directly. She does not accuse. She escorts, firmly, to the shelter hall entrance and reports an unauthorized access attempt to the gate log. The report is filed under the commune\'s integrity-of-operations protocol. The name, the description, the time, and the alcove in question are now in the formal record.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Guild Factor secondary ledger: partial view — payment entries with staff names and coordination fee column, dates visible.', 'intelligence');
+        G.lastResult = 'The map case is open during a busy queue exchange when the factor steps to the far end of the desk. Two entries are visible in the secondary ledger before the case angle closes: a staff name, an amount, a column header that reads "coordination fee." The entries are dated. The date on the visible entry is twelve days ago, which falls inside the diplomatic exemption crossing window. There are more pages. The case lid drops before the second page resolves.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_compacts_archivist_reckoning',
+    label: 'The Compacts archivist wants to retire. She knows what a clean record costs.',
+    tag: 'bold',
+    skill: 'spirit',
+    fn: function() {
+      var roll = rollD20('spirit', (G.skills.spirit||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'pressing the Compacts archivist on her institutional conscience');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.wb_archivist_testimony = true;
+        addJournal('Compacts archivist Mela Wrest: gave formal testimony about alteration of crossing records — willing to sign a witnessed statement.', 'evidence');
+        G.lastResult = 'Mela Wrest is sixty-two, has worked the archive for twenty-nine years, and has been watching the diplomatic exemption records change shape for seven months. She describes three specific alterations: a transit-intent field changed from blank to "relief supply" on a retroactive amendment; two Loss Ledger pages replaced with clean copies that she compared against her own retained originals; a register entry for Overseer-Liaison Peleth Vorn inserted into a historical administrative roster as if it had always been there. She names dates, document numbers, and the handwriting she recognized on the alterations. She will sign a witnessed statement.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'Mela Wrest has heard every version of this approach over twenty-nine years — a sympathetic framing, an appeal to legacy, an implication that staying quiet makes someone complicit. She is not unsympathetic. She is also not naive. What she knows would dissolve her pension, her housing, and the administrative protection that keeps three of her colleagues in their posts. She lists the costs plainly, without self-pity. The answer is no. It is a no she has clearly rehearsed.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Compacts archivist: confirmed record alterations occurred — will not sign statement but described three specific documents changed.', 'intelligence');
+        G.lastResult = 'Mela Wrest sits with her hands in her lap and does not look at the door. She confirms three documents were altered in the past seven months — not by mistake, not by administrative revision, by deliberate replacement. She describes the handwriting on two of the amendments: not anyone registered with the archive. She will not sign anything. She will not repeat this conversation in a formal setting. But she is tired of carrying the inventory of what has been changed, and she sets it down here, in a room with no one else listening.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_signal_fire_reckoning',
+    label: 'The signal brazier schedule can be reconstructed. The transfers follow the light.',
+    tag: 'risky',
+    skill: 'wits',
+    fn: function() {
+      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'reconstructing brazier extension schedule to map transfer nights');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Brazier extension log cross-referenced with crossing gate records: all six extended-burn nights match diplomatic exemption crossing windows exactly.', 'evidence');
+        G.lastResult = 'Orvo Kesslan keeps his oil refill log separate from the duty records — personal habit, eleven years of entries. The six extended-burn nights are in it with precise times. Cross-referencing those times against the gate log: each extended burn covers the same window as an unlisted priority crossing under diplomatic exemption. The signal that lit the bridge also lit it for the transfers. The transfers needed the bridge lit to run safely. Whoever placed the lantern hood on the west post knew both schedules simultaneously and coordinated them.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The oil refill log is Orvo\'s private record — he is clear about this, even while apologizing. He keeps it for personal reference; it has no standing in any administrative proceeding and he will not allow it to be cited. He closes the logbook and sets it under the oil canister. The crossing gate log is public, but the gate log does not record extended burn authorizations — only crossings. The correlation that would make this meaningful requires both logs together. One of them is now unavailable.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Four of six extended-burn nights confirmed matching diplomatic exemption windows — two dates uncertain, oil log partially obscured.', 'intelligence');
+        G.lastResult = 'Orvo Kesslan opens the oil refill log to the most recent extended-burn entries and holds it at arm\'s length, as if reviewing it from a neutral position. Four of the six entry dates resolve clearly against the gate log crossing windows. Two entries are smudged where oil dripped across the page — the dates are present but the exact hour is uncertain. Four confirmed correlations between bridge illumination and unlisted priority crossings. The smudge makes the fifth and sixth argumentative. Four is still enough to establish the pattern.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_commune_council_faction',
+    label: 'The Commune Council has three members who voted against the exemption protocol.',
+    tag: 'safe',
+    skill: 'charm',
+    failResult: 'The shelter hall back room is occupied by a mending session. The council member who is available when contact is re-attempted explains that the minority dissent is already in the posted session minutes — nothing said there is private, and they do not discuss council strategy outside the chamber.',
+    fn: function() {
+      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'meeting the dissenting council minority');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.wb_council_minority_faction = true;
+        addJournal('Three council members who voted against exemption protocol willing to support formal suspension motion — need Arbiter endorsement to table it.', 'evidence');
+        G.lastResult = 'The three meet in the back room of the shelter hall, where the smell of oiled rope and damp wool is strong enough to suggest the room has been a meeting place for a long time. They voted against the exemption protocol as bloc — not enough to defeat it but enough to force a recorded minority dissent, which they exercised carefully. They name what they need: Arbiter Nyra Thawmark\'s endorsement on a formal suspension motion. With it, the motion reaches the full Council agenda and the crossing authority is paused. Without it, the motion dies at the Arbiter\'s desk. They have been waiting for someone to build the evidence that moves Nyra.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The shelter hall back room is occupied by a mending session, which is not the meeting that was arranged. The three council members who voted against the protocol are not here, and the one who is available when contact is re-attempted explains — with tired patience — that the minority dissent is a matter of public record, not private correspondence. Whatever they said in that session is already in the posted minutes. They will not discuss strategy outside the Council chamber.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.wb_council_minority_faction = true;
+        addJournal('Council minority dissent confirmed — three members opposed exemption protocol, will support suspension motion if evidence is brought forward.', 'intelligence');
+        G.lastResult = 'One of the three council members is in the transit hall, reviewing the week\'s crossing register. She speaks at normal volume — the Compacts enforces no secrecy on council dissent. They voted against the exemption protocol and recorded that vote. "Three is not enough to block. Three is enough to demand a formal review hearing." She looks at the crossing register before continuing. "A review hearing requires evidence of procedural harm. If someone has that evidence, the hearing can be called."';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_night_circuit_inspector_second',
+    label: 'A second Night-Lantern inspector patrols the hours Aster avoids. Different allegiances.',
+    tag: 'risky',
+    skill: 'finesse',
+    fn: function() {
+      var roll = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'approaching the second night circuit inspector without alerting Aster');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        addJournal('Second night inspector: received coordination payment on transfer nights — confirms Night-Lantern circuit was infiltrated from above by Collegium liaison.', 'evidence');
+        G.lastResult = 'The second night inspector — Davel Torsk, assigned to the west bank rotation Aster does not cover — recognizes the description of the midspan exchanges and stops walking. His lantern stays at his side, not raised, which is the circuit\'s signal for off-duty conversation. He received a payment twice: an envelope left at the station log-in point on nights corresponding to the extended burns. No name attached. The circuit supervisor accepted the coordination payments on behalf of the rotation without explaining the source. He kept one envelope. The seal on it is Collegium courier wax — the same format as the administrative override clearances Cadrin has seen on the exemption files.';
+      } else if (roll.isFumble) {
+        addHeat('sheresh', 1);
+        G.lastResult = 'Davel Torsk raises his lantern and takes a step back simultaneously — the circuit\'s challenge posture for unannounced approaches during active patrol. He marks the interaction in his duty log before asking anything. An undeclared approach to a circuit inspector during active patrol hours is a citable interference under the commune\'s night-operations protocol. The citation is short. The gate log entry is longer. His patrol continues on schedule. The approach is now a formal matter.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        addJournal('Second night inspector confirms irregular coordination payment on extended-burn nights — source unknown to him, supervisor handled it.', 'intelligence');
+        G.lastResult = 'Davel Torsk is careful about what he confirms and what he leaves open. He received something — he does not say a payment, he says a notification — on two occasions corresponding to bridge activity he was asked to treat as routine. His supervisor managed the paperwork. He does not know where the instruction originated. He keeps his lantern at his side for the conversation and raises it when someone crosses the bridge behind you, which ends the exchange. He has said as much as he decided to say before this started.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_compound_destination_north',
+    label: 'The cylinders are going north. The route ends somewhere that does not officially exist.',
+    tag: 'bold',
+    skill: 'spirit',
+    fn: function() {
+      var roll = rollD20('spirit', (G.skills.spirit||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'tracing compound cylinder destination through the northern route network');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.wb_compound_destination_found = true;
+        addJournal('Cylinder destination traced to an unlisted dome waystation three days north — no commune registry, no Route Warden circuit assigned. Supply chain end-point located.', 'evidence');
+        G.lastResult = 'The route that matches the twelve-day schedule leads northeast along the ice shelf road to a waystation that does not appear in any Route Warden circuit map or commune registry. Emret Calloway has surveyed the shelf twice; she knows where the waystation sits because she used it for emergency shelter eighteen months ago. "No commune mark on the door. No crossing-station registration. Just a stone structure, provisioned, with a lock that takes a specific cylinder key." She draws the location on the back of her survey sheet. The compound cylinders do not pass through Whitebridge to reach the market. They pass through it to reach here.';
+      } else if (roll.isFumble) {
+        G.lastResult = 'The northern route traces run through the commune\'s restricted Route Warden planning files — maps of unregistered waystation positions are classified as security-sensitive under the ice shelf emergency protocol. Accessing them without a warden escort and a formal planning petition is not permitted. The filing request form is long. The security review takes ten days. Whatever destination the cylinders are traveling toward is protected by exactly this process, which someone who arranged the route already knew.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.wb_compound_destination_found = true;
+        addJournal('Compound cylinders traced northward along ice shelf road — end-point believed to be unregistered waystation beyond Route Warden circuit.', 'intelligence');
+        G.lastResult = 'The twelve-day schedule fits only one route — the ice shelf road northeast, past the last registered commune marker. Survey records from Emret Calloway describe a waystation structure in that zone that is not in any commune filing: stone-built, provisioned, locked. She passed it in winter eighteen months ago and noted it because it was too well-supplied for an unregistered emergency shelter. The cylinders are going somewhere that was built to receive them, in a zone that sits outside the commune\'s tracking authority.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
+    }
+  },
+
+  {
+    id: 'wb_bridge_plank_cavity_discovery',
+    label: 'The re-set planking does not just conceal a space. It conceals a mechanism.',
+    tag: 'bold',
+    skill: 'might',
+    fn: function() {
+      var roll = rollD20('might', (G.skills.might||0) + Math.floor(G.level/3));
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      var xpReward = roll.isCrit ? 45 : roll.isFumble ? 10 : 30;
+      gainXp(xpReward, 'physically excavating the re-set midspan planking cavity');
+      if (roll.isCrit) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
+        G.flags.wb_plank_mechanism_found = true;
+        addJournal('Whitebridge midspan: hidden lowering mechanism beneath re-set planking — built into bridge infrastructure, not temporary. Containers staged below deck between transfers.', 'evidence');
+        G.lastResult = 'The four re-set planks lift as a single panel — they have been joined on the underside with iron staples, a modification that makes them function as a hatch. Below: a cavity shaped to hold two standard container racks, currently empty. An iron pulley block is mounted to the inner bridge rib, a drop rope coiled on a wall-hook. The mechanism allows containers to be lowered below the bridge deck from above, positioned between transfers, and raised for the handoff. The equipment is dry, clean, and maintained. This is not improvisation. The crossing infrastructure was modified for this operation.';
+      } else if (roll.isFumble) {
+        addHeat('sheresh', 1);
+        G.lastResult = 'The midspan route warden is closer than the east pier vantage suggested. He reaches the re-set planking before the fourth board lifts and logs the interaction as an unauthorized structural modification attempt — a serious infraction under the commune\'s bridge-maintenance protocol. The citation is formal and immediate. It goes to the Arbiter\'s desk before the crossing session closes. The planking is now under a formal integrity hold, which means a warden posts at the midspan post until a maintenance inspection is completed. The mechanism, if it exists, will not be accessible again through this approach.';
+      } else {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.flags.wb_plank_mechanism_found = true;
+        addJournal('Bridge midspan: re-set planking lifts as joined panel — cavity below with pulley hardware visible. Infrastructure modified deliberately.', 'intelligence');
+        G.lastResult = 'The four re-set planks lift together — stapled underneath, functioning as a hatch. The cavity below is empty and dry. A pulley block is mounted to the inner rib but there is no rope on its hook; the hook carries only a rust shadow where rope has rested for months. The hardware is too precisely fitted to be temporary installation. Someone added this to the bridge\'s permanent infrastructure. The warden\'s circuit will bring him back to this position in twelve minutes. The hatch goes back down.';
+      }
+      maybeStageAdvance();
+      loadStageChoices();
     }
   },
 
