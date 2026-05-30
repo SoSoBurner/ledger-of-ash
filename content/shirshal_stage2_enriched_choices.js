@@ -1596,7 +1596,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The administrative seals on the compliance ledger pages show different font degradation rates — some pages are newer than their recorded dates",
+    label: "Seal degradation rates don't match the recorded dates — these pages are too new",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
     xpReward: 80,
@@ -1605,19 +1605,19 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Font degradation analysis: 14 pages in the compliance ledger are less than 8 months old but carry dates from three years prior. Retroactive document insertion.', 'evidence');
-        G.lastResult = 'Font degradation does not lie about age. Fourteen pages in this ledger are physically less than eight months old — but stamped three years prior. The compliance record was fabricated in retrospect.';
+        G.lastResult = 'Font degradation does not lie about physical age. Fourteen pages in this ledger are physically less than eight months old — the ink's oxidation depth, the paper fiber compression, the seal impression softness all point to recent production. But they carry dates from three years prior and slot into the compliance record as if they have always been there. The record was not falsified by removing evidence. It was fabricated in retrospect, one page at a time, inserted into the binding to replace what had been there before.';
       } else if (result.isFumble) {
-        G.lastResult = 'You need better light for the analysis. When you ask for a lamp, the duty archivist notices what you are examining.';
+        G.lastResult = 'The analysis requires better light than the reading room provides — the overhead panels wash out the subtle depth differences in the seal impression that would confirm fabrication. You ask the duty archivist for a lamp without specifying why. She brings it promptly and lingers long enough to read the angle of the ledger in your hands and the page you have it open to. She does not ask. She notes it. The thing you were examining is now something she has seen you examine.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'At least half a dozen pages are newer than their listed dates. The degradation differential is clear. Someone inserted pages into a historical record.';
+        G.lastResult = 'At least half a dozen pages are measurably newer than their listed dates — the degradation differential between the surrounding pages and the insertions is clear enough to read without instruments if you know what to look for. The binding thread around those pages is also newer, a slightly different color under the right angle of light. Someone inserted pages into a historical compliance record and re-bound the affected sections. The surrounding pages are authentic. The inserted ones are not.';
       } else {
-        G.lastResult = 'Inconclusive without a comparison sample from the same paper batch.';
+        G.lastResult = 'Inconclusive without a comparison sample from the same paper batch — the compliance ledger uses a standard administrative stock that could be sourced from multiple suppliers, and without a reference sheet from the claimed production period, the degradation differential cannot be distinguished from batch variation. The anomaly is visible but not provable from this direction alone. A different approach, or access to the paper supply records, might close the gap.';
       }
     }
   },
   {
-    label: "The records officer has stopped pretending to search and is simply waiting for you to leave — confronting the stall directly ends the performance",
+    label: "The records officer stopped searching. He's waiting for me to leave.",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
     xpReward: 72,
@@ -1626,20 +1626,20 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Records officer confirmed: a standing hold order on investigative requests for pre-consolidation era documents, placed by the current compliance head.', 'evidence');
-        G.lastResult = 'You name the stall precisely: you are not searching, you are waiting. He drops the performance. The hold was placed by the compliance head six weeks after the consolidation. He gives you the order number.';
+        G.lastResult = 'You name the stall precisely and without accusation: you have stopped searching and are waiting for the visit to end. The description is accurate enough that he drops the performance entirely — there is a brief pause, the kind that precedes a decision, and then he sets down the folder he was not reading. The hold on pre-consolidation investigative requests was placed by the compliance head six weeks after the consolidation was formalized. He gives you the administrative order number without being asked twice.';
       } else if (result.isFumble) {
         addHeat('shirsh', 1);
-        G.lastResult = 'He escalates to a supervisor. You exit before the confrontation formalizes — but the access log will show your presence.';
+        G.lastResult = 'He escalates to a supervisor without escalating his voice — a hand signal to someone at the far desk, the practiced efficiency of a man who has done this before and prefers to keep it administrative. You exit before the confrontation formalizes into something that generates a report with your name attached. The access log will still show your presence at this counter and the duration of the visit. That much is already recorded.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'He admits he cannot produce the records. Not because they do not exist — because they have a hold status he cannot override at his level.';
+        G.lastResult = 'The confrontation is enough to end the theater. He admits he cannot produce the records — not because they do not exist, and not because they have been destroyed, but because they carry a hold status he does not have the clearance level to override. The hold is formal, placed from above, and his role is to absorb the encounter and keep the request from going anywhere else. He will not tell you who placed the hold. He will confirm that someone did.';
       } else {
-        G.lastResult = 'He maintains the performance. The order he follows comes from someone with more authority than you can currently threaten.';
+        G.lastResult = 'He maintains the performance without strain — the stall is practiced enough that naming it directly does not crack it. Whatever order he follows comes from someone whose authority over him is larger and more immediate than anything you can currently represent. He will absorb the confrontation and file it as a routine difficult-visitor encounter. The exit is yours to take; the records remain inaccessible.';
       }
     }
   },
   {
-    label: "The compliance auditor has been running the same review loop for three years — someone who acknowledges the absurdity might earn her trust",
+    label: "The auditor has run the same review loop for three years. She knows it leads nowhere.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
     xpReward: 74,
@@ -1648,14 +1648,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Senior compliance auditor confirmed that flagged anomaly reports are filed, reviewed, and returned with insufficient basis for action regardless of contents. The review process is a mechanism for burying findings.', 'evidence');
-        G.lastResult = 'She laughs at something that stopped being funny two years ago. The anomaly review process is not a dead end — it is the point. Every flag filed is a flag contained. She knows because she keeps filing them.';
+        G.lastResult = 'She laughs at something that stopped being funny two years ago — a short, flat sound that carries three years of professional futility in it. The anomaly review process is not a dead end, she explains. That would imply failure. It is the point. Every flag filed is a flag contained: accepted, reviewed, returned to the filer with insufficient basis for escalation, and removed from active concern. She knows exactly how it works because she has kept filing the flags. She wanted to see if the answer would ever change. It has not.';
       } else if (result.isFumble) {
-        G.lastResult = 'She has heard the sympathetic approach before from people who were looking for something to use. She closes off entirely.';
+        G.lastResult = 'She has heard the sympathetic approach before — enough times to recognize it for what it is the moment it starts. People looking for something to use tend to arrive with warmth first and questions second, and she has learned to count the gap between the two. She closes off entirely before the gap opens, and does it politely, which is worse than hostility because it leaves no surface to push against. The door stays shut.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'She will not give you names, but she gives you a number: the percentage of anomaly reports that have ever resulted in a formal escalation. It is zero.';
+        G.lastResult = 'She will not give names — that is a line she has drawn clearly for herself and does not cross. But she gives you a number: the percentage of anomaly reports filed through the standard review process that have ever resulted in a formal escalation. She states it without inflection. It is zero. Not near zero. Zero across three years and every category of report she has access to. She watches your face to see if that lands.';
       } else {
-        G.lastResult = 'She is professionally warm and says nothing actionable. The walls stay up.';
+        G.lastResult = 'She is professionally warm and says nothing actionable — the warmth is real, but it lives in the register of someone who has practiced keeping it separate from disclosure. She discusses the review process in general terms with apparent candor. Every answer is technically informative and practically useless. The walls stay up, and they stay up pleasantly, which is the most effective way to hold them.';
       }
     }
   },

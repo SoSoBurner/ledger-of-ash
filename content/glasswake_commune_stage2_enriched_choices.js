@@ -1106,7 +1106,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The contamination sensor array has calibration drift that a careful technician could use to reconstruct original readings",
+    label: "The sensor array's calibration drift can reconstruct what the readings actually were",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
     xpReward: 80,
@@ -1115,19 +1115,19 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Original sensor readings reconstructed from calibration drift: contamination levels were 4x reported values during the suppressed period.', 'evidence');
-        G.lastResult = 'The drift pattern is a fingerprint. You reconstruct the original readings: contamination was four times what was reported. The sensors were adjusted, not miscalibrated.';
+        G.lastResult = 'The drift pattern is a fingerprint — each sensor leaves a characteristic offset when it is forced away from its natural baseline. You work backward through the drift curves and reconstruct what the original readings must have been. The contamination levels were four times what was reported during the suppressed period. These sensors were not miscalibrated through neglect. The output threshold was manually adjusted, and the adjustment was precise enough to look like equipment error.';
       } else if (result.isFumble) {
-        G.lastResult = 'The reconstruction overwrites a calibration baseline. You reset the sensor to avoid leaving a trace of your access, losing the data.';
+        G.lastResult = 'The reconstruction attempt overwrites a stored calibration baseline before you catch it — the sensor array tries to correct itself using the new values as reference. You reset the sensor to factory default to avoid leaving a trace of the access, which means losing whatever data the drift pattern held. The array looks clean now. So does everything you were trying to read.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'Rough reconstruction confirms suppression: actual contamination substantially higher than filed reports. Someone adjusted the output threshold.';
+        G.lastResult = 'Rough reconstruction confirms what the drift implies: actual contamination during the suppressed period was substantially higher than the filed reports show. The margin is too large for sensor degradation to explain — a sensor drifting naturally would show variance, not consistent underreporting. Someone adjusted the output threshold deliberately and held it there long enough to produce a consistent official record. The working copies of the original readings, if they exist, are not in this room.';
       } else {
-        G.lastResult = 'Inconclusive without the original reference data you do not have access to.';
+        G.lastResult = 'The drift analysis is inconclusive without the original reference calibration data, which is stored in the monitoring authority archive rather than at the sensor array itself. You can see the drift — the pattern is there — but converting it to actual readings requires a baseline you do not have access to. The evidence is present. The key to reading it is somewhere else.';
       }
     }
   },
   {
-    label: "A monitoring post guard is demanding documentation you do not have — physical presence and command tone may be enough",
+    label: "The monitoring post guard wants documentation — authority and bearing may be enough",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
     xpReward: 72,
@@ -1135,20 +1135,20 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('might', {dc: 13, locality: 'glasswake_commune', label: 'Monitoring post bluff'});
       if (result.isCrit) {
         G.stageProgress[2]++;
-        G.lastResult = 'Your bearing reads as authority he was not prepared to question. He waves you through and mentions — unprompted — that the last inspection team asked about the same access point.';
+        G.lastResult = 'Your bearing reads as a level of authority he was not prepared to question — the kind of confidence that does not explain itself. He waves you through without asking a second time, and then, unprompted, he mentions that the last inspection team through here asked about the same access point. He says it in the tone of someone sharing a useful detail with someone who probably already knows. He does not ask who sent you.';
       } else if (result.isFumble) {
         addHeat('shelk', 1);
-        G.lastResult = 'He calls it in. You exit the way you came before a supervisor arrives.';
+        G.lastResult = 'He calls it in before the bluff has time to land — the radio is out and the request transmitted in the same breath as his refusal. You exit the way you came at a pace that is not quite running and reach the corridor before a supervisor arrives. The call is logged. The access point, and your presence near it, will be on record.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'He steps aside. The confidence read as authority. The post is accessible for now.';
+        G.lastResult = 'He steps aside without asking a second question — the confidence read as authority, which is usually sufficient for posts staffed by single guards with limited escalation protocols. The post is accessible for now. He will not remember your face with any particular sharpness; this exchange read to him as routine. There is a window here before his shift changes.';
       } else {
-        G.lastResult = 'He is not convinced. You need documentation or another route.';
+        G.lastResult = 'He is not convinced — the bearing read as civilian confidence, not institutional authority, and he has a procedure for that. He repeats the documentation requirement and does not move from his position. Pressing further without credentials would escalate the encounter from a checkpoint challenge into something that generates a report. You need documentation, or you need another route entirely.';
       }
     }
   },
   {
-    label: "The lead contamination researcher is publishing the official findings — her private doubts may surface in a genuine conversation",
+    label: "The lead researcher publishes the official findings. Her private doubts are still there.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
     xpReward: 76,
@@ -1157,14 +1157,14 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Lead researcher confirmed her original data was altered before publication. The altered figures came back to her as the official record.', 'evidence');
-        G.lastResult = 'She has been waiting for someone to ask the right question. Her original measurements never matched what she was told to publish. She still has the working copies — somewhere she cannot access from here.';
+        G.lastResult = 'She has been waiting for someone to ask the right question — the relief in her posture is involuntary. Her original measurements never matched what she was told to publish. She shows you nothing, but she describes enough: a systematic revision of every figure above a certain threshold, delivered back to her as the official dataset and filed under her name. She still has the working copies, somewhere she cannot access from the commune facility. She gives you a location she trusts to hold them.';
       } else if (result.isFumble) {
-        G.lastResult = 'She shuts down the moment you push. She has been approached before. You will not get another chance with her through this route.';
+        G.lastResult = 'She shuts down the moment the conversation reaches anything useful — a practiced stillness, the posture of someone who has been approached this way before and knows exactly when a conversation has shifted from professional to dangerous. She finishes the sentence she was in the middle of, politely, and then finds a reason to end the exchange. You will not get another chance with her through this route. Whatever trust was available here has been spent.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'She says enough: the numbers she published were not the numbers she measured. She cannot elaborate here. Someone might be watching.';
+        G.lastResult = 'She says enough: the numbers she published were not the numbers she measured. She says it quickly, leaning slightly forward with her hands flat on the workbench, and then straightens and looks at the far wall. She cannot elaborate here — someone might be watching, or listening, or both, and she has enough experience with this commune to know which walls carry sound. She returns to her instruments. What she gave is a thread. Where it leads is elsewhere.';
       } else {
-        G.lastResult = 'She is cordial and says nothing of use. The professional distance holds.';
+        G.lastResult = 'She is cordial and says nothing of use — the professional distance holds with the ease of long practice. Every answer is technically accurate and entirely unrevealing. She discusses her published methodology with genuine fluency, but the published methodology is not what needs discussing. The rapport did not deepen enough to reach the layer where her actual doubts live. She thanks you for the exchange and returns to her work without looking back.';
       }
     }
   },

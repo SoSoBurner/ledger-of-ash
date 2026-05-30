@@ -1920,7 +1920,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The filtration manifold readings are off — a trained hand could recalibrate without alerting the duty log",
+    label: "The filtration manifold readings are off — a trained hand could recalibrate undetected",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
     xpReward: 80,
@@ -1929,20 +1929,20 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('The manifold calibration log shows three unauthorized resets — each timed to a scheduled inspection. Someone was erasing evidence of power diversion.', 'evidence');
-        G.lastResult = 'You recalibrate the manifold and pull the maintenance history. Three deliberate resets, each timed to coincide with external inspections. This is sabotage with a schedule.';
+        G.lastResult = 'You recalibrate the manifold and pull the maintenance history in the same motion. Three deliberate resets in the log, each timed to coincide precisely with external inspections. The timestamps are too clean for coincidence — someone with maintenance access had the inspection schedule and used it. This is sabotage with a schedule, running for at least two cycles.';
       } else if (result.isFumble) {
         addHeat('shelk', 1);
-        G.lastResult = 'The manifold alarm trips before you finish. A duty officer appears. You explain it as a routine check — they do not look convinced.';
+        G.lastResult = 'The manifold alarm trips before the recalibration completes — a high-pressure warning tone that carries across the whole floor. A duty officer appears within forty seconds, hand already on her radio. You explain it as a routine check gone slightly wrong. She writes something on her pad. Her expression suggests she does not find this explanation satisfying and intends to follow up with someone who outranks you.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'You recalibrate it cleanly. The log shows three resets — deliberate, timed. Someone with maintenance access was covering their tracks.';
+        G.lastResult = 'You recalibrate it cleanly and pull the access log before closing the panel. Three resets recorded in the maintenance history — each one deliberate, each timed to a narrow window before an inspection visit. Whoever did this had the inspection calendar and maintenance credentials both. The tracks were covered, but the covering itself left a pattern.';
       } else {
-        G.lastResult = 'The calibration panel locks you out after the second attempt. You retreat before anyone notices the failed access request.';
+        G.lastResult = 'The calibration panel locks on the second failed access attempt — a quiet click and a status light shifting from amber to red. You step back and find something else to look at. The duty log will show a failed credential attempt at this panel, timestamped. Someone may check it tonight; someone may check it tomorrow. Either way the access attempt is on record now.';
       }
     }
   },
   {
-    label: "A maintenance supervisor is physically blocking the corridor — direct negotiation from strength is the fastest path through",
+    label: "The maintenance supervisor is blocking the corridor — strength is the fastest way through",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
     xpReward: 70,
@@ -1951,20 +1951,20 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.flags.aurora_supervisor_cleared = true;
-        G.lastResult = 'Your posture and tone cut through his rehearsed obstruction. He steps aside and gives you a name — the person who told him to hold this corridor on inspection days.';
+        G.lastResult = 'Your posture and tone cut through his rehearsed obstruction — the kind of authority that does not ask for passage, only expects it. He steps aside, reads your expression once, and then gives you something you did not ask for: a name. The person who told him to hold this corridor on inspection days. He says it quietly, the way a man says something he has been waiting to say to the right person.';
       } else if (result.isFumble) {
         addHeat('shelk', 2);
-        G.lastResult = 'The confrontation escalates. He calls for security. You withdraw — the incident will be logged.';
+        G.lastResult = 'The confrontation escalates faster than expected — he was ready for it, had a response prepared. His hand goes to a wall panel and he calls for security without raising his voice, the practiced calm of someone who has been through this before. You withdraw before the corridor fills. The incident will be logged, with your description and the time.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'He yields the corridor without naming anyone. The way he looks over his shoulder tells you someone upstream told him to hold this post.';
+        G.lastResult = 'He yields the corridor without naming anyone — the pressure was enough, but not quite enough to break whatever he is protecting. He steps aside and looks over his shoulder once before he moves, checking a door further down the hall. The gesture is reflex. Someone upstream told him to hold this post, and he knows that person is somewhere reachable from here.';
       } else {
-        G.lastResult = 'He holds his ground. You cannot press further without drawing attention. You find another route.';
+        G.lastResult = 'He holds his ground without flinching, arms loose at his sides — the stance of someone who has been trained to take pressure and not give ground. Your authority does not register against whatever authority put him here. You cannot press further without drawing the kind of attention that would close this corridor to you permanently. Another route, then, if there is one.';
       }
     }
   },
   {
-    label: "The restricted equipment bay has a staff-only entrance — but the ventilation access is unwatched and wide enough",
+    label: "The equipment bay's staff entrance is watched — the ventilation shaft is not",
     tags: ['Stage2', 'Infiltration'],
     skill: 'finesse',
     xpReward: 80,
@@ -1973,15 +1973,15 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Equipment bay inventory shows three filtration cores listed as decommissioned but absent from the disposal log.', 'evidence');
-        G.lastResult = 'Through the ventilation access you reach the equipment bay unseen. Three filtration cores are logged as decommissioned — but missing from the disposal register. Someone moved them.';
+        G.lastResult = 'Through the ventilation access you drop into the equipment bay without a sound — the ductwork is warm and smells of filtered mineral dust, but the landing is clean. The inventory board on the far wall shows three filtration cores logged as decommissioned, but the disposal register has no corresponding entries. The cores themselves are gone from the rack. Someone moved them after marking them as waste, before they could be tracked to a disposal facility. Ghost materials.';
       } else if (result.isFumble) {
         addHeat('shelk', 1);
-        G.lastResult = 'A guard on a non-standard patrol catches your movement in the vent. You drop and walk out with a cover story, but they have your face now.';
+        G.lastResult = 'A guard on a non-standard patrol route is below the vent opening when you reach the access point — close enough to hear the metal flex under your weight. You drop into the corridor instead and walk out at an even pace with a cover story that holds for roughly thirty seconds before he calls it in. They have your face now, and the access point is burned.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'You make it through. The inventory discrepancy is real — decommissioned equipment with no disposal paperwork. A ghost supply chain.';
+        G.lastResult = 'You make it through the ventilation access and reach the equipment bay with enough time to read the inventory board. The discrepancy is real and documented in the bay's own records: decommissioned equipment listed with no corresponding disposal paperwork, no receiving facility, no transit log. The cores were written off and then quietly redistributed to somewhere without a paper trail. A ghost supply chain, using the decommission process as cover.';
       } else {
-        G.lastResult = 'The vent is louder than expected. You retreat before reaching the bay.';
+        G.lastResult = 'The ventilation duct is louder than it looked from the access panel — a high metallic resonance that carries in both directions. You make it three meters before the noise risk becomes unacceptable. You back out and replace the panel cover with care. The bay remains unreachable through this route. Whatever is in the inventory board stays unread.';
       }
     }
   },

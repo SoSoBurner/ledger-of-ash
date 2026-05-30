@@ -1086,7 +1086,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Cross-district freight running through Unity Square has a staging point that doesn't appear on any map.",
+    label: "The cross-district freight has a staging point that isn't on any map.",
     tags: ['Cargo', 'Stage2'],
     xpReward: 82,
     fn: function() {

@@ -686,7 +686,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Jorin knows which entries he's not supposed to ask about. The shape of that silence is specific.",
+    label: "Jorin avoids certain entries. The shape of that silence is specific.",
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -717,7 +717,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The material stockyard's measurement records and the ledger totals disagree by exactly the same amount every quarter.",
+    label: "The stockyard measurements and ledger totals disagree by the same amount every quarter.",
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -776,7 +776,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Two trade certificates for the same shipment have different authentication stamps but the same origin seal.",
+    label: "Two certificates for the same shipment: different stamps, identical origin seal.",
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 78,
     fn: function() {
@@ -894,7 +894,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   // === NPC ENCOUNTERS (~6 choices) ===
 
   {
-    label: "Tess's inspection log has fourteen flagged items. Seven of them are marked 'resolved' with no resolution note.",
+    label: "Tess's log has seven items marked 'resolved' with no resolution note.",
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -955,7 +955,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Copy Warden has a second stamp in his coat pocket. The authentication desk only issues one.",
+    label: "The Copy Warden has a second stamp. The desk only issues one.",
     tags: ['NPC', 'Evidence', 'Stage2'],
     xpReward: 80,
     fn: function() {
@@ -985,7 +985,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Jorin and Tess don't speak to each other in the ledger house. The silence between them is careful.",
+    label: "Jorin and Tess don't speak here. The silence between them is careful.",
     tags: ['NPC', 'Stage2'],
     xpReward: 66,
     fn: function() {
@@ -1015,7 +1015,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Copy Warden has been at this desk longer than the authentication system he is supposed to enforce.",
+    label: "The Copy Warden predates the authentication system he operates.",
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -1108,7 +1108,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The same consortium name appears in Craftspire records and in the documents from the previous locality.",
+    label: "The same consortium name appears here and in the last locality's documents.",
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -1138,7 +1138,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The forge output numbers Craftspire reports to the Collegium don't match what the stockyard physically holds.",
+    label: "The forge output reported to the Collegium doesn't match the stockyard.",
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 75,
     fn: function() {

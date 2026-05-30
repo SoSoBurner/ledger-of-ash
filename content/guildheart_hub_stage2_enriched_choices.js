@@ -1091,7 +1091,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The Collegium ledger signatures look identical across three different notary stamps — too consistent for authentic documents",
+    label: "Three different notary stamps, identical signatures — too consistent to be authentic",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
     xpReward: 82,
@@ -1100,19 +1100,19 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Three Collegium notary stamps share identical ink dispersion patterns — physically impossible if authentic. The ledgers were batch-stamped by one hand.', 'evidence');
-        G.lastResult = 'Your analysis of the stamp impressions is conclusive: identical ink dispersion radius, same micro-fracture in the left serif. One forger made three notary identities.';
+        G.lastResult = 'Your analysis of the stamp impressions is conclusive: identical ink dispersion radius across all three, the same micro-fracture in the left serif of the authentication mark — a physical defect in the die that cannot be replicated by two different tools. One forger made three notary identities using a single die set. The Collegium believes it has three independent notaries validating these ledgers. It has one person with three stamps.';
       } else if (result.isFumble) {
-        G.lastResult = 'A librarian notices you holding documents up to the light. You replace them quickly but your access to this section is now monitored.';
+        G.lastResult = 'A librarian notices you holding documents up to the high window for light — it is not a standard reading posture and she reads it correctly. You replace the documents in the correct order and take your seat with practiced calm. She does not approach, but she positions herself with a clear view of the section. Your access to these shelves is now monitored for the remainder of your time in the building.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'The stamps are too consistent — real notaries have different pressure habits. These were made by one person mimicking multiple identities.';
+        G.lastResult = 'The stamps are too consistent — authentic notary work carries micro-variation in pressure and angle that accumulates over years of individual physical habit. These marks share the same depth, the same cant, the same entry angle on every descending stroke. These were made by one person mimicking multiple identities, applying the same physical technique each time regardless of which stamp was in hand.';
       } else {
-        G.lastResult = 'You spot anomalies but lack the materials to confirm forgery without lab access.';
+        G.lastResult = 'You spot anomalies in the impression depth and ink dispersion — the stamps are more consistent than authentic notary work should allow — but you lack the physical reference materials to confirm forgery without lab access. The evidence is there at a level you can read. Converting it into something that holds against a Collegium record requires instruments you do not have in this room.';
       }
     }
   },
   {
-    label: "The Collegium archivist knows more than he is saying — pressing him directly from a position of authority might break the rehearsed deflection",
+    label: "The archivist's deflection is rehearsed. Authority might break the script.",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
     xpReward: 75,
@@ -1122,20 +1122,20 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2]++;
         addJournal('Archivist confirmed the ledger gap was flagged internally but suppressed by directive from the head registrar.', 'evidence');
         G.flags.guildheart_archivist_broken = true;
-        G.lastResult = 'You hold his gaze until the deflection collapses. He tells you: the gap was internally flagged. The head registrar ordered it buried. He has the original complaint letter.';
+        G.lastResult = 'You hold his gaze and let the silence work. The deflection collapses after twelve seconds — he looks at the desk, then back, and the scripted version is gone. He tells you in a flat voice: the ledger gap was internally flagged by a junior archivist two years ago. The head registrar reviewed the flag and ordered it buried. There was no formal rejection — the complaint simply stopped moving. He has the original complaint letter. He kept it because he did not know what else to do with it.';
       } else if (result.isFumble) {
         addHeat('shelk', 1);
-        G.lastResult = 'He calls for a floor supervisor. You withdraw before the scene escalates, but your presence here will be noted.';
+        G.lastResult = 'He calls for a floor supervisor without raising his voice — a calm, practiced response that suggests he has been trained for exactly this kind of confrontation. You withdraw before the scene escalates into something that generates formal documentation. Your presence in this section of the building will be noted regardless; the question is whether the note reads as "visitor" or "incident subject."';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'He gives you a date range — three weeks where ledger entries were systematically amended. Not missing. Replaced.';
+        G.lastResult = 'The pressure is sufficient to move him past the rehearsed deflection, though not far enough to break the caution entirely. He gives you a date range — three weeks where ledger entries were systematically amended across multiple categories. He is careful about the word he uses: amended. Not missing entries, not gaps in the record. Replaced. The original text was overwritten with corrected versions and the revision history was not preserved, which is a procedural violation but not one anyone formally complained about.';
       } else {
-        G.lastResult = 'He holds firm. Whatever fear he has of you is less than whatever keeps him quiet.';
+        G.lastResult = 'He holds firm — the script does not collapse, the eye contact does not break, and whatever fear he has of you in this moment is measurably less than whatever keeps him quiet. He has run the comparison before and arrived at the same answer. You are not the most dangerous thing currently in his professional life. You withdraw without having moved him.';
       }
     }
   },
   {
-    label: "The senior registrar is tired and overworked — a sympathetic ear and genuine interest in her burden might open the record you need",
+    label: "The senior registrar is exhausted. Someone willing to listen might reach what she knows.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
     xpReward: 72,
@@ -1144,14 +1144,14 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         addJournal('Senior registrar confirmed: the backlog is manufactured. Requests are accepted and filed as processing indefinitely to prevent investigators from timing the suppression window.', 'evidence');
-        G.lastResult = 'She appreciates the question — no one has. Over the next hour she explains exactly how the backlog works: intentional, calibrated delay. Not paperwork failure. Policy.';
+        G.lastResult = 'She appreciates the question — no one has, she says, in a tone that suggests she had stopped expecting anyone to. Over the next hour, in a back room with the door closed and a cup of cooling tea between you, she explains exactly how the backlog works. It is not a failure of staffing or procedure. It is calibrated delay: requests accepted, logged as processing indefinitely, never formally denied. Investigators cannot time the suppression window because the clock never officially stops. She has been watching it operate for three years.';
       } else if (result.isFumble) {
-        G.lastResult = 'Your approach reads as flattery and she withdraws. She has seen too many people try this. You have used this angle; it is closed now.';
+        G.lastResult = 'Your approach reads as flattery and she withdraws with a politeness that has been refined through repeated use — she has seen too many people try this particular angle, and she knows exactly when sympathy is a tool rather than a genuine gesture. The warmth goes out of the conversation without ceremony. You have used this approach with her; it is closed now. She will not be readable through it again.';
       } else if (result.isSuccess) {
         G.stageProgress[2]++;
-        G.lastResult = 'She vents, which is useful. The backlog is not random — someone sets the priority queue and certain categories of requests never reach the top.';
+        G.lastResult = 'She vents, which is useful. The backlog is not the result of volume or understaffing — she is clear about that, the way someone is clear about something they have argued to people who did not listen. Someone sets the priority queue, and certain categories of request are assigned to a tier that never reaches the top of the processing stack. The queue is technically correct. The prioritization is the mechanism.';
       } else {
-        G.lastResult = 'She is too guarded. Sympathy alone is not a sufficient currency here.';
+        G.lastResult = 'She is too guarded for sympathy alone to reach anything of use — her professional manner holds, the exhaustion is visible but contained, and the gap between what she carries and what she will share with a stranger does not close. She is not hostile; she is careful. Sympathy is not a sufficient currency here. Something more specific — a name, a document, a shared reference — might change that calculation. It is not available today.';
       }
     }
   },
