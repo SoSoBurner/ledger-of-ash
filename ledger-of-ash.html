@@ -10172,6 +10172,43 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('onboarding-skip').addEventListener('click', _closeOnboarding);
 });
 
+// ── ARCHETYPE CONFIRMATION BEATS ────────────────────────
+// Sentence 1: who this character is in the world.
+// Sentence 2: primary skills.
+var _ARCHETYPE_CONFIRM = {
+  'warrior':     ['A disciplined fighter who has survived what wars require.', 'Your strengths lean toward Might and Vigor.'],
+  'knight':      ['Bound by oath, armed by house. You carry duty as a second skin.', 'Your strengths lean toward Might and Charm.'],
+  'ranger':      ['You operate where maps end and roads stop being reliable.', 'Your strengths lean toward Vigor and Finesse.'],
+  'paladin':     ['Faith and steel as one instrument in a world that tests both.', 'Your strengths lean toward Might and Wits.'],
+  'archer':      ['Distance is your advantage. Patience is your discipline.', 'Your strengths lean toward Finesse and Vigor.'],
+  'berserker':   ['Controlled fury as a tool — pain bought what anger could not.', 'Your strengths lean toward Might and Vigor.'],
+  'wizard':      ['Magic is a discipline, not a gift. You proved that in the stacks.', 'Your strengths lean toward Wits and Spirit.'],
+  'cleric':      ['Divine power expressed through dedicated, practical service.', 'Your strengths lean toward Wits and Charm.'],
+  'priest':      ['Community and ritual as power. You carry what the congregation trusts you with.', 'Your strengths lean toward Charm and Wits.'],
+  'necromancer': ['The boundary between living and dead as a subject of serious study.', 'Your strengths lean toward Wits and Finesse.'],
+  'illusionist': ['What is real is only what people choose to perceive — and you choose for them.', 'Your strengths lean toward Charm and Finesse.'],
+  'inquisitor':  ['Truth as a weapon. You work for a power that defines what truth is.', 'Your strengths lean toward Wits and Charm.'],
+  'elementalist':['The axis inversion cycle as a study subject and a survival condition.', 'Your strengths lean toward Wits and Spirit.'],
+  'rogue':       ['Flexible, opportunistic, and honest about it — at least to yourself.', 'Your strengths lean toward Finesse and Charm.'],
+  'assassin':    ['Precise, professional, and expensive. You are a service others require.', 'Your strengths lean toward Finesse and Might.'],
+  'spellthief':  ['You steal what others spent years earning. Patience is the method.', 'Your strengths lean toward Finesse and Charm.'],
+  'scout_c':     ['Forward element. You move ahead, assess, and return with what matters.', 'Your strengths lean toward Vigor and Finesse.'],
+  'thief':       ['Material redistribution specialist with an eye for mechanism and value.', 'Your strengths lean toward Finesse and Wits.'],
+  'trickster':   ['Performance, misdirection, and the exploitation of expectation.', 'Your strengths lean toward Charm and Finesse.'],
+  'healer':      ['Clinical, compassionate, and practical. You fix what is broken.', 'Your strengths lean toward Wits and Spirit.'],
+  'artificer':   ['You build. You fix. The material world reveals itself to you at depth.', 'Your strengths lean toward Spirit and Wits.'],
+  'engineer':    ['Systems and structures as strategy. Infrastructure is your terrain.', 'Your strengths lean toward Spirit and Wits.'],
+  'tactician':   ['Battles are won before they start. You see the shape before others see the pieces.', 'Your strengths lean toward Wits and Charm.'],
+  'alchemist':   ['Transformation as discipline — you convert materials into outcomes the world did not expect.', 'Your strengths lean toward Wits and Spirit.'],
+  'saint':       ['Living embodiment of a domain. The deity did not consult you about this.', 'Your strengths lean toward Charm and Wits.'],
+  'bard':        ['You trade in stories and the truth underneath them. Information moves through you.', 'Your strengths lean toward Charm and Wits.'],
+  'oracle':      ['You see patterns in what has happened and use them to anticipate what will.', 'Your strengths lean toward Wits and Spirit.'],
+  'warden':      ['Your job is to place yourself between the threat and whoever needs protecting.', 'Your strengths lean toward Might and Vigor.'],
+  'warlord':     ['You lead from the front and from the back simultaneously. The ledger of your decisions is long.', 'Your strengths lean toward Might and Charm.'],
+  'death_knight':['You served something that no longer exists. The skills remain. The purpose is a question you carry.', 'Your strengths lean toward Might and Wits.'],
+  'beastmaster': ['You read terrain through what lives in it — and what has recently fled.', 'Your strengths lean toward Vigor and Finesse.']
+};
+
 function beginLegend() {
   try { _beginLegendCore(); } catch(e) { showToast('Something went wrong. Check the console.'); console.error('beginLegend:', e); }
 }
@@ -10318,6 +10355,14 @@ function _beginLegendCore() {
   showScreen('screen-game');
   updateHUD(); updateEnvironmentPanel();
   startOpeningScene();
+  // Archetype confirmation beat — appears after opening scene renders
+  (function() {
+    var _arcId = G.archetype ? G.archetype.id : null;
+    var _arcConf = _arcId ? _ARCHETYPE_CONFIRM[_arcId] : null;
+    if (_arcConf) {
+      setTimeout(function() { showToast(_arcConf[0] + ' ' + _arcConf[1]); }, 600);
+    }
+  })();
   if (G && !G.flags.onboarding_complete) {
     setTimeout(showOnboarding, 400);
   }
