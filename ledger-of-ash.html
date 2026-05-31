@@ -10972,7 +10972,7 @@ function updateEnvironmentPanel() {
     } else {
       locBtns.innerHTML = '';
     }
-    const _shopItems = window.SHOP_INVENTORY && window.SHOP_INVENTORY[G.location];
+    const _shopItems = (typeof SHOP_INVENTORY !== 'undefined') && SHOP_INVENTORY[G.location];
     if (_shopItems && _shopItems.length) {
       const _svcBtn = document.createElement('button');
       _svcBtn.className = 'loc-site-btn';
@@ -11058,6 +11058,13 @@ function visitSite(site) {
     { text:'Look for something useful.', skill:'craft', tag:'safe', align:'neutral', cid:'find_work' }
   ];
 
+  // Inject shop choice if this site has inventory available
+  if (typeof SHOP_INVENTORY !== 'undefined' && SHOP_INVENTORY[G.location]) {
+    const _siteItems = SHOP_INVENTORY[G.location].filter(function(it){ return it.site === site; });
+    if (_siteItems.length) {
+      choices = choices.concat([{ text:'Browse what\'s available here. Equipment and supplies.', skill:'lore', tag:'safe', align:'neutral', cid:'__shop__' }]);
+    }
+  }
   addNarration(site, 'You make your way to <strong>' + site + '</strong>. ' + TIME_FLAVORS[G.timeIndex]);
   renderChoices(choices);
 }

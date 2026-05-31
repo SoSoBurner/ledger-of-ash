@@ -1254,7 +1254,7 @@ COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
   },
   {
     id: 'dist_cq_guild_post_faction',
-    label: 'The guild post clerk tracks which firms skip the standard intake window. She is tired of it.',
+    label: 'The guild post clerk knows which firms skip the intake window.',
     tag: 'safe',
     skill: 'charm',
     failResult: 'Peva Thorns handles the post intake window at full queue pace and does not have space for an unsolicited conversation. Guild intake records are not public record. The queue builds behind the exchange and she returns to it without further comment.',
@@ -1288,7 +1288,7 @@ COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
 LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_lw_ward_elder_reckoning',
-    label: 'The ward elder has watched three sets of outsiders come through. She knows the pattern now.',
+    label: 'The ward elder has seen three rounds of outside inquiry. She knows the pattern.',
     tag: 'safe',
     skill: 'charm',
     failResult: 'Cosset is not at the water pump bench today. The neighbor who usually knows her whereabouts says she is visiting a relative in the upper ward. The ward has registered the inquiry and is waiting to see what kind of inquiry it is before deciding what to do with it.',
@@ -1320,7 +1320,7 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
   },
   {
     id: 'dist_lw_eviction_paper_trail',
-    label: 'Five evictions in the low ward share the same notary mark. None of those tenants complained.',
+    label: 'Five low-ward evictions share the same notary mark.',
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
@@ -1349,7 +1349,7 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
   },
   {
     id: 'dist_lw_compound_exposure_firsthand',
-    label: 'A ward resident describes the symptoms from the inside. She did not choose to be exposed.',
+    label: 'A ward resident describes the symptoms. She did not choose this exposure.',
     tag: 'safe',
     skill: 'spirit',
     failResult: 'The conversation begins well but the question about the dome terminal timeline comes too early. She pulls back — she has spoken to outsiders before who used her experience to make an argument and then left the ward while she stayed in it. The meeting ends before the calendar appears.',

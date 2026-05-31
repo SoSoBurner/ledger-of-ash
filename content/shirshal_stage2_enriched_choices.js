@@ -1639,7 +1639,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
-    label: "The auditor has run the same review loop for three years. She knows it leads nowhere.",
+    label: "The auditor has run this review loop three years without resolution.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
     xpReward: 74,

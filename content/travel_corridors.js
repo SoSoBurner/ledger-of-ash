@@ -864,7 +864,7 @@
         // Otherwise: normal creature encounter
         var pool = (typeof BIOME_ENCOUNTER_POOLS !== 'undefined' && window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[b]) || ['plains_dust_hound'];
         var enemy = pool[Math.floor(Math.random() * pool.length)];
-        if (typeof enterCombat === 'function') enterCombat(enemy, { isBoss: false });
+        if (typeof startCombat === 'function') startCombat(enemy, { isBoss: false });
       }
     };
   }
