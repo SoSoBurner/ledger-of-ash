@@ -8,6 +8,58 @@
 var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
+    label: 'The harbor intake manifest has a three-week gap where nothing was logged.',
+    tags: ['Investigation', 'Stage2'],
+    plot: 'main',
+    skill: 'wits',
+    stageProgress: 1,
+    xpReward: 40,
+    failResult: 'The harbor authority office requires a transit endorsement to access sealed intake records.',
+    fn: function() {
+      advanceTime(1);
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      var result = rollD20('wits');
+      if (result.isCrit || result.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        G.lastResult = 'The harbor intake ledger runs unbroken for forty days, then stops. Three weeks of blank lines — no entries, no explanatory note, no closure stamp. The clerk who maintained the record resigned three days after the gap ends. Her replacement filed the ledger without comment. You cross-reference the adjacent columns: cargo weights continue through the period. The ships arrived. Nothing was written down about what they carried.';
+        addJournal('Harbor intake record has a three-week gap. The outgoing clerk resigned without explanation. Cargo weight columns continue — the ships came in.', 'evidence', 'panim-harbor-gap-' + (G.dayCount||0));
+        if (typeof gainXp === 'function') gainXp(40);
+        G.recentOutcomeType = 'discover';
+      } else {
+        G.lastResult = 'The intake ledger for the relevant period sits in a sealed archive partition — access requires a transit endorsement from the harbor authority office. The clerk at the desk produces a form without being asked. The form is pre-printed with the most common denial reasons. Box three is already circled in pencil: "Ongoing operational review." You take the form. The pencil mark is fresh.';
+        if (typeof gainXp === 'function') gainXp(15);
+      }
+    }
+  },
+
+  {
+    label: 'Night unloading outside the logged window is not an accident.',
+    tags: ['Observation', 'Stage2'],
+    plot: 'main',
+    skill: 'wits',
+    stageProgress: 1,
+    xpReward: 40,
+    failResult: 'The dock watch rotation changes before you can establish a consistent observation pattern.',
+    fn: function() {
+      advanceTime(1);
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      var result = rollD20('wits');
+      if (result.isCrit || result.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        G.lastResult = 'You watch the secondary dock from the grain storage roof for four hours. At the second bell after dusk, a flatboat comes in without a lamp signal. Three men unload crates using a hand-count system — no tally board, no written manifest. A fourth man stands at the dock gate with his back to the water, watching the landward approach. The flatboat leaves before the watch rotation passes. Nothing is recorded.';
+        addJournal('Secondary dock: unlighted flatboat, unmanned tally, a lookout facing inland. Arrival timed between watch rotations. No entry in the night log.', 'evidence', 'panim-night-unload-' + (G.dayCount||0));
+        if (typeof gainXp === 'function') gainXp(40);
+        G.recentOutcomeType = 'discover';
+      } else {
+        G.lastResult = 'You take a position on the grain storage roof before the second bell. The dock below is quiet — a standard watch rotation, nothing out of sequence. Either the pattern does not repeat on a predictable schedule, or someone flagged the observation point. The dock watch makes an extra pass at the third bell, which is not standard. You note the deviation. The roof access latch was oiled recently. You were not the first person to use it.';
+        if (typeof gainXp === 'function') gainXp(15);
+      }
+    }
+  },
+
+  {
     label: "The afterlife ledger has irregular entries. The clustering is not administrative error.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
