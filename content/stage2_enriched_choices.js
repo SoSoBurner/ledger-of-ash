@@ -1247,6 +1247,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_collegium_1',
+    label: 'Seld counted something on his fingers just now. He stopped at four.',
     text: 'Seld counted something on his fingers just now. He stopped at four.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1272,6 +1273,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_collegium_2',
+    label: 'Seld has a document fragment he isn\'t supposed to have.',
     text: 'Seld has a document fragment he isn\'t supposed to have.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1297,6 +1299,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_collegium_3',
+    label: 'Seld is being watched. He knows and he came anyway.',
     text: 'Seld is being watched. He knows and he came anyway.',
     tags: ['Confrontation', 'Social'],
     plot: 'main',
@@ -1324,6 +1327,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_collegium_4',
+    label: 'Seld trusts process. The Wardens trust force. These are not compatible.',
     text: 'Seld trusts process. The Wardens trust force. These are not compatible.',
     tags: ['Confrontation', 'Social'],
     plot: 'main',
@@ -1351,6 +1355,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_wardens_1',
+    label: 'The checkpoint officer pulled my transit record before she said a word.',
     text: 'The checkpoint officer pulled my transit record before she said a word.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1376,6 +1381,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_wardens_2',
+    label: 'She has corridor data that hasn\'t been filed with any district office.',
     text: 'She has corridor data that hasn\'t been filed with any district office.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1402,6 +1408,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_wardens_3',
+    label: 'The Wardens are being watched from above their own chain.',
     text: 'The Wardens are being watched from above their own chain.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1429,6 +1436,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_wardens_4',
+    label: 'The Wardens enforce what the Collegium documents. One without the other stops here.',
     text: 'The Wardens enforce what the Collegium documents. One without the other stops here.',
     tags: ['Social', 'Confrontation'],
     plot: 'main',
@@ -1456,6 +1464,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_routing_crossref',
+    label: 'The district numbers and the route numbers share a column they shouldn\'t.',
     text: 'The district numbers and the route numbers share a column they shouldn\'t.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
@@ -1481,6 +1490,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_follow_the_watcher',
+    label: 'Someone has been following my route. I want to know who gave them the itinerary.',
     text: 'Someone has been following my route. I want to know who gave them the itinerary.',
     tags: ['Stealth', 'Investigation'],
     plot: 'side',
@@ -1507,7 +1517,8 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_sealed_archive_loophole',
-    text: 'A procedural appeal is not the same as an access request. The rule doesn\'t cover it.',
+    label: 'A procedural appeal is not an access request. The rule doesn\'t cover it.',
+    text: 'A procedural appeal is not an access request. The rule doesn\'t cover it.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
     plot: 'side',
@@ -1532,6 +1543,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_merchant_subtext',
+    label: 'He answered every question I didn\'t ask. Not one I did.',
     text: 'He answered every question I didn\'t ask. Not one I did.',
     tags: ['Investigation', 'Social'],
     plot: 'side',
@@ -1556,6 +1568,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_recurring_name',
+    label: 'That name has appeared in four separate documents from three different offices.',
     text: 'That name has appeared in four separate documents from three different offices.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
@@ -1582,6 +1595,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_collegium_public_vs_deep',
+    label: 'The public Collegium office exists to be seen. What\'s behind it does not.',
     text: 'The public Collegium office exists to be seen. What\'s behind it does not.',
     tags: ['Investigation', 'Stealth'],
     plot: 'side',
@@ -1606,6 +1620,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_suppression_gap',
+    label: 'There\'s a gap in the suppression pattern. Someone forgot a subcategory.',
     text: 'There\'s a gap in the suppression pattern. Someone forgot a subcategory.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -1630,6 +1645,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_district_night_records',
+    label: 'The night shift desk doesn\'t log visitors. That\'s a known feature, not an oversight.',
     text: 'The night shift desk doesn\'t log visitors. That\'s a known feature, not an oversight.',
     tags: ['Stealth', 'Investigation'],
     tag: 'risky',
@@ -1655,6 +1671,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_inspection_waiver_trail',
+    label: 'Waivers don\'t get signed without a reason. Someone approved these in bulk.',
     text: 'Waivers don\'t get signed without a reason. Someone approved these in bulk.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -1680,6 +1697,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_cargo_reclassification',
+    label: 'Reclassified cargo stops being cargo. That\'s the point of reclassifying it.',
     text: 'Reclassified cargo stops being cargo. That\'s the point of reclassifying it.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -1704,6 +1722,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_warden_patrol_gap',
+    label: 'There\'s a patrol gap that stays consistent. Gaps don\'t stay consistent by accident.',
     text: 'There\'s a patrol gap that stays consistent. Gaps don\'t stay consistent by accident.',
     tags: ['Stealth', 'Investigation'],
     tag: 'risky',
@@ -1729,6 +1748,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_ledger_ward_anomaly',
+    label: 'The Iron Ledger Ward has a transaction that predates the institution\'s founding.',
     text: 'The Iron Ledger Ward has a transaction that predates the institution\'s founding.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
@@ -1757,6 +1777,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_lore_cipher_read',
+    label: 'The cipher format is institutional — I\'ve seen this encoding in the academy index.',
     text: 'The cipher format is institutional — I\'ve seen this encoding in the academy index.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -1788,6 +1809,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_craft_forged_seal',
+    label: 'The seal impression is slightly off-center. I know what a correct stamp looks like.',
     text: 'The seal impression is slightly off-center. I know what a correct stamp looks like.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -2080,6 +2102,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The duty clerk keeps the same lunch gap every day. Three minutes, unmonitored.",
     tags: ['Stealth', 'Observation', 'Evidence'],
     tag: 'safe',
+    failResult: 'The pattern isn\'t there this cycle. The window exists, but the timing requires more observation.',
     xpReward: 75,
     condition: function() {
       return G.stage === 'Stage II' &&
@@ -2153,6 +2176,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_combat_warden_shakedown',
+    label: 'The warden is lying. He knows I can tell. That is enough.',
     text: 'The warden is lying. He knows I can tell. That is enough.',
     tags: ['Combat', 'Confrontation', 'Pressure'],
     plot: 'side',
@@ -2184,6 +2208,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_combat_courier_escort',
+    label: 'The courier carrying that manifest needs to arrive. I can make that happen.',
     text: 'The courier carrying that manifest needs to arrive. I can make that happen.',
     tags: ['Combat', 'Protection', 'Route'],
     plot: 'side',
@@ -2214,6 +2239,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_combat_patrol_pattern',
+    label: 'Warden deployment shifted three days ago. Someone gave an order they didn\'t write down.',
     text: 'Warden deployment shifted three days ago. Someone gave an order they didn\'t write down.',
     tags: ['Combat', 'Observation', 'Tactics'],
     tag: 'risky',
@@ -2244,6 +2270,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_combat_enforcer_known',
+    label: 'The man following me is a professional. He wants me to know he\'s there.',
     text: 'The man following me is a professional. He wants me to know he\'s there.',
     tags: ['Combat', 'Confrontation', 'Stealth'],
     plot: 'side',
@@ -2274,6 +2301,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_combat_document_seizure',
+    label: 'The clerk is leaving with something that isn\'t supposed to leave that building.',
     text: 'The clerk is leaving with something that isn\'t supposed to leave that building.',
     tags: ['Combat', 'Confrontation', 'Evidence'],
     plot: 'side',
