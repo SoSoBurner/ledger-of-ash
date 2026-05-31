@@ -27,8 +27,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         if (typeof gainXp === 'function') gainXp(40);
         G.recentOutcomeType = 'discover';
       } else {
+        G.recentOutcomeType = 'fail';
         G.lastResult = 'The archive rotunda has a restricted partition for Collegium-sealed records. The memorial registry for the relevant period sits behind that partition. A notation clerk at the desk explains the access procedure: a formal request, countersigned by a registered Commune advocate, reviewed within fourteen working days. She has a stack of blank request forms. The forms are printed, not hand-written — a standard response to a common problem.';
         if (typeof gainXp === 'function') gainXp(15);
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
   },
@@ -53,8 +55,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         if (typeof gainXp === 'function') gainXp(40);
         G.recentOutcomeType = 'discover';
       } else {
-        G.lastResult = 'The senior devotional aide listens to the question with the patience of someone who has been asked versions of it before. She does not deflect — she explains. What she witnessed during that period is covered under the Commune\'s testimony sanctity clause, which requires formal authorization before she can repeat it to anyone outside the hall. She is sorry. She means it. The clause exists for good reasons. She says this last part quietly. A pause follows it — the kind that does not invite a response.';
+        G.recentOutcomeType = 'fail';
+        G.lastResult = 'The senior devotional aide listens to the question with the patience of someone who has been asked versions of it before. She does not deflect — she explains. What she witnessed during that period is covered under the Commune\'s testimony sanctity clause, which requires formal authorization before she can repeat it to anyone outside the hall. She is sorry. She means it. The clause exists for good reasons. She says this last part quietly. She sets the pen down on the desk between you and does not reach for it again.';
         if (typeof gainXp === 'function') gainXp(15);
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
   },
