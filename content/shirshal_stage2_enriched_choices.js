@@ -8,6 +8,34 @@
 var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
+    label: 'Accord clause 14-C expired eighteen months ago. No one renewed it.',
+    tags: ['Investigation', 'Stage2'],
+    plot: 'main',
+    skill: 'wits',
+    stageProgress: 1,
+    xpReward: 40,
+    failResult: 'The accord registry requires a Collegium certification to access expired clause records.',
+    fn: function() {
+      advanceTime(1);
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      var result = rollD20('wits');
+      if (result.isCrit || result.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        G.recentOutcomeType = 'discover';
+        G.lastResult = 'Accord clause 14-C governed the secondary transit rights through Shirshal\'s northern corridor. It expired eighteen months ago. The renewal process requires a cosignatory from the originating polity — a cosignatory no longer in their position. You trace the vacancy: three months after the expiration, a shipment began routing through the corridor without the required documentation. No one filed a complaint. The registry clerk who would have caught it transferred to a different office two weeks before the shipment started.';
+        addJournal('Accord clause 14-C expired eighteen months ago. Northern corridor used without documentation since. The clerk who would have flagged it transferred just before shipments began.', 'evidence', 'shirshal-accord-14c-' + (G.dayCount||0));
+        if (typeof gainXp === 'function') gainXp(40);
+      } else {
+        G.recentOutcomeType = 'fail';
+        G.lastResult = 'The accord registry index lists clause 14-C as expired, but the supporting documentation sits in a Collegium-certified archive partition. Access requires a certification you do not currently hold. The registry clerk produces the certification request form without being asked. The form has a twelve-week processing window printed at the bottom. Someone has added a handwritten note: "Expedited review available — see Annex C." Annex C is not attached.';
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        if (typeof gainXp === 'function') gainXp(15);
+      }
+    }
+  },
+
+  {
     label: "Tazren's case file touches every thread I've followed. He's been at this longer.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
