@@ -1820,35 +1820,35 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_stealth_inner_access',
-    text: 'The service entrance isn\'t on the floor plan. Neither is what\'s behind it.',
+    label: 'The service entrance isn\'t on the floor plan. Neither is what\'s behind it.',
     tags: ['Stealth', 'Investigation'],
+    tag: 'risky',
+    xpReward: 85,
     plot: 'side',
     condition: function() {
-      return G.archetype && (
-        G.archetype === 'Rogue' || G.archetype === 'Infiltrator' ||
-        G.archetype === 'Scout' || G.archetype === 'Shadowblade' ||
-        (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth')
-      );
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth';
     },
-    result: function() {
-      if (!G.flags) G.flags = {};
-      if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.finesse || 0);
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(85, 'accessing building via unlisted service entrance');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
       if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.flags.stage2_inner_annex_accessed = true;
         G.lastResult = 'The service entrance is used by the building\'s laundry and supply intake — people moving things, always slightly loaded, never making eye contact with authority figures. You fit the pattern well enough. Inside: a utility corridor that runs behind the public reading room and connects to a records annex that has no door on the public side. The annex holds working files, not archive — current, active documents organized by processing date. What you find in the current week\'s batch: three route variance requests, two with "Arven Pol" as processing authority, all for the same corridor cluster.';
         G.recentOutcomeType = 'discovery';
-        G.flags.stage2_inner_annex_accessed = true;
-        G.investigationProgress = (G.investigationProgress || 0) + 1;
-        if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
         addJournal('Records annex accessed via service entrance. Current-week files include three route variance requests under "Arven Pol" authority for target corridor cluster.', 'evidence');
       } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         G.lastResult = 'The service entrance is used by people who are expected there. A delivery clerk who\'s worked the route for years notices you in the corridor immediately — not because you look wrong exactly, but because the building knows its own people and you are not one of them. He doesn\'t call for a warden. He asks your business in a tone that makes it clear the question is a formality. You give a plausible answer and leave. The annex door, visible at the corridor\'s end, stays closed.';
         G.recentOutcomeType = 'complication';
-        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         addJournal('Service entrance approach identified by delivery clerk. Building staff now aware of unauthorized corridor presence.', 'complication');
       }
-      if (typeof updateHUD === 'function') updateHUD();
-      if (typeof loadStageChoices === 'function') loadStageChoices();
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
   },
 
@@ -1956,6 +1956,194 @@ const STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness||0) + 2);
         G.lastResult = 'The liaison doubles back once before the second meeting — a practiced counter-surveillance check, not paranoia. His pace slows at a corner, then resumes. You break off before the cooperage entrance. Following further would mean crossing open ground with no cover and no plausible reason to be there. Everything you have already gathered would be at risk. He knows someone was on his route. He will change it, and the cooperage address will not be used again.';
         G.recentOutcomeType = 'complication';
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
+  // ========== ARCHETYPE-EXCLUSIVE: Stealth Family (sp2≥10 pool — prevents depletion at late Stage II) ==========
+
+  {
+    id: 's2_stealth_decoy_manifest',
+    label: "A false manifest leaves a building they're watching. The real one already moved.",
+    tags: ['Stealth', 'Evidence', 'Deception'],
+    tag: 'risky',
+    xpReward: 90,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
+        (G.stageProgress[2] || 0) >= 10;
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(90, 'reading decoy manifest misdirection');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.lastResult = 'The decoy manifests are thicker paper than standard — they needed to survive handling long enough to be logged at the front desk before the real cargo cleared the rear yard. The weight difference is negligible against a transit ledger, but the paper grade tells you who supplied the blanks: a stationer who operates a trade account with the same administrative entity that processed the route variance requests. The decoy and the re-routing trace back to the same origin point.';
+        G.recentOutcomeType = 'discovery';
+        addJournal('Decoy manifest paper grade matches stationer with ties to route variance processing entity — shared origin point confirmed.', 'evidence');
+      } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        G.lastResult = 'The decoy manifest cycle runs faster than expected. By the time you read the weight discrepancy, the loading bay has cleared and the real cargo is already past the checkpoint. The window for cross-referencing this batch is gone. What remains is the knowledge that the decoy and real manifests were processed simultaneously — two desks, coordinated timing, deliberate.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Decoy manifest cycle completed before cross-reference possible — simultaneous dual-desk processing confirmed.', 'intelligence');
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 's2_stealth_roof_observation',
+    label: "The route they use runs under a window no one keeps locked from the inside.",
+    tags: ['Stealth', 'Surveillance', 'Evidence'],
+    tag: 'risky',
+    xpReward: 88,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
+        (G.stageProgress[2] || 0) >= 10 &&
+        !(G.flags && G.flags.s2_stealth_roof_obs_done);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(88, 'surveilling transit route from elevated position');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
+      if (r.isCrit) {
+        G.flags.s2_stealth_roof_obs_done = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.flags.stage2_route_surveilled = true;
+        G.lastResult = 'Three hours. The route runs below twice: once with a covered cart at the second watch, once with a single rider at the fourth. The cart stops at the corner where the alley turns — a pause too long for a natural traffic hold. Someone inside the building below opens a window shutter and passes something through. The rider waits at the far end. What moves between the cart and the window is a document case. The building is registered as a vacant commercial property.';
+        addJournal('Vacant commercial property used as document transfer point — cart pause at second watch, rider receiving at fourth, synchronized.', 'evidence');
+        G.recentOutcomeType = 'success';
+      } else if (r.total >= 13) {
+        G.flags.s2_stealth_roof_obs_done = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.lastResult = 'The route passes below twice in three hours. The second pass includes a cart that stops longer than transit would require — loading dock timing, not traffic. The window above the stop has a shutter that moves once, briefly. Not enough to confirm a transfer, but enough to establish that someone in that building has a sightline on the route and uses it at the second watch. The building registration is worth checking.';
+        addJournal('Cart stop below unlocked window — movement noted at second watch, building registration flagged for review.', 'intelligence');
+        G.recentOutcomeType = 'success';
+      } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        G.lastResult = 'The position holds for two hours before a patrol sweep changes its rotation and brings a warden past the street level below. He doesn\'t look up. The cart route doesn\'t run tonight — either the schedule changed or the cart already passed before you were in position. The window above the alley stays shuttered. Surveillance requires better timing than this.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Surveillance position lost — patrol rotation change, cart route not observed.', 'complication');
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 's2_stealth_lock_impression',
+    label: "The lock on the secondary archive room is old. The impression will last three days.",
+    tags: ['Stealth', 'Evidence', 'Finesse'],
+    tag: 'risky',
+    xpReward: 86,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
+        (G.stageProgress[2] || 0) >= 10 &&
+        !(G.flags && G.flags.s2_stealth_lock_done);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(86, 'taking wax impression of secondary archive lock');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
+      if (r.total >= 13) {
+        G.flags.s2_stealth_lock_done = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.flags.stage2_archive_access_prepared = true;
+        G.lastResult = 'Forty seconds in the corridor — less than you needed, exactly enough. The wax takes the impression cleanly. The lock\'s wear pattern tells a secondary story: the secondary archive room is opened from this side twice a day, consistently, with a heavy hand that favors the bottom of the keyhole. Whoever holds the routine key is taller than average and in a hurry. That\'s a description. The impression will cut within the day.';
+        addJournal('Secondary archive lock impression taken — usage wear confirms twice-daily access, tall user, routine pattern established.', 'evidence');
+        G.recentOutcomeType = 'success';
+      } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        G.lastResult = 'The corridor stays clear for twenty seconds, then a building runner comes through with a delivery stack. She doesn\'t stop but she looks at your hands. The wax block stays in your pocket. The impression will have to wait for a longer window — the corridor gets two clear stretches per day, and this was one of them.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Lock impression attempt interrupted — corridor runner noted hand position, next opportunity requires new window.', 'complication');
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 's2_stealth_clerk_schedule',
+    label: "The duty clerk keeps the same lunch gap every day. Three minutes, unmonitored.",
+    tags: ['Stealth', 'Observation', 'Evidence'],
+    tag: 'safe',
+    xpReward: 75,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
+        (G.stageProgress[2] || 0) >= 10;
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(75, 'reading clerk schedule for access window');
+      G.flags = G.flags || {};
+      var r = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      if (r.total >= 10) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.lastResult = 'Four days of observation. The clerk leaves at the same point in his duty cycle — not by clock, but by the third time the receiving desk rings the shift bell. He takes twenty-two steps to the side door and does not return for three to four minutes, depending on whether the stairwell is occupied. The desk he covers handles restricted transit variance requests. During his absence, the intake tray sits unmonitored. Three minutes is more than enough for what you need.';
+        G.recentOutcomeType = 'discovery';
+        addJournal('Clerk absence window mapped — three minutes at restricted variance desk, predictable trigger, reproducible.', 'evidence');
+      } else {
+        G.lastResult = 'The clerk\'s pattern is irregular this week — a building inspection changed the shift bell schedule, which altered his departure trigger. What worked four days ago no longer tracks. The window exists, but the timing requires a new baseline. Three more days of observation should re-establish it.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Clerk schedule disrupted by building inspection — absence window pattern reset, baseline observation required.', 'intelligence');
+      }
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 's2_stealth_blind_informant',
+    label: "She passes messages through the stall owner who doesn't know what he's carrying.",
+    tags: ['Stealth', 'Intelligence', 'Network'],
+    tag: 'bold',
+    xpReward: 94,
+    condition: function() {
+      return G.stage === 'Stage II' &&
+        typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
+        (G.stageProgress[2] || 0) >= 10 &&
+        !(G.flags && G.flags.s2_stealth_blind_informant_done);
+    },
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(94, 'tracing blind courier network through market stall');
+      G.flags = G.flags || {};
+      G.worldClocks = G.worldClocks || {};
+      var r = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      if (r.isCrit) {
+        G.flags.s2_stealth_blind_informant_done = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.flags.stage2_faction_contact_made = true;
+        G.lastResult = 'The stall owner doesn\'t know what he carries, but he remembers who picks up. You get a name and a meeting description — a woman who collects wrapped parcels on the third market day of each month, pays in institutional script rather than coin, never the same face twice but always the same script issuer. The script issuer traces to a Collegium sub-account in the outer administrative tier. She\'s been running a dead-drop network through this block for at least eight months. She knows your name before you say it.';
+        addJournal('Blind courier network traced through market stall — Collegium outer-tier script account, active eight months, dead-drop operator identified and aware.', 'evidence');
+        G.recentOutcomeType = 'success';
+      } else if (r.total >= 14) {
+        G.flags.s2_stealth_blind_informant_done = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.lastResult = 'The stall owner talks more than he realizes. The parcels are picked up by different people on a rotating basis — never the same collector twice in a month. The payment is always institutional script. He doesn\'t know what he\'s part of. The script type narrows the originating account to the Collegium\'s administrative tier — too broad to identify a specific party, but enough to confirm an institutional hand in the network.';
+        addJournal('Market stall blind courier — institutional script payments, rotating collectors, Collegium administrative tier account confirmed.', 'intelligence');
+        G.recentOutcomeType = 'success';
+      } else {
+        G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
+        G.lastResult = 'The stall owner is cooperative until you mention the parcels. His posture changes in a way he can\'t help — he picks up a jar, puts it down, picks it up again. He says he doesn\'t remember any arrangement. He says it three times. By the third time, someone at the adjacent stall has moved closer. The network, whatever it is, has eyes on this block, and now it knows someone is asking about the courier.';
+        G.recentOutcomeType = 'complication';
+        addJournal('Courier network inquiry detected — stall owner deflected, adjacent observer moved in, network aware of inquiry.', 'complication');
       }
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
