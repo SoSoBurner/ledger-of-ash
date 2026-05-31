@@ -13362,7 +13362,7 @@ function _showStage3BlockedModal() {
     'You have reached the end of Ledger of Ash v0.1.<br><br>' +
     'Stage III is in development. The investigation is not over.' +
     '</div>' +
-    '<button class="btn btn-primary" onclick="this.closest(\'[style*=position\\\\:fixed]\').remove();" style="min-width:160px;">Return to Stage II</button>' +
+    '<button class="btn btn-primary choice-btn" onclick="this.closest(\'[style*=position\\\\:fixed]\').remove();if(typeof loadStageChoices===\'function\')loadStageChoices();" style="min-width:160px;">Return to Stage II</button>' +
     '</div>';
   document.body.appendChild(d);
 }
