@@ -8,6 +8,58 @@
 var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
+    label: 'The memorial registry has names but no dates. Someone removed the dates.',
+    tags: ['Investigation', 'Stage2'],
+    plot: 'main',
+    skill: 'wits',
+    stageProgress: 1,
+    xpReward: 40,
+    failResult: 'The memorial registry is maintained under Collegium seal — access requires a formal notation request.',
+    fn: function() {
+      advanceTime(1);
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      var result = rollD20('wits');
+      if (result.isCrit || result.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        G.lastResult = 'The memorial registry at the Commune\'s archive rotunda lists forty-seven names across a three-year span. Every column is filled: honorific, origin polity, cause of notation. The date column runs blank for eleven consecutive entries. The entries before and after carry standard date stamps. Someone removed these eleven — not erased, removed: the ink is present but the numbers have been carefully blotted with a matching shade. The blotting is precise. This was done with care.';
+        addJournal('Aurora memorial registry: eleven consecutive entries have dates deliberately blotted. Surrounding entries dated normally. The removal was careful, not rushed.', 'evidence', 'aurora-registry-gap-' + (G.dayCount||0));
+        if (typeof gainXp === 'function') gainXp(40);
+        G.recentOutcomeType = 'discover';
+      } else {
+        G.lastResult = 'The archive rotunda has a restricted partition for Collegium-sealed records. The memorial registry for the relevant period sits behind that partition. A notation clerk at the desk explains the access procedure: a formal request, countersigned by a registered Commune advocate, reviewed within fourteen working days. She has a stack of blank request forms. The forms are printed, not hand-written — a standard response to a common problem.';
+        if (typeof gainXp === 'function') gainXp(15);
+      }
+    }
+  },
+
+  {
+    label: 'The devotional aides know what the archive does not. They remember faces.',
+    tags: ['NPC', 'Stage2'],
+    plot: 'main',
+    skill: 'charm',
+    stageProgress: 1,
+    xpReward: 40,
+    failResult: 'The senior aide refers you to the Commune\'s formal testimony process — what she knows is not hers to share without authorization.',
+    fn: function() {
+      advanceTime(1);
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      var result = rollD20('charm');
+      if (result.isCrit || result.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        G.lastResult = 'Senne, a devotional aide who has worked the Commune\'s eastern memorial hall for eleven years, remembers the period without prompting. Four individuals came through within a single week — unusual enough that she noted it in her personal record. They were not together. None of them asked for the standard registry process. Two paid in Collegium scrip. Senne pulls her personal record from a locked drawer. The entries are in her hand, not the archive\'s.';
+        addJournal('Devotional aide Senne recalls four individuals in one week using the memorial hall outside standard process. Two paid in Collegium scrip. She kept her own record.', 'intelligence', 'aurora-aide-senne-' + (G.dayCount||0));
+        if (typeof gainXp === 'function') gainXp(40);
+        G.recentOutcomeType = 'discover';
+      } else {
+        G.lastResult = 'The senior devotional aide listens to the question with the patience of someone who has been asked versions of it before. She does not deflect — she explains. What she witnessed during that period is covered under the Commune\'s testimony sanctity clause, which requires formal authorization before she can repeat it to anyone outside the hall. She is sorry. She means it. The clause exists for good reasons. She says this last part quietly, in a way that suggests she has thought about those reasons recently.';
+        if (typeof gainXp === 'function') gainXp(15);
+      }
+    }
+  },
+
+  {
     label: "The sensors were changed. The dome still reads safe.",
     tags: ['Investigation', 'Stage2'],
     xpReward: 80,
