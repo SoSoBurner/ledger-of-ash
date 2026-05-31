@@ -15716,15 +15716,11 @@ function showCharSheet() {
                 ? '<button class="btn btn-ghost btn-xs" onclick="unequipItem(\'' + (item.type === 'weapon' ? 'weapon' : item.type === 'armor' ? 'armor' : 'tool') + '\');showCharSheetTab(\'inventory\')" style="flex-shrink:0">Unequip</button>'
                 : (isEquippable ? '<button class="btn btn-ghost btn-xs" onclick="equipItem(' + idx + ');showCharSheetTab(\'inventory\')" style="flex-shrink:0">Equip</button>'
                 : (isConsumable ? '<button class="btn-use-item" onclick="useConsumable(' + idx + ')">USE</button>' : ''));
-              const atShop = typeof SHOP_INVENTORY !== 'undefined' && SHOP_INVENTORY && SHOP_INVENTORY[G.location];
-              const sellBtn = (!item.equipped && atShop)
-                ? '<button class="sell-item-btn" onclick="sellItem(' + idx + ')">Sell</button>'
-                : '';
               return '<div class="char-stat-row" style="align-items:center">' +
                 '<span class="char-stat-key" style="flex:1">' + item.name +
                 (item.equipped ? ' <span style="color:var(--jade-bright);font-size:9px;font-family:Cinzel,serif;letter-spacing:1px">EQUIPPED</span>' : '') +
                 (item.skillBonus ? ' <span style="color:var(--ink-faint);font-size:11px">+' + (item.bonus||0) + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Craft',might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit'}[item.skillBonus] || item.skillBonus) + '</span>' : '') +
-                '</span>' + btn + sellBtn +
+                '</span>' + btn +
               '</div>';
             }).join('')) +
         '</div>';
@@ -16329,6 +16325,24 @@ function showShop() {
     html += '</div>';
   }
 
+  var _hasFence = G.traits && G.traits.some(function(t) { return t.id === 'fence_network' || t.traitId === 'fence_network'; });
+  var _sellableInv = (G.inventory || []).map(function(item, idx) { return {item: item, idx: idx}; })
+    .filter(function(e) { return !e.item.equipped && e.item.type !== 'evidence' && e.item.type !== 'background_bonus' && (e.item.cost || 0) > 0; });
+  if (_sellableInv.length > 0) {
+    html += '<div style="margin-top:16px;border-top:1px solid var(--char);padding-top:12px"><div class="jov-title" style="font-size:13px;margin-bottom:8px">Sell Items</div>';
+    _sellableInv.forEach(function(e) {
+      var price = _hasFence ? (e.item.cost || 0) : Math.floor((e.item.cost || 0) * 0.5);
+      html += '<div class="shop-item inv-sell-row" style="margin-bottom:6px" data-inv-idx="' + e.idx + '" data-inv-price="' + price + '">'
+        + '<div class="shop-item-info"><div class="shop-item-name">' + e.item.name + '</div>'
+        + '<div class="shop-item-desc">' + (price < (e.item.cost || 0) ? '50% value' : 'Full value') + '</div></div>'
+        + '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
+        + '<div class="shop-item-cost">' + price + 'g</div>'
+        + '<button class="btn btn-ghost btn-xs inv-sell-btn">Sell</button>'
+        + '</div></div>';
+    });
+    html += '</div>';
+  }
+
   html += '<div style="margin-top:12px"><button class="btn btn-ghost btn-sm" id="btn-shop-close">Done shopping</button></div>';
   block.innerHTML = html;
 
@@ -16383,6 +16397,22 @@ function showShop() {
       if (descEl) descEl.textContent = 'Qty: ' + (G.materials[matId] || 0);
       if ((G.materials[matId] || 0) === 0) btn.disabled = true;
       showToast('Sold ' + matId.replace(/_/g, ' ') + ' for ' + price + 'g');
+    });
+  });
+
+  block.querySelectorAll('.inv-sell-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var row = btn.closest('.inv-sell-row');
+      var idx = parseInt(row.dataset.invIdx, 10);
+      var price = parseInt(row.dataset.invPrice, 10);
+      if (!G.inventory || !G.inventory[idx]) { showToast('Item not found.'); return; }
+      var itemName = G.inventory[idx].name;
+      G.inventory.splice(idx, 1);
+      modGold(price);
+      saveGame();
+      showToast('Sold ' + itemName + ' for ' + price + 'g');
+      block.remove();
+      showShop();
     });
   });
 
@@ -17807,6 +17837,7 @@ document.getElementById('howto-close').addEventListener('click', function() {
 <!-- ── STAGE 2 CLIMAX ── -->
 <script src='content/maren_oss_encounter.js'></script>
 <script src='content/travel_corridors.js'></script>
+<script src='content/travel_route_data.js'></script>
 <script src="content/item_system.js"></script>
 <script src="content/social_misstep_pool.js"></script>
 <script src="content/public_complication_pool.js"></script>
