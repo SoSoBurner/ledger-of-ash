@@ -16223,6 +16223,21 @@ function useConsumable(idx) {
   if (typeof renderCharacterSheet === 'function') renderCharacterSheet();
 }
 
+var MATERIAL_SELL_PRICES = {
+  stamped_paper: 2,
+  iron_shard: 3,
+  frontier_fiber: 2,
+  debt_ledger_scraps: 1,
+  ash_compound: 2,
+  enforcement_resin: 4,
+  patrol_insignia: 4,
+  house_crest_brass: 5,
+  shadow_residue: 6,
+  contract_fragment: 8,
+  carved_seal: 7,
+  guild_token: 5
+};
+
 function showShop() {
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_shop');
   const locId = G.location;
@@ -16278,6 +16293,24 @@ function showShop() {
       '</div></div>';
   });
 
+  var _mats = G.materials ? Object.keys(G.materials).filter(function(k) { return (G.materials[k] || 0) > 0 && MATERIAL_SELL_PRICES[k]; }) : [];
+  if (_mats.length > 0) {
+    html += '<div style="margin-top:16px;border-top:1px solid var(--char);padding-top:12px"><div class="jov-title" style="font-size:13px;margin-bottom:8px">Sell Materials</div>';
+    _mats.forEach(function(matId) {
+      var qty = G.materials[matId] || 0;
+      var price = MATERIAL_SELL_PRICES[matId];
+      var label = matId.replace(/_/g, ' ');
+      html += '<div class="shop-item" style="margin-bottom:6px">'
+        + '<div class="shop-item-info"><div class="shop-item-name" style="text-transform:capitalize">' + label + '</div>'
+        + '<div class="shop-item-desc">Qty: ' + qty + '</div></div>'
+        + '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">'
+        + '<div class="shop-item-cost">' + price + 'g each</div>'
+        + '<button class="btn btn-ghost btn-xs mat-sell-btn" data-mat-id="' + matId + '" data-mat-price="' + price + '">Sell 1</button>'
+        + '</div></div>';
+    });
+    html += '</div>';
+  }
+
   html += '<div style="margin-top:12px"><button class="btn btn-ghost btn-sm" id="btn-shop-close">Done shopping</button></div>';
   block.innerHTML = html;
 
@@ -16315,6 +16348,23 @@ function showShop() {
       const goldEl = block.querySelector('#shop-gold-display');
       if (goldEl) goldEl.textContent = isSorehimShop ? '◆ ' + (G.sorePlotCredits || 0) : G.gold;
       showToast('Purchased: ' + item.name);
+    });
+  });
+
+  block.querySelectorAll('.mat-sell-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var matId = btn.dataset.matId;
+      var price = parseInt(btn.dataset.matPrice, 10);
+      if (!G.materials || (G.materials[matId] || 0) <= 0) { showToast('No ' + matId.replace(/_/g, ' ') + ' to sell.'); return; }
+      G.materials[matId] = Math.max(0, (G.materials[matId] || 0) - 1);
+      modGold(price);
+      saveGame();
+      var goldEl = block.querySelector('#shop-gold-display');
+      if (goldEl) goldEl.textContent = G.gold;
+      var descEl = btn.closest('.shop-item').querySelector('.shop-item-desc');
+      if (descEl) descEl.textContent = 'Qty: ' + (G.materials[matId] || 0);
+      if ((G.materials[matId] || 0) === 0) btn.disabled = true;
+      showToast('Sold ' + matId.replace(/_/g, ' ') + ' for ' + price + 'g');
     });
   });
 
