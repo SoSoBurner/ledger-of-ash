@@ -4866,22 +4866,17 @@ function endCombat(victory) {
       G.pendingVictoryCallback = null;
       setTimeout(_vcb, 450);
     } else {
-      setTimeout(() => renderChoices([
-        { text:'Search the area for more information.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' },
-        { text:'Take what you need and move before anyone arrives.', skill:'stealth', tag:'risky', align:'chaotic', cid:'east_road' },
-        { text:'Report what happened to the local authority.', skill:'persuasion', tag:'safe', align:'lawful', cid:'garrison_contact' }
-      ]), 400);
+      setTimeout(function() { loadStageChoices(); }, 400);
     }
   } else {
     G.pendingVictoryCallback = null;
     addNarration('', 'You are out of the fight. Rest and recover before pressing further.', 'failure');
     saveGame();
     setTimeout(function() { renderChoices([
-      { text:'Make camp immediately.', skill:'vigor', tag:'safe', align:'neutral', cid:'rest_recover' },
-      { text:'Find a healer in the settlement.', skill:'charm', tag:'safe', align:'neutral', cid:'rest_recover' },
-      { text:'Push forward despite the wounds.', skill:'vigor', tag:'bold', align:'chaotic', cid:'passive_intel' }
+      { text:'Make camp immediately.', skill:'vigor', tag:'safe', align:'neutral', action:function(){ modHP(Math.floor(G.maxHp*0.2)); advanceTime(1); loadStageChoices(); } },
+      { text:'Find a healer in the settlement.', skill:'charm', tag:'safe', align:'neutral', action:function(){ modHP(Math.floor(G.maxHp*0.3)); advanceTime(1); loadStageChoices(); } },
+      { text:'Push forward despite the wounds.', skill:'vigor', tag:'bold', align:'chaotic', action:function(){ advanceTime(1); loadStageChoices(); } }
     ]); }, 400);
-    setTimeout(function() { if (!document.querySelector('.choice-block')) loadStageChoices(); }, 1500);
   }
 }
 
@@ -17635,11 +17630,7 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
   if (mode === 'retreat') {
     addNarration('', 'You extract yourself. They let you go — or you move too quickly for them to follow.');
     G.benevolence = Math.max(-50, (G.benevolence||0) - 2);
-    setTimeout(function() { renderChoices([
-      {text:'Regroup and find another approach.', skill:'wits', tag:'safe', align:'neutral', cid:'passive_intel'},
-      {text:'Find somewhere to tend the wounds and reconsider.', skill:'vigor', tag:'safe', align:'neutral', cid:'rest_recover'},
-      {text:'Circle back to the last safe position and wait.', skill:'finesse', tag:'risky', align:'neutral', cid:'passive_intel'}
-    ]); }, 300);
+    setTimeout(function() { loadStageChoices(); }, 300);
     return;
   }
   if (mode === 'talk') {
@@ -17652,7 +17643,7 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
     addNarration('', '<div class="roll-result ' + (success?'success':'failure') + '">d20: ' + roll + ' + persuasion ' + persuasion + (compBonus?' + companion '+compBonus:'') + ' = <strong>' + total + '</strong> vs ' + diff + ' — ' + (success ? '<span style="color:var(--jade-bright)">De-escalated</span>' : '<span style="color:var(--blood-bright)">Refused</span>') + '</div>' + (success ? 'They stand down. You have one question while they are still willing.' : 'They are not interested in talking.'));
     if (success) {
       G.renown = (G.renown||0) + 1; G.benevolence = Math.min(50, (G.benevolence||0) + 5);
-      setTimeout(() => renderChoices([{text:'Ask who sent them.', skill:'persuasion', tag:'risky', align:'neutral', cid:'probe_order_origin'},{text:'Ask what they were told to do.', skill:'lore', tag:'safe', align:'neutral', cid:'trace_directive'},{text:'Let them leave.', skill:'lore', tag:'safe', align:'good', cid:'passive_intel'}]), 300);
+      setTimeout(function() { loadStageChoices(); }, 300);
     } else { setTimeout(() => startCombat(enemyKey, {}), 400); }
     return;
   }
