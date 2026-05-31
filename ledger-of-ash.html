@@ -9474,17 +9474,26 @@ function updateHeatHUD() {
   var _maxHeat = 0;
   var _heatPolities = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
   var _heatNames = {shelk:'Shelkopolis',roaz:'Roaz',shirsh:'Shirshal',mimolot:'Mimolot',panim:'Panim Haven',cosmouth:'Cosmouth',zootia:'Zootia',union:'Union',sheresh:'Sheresh',soreheim:'Soreheim',nomdara:'Nomdara'};
+  var _heatAbbr  = {shelk:'SHK',roaz:'ROZ',shirsh:'SHR',mimolot:'MIM',panim:'PAN',cosmouth:'COS',zootia:'ZOT',union:'UNI',sheresh:'SHE',soreheim:'SOR',nomdara:'NOM'};
   var _activeHeat = [];
   _heatPolities.forEach(function(pk){ var hv = (G.heat && G.heat[pk]) || 0; if (hv > _maxHeat) _maxHeat = hv; if (hv > 0) _activeHeat.push(pk); });
   if (_heatEl) {
     if (_activeHeat.length > 0) {
       _heatEl.style.display = '';
-      _heatEl.innerHTML = '<div style="font-size:10px;color:var(--ink-faint);letter-spacing:1px;margin-bottom:2px;">HEAT</div>' +
-        _activeHeat.map(function(pk){
-          var hv = G.heat[pk] || 0;
-          var color = hv >= 8 ? 'var(--danger)' : hv >= 5 ? '#d47517' : '#b8860b';
-          return '<div style="display:flex;justify-content:space-between;color:'+color+';font-size:11px;"><span>'+_heatNames[pk]+'</span><span>'+hv+'</span></div>';
-        }).join('');
+      var _useGrid = _activeHeat.length >= 4;
+      _heatEl.innerHTML = '<div style="font-size:10px;color:var(--ink-faint);letter-spacing:1px;margin-bottom:3px;">HEAT</div>' +
+        (_useGrid
+          ? '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px 6px;">' +
+            _activeHeat.map(function(pk){
+              var hv = G.heat[pk] || 0;
+              var color = hv >= 8 ? 'var(--danger)' : hv >= 5 ? '#d47517' : '#b8860b';
+              return '<div style="color:'+color+';font-size:10px;font-family:var(--font-display);letter-spacing:0.5px;" title="'+_heatNames[pk]+'">'+_heatAbbr[pk]+' <span style="font-size:11px;">'+hv+'</span></div>';
+            }).join('') + '</div>'
+          : _activeHeat.map(function(pk){
+              var hv = G.heat[pk] || 0;
+              var color = hv >= 8 ? 'var(--danger)' : hv >= 5 ? '#d47517' : '#b8860b';
+              return '<div style="display:flex;justify-content:space-between;color:'+color+';font-size:11px;"><span>'+_heatNames[pk]+'</span><span>'+hv+'</span></div>';
+            }).join(''));
     } else { _heatEl.style.display = 'none'; }
   }
   var _heatRow = document.getElementById('hud-heat-row');
