@@ -11268,20 +11268,20 @@ function loadStageChoices(locId) {
     if (typeof addJournal === 'function') addJournal('A Guild intermediary is reportedly taking appointments at the Guildheart Registry. Appointments available through the usual channels.', 'intelligence');
   }
   checkHeatConsequences();
+  const loc = locId || G.location || '';
+  var _wlData = (typeof WORLD_LOCATIONS !== 'undefined' && WORLD_LOCATIONS[loc]) || {};
+  var _rawPolity = (_wlData.polity || '').toLowerCase();
+  var _polityKeys = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
+  G._currentPolity = _polityKeys.reduce(function(found, k){ return found || (_rawPolity.indexOf(k) >= 0 ? k : ''); }, '');
+
   var _heatPolity = G._currentPolity || '';
   var _heatTickFlag = '_auth_check_' + _heatPolity + '_' + (G.dayCount || 0);
   if (_heatPolity && getHeat(_heatPolity) >= 3 && !(G.flags && G.flags[_heatTickFlag])) {
     if (!G.flags) G.flags = {};
     G.flags[_heatTickFlag] = true;
-    enterAuthorityConfrontation(_heatPolity + '_patrol', { source: 'heat_threshold' });
+    enterAuthorityConfrontation(_heatPolity + '_patrol', { source: 'heat_threshold', polity: _heatPolity });
     return;
   }
-  const loc = locId || G.location || '';
-  // Derive polity key from WORLD_LOCATIONS config for authority encounter injection
-  var _wlData = (window.WORLD_LOCATIONS && window.WORLD_LOCATIONS[loc]) || {};
-  var _rawPolity = (_wlData.polity || '').toLowerCase();
-  var _polityKeys = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
-  G._currentPolity = _polityKeys.reduce(function(found, k){ return found || (_rawPolity.indexOf(k) >= 0 ? k : ''); }, '');
   const stage = G.stage || '';
   const stageNum = stage === 'Stage II' ? '2' : stage === 'Stage III' ? '3' : '1';
   const tableKey = loc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
