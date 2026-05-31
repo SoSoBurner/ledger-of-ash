@@ -12119,7 +12119,12 @@ function useTrait() {
   addNarration('', '+' + entry.bonus.n + ' to ' + entry.bonus.skill + ' on your next action.');
   saveGame(); updateHUD();
   if (typeof showToast === 'function') showToast('Trait activated.');
-  setTimeout(function() { renderChoices(entry.choices); }, 300);
+  // Stage I choices use legacy cids that dead-end in Stage II — fall back to loadStageChoices in later stages
+  if (G.stage && G.stage !== 'Stage I') {
+    setTimeout(function() { if (typeof loadStageChoices === 'function') loadStageChoices(); }, 300);
+  } else {
+    setTimeout(function() { renderChoices(entry.choices); }, 300);
+  }
 }
 
 // ── ENRICHED CHOICE HELPERS ───────────────────────────────
