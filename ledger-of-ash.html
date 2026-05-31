@@ -11298,7 +11298,7 @@ function loadStageChoices(locId) {
   if (enriched && enriched.length) {
     const seenKey = '_seen_enriched_' + stageNum;
     const seen = G.flags[seenKey] = G.flags[seenKey] || {};
-    let pool = enriched.filter(function(c) { return c && !seen[c.label]; });
+    let pool = enriched.filter(function(c) { return c && !seen[c.label || c.id || c.text]; });
     if (pool.length < 2) { G.flags[seenKey] = {}; pool = enriched.filter(Boolean); }
     // Fisher-Yates shuffle
     for (let i = pool.length - 1; i > 0; i--) {
@@ -11309,7 +11309,7 @@ function loadStageChoices(locId) {
     const _plotMain = pool.filter(function(c){ return c && c.plot === 'main'; });
     const _nonPlot  = pool.filter(function(c){ return c && c.plot !== 'main'; });
     const picked = (_plotMain.length ? [_plotMain[0]] : []).concat(_nonPlot).slice(0, 4);
-    picked.forEach(function(c) { seen[c.label] = true; });
+    picked.forEach(function(c) { seen[c.label || c.id || c.text] = true; });
     const adapted = picked.map(adaptEnrichedChoice);
     if ((G.timeIndex || 0) >= 2) {
       adapted.push({ text: 'Night is coming. I need somewhere to sleep.', tag: 'safe', align: 'neutral',
