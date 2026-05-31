@@ -834,6 +834,7 @@
       id: 'enc_fight',
       text: 'Step into the open. If they want a fight, they\'ll get one.',
       tag: 'bold',
+      skill: 'might',
       action: function(ctx) {
         // Prefer: explicit ctx.biome → static biome arg → dynamic route lookup → fallback
         var b = (ctx && ctx.biome) || biome;

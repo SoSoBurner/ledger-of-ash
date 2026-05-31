@@ -1250,7 +1250,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Seld counted something on his fingers just now. He stopped at four.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
@@ -1276,7 +1276,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 11) {
@@ -1301,7 +1301,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Confrontation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var r = rollD20(G.skills.charm || 0);
@@ -1328,7 +1328,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Confrontation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact; },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.charm || 0);
       if (r.total >= 13) {
@@ -1354,7 +1354,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'The checkpoint officer pulled my transit record before she said a word.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
@@ -1380,7 +1380,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.vigor || 0);
       if (r.total >= 11) {
@@ -1406,7 +1406,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var r = rollD20(G.skills.wits || 0);
@@ -1433,7 +1433,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Social', 'Confrontation'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact && G.flags.stage2_collegium_contact; },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.charm || 0);
       if (r.total >= 13) {
@@ -1460,7 +1460,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
@@ -1484,7 +1484,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Someone has been following my route. I want to know who gave them the itinerary.',
     tags: ['Stealth', 'Investigation'],
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var r = rollD20(G.skills.finesse || 0);
@@ -1511,7 +1511,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
@@ -1535,7 +1535,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'He answered every question I didn\'t ask. Not one I did.',
     tags: ['Investigation', 'Social'],
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.charm || 0);
       if (r.total >= 12) {
@@ -1560,7 +1560,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 11) {
@@ -1585,7 +1585,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'The public Collegium office exists to be seen. What\'s behind it does not.',
     tags: ['Investigation', 'Stealth'],
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.finesse || 0);
       if (r.total >= 13) {
@@ -1609,7 +1609,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'There\'s a gap in the suppression pattern. Someone forgot a subcategory.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
@@ -1634,7 +1634,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Investigation'],
     tag: 'risky',
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.finesse || 0);
       if (r.total >= 11) {
@@ -1658,7 +1658,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Waivers don\'t get signed without a reason. Someone approved these in bulk.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 12) {
@@ -1683,7 +1683,7 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Reclassified cargo stops being cargo. That\'s the point of reclassifying it.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 13) {
@@ -1708,7 +1708,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Investigation'],
     tag: 'risky',
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.vigor || 0);
       if (r.total >= 11) {
@@ -1733,7 +1733,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
     plot: 'side',
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 13) {
@@ -1767,7 +1767,7 @@ const STAGE2_ENRICHED_CHOICES = [
         (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'lore')
       );
     },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
       if (r.total >= 11) {
@@ -1798,7 +1798,7 @@ const STAGE2_ENRICHED_CHOICES = [
         (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'craft')
       );
     },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.craft || 0);
       if (r.total >= 12) {
@@ -2159,7 +2159,7 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.combat || 0);
       if (r.total >= 12) {
@@ -2190,7 +2190,7 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.combat || 0);
       if (r.total >= 11) {
@@ -2221,7 +2221,7 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.combat || 0);
       if (r.total >= 10) {
@@ -2250,7 +2250,7 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.combat || 0);
       if (r.total >= 13) {
@@ -2280,7 +2280,7 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
-    result: function() {
+    fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.combat || 0);
       if (r.total >= 12) {
