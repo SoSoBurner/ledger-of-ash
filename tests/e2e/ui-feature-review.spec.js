@@ -391,35 +391,37 @@ test.describe('UI Feature Review', () => {
     ensureDirs();
     await bootstrapGame(page);
 
-    // F9: Roll skill names — retry up to 5 clicks to find a roll
-    let rollText = '';
+    // F9: Roll skill names — retry up to 5 clicks to find a roll result div
+    let rollResultText = '';
+    let rollFired = false;
     for (let i = 0; i < 5; i++) {
       const btns = await page.$$('.choice-btn:visible:not([disabled])');
       if (btns.length > 0) await btns[0].click();
       await page.waitForTimeout(400);
-      rollText = await page.$eval('#narrative-content', el => el.innerHTML).catch(() => '');
-      if (rollText.includes('d20') || rollText.includes('roll')) break;
+      // Check only .roll-result divs — avoids false-positives from prose text containing words like "combat"
+      rollResultText = await page.$$eval('.roll-result', els => els.map(e => e.textContent).join(' ')).catch(() => '');
+      if (rollResultText.includes('d20')) { rollFired = true; break; }
     }
 
     await page.screenshot({ path: path.join(SCREENSHOT_DIR, 'f9-roll-skill-name.png') });
 
-    const hasOldKey = /\b(lore|combat|survival|stealth|persuasion)\b/i.test(rollText);
-    const hasNewKey = /\b(Might|Vigor|Wits|Charm|Finesse|Spirit)\b/.test(rollText);
+    const hasOldKey = /\b(lore|combat|survival|stealth|persuasion)\b/i.test(rollResultText);
+    const hasNewKey = /\b(Might|Vigor|Wits|Charm|Finesse|Spirit)\b/.test(rollResultText);
 
     let result = { status: 'PARTIAL', detail: 'No roll fired after 5 clicks' };
-    if (hasOldKey) {
+    if (rollFired && hasOldKey) {
       result.status = 'FAIL';
-      result.detail = 'OLD key found in roll text — rekey not working';
-    } else if (hasNewKey) {
+      result.detail = 'OLD key found in .roll-result div — _KEY_NORM not normalizing';
+    } else if (rollFired && hasNewKey) {
       result.status = 'PASS';
-      result.detail = 'New display keys confirmed';
+      result.detail = 'New display keys confirmed in .roll-result';
     }
 
     record('F9', 'Roll skill names (no old keys)', result.status, result.detail);
 
-    if (rollText.includes('d20') || rollText.includes('roll')) {
+    if (rollFired) {
       expect(hasOldKey,
-        `Old key (lore/combat/survival/stealth/persuasion) found in roll output — _KEY_NORM not normalizing`
+        `Old key (lore/combat/survival/stealth/persuasion) found in .roll-result — _KEY_NORM not normalizing`
       ).toBe(false);
     }
   });
