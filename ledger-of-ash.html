@@ -13859,8 +13859,6 @@ function addQuest(msg, hint, questId) {
 // ── TRAVEL ───────────────────────────────────────────────
 /** Locality transition. Stage I blocks cross-region travel. Sets G.location, ticks axis, renders arrival choices. @param {string} locId */
 function showTravelModeSelect(destId, destName, onConfirm) {
-  if (typeof onConfirm === 'function') onConfirm();
-  return;
   var _existing = document.getElementById('travel-mode-modal');
   if (_existing) _existing.remove();
   var _costs = { foot: 0, horse: 5, cart: 3, boat: 8 };
