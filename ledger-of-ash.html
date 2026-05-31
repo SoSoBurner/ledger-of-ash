@@ -9395,7 +9395,12 @@ function updateHeatHUD() {
  */
 function enterAuthorityConfrontation(authorityKey, ctx) {
   ctx = ctx || {};
-  var polity    = ctx.polity    || authorityKey;
+  var _polityKeys = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
+  var _derivedPolity = ctx.polity || (function() {
+    var ak = authorityKey.toLowerCase();
+    return _polityKeys.reduce(function(found, k){ return found || (ak.indexOf(k) >= 0 ? k : ''); }, '') || authorityKey;
+  })();
+  var polity    = _derivedPolity;
   var heatLevel = ctx.heatLevel != null ? ctx.heatLevel : getHeat(polity);
   var offense   = ctx.offense   || 'unspecified violation';
   var locality  = ctx.locality  || G.location || 'unknown';
@@ -9427,19 +9432,19 @@ function _authorityRenderPhase1(authorityKey, polity, heatLevel) {
   var choices = [
     {
       text: 'Cooperate fully. Give them no reason to push further.',
-      skill: 'persuasion', tag: 'safe', align: 'lawful',
+      skill: 'charm', tag: 'safe', align: 'lawful',
       extraClass: 'deescalate',
       cid: '__authority__' + ak + '__' + pk + '__1__comply'
     },
     {
       text: 'There is a procedural angle here. Work it.',
-      skill: 'persuasion', tag: 'risky', align: 'neutral',
+      skill: 'charm', tag: 'risky', align: 'neutral',
       extraClass: 'deescalate',
       cid: '__authority__' + ak + '__' + pk + '__1__negotiate'
     },
     {
       text: 'This does not have to be about you. Give them somewhere else to look.',
-      skill: 'stealth', tag: 'risky', align: 'chaotic',
+      skill: 'finesse', tag: 'risky', align: 'chaotic',
       extraClass: 'deescalate',
       cid: '__authority__' + ak + '__' + pk + '__1__deflect'
     }
@@ -9457,20 +9462,20 @@ function _authorityRenderPhase2(authorityKey, polity, heatLevel) {
     {
       text: 'Hold your ground. Make them commit.',
       preview: 'You do not move. They have to decide whether this is worth escalating — and their hesitation is already an answer.',
-      skill: 'persuasion', tag: 'bold', align: 'chaotic',
+      skill: 'charm', tag: 'bold', align: 'chaotic',
       extraClass: 'combat-lv2',
       cid: '__authority__' + ak + '__' + pk + '__2__stand_firm'
     },
     {
       text: 'There is a gap — move through it before it closes.',
       preview: 'The corridor between them is narrow and momentary. Miss it and the situation hardens into something with no good exits.',
-      skill: 'stealth', tag: 'bold', align: 'chaotic',
+      skill: 'finesse', tag: 'bold', align: 'chaotic',
       extraClass: 'combat-lv1',
       cid: '__authority__' + ak + '__' + pk + '__2__attempt_escape'
     },
     {
       text: 'Hands up. This is not the place to fight.',
-      skill: 'persuasion', tag: 'safe', align: 'lawful',
+      skill: 'charm', tag: 'safe', align: 'lawful',
       extraClass: 'combat-lv1',
       cid: '__authority__' + ak + '__' + pk + '__2__accept_detention'
     }
@@ -9479,7 +9484,7 @@ function _authorityRenderPhase2(authorityKey, polity, heatLevel) {
     choices.push({
       text: 'They are not leaving you a choice. Commit to it.',
       preview: 'Heat 5+. The authority has escalated past negotiation. What follows will be logged, remembered, and difficult to walk back from.',
-      skill: 'combat', tag: 'bold', align: 'chaotic',
+      skill: 'might', tag: 'bold', align: 'chaotic',
       extraClass: 'combat-lv3',
       cid: '__authority__' + ak + '__' + pk + '__2__fight'
     });
