@@ -22,11 +22,12 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('wits');
       if (result.isCrit || result.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'The staging manifest has a seven-day gap — no departures, no arrivals, no weather notation to explain it. Kael signs the surrounding entries but not the blank week. The gap ends on the same date the suppression request pattern in the knowledge registry begins. Whatever used Sunspire during that week left no official record of doing so.';
         addJournal('Sunspire staging: 7-day manifest gap, no weather explanation, coincides with suppression request pattern start', 'evidence', 'sun-manifest-gap-' + (G.dayCount||0));
         if (typeof gainXp === 'function') gainXp(40);
       } else {
-        G.lastResult = 'The dispatch office requires a formal access request countersigned by the Adjudicator\'s office. Kael is apologetic but specific about the procedure. The log window is there — you can see it ends — but the contents are sealed.';
+        G.lastResult = 'The dispatch log entry carries a sealed charter reference in the margin — a string of institutional codes that blocks further access without formal clearance. You copy the code. The clerk behind the counter watches the copy without comment, then turns back to her ledger. The filing desk has a stamp on it that reads "Charter Office — Third Ring." You note the floor number. The corridor back out is long.';
         if (typeof gainXp === 'function') gainXp(15);
       }
     }
@@ -46,11 +47,12 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('charm');
       if (result.isCrit || result.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         G.lastResult = 'Taldan has been waiting for someone who would ask the right question. He pulls a folder from a locked drawer — his personal copy of the refusals, not the institutional file. Fourteen requests, each citing the same nonexistent authority. He did not comply. He also did not report upward. He says: whoever issued these expected compliance, not a paper trail. He has been building the paper trail anyway.';
         addJournal('Taldan keeps personal refusal copies — 14 requests, same fake authority, building own evidence record', 'evidence', 'sun-taldan-main-' + (G.dayCount||0));
         if (typeof gainXp === 'function') gainXp(40);
       } else {
-        G.lastResult = 'Taldan is procedurally careful about the meeting. He records it, cross-references the record, and asks what brings you to a knowledge oversight function. His manner is not hostile — it is the manner of someone who has been handling sensitive materials long enough to treat every conversation as potentially documentary.';
+        G.lastResult = 'Taldan enters the meeting in his register before you have said anything of substance. The pen moves precisely: date, time, nature of inquiry (listed as "general archival request"), your name spelled in the formal register. He answers what you ask and nothing more. Each answer closes a door. When you leave, the register stays open on his desk, the entry still drying. He is not protecting himself. He is protecting something specific.';
         if (typeof gainXp === 'function') gainXp(15);
       }
     }
