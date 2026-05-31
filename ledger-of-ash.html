@@ -13239,7 +13239,7 @@ function checkStageAdvance() {
       addQuest('The accounting is almost complete.', 'The final confrontation is close — the antechamber holds the last piece.', 'q_s2_antechamber');
     }
     if (window.STAGE2_ANTECHAMBER && window.STAGE2_ANTECHAMBER.shouldTrigger()) { window.STAGE2_ANTECHAMBER.trigger(); return; }
-    if (window.STAGE2_CLIMAX && !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && !!(G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made)) { window.STAGE2_CLIMAX.trigger(); return; }
+    if (window.STAGE2_CLIMAX && !G.flags.stage2_climax_complete && !G.flags.stage2_climax_started && G.flags.stage2_antechamber_done && !!(G.flags.stage2_miniboss_complete && G.flags.stage2_faction_contact_made)) { window.STAGE2_CLIMAX.trigger(); return; }
     if (!canAdvanceToStage3()) {
       // Hint player toward missing gate conditions
       if (typeof addNarration === 'function' && !G.flags._stage3_hint_shown) {
