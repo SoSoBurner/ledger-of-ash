@@ -177,6 +177,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_lyria_firesoul = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Forge Manifest Discrepancy', 'The quota ledger is stamped and sealed — production figures in red-chalked columns down the left margin. The forge manifest beside it shows different numbers for the same allotment period. Lyria Firesoul does not look up when you set them side by side on the counter. She keeps her eyes on the manifest. One finger moves to the column header — not pointing, just resting there. The variance is not small. "Tower registries reconcile on the last day of each period," she says. "They haven\'t reconciled in six weeks."');
         addJournal('Forge manifest allotment figures diverge from war-production quota ledger — six-week gap in tower reconciliation', 'evidence');
         maybeStageAdvance();
@@ -195,6 +196,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('The Porter\'s Account', 'He doesn\'t stop moving. The crate goes onto the freight sled and he picks up the next one before answering. "Transfer order came down with a Relic Strategy Wing seal on it. I moved it because the seal was good." He sets the second crate down harder than necessary. "Four loads that week. Same destination each time. Not on the standard route manifest." He straightens up and looks at the loading dock clock rather than at you. "Staging depot, north bridge access road. I wrote it in my personal log because the route number didn\'t exist."');
         addJournal('Porter confirms Relic Strategy Wing transfer orders routed to north bridge staging depot — not logged in standard manifest', 'intelligence');
         maybeStageAdvance();
@@ -213,6 +215,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('finesse', G.skills.stealth);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('The Ceremony Record', 'The shrine attendance rolls are kept in a cedar cabinet behind the offering table. The attendant is at the far end of the hall, adjusting a candle arrangement with careful attention. The ceremony record for the sixth-week merit judgment is third from the top — the name entered under the Northern Ambition bloc representative slot does not match the councillor\'s registered seal. The substituted name is a Relic Strategy Wing clerk designation. Whoever attended that merit judgment was not authorized to receive the production allocation it conveyed. The allocation is still in effect.');
         addJournal('Tower merit judgment record shows unauthorized substitution — Relic Strategy Wing clerk received Northern Ambition production allocation', 'evidence');
         maybeStageAdvance();
@@ -272,6 +275,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('spirit', G.skills.craft);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Export Manifest — Dual Stamp Anomaly', 'The export manifest sits in the surface pile at the guild registry counter — recent enough to be unfiled. Two stamps on the lower third of the page: the Giant Council export authority mark in blue ink, and a Relic Strategy Wing operational clearance in black. Both are genuine. Both authorize the same outbound shipment. The guild registry clerk\'s copy, filed in the bound ledger beside the counter, carries only the Giant Council stamp. The black stamp on the manifest copy does not appear anywhere in the clerk\'s records. The operational clearance was added after the clerk\'s copy was taken. The shipment already left.');
         addJournal('Export manifest dual-stamped — Relic Strategy Wing clearance added post-filing, absent from registry record', 'evidence');
         maybeStageAdvance();

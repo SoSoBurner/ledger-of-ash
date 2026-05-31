@@ -712,6 +712,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 12) {
         G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'The correspondence is between two faculty members — formal register, tight margins, no salutation beyond initials. The first letter asks whether the external classification directive applies to the theoretical work as well as the applied findings. The second answers: classification directives from outside the faculty are not standard procedure and have no precedent in the Academy charter, but the directive arrived with a Collegium counter-seal, which means it carries force regardless of charter. The correspondent adds, in a postscript so compressed it is nearly illegible: "We are being told to not write down what we already know."';
         addJournal('Mimolot archive: faculty correspondence — external Collegium classification directive applied to theoretical research, no charter precedent, counter-seal used to enforce.', 'evidence');
       } else if (result.isFumble) {
@@ -720,6 +721,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         addJournal('Mimolot archive: external researcher registration required for correspondence files — access request logged with Dean\'s office.', 'complication');
       } else {
         G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'The archive holds faculty correspondence by term and subject. The administrative anomalies file — a designation someone added to an otherwise unnamed folder — contains letters between two scholars discussing a classification directive that arrived from outside the faculty. The language is precise and deliberately plain: they were told certain findings could not be documented. The letters do not name who told them this. They note the date.';
         addJournal('Mimolot archive: faculty correspondence on external classification directive — findings suppressed by unnamed authority, date recorded.', 'evidence');
       }
@@ -740,6 +742,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit || result.total >= 14) {
         G.flags.met_scholar_ruveth = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'Ruveth speaks fluently about the suppression period — dates, mechanisms, procedural logic. Then the question touches the Academy\'s own Collegium relationship. He finishes his coffee, sets the cup in the exact center of the saucer ring, and says: "The Academy accepted a funding arrangement that required certain research to remain within the institution\'s administrative domain. That is not uncommon." He does not say what the arrangement required in exchange. Technically true. The conversation ends without the thread closing.';
         addJournal('Mimolot scholar Ruveth: Academy accepted Collegium-linked funding arrangement requiring research to remain in administrative domain — terms not stated.', 'intelligence');
         G.flags.stage2_faction_contact_made = true;

@@ -18,6 +18,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_sable_ledgermere = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `All three exemptions are already flagged. The reference index opens to a subsidiary notation and a finger taps the entry without a word first. The sealed charter pattern matches a Principality of Shelk contract rider predating Union consolidation — one that was supposed to terminate on consolidation. It didn't terminate. The renewal line carries ink from this year. Someone renewed it without filing the renewal through Union registry.`;
         addJournal('Sealed charter is expired Shelk contract rider — quietly renewed, predates Union consolidation', 'evidence', `guild-sable-${G.dayCount}`);
@@ -28,6 +29,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_sable_ledgermere = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The three exemptions carry the same unusual charter pattern — confirmed without hesitation. The source reference log comes out and a finger runs down two columns before stopping. "Predates current Union governance. I can't source it further without the subsidiary archive, and that's a separate request." The log closes. "Old paper. New ink on the renewal line." The abacus at the desk corner sits untouched; the calculation has already been done. The ink on that renewal line is this season's batch — the Hub switched compounds in spring.`;
         addJournal('Pre-Union charter with recent renewal line — old structure, active use', 'evidence', `guild-sable-partial-${G.dayCount}`);
       }
@@ -46,6 +48,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_luthen_ledgermere = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Luthen keeps his eyes on the yard while he talks. The loading crews for those three batches weren't guild — brought in from outside, names not on the shift register. The cargo had a chemical smell through the crating. Destination manifests listed a transit point northeast of Ithtananalor that he's never routed to before or since. "They told me not to enter it in my personal log. Just the official sheet." He pauses. "Official sheet goes to the charter desk. My log stays with me."`;
         addJournal('Non-guild crews loaded sealed compounds — unlisted northeast transit point', 'evidence', `guild-luthen-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -54,6 +57,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_luthen_ledgermere = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The night-loading runs are confirmed without evasion. "Three batches, past regular hours. Weight didn't match the description category on the manifest — too dense for textile, too light for stone." The official log was filed, not a discrepancy report. "Charter exemption means no secondary review. That's in the protocol. Always has been." A mark goes on the clipboard as if the protocol settled the question. It didn't. The transit yard smells of rope oil and cold canal water. Luthen turns back to the bay without waiting to see if there are more questions.`;
         addJournal('Charter-exempt cargo weight mismatch — no-questions protocol cited', 'evidence', `guild-luthen-partial-${G.dayCount}`);
       }
@@ -99,6 +103,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_cala_ledgermere = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The physical description comes without hesitation — innkeepers who survive on repeat guests develop that kind of memory. The profile matches Iron Compact field arbitration. "Always the same table. Always the same other guest — not registered with the Union, I checked once. Provisional registration, renewed monthly." A cup gets straightened that doesn't need straightening. "They meet the evening before the freight loads. Every time."`;
         addJournal('Guildheart inn: Iron Compact arbiter meets monthly-registered broker night before charter loads', 'evidence', `guild-cala-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -109,6 +114,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_cala_ledgermere = true;
         G.investigationProgress++;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Cala thinks before answering, which means she's deciding how much. "Comes in from the east. Leaves northwest. Carries sealed documentation, never leaves it in the room." She refills a cup before continuing. "She's not here for any arbitration I've seen go through the main hall. I'd remember — those are logged at the desk." She straightens the cup handle before setting it down. Whatever else she knows, she has decided that is the portion she is giving.`;
         addJournal('Regular off-channel arbiter: east arrival, northwest departure, sealed documents', 'evidence', `guild-cala-partial-${G.dayCount}`);
       }
