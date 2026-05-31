@@ -4876,11 +4876,12 @@ function endCombat(victory) {
     G.pendingVictoryCallback = null;
     addNarration('', 'You are out of the fight. Rest and recover before pressing further.', 'failure');
     saveGame();
-    setTimeout(() => renderChoices([
+    setTimeout(function() { renderChoices([
       { text:'Make camp immediately.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover' },
       { text:'Find a healer in the settlement.', skill:'persuasion', tag:'safe', align:'neutral', cid:'shrine_service' },
       { text:'Push forward despite the wounds.', skill:'survival', tag:'bold', align:'chaotic', cid:'passive_intel' }
-    ]), 400);
+    ]); }, 400);
+    setTimeout(function() { if (!document.querySelector('.choice-block')) loadStageChoices(); }, 1500);
   }
 }
 
@@ -17568,7 +17569,11 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
   if (mode === 'retreat') {
     addNarration('', 'You extract yourself. They let you go — or you move too quickly for them to follow.');
     G.benevolence = Math.max(-50, (G.benevolence||0) - 2);
-    setTimeout(() => renderChoices([{text:'Regroup and find another approach.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'}]), 300);
+    setTimeout(function() { renderChoices([
+      {text:'Regroup and find another approach.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel'},
+      {text:'Find somewhere to tend the wounds and reconsider.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover'},
+      {text:'Circle back to the last safe position and wait.', skill:'stealth', tag:'risky', align:'neutral', cid:'lay_low'}
+    ]); }, 300);
     return;
   }
   if (mode === 'talk') {
