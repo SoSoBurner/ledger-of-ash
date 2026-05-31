@@ -3349,6 +3349,116 @@ const ENEMY_TEMPLATES = {
     desc:'Enforces internal commune law. Will not pursue outside commune bounds — but notes everything.',
     region:['sheresh','aurora_crown_commune','whitebridge_commune','glasswake_commune'],
     loot:{gold:7, materials:[{id:'parchment_roll',qty:1,chance:0.6}]}, fleeThreshold:0.7
+  },
+
+  // ── BIOME NON-HUMANOID CREATURES (travel corridor encounters) ─
+  plains_dust_hound:{
+    name:'Plains Dust Hound', hp:10, maxHp:10, attack:5, defense:3, morale:6,
+    desc:'A lean hunting canid gone feral on the open plains. Closes distance fast.',
+    loot:{gold:0, item:'Dust Hound Hide', materials:[{id:'beast_hide',qty:1,chance:0.7},{id:'frontier_fiber',qty:1,chance:0.4}]},
+    fleeThreshold:0.3, abilities:[{name:'Pack Rush', effect:'attack+2 if ally present'}]
+  },
+  plains_grazer_bull:{
+    name:'Plains Grazer Bull', hp:22, maxHp:22, attack:6, defense:4, morale:11,
+    desc:'A massive territorial grazer. Does not retreat until cornered past breaking.',
+    loot:{gold:0, item:'Grazer Horn', materials:[{id:'bone_shard',qty:2,chance:0.6},{id:'beast_hide',qty:2,chance:0.5}]},
+    fleeThreshold:0.1, abilities:[{name:'Charge', effect:'first attack+4, defense-2 that round'}]
+  },
+  plains_scavenger_kite:{
+    name:'Plains Scavenger Kite', hp:8, maxHp:8, attack:6, defense:5, morale:5,
+    desc:'A broad-winged carrion bird that has learned not to wait. Attacks from above.',
+    loot:{gold:0, item:'Kite Feather', materials:[{id:'beast_hide',qty:1,chance:0.4}]},
+    fleeThreshold:0.4, abilities:[{name:'Dive Strike', effect:'first attack roll+3'}]
+  },
+  highland_rockjaw:{
+    name:'Highland Rockjaw', hp:14, maxHp:14, attack:6, defense:4, morale:8,
+    desc:'A burrowing ambush predator. The jaw locks on contact.',
+    loot:{gold:0, item:'Rockjaw Mandible', materials:[{id:'bone_shard',qty:2,chance:0.7},{id:'beast_hide',qty:1,chance:0.5}]},
+    fleeThreshold:0.25, abilities:[{name:'Lockjaw', effect:'on hit, target -1 to next roll'}]
+  },
+  highland_ridge_viper:{
+    name:'Highland Ridge Viper', hp:7, maxHp:7, attack:5, defense:3, morale:5,
+    desc:'Length of a walking staff. Keeps striking after the first hit.',
+    loot:{gold:0, item:'Ridge Viper Venom Sac', materials:[{id:'ash_compound',qty:1,chance:0.6},{id:'beast_hide',qty:1,chance:0.3}]},
+    fleeThreshold:0.2, abilities:[{name:'Relentless', effect:'attacks twice on successful hit'}]
+  },
+  highland_fog_stalker:{
+    name:'Highland Fog Stalker', hp:16, maxHp:16, attack:5, defense:7, morale:9,
+    desc:'Hunts by sound in highland fog. Defense increases in obscured terrain.',
+    loot:{gold:0, item:'Fog Stalker Pelt', materials:[{id:'beast_hide',qty:2,chance:0.6},{id:'frontier_fiber',qty:1,chance:0.5}]},
+    fleeThreshold:0.35, abilities:[{name:'Fog Cover', effect:'defense+2 in natural terrain'}]
+  },
+  coastal_shorecat:{
+    name:'Coastal Shorecat', hp:11, maxHp:11, attack:7, defense:4, morale:6,
+    desc:'A flat-bodied predator. Breathes above and below. Never far from tidal zones.',
+    loot:{gold:0, item:'Shorecat Claw', materials:[{id:'bone_shard',qty:2,chance:0.6},{id:'ash_compound',qty:1,chance:0.3}]},
+    fleeThreshold:0.4, abilities:[{name:'Ambush Pounce', effect:'first attack+3'}]
+  },
+  coastal_tide_crawler:{
+    name:'Coastal Tide Crawler', hp:18, maxHp:18, attack:5, defense:8, morale:10,
+    desc:'Shell the color of tide-dark stone. Slow but hits harder than its size suggests.',
+    loot:{gold:0, item:'Tide Crawler Shell Plate', materials:[{id:'enforcement_resin',qty:1,chance:0.5},{id:'bone_shard',qty:2,chance:0.7}]},
+    fleeThreshold:0.15, abilities:[{name:'Shell Defense', effect:'defense+3 when stationary'}]
+  },
+  mountain_ironwing:{
+    name:'Mountain Ironwing', hp:13, maxHp:13, attack:7, defense:5, morale:7,
+    desc:'A raptor with a six-foot wingspan. Hunts large prey. Attacks from above.',
+    loot:{gold:0, item:'Ironwing Talon', materials:[{id:'beast_hide',qty:1,chance:0.5},{id:'iron_shard',qty:1,chance:0.4}]},
+    fleeThreshold:0.45, abilities:[{name:'Aerial Strike', effect:'first attack ignores armor bonus'}]
+  },
+  mountain_stoneback:{
+    name:'Mountain Stoneback', hp:20, maxHp:20, attack:5, defense:8, morale:12,
+    desc:'Something between a lizard and a boulder. Back plates deflect most strikes.',
+    loot:{gold:0, item:'Stoneback Plate', materials:[{id:'enforcement_resin',qty:1,chance:0.5},{id:'bone_shard',qty:2,chance:0.6}]},
+    fleeThreshold:0.1, abilities:[{name:'Stone Hide', effect:'reduces incoming damage by 1'}]
+  },
+  mountain_crevice_asp:{
+    name:'Mountain Crevice Asp', hp:7, maxHp:7, attack:6, defense:4, morale:5,
+    desc:'Thin enough to thread through rock cracks. Never misses on the first strike.',
+    loot:{gold:0, item:'Crevice Asp Fang', materials:[{id:'ash_compound',qty:2,chance:0.7},{id:'beast_hide',qty:1,chance:0.3}]},
+    fleeThreshold:0.15, abilities:[{name:'First Strike', effect:'always attacks first in round 1'}]
+  },
+  forest_shadowmaw:{
+    name:'Forest Shadowmaw', hp:14, maxHp:14, attack:6, defense:5, morale:8,
+    desc:'A forest predator that stalks from the canopy. Silent until committed.',
+    loot:{gold:0, item:'Shadowmaw Fang', materials:[{id:'beast_hide',qty:2,chance:0.6},{id:'shadow_residue',qty:1,chance:0.3}]},
+    fleeThreshold:0.35, abilities:[{name:'Canopy Drop', effect:'first attack+2, ignores shield bonus'}]
+  },
+  forest_vine_horror:{
+    name:'Forest Vine Horror', hp:17, maxHp:17, attack:4, defense:6, morale:13,
+    desc:'A mass of animate root and vine. Slow but nearly impossible to push back.',
+    loot:{gold:0, item:'Vine Horror Core', materials:[{id:'frontier_fiber',qty:3,chance:0.7},{id:'ash_compound',qty:1,chance:0.4}]},
+    fleeThreshold:0.05, abilities:[{name:'Entangle', effect:'on hit, target -1 attack for 2 rounds'}]
+  },
+  forest_needle_crow:{
+    name:'Forest Needle Crow', hp:6, maxHp:6, attack:5, defense:4, morale:4,
+    desc:'A crow with spine-like beak feathers. Hunts in numbers. Each additional crow hits harder.',
+    loot:{gold:0, item:'Needle Crow Spine', materials:[{id:'beast_hide',qty:1,chance:0.5},{id:'bone_shard',qty:1,chance:0.4}]},
+    fleeThreshold:0.5, abilities:[{name:'Flock', effect:'attack+1 per additional needle crow in combat'}]
+  },
+  ash_zone_cinder_rat:{
+    name:'Ash-Zone Cinder Rat', hp:6, maxHp:6, attack:4, defense:2, morale:4,
+    desc:'Adapted to ash-zone heat. The mineral compound on its teeth works slowly.',
+    loot:{gold:0, item:'Cinder Rat Teeth', materials:[{id:'ash_compound',qty:1,chance:0.8},{id:'beast_hide',qty:1,chance:0.4}]},
+    fleeThreshold:0.2, abilities:[{name:'Ash Bite', effect:'on hit, target takes 1 extra damage next round'}]
+  },
+  ash_zone_ember_hound:{
+    name:'Ash-Zone Ember Hound', hp:15, maxHp:15, attack:6, defense:5, morale:8,
+    desc:'Mineral-dust fur absorbs heat. Hunts in ash-zone travel corridors.',
+    loot:{gold:0, item:'Ember Hound Pelt', materials:[{id:'ash_compound',qty:2,chance:0.5},{id:'beast_hide',qty:2,chance:0.6}]},
+    fleeThreshold:0.3, abilities:[{name:'Heat Resistance', effect:'immune to fire-type attack bonuses'}]
+  },
+  ice_locked_frostgrip:{
+    name:'Ice-Locked Frostgrip', hp:19, maxHp:19, attack:5, defense:6, morale:11,
+    desc:'A territorial predator adapted to sub-axis conditions. Slow but relentless.',
+    loot:{gold:0, item:'Frostgrip Claw', materials:[{id:'bone_shard',qty:2,chance:0.7},{id:'beast_hide',qty:2,chance:0.5}]},
+    fleeThreshold:0.15, abilities:[{name:'Relentless Pursuit', effect:'cannot be escaped via Retreat without combat resolution'}]
+  },
+  ice_locked_polar_asp:{
+    name:'Ice-Locked Polar Asp', hp:8, maxHp:8, attack:5, defense:3, morale:5,
+    desc:'Hunts warm-blooded prey by heat signature. First strike in cold terrain.',
+    loot:{gold:0, item:'Polar Asp Scale', materials:[{id:'ash_compound',qty:1,chance:0.6},{id:'beast_hide',qty:1,chance:0.4}]},
+    fleeThreshold:0.2, abilities:[{name:'Heat Sense', effect:'attack+2 in ice-locked terrain'}]
   }
 };
 
