@@ -39,9 +39,9 @@ const LOG_PATH        = path.join(TEST_RESULTS, 'playtest-headless-log.md');
 const HEADLESS_FAMILY_ORDER = ['classic-combat', 'magic-spellcasting', 'stealth-precision', 'support-leadership'];
 
 const HEADLESS_FAMILY_POOLS = {
-  'classic-combat':     ['warrior','knight','berserker','warlord','warden','death_knight','archer'],
-  'magic-spellcasting': ['paladin','spellthief','ranger'],
-  'stealth-precision':  ['rogue','assassin','scout_c','thief','trickster','beastmaster'],
+  'classic-combat':     ['warrior','knight','berserker','warlord','warden','death_knight','archer','paladin','ranger'],
+  'magic-spellcasting': ['wizard','cleric','priest','necromancer','illusionist','inquisitor','elementalist','oracle'],
+  'stealth-precision':  ['rogue','assassin','scout_c','thief','trickster','beastmaster','spellthief'],
   'support-leadership': ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
 };
 
@@ -51,16 +51,16 @@ const HEADLESS_FAMILY_POOLS = {
 const HEADED_FAMILY_ORDER = ['classic-combat', 'magic-spellcasting', 'stealth-precision', 'support-leadership'];
 
 const HEADED_FAMILY_POOLS = {
-  'classic-combat':       ['warrior','knight','berserker','warlord','warden','death_knight','archer'],
-  'magic-spellcasting':   ['paladin','spellthief','ranger'],
-  'stealth-precision':    ['rogue','assassin','scout_c','thief','trickster','beastmaster'],
+  'classic-combat':       ['warrior','knight','berserker','warlord','warden','death_knight','archer','paladin','ranger'],
+  'magic-spellcasting':   ['wizard','cleric','priest','necromancer','illusionist','inquisitor','elementalist','oracle'],
+  'stealth-precision':    ['rogue','assassin','scout_c','thief','trickster','beastmaster','spellthief'],
   'support-leadership':   ['healer','artificer','engineer','tactician','alchemist','saint','bard'],
 };
 
 // Fixed first attempt per headed family — most canonical/stable archetype+bg
 const HEADED_FIRST_ATTEMPT = {
   'classic-combat':     { archetypeId: 'warrior',  backgroundId: 'w_garrison' },
-  'magic-spellcasting': { archetypeId: 'paladin',  backgroundId: 'p_cysur'    },
+  'magic-spellcasting': { archetypeId: 'wizard',   backgroundId: 'wz_shelk'   },
   'stealth-precision':  { archetypeId: 'rogue',    backgroundId: 'ro_shelk'   },
   'support-leadership': { archetypeId: 'healer',   backgroundId: 'hl_shelk'   },
 };
@@ -85,6 +85,14 @@ const ARCHETYPE_BACKGROUNDS = {
   thief:        ['th_shelk','th_cosmouth','th_union'],
   trickster:    ['tr_shelk','tr_union','tr_nomdara'],
   beastmaster:  ['bm_frontier','bm_soreheim','bm_sheresh'],
+  wizard:       ['wz_mimolot','wz_shelk','wz_field'],
+  cleric:       ['cl_cysur','cl_eloljaro','cl_remeny'],
+  priest:       ['pr_panim','pr_community','pr_soreheim'],
+  necromancer:  ['nc_panim','nc_mimolot','nc_sheresh'],
+  illusionist:  ['il_shelk','il_union','il_twyll'],
+  inquisitor:   ['iq_shirsh','iq_mimolot','iq_union'],
+  elementalist: ['el_axis','el_sheresh','el_mimolot'],
+  oracle:       ['or_mimolot','or_sheresh','or_ithtananalor'],
   healer:       ['hl_shelk','hl_soreheim','hl_panim'],
   artificer:    ['af_guild','af_tinker','af_roaz'],
   engineer:     ['eg_soreheim','eg_shelk','eg_roaz'],
