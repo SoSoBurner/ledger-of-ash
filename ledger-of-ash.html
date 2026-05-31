@@ -12256,7 +12256,9 @@ function handleChoice(choice) {
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
   addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
 
-  const skillVal = G.skills[choice.skill] || 0;
+  var _hcKN = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
+  var _hcSk = _hcKN[choice.skill] || choice.skill;
+  const skillVal = G.skills[_hcSk] || 0;
   const traitBonus = getTraitBonus(choice.skill);
   const oneTime = (G._traitBonus && (G._traitBonus.skill === choice.skill || G._traitBonus.skill === 'any')) ? G._traitBonus.n : 0;
   if (oneTime) G._traitBonus = null;
@@ -12302,7 +12304,7 @@ function handleChoice(choice) {
 
   // Roll display
   let rollDisplay = 'd20: ' + roll;
-  if (skillVal) rollDisplay += ' + ' + choice.skill + ' ' + skillVal;
+  if (skillVal) rollDisplay += ' + ' + (typeof skillDisplay === 'function' ? skillDisplay(choice.skill) : _hcSk) + ' ' + skillVal;
   if (traitBonus) rollDisplay += ' + trait ' + traitBonus;
   if (oneTime) rollDisplay += ' + ability ' + oneTime;
   if (disadvantage) rollDisplay += ' ' + disadvantage + ' (training fatigue)';
