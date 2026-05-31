@@ -28,7 +28,9 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discover';
       } else {
         G.lastResult = 'The intake ledger for the relevant period sits in a sealed archive partition — access requires a transit endorsement from the harbor authority office. The clerk at the desk produces a form without being asked. The form is pre-printed with the most common denial reasons. Box three is already circled in pencil: "Ongoing operational review." You take the form. The pencil mark is fresh.';
+        G.recentOutcomeType = 'fail';
         if (typeof gainXp === 'function') gainXp(15);
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
   },
@@ -54,7 +56,9 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discover';
       } else {
         G.lastResult = 'You take a position on the grain storage roof before the second bell. The dock below is quiet — a standard watch rotation, nothing out of sequence. Either the pattern does not repeat on a predictable schedule, or someone flagged the observation point. The dock watch makes an extra pass at the third bell, which is not standard. You note the deviation. The roof access latch was oiled recently. You were not the first person to use it.';
+        G.recentOutcomeType = 'fail';
         if (typeof gainXp === 'function') gainXp(15);
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
       }
     }
   },
