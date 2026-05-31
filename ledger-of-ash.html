@@ -4873,8 +4873,8 @@ function endCombat(victory) {
     addNarration('', 'You are out of the fight. Rest and recover before pressing further.', 'failure');
     saveGame();
     setTimeout(function() { renderChoices([
-      { text:'Make camp immediately.', skill:'vigor', tag:'safe', align:'neutral', action:function(){ modHP(Math.floor(G.maxHp*0.2)); advanceTime(1); loadStageChoices(); } },
-      { text:'Find a healer in the settlement.', skill:'charm', tag:'safe', align:'neutral', action:function(){ modHP(Math.floor(G.maxHp*0.3)); advanceTime(1); loadStageChoices(); } },
+      { text:'Make camp immediately.', skill:'vigor', tag:'safe', align:'neutral', action:function(){ advanceTime(1); loadStageChoices(); } },
+      { text:'Find a healer in the settlement.', skill:'charm', tag:'safe', align:'neutral', action:function(){ advanceTime(1); loadStageChoices(); } },
       { text:'Push forward despite the wounds.', skill:'vigor', tag:'bold', align:'chaotic', action:function(){ advanceTime(1); loadStageChoices(); } }
     ]); }, 400);
   }
