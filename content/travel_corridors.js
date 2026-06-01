@@ -3418,6 +3418,645 @@
     }
   };
 
+  // ── 7 Fairhaven spoke routes added in Round 3 ──
+
+  window.ROUTE_COMPLICATIONS['ithtananalor|fairhaven'] = {
+    checkpoint: {
+      title: 'Guild Transit Gate — Forest Road West',
+      text: 'The guild transit gate at the forest road junction is unmanned — but the barrier arm is down and the logbook on the post is open to today\'s date. Someone will come back to check entries. Or they will not.',
+      choices: [
+        { text: 'Log the entry yourself and raise the arm.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'The entry is plausible. The arm raises on its counterweight. No one comes back before you are past sight of the post.'); gainXp(10); }
+            else { addNarration('', 'The handwriting is close but not close enough. The guild archivist who reviews this log will notice the discrepancy in the entry sequence.'); addHeat('union', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Wait at the barrier. Someone will return.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'The warden returns in forty minutes. She checks the log, checks you, stamps your transit card without comment. The arm goes up.'); gainXp(15); }
+            else { addNarration('', 'The warden is accompanied by a colleague. The second warden is the one who asks questions. Her questions are specific.'); addHeat('union', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Ithtananalor Forest Warden Pair',
+      text: 'Two forest wardens — not guild, Ithtananalor local authority — moving east on the same road. They work in pairs here and they are watching the tree line as much as the road. The one nearest the road edge glances at you and does not look away.',
+      choices: [
+        { text: 'Name the road you came from and where you are going. Specific answers disarm suspicion.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'Specific answers land correctly. The warden notes something in a pocket log and nods. Her partner has already moved on.'); gainXp(10); }
+            else { addNarration('', 'The answer is too specific in the wrong way — the road junction you named doesn\'t match the usual westbound route. She asks a second question.'); addHeat('shirsh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Step off the path into the tree margin before they reach you.', skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = rollD20('finesse');
+            if (r.total >= 13) { addNarration('', 'The tree margin is deep enough. They pass. The one watching the tree line looks directly at where you are standing and sees nothing worth stopping for.'); gainXp(20); }
+            else { addNarration('', 'Movement in the trees is exactly what the tree-line watcher is trained for. She signals her partner without raising her voice.'); addHeat('shirsh', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Forest Road After Dark',
+      text: 'The forest road west does not have posted night rules — there is no authority here that maintains them. What there is: the road is narrower in the dark, the canopy overhead kills the moon, and something has been moving parallel to you in the tree margin for the last quarter mile.',
+      choices: [
+        { text: 'Build a fire at the roadside and wait for dawn.', skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 7) { addNarration('', 'The fire works. Whatever was moving stops. The road at dawn is quiet and you are rested enough to continue.'); gainXp(10); }
+            else { addNarration('', 'The fire draws a different kind of attention — a traveler coming the other way, moving fast, who asks too many questions before continuing east.'); addHeat('shirsh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Keep moving. Whatever is in the trees has not stepped onto the road yet.', skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = rollD20('finesse');
+            if (r.total >= 13) { addNarration('', 'The parallel movement stops after another half mile. The road widens as the forest thins. The plains boundary is ahead.'); gainXp(20); }
+            else { addNarration('', 'The parallel movement stops — and something steps onto the road ahead of you instead of beside you.'); addHeat('shirsh', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Washed-Out Forest Road Section',
+      text: 'The road surface has failed over a stretch of roughly sixty meters — storm runoff has taken the compacted base with it and left loose aggregate over a soft underlayer. Cart passage is risky. Even foot travel requires care. There is no way around.',
+      choices: [
+        { text: 'Test the surface carefully before committing weight.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Testing the edge first tells you where the firm substrate is. The crossing takes time but nothing gives way.'); gainXp(10); }
+            else { addNarration('', 'The test was not thorough enough. The surface holds for the first thirty meters and fails on the last ten. Wet boots, a turned ankle, a lost hour.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Move fast across the worst section. Speed is better than weight.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'The surface moves under you but you are across before it can decide what to do about it.'); gainXp(20); }
+            else { addNarration('', 'Fast is not right here. The surface gives at the midpoint. The recovery costs time and gear.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  window.ROUTE_COMPLICATIONS['mimolot_academy|fairhaven'] = {
+    checkpoint: {
+      title: 'Academy Cargo Inspection Post',
+      text: 'The inspection post at the academy road junction is staffed by a Mimolot security officer, not a guild warden. She checks the cargo manifest against a sealed Academy register. The process is thorough and the officer has been doing it long enough that small discrepancies register as clearly as large ones.',
+      choices: [
+        { text: 'Present the transit papers before she asks for them.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'The papers are in order. She checks the Academy seal, checks the date stamp, hands them back. The barrier arm goes up.'); gainXp(10); }
+            else { addNarration('', 'The papers are in order but the departure time listed conflicts with the road distance. She flags it for review.'); addHeat('mimolot', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Name the transit administrator who approved the route.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'The name is correct and she knows it. The verification that would otherwise take ten minutes takes two. The arm goes up.'); gainXp(20); }
+            else { addNarration('', 'The name is correct but she asks which office processes that administrator\'s approvals. The answer is not in the papers.'); addHeat('mimolot', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Plains Road Guild Patrol',
+      text: 'A mounted guild patrol working the plains road — two riders, grey transit cloaks, moving at standard inspection pace. One is checking the road surface. The other is checking travelers. The traveler-checker has already assessed your pack size.',
+      choices: [
+        { text: 'Keep moving at even pace. Nothing to indicate otherwise.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'The pack assessment does not turn into a stop. The patrol continues its pattern. You continue yours.'); gainXp(10); }
+            else { addNarration('', 'The patrol circles back. The traveler-checker asks where you\'re going and what your business is on the Academy road.'); addHeat('union', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Produce the transit papers before the patrol reaches you.', skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 13) { addNarration('', 'Producing papers preemptively reads as compliance. The patrol reviews them at pace without stopping.'); gainXp(15); }
+            else { addNarration('', 'Producing papers preemptively reads as anxiety. The patrol stops to conduct a full inspection.'); addHeat('union', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Plains Road Night Curfew',
+      text: 'The Mimolot plains road carries a posted night curfew for non-cargo transit — sunset to dawn, non-emergency passage requires a night permit. The checkpoint post ahead has its lamp lit, which means the overnight warden is on duty.',
+      choices: [
+        { text: 'Produce the transit papers and claim urgent Academy business.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'Academy business is a recognized category. The warden checks the seal and waves you through with a note for the morning log.'); gainXp(10); }
+            else { addNarration('', 'The warden checks the seal and it is correct, but the request for an urgent-transit endorsement note goes poorly. He writes the stop in the log.'); addHeat('union', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Leave the road before the checkpoint and rejoin it after.', skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = rollD20('finesse');
+            if (r.total >= 13) { addNarration('', 'The verge is flat enough to navigate by starlight. The checkpoint lamp is behind you before the warden\'s eyes adjust to the dark.'); gainXp(20); }
+            else { addNarration('', 'The verge is flat but the checkpoint warden has a lantern on a post that covers the standard deviation distance. She sees the movement.'); addHeat('union', 3); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Dust Storm on the Plains Road',
+      text: 'A dust front moving from the west — visible for twenty minutes, now here. The visibility on the plains road drops to ten meters in the heavier gusts. There is no shelter on the road itself. The route markers are posts every half mile, but the next one is not visible.',
+      choices: [
+        { text: 'Stop and wait the storm out with your back to the wind.', skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 7) { addNarration('', 'The storm passes in an hour. The dust settles unevenly — thicker on the eastern side, thinner on the road surface itself. You continue.'); gainXp(10); }
+            else { addNarration('', 'The wait costs more than an hour. The dust has settled into your kit and the road surface is altered enough that the next stretch is slow.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Navigate by the wind direction alone. West to east. Keep moving.', skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 13) { addNarration('', 'The wind is consistent and so is the road surface under your feet. You arrive at the next route marker without having stopped.'); gainXp(20); }
+            else { addNarration('', 'The wind shifts twice. The road does not. You leave the road surface without realizing it and spend thirty minutes reorienting.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  window.ROUTE_COMPLICATIONS['panim_haven|fairhaven'] = {
+    checkpoint: {
+      title: 'Contested Patrol Zone Boundary Post',
+      text: 'The boundary post between Panim Haven authority and the neutral coastal stretch is staffed by two wardens — one from each jurisdiction. They are not cooperating on the manifest check. They are each conducting a separate check. You will need to satisfy both.',
+      choices: [
+        { text: 'Address the Panim warden first. The originating jurisdiction takes precedence.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Addressing the Panim warden first is the correct protocol. The second warden accepts the Panim clearance and adds his own stamp. Both arms go up.'); gainXp(10); }
+            else { addNarration('', 'The Panim warden is satisfied but the second warden has a different question set. She asks about cargo weight and the answer is approximate, not exact.'); addHeat('panim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Present the papers to both simultaneously. Efficiency as compliance.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'Both wardens accept the simultaneous presentation as confidence. The clearance is faster than standard. You are through in four minutes.'); gainXp(20); }
+            else { addNarration('', 'The wardens have a protocol dispute about which clearance is primary. You are held at the post for twenty minutes while they resolve it between themselves.'); addHeat('panim', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Coastal Road Patrol — Panim Haven Authority',
+      text: 'A Panim Haven authority patrol on the coastal road — foot patrol, three wardens, moving north at standard pace. The lead warden has stopped to check the last traveler passed. You will be the next traveler she checks.',
+      choices: [
+        { text: 'Join the queue behind the current traveler being checked. Orderly.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'The queue approach signals compliance. Your check is faster than the previous traveler\'s — her warden is warmed up and the papers are routine.'); gainXp(10); }
+            else { addNarration('', 'The previous traveler\'s check reveals something irregular. The warden\'s attention level is elevated by the time she reaches you.'); addHeat('panim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Turn onto the beach access path before reaching the check point.', skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = rollD20('finesse');
+            if (r.total >= 13) { addNarration('', 'The beach access path is not the road and the patrol is working the road. You rejoin the coastal road two hundred meters north of the checkpoint.'); gainXp(20); }
+            else { addNarration('', 'One of the three wardens is watching the beach access path. It is the third warden, not the lead, which is worse.'); addHeat('panim', 3); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Coastal Road After Curfew — Panim Haven',
+      text: 'The coastal road carries a posted curfew that Panim Haven authority enforces — the night warden at the marker post is one of three stationed at intervals along this stretch. The nearest lamp is visible ahead.',
+      choices: [
+        { text: 'Approach the post and report travel delay — weather, road condition, route error.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'The warden accepts the delay explanation and marks it in the log. Night-transit approval is noted as situational. You continue.'); gainXp(10); }
+            else { addNarration('', 'The warden accepts the explanation but asks for a specific route confirmation. The route you name has a checkpoint record that would show your timing.'); addHeat('panim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Use the beach margin. Below the road edge, below the lamp radius.', skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = rollD20('finesse');
+            if (r.total >= 13) { addNarration('', 'The beach margin is below the lamp radius and the warden is watching the road, not the tide line. The post is behind you.'); gainXp(20); }
+            else { addNarration('', 'The tide line is higher than the visible mark from the road. The margin is narrower than calculated.'); addHeat('panim', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Coastal Flooding on the Northern Stretch',
+      text: 'The coastal road north of the boundary post has taken tidal flooding — a stretch of eighty meters is under twenty centimeters of water with soft sand underneath. The water is receding but not quickly. Waiting means losing a tide window on the other end.',
+      choices: [
+        { text: 'Find the highest edge of the road and move carefully across the flooded section.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'The highest road edge holds firm. The crossing is wet but nothing gives way under the water.'); gainXp(10); }
+            else { addNarration('', 'The apparent high edge is not the actual high edge. The soft section is on the right side, not the left.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Move quickly and accept the wet kit. The delay of waiting is worse.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'Quick movement keeps you in the shallower water. The kit is wet but functional. You are past the flooded section in three minutes.'); gainXp(15); }
+            else { addNarration('', 'Quick movement finds the soft section before the firm section. Recovery costs time and a boot.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  window.ROUTE_COMPLICATIONS['shirshal|fairhaven'] = {
+    checkpoint: {
+      title: 'Shirshal Transit Boundary Post',
+      text: 'The road north from Shirshal crosses a jurisdiction boundary two days out from the city. The post is marked with both Shirshal authority colors and Principalities grey. The warden on duty is Principalities — she checks Shirshal-origin manifests against a different register than she uses for local transit.',
+      choices: [
+        { text: 'Declare Shirshal origin and present the full transit record.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Full declaration matches the cross-reference register. The warden stamps the transit card with the boundary clearance mark. Straightforward.'); gainXp(10); }
+            else { addNarration('', 'The Shirshal origin declaration triggers a secondary check for the item classification list. One item in your kit is on the list.'); addHeat('shirsh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Omit the Shirshal origin and declare the boundary post as origin point.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'The boundary post as origin is not common but not implausible. The warden accepts it without the secondary check. You continue.'); gainXp(20); }
+            else { addNarration('', 'The boundary post origin does not match the road wear on your kit. The warden knows what a two-day road journey looks like.'); addHeat('shirsh', 2); addHeat('union', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Jurisdiction Boundary Patrol',
+      text: 'A joint patrol — one Shirshal authority warden and one Principalities warden riding together. The combination is uncommon. It means someone upstream has flagged the route for elevated scrutiny. They are moving south, checking travelers moving north.',
+      choices: [
+        { text: 'Answer the Principalities warden first. Her jurisdiction is where you are going.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'The Principalities warden takes the lead and is satisfied quickly. The Shirshal warden adds one question and accepts your answer. Joint patrol clears you.'); gainXp(10); }
+            else { addNarration('', 'The Principalities warden is satisfied but the Shirshal warden has a different question — about your activities in Shirshal, specifically.'); addHeat('shirsh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Step off the road onto the coastal verge as if checking your pack.', skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = rollD20('finesse');
+            if (r.total >= 13) { addNarration('', 'The pack-check reads as traveler behavior, not avoidance. The patrol passes. You rejoin the road.'); gainXp(20); }
+            else { addNarration('', 'The Shirshal warden specifically watches travelers who step off the road before being checked. That is the behavior he was briefed on.'); addHeat('shirsh', 3); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Night Road North of the Jurisdiction Line',
+      text: 'The road north of the jurisdiction boundary does not carry a formal night curfew — but the patrol pattern on this stretch runs through the night because the joint agreement requires it. A patrol lamp is visible a quarter mile ahead, moving south.',
+      choices: [
+        { text: 'Wait off-road for the patrol to pass before continuing.', skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 7) { addNarration('', 'The patrol passes within forty meters of where you are waiting. The lamp does not sweep the road margin. You continue when the light is far enough south.'); gainXp(10); }
+            else { addNarration('', 'The wait is correct but the patrol interval is shorter than standard. A second lamp appears before you have moved far enough north.'); addHeat('shirsh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Flag the patrol and declare night travel. Easier than avoiding it.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'The patrol logs the night transit declaration and issues a temporary clearance. Legal, documented, done.'); gainXp(15); }
+            else { addNarration('', 'The declaration triggers the Shirshal warden\'s interest in why you are moving at night on this specific road.'); addHeat('shirsh', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Road Surface Failure Near the Coast',
+      text: 'Coastal erosion has taken the eastern edge of the road over a stretch of forty meters. What remains is a one-meter-wide firm strip with a two-meter drop to the beach on the right. The strip is solid but narrow. Wind from the sea is consistent.',
+      choices: [
+        { text: 'Move along the left edge, away from the drop. Slower but controlled.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Left edge is correct. The road surface is firm there and you have enough margin to move safely through the full stretch.'); gainXp(10); }
+            else { addNarration('', 'Left edge is soft in the middle section where a second failure point has not yet opened fully. The surface dips under your weight.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Move quickly across the narrow section. Less time on the unstable ground.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'Speed across the narrow section keeps you on the firm surface. You are past the erosion damage in thirty seconds.'); gainXp(20); }
+            else { addNarration('', 'Speed works against you when the wind gusts. The movement is fine; the wind is not.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  window.ROUTE_COMPLICATIONS['soreheim_proper|fairhaven'] = {
+    checkpoint: {
+      title: 'Multi-Jurisdiction Mountain Transit Gate',
+      text: 'The mountain transit gate on the long Soreheim-to-Fairhaven road sits at the first territorial boundary — a full two weeks\' walk from Soreheim. The post is staffed by a quota authority warden who checks extraction manifests against a transit ledger. Non-extraction travelers are checked separately.',
+      choices: [
+        { text: 'Declare non-extraction status immediately. The separate process is faster.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Non-extraction transit is a narrow but recognized category. The warden uses a shorter form. The gate opens in ten minutes.'); gainXp(10); }
+            else { addNarration('', 'Non-extraction declaration requires a purpose statement. The warden asks what business takes a traveler on the direct mountain road to Fairhaven.'); addHeat('soreheim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Use the guild transit seal to bypass the quota authority process.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'The guild seal correctly overrides the quota authority process for non-extraction transit. The warden is not happy about it but the protocol is clear.'); gainXp(20); }
+            else { addNarration('', 'The quota authority warden checks with her supervisor before accepting the guild seal override. The supervisor takes fifteen minutes to arrive.'); addHeat('soreheim', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Soreheim Mountain Road Extraction Patrol',
+      text: 'An extraction monitoring patrol — checking that cargo moving on the mountain road matches filed extraction outputs. They are thorough and they have time. The patrol leader asks every non-extraction traveler the same three questions.',
+      choices: [
+        { text: 'Answer the three standard questions before they are asked. Road preparation.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Pre-answering the standard questions signals familiarity with Soreheim transit procedure. The patrol leader marks the log quickly and moves on.'); gainXp(15); }
+            else { addNarration('', 'Anticipating the questions reads as rehearsal. The patrol leader adds a fourth question that is not standard.'); addHeat('soreheim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'State the transit purpose plainly. Specific detail deflects further questioning.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'Specific purpose and destination detail satisfies the patrol leader\'s threshold. She does not ask the third standard question.'); gainXp(20); }
+            else { addNarration('', 'The specific destination triggers a cross-reference check — there is a travel advisory for the route you named that you were not aware of.'); addHeat('soreheim', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Mountain Road — Cold Night at Altitude',
+      text: 'The high mountain section of this route drops temperature significantly after dark. The road is safe but exposure is a risk for travelers without mountain kit. A Soreheim extraction crew camp is visible at the next switchback — firelight, tents, a cook fire.',
+      choices: [
+        { text: 'Request temporary shelter at the extraction crew camp.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'Extraction crew camps regularly take in transit travelers. The crew leader assigns you a fire position and charges nothing. By morning the temperature has dropped another six degrees outside.'); gainXp(10); }
+            else { addNarration('', 'The crew leader accepts the shelter request but asks which quota authority issued your non-extraction transit clearance. The answer is in the papers but the papers are in your pack.'); addHeat('soreheim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Continue past the camp and find natural shelter in the rock formations above the switchback.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'The rock formation provides good windbreak. The temperature is manageable and you are moving again before the extraction crew has finished breakfast.'); gainXp(20); }
+            else { addNarration('', 'The rock formation is good windbreak but poor thermal mass. The cold settles in over three hours and does not lift until after dawn.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Rock Fall on the Mountain Road',
+      text: 'A recent rock fall has covered a section of mountain road with loose debris — ranging from fist-sized stones to blocks a meter across. The road is impassable for carts. Foot passage requires careful navigation.',
+      choices: [
+        { text: 'Assess the debris field and plot a line through it before moving.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'The assessment finds a line through the debris that avoids the unstable large blocks. The crossing is slow but nothing shifts under you.'); gainXp(10); }
+            else { addNarration('', 'The assessed line is correct until the fourth large block, which has a different stability than it appears from a distance.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Move continuously across the debris field. Continuous weight distribution is safer than static.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'Continuous movement works. The debris shifts in places but not enough to catch a moving foot. You are across in four minutes.'); gainXp(20); }
+            else { addNarration('', 'Continuous movement finds the wrong stone at the wrong angle. The recovery is possible but the right ankle is slow for the next day.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  window.ROUTE_COMPLICATIONS['sunspire_haven|fairhaven'] = {
+    checkpoint: {
+      title: 'Soreheim Highland Boundary Post',
+      text: 'The Soreheim highland boundary post sits at the elevation drop where the highland road begins its long descent toward the Principalities. The warden checks outbound transit against the quota compliance register — extraction workers can leave freely, but non-extraction travelers require a purpose declaration.',
+      choices: [
+        { text: 'State the transit purpose specifically: destination, time, reason.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'The purpose declaration satisfies the compliance register threshold. The warden stamps the outbound record and opens the gate.'); gainXp(10); }
+            else { addNarration('', 'The destination is accepted but the time declared conflicts with the road distance. The warden asks for a route explanation.'); addHeat('soreheim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Present the Sunspire Haven transit authorization seal.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'The Sunspire Haven seal is recognized. The warden checks the date stamp, finds it current, and processes the outbound transit without the standard declaration.'); gainXp(20); }
+            else { addNarration('', 'The seal is recognized but the Sunspire Haven authorization requires counter-signature from a Soreheim quota officer. The warden asks where to find one on this road.'); addHeat('soreheim', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Highland Road Patrol — Quota Monitoring',
+      text: 'A quota monitoring patrol on the highland road descent — checking that highland travelers are not carrying undeclared extraction outputs. The patrol is working south and has already checked three travelers ahead of you. The lead warden\'s approach changes slightly after the third check.',
+      choices: [
+        { text: 'Open your pack for inspection before they ask. No undeclared material.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Voluntary inspection reads as confidence. The patrol checks quickly and moves on. Their changed approach was not about you.'); gainXp(10); }
+            else { addNarration('', 'Voluntary inspection finds nothing declarable, but one item in the pack has a material profile that requires a cross-reference check. It takes twenty minutes.'); addHeat('soreheim', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Match the patrol\'s changed approach by slowing your pace. Let them come to you.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'The pacing reads as patience, not concern. The warden reaches you and runs a standard check — their changed approach was about the previous traveler, not you.'); gainXp(20); }
+            else { addNarration('', 'Slowing down on the road when a patrol has visually acquired you is interpreted as hesitation. The patrol stops early.'); addHeat('soreheim', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Highland Descent — Fog After Dark',
+      text: 'Fog on the highland descent — common at this elevation after dark. The road surface is sound but visibility is reduced to five meters and the descent has steep sections without guardrail. The next road marker is not visible. The one before it is barely visible.',
+      choices: [
+        { text: 'Move by the road edge on the uphill side. Stay on the firm surface.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Uphill edge is the right call. The road curves left at the steep section and the uphill edge keeps you on the inside of the curve. You reach the marker.'); gainXp(10); }
+            else { addNarration('', 'Uphill edge is correct until the switchback where uphill becomes downhill. The transition in fog takes a moment to process.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Stop and wait for the fog to lift or for dawn. Either ends the hazard.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'The fog lifts two hours before dawn. The road is clear and you are moving again in good time.'); gainXp(15); }
+            else { addNarration('', 'The fog does not lift before dawn. Dawn only makes the fog visible. You lose four hours.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Unstable Ground on the Highland Road',
+      text: 'The highland road crosses a section of subsidence — the ground beneath the road has shifted and the surface above is visibly cracked across the width of the road. The cracks are recent; the edges are sharp. The subsidence may be ongoing.',
+      choices: [
+        { text: 'Cross quickly at the section with the smallest crack gap.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'The smallest crack section is also the most recently cracked — the edges are sharp enough to grip. The crossing is quick.'); gainXp(10); }
+            else { addNarration('', 'Smallest gap is not smallest subsidence. The road surface flexes under weight at that point.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Move at the road edge where the bedrock outcrops. Solid ground underneath.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'Bedrock outcrop at the road edge holds. The subsidence has not reached that section. You are across.'); gainXp(20); }
+            else { addNarration('', 'The bedrock outcrop is correct but narrow. The kit catches on the road edge crack. Recovery costs time.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  window.ROUTE_COMPLICATIONS['aurora_crown_commune|fairhaven'] = {
+    checkpoint: {
+      title: 'Sheresh Transit Boundary — Fairhaven Approach',
+      text: 'The long road from Aurora Crown to Fairhaven passes through a territorial checkpoint where Sheresh authority ends and Principalities authority begins. The post is staffed by two wardens — one from each side — and they apply different documents to the same traveler.',
+      choices: [
+        { text: 'Present Sheresh transit papers to the Sheresh warden and Principalities transit to the other.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Presenting authority-specific documents to the correct warden in sequence is the expected protocol. Both clear you without consultation.'); gainXp(10); }
+            else { addNarration('', 'The Sheresh papers are current but the purpose declaration on the Principalities side requires cross-referencing the Sheresh record. They confer.'); addHeat('sheresh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Use the guild seal as the primary clearance document. Both wardens accept guild authority.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'Both wardens accept the guild seal as primary — they have seen this before and neither side wants to dispute guild transit authority on this road.'); gainXp(20); }
+            else { addNarration('', 'The Sheresh warden accepts the guild seal. The Principalities warden asks which guild office issued it and which transit route was originally filed.'); addHeat('union', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Sheresh Perimeter Patrol — Outbound',
+      text: 'A Sheresh authority patrol checking outbound travelers — specifically looking for undeclared equipment from the Aurora Crown commune area. The patrol is post-inspection, not pre-inspection: they check what you are carrying out, not what you have transit approval for.',
+      choices: [
+        { text: 'Open the kit fully. Nothing undeclared from the commune.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Full kit presentation reads as compliance with the outbound inspection protocol. The patrol marks the log and clears you.'); gainXp(10); }
+            else { addNarration('', 'Full kit presentation is accepted but one item has a material signature they note. They ask where it was acquired.'); addHeat('sheresh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Name the Sheresh transit coordinator who processed the outbound clearance.', skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 13) { addNarration('', 'The name is current and known to the patrol leader. She checks the log and finds the clearance. The outbound inspection is waived.'); gainXp(20); }
+            else { addNarration('', 'The name is current but the coordinator works a different sector. The patrol leader asks which sector issued the clearance.'); addHeat('sheresh', 2); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Highland Road — Night Watch Post',
+      text: 'The highland road from Aurora Crown carries a Sheresh night watch post at the halfway marker. The post is occupied — a single warden with a fire and a log. She checks everyone who passes the marker after dark, without exception.',
+      choices: [
+        { text: 'Stop at the post, declare night transit, and present the outbound clearance.', skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = rollD20('charm');
+            if (r.total >= 7) { addNarration('', 'The declaration and clearance are in order. She logs the night transit and hands back the clearance with a time stamp. The road ahead is clear.'); gainXp(10); }
+            else { addNarration('', 'The clearance is accepted but her standard follow-up question about activity in the commune area takes twenty minutes to satisfy.'); addHeat('sheresh', 1); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Leave the road before the halfway marker and rejoin it after the post.', skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = rollD20('finesse');
+            if (r.total >= 13) { addNarration('', 'The highland road margin is wide here and the terrain beyond it is flat. The post lamp does not cover the margin at this distance. You rejoin the road north of the post.'); gainXp(25); }
+            else { addNarration('', 'The watch post has a second lamp on the margin side that is not visible from the road approach. The warden\'s field of view is wider than estimated.'); addHeat('sheresh', 3); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Aurora Crown Dome Interference — Equipment Failure',
+      text: 'The commune\'s atmospheric dome generates interference on the road approaches. Equipment carried through the dome perimeter frequently malfunctions on the far side. A navigational tool you have been relying on is no longer functioning correctly.',
+      choices: [
+        { text: 'Navigate by road marker sequence alone. The markers are posted and numbered.', skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = rollD20('wits');
+            if (r.total >= 7) { addNarration('', 'Marker navigation is slower but reliable. The route is marked at every half mile. You reach the territorial boundary without deviation.'); gainXp(10); }
+            else { addNarration('', 'Marker navigation works until marker 14, which is missing — removed or fallen. The gap requires a best-estimate decision.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        { text: 'Use terrain features — high ground, road surface, sun position — to continue.', skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = rollD20('vigor');
+            if (r.total >= 13) { addNarration('', 'Terrain navigation works well in highland. The sun position and road surface quality give enough information to stay on route.'); gainXp(20); }
+            else { addNarration('', 'The terrain navigation is adequate until the cloud cover changes. Without sun position the terrain features look similar in three directions.'); }
+            setTimeout(function() { window._travelNextEncounter ? window._travelNextEncounter() : TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
   // ---------------------------------------------------------------------------
   // Helper: resolve macroregion from locality IDs
   // ---------------------------------------------------------------------------
