@@ -1456,7 +1456,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Fairhaven surge reports cite Shirshal case 4471-S. The Shirshal registry has no 4471-S — the surrounding case numbers exist on either side of the gap. Either the case was never properly filed, or it was filed and removed. The case number format for that series is specifically for inter-bureau compliance investigations. Fairhaven was told a compliance investigation existed. Whatever that investigation contained is no longer accessible from the registry end.`;
+        G.lastResult = `Fairhaven surge reports cite Shirshal case 4471-S. The Shirshal registry has no 4471-S — the surrounding case numbers exist on either side of the gap. Either the case was never properly filed, or it was filed and removed. The case number format for that series is specifically for inter-bureau compliance reviews. Fairhaven was told a compliance case existed. Whatever that case contained is no longer accessible from the registry end.`;
         addJournal('Case 4471-S cited in Fairhaven reports but absent from Shirshal registry — inter-bureau compliance format, apparent removal', 'intelligence', `shir-casenumber-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -1653,8 +1653,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('might', {dc: 13, locality: 'shirshal', label: 'Records officer confrontation'});
       if (result.isCrit) {
         G.stageProgress[2]++;
-        addJournal('Records officer confirmed: a standing hold order on investigative requests for pre-consolidation era documents, placed by the current compliance head.', 'evidence');
-        G.lastResult = 'You name the stall precisely and without accusation: you have stopped searching and are waiting for the visit to end. The description is accurate enough that he drops the performance entirely — there is a brief pause, the kind that precedes a decision, and then he sets down the folder he was not reading. The hold on pre-consolidation investigative requests was placed by the compliance head six weeks after the consolidation was formalized. He gives you the administrative order number without being asked twice.';
+        addJournal('Records officer confirmed: a standing hold order on archival requests for pre-consolidation era documents, placed by the current compliance head.', 'evidence');
+        G.lastResult = 'You name the stall precisely and without accusation: you have stopped searching and are waiting for the visit to end. The description is accurate enough that he drops the performance entirely — there is a brief pause, the kind that precedes a decision, and then he sets down the folder he was not reading. The hold on pre-consolidation archival requests was placed by the compliance head six weeks after the consolidation was formalized. He gives you the administrative order number without being asked twice.';
       } else if (result.isFumble) {
         addHeat('shirsh', 1);
         G.lastResult = 'He escalates to a supervisor without escalating his voice — a hand signal to someone at the far desk, the practiced efficiency of a man who has done this before and prefers to keep it administrative. You exit before the confrontation formalizes into something that generates a report with your name attached. The access log will still show your presence at this counter and the duration of the visit. That much is already recorded.';

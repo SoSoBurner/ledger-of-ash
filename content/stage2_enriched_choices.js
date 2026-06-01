@@ -1427,7 +1427,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'She says there has been a personnel change at the district level. She doesn\'t elaborate. The checkpoint traffic picks up and she goes back to processing transits. The pattern she described last time — nine days, Shelk junction — is still active. Whatever is happening inside the Order, it hasn\'t stopped the movement she\'s been watching. It has just made the people watching it more careful.';
         G.recentOutcomeType = 'complication';
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
-        addJournal('Warden contact closed down. Internal Order personnel shift observed.', 'complication');
+        addJournal('Warden channel closed down. Internal Order personnel shift observed.', 'complication');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -1965,13 +1965,13 @@ const STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.flags.stage2_faction_contact_made = true;
         G.lastResult = 'The second meeting is in a cooperage basement off the lower transit district — three casks moved to make room, a single lamp. The person the liaison meets does not introduce himself. He carries a document case embossed with the same unregistered seal you noted on the re-routing authorization. They exchange two rolls of parchment. When the meeting ends he takes a route that avoids every public street. You follow him three blocks before he steps into a doorway and does not come out. The door belongs to a storage annex registered to a Cosmouth administrative bureau that has not filed a public activity report in fourteen months.';
-        addJournal('Liaison met unregistered contact carrying embossed seal — same mark as unauthorized re-routing authorization; contact enters Cosmouth bureau annex', 'evidence');
+        addJournal('Liaison met unregistered courier carrying embossed seal — same mark as unauthorized re-routing authorization; courier enters Cosmouth bureau annex', 'evidence');
         G.recentOutcomeType = 'success';
       } else if (r.total >= 13) {
         G.flags.s2_stealth_shadow_done = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.investigationProgress = (G.investigationProgress||0) + 1;
-        G.lastResult = 'The basement meeting is brief. You hold position in the loading bay above long enough to see the document exchange but not to read markings or hear names. The contact leaves by a service door you cannot follow through without crossing open ground. What you have: a face, a document case, a cooperage address. The cooperage address is not in any business registry you have access to.';
+        G.lastResult = 'The basement meeting is brief. You hold position in the loading bay above long enough to see the document exchange but not to read markings or hear names. The courier leaves by a service door you cannot follow through without crossing open ground. What you have: a face, a document case, a cooperage address. The cooperage address is not in any business registry you have access to.';
         addJournal('Liaison document exchange in off-registry cooperage — contact unidentified, location unregistered', 'intelligence');
         G.recentOutcomeType = 'success';
       } else {

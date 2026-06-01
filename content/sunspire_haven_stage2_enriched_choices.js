@@ -1115,8 +1115,8 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.flags.sun_elyra_orvaith_link = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Elyra exhales through her nose — small, controlled — and keeps her thumb on the logbook spine. "Orvaith was my field monitoring contact for glyph pressure readings. He ran the portable gauge before I adapted my own." She has not said this in any previous conversation. "He sent me his final dataset two weeks before his research went quiet. I have not forwarded it anywhere because I do not know who forwarded it last time." Her thumb does not lift. The dataset is what sent his dispute into withdrawal.`;
-        addJournal('Elyra was Orvaith\'s field monitoring contact — holds his final dataset, withheld for security', 'evidence', `sun-elyraorvaith-${G.dayCount}`);
+        G.lastResult = `Elyra exhales through her nose — small, controlled — and keeps her thumb on the logbook spine. "Orvaith was my field monitoring liaison for glyph pressure readings. He ran the portable gauge before I adapted my own." She has not said this in any previous conversation. "He sent me his final dataset two weeks before his research went quiet. I have not forwarded it anywhere because I do not know who forwarded it last time." Her thumb does not lift. The dataset is what sent his dispute into withdrawal.`;
+        addJournal('Elyra was Orvaith\'s field monitoring liaison — holds his final dataset, withheld for security', 'evidence', `sun-elyraorvaith-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Elyra's hand closes the logbook and sets it on the shelf behind her. "I have said what I can say about patronage portfolio researchers." Her exhale is small and controlled. The deliberateness of her posture increases — each movement a degree more precise. She has decided something, and the decision is that the conversation is finished.`;
         addJournal('Elyra declined further discussion of Orvaith — logbook moved from desk', 'complication', `sun-elyraorvaith-fail-${G.dayCount}`);

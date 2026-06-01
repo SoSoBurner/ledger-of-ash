@@ -55,7 +55,7 @@ const STAGE2_SHADOWHANDS_ARC = [
   },
 
   {
-    label: "Ilve needs operational cover for a document transfer. She's offering the Ironhold ledger in exchange.",
+    label: "Cover for a document move. The Ironhold ledger pays for it.",
     tags: ['ArcDeepening', 'Stealth', 'Risk'],
     xpReward: 90,
     condition: function() { return !!(G.flags && G.flags.shadowhands_ilve_contact && !G.flags.shadowhands_cover_resolved); },

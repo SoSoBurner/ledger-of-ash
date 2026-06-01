@@ -86,7 +86,7 @@ function _pell_phase1() {
       }
     },
     {
-      text: 'An inquiry form is not a warrant. I don\'t have to move on his timeline.',
+      text: 'An inquiry form is not a warrant. His timeline is not mine.',
       tag: 'risky',
       skill: 'survival',
       action: function() {

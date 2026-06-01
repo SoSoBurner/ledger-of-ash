@@ -194,7 +194,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         if (!G.rivalId && arch === 'combat') G.rivalId = 'warden_captain';
         G.lastResult = arch === 'combat'
           ? `Windrider listens without notes, which means he's memorizing it. When you finish, he taps the table once and names your evidence as sufficient for a parallel inquiry. The conditions arrive next: everything you find comes to him, before it goes anywhere else. He extends his hand. It's an alliance built to serve two agendas simultaneously, and both parties know it.`
-          : `Windrider receives the briefing without expression and confirms the Roadwardens have noticed the same pattern through different means. He asks you to keep reporting. He offers nothing in return — no resources, no cover, no reciprocal intelligence. The risk stays yours. The contact is established regardless.`;
+          : `Windrider receives the briefing without expression and confirms the Roadwardens have noticed the same pattern through different means. He asks you to keep reporting. He offers nothing in return — no resources, no cover, no reciprocal intelligence. The risk stays yours. The line is open regardless.`;
         addJournal('Roadwarden command contact established', 'contact_made', `shelk-windrider-${G.dayCount}`);
       } else if (result.isFumble) {
         addHeat('shelk', 1);
@@ -1272,7 +1272,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         addJournal('Red Hood courier runner — chapel letter pickup window confirmed at north Ironspool lamp-oil shop, mid-week watch', 'evidence', `shelk-red-hood-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The approach breaks the watcher's composure for exactly two seconds before his expression resets. He leaves the table without acknowledgment, crossing through the tavern's back corridor before you reach his seat. He was noting your face and your direction of approach before you were halfway across the room. By the time you're at the table his tea is cold and his chair is already angled back in — a practiced exit, not an improvised one. The follow is broken. Pressure on the investigation increases by one.`;
+        G.lastResult = `The approach breaks the watcher's composure for exactly two seconds before his expression resets. He leaves the table without acknowledgment, crossing through the tavern's back corridor before you reach his seat. He was noting your face and your direction of approach before you were halfway across the room. By the time you're at the table his tea is cold and his chair is already angled back in — a practiced exit, not an improvised one. The follow is broken. The route has grown harder to work quietly.`;
         addJournal('Red Hood surveillance approach detected — watcher exited, follow broken', 'complication', `shelk-red-hood-fail-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
@@ -1370,7 +1370,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
-        G.lastResult = `The amendment is accessible under standard credentials in the public charter reading room. The third paragraph reads differently from the first two — the syntax is tighter, the framing more specific, in a way that suggests a different author or a different moment of composition. The provision it contains, routing all chapel complaints through the noble quarter records office, is the operational move that made the entire operation possible. The paragraph that enables everything was not part of the original document. Confirming that is a matter of comparing ink and hand — a process that requires a closer look at the original under better light.`;
+        G.lastResult = `The amendment is accessible under standard credentials in the public charter reading room. The third paragraph reads differently from the first two — the syntax tightens in the third paragraph — a different hand, or a different hour. The provision it contains, routing all chapel complaints through the noble quarter records office, is the operational move that made the entire operation possible. The paragraph that enables everything was not part of the original document. Confirming that is a matter of comparing ink and hand — a process that requires a closer look at the original under better light.`;
         addJournal('Charter amendment third paragraph — syntactic and compositional variance noted, retroactive addition probable, confirmation pending', 'evidence', `shelk-amendment-para3-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();

@@ -50,7 +50,7 @@ var SOREHEIM_STAGE1 = (function() {
 
   function showResolution() {
     (window._rawRenderChoices || window.renderChoices)([
-      { id: 'interim_expose', plot: 'main', text: 'Take the evidence to the Soreheim registry oversight office — make it official.', tag: 'risky',
+      { id: 'interim_expose', plot: 'main', text: 'Take the evidence to the Soreheim registry oversight office — make it formal.', tag: 'risky',
         action: function() { resolveExpose(); } },
       { id: 'interim_correct', plot: 'main', text: 'Quietly correct the ledger entry through a sympathetic clerk.', tag: 'bold',
         action: function() { resolveCorrect(); } },

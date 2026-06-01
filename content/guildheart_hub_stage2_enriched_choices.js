@@ -1057,8 +1057,8 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         addHeat('union', 1);
-        G.lastResult = 'Orin Hearthmark logs the inquiry — floor brokers are required to record all approach contacts on the Exchange record, buyer, seller, or unaffiliated. He writes down the time and a physical description before saying a word. The contact log goes to the Exchange supervisor at end of session. He folds the manifest under his arm and moves to the far end of the floor without another glance back. He has been here long enough to know which conversations to make visible.';
-        addJournal('Freight Exchange contact logged by Hearthmark before any question answered — Exchange supervisor receives contact record at session end', 'complication', 'guild-orin-fail-' + G.dayCount);
+        G.lastResult = 'Orin Hearthmark logs the inquiry — floor brokers are required to record all approach records on the Exchange ledger, buyer, seller, or unaffiliated. He writes down the time and a physical description before saying a word. The approach log goes to the Exchange supervisor at end of session. He folds the manifest under his arm and moves to the far end of the floor without another glance back. He has been here long enough to know which conversations to make visible.';
+        addJournal('Freight Exchange approach logged by Hearthmark before any question answered — Exchange supervisor receives approach record at session end', 'complication', 'guild-orin-fail-' + G.dayCount);
       } else {
         G.flags.met_orin_hearthmark = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;

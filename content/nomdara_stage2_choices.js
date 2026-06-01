@@ -7,7 +7,7 @@
 const NOMDARA_STAGE2_CHOICES = [
 
   {
-    label: "Trade with Lorn — rare items in the caravan stock, priced in hard coin. 'Prices are not negotiable. Barter is.'",
+    label: "Lorn's stock: rare items, hard coin or barter.",
     tags: ['Trade', 'Nomdara'],
     xpReward: 30,
     fn: function() {
