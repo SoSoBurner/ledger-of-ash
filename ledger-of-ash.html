@@ -16307,7 +16307,6 @@ function useConsumable(idx) {
   G.inventory.splice(idx, 1);
   if (typeof updateHUD === 'function') updateHUD();
   if (typeof renderNarration === 'function') renderNarration();
-  if (typeof renderCharacterSheet === 'function') renderCharacterSheet();
 }
 
 var MATERIAL_SELL_PRICES = {
@@ -16824,7 +16823,6 @@ function buyShopItem(itemId) {
   addNarration('', item.name + ' purchased.', 'success');
   if (item.effect) applyEffect(item.effect);
   if (typeof updateHUD === 'function') updateHUD();
-  if (typeof renderCharacterSheet === 'function') renderCharacterSheet();
 }
 
 function buildCompanionHudHTML(companions) {
@@ -17633,7 +17631,6 @@ function useUtilitySkill(skillId) {
   G.lastResult = resultText;
   addJournal(resultText, 'discovery');
   if (typeof updateHUD === 'function') updateHUD();
-  if (typeof renderCharacterSheet === 'function') renderCharacterSheet();
 }
 
 // ── COMBAT ABILITY CHOICES ─────────────────────────────
