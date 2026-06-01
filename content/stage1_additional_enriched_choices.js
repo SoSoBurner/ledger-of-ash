@@ -47,7 +47,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       const person = pick(['local merchant', 'homeowner', 'shopkeeper', 'laborer'], G.dayCount + 1);
       G.lastResult = `You finish the work and don't wait to be thanked. The ${person} watches you go and says your name to the next person who asks. By evening you've been mentioned in three conversations you weren't part of. Usefulness is its own currency in ${loc.name} — visible, unthreatening, and easier to trust than a stranger asking questions. There's a cost to it too: you've now been placed, given a role. The help is remembered, and so is the face that offered it.`;
       gainXp(30, 'community good faith');
-      addJournal('community', `Helped locals in ${loc.name}`, `help-${G.location}-${G.dayCount}`);
+      addJournal(`Helped locals in ${loc.name}`, 'discovery', `help-${G.location}-${G.dayCount}`);
       G.recentOutcomeType = 'community';
       maybeStageAdvance();
     }
@@ -66,7 +66,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       const companion = pick(companions, G.dayCount);
       G.lastResult = `${companion} is more relaxed with food in front of them. They talk about the district's seasons, a family member who works the docks, a neighbor who left without explanation last spring. You don't ask directly about anything. By the time the bread is gone, they've told you three things about ${loc.name} that no notice board would carry. They pause before answering a question about the northern routes — not evasion, exactly, but the careful kind of hesitation that means they've been warned about something.`;
       gainXp(30, 'genuine connection');
-      addJournal('relationship', `Built trust through shared meal in ${loc.name}`, `meal-${G.location}-${G.dayCount}`);
+      addJournal(`Built trust through shared meal in ${loc.name}`, 'discovery', `meal-${G.location}-${G.dayCount}`);
       G.recentOutcomeType = 'social';
       G.stageProgress[1]++;
       maybeStageAdvance();
@@ -86,7 +86,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       G.lastResult = `After four days, the innkeeper pours your drink before you ask. The corner table holds your pack without question when you step out. Two regulars nod at you the way they nod at the wall sconces — automatic, unremarkable. ${loc.name} has stopped treating you as a newcomer. Fixtures are trusted because they're expected. They're also noticed more sharply when they move out of place.`;
       gainXp(30, 'establishing presence');
       G.currentSafeZone = `favorite corner in a ${loc.name} tavern`;
-      addJournal('establishment', `Established routine in ${loc.name}`, `routine-${G.location}-${G.dayCount}`);
+      addJournal(`Established routine in ${loc.name}`, 'discovery', `routine-${G.location}-${G.dayCount}`);
       G.recentOutcomeType = 'safe';
       maybeStageAdvance();
     }
@@ -103,7 +103,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       const loc = getLocality(G.location);
       G.lastResult = `The small rules of ${loc.name} emerge through friction: a greeting that works in the market fails in the residential lanes; a direct question to a stranger reads as aggression where a pause and a nod reads as invitation. You stop making those errors. One pattern stays with you — nobody names the northern traders by region. They say "outside suppliers," even in casual talk, even when the geography would make the meaning clearer. That's not laziness. That's a habit formed under pressure.`;
       gainXp(30, 'cultural awareness');
-      addJournal('observation', `Learned local customs in ${loc.name}`, `customs-${G.location}-${G.dayCount}`);
+      addJournal(`Learned local customs in ${loc.name}`, 'intelligence', `customs-${G.location}-${G.dayCount}`);
       G.recentOutcomeType = 'observe';
       maybeStageAdvance();
     }
@@ -123,7 +123,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       G.skills[skillName] = (G.skills[skillName] || 0) + 2;
       G.lastResult = `Low stakes sharpen different edges than high ones. An hour of ${skillName} work in a quiet corner of the district — drills, repetition, the small corrections that only show up when nothing's at risk. Someone stops to watch for three full minutes before walking on. In ${loc.name}'s current climate, visible competence draws attention even when it's benign. You note who stopped. You note that they said nothing.`;
       gainXp(30, `skill refinement - ${skillName}`);
-      addJournal('training', `Practiced ${skillName} in ${getLocality(G.location).name}`, `practice-${skillName}-${G.dayCount}`);
+      addJournal(`Practiced ${skillName} in ${getLocality(G.location).name}`, 'discovery', `practice-${skillName}-${G.dayCount}`);
       G.recentOutcomeType = 'practice';
       maybeStageAdvance();
     }
@@ -143,7 +143,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       G.skills[skillName] = (G.skills[skillName] || 0) + 1;
       G.lastResult = `Teaching ${skillName} means finding the words for things you've only done by instinct. The student is slow at first and then suddenly isn't, which is how it always goes. They're better than they were. You're sharper for having explained it. Midway through, they mention the last person who taught here vanished about a month ago — "institutional reorganization" is the phrase their neighbor used. They say it without particular emphasis, which is its own kind of emphasis.`;
       gainXp(30, `teaching - ${skillName}`);
-      addJournal('teaching', `Mentored someone in ${skillName} in ${loc.name}`, `teach-${skillName}-${G.dayCount}`);
+      addJournal(`Mentored someone in ${skillName} in ${loc.name}`, 'discovery', `teach-${skillName}-${G.dayCount}`);
       G.recentOutcomeType = 'teaching';
       G.stageProgress[1]++;
       maybeStageAdvance();
@@ -164,7 +164,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       const feature = pick(features, G.dayCount);
       G.lastResult = `The lane narrows twice before opening onto the ${feature}. Nobody else is using it. The stone is old and the proportions are off in the way of structures that were built for a purpose nobody remembers. You stay long enough to map your exits and mark it in your working memory. On the wall nearest the entrance: three ash-marks in the old mourning pattern, drawn within the last week. Fresh enough that the edges haven't softened.`;
       gainXp(30, 'local familiarity');
-      addJournal('exploration', `Discovered ${feature} in ${loc.name}`, `explore-${G.location}-${G.dayCount}`);
+      addJournal(`Discovered ${feature} in ${loc.name}`, 'discovery', `explore-${G.location}-${G.dayCount}`);
       G.recentOutcomeType = 'explore';
       maybeStageAdvance();
     }
@@ -182,7 +182,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       G.lastResult = `${loc.name} has a circulatory system. Foot traffic pools in the morning market lanes and drains through the residential blocks by midday. Three streets that look like through-routes aren't — the crowd bends away from them without acknowledging it. One intersection goes quiet every afternoon at the same hour. Not empty, just thin — and the people who use it at that hour walk faster than the street warrants. That's not coincidence. That's a population that's learned something about being counted.`;
       gainXp(30, 'spatial awareness');
       G.threatAssessment = true;
-      addJournal('observation', `Understood crowd flows in ${loc.name}`, `flows-${G.location}-${G.dayCount}`);
+      addJournal(`Understood crowd flows in ${loc.name}`, 'intelligence', `flows-${G.location}-${G.dayCount}`);
       G.recentOutcomeType = 'observe';
       maybeStageAdvance();
     }
@@ -201,7 +201,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       G.fatigue = Math.max(0, G.fatigue - 2);
       G.lastResult = `You eat, sleep past dawn, and don't move quickly when you wake. The body settles. The accumulated small decisions of the last several days stop pressing for attention. By afternoon, the inn's common room is quieter than it was yesterday — three fewer regulars, a gap in the usual noise that the remaining voices don't quite fill. Small changes accumulate in ${loc.name}. You're rested enough now to notice them properly.`;
       gainXp(30, 'self care');
-      addJournal('personal', 'Took time for reflection and recovery', `rest-${G.dayCount}`);
+      addJournal('Took time for reflection and recovery', 'discovery', `rest-${G.dayCount}`);
       G.recentOutcomeType = 'rest';
       maybeStageAdvance();
     }
@@ -221,7 +221,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       if (factions.length > 1) {
         G.lastResult = `You appear interested in neither faction's pitch and both interpret that differently — one reads it as alignment with the other, one reads it as independence worth courting. You let both interpretations run. What emerges from watching their maneuvering is the actual disagreement under the stated one: not resources or territory, but access — who controls which routes, and who decides when that changes. Neither faction names it directly. They've stopped naming things directly in ${loc.name}.`;
         gainXp(30, 'neutral intelligence gathering');
-        addJournal('neutrality', `Mapped faction tensions in ${loc.name}`, `faction-map-${G.dayCount}`);
+        addJournal(`Mapped faction tensions in ${loc.name}`, 'intelligence', `faction-map-${G.dayCount}`);
       } else {
         G.lastResult = `The power structure in this locality runs through one body with no real competition. The absence of visible friction is its own data point. Single authority means disputes are absorbed rather than aired — you won't hear about conflicts, you'll see their aftermath. A district this unified usually has significant pressure applied somewhere you can't see yet. It shows in small things: the way a vendor pauses before answering a price question, the space left around certain tables in the common room.`;
         gainXp(30, 'power structure analysis');
