@@ -94,6 +94,48 @@ window.ROUTE_SPATIAL_DATA = {
     biomes: ['sea','coastal'],
     route_class: 'sea',
     allowed_modes: ['boat']
+  },
+  'ithtananalor|fairhaven': {
+    route_note: 'The forest road west to Fairhaven is older than the guild maintenance schedule. The verge is overgrown past the first waymarker. Guild transit seals are still required at the Fairhaven boundary, but there is no one to check them before that.',
+    biomes: ['forest', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'mimolot_academy|fairhaven': {
+    route_note: 'The Mimolot plains road to Fairhaven carries Academy-sealed cargo regularly. The guild checkpoint at the Fairhaven entry is familiar with Academy manifests. Familiarity is not the same as speed.',
+    biomes: ['plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'panim_haven|fairhaven': {
+    route_note: 'The coastal road north from Panim Haven runs three months of patrol conflict before the terrain opens into Fairhaven approach. Jurisdiction shifts twice without posted markers.',
+    biomes: ['coastal', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'shirshal|fairhaven': {
+    route_note: 'The Shirshal road to Fairhaven passes through contested patrol territory for the first quarter of the route. After the boundary post, the road improves and the jurisdiction becomes clear again.',
+    biomes: ['coastal', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'soreheim_proper|fairhaven': {
+    route_note: 'The direct road from Soreheim to Fairhaven crosses three territorial boundaries and two mountain passes. Most cargo traffic uses the Guildheart Hub relay. This route exists but is not maintained for speed.',
+    biomes: ['mountain', 'highland', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'sunspire_haven|fairhaven': {
+    route_note: 'The highland road from Sunspire to Fairhaven descends through two elevation changes and a stretch of unmarked Soreheim extraction territory. Quota transit rules apply at the boundary post, if anyone is staffing it.',
+    biomes: ['highland', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'aurora_crown_commune|fairhaven': {
+    route_note: 'The long road from Aurora Crown to Fairhaven bypasses Shelkopolis entirely. Sheresh transit papers are valid through the first two checkpoints. After the territorial boundary, they are not.',
+    biomes: ['highland', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
   }
 };
 

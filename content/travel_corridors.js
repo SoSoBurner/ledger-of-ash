@@ -93,7 +93,22 @@
     'cosmoria|brineland':                  { tier:'medium', biome:'sea',     foot:0,    horse:0,    cart:0,    boat:8.0 },
     'brineland|cosmoria':                  { tier:'medium', biome:'sea',     foot:0,    horse:0,    cart:0,    boat:8.0 },
     'soreheim_proper|eternal_lands':       { tier:'long',   biome:'sea',     foot:0,    horse:0,    cart:0,    boat:21.0 },
-    'eternal_lands|soreheim_proper':       { tier:'long',   biome:'sea',     foot:0,    horse:0,    cart:0,    boat:21.0 }
+    'eternal_lands|soreheim_proper':       { tier:'long',   biome:'sea',     foot:0,    horse:0,    cart:0,    boat:21.0 },
+    // Direct Fairhaven spoke routes (from world graph — previously missing)
+    'ithtananalor|fairhaven':          { tier:'long', biome:'forest',   foot:46.8,  horse:28.1,  cart:62.4,  boat:0 },
+    'fairhaven|ithtananalor':          { tier:'long', biome:'forest',   foot:46.8,  horse:28.1,  cart:62.4,  boat:0 },
+    'mimolot_academy|fairhaven':       { tier:'long', biome:'plains',   foot:62.3,  horse:37.4,  cart:83.1,  boat:0 },
+    'fairhaven|mimolot_academy':       { tier:'long', biome:'plains',   foot:62.3,  horse:37.4,  cart:83.1,  boat:0 },
+    'panim_haven|fairhaven':           { tier:'long', biome:'coastal',  foot:91.7,  horse:55.0,  cart:122.3, boat:0 },
+    'fairhaven|panim_haven':           { tier:'long', biome:'coastal',  foot:91.7,  horse:55.0,  cart:122.3, boat:0 },
+    'shirshal|fairhaven':              { tier:'long', biome:'coastal',  foot:51.2,  horse:30.7,  cart:68.3,  boat:0 },
+    'fairhaven|shirshal':              { tier:'long', biome:'coastal',  foot:51.2,  horse:30.7,  cart:68.3,  boat:0 },
+    'soreheim_proper|fairhaven':       { tier:'long', biome:'mountain', foot:285.2, horse:171.1, cart:380.3, boat:0 },
+    'fairhaven|soreheim_proper':       { tier:'long', biome:'mountain', foot:285.2, horse:171.1, cart:380.3, boat:0 },
+    'sunspire_haven|fairhaven':        { tier:'long', biome:'highland', foot:244.5, horse:146.7, cart:326.1, boat:0 },
+    'fairhaven|sunspire_haven':        { tier:'long', biome:'highland', foot:244.5, horse:146.7, cart:326.1, boat:0 },
+    'aurora_crown_commune|fairhaven':  { tier:'long', biome:'highland', foot:108.2, horse:64.9,  cart:144.3, boat:0 },
+    'fairhaven|aurora_crown_commune':  { tier:'long', biome:'highland', foot:108.2, horse:64.9,  cart:144.3, boat:0 }
   };
 
   // Encounter rate extras by biome (added rolls on top of base tier count)
