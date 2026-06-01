@@ -14112,7 +14112,6 @@ function resolveArrival(locId) {
   }
   setTimeout(() => {
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
-    if (typeof checkStage1BossTriggered === 'function') checkStage1BossTriggered();
     if (typeof loadStageChoices === 'function') {
       loadStageChoices(locId, G.stage);
     } else {
