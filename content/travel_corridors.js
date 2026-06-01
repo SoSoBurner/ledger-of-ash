@@ -3132,6 +3132,7 @@
       }
     },
     startOverlayJourney: function(fromId, toId, mode, pack) {
+      TRAVEL_CORRIDOR._resetJourneyGlobalState(fromId, toId);
       var routeKey = fromId + '|' + toId;
       var revKey   = toId   + '|' + fromId;
       var routeEntry = (window.TRAVEL_ROUTES || {})[routeKey]
@@ -3394,6 +3395,26 @@
         });
         choiceArea.appendChild(btn);
       });
+    },
+    _resetJourneyGlobalState: function(fromId, toId) {
+      if (window.CORRIDOR_ENCOUNTERS) {
+        ['short','medium','long'].forEach(function(tier) {
+          var pool = window.CORRIDOR_ENCOUNTERS[tier] || [];
+          pool.forEach(function(enc) { enc._overlay_used = false; });
+        });
+      }
+      if (window.ROUTE_COMPLICATIONS) {
+        var key1 = fromId + '|' + toId;
+        var key2 = toId + '|' + fromId;
+        [key1, key2].forEach(function(key) {
+          var comp = window.ROUTE_COMPLICATIONS[key];
+          if (comp) {
+            ['checkpoint','patrol','night','hazard'].forEach(function(t) {
+              delete comp['_used_' + t];
+            });
+          }
+        });
+      }
     }
   };
 
