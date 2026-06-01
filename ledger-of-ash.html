@@ -13894,69 +13894,73 @@ function addQuest(msg, hint, questId) {
 
 // ── TRAVEL ───────────────────────────────────────────────
 /** Locality transition. Stage I blocks cross-region travel. Sets G.location, ticks axis, renders arrival choices. @param {string} locId */
-function showTravelModeSelect(destId, destName, onConfirm) {
-  var _existing = document.getElementById('travel-mode-modal');
-  if (_existing) _existing.remove();
-  var _costs = { foot: 0, horse: 5, cart: 3, boat: 8 };
-  var _paces = { foot: '1 region/day', horse: '2 regions/day', cart: '1 region/day (cargo bonus)', boat: '3 regions/day (route-fixed)' };
-  var _labels = { foot: 'On Foot', horse: 'Horse', cart: 'Cart', boat: 'River Passage' };
-  var _gold = G.gold || 0;
-  var _modal = document.createElement('div');
-  _modal.id = 'travel-mode-modal';
-  _modal.style.cssText = 'position:fixed;inset:0;background:rgba(7,6,13,0.92);z-index:800;display:flex;align-items:center;justify-content:center;';
-  var _btns = ['foot','horse','cart','boat'].map(function(m) {
-    var _cost = _costs[m];
-    var _canAfford = _cost === 0 || _gold >= _cost;
-    var _costStr = _cost > 0 ? _cost + ' gold' : 'Free';
-    return '<button onclick="selectTravelMode(\'' + m + '\',\'' + destId + '\')" '
-      + (!_canAfford ? 'disabled style="opacity:0.4;cursor:not-allowed;"' : 'style="cursor:pointer;"')
-      + ' class="choice-btn" style="margin:5px;padding:10px 18px;font-family:var(--font-display);font-size:13px;display:block;width:100%;text-align:left;">'
-      + _labels[m] + '<br><span style="font-size:11px;color:var(--ink-dim)">' + _paces[m] + ' — ' + _costStr + '</span></button>';
-  }).join('');
-  _modal.innerHTML = '<div style="background:var(--coal);border:1px solid var(--char);padding:28px;max-width:360px;width:90%;text-align:center">'
-    + '<div style="font-family:var(--font-display);font-size:15px;margin-bottom:16px;color:var(--accent-gold)">Travel to ' + destName + '</div>'
-    + _btns
-    + '<button onclick="var _m=document.getElementById(\'travel-mode-modal\');if(_m)_m.remove();" style="margin-top:12px;padding:6px 14px;font-family:var(--font-display);font-size:12px;cursor:pointer;color:var(--ink-dim);background:none;border:1px solid var(--char)">Cancel</button>'
-    + '</div>';
-  document.body.appendChild(_modal);
-  window._travelModeCallback = onConfirm;
-}
-
-function selectTravelMode(mode, destId) {
-  var _costs = { foot: 0, horse: 5, cart: 3, boat: 8 };
-  var _cost = _costs[mode] || 0;
-  if (_cost > 0) G.gold = Math.max(0, (G.gold||0) - _cost);
-  G.travelMode = mode;
-  var _modal = document.getElementById('travel-mode-modal');
-  if (_modal) _modal.remove();
-  if (typeof window._travelModeCallback === 'function') {
-    var _cb = window._travelModeCallback;
-    window._travelModeCallback = null;
-    _cb();
-  }
-}
-window.selectTravelMode = selectTravelMode;
-
-function travelTo(locId) {
-  const loc = WORLD_LOCATIONS[locId];
+function _showModeSelectInOverlay(locId) {
+  var loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
-  const cur = WORLD_LOCATIONS[G.location];
+  var cur = WORLD_LOCATIONS[G.location];
   if (G.stage === 'Stage I' && cur) {
-    const lmr = window.LOCALITY_MACROREGION || {};
-    const samePolitya = loc.polity === cur.polity;
-    const sameMacro = lmr[locId] && lmr[G.location] && lmr[locId] === lmr[G.location];
-    const plotUnlock = G.flags && G.flags['travel_unlock_' + locId];
+    var lmr = window.LOCALITY_MACROREGION || {};
+    var sameMacro = lmr[locId] && lmr[G.location] && lmr[locId] === lmr[G.location];
+    var samePolitya = loc.polity === cur.polity;
+    var plotUnlock = G.flags && G.flags['travel_unlock_' + locId];
     if (!samePolitya && !sameMacro && !plotUnlock) {
       addNarration('', '<em style="color:var(--gold-dim)">The road to ' + loc.name + ' lies beyond your current range. Advance to Stage II to journey further.</em>');
       return;
     }
   }
-  G._journeyDest = locId;
-  if (G.travelMode) {
-    beginJourney(G.location, locId);
-  } else {
-    showTravelModeSelect(locId, loc.name, function() { beginJourney(G.location, locId); });
-  }
+
+  var _costs = { foot: 0, horse: 8, cart: 12, boat: 15 };
+  var _labels = { foot: 'On Foot', horse: 'Horse', cart: 'Cart', boat: 'River Passage' };
+  var routeData = window.ROUTE_SPATIAL_DATA ? window.ROUTE_SPATIAL_DATA.get(G.location, locId) : null;
+  var allowed = routeData ? routeData.allowed_modes : ['foot','horse','cart'];
+  var routeEntry = (window.TRAVEL_ROUTES || {})[G.location + '|' + locId]
+                || (window.TRAVEL_ROUTES || {})[locId + '|' + G.location] || {};
+  var _gold = G.gold || 0;
+
+  var btnsHtml = allowed.map(function(m) {
+    var cost = _costs[m] || 0;
+    var days = routeEntry[m] || '?';
+    var canAfford = cost === 0 || _gold >= cost;
+    return '<button class="choice-btn overlay-mode-btn"'
+      + ' data-mode="' + m + '" data-destid="' + locId + '"'
+      + (!canAfford ? ' disabled style="opacity:0.4;cursor:not-allowed"' : '')
+      + '>' + _labels[m]
+      + (cost > 0 ? ' \u2014 ' + cost + 'g' : ' \u2014 Free')
+      + '<br><span style="font-size:11px;color:var(--ink-dim)">~' + (typeof days === 'number' ? Math.ceil(days) : days) + ' days</span></button>';
+  }).join('');
+
+  var noteHtml = routeData && routeData.route_note
+    ? '<div class="journey-route-note">' + routeData.route_note + '</div>' : '';
+
+  _setMapOverlayContent(
+    'Travel to ' + loc.name,
+    noteHtml
+    + '<div class="journey-choices">' + btnsHtml + '</div>'
+    + '<div style="margin-top:14px"><button id="overlay-back-to-map" class="btn btn-ghost btn-sm">\u2190 Back to map</button></div>',
+    false
+  );
+  showOverlay('overlay-map');
+
+  document.querySelectorAll('.overlay-mode-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var mode = btn.dataset.mode;
+      var destId = btn.dataset.destid;
+      var cost = _costs[mode] || 0;
+      if (cost > 0 && _gold < cost) { if (typeof showToast === 'function') showToast('Not enough gold.'); return; }
+      if (cost > 0) { G.gold = Math.max(0, _gold - cost); if (typeof updateHUD === 'function') updateHUD(); }
+      G.travelMode = mode;
+      if (typeof _showPackChoicesInOverlay === 'function') {
+        _showPackChoicesInOverlay(G.location, destId, mode);
+      }
+    });
+  });
+
+  var backBtn = document.getElementById('overlay-back-to-map');
+  if (backBtn) backBtn.addEventListener('click', function() { showMap(); });
+}
+
+function travelTo(locId) {
+  _showModeSelectInOverlay(locId);
 }
 
 function beginJourney(fromId, toId) {
@@ -15159,7 +15163,7 @@ function showMap() {
 
   _setMapOverlayContent('The Material Planet', html, true);
   mapBody.querySelectorAll('.map-travel-btn').forEach(btn => {
-    btn.addEventListener('click', () => { closeOverlay('overlay-map'); travelTo(btn.dataset.locid); });
+    btn.addEventListener('click', function() { _showModeSelectInOverlay(btn.dataset.locid); });
   });
   mapBody.querySelectorAll('.map-district-btn').forEach(btn => {
     btn.addEventListener('click', () => { closeOverlay('overlay-map'); enterDistrict(btn.dataset.distid); });
