@@ -867,7 +867,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The merchant you were told to find has his stall closed — a slip of paper tacked to the frame says back at the second bell, which is two hours off. The fish-salt of the harbor drifts down Verdant Row. Other stall holders nearby heard the same questions being asked over the past week; one of them is still thinking about what he saw. He is not the person you came to find, but the harbor end of the Row knows what its neighbors know.",
       xp: 0,
       effects: [],
-      next: [{text: "Ask the neighboring stall holder what they observed.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "The neighboring stall holder was here. They saw what happened.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

@@ -27,7 +27,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Oversight Collegium's commune inspection team arrives in Aurora Crown every thirty days. The next window opens in four days. You need to be gone before then.",
+    label: "The inspection window opens in four days. South before it does.",
     tags: ['ArcRoad', 'Survival', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -72,7 +72,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The filtration system documentation shows the substitution was designed to be undetectable for 60-90 days. That window has closed. Aurora Crown's residents are already exposed.",
+    label: "The undetectable window has closed. The residents are already exposed.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },

@@ -407,7 +407,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The displaced families from the northeast holdings scattered south and went quiet — no recorded destinations, no filed claims, no addresses at any way station along the supply circuit. The traders carried some of them but didn't track where they stopped. The people you need are somewhere between here and the interior and the trail is four months cold. Letha's patrol network has wider reach. This requires her cooperation before it requires your legwork.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Ask Letha to use her patrol network to locate the displaced farmers', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Letha's patrol network covers this area. She'll know where they went.", skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 

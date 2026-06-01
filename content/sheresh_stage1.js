@@ -14,7 +14,7 @@ var SHERESH_STAGE1 = (function() {
 
     setTimeout(function() {
       (window._rawRenderChoices || window.renderChoices)([
-        { id: 'sheresh_ask_elder', plot: 'main', text: 'Ask an elder about the gap in the record.', tag: 'bold',
+        { id: 'sheresh_ask_elder', plot: 'main', text: 'An elder would remember what was before the gap.', tag: 'bold',
           action: function() { askElder(); } },
         { id: 'sheresh_search_older', plot: 'main', text: 'Search older records — find evidence she existed before the gap.', tag: 'risky',
           action: function() { searchOlderRecords(); } },

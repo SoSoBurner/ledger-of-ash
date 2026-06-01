@@ -9,7 +9,7 @@ var SOREHEIM_STAGE1 = (function() {
     if (typeof addNarration === 'function') addNarration('Weigh-Station', G.lastResult);
 
     (window._rawRenderChoices || window.renderChoices)([
-      { id: 'interim_investigate', plot: 'main', text: 'Ask the dockworker about the discrepancy.', tag: 'bold',
+      { id: 'interim_investigate', plot: 'main', text: 'The dockworker would know why the numbers don\'t match.', tag: 'bold',
         action: function() { investigateRegistry(); } },
       { id: 'interim_observe', plot: 'main', text: 'Watch the man in the clan coat.', tag: 'safe',
         action: function() { observeClanAgent(); } },

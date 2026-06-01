@@ -1235,7 +1235,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The courier is already past the intersection when you clear the staging area corner. He is inside the relay post gate before you reach the intersection. The gate closes with the standard relay post security lock. The dispatch is filed. Whatever it contained is now inside the post record, and the post record is guild-restricted access.',
       xp: 0,
       effects: [],
-      next: [{text: 'Approach the relay post through the official inquiry channel instead.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'The relay post has a formal channel. Use that instead.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);

@@ -46,7 +46,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "Sailor Kavan, who described the handlers with reactive material containers, is heading to Shelkopolis for a new posting. He doesn't realize what he witnessed.",
+    label: "Kavan saw the handlers. He doesn't know what he witnessed.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -73,7 +73,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The administrator appointment log from Cosmoria: the current port administrator was appointed by a committee that includes the same Compact names as the Ithtananalor ghost account authorizations.",
+    label: "The same Compact names appear in both. The appointment and the ghost accounts.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },

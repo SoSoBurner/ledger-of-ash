@@ -463,7 +463,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     failResult: {
       text: `The container route runs north from Ironhold toward Whitebridge and the trail goes cold there. On hand: two origin points and a partially legible charter mark on the containers. What's missing is the final leg — the documentation that places the combined material at a specific Shelkopolis destination. The charter mark is registered with the Compact. Kess has access to the Compact's freight charter registry and can run a mark-to-registrant search without a formal audit trigger.`,
       xp: 0, effects: [],
-      next: [{text: 'Ask Kess to run the charter mark', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Kess can run the charter mark. She has done it before.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
