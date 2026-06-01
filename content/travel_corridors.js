@@ -129,9 +129,57 @@
         title: 'Roadwarden Checkpoint',
         text: 'A Roadwarden steps from the post shelter as you approach, one hand raised. She is young for the posting — her grey cloak still has its original hem rather than the field-patched look of a long-route warden. She checks the transit board mounted on the barrier arm without looking at you, running a finger down columns of names. Her finger stops. She looks up.',
         choices: [
-          { text: 'My papers are in order. She already knows that.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'corridor_warden_papers' },
-          { text: 'Something about her pause does not fit a standard check.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: 'corridor_warden_probe' },
-          { text: 'Step aside from the road before she finishes reading.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'corridor_warden_evade' }
+          { text: 'My papers are in order. She already knows that.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'corridor_warden_papers',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'She runs the stamp across the transit form without comment. The barrier arm lifts. Her finger has already moved to the next column before you reach the road beyond the post.');
+                if (typeof gainXp === 'function') gainXp(10);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The stamp does not come down. She holds the form at arm\'s length, tilting it toward the light. The discrepancy she\'s found is small enough that she doesn\'t name it — she just watches you.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Something about her pause does not fit a standard check.', skill: 'charm', tag: 'risky', align: 'neutral', cid: 'corridor_warden_probe',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'You ask about the route advisory two posts back — a neutral question, something the board had wrong. She answers it. The stamp comes down while she\'s still correcting the record. She waves you through without looking up again.');
+                if (typeof gainXp === 'function') gainXp(20);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The question lands on the wrong note. She sets the form down and asks a follow-up — specific, procedural, and not something you can answer without either lying or pausing long enough that she notices the pause.');
+                if (typeof addHeat === 'function') addHeat('shelk', 2);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Step aside from the road before she finishes reading.', skill: 'finesse', tag: 'risky', align: 'neutral', cid: 'corridor_warden_evade',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'You take the road verge before she finishes the column. She calls something to the next traveler in line — not to you. Her attention has already shifted. You rejoin the road fifty meters on.');
+                if (typeof gainXp === 'function') gainXp(15);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The movement is too deliberate. She steps away from the barrier arm, one hand on the post, and watches you take the verge. She hasn\'t called out yet, but her weight has shifted toward the road.');
+                if (typeof addHeat === 'function') addHeat('shelk', 3);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -139,8 +187,38 @@
         title: 'Fellow Traveler',
         text: 'A man moving in the same direction as you has fallen into step a few paces back — not close enough to be obvious about it, not far enough to be coincidental. He carries a Guild-stamped cargo satchel and a walking staff with a notched handle. When you slow, he slows. When the road bends, he takes the inside line the same way you do. He has not spoken.',
         choices: [
-          { text: 'He is moving cargo. Let him move it.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_traveler_ignore' },
-          { text: 'Turn and give him room to pass or explain.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'corridor_traveler_confront' }
+          { text: 'He is moving cargo. Let him move it.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'corridor_traveler_ignore',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'You set your own pace and hold it. He moves at the satchel weight\'s pace, which is slower than yours. The gap grows. By the next mile-marker he is a dark shape behind you, not a shadow at your heels.');
+                if (typeof gainXp === 'function') gainXp(8);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'He closes to conversation range — not urgently, but steadily. He asks which house you\'re carrying for. The Guild satchel on his shoulder is now a prop in something that is not a conversation about cargo.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Turn and give him room to pass or explain.', skill: 'charm', tag: 'safe', align: 'neutral', cid: 'corridor_traveler_confront',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'He steps aside without hesitation. He was tracking the road, not you — same route, different schedule, same destination. The satchel is a hauler\'s satchel. The notched staff is for dogs, not people. You had the same route.');
+                if (typeof gainXp === 'function') gainXp(10);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'He doesn\'t step aside. His feet plant and he asks where you\'re going. The notched staff is in his hands now, not at his side. The Guild satchel has become the subject of a question he hasn\'t asked yet.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -148,8 +226,40 @@
         title: 'Stopped Cart',
         text: 'A freight cart is stopped in the road, wheel off. The carter is sitting on the verge with his boots off, not working on the wheel — just sitting. The horse is tied to a post and eating grass from the verge. Three crates are stacked beside the road, each sealed with a Roadwarden inspection mark from three days ago. The carter looks up when your shadow crosses him.',
         choices: [
-          { text: 'What is in those crates matters more than the wheel.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_cart_inspect' },
-          { text: "The wheel's stuck. A quick hand here and we're moving.", skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_cart_help' }
+          { text: 'What is in those crates matters more than the wheel.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'corridor_cart_inspect',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The seal dates are three days old. The manifest is dated two days ago. The cart left Shelkopolis before the manifest was written. You note the crate marks — not standard outfitter codes, but something narrower — and step back before the carter finishes standing up.');
+                if (typeof addJournal === 'function') addJournal('Stopped cart: seal dates mismatched with manifest. Three crates, Roadwarden-marked. Crate codes non-standard.', 'evidence');
+                if (typeof gainXp === 'function') gainXp(20);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'You lean toward the nearest crate to read the mark. The carter is on his feet before you get close. He steps between you and the crates without a word. The inspection ends there.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: "The wheel's stuck. A quick hand here and we're moving.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'corridor_cart_help',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The wheel seats on the third lift. The carter nods — he doesn\'t say much, but he gets moving. You\'re back on the road faster than the delay cost.');
+                if (typeof gainXp === 'function') gainXp(8);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The wheel won\'t seat. The axle fitting is stripped — this needed a smith before it needed a hand. You spend time on something that cannot be fixed at a road verge and leave the carter sitting where you found him.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -157,8 +267,39 @@
         title: 'Marked Milestone',
         text: 'The league marker at the roadside has been tampered with — the Roadwarden seal is intact, but someone has scratched a secondary mark into the stone below it: a narrow vertical line bisected by two short horizontals. It is not a House Shelk symbol or a Guild mark. The scratch is recent; the stone dust has not dispersed. The same mark appears on the next post fifty meters up the road.',
         choices: [
-          { text: 'Copy the mark into notes. Someone is using these posts.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'corridor_milestone_copy' },
-          { text: 'Route markers belong to whoever is maintaining this road.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_milestone_pass' }
+          { text: 'Copy the mark into notes. Someone is using these posts.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'corridor_milestone_copy',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Two vertical marks, bisected — the same hand cut both, the same tool made them. The depth is consistent. Not a casual scratch. You get the shape clean on the second try.');
+                if (typeof addJournal === 'function') addJournal('Secondary mark on road milestones — narrow vertical bisected by two horizontals. Not Guild, not Shelk. Same hand, same tool, same depth on both posts.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(10);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The light is wrong for the angle. You get the shape of the first mark but not the second — the shadow hides the depth and the bisection could be two marks or one. The copy is partial.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Route markers belong to whoever is maintaining this road.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'corridor_milestone_pass',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The marked posts fall behind you. The road ahead is clear.');
+                if (typeof gainXp === 'function') gainXp(5);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'A Roadwarden maintenance crew rounds the bend ahead, working toward the marked post with tools and a fresh-paint board. They will be at the marks before you are clear of this stretch.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -210,9 +351,57 @@
         title: 'Quota Authority Patrol',
         text: 'A three-person Quota Authority patrol is working the road in the opposite direction, stopping every traveler and checking cargo manifests against a ledger one of them carries. They are not Roadwardens — their tabards are grey with a yellow number-stamp rather than the Roadwarden green-and-grey. The one with the ledger is noting something after each stop. The travelers they check do not stop to talk about it afterward.',
         choices: [
-          { text: 'My cargo is personal goods. That classification has limits they may test.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_quota_declare' },
-          { text: 'Step off the road and let the patrol pass before joining it.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'corridor_quota_avoid' },
-          { text: 'Resistance is the signal they look for. I am not resisting.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'corridor_quota_through' }
+          { text: 'My cargo is personal goods. That classification has limits they may test.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'corridor_quota_declare',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Personal goods. The ledger-holder notes it — you see her pen move — but she doesn\'t challenge the classification. The patrol passes. The notation stays in her ledger, which is not the same as being stopped.');
+                if (typeof gainXp === 'function') gainXp(20);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'Personal goods. She writes something, then asks for itemized contents. The personal goods classification does not cover what she begins writing down. The ledger is filling with your cargo.');
+                if (typeof addHeat === 'function') addHeat('shelk', 2);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Step off the road and let the patrol pass before joining it.', skill: 'finesse', tag: 'risky', align: 'neutral', cid: 'corridor_quota_avoid',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'You\'re off the road before they reach you. The patrol passes on the road below. You rejoin the road fifty meters on, behind them now, moving in the same direction — no longer in their path.');
+                if (typeof gainXp === 'function') gainXp(15);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The one watching the road\'s edge has been watching you specifically. He signals before you reach the verge. The patrol stops moving and two of them turn toward where you are standing.');
+                if (typeof addHeat === 'function') addHeat('shelk', 2);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Resistance is the signal they look for. I am not resisting.', skill: 'charm', tag: 'safe', align: 'neutral', cid: 'corridor_quota_through',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'They check. They note. They move on. The ledger closes. The cooperative approach is indistinguishable from a traveler with nothing to hide, which is exactly what cooperative approaches are designed to resemble.');
+                if (typeof gainXp === 'function') gainXp(10);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The posture reads as rehearsed. She takes a step back, asks a secondary question — inventory, specific — and the routine check has become something longer. The other two patrol members stop walking.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -220,8 +409,40 @@
         title: 'Incident on the Road',
         text: 'Two Roadwardens are standing over a man face-down in the road, hands bound behind him with cord. A third warden is writing in a field ledger. The bound man\'s coat has been turned inside out and laid beside him — the lining has been cut open. A Roadwarden cargo bag sits open nearby, its contents spread across the road surface in a grid pattern. One warden notices you and watches without speaking.',
         choices: [
-          { text: 'This is a Roadwarden proceeding. Walk around it at the verge.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_incident_bypass' },
-          { text: 'A lining cut open means they were looking for something specific.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_incident_read' }
+          { text: 'This is a Roadwarden proceeding. Walk around it at the verge.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'corridor_incident_bypass',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The verge is wide enough. You move around without entering the proceeding\'s perimeter. The warden who noticed you has gone back to watching the bound man. The road resumes on the other side.');
+                if (typeof gainXp === 'function') gainXp(8);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The warden who noticed you steps to the verge edge before you reach the widest point. He asks you to stop. He has questions — and the field ledger is still open in the writing warden\'s hands.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'A lining cut open means they were looking for something specific.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'corridor_incident_read',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Lining-cut means a specific object — document-shaped, from the packing pattern in the spread contents. The coat\'s inner seam was cut by someone who knew where to look. The name stitched into the outer collar is readable from here.');
+                if (typeof addJournal === 'function') addJournal('Roadwarden lining-search on road. Object sought: document-shaped. Name on coat collar legible — see entry.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(25);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'You slow enough to read the lining. The writing warden looks up from the ledger. Your attention on the cut coat is visible from where he is standing. He marks something and looks at you again.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -229,9 +450,55 @@
         title: 'Campfire Off-Road',
         text: 'Thirty meters off the road through a gap in the hedgerow, a fire is burning in a stone ring. Two figures sit with their backs to the road. A third is standing at the road edge watching traffic pass — watching you pass. He has no pack visible. His hands are at his sides. The fire ring looks permanent: built with laid stone, not gathered.',
         choices: [
-          { text: 'A permanent fire ring off a major route means regular use.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_camp_approach' },
-          { text: 'Their watcher is noting faces. Give him nothing to work with.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'corridor_camp_evade' },
-          { text: 'Keep the road. Campfires are not my business tonight.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_camp_ignore' }
+          { text: 'A permanent fire ring off a major route means regular use.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'corridor_camp_approach',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The fire ring is permanent, maintained, used weekly. The flat stones around it have been resettled more than once. The standing figure\'s posture shifts when you stop — shoulders down, not hands-up. He is noting you, not moving toward you.');
+                if (typeof addJournal === 'function') addJournal('Permanent fire ring off main road. Watcher at road edge. Regular maintenance pattern — weekly use minimum.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(20);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'You step off the road toward the gap in the hedgerow. The standing figure takes a step toward the road before you decide anything. His hands stay at his sides.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Their watcher is noting faces. Give him nothing to work with.', skill: 'finesse', tag: 'risky', align: 'neutral', cid: 'corridor_camp_evade',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Face angled toward the road surface, pace unchanged. The watcher\'s gaze moves past you. He turns back toward the fire before you reach the next bend. You gave him a coat and a direction, not a face.');
+                if (typeof gainXp === 'function') gainXp(15);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The pace change is the tell — a traveler keeping their face down is a traveler keeping their face down. The watcher takes a step onto the road shoulder. You keep moving. He keeps pace for thirty meters before stopping.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Keep the road. Campfires are not my business tonight.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'corridor_camp_ignore',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The fire is their business. The road is yours. The watcher watches. You pass.');
+                if (typeof gainXp === 'function') gainXp(8);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The standing figure calls something after you. It is not a question and not a greeting. You do not stop. The words don\'t carry far enough to be clear, but the tone does.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -239,8 +506,40 @@
         title: 'Broken Guild Seal',
         text: 'A cargo crate sits at the roadside with a broken Guild transit seal — the wax intact but the cord cut cleanly through. Whatever was inside has been removed: the packing material remains, shaped to a rectangular object roughly the size of a document case. The crate carries a manifest tag from a Shelkopolis outfitter, departure dated four days ago. There is no carter, no cart, no other cargo.',
         choices: [
-          { text: 'The packing shape and the seal type belong together in my notes.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'corridor_seal_examine' },
-          { text: 'Sitting near stolen Guild cargo on an open road is a problem I do not need.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_seal_leave' }
+          { text: 'The packing shape and the seal type belong together in my notes.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'corridor_seal_examine',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Cord cut, not pulled — deliberate, not hurried. The packing shape held a document case. The manifest tag gives the Shelkopolis outfitter and a departure date four days back. No carter, no cart, no second removal. Whatever was in it left on foot.');
+                if (typeof addJournal === 'function') addJournal('Roadside abandoned crate: Guild seal cord-cut, document-case shaped removal. Shelkopolis outfitter, four days old. No cart or carter present.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(12);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'You get the seal date and origin mark. The packing material has shifted since — the document shape is readable but not precise. The outfitter is clear. The object shape is a guess.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Sitting near stolen Guild cargo on an open road is a problem I do not need.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'corridor_seal_leave',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Both directions of road are clear. You pass the crate without stopping and continue.');
+                if (typeof gainXp === 'function') gainXp(5);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'A Roadwarden approaches from the opposite direction at pace. She has seen you near the crate and she is not slowing down.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -293,9 +592,61 @@
         title: 'Road Ahead Blocked',
         text: 'Three figures have positioned themselves across the road at a narrow point where hedgerows press close on both sides. They are not Roadwardens. Two have staffs; one has a hand on a belt knife but has not drawn it. Behind you, a fourth figure has stepped onto the road from the hedgerow gap. They are positioned well — someone who knows this stretch. The one with the knife speaks first: you are carrying something they want. He does not say what.',
         choices: [
-          { text: 'The positioning means they have done this before. Make the cost too high.', skill: 'combat', tag: 'bold', align: 'neutral', cid: 'corridor_ambush_fight' },
-          { text: 'They said what they want. They have not said they know what it is.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: 'corridor_ambush_talk' },
-          { text: 'The hedgerow on the right is thinner. The position is not as tight as it looks.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'corridor_ambush_break' }
+          { text: 'The positioning means they have done this before. Make the cost too high.', skill: 'might', tag: 'bold', align: 'neutral', cid: 'corridor_ambush_fight',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('might') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 16;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The forward two step back when the cost becomes clear. The one with the knife holds for a moment — long enough to be a decision — and then doesn\'t. The fourth figure behind you stays where he is. You move through the gap they leave.');
+                if (typeof gainXp === 'function') gainXp(30);
+                G.fatigue = (G.fatigue || 0) + 1;
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The fourth figure from behind closes faster than expected. The forward positioning was designed for this — the road narrows exactly where you\'re standing. The fight is worse than the arithmetic suggested.');
+                if (typeof modHP === 'function') modHP(-3);
+                G.fatigue = (G.fatigue || 0) + 2;
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'They said what they want. They have not said they know what it is.', skill: 'charm', tag: 'risky', align: 'neutral', cid: 'corridor_ambush_talk',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'They want what they think you\'re carrying. When you describe what you\'re actually carrying, the calculation changes visibly. The knife-holder sends the fourth figure to check. He finds nothing worth the trouble. The road clears.');
+                if (typeof gainXp === 'function') gainXp(20);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The conversation takes longer than the positioning allows. The fourth figure has closed from behind by the time you reach the second sentence. The negotiation is over and the terms are different now.');
+                if (typeof modHP === 'function') modHP(-2);
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'The hedgerow on the right is thinner. The position is not as tight as it looks.', skill: 'finesse', tag: 'risky', align: 'neutral', cid: 'corridor_ambush_break',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Two competing root systems have left a gap at ground level. You\'re through it before anyone moves. The road on the far side of the hedgerow is clear and runs parallel for two hundred meters before rejoining the main route.');
+                if (typeof gainXp === 'function') gainXp(25);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The gap is shallower than it looked from the road. The figure with the staff reaches the hedgerow before you push through. The position is tighter than it looked.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -303,9 +654,56 @@
         title: 'Courier on the Ground',
         text: 'A Roadwarden courier is sitting against a milestone, one leg extended, the other drawn up. Her dispatch bag is still sealed and still on her shoulder. The injury is to her ankle — she has wrapped it with cord from her pack. Her horse is nowhere visible. When she sees you, her hand moves to the bag strap, not to any weapon, and she watches your face before she says anything.',
         choices: [
-          { text: 'She is protecting the bag, not herself. The bag is what matters here.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_courier_bag' },
-          { text: 'Help with the ankle. The bag is her problem to manage.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'corridor_courier_help' },
-          { text: 'A sealed dispatch bag and no horse on a long route means she was intercepted once already.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: 'corridor_courier_ask' }
+          { text: 'She is protecting the bag, not herself. The bag is what matters here.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'corridor_courier_bag',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'She gives you the dispatch number without the route. She decides that the number is less dangerous than the route — you can see the decision. The seal is intact, the bag is going through. The number is enough to trace the origin checkpoint.');
+                if (typeof addJournal === 'function') addJournal('Injured courier. Dispatch bag sealed, number recorded. No horse — not lost, removed. Origin: two checkpoints south.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(20);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'Her hand tightens on the strap when you mention the bag. She stops answering and watches the road behind you instead. The conversation is finished.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Help with the ankle. The bag is her problem to manage.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'corridor_courier_help',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The ankle is wrapped correctly for short travel. She tests it, stands, and can move. She thanks you without using your name — she noticed that you did not give it, and that noticing is visible in the way she said it.');
+                if (typeof gainXp === 'function') gainXp(12);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The cord is wrong for this injury — bone, not tendon. She needs the next post\'s medical kit, not field wrapping. You\'ve added time to her stop without making it shorter.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'A sealed dispatch bag and no horse on a long route means she was intercepted once already.', skill: 'charm', tag: 'risky', align: 'neutral', cid: 'corridor_courier_ask',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The dispatch originated two checkpoints south. The horse was taken, not lost — she makes that distinction carefully, specifically, the way you make distinctions that matter for a formal report. She says it once and does not repeat it.');
+                if (typeof addJournal === 'function') addJournal('Courier horse removed, not lost. Dispatch originated two checkpoints south. Pattern: active interception on long route.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(25);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'She answers the first question and stops. Whatever you asked after that closed the conversation. She is watching the road behind you, not looking at your face.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -313,9 +711,59 @@
         title: 'Crossroads Authority',
         text: 'The crossroads has a permanent Roadwarden post and a second structure beside it: a grey fieldstone building with the Guild Council transit seal above the door and a notice board three panels wide. A senior warden — the shoulder-bar indicates route commander rank — is standing outside with a list. She is checking names against it as travelers pass. Behind her, through the open door, two more wardens are visible at a table with cargo manifests spread open.',
         choices: [
-          { text: 'Route commander rank at a crossroads check means an active directive, not routine work.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'corridor_crossroads_read' },
-          { text: 'Cross at the standard pace. A hesitation is what they are watching for.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'corridor_crossroads_through' },
-          { text: 'The secondary road to the east adds half a day. It is not on her list.', skill: 'survival', tag: 'risky', align: 'neutral', cid: 'corridor_crossroads_detour' }
+          { text: 'Route commander rank at a crossroads check means an active directive, not routine work.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'corridor_crossroads_read',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'Route commander rank. The list she\'s working from is name-specific, not cargo-specific — you can see the column layout from the road. The manifests inside have been cross-referenced against something. This is an active directive, not a quota check.');
+                if (typeof addJournal === 'function') addJournal('Crossroads checkpoint: route commander, name-specific list, cross-referenced manifests. Active directive in force — not routine quota.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(25);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'You slow enough to read the rank insignia. She stops checking her list and looks directly at you. Her pen is still in her hand.');
+                if (typeof addHeat === 'function') addHeat('shelk', 2);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Cross at the standard pace. A hesitation is what they are watching for.', skill: 'charm', tag: 'safe', align: 'neutral', cid: 'corridor_crossroads_through',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 7;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'She checks the list. Your name is not on it. She waves you through without looking up from the column.');
+                if (typeof gainXp === 'function') gainXp(10);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'She checks the list twice. You pass through, but the pause between checks was long enough that one of the wardens inside looked up from the manifests. You have been noted, if not stopped.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'The secondary road to the east adds half a day. It is not on her list.', skill: 'vigor', tag: 'risky', align: 'neutral', cid: 'corridor_crossroads_detour',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The eastern road meets the main route again eight kilometers on. Half a day added, nothing written in the checkpoint ledger. The detour costs time and buys nothing except the absence of a notation.');
+                if (typeof gainXp === 'function') gainXp(20);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'The eastern road is gated a kilometer in — seasonal maintenance closure, padlocked, notice board facing the wrong direction. You walk back to the crossroads checkpoint. She watches you rejoin the queue.');
+                if (typeof addHeat === 'function') addHeat('shelk', 1);
+                G.fatigue = (G.fatigue || 0) + 1;
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -323,8 +771,42 @@
         title: 'Something Left on the Road',
         text: 'A document case lies open in the middle of the road — not dropped and kicked aside, but placed, centered between the wheel ruts, as though someone wanted it found. The case is Guild-stamped with a Shelkopolis origin mark. Inside is a single folded document. The paper has a Roadwarden header, but the text below has been struck through in red ink — every line, systematically, with the same hand. A name at the bottom remains legible.',
         choices: [
-          { text: 'The case was placed. Someone knew this route would bring the right traveler past it.', skill: 'lore', tag: 'bold', align: 'neutral', cid: 'corridor_find_take' },
-          { text: 'Placed evidence is someone\'s trap or someone\'s message. Neither option is comfortable.', skill: 'survival', tag: 'risky', align: 'neutral', cid: 'corridor_find_read_only' }
+          { text: 'The case was placed. Someone knew this route would bring the right traveler past it.', skill: 'wits', tag: 'bold', align: 'neutral', cid: 'corridor_find_take',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 16;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'The name at the bottom is one you recognize from register, not personally. The struck-through text is systematic — every line, same hand, same pressure, not redaction but erasure. The document says something was expected and did not arrive. The case goes into your pack.');
+                if (typeof addJournal === 'function') addJournal('Placed document: Roadwarden header, full text struck through systematically. Single legible name at bottom. Taken for further analysis.', 'evidence');
+                if (typeof gainXp === 'function') gainXp(40);
+                if (typeof addMaterial === 'function') addMaterial('redacted_warrant', 1);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'A Roadwarden patrol appears at the far end of the road as you lift the document from the case. You have the document. They have a clear line of sight. The case is still open in the road.');
+                if (typeof addHeat === 'function') addHeat('shelk', 3);
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          },
+          { text: 'Placed evidence is someone\'s trap or someone\'s message. Neither option is comfortable.', skill: 'vigor', tag: 'risky', align: 'neutral', cid: 'corridor_find_read_only',
+            action: function() {
+              var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10, isCrit: false, isFumble: false };
+              var dc = 13;
+              if (r.total >= dc) {
+                if (typeof addNarration === 'function') addNarration('', 'You read the name without touching the case. The placement is deliberate — centered, visible, on a road with regular traffic. Someone placed this for a specific reader. You are not that reader. You step past it.');
+                if (typeof addJournal === 'function') addJournal('Placed document at roadside. Name at bottom readable. Not addressed to you — left for a specific reader on this route.', 'intelligence');
+                if (typeof gainXp === 'function') gainXp(15);
+              } else {
+                if (typeof addNarration === 'function') addNarration('', 'You read the name and step back. A figure at the road bend thirty meters back has been standing still long enough to have watched you read it. They do not approach. They do not move.');
+              }
+              setTimeout(function() {
+                if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+                else TRAVEL_CORRIDOR.advanceDayLeg();
+              }, 500);
+            }
+          }
         ]
       },
       {
@@ -385,8 +867,30 @@
       name: 'Fairhaven East Waystation',
       desc: 'A Roadwarden waystation at the eastern edge of Fairhaven territory. Stone-built, single room, fire laid but not lit. The dispatch board has four notices pinned to it; two are this week\'s. Water is clean. The door bolt works from inside.',
       choices: [
-        { text: 'Rest here. The road will still be there at first light.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_fairhaven' },
-        { text: 'Read the dispatch board before pushing on.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_fairhaven' }
+        { text: 'Rest here. The road will still be there at first light.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_fairhaven',
+          action: function() {
+            var heal = Math.min(3, ((G.maxHp || 14) - (G.hp || 14)));
+            if (heal > 0 && typeof modHP === 'function') modHP(heal);
+            G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
+            if (typeof addNarration === 'function') addNarration('', 'The fire takes on the third strike. The dispatch board is readable from the sleeping roll. You don\'t sleep well, but you sleep. The ankle stiffness is gone by first light.');
+            if (typeof addJournal === 'function') addJournal('Rested at Fairhaven East Waystation.', 'field_note');
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        },
+        { text: 'Read the dispatch board before pushing on.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_fairhaven',
+          action: function() {
+            if (typeof gainXp === 'function') gainXp(15);
+            if (typeof addJournal === 'function') addJournal('Fairhaven East Waystation dispatch board: two notices current this week.', 'intelligence');
+            if (typeof addNarration === 'function') addNarration('', 'Two current notices on the board — one route advisory, one cargo flag. You note both and continue. The eastern road is yours for another hour before the next waystation.');
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        }
       ]
     },
     {
@@ -395,8 +899,36 @@
       name: 'Soreheim Border Allocation Post',
       desc: 'A Giant Council allocation post at the Soreheim boundary marker. Staffed during quota hours; currently empty. A grease-pencil transit log on the counter shows twelve crossings today. The stove is warm. Someone left a canteen.',
       choices: [
-        { text: 'An empty quota post and a warm stove. Make use of both.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_soreheim' },
-        { text: 'The transit log has names. Cross the boundary now and stay out of it.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'anchor_push_on_soreheim' }
+        { text: 'An empty quota post and a warm stove. Make use of both.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_soreheim',
+          action: function() {
+            var heal = Math.min(3, ((G.maxHp || 14) - (G.hp || 14)));
+            if (heal > 0 && typeof modHP === 'function') modHP(heal);
+            G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
+            if (typeof addNarration === 'function') addNarration('', 'The stove warmth is allocation post warmth — dry and even. The canteen on the counter is full. You use it. Twelve names in the transit log. You read them without meaning to.');
+            if (typeof addJournal === 'function') addJournal('Rested at Soreheim Border Allocation Post.', 'field_note');
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        },
+        { text: 'The transit log has names. Cross the boundary now and stay out of it.', skill: 'finesse', tag: 'risky', align: 'neutral', cid: 'anchor_push_on_soreheim',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10, isCrit: false, isFumble: false };
+            var dc = 13;
+            if (r.total >= dc) {
+              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof addNarration === 'function') addNarration('', 'The boundary crossing is clean. No allocation warden on duty. The log has your transit number but not your name — the distinction is institutional, not personal, and it will hold.');
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'An allocation warden arrives from the south post as you cross. She asks your transit number. You give it. She writes it down. The log now has both the number and the name she asked for after.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        }
       ]
     },
     {
@@ -405,8 +937,29 @@
       name: 'Dome Perimeter Rest Stop',
       desc: 'A Dome Stewards-maintained rest point at the Sheresh perimeter. The dome-light is close enough here to read by without a lamp. Insulated sleeping rolls are stored in a locked rack — key on a hook above the door, available to travelers. The cold through the walls is steady, not cutting.',
       choices: [
-        { text: 'Dome-light does not stop. Sleep is possible if the cold is manageable.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_sheresh' },
-        { text: 'The dome perimeter is monitored. Better to arrive in full daylight.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_sheresh' }
+        { text: 'Dome-light does not stop. Sleep is possible if the cold is manageable.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_sheresh',
+          action: function() {
+            var heal = Math.min(3, ((G.maxHp || 14) - (G.hp || 14)));
+            if (heal > 0 && typeof modHP === 'function') modHP(heal);
+            G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
+            if (typeof addNarration === 'function') addNarration('', 'The dome-light does not follow a day cycle — it is steady, not bright. The insulated roll is cold at first. By the second hour it holds its warmth. You sleep through the dome-glow.');
+            if (typeof addJournal === 'function') addJournal('Rested at Dome Perimeter Rest Stop.', 'field_note');
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        },
+        { text: 'The dome perimeter is monitored. Better to arrive in full daylight.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'anchor_push_on_sheresh',
+          action: function() {
+            if (typeof gainXp === 'function') gainXp(10);
+            if (typeof addNarration === 'function') addNarration('', 'The perimeter monitoring operates on a visual cycle, not a time one. Arriving in full daylight means arriving in the window where the sweep already cleared your approach. The next checkpoint is two kilometers in.');
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        }
       ]
     },
     {
@@ -415,8 +968,36 @@
       name: 'Ash Road Iron Station',
       desc: 'A cast-iron waystation on the Psanan ash road. Ventilation slots along the roof keep the air inside cleaner than outside. The forge heat from below keeps it warm without fire. A route advisory board carries one current notice, updated in grease pencil: ASH LEVEL — ELEVATED EAST.',
       choices: [
-        { text: 'The forge heat and the clean air are reasons enough to stop.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_psanan' },
-        { text: 'Elevated ash east means the timing matters. Move now.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'anchor_push_on_psanan' }
+        { text: 'The forge heat and the clean air are reasons enough to stop.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'anchor_make_camp_psanan',
+          action: function() {
+            var heal = Math.min(3, ((G.maxHp || 14) - (G.hp || 14)));
+            if (heal > 0 && typeof modHP === 'function') modHP(heal);
+            G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
+            if (typeof addNarration === 'function') addNarration('', 'The ventilation keeps the air cleaner than outside by enough to matter. The forge heat from below is steady and sourceless. You sleep warmer than the road has any right to allow.');
+            if (typeof addJournal === 'function') addJournal('Rested at Ash Road Iron Station.', 'field_note');
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        },
+        { text: 'Elevated ash east means the timing matters. Move now.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'anchor_push_on_psanan',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10, isCrit: false, isFumble: false };
+            var dc = 13;
+            if (r.total >= dc) {
+              if (typeof gainXp === 'function') gainXp(20);
+              if (typeof addNarration === 'function') addNarration('', 'ELEVATED EAST means the ash layer rises toward the settlement boundary. Moving now means moving through the transition zone while it is still crossable. You time it correctly.');
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The ash level east rises faster than the advisory suggested. You reach the boundary but not cleanly — the transition zone was already at threshold when you entered it.');
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() {
+              if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
+              else TRAVEL_CORRIDOR.advanceDayLeg();
+            }, 500);
+          }
+        }
       ]
     }
   ];
@@ -736,18 +1317,134 @@
       }, 200);
     },
     _renderEncounterInOverlay: function(biome, tier, choiceArea) {
-      var btn = document.createElement('button');
-      btn.className = 'choice-btn';
-      btn.textContent = '[ENCOUNTER \u2014 Task 6]';
-      btn.addEventListener('click', function() { TRAVEL_CORRIDOR.advanceDayLeg(); });
-      choiceArea.appendChild(btn);
+      var fromId    = G.flags._jrn_from || '';
+      var toId      = G.flags._jrn_to   || '';
+      var dayNum    = G.flags._jrn_current || 1;
+      var totalDays = G.flags._jrn_total   || 1;
+
+      // Try ROUTE_COMPLICATIONS first (route-specific authored content)
+      var compKey = fromId + '|' + toId;
+      var revKey  = toId   + '|' + fromId;
+      var complications = (window.ROUTE_COMPLICATIONS || {})[compKey]
+                       || (window.ROUTE_COMPLICATIONS || {})[revKey];
+      var enc = null;
+
+      if (complications) {
+        var pct = totalDays > 1 ? (dayNum - 1) / (totalDays - 1) : 0;
+        var compType = pct <= 0.15 ? 'checkpoint'
+                     : pct <= 0.5  ? 'patrol'
+                     : pct <= 0.75 ? 'night'
+                     : 'hazard';
+        if (complications[compType] && !complications['_used_' + compType]) {
+          enc = complications[compType];
+          complications['_used_' + compType] = true;
+        }
+      }
+
+      if (!enc) {
+        // Fall back to CORRIDOR_ENCOUNTERS by tier
+        var pool = (window.CORRIDOR_ENCOUNTERS || {})[tier]
+                || (window.CORRIDOR_ENCOUNTERS || {})['short']
+                || [];
+        var unused = pool.filter(function(e) { return !e._overlay_used; });
+        if (!unused.length) {
+          pool.forEach(function(e) { e._overlay_used = false; });
+          unused = pool.slice();
+        }
+        if (unused.length) {
+          enc = unused[Math.floor(Math.random() * unused.length)];
+          enc._overlay_used = true;
+        }
+      }
+
+      if (!enc) {
+        // No encounter available — skip to continue button
+        var skipBtn = document.createElement('button');
+        skipBtn.className = 'choice-btn';
+        skipBtn.textContent = 'Continue on the road.';
+        skipBtn.addEventListener('click', function() { TRAVEL_CORRIDOR.advanceDayLeg(); });
+        choiceArea.appendChild(skipBtn);
+        return;
+      }
+
+      // Render encounter header + text above choice area
+      var encLabel = document.createElement('div');
+      encLabel.className = 'journey-day-header';
+      encLabel.style.color = 'var(--blood-bright)';
+      encLabel.textContent = (enc.title || 'ENCOUNTER').toUpperCase();
+      choiceArea.parentNode.insertBefore(encLabel, choiceArea);
+
+      var textDiv = document.createElement('div');
+      textDiv.className = 'journey-narration';
+      textDiv.style.borderTop = '1px solid var(--char)';
+      textDiv.style.paddingTop = '10px';
+      textDiv.textContent = enc.text || enc.narration || '';
+      choiceArea.parentNode.insertBefore(textDiv, choiceArea);
+
+      // Render choice buttons
+      var choices = enc.choices || [];
+      choices.forEach(function(choice) {
+        var btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        var tagLabel = choice.tag === 'bold' ? ' \u00b7 Bold' : choice.tag === 'safe' ? ' \u00b7 Safe' : ' \u00b7 Risky';
+        var skillDisplay = choice.skill ? (' \u2014 ' + choice.skill + tagLabel) : '';
+        btn.innerHTML = choice.text
+          + (skillDisplay ? '<br><span style="font-size:11px;color:var(--ink-dim)">' + skillDisplay + '</span>' : '');
+        btn.addEventListener('click', function() {
+          choiceArea.querySelectorAll('button').forEach(function(b) { b.disabled = true; });
+          if (typeof choice.action === 'function') {
+            choice.action();
+          } else {
+            // Fallback for any remaining CID-only choices
+            var r = typeof rollD20 === 'function' ? rollD20(choice.skill || 'wits') : { total: 10 };
+            var dc = choice.tag === 'bold' ? 16 : choice.tag === 'safe' ? 7 : 13;
+            var resultText = r.total >= dc
+              ? (choice.successResult || 'You proceed without incident.')
+              : (choice.failResult    || 'The road resists.');
+            if (typeof addNarration === 'function') addNarration('', resultText);
+            setTimeout(function() { TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        });
+        choiceArea.appendChild(btn);
+      });
     },
     _renderAnchorInOverlay: function(anchorId, choiceArea) {
-      var btn = document.createElement('button');
-      btn.className = 'choice-btn';
-      btn.textContent = '[ANCHOR \u2014 Task 7]';
-      btn.addEventListener('click', function() { TRAVEL_CORRIDOR.advanceDayLeg(); });
-      choiceArea.appendChild(btn);
+      var anchor = null;
+      if (window.OPERATIONAL_ANCHORS) {
+        for (var i = 0; i < window.OPERATIONAL_ANCHORS.length; i++) {
+          if (window.OPERATIONAL_ANCHORS[i].id === anchorId) { anchor = window.OPERATIONAL_ANCHORS[i]; break; }
+        }
+      }
+      if (!anchor) { TRAVEL_CORRIDOR.advanceDayLeg(); return; }
+
+      var nameLabel = document.createElement('div');
+      nameLabel.className = 'journey-day-header';
+      nameLabel.style.color = 'var(--jade-bright)';
+      nameLabel.textContent = anchor.name.toUpperCase();
+      choiceArea.parentNode.insertBefore(nameLabel, choiceArea);
+
+      var descDiv = document.createElement('div');
+      descDiv.className = 'journey-narration';
+      descDiv.style.borderTop = '1px solid var(--char)';
+      descDiv.style.paddingTop = '10px';
+      descDiv.textContent = anchor.desc || '';
+      choiceArea.parentNode.insertBefore(descDiv, choiceArea);
+
+      var choices = anchor.choices || [];
+      choices.forEach(function(choice) {
+        var btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = choice.text;
+        btn.addEventListener('click', function() {
+          choiceArea.querySelectorAll('button').forEach(function(b) { b.disabled = true; });
+          if (typeof choice.action === 'function') {
+            choice.action();
+          } else {
+            TRAVEL_CORRIDOR.advanceDayLeg();
+          }
+        });
+        choiceArea.appendChild(btn);
+      });
     }
   };
 
