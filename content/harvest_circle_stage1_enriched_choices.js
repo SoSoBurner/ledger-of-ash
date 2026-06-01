@@ -735,7 +735,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = npc.name;
 
-      addJournal('consequence', `Confronted ${npc.name} (${npc.role}) about system corruption participation`, `harvest-moral-${G.dayCount}`);
+      addJournal(`Confronted ${npc.name} (${npc.role}) about system corruption participation`, 'evidence', `harvest-moral-${G.dayCount}`);
 
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
@@ -930,7 +930,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_iron_compact_harvest = true;
         G.factionHostility.iron_compact += 1;
-        addJournal('faction', 'Iron Compact liaison Veth Karst: routing anomaly visible in Iron Compact logistics, willing to exchange cargo data', `harvest-iron-${G.dayCount}`);
+        addJournal('Iron Compact liaison Veth Karst: routing anomaly visible in Iron Compact logistics, willing to exchange cargo data', 'intelligence', `harvest-iron-${G.dayCount}`);
       } else {
         G.lastResult = `The Iron Compact liaison is occupied with official Provision Compact business — ledgers spread across the distribution hall's back table, a runner waiting in the corridor. Informal inquiry without a formal introduction lands on polite but solid ground. Documented evidence of a compliance issue affecting Iron Compact interests would open a different conversation. For now the door is present and visible. What's needed to open it is also clear.`;
         if (!G.flags) G.flags = {};
@@ -975,7 +975,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `Your count: 12.4 tonnes from the west mid-field section. Official log entry for the same section, filed the same day: 10.8 tonnes. A 1.6 tonne discrepancy — 13 percent — on a single section. Scale that across the full harvest area and you have the routing anomaly's source. The production logs are being systematically understated at collection, and the difference is being routed out under the Provision Compact allocation numbers. You have proof now. A single section count against a single log entry.`;
         G.flags.independent_count_completed = true;
-        addJournal('consequence', 'Independent count: 13% discrepancy between actual yield and official log — production understatement at collection confirmed', `harvest-count-${G.dayCount}`);
+        addJournal('Independent count: 13% discrepancy between actual yield and official log — production understatement at collection confirmed', 'evidence', `harvest-count-${G.dayCount}`);
       } else {
         G.lastResult = `The segmented field layout defeats the count before it gets started. Workers move in sections with specific handoff points, and a complete section view requires standing inside the official measurement area — marked at the corners with painted stakes and treated as keeper authority. Without authorization to stand inside those stakes, the count is always partial, always one section short of a comparison. The boundary isn't fenced. It's maintained by the workers themselves, who step back when you step toward it.`;
       }
@@ -998,7 +998,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Elder fieldworker Nann has worked at Harvest Circle for thirty-one years. "The measurement changed about eighteen months ago. Before: we counted the full load at the central scale. After: section leads count first, then totals are reported to the central scale. The full load still goes on the central scale — but the reported number is the section leads' count, not the central weighing." She understands exactly what happened. "The central scale's reading stopped being the official number. Someone replaced the scale with the section leads." She kept three seasons of her own personal field tallies. They match the central scale readings. They don't match the official reports.`;
         if (!G.flags) G.flags = {};
         G.flags.met_nann_fieldworker = true;
-        addJournal('contact', 'Fieldworker Nann: measurement system changed 18 months ago, has personal tallies matching central scale vs official reports', `harvest-nann-${G.dayCount}`);
+        addJournal('Fieldworker Nann: measurement system changed 18 months ago, has personal tallies matching central scale vs official reports', 'contact_made', `harvest-nann-${G.dayCount}`);
       } else {
         G.lastResult = `The long-tenure workers have learned that comparison to previous seasons leads to arguments with supervisors — arguments where only one side has a ledger and the authority to close it. Cut chaff smell hangs over the field rows; the midday break has most crews eating apart from each other rather than at the communal fire. They've stopped making comparisons, at least to strangers. The memory is still there. It shows in the way they answer a question about this season without volunteering anything about what last season was.`;
       }
@@ -1035,7 +1035,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative traveled with Provision Compact convoy last week — working Harvest Circle routing thread ahead of you', `harvest-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative traveled with Provision Compact convoy last week — working Harvest Circle routing thread ahead of you', 'complication', `harvest-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

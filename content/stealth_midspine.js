@@ -78,7 +78,7 @@ const STEALTH_MIDSPINE_CHOICES = [
         G.lastResult = `You don't respond. No reply, no visible movement, no contact with any of your regular sources for three days — you give the buyer nothing to observe and nothing to purchase. The approach stops. Your sources are intact and your current findings are still yours. What you've lost is three days of forward momentum and the chance to learn who the buyer is from how they pay. They're still looking for what they tried to buy from you. They're now looking through other channels.`;
         G.flags.stealth_midspine_protected_sources = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addJournal('consequence', 'Stealth midspine: refused sale, went silent — sources protected, buyer now pursuing alternate route', `stealth-midspine-2-${G.dayCount}`);
+        addJournal('Stealth midspine: refused sale, went silent — sources protected, buyer now pursuing alternate route', 'evidence', `stealth-midspine-2-${G.dayCount}`);
         G.recentOutcomeType = 'neutral';
       }
       G.flags.stealth_midspine_node2_complete = true;

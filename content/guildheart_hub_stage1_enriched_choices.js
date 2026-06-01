@@ -975,7 +975,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.flags.met_oversight_collegium_observer = true;
         G.lastResult = `Observer Calla Trent keeps her hands folded on the desk and listens to the first two sentences before responding. "The Collegium has been stationed here sixty-two days. We are in a monitoring phase." She doesn't explain what monitoring leads to, but she slides a form across the desk — addressable, formal, with a Collegium reference line. "Written summary. Signed. Specific." She taps the reference line. "That's the channel." She pulls the form back two inches and straightens it before releasing it. Everything here goes into her record, not yours.`;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium observer Calla Trent — monitoring phase active, formal submission channel opened', `guildheart-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium observer Calla Trent — monitoring phase active, formal submission channel opened', 'intelligence', `guildheart-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `Observer Trent listens to your introduction and asks for your guild registry number. When you explain you're not guild-registered, she sets a form on the desk between you. "Informal conversation with Collegium observers requires formal introduction through the registry. That's not bureaucratic obstruction — that's how testimony stays admissible." She's not closing the door. She's telling you where it is.`;
         if (!G.flags) G.flags = {};
@@ -1021,7 +1021,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `A wool merchant who makes the run to outlying settlements three times a week doesn't look up from her manifest when you explain the arrangement. "Sealed cargo is sealed cargo." She names a drop location near the eastern gate and a timing window. "Don't make it complicated." She adds your first parcel to the wool manifest under a fiber weight notation that will mean nothing to a guild clerk. The channel is open.`;
         G.flags.courier_drop_guildheart = true;
-        addJournal('consequence', 'Independent courier channel established through wool merchant', `guildheart-courier-${G.dayCount}`);
+        addJournal('Independent courier channel established through wool merchant', 'evidence', `guildheart-courier-${G.dayCount}`);
       } else {
         G.lastResult = `Three couriers, three conversations, each one held at the guild desk beneath the registry board with its rows of stamped routing categories. All three route through the guild's message registry without exception. One of them says it directly, setting his delivery satchel on the counter while he speaks: "Anything that goes out of Guildheart gets logged at the desk. That's been mandatory for a year now — the arbiter's office pushed it through." The channel you need doesn't exist yet inside these walls. Building it takes a courier who works outside them.`;
       }
@@ -1088,7 +1088,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative confirmed actively surveilling your Guildheart inquiry', `guildheart-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative confirmed actively surveilling your Guildheart inquiry', 'complication', `guildheart-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

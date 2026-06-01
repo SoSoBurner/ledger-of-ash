@@ -184,7 +184,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_plumes = true;
         G.factionHostility.warden_order += 1;
-        addJournal('faction', 'Warden Order coordinator Sera Vance: ghost authority suppressed reports at multiple outposts — systematic regional information blackout confirmed', `plumes-warden-${G.dayCount}`);
+        addJournal('Warden Order coordinator Sera Vance: ghost authority suppressed reports at multiple outposts — systematic regional information blackout confirmed', 'intelligence', `plumes-warden-${G.dayCount}`);
       } else {
         G.lastResult = `The Warden Order's regional coordinator is courteous and unhelpful in equal measure. An inquiry requires documentation submitted through the standard regional channel — the same channel the suppression order closed. Letha's reports would need to be formally re-filed as new submissions, which requires a patrol dispatch authorization she'd have to request from the same coordination body that suppressed the originals. The process folds back on itself.`;
         if (!G.flags) G.flags = {};
@@ -397,7 +397,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Farmer Edne abandoned a holding her family maintained for three generations. "The headaches started first. We thought it was the season. Then the animals started leaving — not running, just slowly moving their grazing toward the south. We moved too when my youngest stopped sleeping through the night and our water tasted wrong." She describes symptoms consistent with low-level exposure to the compound class Letha's data suggests is present. "I couldn't tell you what was wrong. I just knew something was." She left with almost nothing. The holding is still there. She's not going back.`;
         if (!G.flags) G.flags = {};
         G.flags.met_edne_farmer = true;
-        addJournal('contact', 'Farmer Edne: abandoned 3-generation holding due to headaches, animal behavioral changes, sleep disruption, water taste — symptom profile matches low-level compound exposure', `plumes-edne-${G.dayCount}`);
+        addJournal('Farmer Edne: abandoned 3-generation holding due to headaches, animal behavioral changes, sleep disruption, water taste — symptom profile matches low-level compound exposure', 'contact_made', `plumes-edne-${G.dayCount}`);
       } else {
         G.lastResult = `The frontier supply traders know there were farmers moving south from the northeast holdings last season — they carried some of them on cart beds — but where those people settled afterward, none of the traders tracked. Displaced families don't announce a destination. They move until they find a place willing to take them, then go quiet. Finding specific individuals among that scatter requires someone with outpost-level network reach across all the way stations between here and the interior.`;
       }
@@ -572,7 +572,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative moving from northeast zone toward Shelkopolis ahead of you — field intelligence collected, same destination', `plumes-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative moving from northeast zone toward Shelkopolis ahead of you — field intelligence collected, same destination', 'complication', `plumes-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

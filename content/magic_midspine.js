@@ -70,12 +70,12 @@ const MAGIC_MIDSPINE_CHOICES = [
         G.flags.magic_midspine_disclosed = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
         G.worldClocks.reverence = (G.worldClocks.reverence || 0) + 1;
-        addJournal('consequence', 'Magic midspine: forbidden knowledge disclosed through official channels — watchfulness increased', `magic-midspine-2-${G.dayCount}`);
+        addJournal('Magic midspine: forbidden knowledge disclosed through official channels — watchfulness increased', 'evidence', `magic-midspine-2-${G.dayCount}`);
       } else {
         G.lastResult = `You don't file. You copy the study into the network's distributed archive — three nodes, no central location, accessible only to members with the right index key. Institutional monitoring has no view of it. What you give up is the legal protection of an official submission; what the Collegium can't find, it also can't attribute to you. The original annotator made this same choice. The document was their way of passing the work forward without surfacing it. You've joined that method.`;
         G.flags.magic_midspine_protected = true;
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('consequence', 'Magic midspine: forbidden knowledge protected outside official channels — follows path of original annotator', `magic-midspine-2-${G.dayCount}`);
+        addJournal('Magic midspine: forbidden knowledge protected outside official channels — follows path of original annotator', 'evidence', `magic-midspine-2-${G.dayCount}`);
       }
       G.flags.magic_midspine_node2_complete = true;
       G.recentOutcomeType = 'neutral';

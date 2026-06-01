@@ -265,7 +265,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.flags.stage2_faction_contact_made = true;
         G.lastResult = `The Collegium observer presents as a theological scholar working from a desk in the mediation hall's public reading alcove. Your training reads the cover correctly. You match their doctrinal citations with precision that establishes mutual recognition — the specific fluency that signals shared institutional background. The lamplight between you steadies and the conversation shifts: they confirm the Collegium is aware of the Panim operations and is conducting a parallel inquiry. They offer to share specific findings in exchange for what you have gathered so far.`;
-        addJournal('faction', 'Oversight Collegium contact — parallel inquiry confirmed', `panim-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium contact — parallel inquiry confirmed', 'intelligence', `panim-collegium-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 2;
@@ -274,7 +274,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.lastResult = `The observer's doctrinal citations are precise and the conversation stays on that surface — two scholars discussing archival practice in a memorial hall, the lamplight steady on the stone table between you. The harbor gulls are audible even here, through the thick walls of the mediation building. No names exchanged. No intent declared. When it ends, there is a beat of shared understanding that the exchange was not about archives. The Collegium has taken a note. The note carries no category yet. That window is still open.`;
-        addJournal('faction', 'Oversight Collegium — neutral first assessment', `panim-collegium-neutral-${G.dayCount}`);
+        addJournal('Oversight Collegium — neutral first assessment', 'intelligence', `panim-collegium-neutral-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
     }

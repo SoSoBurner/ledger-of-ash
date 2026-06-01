@@ -827,7 +827,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_shirshal = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium liaison Parro: ready to escalate if given ghost visitor correlation evidence', `shirshal-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium liaison Parro: ready to escalate if given ghost visitor correlation evidence', 'intelligence', `shirshal-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `The Collegium's reception clerk is pleasant and immovable. Parro's schedule requires a written introduction from a registered party in an active case — no exceptions, no informal arrangements, nothing passed through a third party. The desk is clean, the lamp trimmed, the procedure the clerk describes clearly recited from memory. It isn't hostile; it's just entirely closed. The Collegium doesn't open informally for anyone. Whether that's institutional integrity or a useful barrier depends entirely on who's trying to get through it and why.`;
         if (!G.flags) G.flags = {};
@@ -866,7 +866,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `Magistrate Corin lives in a coastal village three hours from Shirshal. She was transferred eight months ago. "I refused one re-adjudication," she says. "I told them the doctrine revision didn't grant authority to override settled property rights retroactively. They thanked me for my service and assigned me to here." She has the case files from the refused re-adjudication — she kept copies, which was technically improper. "I thought I might need them someday." Today is that day.`;
         G.flags.met_corin_magistrate = true;
-        addJournal('contact', 'Magistrate Corin: refused re-adjudication, transferred, has original case files with her unauthorized copies', `shirshal-corin-${G.dayCount}`);
+        addJournal('Magistrate Corin: refused re-adjudication, transferred, has original case files with her unauthorized copies', 'contact_made', `shirshal-corin-${G.dayCount}`);
       } else {
         G.lastResult = `The village knows who she is. Two people point toward the same cottage at the coastal edge without needing to ask for clarification — a fisherwoman at the net-drying posts, a boy carrying a rope coil along the beach path. But neither will walk you to the door, and both step back after pointing. "She doesn't receive strangers," the fisherwoman says. "Not since the reassignment." The cottage shutters are half-closed in midday. She'll need to be approached by someone she already trusts, which you are not yet.`;
       }
@@ -892,7 +892,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Wend hasn't moved far from the harbor since the re-adjudication six weeks ago. "The verdict said the vessel was 'improperly registered under the terms of the administrative continuity resolution.' I've been operating that vessel for eleven years. Under the same registration. The administration never objected." He pulls out the original registration — valid, unstamped, entirely legal under the laws that were in effect when it was issued. The law changed after he registered it and was applied retroactively.`;
         if (!G.flags) G.flags = {};
         G.flags.met_wend_shipowner = true;
-        addJournal('contact', 'Dispossessed shipowner Wend: retroactive law application used to seize property registered under prior law', `shirshal-wend-${G.dayCount}`);
+        addJournal('Dispossessed shipowner Wend: retroactive law application used to seize property registered under prior law', 'contact_made', `shirshal-wend-${G.dayCount}`);
       } else {
         G.lastResult = `Wend watches you approach from the pier's edge and shakes his head before you've said anything — a single slow motion, eyes already reading your purpose before you've named it. "My advocate told me not to discuss the proceeding with anyone outside the formal process." He says it flatly, practiced. He turns back to the water, which smells of salt and low tide and rope. The impounded vessel sits thirty feet from where he stands, close enough to read the hull mark. He isn't going anywhere.`;
       }
@@ -929,7 +929,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative interviewed Magistrate Corin two weeks before you — further along the Shirshal trail', `shirshal-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative interviewed Magistrate Corin two weeks before you — further along the Shirshal trail', 'complication', `shirshal-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

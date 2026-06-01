@@ -22,7 +22,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `The container's liner — non-reactive polymer rated for atmospheric compounds — came from a Principalities supplier. That provenance detail is not in any Sunspire manifest. You've transcribed the chemical liner rating onto paper small enough to fold into your boot. Someone spent significant capital to keep this moving quietly. The people who paid that capital track who comes asking about it.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('decision', 'Left Sunspire Haven with container liner evidence', `sunspire-arc-departure-${G.dayCount}`);
+      addJournal('Left Sunspire Haven with container liner evidence', 'intelligence', `sunspire-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -240,7 +240,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       G.stage = 2;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('consequence', 'Arrived in Shelkopolis from Sunspire Haven — Stage 2 begins', `sunspire-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Sunspire Haven — Stage 2 begins', 'evidence', `sunspire-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

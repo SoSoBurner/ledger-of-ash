@@ -973,7 +973,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_aurora = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium rep Merav Solind: complaint review delayed, actively seeking documentation', `aurora-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium rep Merav Solind: complaint review delayed, actively seeking documentation', 'intelligence', `aurora-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `Merav Solind confirms the complaint is logged — that much she'll say. The review process is not discussable with someone who isn't formally part of the case. She says it without apology and without hostility. You need documentation, a formal introduction, or both before this door opens further. She does not tell you to stop trying. The filtration records the complaint referenced are still in the maintenance archive — the original service log, not the copy the commune filed with the Collegium.`;
         if (!G.flags) G.flags = {};
@@ -1047,7 +1047,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
         if (!G.flags) G.flags = {};
         G.flags.met_orren_engineer = true;
-        addJournal('contact', 'Engineer Orren: complaint filed, then reassigned — has original supporting documentation', `aurora-orren-${G.dayCount}`);
+        addJournal('Engineer Orren: complaint filed, then reassigned — has original supporting documentation', 'contact_made', `aurora-orren-${G.dayCount}`);
       } else {
         G.lastResult = `Orren looks at the work order in front of him instead of at you. "I don't discuss the complaint. I was told it's being handled." That's the full sentence. He picks up his tools and goes back to the residential maintenance task in front of him. He doesn't tell you to leave. He doesn't ask you any questions. He's been warned or he's afraid — possibly both. The sealed document case on the shelf behind him has an engineering stamp on the corner tab — the same stamp as the NE quadrant inspection report.`;
       }
@@ -1084,7 +1084,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative confirmed investigating Aurora Crown dome failure ahead of you', `aurora-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative confirmed investigating Aurora Crown dome failure ahead of you', 'complication', `aurora-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

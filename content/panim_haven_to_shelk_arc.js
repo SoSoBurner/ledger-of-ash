@@ -22,7 +22,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `The Bureau assigned Tazren to a case that officially doesn't exist anymore. Three documents reference a "coastal passage irregularity review" that was closed before conclusions. You have the case number. Whatever it found, it was suppressed at the Bureau director level. Tazren kept working. He's not in Panim Haven anymore, which means you shouldn't be either. Someone is already aware you've been following this thread.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('decision', 'Left Panim Haven following Bureau case and Tazren\'s trail inland', `panim-arc-departure-${G.dayCount}`);
+      addJournal('Left Panim Haven following Bureau case and Tazren\'s trail inland', 'intelligence', `panim-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -234,7 +234,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
       G.stage = 2;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('consequence', 'Arrived in Shelkopolis from Panim Haven — Stage 2 begins', `panim-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Panim Haven — Stage 2 begins', 'evidence', `panim-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

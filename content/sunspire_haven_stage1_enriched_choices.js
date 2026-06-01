@@ -863,7 +863,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_sunspire = true;
         G.factionHostility.warden_order += 1;
-        addJournal('faction', 'Warden Order Captain-Adjutant Sera: confirmed awareness of container category, open inquiry exists', `sunspire-warden-${G.dayCount}`);
+        addJournal('Warden Order Captain-Adjutant Sera: confirmed awareness of container category, open inquiry exists', 'intelligence', `sunspire-warden-${G.dayCount}`);
       } else {
         G.lastResult = `The duty officer takes your report by rote — pen moving before you've finished the second sentence, form already half-filled. It goes into a stack of similar forms on the corner of the desk. No follow-up is offered; no timeframe for review is mentioned. The north gate is cold and bright with morning sun off the spire stone. Either the Warden Order has no interest in this convoy's deviation, or someone has already told them not to develop one. The form disappears into the stack without ceremony.`;
         if (!G.flags) G.flags = {};
@@ -925,7 +925,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Tennen is still concussed but lucid. "The second driver — I didn't know him. New hire, came on three days before the run. He knew the deviation before the convoy coordinator announced it. I remember thinking: how does he know?" He pauses. "The interception didn't come from the road. It came from inside. That driver was the plant." He's told the Warden Order this. They thanked him and told him to rest. The driver can't be found.`;
         if (!G.flags) G.flags = {};
         G.flags.met_tennen_guard = true;
-        addJournal('contact', 'Convoy guard Tennen: inside contact was the second driver, Warden Order informed but took no visible action', `sunspire-tennen-${G.dayCount}`);
+        addJournal('Convoy guard Tennen: inside contact was the second driver, Warden Order informed but took no visible action', 'contact_made', `sunspire-tennen-${G.dayCount}`);
       } else {
         G.lastResult = `Tennen is drifting — the infirmary light too bright, his eyes tracking something slightly to the left of wherever you're standing. He gives fragments between silences: a wrong turn, a face he didn't recognize on a seat he thought he knew. The thread drops before it connects to anything. The concussion is still doing its work. What's inside the silence between his sentences might be exactly what's needed. Come back tomorrow, or the day after, when it clears.`;
       }
@@ -962,7 +962,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative confirmed investigating Sunspire convoy disruption ahead of you', `sunspire-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative confirmed investigating Sunspire convoy disruption ahead of you', 'complication', `sunspire-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

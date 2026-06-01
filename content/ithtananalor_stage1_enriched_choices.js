@@ -908,7 +908,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_ithtananalor = true;
         G.factionHostility.warden_order += 1;
-        addJournal('faction', 'Warden Order attaché Denn Calver: confirmed awareness of financial anomalies, gauging investigator alignment', `ithtananalor-warden-${G.dayCount}`);
+        addJournal('Warden Order attaché Denn Calver: confirmed awareness of financial anomalies, gauging investigator alignment', 'intelligence', `ithtananalor-warden-${G.dayCount}`);
       } else {
         G.lastResult = `The attaché is busy and professional, his desk covered with ledger extracts and a sealed correspondence bundle still uncut. Formal appointment required — submitted through the standard administrative channel, two working days for confirmation. The Warden Order's financial presence here is real but guarded in the way institutional presences guard themselves when operating in sensitive territory. Access requires proper introduction and a stated purpose that will withstand scrutiny. Today's approach produced neither. A named introduction through Maret Voss would clear the proper introduction requirement.`;
         if (!G.flags) G.flags = {};
@@ -947,7 +947,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `Maret Voss is precise and unhurried. She's been handling disputed accounts for seven years. You don't mention the ghost accounts directly — you ask a technical question about formatting codes in the public registry. She answers without hesitation, then pauses. "That's an interesting question to come in with." She's smart enough to know you're not here about a formatting question. She gives you her direct schedule and says the door is open for follow-up.`;
         G.flags.met_maret_voss = true;
-        addJournal('contact', 'Maret Voss introduced: Iron Ledger specialist, aware you have a real purpose, door open for return', `ithtananalor-maret-${G.dayCount}`);
+        addJournal('Maret Voss introduced: Iron Ledger specialist, aware you have a real purpose, door open for return', 'contact_made', `ithtananalor-maret-${G.dayCount}`);
       } else {
         G.lastResult = `Maret Voss is professional and busy — two open case files on the desk, a stack of ledger extracts flagged with paper markers, the scratch of her pen continuing while she listens. She answers the initial question correctly and moves on without lingering. Not unfriendly: she operates on appointment time, and an unscheduled visitor with a general question doesn't clear that threshold. A return visit with something specific and a clearer purpose would land differently than this one did. The ghost accounts flagged in the public terminal are something specific. She'd have a reason to keep the door open.`;
         G.flags.located_maret_voss = true;
@@ -974,7 +974,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Captain Lysel retired "voluntarily" four months ago. She won't say what was used against her. But she will say this: "The debt wasn't even current. I'd been managing it. Then a letter arrived saying it had been called in — full amount, thirty days. I couldn't produce that in thirty days. Nobody could." She took the retirement offer instead. "I don't know who holds it now. I was told it would be canceled if I left quietly." She sounds like she believes it won't be.`;
         if (!G.flags) G.flags = {};
         G.flags.met_lysel_displaced_officer = true;
-        addJournal('contact', 'Displaced Captain Lysel: debt called suddenly then offered retirement — leverage still potentially active', `ithtananalor-lysel-${G.dayCount}`);
+        addJournal('Displaced Captain Lysel: debt called suddenly then offered retirement — leverage still potentially active', 'contact_made', `ithtananalor-lysel-${G.dayCount}`);
       } else {
         G.lastResult = `The officer is living quietly in a rented room outside the garrison quarter, away from the streets she used to walk in uniform. The door opens a hand's width before closing again. She doesn't want contact with anyone connected to military or financial proceedings — the distinction between the two has stopped mattering to her. Part of the agreement that ended her service may have included silence as a condition. The door stays closed. Whatever she knows, it's not coming through today's approach. The debt that ended her career is still held by the same external entity. Whoever holds it can call it again at any time. She knows that. The door stays closed for a reason.`;
       }
@@ -1011,7 +1011,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative visited Maret Voss one day before you — investigating same financial anomalies', `ithtananalor-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative visited Maret Voss one day before you — investigating same financial anomalies', 'complication', `ithtananalor-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

@@ -854,7 +854,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       } else {
         G.lastResult = `A Warden Order officer stops beside you at the chapel steps and speaks without turning — her left hand keeps a folded slip of paper pinched between two knuckles, a margin note she wrote before she saw you. "The same anomalies. We noticed." The slip goes back into her cuff as she walks on. The Principalities' enforcement arm has been here longer than you have, and they chose to let you know it.`;
       }
-      addJournal('Warden Order acknowledged overlap — same evidence trail', 'faction', `shelk-warden-${G.dayCount}`);
+      addJournal('Warden Order acknowledged overlap — same evidence trail', 'intelligence', `shelk-warden-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

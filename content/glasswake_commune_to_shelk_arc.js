@@ -22,7 +22,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `Sections 7-12 run to twenty-three pages. You spend two hours with the critical diagrams and memorize the key concentration figures. The rest you copy in a technical shorthand you devised for your own fieldwork — notation that reads as illegible marginal notes to anyone who does not know the system. The physical pages go to three separate locations in Glasswake as insurance. What you carry south is a cipher that exists only in your head and on paper no one else can parse. The consortium has eyes on departures. Someone is already watching which direction you went.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('decision', 'Left Glasswake carrying shard data in personal cipher — originals distributed as insurance', `glasswake-arc-departure-${G.dayCount}`);
+      addJournal('Left Glasswake carrying shard data in personal cipher — originals distributed as insurance', 'intelligence', `glasswake-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -231,7 +231,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       G.stage = 2;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('consequence', 'Arrived in Shelkopolis from Glasswake — Stage 2 begins', `glasswake-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Glasswake — Stage 2 begins', 'evidence', `glasswake-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

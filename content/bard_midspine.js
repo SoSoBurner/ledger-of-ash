@@ -46,8 +46,8 @@ window.BARD_MIDSPINE_NODES = [
         G.signals.bardSpine = 'voice_found';
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 2;
         gainXp(10, 'bard mid-spine: voice read (critical)');
-        addJournal('field-note',
-          `Critical: read the shape of the silence in ${loc.name}. The gap is specific — it has a direction.`,
+        addJournal(`Critical: read the shape of the silence in ${loc.name}. The gap is specific — it has a direction.`,
+          'discovery',
           `bard-spine-node1-crit-${G.dayCount}`
         );
         addNotice('Voice read: the silence has a specific shape and a specific source.');
@@ -58,8 +58,8 @@ window.BARD_MIDSPINE_NODES = [
         G.signals.bardSpine = 'voice_found';
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
         gainXp(8, 'bard mid-spine: voice read');
-        addJournal('field-note',
-          `Read the shape of the silence in ${loc.name}. There is a specific gap in the public record.`,
+        addJournal(`Read the shape of the silence in ${loc.name}. There is a specific gap in the public record.`,
+          'discovery',
           `bard-spine-node1-${G.dayCount}`
         );
         G.lastResult = opening + ' The gap has a direction. Not wide enough yet to step through, but you know which way it opens.';
@@ -113,8 +113,8 @@ window.BARD_MIDSPINE_NODES = [
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 3;
         G.worldClocks.rival = Math.max(0, (G.worldClocks.rival || 0) - 1);
         gainXp(15, 'bard mid-spine: thread pulled (critical)');
-        addJournal('field-note',
-          `Critical: pulled the suppressed thread in ${loc.name}. The source is administrative. The trail leads to the eastern route.`,
+        addJournal(`Critical: pulled the suppressed thread in ${loc.name}. The source is administrative. The trail leads to the eastern route.`,
+          'discovery',
           `bard-spine-node2-crit-${G.dayCount}`
         );
         addNotice('Thread pulled: the suppression traces to a specific administrative action on the eastern route.');
@@ -125,8 +125,8 @@ window.BARD_MIDSPINE_NODES = [
         G.signals.bardSpine = 'thread_pulled';
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 2;
         gainXp(12, 'bard mid-spine: thread pulled');
-        addJournal('field-note',
-          `Pulled the suppressed thread in ${loc.name}. The silence was administratively placed. There is more to recover.`,
+        addJournal(`Pulled the suppressed thread in ${loc.name}. The silence was administratively placed. There is more to recover.`,
+          'discovery',
           `bard-spine-node2-${G.dayCount}`
         );
         G.lastResult = thread + ' The thread holds. There is one more door between you and the account itself — but you can see it from here.';
@@ -186,8 +186,8 @@ window.BARD_MIDSPINE_NODES = [
         G.signals.bardSpine = 'converged';
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 5;
         gainXp(22, 'bard mid-spine: account recovered (critical)');
-        addJournal('fact',
-          `Critical: recovered the suppressed account in ${loc.name}. The account feeds directly into the eastern route investigation.`,
+        addJournal(`Critical: recovered the suppressed account in ${loc.name}. The account feeds directly into the eastern route investigation.`,
+          'intelligence',
           `bard-spine-node3-crit-${G.dayCount}`
         );
         markMoment(`Recovered the suppressed account in ${loc.name}`);
@@ -199,8 +199,8 @@ window.BARD_MIDSPINE_NODES = [
         G.signals.bardSpine = 'converged';
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 3;
         gainXp(18, 'bard mid-spine: account recovered');
-        addJournal('fact',
-          `Recovered the suppressed account in ${loc.name}. The eastern route investigation is now the active pressure.`,
+        addJournal(`Recovered the suppressed account in ${loc.name}. The eastern route investigation is now the active pressure.`,
+          'intelligence',
           `bard-spine-node3-${G.dayCount}`
         );
         markMoment(`Recovered the suppressed account in ${loc.name}`);

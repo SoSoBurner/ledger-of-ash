@@ -26,7 +26,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.flags.met_cadrin = true;
         G.lastResult = `Cadrin keeps his log open on the crossing station desk, pen beside it. "Three nights per month my count and the walker's disagree. Same three nights. New moon, every time." He taps the page with one finger — not agitated, just precise. "My numbers don't change after I write them. Someone else's do." He slides the log toward you so you can read the column he's marked.`;
-        addJournal('contact', 'Bridge keeper Cadrin met: systematic log discrepancies on predictable nights, willing to show records', `whitebridge-cadrin-${G.dayCount}`);
+        addJournal('Bridge keeper Cadrin met: systematic log discrepancies on predictable nights, willing to show records', 'contact_made', `whitebridge-cadrin-${G.dayCount}`);
       } else {
         G.lastResult = `Cadrin is mid-count when you arrive — lips moving, stylus tracking each cart through the gate. The chalk tally on the door frame is already half-full for this shift. He raises two fingers without looking up: wait. By the time the queue clears, his shift partner has returned and he won't break his working posture for a stranger. He'll be alone again after the evening handover, when the bridge director's office closes and the overnight crew takes the station.`;
         G.flags.located_cadrin = true;
@@ -201,7 +201,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_iron_compact_whitebridge = true;
         G.factionHostility.iron_compact += 1;
-        addJournal('faction', 'Iron Compact rep Delt Karnn: unauthorized river transit violation actionable, wants transport evidence before pursuing cargo', `whitebridge-iron-${G.dayCount}`);
+        addJournal('Iron Compact rep Delt Karnn: unauthorized river transit violation actionable, wants transport evidence before pursuing cargo', 'intelligence', `whitebridge-iron-${G.dayCount}`);
       } else {
         G.lastResult = `The trade office counter has a queue — three factors ahead of you, each with a folder. The clerk behind it takes your summary request and slides a form across without making eye contact. Transit compliance inquiries require a written statement with documentation attached before the duty representative will schedule a conversation. The form has seven sections. None of them are short.`;
         if (!G.flags) G.flags = {};
@@ -534,7 +534,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative asked Terris specific crossing questions last week — ahead on Whitebridge thread', `whitebridge-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative asked Terris specific crossing questions last week — ahead on Whitebridge thread', 'complication', `whitebridge-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

@@ -26,7 +26,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
       G.lastResult = `You copy the most critical quota ledger entries onto loose paper — compact, deniable. The originals stay in the files where they belong. Anyone looking for tampering will find none. You, though, carry the pattern in your head and on your person. Soreheim's labor machinery grinds on behind you as you pack. Somewhere behind you, a record of your departure has already been made.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('decision', 'Left Soreheim with quota evidence', `soreheim-departure-${G.dayCount}`);
+      addJournal('Left Soreheim with quota evidence', 'intelligence', `soreheim-departure-${G.dayCount}`);
     }
   },
 
@@ -138,7 +138,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
         G.lastResult = `The seal is Iron Compact — but the wax impression is one designation off from authentic. Someone made this in a hurry or without access to a real Compact seal kit. You decline the letter and keep walking. Behind you, the courier turns down a side path rather than continuing north. He was testing the route, not delivering to you.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addJournal('consequence', 'False courier on the southern road — route is being monitored', `soreheim-arc-courier-${G.dayCount}`);
+        addJournal('False courier on the southern road — route is being monitored', 'evidence', `soreheim-arc-courier-${G.dayCount}`);
         G.recentOutcomeType = 'complication';
       } else {
         G.lastResult = `You take the letter by instinct and only realize afterward that wasn't your name on the front. The courier is already gone. The letter is sealed. You don't open it — it's not yours. But now you're carrying something you can't account for if stopped.`;
@@ -371,7 +371,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       G.stage = 2;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('consequence', 'Arrived in Shelkopolis from Soreheim Proper — Stage 2 begins', `soreheim-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Soreheim Proper — Stage 2 begins', 'evidence', `soreheim-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

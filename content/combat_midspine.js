@@ -40,7 +40,7 @@ const COMBAT_MIDSPINE_CHOICES = [
         G.factionHostility.warden_order = (G.factionHostility.warden_order || 0) + 1;
       }
       G.flags.combat_midspine_node1_complete = true;
-      addJournal('consequence', 'Combat midspine node 1: Warden Order confrontation — personal arc established', `combat-midspine-1-${G.dayCount}`);
+      addJournal('Combat midspine node 1: Warden Order confrontation — personal arc established', 'evidence', `combat-midspine-1-${G.dayCount}`);
       G.recentOutcomeType = result.total >= target ? 'success' : 'complication';
     }
   },
@@ -121,7 +121,7 @@ const COMBAT_MIDSPINE_CHOICES = [
         if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
         G.factionHostility.warden_order = (G.factionHostility.warden_order || 0) + 1;
       }
-      addJournal('consequence', 'Combat midspine complete: Warden Order relationship established — carries to Stage 2', `combat-midspine-3-${G.dayCount}`);
+      addJournal('Combat midspine complete: Warden Order relationship established — carries to Stage 2', 'evidence', `combat-midspine-3-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
       if (!G.rivalId && G.archetype) G.rivalId = 'warden_captain';
     }

@@ -27,7 +27,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 12) {
         G.lastResult = `Brokerwell's desk faces the door. He was already watching when you were shown in. "Unity Square functions on trust in the process," he says, before you've asked anything. He pours water for himself without offering any. The sentence is measured — not aggressive, not warm. He lets it sit. When you respond, he listens with his hands flat on the desk, his eyes on your collarbone rather than your face. His right thumb moves in a slow arc across the desk surface, tracing the same short path, back and forth — the motion of someone who runs through options without showing it. He's cataloguing something. What he files away about this meeting will determine how every subsequent approach is received.`;
         G.flags.met_vale_brokerwell = true;
-        addJournal('contact', 'Vale Brokerwell met: practiced, measured, deflects with process language — strategic opacity', `unity-vale-${G.dayCount}`);
+        addJournal('Vale Brokerwell met: practiced, measured, deflects with process language — strategic opacity', 'contact_made', `unity-vale-${G.dayCount}`);
       } else {
         G.lastResult = `Brokerwell's clerk takes your name and holds it for a moment before returning it. "Senior arbiter schedule requires registered party affiliation or an active complaint number for external access." She writes nothing down. The calendar behind her is marked in blocks, every slot filled two weeks out. Reaching him through the front door means having something that makes you his problem by procedure.`;
         G.flags.located_vale_brokerwell = true;
@@ -182,7 +182,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_unity = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium observer Nance Tarn: previous complaints self-reviewed without finding — needs private outcome documents for independent comparison', `unity-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium observer Nance Tarn: previous complaints self-reviewed without finding — needs private outcome documents for independent comparison', 'intelligence', `unity-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `Tarn listens without writing anything down, then slides a printed form across the corner of her desk. "Informal conversations don't produce anything I can file. If you have a complaint, it goes in writing through the formal intake channel — dated, signed, with supporting documentation attached." She doesn't say she can't help. She says this is the form. The announcement board behind her carries today's coordination schedule, posted squarely over yesterday's without removing it. The intake tray beside her is empty. She has been here a long time and learned exactly how much the procedure allows.`;
         if (!G.flags) G.flags = {};
@@ -211,7 +211,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Rell keeps her private outcome document in a flat leather case she carries with her. "Seventeen months ago. I walked out of the arbitration hall with that in my hand." When the northern bloc's carts started using the restricted routes, she went back to Brokerwell's office. "He opened the register. No record. Told me my copy was unsanctioned documentation — no legal standing without the public register entry." She sets the leather case on the table between you. "I have the arbiter's signature, the date stamp, the case number. He told me that wasn't enough." She's been trying to enforce a ruling that has been made to not exist. She knows she's not the first.`;
         if (!G.flags) G.flags = {};
         G.flags.met_rell_routing = true;
-        addJournal('contact', 'Factor Rell: won routing rights case, decision deleted, told private copy is unofficial — legal limbo enforced by deletion', `unity-rell-${G.dayCount}`);
+        addJournal('Factor Rell: won routing rights case, decision deleted, told private copy is unofficial — legal limbo enforced by deletion', 'contact_made', `unity-rell-${G.dayCount}`);
       } else {
         G.lastResult = `Rell is at a corner table in the waiting hall with her advocate's notes spread in front of her and a cup going cold beside them. When you approach, her advocate's hand comes up before you finish your first sentence. "Active proceedings. No informal discussion." Rell doesn't look up. The advocate's instruction is clear. Whatever she knows about the deleted case, it's locked inside a proceeding that won't conclude for weeks.`;
       }
@@ -394,7 +394,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Polt settled two days' travel from Unity Square in a settlement with no trade routes he'd ever arbitrated. He answers the door himself and doesn't invite you past the threshold. "I was given a choice," he says. "Take the package and go, or stay in the post under terms I wasn't willing to accept." He doesn't name the terms. "The person who filled my position after I left — their name was in circulation before I submitted my retirement notice. The confirmation process confirmed a decision that had already been made somewhere else."`;
         if (!G.flags) G.flags = {};
         G.flags.met_polt_predecessor = true;
-        addJournal('contact', 'Former arbiter Polt: given ultimatum to retire, successor already chosen before he left — appointment process was theater', `unity-polt-${G.dayCount}`);
+        addJournal('Former arbiter Polt: given ultimatum to retire, successor already chosen before he left — appointment process was theater', 'contact_made', `unity-polt-${G.dayCount}`);
       } else {
         G.lastResult = `The forwarding address on Polt's retirement record leads to a rented room that's been vacated. The neighbor says he left without notice a few weeks after arriving — no forwarding, no explanation. The second settlement he's known to have passed through has a similar account. Two moves in eight months, nothing left behind at either address to follow. The rooms were emptied cleanly. Whether someone was tracking him or he simply expected them to, the result is the same: he's somewhere the retirement record can't reach.`;
       }
@@ -558,7 +558,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative submitted fabricated evidence to Oversight Collegium — actively poisoning the inquiry channel', `unity-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative submitted fabricated evidence to Oversight Collegium — actively poisoning the inquiry channel', 'complication', `unity-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

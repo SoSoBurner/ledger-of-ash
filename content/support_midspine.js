@@ -33,13 +33,13 @@ const SUPPORT_MIDSPINE_CHOICES = [
         G.lastResult = `You prepare a single summary and deliver it to both parties by separate channels. It contains what either of them already has access to through their own networks — enough to demonstrate that you're not withholding in bad faith, not enough to give either a material advantage over the other. The Collegium clerk signs the receipt without reading it closely. The network's coordinator reads it twice, then sets it down. "You gave us the same thing you gave them," she says. It is not a question. You confirm it. She nods. Neither party is satisfied. Neither has grounds to object.`;
         G.flags.support_midspine_neutral_held = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addJournal('consequence', 'Support midspine: neutral position maintained — partial trust with both factions', `support-midspine-1-${G.dayCount}`);
+        addJournal('Support midspine: neutral position maintained — partial trust with both factions', 'evidence', `support-midspine-1-${G.dayCount}`);
         G.recentOutcomeType = 'neutral';
       } else {
         G.lastResult = `The network's request arrived first and their reasons are legible — the Collegium's approach carried the procedural texture of an audit rather than a collaboration. You route the findings to the network and send the Collegium a holding note: pending review, pending verification, standard delay language. The Collegium observer returns two days later. She doesn't raise her voice. "You prioritized a private network over institutional oversight." She writes something in her folder. "That's been noted in your file." The category she's marking you into sits one grade above adversarial. You can read the distance in how she closes the folder.`;
         G.flags.support_midspine_network_chosen = true;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium || 0) + 1;
-        addJournal('consequence', 'Support midspine: chose network over Collegium — Collegium categorized you as unaligned', `support-midspine-1-${G.dayCount}`);
+        addJournal('Support midspine: chose network over Collegium — Collegium categorized you as unaligned', 'evidence', `support-midspine-1-${G.dayCount}`);
         G.recentOutcomeType = 'complication';
       }
       G.flags.support_midspine_node1_complete = true;
@@ -73,13 +73,13 @@ const SUPPORT_MIDSPINE_CHOICES = [
         G.worldClocks.reverence = (G.worldClocks.reverence || 0) + 1;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('consequence', 'Support midspine: negotiated affiliation — resources secured, nominal title only, operational independence retained', `support-midspine-2-${G.dayCount}`);
+        addJournal('Support midspine: negotiated affiliation — resources secured, nominal title only, operational independence retained', 'evidence', `support-midspine-2-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `You decline at the first meeting, before the terms are fully laid out — you've read enough of the standard affiliation structure to know what follows formal association. The backers don't push. They fold the offer, make a note, and wish you good travel with the particular courtesy that signals a door being closed quietly rather than slammed. The resource access goes with the offer. Archive requests, witness protections, legal consultation — you'll source these separately. Shelkopolis has private practitioners in all three areas. They cost more and carry fewer constraints.`;
         G.flags.support_midspine_declined = true;
         G.worldClocks.isolation = (G.worldClocks.isolation || 0) + 1;
-        addJournal('consequence', 'Support midspine: declined affiliation — independence maintained, resource access forfeited', `support-midspine-2-${G.dayCount}`);
+        addJournal('Support midspine: declined affiliation — independence maintained, resource access forfeited', 'evidence', `support-midspine-2-${G.dayCount}`);
         G.recentOutcomeType = 'neutral';
       }
       G.flags.support_midspine_node2_complete = true;
@@ -131,7 +131,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
         G.investigationProgress++;
       }
 
-      addJournal('consequence', 'Support midspine complete: quiet factional alignment established — carries into Stage 2', `support-midspine-3-${G.dayCount}`);
+      addJournal('Support midspine complete: quiet factional alignment established — carries into Stage 2', 'evidence', `support-midspine-3-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
     }
   }

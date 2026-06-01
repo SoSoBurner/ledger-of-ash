@@ -22,7 +22,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `Cadrin kept his log in a personal notation — dates, weights estimated by bridge stone stress, glove-type of handlers, and his own shorthand for "something wrong here." Thirty-one entries over five months. The entries align with the routing gaps in the official record. This is the document the bridge director's ghost account was designed to suppress. You copy it and leave Cadrin's original in place. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('decision', 'Left Whitebridge with Cadrin\'s crossing log — copy taken, original in place', `whitebridge-arc-departure-${G.dayCount}`);
+      addJournal('Left Whitebridge with Cadrin\'s crossing log — copy taken, original in place', 'intelligence', `whitebridge-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -246,7 +246,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
       G.stage = 2;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('consequence', 'Arrived in Shelkopolis from Whitebridge — Stage 2 begins', `whitebridge-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Whitebridge — Stage 2 begins', 'evidence', `whitebridge-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

@@ -817,7 +817,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Callow has been at the Panim Haven posting for four months. He speaks without preamble. "The Collegium received a formal complaint about Bureau case handling fourteen weeks ago. Received, logged, acknowledged, assigned to a review panel." He pauses. "That panel hasn't convened." He doesn't editorialize further — the arithmetic does it for him. He asks whether you've accessed the case register. When you describe the ghost closure pattern, he writes it down. "That will support the existing complaint file." His pen keeps moving.`;        if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_panim = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium observer Tren Callow: Bureau complaint review deliberately delayed, collecting supporting evidence', `panim-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium observer Tren Callow: Bureau complaint review deliberately delayed, collecting supporting evidence', 'intelligence', `panim-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `Callow is professionally correct in every sentence. He can receive written complaints and issue receipt confirmations. He cannot discuss the status of ongoing review processes. He produces the complaint form without being asked, sliding it across the table with the practiced motion of someone who does this several times a day. The Collegium process exists and is accessible. It is not currently producing anything, and the gap between those two facts is wider than it should be.`;
         if (!G.flags) G.flags = {};
@@ -917,7 +917,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative interviewed Tazren before you — expert social engineering, preceded your inquiry', `panim-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative interviewed Tazren before you — expert social engineering, preceded your inquiry', 'complication', `panim-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

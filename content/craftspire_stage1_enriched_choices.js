@@ -22,7 +22,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Jorin runs his thumb along a component on the work bench before he answers — habit, checking tolerance. "Four months of receiving inputs that test at sixty to seventy percent of declared concentration. I've checked my instruments. I've checked my analysis process." He sets the component down. The workshop smells of hot metal and flux, the kind of smell that settles into clothing. "Same base compounds. Correct labeling. Wrong amounts. Someone upstream is removing material before delivery and it's happening every batch, on a schedule." He already knows it's deliberate. He needed someone to tell him what to do with that knowledge.`;        G.flags.met_jorin = true;
-        addJournal('contact', 'Workshop master Jorin met: chemical input modifications documented — deliberate concentration changes across supply chain', `craftspire-jorin-${G.dayCount}`);
+        addJournal('Workshop master Jorin met: chemical input modifications documented — deliberate concentration changes across supply chain', 'contact_made', `craftspire-jorin-${G.dayCount}`);
       } else {
         G.lastResult = `Jorin is mid-run on a precision fabrication when you arrive — he holds up one finger without looking up from the calibration gauge. The workshop is loud with controlled heat and the metallic bite of flux. When the gauge settles he sets it down carefully and says break periods are at the second and sixth bell. "Come back then." He goes back to the bench. He noticed you come in, checked your hands, checked your boots, and went back to work. The analysis sheets on the bench behind him go back six months — they're in plain sight.`;
         G.flags.located_jorin = true;
@@ -159,7 +159,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_craftspire = true;
         G.factionHostility.warden_order += 1;
-        addJournal('faction', 'Warden Order compliance officer Bren: compound class triggers elevated response, case opened — Warden Order knows the implications', `craftspire-warden-${G.dayCount}`);
+        addJournal('Warden Order compliance officer Bren: compound class triggers elevated response, case opened — Warden Order knows the implications', 'intelligence', `craftspire-warden-${G.dayCount}`);
       } else {
         G.lastResult = `The compliance officer takes the written summary, initials the intake log, and stamps it received. "Standard supply chain discrepancies are reviewed in the order received." He adds it to a tray. The tray has twelve items in it already. He doesn't ask any questions, which means either the summary didn't contain enough to prompt them or nobody in that office knows what the compound class implies. Jorin's documentation includes the compound class code — with that specific code named, the intake category changes from supply fraud to material interference.`;
         if (!G.flags) G.flags = {};
@@ -372,7 +372,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Lev has been watching the production inputs for three months on Jorin's behalf. "The deliveries come from a cart that's different from the regular supply wagon. Same company name on the side, different wheel configuration. Different horses." He's been noting physical characteristics Jorin's analysis doesn't capture. "The different cart only runs on days the concentration is lower. It's a separate delivery operation running under the same supplier name." There's a parallel delivery system using the legitimate supplier's identity.`;
         if (!G.flags) G.flags = {};
         G.flags.met_lev_assistant = true;
-        addJournal('contact', 'Assistant Lev: parallel delivery cart identified — different vehicle, same supplier name, only runs on extraction days', `craftspire-lev-${G.dayCount}`);
+        addJournal('Assistant Lev: parallel delivery cart identified — different vehicle, same supplier name, only runs on extraction days', 'contact_made', `craftspire-lev-${G.dayCount}`);
       } else {
         G.lastResult = `Lev is at the far end of the workshop sorting incoming sample containers when you approach. He listens to the first question, then looks toward the main bench where Jorin works. "I don't talk about what goes on in here without Jorin knowing about it." He turns back to the containers. The workshop smells of flux and ground mineral, and the hiss of the cooling rack fills the silence. He's not hostile. He's careful. Jorin's endorsement changes that calculation — Lev watches the deliveries that Jorin doesn't see.`;
       }
@@ -489,7 +489,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative visited Craftspire workshop 6 weeks ago — expert compound knowledge, full-scope network mapping', `craftspire-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative visited Craftspire workshop 6 weeks ago — expert compound knowledge, full-scope network mapping', 'complication', `craftspire-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

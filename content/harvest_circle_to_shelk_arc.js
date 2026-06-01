@@ -22,7 +22,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `The mark is a capital C with a horizontal strike through the vertical stroke — not a registered trade sigil, not a standard guild mark. A coordination marker used by an entity that does not appear in any registry you have checked. You have traced it through three localities now, on containers that have no logical supply-chain connection to each other except through this mark and whoever places it. The road west runs to Shelkopolis. Someone is already aware you've been following this thread.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('decision', 'Left Harvest Circle following charter mark supply chain south', `harvest-arc-departure-${G.dayCount}`);
+      addJournal('Left Harvest Circle following charter mark supply chain south', 'intelligence', `harvest-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -248,7 +248,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       G.stage = 2;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('consequence', 'Arrived in Shelkopolis from Harvest Circle — Stage 2 begins', `harvest-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Harvest Circle — Stage 2 begins', 'evidence', `harvest-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

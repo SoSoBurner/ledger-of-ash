@@ -963,7 +963,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `Doss left "voluntarily" eight months ago and is still here — her research materials are locked in storage under administrative hold, so she can't go anywhere useful. She opens the door without surprise, like she's been expecting someone eventually. "They didn't remove me. They made working impossible: no access to my own notes, no publication approvals, no assigned students." She has copies of the suppressed papers. She tells you this before you ask. She's been waiting for someone to come around who isn't from the administrative council, and she needs a few more minutes to determine if that's you.`;
         G.flags.met_doss_suppressed_scholar = true;
-        addJournal('contact', 'Archivist Doss: suppressed scholar on leave, has copies of restricted papers, ready to share conditionally', `mimolot-doss-${G.dayCount}`);
+        addJournal('Archivist Doss: suppressed scholar on leave, has copies of restricted papers, ready to share conditionally', 'contact_made', `mimolot-doss-${G.dayCount}`);
       } else {
         G.lastResult = `A neighbor at the old address says Doss moved without leaving a forwarding. But the bookshelves are visible through the window — packed tight, no gaps, untouched. The kettle on the shelf beside them has a faint ring of sediment on the base, recently used. Her materials are here. She is not, or chooses not to be. Someone who can't travel far has made herself harder to reach than her circumstances require. She's nearby and cautious. A different introduction — a name she trusts — would open the door.`;
       }
@@ -985,7 +985,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Tavin is a third-year materials student and he doesn't know he's been flagged. He's genuinely pleased to discuss it — he found an old edition at a used book stall outside the Academy walls and has been working through the differences. "Chapter twelve in the original describes a stabilization failure mode in detail. The current edition has two paragraphs where that chapter used to be." He's not alarmed by this. He thinks it's a fascinating editorial puzzle. He has no idea the auditors in this morning's lecture wrote his name down for asking about it.`;
         if (!G.flags) G.flags = {};
         G.flags.met_tavin_student = true;
-        addJournal('contact', 'Student Tavin: has pre-revision edition with original chapter 12, unaware he is under surveillance', `mimolot-tavin-${G.dayCount}`);
+        addJournal('Student Tavin: has pre-revision edition with original chapter 12, unaware he is under surveillance', 'contact_made', `mimolot-tavin-${G.dayCount}`);
       } else {
         G.lastResult = `Tavin watches you approach and shortens his stride before you reach him. His lecture notes are tucked under one arm, chalk dust still on his left sleeve. A stranger, after a lecture, wanting to talk — this is precisely the kind of interaction the current academic climate has taught students to close down quickly. He answers in single sentences and keeps walking. The culture here has done the work of maintaining distance without anyone needing to issue instructions. He never stopped moving from the moment he saw you. He found his pre-revision edition at a used book stall outside the Academy walls. He still goes there. That's a less guarded conversation than this one.`;
       }
@@ -1026,7 +1026,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative contacted Archivist Doss before you — expert-level knowledge, well-resourced', `mimolot-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative contacted Archivist Doss before you — expert-level knowledge, well-resourced', 'complication', `mimolot-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

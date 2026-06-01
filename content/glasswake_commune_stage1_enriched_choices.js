@@ -175,7 +175,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Fen is at a side bench near the estuary-facing window, sample log open in front of her. Six months at Glasswake, still close enough to her arrival that the suppression is a puzzle rather than a landscape. "I've read the reclassified abstract. Just the abstract." She sets down her pen. "The mechanism it describes is real — I've seen the measurement rig Toman built. There's no way that data is wrong." She looks at the dock boards through the window. "Why would you suppress correct research?" She genuinely doesn't know yet. The answer, when she figures it out, will land hard.`;
         if (!G.flags) G.flags = {};
         G.flags.met_fen_researcher = true;
-        addJournal('contact', 'Junior researcher Fen: confirms amplification data is valid, doesn\'t yet understand why suppressed', `glasswake-fen-${G.dayCount}`);
+        addJournal('Junior researcher Fen: confirms amplification data is valid, doesn\'t yet understand why suppressed', 'contact_made', `glasswake-fen-${G.dayCount}`);
       } else {
         G.lastResult = `Fen is willing to talk but keeps glancing toward the corridor. She says the older researchers told her to be careful about discussing the research situation with visitors she doesn't know. She's trying to be helpful and careful at the same time. "I can show you the public catalogue." That's the limit of what she'll offer. The caution was passed down explicitly; you can hear its exact phrasing in how she phrases hers.`;
       }
@@ -205,7 +205,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_glasswake = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium liaison Orsel: external committee appointment provides standing to intervene — wants consortium connection documented', `glasswake-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium liaison Orsel: external committee appointment provides standing to intervene — wants consortium connection documented', 'intelligence', `glasswake-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `The Collegium's liaison table stands near the administrative hall entrance, unmanned. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk explains the procedure without looking up: written request, registered party affiliation, supporting documentation attached. She slides a blank form across the counter and goes back to her ledger. The room smells of old paper and floor wax. The consortium connection — three committee members appointed through an unprecedented procedural category — is the kind of documentation that changes what a formal petition can compel.`;
         if (!G.flags) G.flags = {};
@@ -410,7 +410,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Researcher Winn voted against but has stayed on the committee. "I stay because if I leave, they appoint a fourth external member. My presence prevents a four-to-one majority." She's accepted being outvoted as the price of maintaining any internal presence. "I can't stop them. But I can make the record show they were opposed. That matters eventually." She's been building a written record of every overreach, every suppression. She'll share it with someone who can use it.`;
         if (!G.flags) G.flags = {};
         G.flags.met_winn_dissenter = true;
-        addJournal('contact', 'Committee dissenter Winn: staying to prevent fourth external appointment, has written record of every suppression decision', `glasswake-winn-${G.dayCount}`);
+        addJournal('Committee dissenter Winn: staying to prevent fourth external appointment, has written record of every suppression decision', 'contact_made', `glasswake-winn-${G.dayCount}`);
       } else {
         G.lastResult = `Researcher Winn is at her desk when you introduce yourself. She listens to the first sentence, then sets her pen down and straightens the papers in front of her into an already-straight stack. "I'm not in a position to speak informally about committee proceedings." Her register is careful, each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name. That record is in the same classified file as Toman's research.`;
       }
@@ -589,7 +589,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative visited Toman Iceveil 2 months ago — reconnaissance, expert knowledge, or acquisition attempt', `glasswake-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative visited Toman Iceveil 2 months ago — reconnaissance, expert knowledge, or acquisition attempt', 'complication', `glasswake-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

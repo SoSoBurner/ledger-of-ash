@@ -27,7 +27,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 11) {
         G.lastResult = `Velka is at the production checkpoint with a tally board, marking off the morning output. She listens without turning from the board. "Twenty years at this face. I know what comes out of it and what doesn't." She caps her pen and sets it in the same groove on the board frame — a groove worn smooth from use, the wood darker there than anywhere else. "There's a section on the eastern side that doesn't appear in the weekly reports. I've been logging it myself because the official record is wrong on purpose." She has the tone of someone who has waited a long time for the right question.`;
         G.flags.met_velka_ironspike = true;
-        addJournal('contact', 'Velka Ironspike met: 20-year veteran, personal log of undisclosed eastern face operations, waiting for the right inquiry', `ironhold-velka-${G.dayCount}`);
+        addJournal('Velka Ironspike met: 20-year veteran, personal log of undisclosed eastern face operations, waiting for the right inquiry', 'contact_made', `ironhold-velka-${G.dayCount}`);
       } else {
         G.lastResult = `Velka is mid-rotation at the production checkpoint, tally board in hand, and raises two fingers without turning — not now. A worker at the adjacent checkpoint supplies what she won't: Velka keeps her own hours, arrives before the first bell and stays past the last. She's been at Ironhold longer than anyone currently in the management structure. The end-of-shift wind-down, when the face goes quiet and the supervisors move to the equipment shed for the daily count, is the window.`;
         G.flags.located_velka_ironspike = true;
@@ -179,7 +179,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_iron_compact_ironhold = true;
         G.factionHostility.iron_compact += 1;
-        addJournal('faction', 'Iron Compact authority Kess: off-calendar extraction is financial violation, reactive precursor elevates category — Compact inquiry opened', `ironhold-iron-${G.dayCount}`);
+        addJournal('Iron Compact authority Kess: off-calendar extraction is financial violation, reactive precursor elevates category — Compact inquiry opened', 'intelligence', `ironhold-iron-${G.dayCount}`);
       } else {
         G.lastResult = `Kess is at the assay station with a tally register open and gives you two minutes before her next run. The description of schedule discrepancies doesn't move her expression. "I need the production calendar laid against the operations board entries — show me the specific dates where they diverge." She taps her register with one finger. Without documentation, informal description sits as hearsay in the Compact's process and goes nowhere. Velka's log has fourteen months of eastern face dates laid against the official production calendar. That's the document Kess needs.`;
         if (!G.flags) G.flags = {};
@@ -232,7 +232,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Velka is at the end of the main terrace with the dust settling behind the last equipment run of the day. She doesn't look up when she starts talking. "If I go to Darian directly, he pulls my eastern face access within the week. I stop being useful the moment I move." She turns a chip of stone in her palm. "If I keep documenting, whatever's going through those containers keeps going. Fourteen months is already fourteen months too long." She's not asking for reassurance. She's asking which loss is the right one.`;
       G.flags.stage1_evidence_decision = 'pending';
       G.flags.stage1_moral_npc = 'Velka Ironspike';
-      addJournal('consequence', 'Velka Ironspike decision: confront Darian and lose access vs continue documenting while extraction continues', `ironhold-velka-decision-${G.dayCount}`);
+      addJournal('Velka Ironspike decision: confront Darian and lose access vs continue documenting while extraction continues', 'evidence', `ironhold-velka-decision-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -337,7 +337,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 10) {
         G.lastResult = `Velka's log is written in production shorthand — layer notation, shift codes, container volume in quarry units. Without the reference guide that hangs inside every Compact-affiliated equipment shed, it reads as routine extraction data. The copy goes out inside a standard geological sample case, labeled with a site assessment number. Darian's crew checks outgoing cases against the equipment manifest at the gate. This one clears. Fourteen months of undisclosed eastern face operations are outside the quarry's reach.`;
         G.flags.velka_log_secured = true;
-        addJournal('consequence', 'Velka\'s 14-month eastern face log secured offsite — undisclosed operations record preserved outside quarry administration', `ironhold-velka-log-${G.dayCount}`);
+        addJournal('Velka\'s 14-month eastern face log secured offsite — undisclosed operations record preserved outside quarry administration', 'evidence', `ironhold-velka-log-${G.dayCount}`);
       } else {
         G.lastResult = `The gate inspection runs longer than expected — a second guard checks outgoing documentation against a manifest that wasn't operating yesterday. The eastern face security is tightening the exit protocols. The smell of quarry dust and machine grease hangs at the gate line; hauling chains clank from somewhere behind the equipment shed. The log copy, still in its sample case, stays put. Getting it out requires a window when the secondary inspection isn't active, or a different exit point that doesn't route through Darian's gate crew.`;
       }
@@ -392,7 +392,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Worge speaks at the water barrel near the main face, keeping her back to the equipment shed. Three months on the eastern face rotation — before she asked to be moved and wasn't given a reason why that was allowed. "First thing they tell you: don't ask what you're pulling." The pay supplement was listed as technical complexity. The gloves were heavier than standard quarry issue. "Chart on the wall in the eastern shed — not a hazard chart. A quantity tracker. Every shift's output was marked against a number. We were working toward a specific total and nobody named what the total was for." The operation has a completion point. Someone knows what it is.`;
         if (!G.flags) G.flags = {};
         G.flags.met_worge_worker = true;
-        addJournal('contact', 'Eastern face worker Worge: unnamed material quota tracked against specific target, heavy protective gear, no questions permitted', `ironhold-worge-${G.dayCount}`);
+        addJournal('Eastern face worker Worge: unnamed material quota tracked against specific target, heavy protective gear, no questions permitted', 'contact_made', `ironhold-worge-${G.dayCount}`);
       } else {
         G.lastResult = `The worker you approach checks your face twice before answering. Eastern face rotation workers signed a supplementary contract clause — she won't say what it covers, but the way she steps back and looks toward the equipment shed tells you it includes conversations with outsiders. She walks back to the face without another word. Velka placed three of those workers on their first rotation herself. They trust her in a way they won't trust a visitor.`;
       }
@@ -563,7 +563,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('warning', 'Rival-adjacent operative visited Ironhold 4 months ago — specific eastern face knowledge, possible coordination with operation', `ironhold-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative visited Ironhold 4 months ago — specific eastern face knowledge, possible coordination with operation', 'complication', `ironhold-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
