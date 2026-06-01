@@ -602,6 +602,152 @@
           renderChoices(_wrappedChoices);
         }, 300);
       }
+    },
+    startOverlayJourney: function(fromId, toId, mode, pack) {
+      var routeKey = fromId + '|' + toId;
+      var revKey   = toId   + '|' + fromId;
+      var routeEntry = (window.TRAVEL_ROUTES || {})[routeKey]
+                    || (window.TRAVEL_ROUTES || {})[revKey] || {};
+      var spatialData = window.ROUTE_SPATIAL_DATA ? window.ROUTE_SPATIAL_DATA.get(fromId, toId) : null;
+      var totalDays = Math.max(1, Math.ceil(routeEntry[mode] || routeEntry['foot'] || 1));
+      var tier = routeEntry.tier || (totalDays <= 2 ? 'short' : totalDays <= 14 ? 'medium' : 'long');
+      var baseCount = { short: 1, medium: 2, long: 3 }[tier] || 1;
+      var biomes = spatialData ? spatialData.biomes : [(routeEntry.biome || 'plains')];
+      var schedule = [];
+      for (var i = 0; i < baseCount; i++) {
+        var day = Math.max(1, Math.round(totalDays * (i + 1) / (baseCount + 1)));
+        var biomeIdx = Math.min(Math.floor(biomes.length * day / totalDays), biomes.length - 1);
+        schedule.push({ day: day, biome: biomes[biomeIdx] || 'plains', tier: tier });
+      }
+      var anchorDay = null;
+      var anchorId = null;
+      var fromMacro = (window.LOCALITY_MACROREGION || {})[fromId] || '';
+      var toMacro   = (window.LOCALITY_MACROREGION || {})[toId]   || '';
+      if (window.OPERATIONAL_ANCHORS) {
+        var _anchors = window.OPERATIONAL_ANCHORS;
+        for (var j = 0; j < _anchors.length; j++) {
+          var a = _anchors[j];
+          var aMacro = (window.LOCALITY_MACROREGION || {})[a.locality] || '';
+          if (aMacro === fromMacro || aMacro === toMacro) {
+            anchorDay = Math.max(1, Math.round(totalDays * 0.6));
+            anchorId  = a.id;
+            break;
+          }
+        }
+      }
+      var paceMod = { fatiguePerDay: 1 };
+      G.fatigue = (G.fatigue || 0) + Math.ceil(totalDays * 0.3);
+      if (typeof advanceTime === 'function') advanceTime(totalDays);
+      if (typeof updateHUD === 'function') updateHUD();
+      G.flags._jrn_from      = fromId;
+      G.flags._jrn_to        = toId;
+      G.flags._jrn_mode      = mode;
+      G.flags._jrn_total     = totalDays;
+      G.flags._jrn_current   = 0;
+      G.flags._jrn_sched     = JSON.stringify(schedule);
+      G.flags._jrn_sched_idx = 0;
+      G.flags._jrn_biomes    = biomes.join(',');
+      G.flags._jrn_note      = spatialData ? (spatialData.route_note || '') : '';
+      G.flags._jrn_anchor_day = anchorDay;
+      G.flags._jrn_anchor_id  = anchorId;
+      window._travelNextEncounter = function() { TRAVEL_CORRIDOR.advanceDayLeg(); };
+      TRAVEL_CORRIDOR.advanceDayLeg();
+    },
+    advanceDayLeg: function() {
+      if (!G || !G.flags) return;
+      var fromId    = G.flags._jrn_from || '';
+      var toId      = G.flags._jrn_to   || '';
+      var totalDays = G.flags._jrn_total || 1;
+      var current   = (G.flags._jrn_current || 0) + 1;
+      var schedule  = JSON.parse(G.flags._jrn_sched  || '[]');
+      var schedIdx  = G.flags._jrn_sched_idx || 0;
+      var biomes    = (G.flags._jrn_biomes || 'plains').split(',');
+      var note      = G.flags._jrn_note || '';
+      var anchorDay = G.flags._jrn_anchor_day;
+      var anchorId  = G.flags._jrn_anchor_id;
+      var destLoc   = window.WORLD_LOCATIONS ? window.WORLD_LOCATIONS[toId] : null;
+      var destName  = destLoc ? destLoc.name : toId;
+      var routeTierObj = (window.TRAVEL_ROUTES || {})[fromId+'|'+toId]
+                      || (window.TRAVEL_ROUTES || {})[toId+'|'+fromId] || {};
+      var routeTier = routeTierObj.tier || 'medium';
+
+      G.flags._jrn_current = current;
+
+      if (current > totalDays) {
+        TRAVEL_CORRIDOR._completeJourney(toId);
+        return;
+      }
+
+      var dayFraction = totalDays > 1 ? (current - 1) / (totalDays - 1) : 0;
+      var biomeIdx = Math.min(Math.floor(biomes.length * dayFraction), biomes.length - 1);
+      var biome = biomes[biomeIdx] || 'plains';
+      var fromMacro = (window.LOCALITY_MACROREGION || {})[fromId] || 'principalities';
+      var toMacro   = (window.LOCALITY_MACROREGION || {})[toId]   || 'principalities';
+      var macro = dayFraction < 0.5 ? fromMacro : toMacro;
+      var narrs = (window.MACROREGION_NARRATIONS || {})[macro] || [];
+      var ambient = narrs[Math.floor(Math.random() * narrs.length)] || 'The road continues.';
+
+      var todayEncounter = schedule[schedIdx] && schedule[schedIdx].day === current;
+      var todayAnchor    = anchorDay !== null && anchorDay === current && anchorId;
+
+      var headerHtml   = '<div class="journey-day-header">DAY ' + current + ' OF ' + totalDays + ' \u2014 ' + destName.toUpperCase() + '</div>';
+      var narrationHtml = '<div class="journey-narration">' + ambient + '</div>';
+      var noteHtml     = note ? '<div class="journey-route-note">' + note + '</div>' : '';
+      var choicesHtml  = '<div class="journey-choices" id="journey-choice-area"></div>';
+
+      if (typeof _setMapOverlayContent === 'function') {
+        _setMapOverlayContent(
+          'Day ' + current + ' of ' + totalDays + ' \u2014 ' + destName,
+          headerHtml + narrationHtml + noteHtml + choicesHtml,
+          false
+        );
+      }
+
+      var choiceArea = document.getElementById('journey-choice-area');
+      if (!choiceArea) { TRAVEL_CORRIDOR._completeJourney(toId); return; }
+
+      if (todayAnchor) {
+        G.flags._jrn_anchor_day = null;
+        TRAVEL_CORRIDOR._renderAnchorInOverlay(anchorId, choiceArea);
+      } else if (todayEncounter) {
+        G.flags._jrn_sched_idx = schedIdx + 1;
+        TRAVEL_CORRIDOR._renderEncounterInOverlay(biome, routeTier, choiceArea);
+      } else {
+        var btn = document.createElement('button');
+        btn.className = 'choice-btn';
+        btn.textContent = 'Continue on the road.';
+        btn.addEventListener('click', function() { TRAVEL_CORRIDOR.advanceDayLeg(); });
+        choiceArea.appendChild(btn);
+      }
+    },
+    _completeJourney: function(toId) {
+      var _keys = ['_jrn_from','_jrn_to','_jrn_mode','_jrn_total','_jrn_current',
+                   '_jrn_sched','_jrn_sched_idx','_jrn_biomes','_jrn_note',
+                   '_jrn_anchor_day','_jrn_anchor_id'];
+      for (var ki = 0; ki < _keys.length; ki++) {
+        if (G && G.flags) delete G.flags[_keys[ki]];
+      }
+      if (G) G.travelMode = null;
+      window._travelNextEncounter = null;
+      if (typeof closeOverlay === 'function') closeOverlay('overlay-map');
+      setTimeout(function() {
+        if (typeof resolveArrival === 'function') resolveArrival(toId);
+        else if (typeof loadStageChoices === 'function') loadStageChoices(toId);
+      }, 200);
+    },
+    _renderEncounterInOverlay: function(biome, tier, choiceArea) {
+      var btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = '[ENCOUNTER \u2014 Task 6]';
+      btn.addEventListener('click', function() { TRAVEL_CORRIDOR.advanceDayLeg(); });
+      choiceArea.appendChild(btn);
+    },
+    _renderAnchorInOverlay: function(anchorId, choiceArea) {
+      var btn = document.createElement('button');
+      btn.className = 'choice-btn';
+      btn.textContent = '[ANCHOR \u2014 Task 7]';
+      btn.addEventListener('click', function() { TRAVEL_CORRIDOR.advanceDayLeg(); });
+      choiceArea.appendChild(btn);
     }
   };
 
