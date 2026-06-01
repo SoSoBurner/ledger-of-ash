@@ -13897,7 +13897,7 @@ function addQuest(msg, hint, questId) {
   var text = (typeof msg === 'object' && msg !== null) ? (msg.msg || JSON.stringify(msg)) : String(msg || '');
   if (!G.quests) G.quests = [];
   if (G.quests.indexOf(text) === -1) {
-    G.quests.push(text);
+    G.quests.push(questId ? {msg: text, questId: questId} : text);
     updateQuestHUD();
     showToast('Quest: ' + text.slice(0,40) + (text.length>40?'...':''));
   }
