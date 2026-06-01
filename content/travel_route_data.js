@@ -76,6 +76,24 @@ window.ROUTE_SPATIAL_DATA = {
     biomes: ['sea'],
     route_class: 'sea',
     allowed_modes: ['boat']
+  },
+  'ashforge_citadel|ashwake_port': {
+    route_note: 'The coastal road between Ashforge and Ashwake is marked by Psanan authority posts. Cargo declarations are required at both ends.',
+    biomes: ['coastal'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'glasswake_commune|shelkopolis': {
+    route_note: 'The highland road from Glasswake into Shelkopolis carries Sheresh transit papers through the border zone. Neither authority fully acknowledges the other.',
+    biomes: ['highland','plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'eternal_lands|soreheim_proper': {
+    route_note: 'The Eternal Lands sea approach to Soreheim is long and exposed. Extraction vessels move this route in convoy.',
+    biomes: ['sea','coastal'],
+    route_class: 'sea',
+    allowed_modes: ['boat']
   }
 };
 

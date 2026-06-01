@@ -933,7 +933,7 @@
     },
     {
       id: 'anchor_sheresh_perimeter',
-      locality: 'aurora_crown',
+      locality: 'aurora_crown_commune',
       name: 'Dome Perimeter Rest Stop',
       desc: 'A Dome Stewards-maintained rest point at the Sheresh perimeter. The dome-light is close enough here to read by without a lamp. Insulated sleeping rolls are stored in a locked rack — key on a hook above the door, available to travelers. The cold through the walls is steady, not cutting.',
       choices: [
@@ -2949,6 +2949,460 @@
     }
   };
 
+  // Route: ashforge_citadel|ashwake_port
+  window.ROUTE_COMPLICATIONS['ashforge_citadel|ashwake_port'] = {
+    checkpoint: {
+      title: 'Psanan Authority Post',
+      text: 'A painted post at the road edge with a Psanan authority marker — brass numerals, a declarant\'s window built into a low stone wall. The attendant behind the window has a cargo declaration ledger open. The coastal road requires declaration at both Ashforge and Ashwake. This is the first.',
+      choices: [
+        {
+          text: 'Declare cargo and transit reason. Standard.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Declaration accepted. The attendant stamps the ledger, tears a receipt strip, and passes it through the window. You will need it at the Ashwake end. The post arm lifts.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The declaration form has a category mismatch — the attendant circles it and asks you to refile. The correction takes time. The receipt is issued but flagged.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'Name a cargo broker who handles coastal declarations. Shortcut the paperwork.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The broker name is recognized. The attendant pulls a pre-stamped authorization form from a side drawer — the broker has standing accounts at this post. The declaration files in thirty seconds.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The broker name is on a dispute list. The attendant notes it and asks for the full declaration anyway, plus the broker authorization number. You do not have it. Secondary review.');
+              if (typeof addHeat === 'function') addHeat('shelk', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Coastal Road Patrol',
+      text: 'Two authority riders on the coast road, moving south. They are wearing Psanan insignia — grey-and-yellow, not the grey-and-white of Shelk authority. One has a saddlebag that is too full for a standard patrol shift. They pull up when they reach you.',
+      choices: [
+        {
+          text: 'Show the declaration receipt from the last post.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The receipt is current and stamped correctly. The rider checks the date, checks your face, hands it back. The other rider has stopped watching. They continue south.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The receipt format is from two seasons ago — the authority post updated its forms. The rider notes the discrepancy, issues a correction slip, and records the stop. The encounter is procedural, not hostile, but it is recorded.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'The patrol is carrying something it does not want noted. Use that.',
+          skill: 'finesse', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The overfull saddlebag is a leverage point neither rider wants examined. The lead rider waves you through without asking for the receipt at all. The transaction is mutual and unspoken.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The rider sees what you are doing before you finish doing it. The saddlebag comment lands wrong. He dismounts. This takes considerably longer than showing the receipt would have.');
+              if (typeof addHeat === 'function') addHeat('shelk', 3);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'After Dark on the Coastal Road',
+      text: 'The coastal road has posted overnight restrictions between the two authority zones — no freight movement, personal travel at own risk. The sea is audible. The road is not lit. A shore-side fire a hundred meters ahead is either a permitted camp or it is not.',
+      choices: [
+        {
+          text: 'Make camp at the marked traveler ground, not the fire.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The traveler ground is a flat strip of gravel with a fire ring and a windbreak of stacked stone. No fire tonight — the sea wind kills the spark. You sleep in the cold, but the morning patrol passes without comment.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The traveler ground is occupied. Another party has taken both fire rings. You sleep on the verge and wake stiff and cold.');
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'Walk toward the shore fire. Shared warmth is worth the risk.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The fire belongs to a cargo broker\'s shore party, waiting on a delayed vessel. They have food and news. You sleep better than you would have at the traveler ground and learn that the Ashwake declaration desk opens an hour later than posted.');
+              if (typeof gainXp === 'function') gainXp(20);
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The fire belongs to an authority night post that is not marked on the road guide. The watch officer takes your name and transit reason and adds it to a log you cannot read. You are not detained, but you are noted.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Coastal Road Obstruction',
+      text: 'A section of the coastal road has been blocked — a freight cart has come off the verge and is half-blocking the carriageway. The driver is arguing with a Psanan post attendant about whose jurisdiction covers the clearing costs. The road is passable on foot by stepping past the cart wheel, but cargo and horses cannot get through until the argument resolves.',
+      choices: [
+        {
+          text: 'Wait it out. The argument will end.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Twenty minutes. The attendant wins — the driver agrees to pay the road clearance fee. The cart is righted and the road opens. You lose the time but nothing else.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The argument escalates to a secondary review, which requires a second attendant who is not at the post. The wait is over an hour. The fatigue adds up.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'Cut through the terrain above the road. The rise is manageable.',
+          skill: 'might', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('might') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The coastal rise is loose shale but climbable. You pick a line above the blocked section and rejoin the road forty meters past the cart. The attendant watches but does not call out — jurisdiction is genuinely unclear and calling out means paperwork.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The shale gives halfway up. You catch yourself on a brush root but the scramble is visible from the road. The attendant marks you in his log as taking unauthorized road bypass — a minor infraction, but filed.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route: glasswake_commune|shelkopolis
+  window.ROUTE_COMPLICATIONS['glasswake_commune|shelkopolis'] = {
+    checkpoint: {
+      title: 'Border Zone Transit Desk',
+      text: 'A low timber building at the highland–plains boundary. Two desks visible through the window, each flying a different authority seal — Sheresh on the left, Shelk on the right. Neither desk acknowledges the other. Each requires its own form. A posted notice says the order does not matter, but both must be completed before proceeding.',
+      choices: [
+        {
+          text: 'Complete both forms in sequence. Sheresh first, Shelk second.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Both desks stamp both forms. The Sheresh clerk does not look at the Shelk stamp. The Shelk clerk does not look at the Sheresh stamp. The door to the southbound road opens.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The Shelk form requires a transit origin that the Sheresh form left blank. The clerk sends you back to the Sheresh desk. The Sheresh clerk requires a counter-signature from the Shelk desk to reopen the form. This takes a while.');
+              if (typeof addHeat === 'function') addHeat('sheresh', 1);
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'A border zone this contested has people who know how to move through it quietly.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The Sheresh clerk has been here long enough to have a workaround. A single consolidated form, known to both desks, that satisfies both requirements in one filing. He fills it in himself. You are through in ten minutes.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The consolidated form gambit requires the Shelk clerk\'s cooperation, which is not forthcoming today. The Shelk clerk files a non-compliance note. You complete both standard forms and leave with a flag on your transit record.');
+              if (typeof addHeat === 'function') addHeat('shelk', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Dual-Authority Patrol Zone',
+      text: 'A Shelk road patrol and a Sheresh perimeter patrol are both working this section of the highland road — on the same stretch, traveling the same direction, fifty meters apart. Neither is speaking to the other. You are between them.',
+      choices: [
+        {
+          text: 'Keep pace with the gap. Stay equidistant from both patrols.',
+          skill: 'finesse', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Neither patrol stops you. Staying in the gap means neither has clear jurisdictional claim on the stop. You walk through the zone and emerge on the plains side with nothing filed against you.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The Shelk patrol drops back and closes the gap before you can clear the zone. The lead warden asks for transit papers. The Sheresh patrol keeps moving and is out of sight before the check is done.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'Join the Sheresh patrol briefly. Harder to stop a moving group.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'A brief explanation of your transit direction is enough for the Sheresh patrol leader to allow the attachment. The Shelk wardens watch but do not stop a group moving in Sheresh company. You peel off at the boundary marker.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The Sheresh patrol leader does not want the complication. She waves you off. The Shelk patrol has been watching the exchange and considers it suspicious enough to stop you when you separate.');
+              if (typeof addHeat === 'function') addHeat('shelk', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Highland Road After Dark',
+      text: 'The highland stretch of this route has no authorized overnight camps — both authority zones claim it, so neither maintains rest infrastructure here. The road is cold, the wind is lateral, and the next posted camp is on the Shelkopolis side of the boundary, which requires completing the transit forms first.',
+      choices: [
+        {
+          text: 'Push through to the posted camp on the Shelk side.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The transit desk is closed for the night but the camp is on the open side of the barrier — accessible before the forms are filed. You find a berth. The cold eases. The desk opens at first light.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The camp is full. The night warden points you to a windbreak shelf cut into the hillside — technically outside camp. The rest is inadequate and the cold is thorough.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'The highland has natural shelter if you know what to look for.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'A leeward rock shelf thirty meters off the road, high enough to block the wind, low enough to retain heat. You spend the night there. No patrol passes. The border zone infrastructure gap works in your favor for once.');
+              if (typeof gainXp === 'function') gainXp(20);
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The shelter you find is exposed on one side and the wind shifts after midnight. You sleep in intervals. The morning arrives before you are ready for it.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Border Zone Paperwork Freeze',
+      text: 'The transit building is closed — a notice in the window says both desks are in a jurisdictional review that will not clear until the following morning. No transit papers can be issued or validated. The road is technically impassable for documented travelers until the desks reopen.',
+      choices: [
+        {
+          text: 'Wait at the transit building until morning.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The bench outside the transit building is cold but covered. You sleep against the wall in your pack. The desks open two hours after first light. Both clerks pretend the delay did not happen. Your papers are stamped without comment.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The bench fills up. Six travelers are waiting when the desks open and the clerks process them in the order they arrived. You are fifth. The wait adds another three hours to your day.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'The jurisdictional review means neither authority is watching the road. Move now.',
+          skill: 'finesse', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The road is genuinely unwatched. Both clerks are in the review room. You are through the zone in twenty minutes and on the Shelkopolis side before either desk reopens. No record of transit — which means no record of you.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'One clerk stepped out for air and sees you moving through the unmonitored zone. The review is paused. Your unauthorized transit goes into both authority logs simultaneously — a rare double-filing.');
+              if (typeof addHeat === 'function') addHeat('shelk', 2);
+              if (typeof addHeat === 'function') addHeat('sheresh', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route: eternal_lands|soreheim_proper
+  window.ROUTE_COMPLICATIONS['eternal_lands|soreheim_proper'] = {
+    checkpoint: {
+      title: 'Soreheim Convoy Registration',
+      text: 'The Soreheim sea approach requires convoy registration — solo vessels are logged and assigned a convoy slot before departure. The registration post floats on a moored platform at the deep water boundary, staffed by two Soreheim quota officers. The next convoy departs in a fixed window. Being late for registration means waiting for the next one.',
+      choices: [
+        {
+          text: 'Register with the quota officers. Full manifest and vessel details.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Registration complete. The officer assigns a convoy position — third behind the lead extraction vessel. The convoy flag is a red pennant. You depart in the next window.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The manifest has a cargo category the officers cannot process without a senior sign-off. The senior officer is on the second platform. The delay pushes you to the following convoy window.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'The convoy system has exemptions. Cite the one that applies here.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Independent transit authorization — valid for vessels carrying less than quota-threshold cargo. The officer checks, confirms, and issues a solo transit permit. You depart on your own schedule instead of the convoy\'s.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The exemption category you cite was suspended two seasons ago when independent transit was reclassified. The officer notes the attempted citation and assigns your vessel to mandatory convoy escort — which means waiting.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Extraction Convoy Escort',
+      text: 'An extraction vessel coming the opposite direction — outbound from Soreheim, low in the water with loaded holds. A quota officer on its deck is monitoring the sea lane. Solo vessels on this route are logged each time they pass a convoy moving the other way. The officer has a scope and is noting your vessel.',
+      choices: [
+        {
+          text: 'Display the convoy registration flag. Standard identification.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The red pennant is visible before the officer raises the scope. He checks it, notes the convoy number, and logs you as authorized inbound. The extraction vessel passes without signaling a stop.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The pennant is obscured by rigging at the moment the officer is looking. He signals a vessel identification request. The exchange takes ten minutes of close approach and flag exchange before clearance is given.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'The sea lane is wide. Change course to put distance between the vessels.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'A natural course adjustment — wind shift, not evasion. The distance you gain means the officer cannot note your vessel numbers clearly. The log entry reads "inbound solo vessel, unresolved" — which is not the same as flagged.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The course change reads as evasion at the range the officer is watching. He radios ahead to the Soreheim approach post. You are flagged for enhanced registration when you arrive.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Sea Crossing After Dark',
+      text: 'The Eternal Lands to Soreheim passage is long enough that most transits cross at least one night. Convoy vessels travel with running lights only — no anchor stops on open water. The exposed sea crossing in darkness requires constant watch.',
+      choices: [
+        {
+          text: 'Take the watch rotation. Maintain convoy pace through the night.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The night passage is uneventful. The convoy running lights stay steady. You take two watch periods and sleep between them. The crossing is monotonous in the way only open water at night can be — completely uniform, no reference points.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The watch rotation goes wrong — someone misses a period and you cover it. By morning you have worked two full watch periods without a sleep interval. The crossing is done but fatigue is compounding.');
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'Run lights-out between convoy waypoints. Faster and harder to track.',
+          skill: 'spirit', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('spirit') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The lights-out run shaves hours off the crossing. The sea reads differently without the running light bleeding into your night vision. You arrive at Soreheim approach two hours ahead of the convoy. The registration desk is open and uncrowded.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'Running lights-out on a convoy route means the convoy loses track of your position. When you arrive at Soreheim, you are logged as a missing vessel for twelve hours. The paperwork required to resolve a missing-vessel log is substantial.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 3);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Exposed Sea Conditions',
+      text: 'The open water between Eternal Lands and Soreheim has no natural shelter. A weather system is moving in from the west — not a full storm, but enough to make the passage rough for the next several hours. The convoy is pressing through rather than holding position. The decision is whether to stay with the convoy or reduce speed and wait for the system to pass.',
+      choices: [
+        {
+          text: 'Stay with the convoy. Maintaining position is the safer call.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The weather system is rough but not dangerous. Three hours of roll and spray. The convoy maintains pace. You arrive at Soreheim damp, fatigued, and on schedule. The quota post is not particularly sympathetic but the arrival is logged correctly.');
+              G.fatigue = (G.fatigue || 0) + 1;
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'Maintaining convoy pace in the weather costs more than expected. A fitting on the vessel gives way under the strain and requires emergency securing. The convoy continues; you fall behind and arrive outside the expected window. The quota post logs the arrival gap.');
+              if (typeof modHP === 'function') modHP(-2);
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        },
+        {
+          text: 'Drop convoy pace and wait for the system to clear.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The system passes in ninety minutes. You resume speed and arrive at Soreheim three hours behind the convoy, but the quota post accepts the weather delay as a valid variance. The vessel is undamaged. The difference in arrival condition is visible to the post officer.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The system does not pass in the time you allocated. You wait four hours, arrive well outside the convoy window, and the quota post requires a detailed explanation of the variance. The weather log from the day does not match your arrival gap cleanly.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
+          }
+        }
+      ]
+    }
+  };
+
   // ---------------------------------------------------------------------------
   // Helper: resolve macroregion from locality IDs
   // ---------------------------------------------------------------------------
@@ -3227,8 +3681,9 @@
       var noteHtml     = note ? '<div class="journey-route-note">' + note + '</div>' : '';
       var choicesHtml  = '<div class="journey-choices" id="journey-choice-area"></div>';
 
-      if (typeof _setMapOverlayContent === 'function') {
-        _setMapOverlayContent(
+      var _smc = window._setMapOverlayContent || (typeof _setMapOverlayContent === 'function' ? _setMapOverlayContent : null);
+      if (_smc) {
+        _smc(
           'Day ' + current + ' of ' + totalDays + ' \u2014 ' + destName,
           headerHtml + narrationHtml + noteHtml + choicesHtml,
           false
