@@ -13963,22 +13963,47 @@ function travelTo(locId) {
   _showModeSelectInOverlay(locId);
 }
 
+function _showPackChoicesInOverlay(fromId, toId, mode) {
+  var loc = WORLD_LOCATIONS[toId];
+  var destName = loc ? loc.name : toId;
+  var macro = (window.LOCALITY_MACROREGION || {})[fromId] || 'principalities';
+  var narrs = (window.MACROREGION_NARRATIONS || {})[macro] || [];
+  var ambient = narrs[Math.floor(Math.random() * narrs.length)] || 'The road opens ahead.';
+
+  _setMapOverlayContent(
+    'Departing for ' + destName,
+    '<div class="journey-narration">' + ambient + '</div>'
+    + '<div class="journey-day-header">SUPPLY</div>'
+    + '<div class="journey-choices">'
+    + '<button class="choice-btn overlay-pack-btn" data-pack="light">Travel light \u2014 speed over supply.<br><span style="font-size:11px;color:var(--ink-dim)">Faster; +1 fatigue risk per encounter</span></button>'
+    + '<button class="choice-btn overlay-pack-btn" data-pack="standard">Standard kit. Everything I need, nothing extra.<br><span style="font-size:11px;color:var(--ink-dim)">Balanced</span></button>'
+    + '<button class="choice-btn overlay-pack-btn" data-pack="heavy">Full pack. The weight is a problem I can manage.<br><span style="font-size:11px;color:var(--ink-dim)">+1 supply per 3 days; Craft DC 10 carry roll</span></button>'
+    + '</div>',
+    false
+  );
+
+  document.querySelectorAll('.overlay-pack-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var pack = btn.dataset.pack;
+      G.journeyPack = pack;
+      if (pack === 'heavy') {
+        var r = typeof rollD20 === 'function' ? rollD20('craft') : { total: 12 };
+        if (r.total < 10) {
+          G.fatigue = (G.fatigue || 0) + 2;
+          if (typeof addNarration === 'function') addNarration('', 'The weight is harder to manage than expected. Two points of fatigue before the road begins.');
+        }
+      }
+      if (typeof TRAVEL_CORRIDOR !== 'undefined' && TRAVEL_CORRIDOR.startOverlayJourney) {
+        TRAVEL_CORRIDOR.startOverlayJourney(fromId, toId, mode, pack);
+      } else {
+        if (typeof addNarration === 'function') addNarration('', 'Day-leg engine not yet loaded.');
+      }
+    });
+  });
+}
+
 function beginJourney(fromId, toId) {
-  var _tm = document.getElementById('travel-mode-modal'); if (_tm) _tm.remove();
-  const from = WORLD_LOCATIONS[fromId];
-  const to = WORLD_LOCATIONS[toId];
-  if (!from || !to) return;
-  const lmr = window.LOCALITY_MACROREGION || {};
-  const macro = lmr[fromId] || 'principalities';
-  const narrs = (window.MACROREGION_NARRATIONS || {})[macro] || [];
-  const ambient = narrs[Math.floor(Math.random() * narrs.length)] || 'The road opens ahead.';
-  document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-  addNarration('Road to ' + to.name, ambient);
-  setTimeout(() => renderChoices([
-    { text: 'Travel light -- speed over supply.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__journey__light__' + toId },
-    { text: 'Standard kit. Everything I need, nothing extra.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__journey__standard__' + toId },
-    { text: 'Full pack. The weight is a problem I can manage.', skill: 'craft', tag: 'risky', align: 'neutral', cid: '__journey__heavy__' + toId }
-  ]), 300);
+  _showPackChoicesInOverlay(fromId, toId, G.travelMode || 'foot');
 }
 
 function drawSocialMisstep(locality) {
