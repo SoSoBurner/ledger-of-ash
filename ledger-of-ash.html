@@ -9459,6 +9459,7 @@ let G = {
   marenRenown:0, marenRevealed:false,
   travelMode: 'foot',
   journeyPack: 'standard',
+  stageProgress: {1:0, 2:0, 3:0, 4:0, 5:0},
   travelPace: 'normal',
   pace: 'normal',
   supplyTier: 'light',
@@ -14029,6 +14030,7 @@ function drawSocialMisstep(locality) {
 }
 
 function districtTransition(fromDistrict, toDistrict) {
+  if (!G || !G.flags) return;
   var dayKey = 'district_complication_' + G.location + '_' + G.dayCount;
   if (G.flags[dayKey]) return; // day-gated: one complication per location per day
   // Supply buffer: medium/plentiful supplies skip the complication 20% of the time
@@ -14109,6 +14111,8 @@ function resolveArrival(locId) {
     updateHUD();
   }
   setTimeout(() => {
+    if (typeof checkStageAdvance === 'function') checkStageAdvance();
+    if (typeof checkStage1BossTriggered === 'function') checkStage1BossTriggered();
     if (typeof loadStageChoices === 'function') {
       loadStageChoices(locId, G.stage);
     } else {
@@ -14118,8 +14122,6 @@ function resolveArrival(locId) {
         { text: 'The local authority will know what has changed here.', skill: 'persuasion', tag: 'bold', align: 'lawful', cid: 'garrison_contact' }
       ]);
     }
-    if (typeof checkStage1BossTriggered === 'function') checkStage1BossTriggered();
-    if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }, 400);
 }
 
