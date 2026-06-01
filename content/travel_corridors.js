@@ -1003,6 +1003,1953 @@
   ];
 
   // ---------------------------------------------------------------------------
+  // ROUTE_COMPLICATIONS — keyed by 'from_id|to_id' (canonical order)
+  // Types: checkpoint (day 1–15%), patrol (15–50%), night (50–75%), hazard (75–100%)
+  // ---------------------------------------------------------------------------
+  window.ROUTE_COMPLICATIONS = {};
+
+  // Route 1: shelkopolis|fairhaven
+  window.ROUTE_COMPLICATIONS['shelkopolis|fairhaven'] = {
+    checkpoint: {
+      title: 'Shelk Transit Checkpoint',
+      text: 'A grey-and-white checkpoint barrier at the road edge. The warden on duty is running a manifest comparison against a sealed board — cargo weights, passenger names, departure stamps. The warden\'s pen has been tapping the board at irregular intervals. She looks up when you reach the barrier arm.',
+      choices: [
+        {
+          text: 'Offer papers before she asks.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Papers first. She checks, stamps, lifts the arm. The efficiency of it is what she notes — you are the third traveler today who did not make her ask.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The papers are in order but she finds a discrepancy in the departure stamp — the day is correct, the hour is not. She writes something. You are through, but the note goes somewhere.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Name the intermediary who handled the transit authorization.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The name works. She knows it — the warden relaxes by one degree, which in Shelk transit terms means she stops tapping her pen. The barrier arm goes up.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The name does not land the way you expected. She asks a follow-up question about the authorization office location. You guess wrong. The note she writes is longer this time.');
+              if (typeof addHeat === 'function') addHeat('shelk', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Shelk Road Patrol',
+      text: 'A two-warden patrol coming the opposite direction — mounted, grey cloaks — moving at a pace that is not urgent but is not leisure. One warden is watching the road verge. The other is watching travelers. They have not signaled a stop yet, but the one watching travelers has noted you.',
+      choices: [
+        {
+          text: 'Keep pace. Looking like you belong is the simplest answer.',
+          skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The mounted warden\'s gaze moves past you to the cart behind. Keeping pace and posture turned out to be the right calculation. They continue south. You continue north.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The patrol stops ten meters past you, turns, and calls you back. The mounted warden asks where you are coming from and going to, in that order. The answer matters less than how long it takes you to give it.');
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Step into the verge before they pass. Less visible, less memorable.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The verge is lower than the road by half a meter. You descend without stumbling. The wardens pass. Neither looks down.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The movement is too deliberate. The road-watching warden\'s head turns. He does not stop immediately — that is what concerns you more than if he had.');
+              if (typeof addHeat === 'function') addHeat('shelk', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'After Sunset on the Shelkopolis Road',
+      text: 'The posted curfew for non-cargo travel on the Shelkopolis road is two hours after sunset. You are still moving. The road is not empty — a light cart ahead, someone on horseback behind — but the checkpoint interval has not closed for the night yet and the warden at the marker post ahead is noting who is still on the road.',
+      choices: [
+        {
+          text: 'Move to the camp ground adjacent to the checkpoint. The road can wait until first light.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The campground is staked and fire-pitted. Three other travelers are already there. The warden notes your arrival but does not question it — you made the right call before the right moment.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The campground is full. The warden directs you to the overflow area, which is a field with no fire pit. The rest is adequate but not comfortable.');
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The checkpoint will not close for another hour. Press through.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The checkpoint is still open. The warden marks your transit and waves you through. The road ahead is darker but passable.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The checkpoint closes fifteen minutes before you reach it. The warden is already inside. The sealed arm is down. You camp at the barrier and wait for first light.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Inspection Pressure on the Shelkopolis Road',
+      text: 'A freight inspection point has been set up at a wide section of the road — temporary barriers, three wardens, a scale for weighing cargo. They are checking everything, not sampling. The line of travelers ahead is short but moving slowly. A warden at the edge of the inspection area is watching people decide whether to join the line.',
+      choices: [
+        {
+          text: 'Join the line. What you\'re carrying will pass a standard inspection.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Thirty minutes in the line. The inspection is thorough but procedural. You pass. The warden stamps your manifest and releases you.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The inspection finds something irregular — not contraband, but a documentation gap. The warden pulls you to the secondary area. The delay costs half a day.');
+              if (typeof advanceTime === 'function') advanceTime(0.5);
+              if (typeof addHeat === 'function') addHeat('shelk', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The road verge goes around this section. Use it.',
+          skill: 'finesse', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The verge bypass is unmarked but passable. The warden at the edge of the inspection area watches you move but does not call out. You rejoin the road fifty meters past the checkpoint.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden at the edge calls out before you have cleared the inspection zone. You stop. The secondary area is worse than the line would have been.');
+              if (typeof addHeat === 'function') addHeat('shelk', 3);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 2: shelkopolis|aurora_crown_commune
+  window.ROUTE_COMPLICATIONS['shelkopolis|aurora_crown_commune'] = {
+    checkpoint: {
+      title: 'Domeway Transit Registration',
+      text: 'A glass-panel booth at the roadside, two Dome Stewards inside. The booth is enclosed and heated — the cold outside makes the glass fog at the edges. One Steward is logging names into a bound register; the other is checking transit reasons against a reference sheet. A printed notice beside the booth window lists restricted conjuration categories within three kilometers of the dome perimeter.',
+      choices: [
+        {
+          text: 'Register standard. Papers and transit reason, nothing more.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Name entered, transit reason accepted — personal travel, non-commercial. The Steward stamps the register page and slides a transit token through the booth window without looking up. The barrier lifts.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The transit reason raises a question — the Steward wants a destination district within Aurora Crown, not just the settlement name. The follow-up takes ten minutes and ends with a provisional entry in the register.');
+              if (typeof addHeat === 'function') addHeat('sheresh', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'A transit reason that does not invite follow-up questions.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Supply delivery, third-party authorization — the Steward checks the reference sheet, finds the category, and moves on. The reason was calibrated correctly: specific enough to be real, vague enough not to generate a secondary log entry.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The transit reason does not match a recognized category on the reference sheet. The Steward asks which authorization tier covers it. There is no good answer. The log entry is flagged.');
+              if (typeof addHeat === 'function') addHeat('sheresh', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Dome Perimeter Patrol',
+      text: 'Two Dome Stewards on foot in silver-piped grey coats, moving along the perimeter approach road. Their breath is visible in the cold. One carries a warded-cargo detection rod — a thin brass instrument that extends to half a meter when active. They are stopping travelers heading toward the dome, not away from it. The rod comes out for packs, not for persons.',
+      choices: [
+        {
+          text: 'Standard traveler posture. Nothing warded to declare.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The rod passes over your pack without registering. The Steward retracts it, nods, steps aside. The patrol continues north. Nothing in your kit was warded and nothing read as warded.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The rod hesitates over a corner of your pack — not a full register, but enough that the Steward asks you to open the top section. The inspection is brief but logged.');
+              if (typeof addHeat === 'function') addHeat('sheresh', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Something in my kit is warded. Declare it before the rod finds it.',
+          skill: 'spirit', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('spirit') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Declaring before the rod sweeps reads as transparency. The Steward checks the warded item against the restricted list — it is not on it. The declaration goes into a separate log, not the heat register. You are through.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warded item is on the restricted list. Not prohibited — but requiring a special transit endorsement you do not have. The Steward writes the endorsement gap into the patrol log.');
+              if (typeof addHeat === 'function') addHeat('sheresh', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'After-Hours Domeway',
+      text: 'The Domeway closes at sunset. The cold intensifies once the booth lights go out — the glass-panel booths hold warmth that the open road does not. A waystation marker post is visible two hundred meters ahead, lit by a single hanging lamp. A notice board at the waystation entrance lists overnight registration requirements: name, transit token, departure time.',
+      choices: [
+        {
+          text: 'Make for the waystation. The cold is manageable.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The waystation has two bunks free. Registration takes five minutes — name, transit token number, planned departure. The Steward on night duty does not look up from the log. The bunk is narrow but the cold stays outside.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The waystation is at capacity. The night-duty Steward directs you to a covered platform outside — registered, but without the bunk. The cold keeps you half-awake until dawn.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The Domeway after-hours rules have a transit-cargo exception. Argue it.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Transit-cargo exception applies to authorized carriers moving perishables through after-hours. The Steward checks the classification against his reference sheet, finds the category, and allows continued transit. The barrier lifts on a closed road.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The exception exists but your cargo does not qualify under it. The Steward is patient but firm. You stay at the waystation until the Domeway reopens at first light.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Warded Cargo Inspection Point',
+      text: 'A full cargo inspection point set up across the approach road — four Dome Stewards, a pair of detection rods on tripod mounts, travelers in line ahead having packs opened and scanned. The detection rods are fixed-position here, not handheld. They register at a wider frequency. A notice board beside the inspection point lists the specific conjuration categories under enhanced scrutiny this transit window.',
+      choices: [
+        {
+          text: 'Line up. What you\'re carrying will pass a standard scan.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The fixed rods do not register your pack. The Steward checks the visual inspection against the scan result, stamps your transit token, and directs you through the barrier. The traveler behind you is less straightforward.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The fixed rods flag something at the edge of their frequency range. The Steward cannot identify a specific item but logs the read. Your transit token gets a secondary mark. It will be visible at the next checkpoint.');
+              if (typeof addHeat === 'function') addHeat('sheresh', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The inspection perimeter has a gap at the eastern ditch. Use it.',
+          skill: 'finesse', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The ditch is dry and the eastern gap is real — the detection rods do not cover the full width at that angle. You move through without entering the inspection zone. The road rejoins fifty meters past the barrier.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'One of the handheld-rod Stewards is stationed at the eastern edge specifically for the ditch gap. She sees you before you reach it. The secondary inspection is more thorough than the standard line would have been.');
+              if (typeof addHeat === 'function') addHeat('sheresh', 3);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 3: shelkopolis|cosmoria
+  window.ROUTE_COMPLICATIONS['shelkopolis|cosmoria'] = {
+    checkpoint: {
+      title: 'Harbor Ring Entry Post',
+      text: 'A Cosmouth warden in a dark blue tabard with a silver scales mark stands at a weighing post on the coastal approach road. Behind him, a hanging balance scale is mounted to a post beam. He is checking departure weights against a manifest board — Shelk departure figures on the left column, Cosmouth arrival figures on the right. The two columns use different calculation methods.',
+      choices: [
+        {
+          text: 'Manifest first. Weight declared before he asks.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden checks your declared weight against the scale, enters it in the right column, and stamps the manifest. The Shelk departure figure and the Cosmouth arrival figure align within tolerance. He marks it clean.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The scale reads heavier than your declaration by enough to require a secondary log entry. The warden circles the discrepancy and notes it. You are through, but the entry goes to the harbor ledger.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The Shelk departure weight formula differs from Cosmouth\'s. Work that gap.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden knows the formula difference — he has been noting it all day. Citing it correctly reads as institutional knowledge, not evasion. He applies the conversion factor, the columns align, the stamp goes on.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The conversion argument requires citing the specific harbor code section. You get the code number wrong. The warden stops writing and looks at you for the first time.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Blue Tabard Road Patrol',
+      text: 'Two Cosmouth wardens on horseback, moving the coastal approach at a walking pace. Both wear the dark blue tabard with silver scales. One is holding a manifest board across his saddle — he has been checking cargo carts. The other is watching the road edge where the coastal verge begins, a wide strip of salt-grass that runs parallel to the road for the next half kilometer.',
+      choices: [
+        {
+          text: 'Open cargo posture. The patrol checks and moves on.',
+          skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The manifest-holding warden pulls alongside, checks your pack declaration against the board, and moves on without stopping. Personal travel without cargo does not require a ledger entry on this stretch.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden stops his horse and asks for your departure point and cargo category. Personal travel is not on his manifest board and he is not sure which column it goes in. He makes a note in the margin.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The coastal verge is wide enough here to step off unnoticed.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The salt-grass is dense enough to move through without the road noise changing. The warden watching the verge has his attention on the stretch ahead. You rejoin the road past the patrol without registering on either man\'s manifest board.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The salt-grass is thinner than it looked from the road. The verge-watching warden sees the movement and calls a halt. The patrol turns around.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Coastal Road After Dark',
+      text: 'The coastal road carries a night transit ban for unmarked cargo between sunset and the harbor bell — roughly six hours. Personal travel is not banned but is subject to a stop-and-log requirement at any warden post still lit. A warden post with a lamp is visible ahead at the road junction. Harbor lights are visible on the horizon to the south.',
+      choices: [
+        {
+          text: 'Make for the warden post. Night transit log is routine.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The post warden is expecting personal travelers — the night log has three entries already. Name, departure point, estimated harbor arrival. He stamps your record and you continue. The harbor lights are closer now.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The post warden has a question about your cargo category that takes longer to resolve than it should. The log entry ends with an asterisk. He does not explain what the asterisk means.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Unmarked cargo has a personal-use exemption. Know it before saying it.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Personal-use exemption, section four of the coastal transit code, applies to cargo under a declared weight threshold carried by a single traveler without commercial purpose. You cite it correctly. The warden does not check his reference sheet.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The exemption threshold is lower than you cited. The warden checks his reference sheet and finds the correct figure. Your cargo is over it. The log entry is mandatory now, and flagged.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Harbor Manifest Cross-Check',
+      text: 'The harbor approach has been stopped for a manifest reconciliation — Cosmouth authority is running outbound manifests against a sealed harbor ledger, checking cargo declared at departure against cargo arriving at the ring. Four wardens are working the line. A fifth is consulting the ledger at a portable writing stand. The line is moving but every traveler is getting a full column check.',
+      choices: [
+        {
+          text: 'Wait in line. The reconciliation is procedural.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The column check takes four minutes. Your departure declaration matches the harbor ledger entry within the tolerance margin. The warden stamps both columns and waves you through. The ledger stays sealed.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The ledger entry for your departure point is missing — not your fault, but the reconciliation cannot close without it. A secondary check is required. The delay is forty minutes.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The harbor ledger has a personal-goods category that bypasses reconciliation. Request it.',
+          skill: 'charm', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The personal-goods category exists and the warden consulting the ledger knows it. Requesting it correctly — citing the ledger section, not just the category name — gets you moved to the short column. The reconciliation does not apply to your transit class.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The category exists but your cargo does not qualify under its weight limit. The warden closes the ledger section and sends you back to the main line. You have now been in the line twice.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 4: guildheart_hub|fairhaven
+  window.ROUTE_COMPLICATIONS['guildheart_hub|fairhaven'] = {
+    checkpoint: {
+      title: 'Guild Transit Seal Check',
+      text: 'A Guild warden in a brown tabard with a stamped guild-mark stands at a mid-route transit post, a doubled seal directory open on the counter in front of her. She is checking the integrity of double-stamped transit seals — one stamp from Guildheart, one endorsement from the mid-route post itself. The road is busy. Two cargo carts are ahead of you. A Guild courier has already been waved through.',
+      choices: [
+        {
+          text: 'Both seals present and intact. Standard check.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'She checks both stamps against the directory, finds both valid, marks the seal record, and waves you through. The mid-route post stamp in the directory is from this week. Your seals are current.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'One seal is from a Guildheart office that has since relocated — the directory lists a forwarding address but no updated stamp record. The warden logs the gap. You are through, but the seal record is flagged.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'One seal is from a relocated office. Explain before she checks the directory.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Explaining the relocation before she reaches that page in the directory reads as preparation, not evasion. She finds the forwarding note, accepts the explanation, and applies the current-office standard to the old stamp. Both seals pass.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The relocated office explanation requires citing the relocation date. The date you give does not match the directory. She marks the seal record as unresolved and asks you to step aside while she checks the secondary register.');
+              if (typeof addHeat === 'function') addHeat('union', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Guild Road Patrol',
+      text: 'Two Guild wardens on foot, working the road in the direction of Fairhaven. They are not checking cargo carts — they have waved three past without stopping. They are checking seal integrity on personal travelers: pressing seals between finger and thumb, feeling for the wax depth that indicates a genuine stamp. Rumor traffic is heavy on this road. A carter ahead of you has already been stopped for questions.',
+      choices: [
+        {
+          text: 'Open your transit case before they ask.',
+          skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Opening the case first shortens the interaction to thirty seconds. One warden presses your seal, confirms the wax depth, hands it back. The other is already looking at the traveler behind you.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The seal depth is correct but one warden asks about your route purpose. Guild road patrol asks that question when the seal check does not fully satisfy. The answer goes into the patrol log.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Personal transit seals have a different inspection standard than cargo seals.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Correct — personal transit seals require depth check only, not the endorsement-directory verification that cargo seals go through. One warden knows the distinction. He confirms it to the other. Your seal passes the correct standard.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The patrol applies cargo seal standards to personal seals and your seal does not have the cargo endorsement layer. The distinction you cited does not help — the warden does not know it and does not want to be corrected on a public road.');
+              if (typeof addHeat === 'function') addHeat('union', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Guild Road Night Curfew',
+      text: 'The Guild road runs a cargo-only night transit rule after two hours past sunset — personal travelers must have a registered waystation booking to continue. A waystation sign is visible at the road fork ahead. Three travelers are already turning toward it. A Guild courier passes in the opposite direction with the kind of speed that suggests couriers are exempt.',
+      choices: [
+        {
+          text: 'Make for the nearest registered waystation.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The waystation has two bunks free and a registered log still open. You enter your name, seal number, and departure time. The Guild warden on overnight duty stamps the booking. The road resumes in the morning.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The waystation log is closed — the overnight warden sealed it at the cutoff time. Your name goes on an addendum sheet that counts as registered but carries an after-cutoff note.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Apprentice transit exceptions allow personal travel after dark. Argue the category.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Apprentice transit exception applies to Guild-affiliated travelers in active transit on a time-sensitive assignment. The warden at the fork knows the category. Your argument lands on the right side of the line between legitimate exception and creative interpretation.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The exception requires a current apprentice transit authorization, which you do not have. The warden at the fork knows the difference between citing an exemption and qualifying for one. The waystation it is.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Seal Integrity Inspection',
+      text: 'A full Guild inspection point at a wide road section — two tables, a magnification lens mounted on a brass stand, four wardens. They are checking seal-on-seal integrity: whether the Guildheart stamp and the mid-route endorsement align without gap or overlap. The lens examination takes ten minutes per traveler. The side track that branches off twenty meters back is not a posted route.',
+      choices: [
+        {
+          text: 'Your seals are correct. Stand the inspection.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Ten minutes under the lens. The warden finds no gap between the two stamp layers, no overlap that would indicate a forgery. He closes the lens housing and stamps your transit record. Clean inspection.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The lens finds a minor misalignment between stamps — not a forgery, but a printing variance from the relocated office. The warden logs it and sends you to the secondary table. Secondary takes thirty minutes.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The side track bypasses this post entirely.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The side track is overgrown but passable. It rejoins the main road two hundred meters past the inspection point. No warden is posted at the rejoining point. You are back on the Guild road without a lens record.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'A fourth warden is positioned at the side track junction specifically because other travelers have had the same idea. He steps onto the track before you reach the treeline.');
+              if (typeof addHeat === 'function') addHeat('union', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 5: guildheart_hub|ithtananalor
+  window.ROUTE_COMPLICATIONS['guildheart_hub|ithtananalor'] = {
+    checkpoint: {
+      title: 'Forest Road Guild Post',
+      text: 'The last Guild checkpoint before the canopy closes over the road. Two wardens in forest-standard gear — darker tabards, shorter boots, no horses. One is consulting a route advisory board that lists amber moth activity levels by kilometer marker. The other is noting the time in a transit log. The checkpoint booth has a posted notice: sightlines beyond this point are thirty meters maximum.',
+      choices: [
+        {
+          text: 'Standard transit declaration. Papers before the post.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The log entry is straightforward: destination, estimated transit time, solo or group. You answer all three without prompting. The warden stamps the transit card and checks the moth-level board — current advisory is moderate, not extreme. You continue.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden asks for your route purpose in the forest section specifically. Transit through to Ithtananalor is a valid purpose but requires a destination district entry. You do not have one. The log entry is incomplete.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The warden has questions about my route purpose. Answer precisely.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Route purpose: through-transit to Ithtananalor, non-commercial, no stops anticipated within the Guild-maintained section. The warden finds the category, logs it, and adds a moth-season advisory to the transit card. His tone is not unfriendly.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The route purpose answer is technically correct but raises a question about the non-stop declaration — the Guild post at the two-kilometer marker requires all travelers to check in. You did not know about it.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Tree Line Warden Pair',
+      text: 'A warden pair on the forest road: one walking the road center, one moving parallel in the tree line, visible only as movement at thirty meters. Amber moth season advisory notices are nailed to every other tree. The road warden is watching travelers; the tree-line warden is watching the canopy. The two are connected by a rope at their belts — standard pairing protocol for low-visibility sections.',
+      choices: [
+        {
+          text: 'Keep the center of the road. Navigation compliance is visible.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Center-road movement reads as navigation-compliant. The road warden notes you and moves on. The tree-line warden has not changed position — still watching the canopy, not the road. The pair continues their circuit.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The road warden stops you to ask about amber moth exposure — you are in a moderate advisory zone and he wants to verify your navigation kit. The kit check is brief but adds a log entry.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The tree-line warden has lost my line of travel in the canopy density.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The canopy density breaks the tree-line warden\'s sightline at the bend. The road warden is watching traffic, not individuals. You move through the pair\'s circuit gap without entering their thirty-meter radius. The rope between them goes taut as they adjust position.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The tree-line warden does not lose you — the canopy is thinner than the density suggested from the road. He adjusts position and the road warden turns. Both wardens are now watching you.');
+              if (typeof addHeat === 'function') addHeat('union', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Forest Road After Dark',
+      text: 'Official guidance on the forest road is to stop before dark — amber moths become active at dusk and their navigation disruption effects worsen through the night. The road is invisible past ten meters. No warden posts after dark; the pair system does not operate at night. The road surface is identifiable by feel — the center stone is slightly raised above the packed earth on either side.',
+      choices: [
+        {
+          text: 'Stop and make camp. The road is here in the morning.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Camp on the road center stone, pack as pillow. The amber moths are active in the tree line — visible as drifting orange points at twenty meters — but do not enter the road surface zone. First light comes with the canopy brightening from grey to green.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The road stone is harder than expected for sleeping. The amber moths drift closer than the advisory suggested. You rest badly and wake with the sense that the forest road has moved around you in the dark.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Amber moth disruption follows the moisture line. The road runs dry above it.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The moisture line is lower than the road grade here — the moths stay below it. Moving along the dry ridge of the road surface keeps you above the disruption zone. The navigation is difficult but not disorienting. You cover a kilometer before setting camp.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The moisture line is higher than the road grade at this section. The amber moths reach the road surface. The disorientation is mild but enough to lose the center stone. You stop and wait for the effect to pass.');
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Root Fall Debris Block',
+      text: 'A root fall has come down across the road — not a fallen tree but a root mass pulled from below by recent rain, the kind that leaves a raw earth cavity three meters wide and one meter deep on the upstream side. Guild maintenance crew is working the debris with hand tools. Travelers are being rerouted through the tree line on a marked detour. The detour signs are new and the path has not been walked flat yet.',
+      choices: [
+        {
+          text: 'Take the reroute. The maintenance crew knows the detour.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The detour signs lead through a section of younger trees where the canopy is thinner. The path has not been walked flat but the ground is firm. Forty minutes added to the transit. The maintenance crew is still working when you rejoin the main road.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The detour path crosses a secondary root system that the maintenance crew has not flagged yet. You stumble through it without injury but the delay adds more time than the signs suggested.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The root fall exposed original stone road surface. I know the stone route.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The exposed stone surface runs under the root mass and continues on the far side of the cavity. The maintenance crew watches you navigate it but does not stop you — they know the stone route exists, they just do not know how to use it. You are past the block in six minutes.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The stone route runs under the root mass but not through it — there is a gap where the stone was pulled up with the roots. The maintenance crew supervisor steps over and redirects you to the detour.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 6: guildheart_hub|soreheim_proper
+  window.ROUTE_COMPLICATIONS['guildheart_hub|soreheim_proper'] = {
+    checkpoint: {
+      title: 'Quota Boundary Crossing',
+      text: 'The highland boundary marker is a stone post four meters tall — Giant-scale, with quota figures carved into the face at eye height for a Giant and knee height for everyone else. A Quota Authority warden in a grey tabard with yellow number-stamps stands beside a weighing platform. Two extraction carts are being processed ahead of you. Everything here is sized for Giants and adapted for humans with a step stool and a secondary log.',
+      choices: [
+        {
+          text: 'Declare your carry weight before the scale. The Quota Authority works in order.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden records your declared weight in the secondary log — the human-scale column beside the Giant extraction figures. The scale confirms your declaration within tolerance. He stamps the quota transit card and steps aside.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The weighing platform reads in Giant-scale units. Your pack weight converts to a fraction of a unit and the warden has to do the conversion by hand. He gets a different number than you declared. The discrepancy is small but he logs it.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'This is personal goods, not quota goods. The distinction matters here.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Personal goods travel under the non-extraction category, which has its own column in the secondary log and does not go through the weighing platform at all. The warden knows this — he is relieved not to do the conversion. You are logged and waved through.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden is not sure the non-extraction category applies to your cargo without a declaration form. He does not have the form. He weighs you anyway and notes the category dispute in the log margin.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Quota Authority Highland Patrol',
+      text: 'A three-person Quota Authority patrol on the corridor road — two on foot, one mounted on a horse that looks undersized against the highland backdrop. Grey tabards, yellow number-stamps clearly legible from twenty meters. They are checking extraction figures against posted quota markers on the road posts, comparing cargo cart declarations against the posted numbers. Personal travelers are secondary to their manifest work.',
+      choices: [
+        {
+          text: 'Non-quota traveler posture. Nothing to weigh.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The mounted warden gives you a single look and returns to the cargo cart manifest she was checking. Non-quota personal travel does not interrupt extraction work. You pass the patrol without the mounted warden looking up again.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'One of the foot wardens steps out of the manifest work to check your transit card. He is looking for a quota transit endorsement. Personal travelers through the extraction corridor are supposed to have one. You do not.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The patrol\'s attention is on cargo carts. Personal travel at the verge reads differently.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The road verge on the highland section is narrow but passable. The mounted warden and both foot wardens are focused on a cart with a mismatched manifest. You move through the patrol zone at the verge edge without entering their working radius.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The verge is narrower than it looked from behind — the highland ground drops sharply on the far side. You slow to navigate it and the movement draws the mounted warden\'s attention away from the manifest.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Highland Night Transit',
+      text: 'The quota road carries a curfew after sunset — extraction weight stations close, quota logs seal, and the road is legally restricted to registered overnight transit only. A boundary waystation is visible from the last marker post: a low building with a Giant-scale entrance and a human-scale door cut into the frame beside it. A warden is still at the desk inside; the log is still open.',
+      choices: [
+        {
+          text: 'Register at the boundary waystation. It is what it is there for.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The human-scale door opens into a room with a ceiling built for Giants. The warden\'s desk is on a raised platform. Name, transit category, planned departure. The log is still open and the entry is clean. The bunk allocation is on a side wall.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The log is sealed. The warden opens an addendum sheet — after-cutoff registration, valid but flagged. The bunk allocation is the overflow floor space, which is a Giant-scale stone floor with a single wool blanket.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The night transit exemption for non-extraction travelers is real. Invoke it at the post.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Giant Council transit code section seven: non-extraction personal travel is exempt from the sunset curfew if the traveler carries no quota goods and is in documented through-transit. The warden checks the code section, finds it current, and endorses continued transit. The road is yours.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The exemption requires a through-transit declaration filed at the boundary marker before sunset. You did not file one. The exemption does not apply retroactively. The warden is apologetic but the log is already open.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Extraction Weight Station',
+      text: 'A full weight inspection point on the corridor road — a Giant-scale platform scale spanning the full road width, with a counterbalanced arm overhead. Every traveler and every cart must cross the platform. Three Quota Authority wardens are working the ledger and the arm. The process is slow: the scale is calibrated for Giant extraction loads and personal travelers register as near-zero, which requires a manual secondary entry.',
+      choices: [
+        {
+          text: 'Put the pack on the scale. Personal goods weigh within the exemption.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The scale arm barely registers. The warden records a personal-goods exemption entry in the secondary column — a two-line note rather than a full quota record. The process takes three minutes instead of fifteen. You are through.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The scale arm registers slightly above the personal-goods threshold — the pack weight is on the line. The warden calls for a secondary manual weight check with a handheld scale. The delay is twenty minutes.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The highland verge is wide enough to go around the scale platform.',
+          skill: 'finesse', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The verge on the highland side of the scale is wide and the ground is firm. The scale platform does not extend to the verge edge — there is a meter gap between the platform and the drop. You move through it while the wardens are occupied with a cart manifest discrepancy.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The verge gap is real but a fourth warden is positioned there. The quota inspection point is always accompanied by a verge watcher — it is standard protocol. He signals the platform wardens before you clear the gap.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 3);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 7: guildheart_hub|mimolot_academy
+  window.ROUTE_COMPLICATIONS['guildheart_hub|mimolot_academy'] = {
+    checkpoint: {
+      title: 'Academy Boundary Check',
+      text: 'Two Academy wardens at the Mimolot end of the plains road — lighter uniforms than Guild wardens, no tabard mark, but each carries a small sealed directory of authorized cargo categories. They are checking for book-tax compliance: texts above a weight threshold require Academy import authorization stamped on the outside of the binding. Blue wax on a cargo seal identifies Academy-authorized materials from inside the boundary.',
+      choices: [
+        {
+          text: 'No Academy-sealed cargo. Standard transit.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden checks your pack for blue wax and for text weight — a brief visual and a press on the pack sides. Nothing sealed, nothing above the threshold. She stamps the boundary entry log and directs you through.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden\'s press on the pack sides finds the density pattern of bound text. She asks to open the pack. Personal notes at non-taxable weight — but the process of demonstrating this takes twenty minutes.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The texts are personal notes, not taxable books. The distinction is testable.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden knows the distinction — taxable books are bound, titled, intended for distribution. Personal notes are unbound or titled only by hand. She checks the classification, finds your materials on the correct side of the line, and stamps the entry.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The distinction is real but the warden applies the weight threshold regardless of classification for anything that looks like a book. Your materials look like books. She opens the secondary directory.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Academy Road Patrol',
+      text: 'A single Academy warden on foot on the quiet plains road — the traffic here is light enough that a solo patrol covers it adequately. He moves slowly, checking packs by smell as much as by sight: Academy blue wax has a distinctive cold-resin scent that lingers even through cloth. He is stopping travelers with packs of a certain shape and weight.',
+      choices: [
+        {
+          text: 'Open your pack. Nothing sealed, nothing taxable.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden looks and smells — no blue wax, no cold-resin scent, nothing at text-weight threshold. He closes the pack and moves on to the traveler behind you. The check takes ninety seconds.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden detects something — not blue wax, but a wax adjacent scent from a food-storage seal. He is not certain it is not Academy wax. The secondary check goes into his log.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'He is checking for blue wax scent, not for what it seals.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden\'s check is scent-primary. Nothing in your pack uses cold-resin wax — you are clear before he reaches hand-check distance. Naming the process correctly makes him more efficient, not suspicious. He passes you and moves on.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'Naming his process makes him more deliberate, not faster. He takes the pack through a full hand-check to demonstrate thoroughness. The check is clean but the extra ten minutes are yours to absorb.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Mimolot Road Night',
+      text: 'The Mimolot Academy boundary closes at full dark — the gate seals and the boundary warden goes inside. The plains road itself has no night curfew, but travelers who arrive after the boundary closes must wait at a waystation operated by the Academy. The waystation has a travel-purpose declaration requirement before it issues a bunk assignment. The declaration form is specific: ten categories, one of which must be checked.',
+      choices: [
+        {
+          text: 'Declare transit purpose. Personal travel is a valid category.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Category seven on the declaration form: personal transit, non-Academy, through-destination. The waystation warden checks the box and issues a bunk assignment. No secondary questions for category seven. The bunk is narrow but clean.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The declaration form has been updated and category seven has been split into two sub-categories. You check the wrong one. The warden asks you to redo the form. The second attempt is correct, but the delay goes into the overnight log.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The Academy boundary night gate has one check: unauthorized Academy property.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The boundary gate is locked but not watched after dark. The warden\'s single check — is anything Academy-sealed moving out — does not apply to inbound personal travelers. The gate has a traveler-side release for emergency access. It is not locked from your side.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The traveler-side release was replaced last season with a warden-key lock following a breach. The gate does not open from your side. The waystation is where you are going after all.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Book Weight Inspection',
+      text: 'An Academy inspector has set up a portable weight station on the plains road — a hanging scale and an authorization directory, checking texts against import records. She is targeting travelers with bound materials: anything that reads as a book by weight and format goes on the scale, then against the directory. The directory is three years old. Three travelers ahead of you have been stopped and two released.',
+      choices: [
+        {
+          text: 'What you\'re carrying does not meet the taxable threshold.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The scale confirms sub-threshold weight. The inspector checks the directory anyway — nothing matching your materials. She marks the inspection record with a clear note and waves you through. The directory is old but the threshold weight is current.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The scale reads borderline. The inspector checks the directory for your material type and finds an old entry that may or may not apply. She logs it as unresolved pending clarification from the boundary office.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The authorization directory has been reclassified since that edition. Name the category.',
+          skill: 'charm', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The reclassification moved your material type from the restricted column to the personal-import column two years ago. The inspector does not have the updated directory. She writes the category name you cited into her inspection log and applies the current standard. You pass.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The reclassification exists but you cited the wrong category name. The inspector checks her old directory, finds the name you cited is not in it, and concludes the reclassification is unverified. The inspection holds until the boundary office can confirm.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 3);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 8: soreheim_proper|sunspire_haven
+  window.ROUTE_COMPLICATIONS['soreheim_proper|sunspire_haven'] = {
+    checkpoint: {
+      title: 'Highland Allocation Post',
+      text: 'A Giant Council allocation post at the highland road marker — a stone booth built to Giant proportion, staffed by a single Quota Authority warden at a human-scale desk inside. Quota hours are posted on the door: they run on Giant Council time, which is currently two hours ahead of solar noon. The warden is in the middle of a quota calculation and will not look up until he finishes.',
+      choices: [
+        {
+          text: 'Declare your pack weight at the post. Quota hours are in effect.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden finishes his calculation and turns to the entry log. Pack weight, transit category, destination. Non-extraction personal travel goes in the short column. He stamps the transit card and returns to his calculation without comment.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden is at the end of a quota hour — the log is about to close. Your arrival catches him at the transition and the entry goes into the new hour\'s log, which requires a fresh declaration form. The delay is procedural but costs fifteen minutes.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Quota hours here run on Giant Council time, not sun time. I know the difference.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The current Giant Council hour is the third allocation period, which maps to transit category three on the declaration form — the category with the shortest log process. Knowing this lets you fill the form correctly the first time. The warden notices and stamps without follow-up.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'Giant Council time and solar time diverge by more than you thought at this altitude. The period you cited has already closed. The warden corrects you and moves your entry to the current period, which has a longer declaration requirement.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Quota Altitude Patrol',
+      text: 'Two Quota Authority wardens at altitude — above eight hundred meters, the cold is functional cold. Their breath is visible and so is yours. Both wardens are in extended-cold gear: heavier tabards with the yellow stamps still readable, insulated boots. They are checking extraction figures against quota marker posts, comparing the carved numbers on the posts against figures in a ledger. The road is narrow here.',
+      choices: [
+        {
+          text: 'Non-extraction traveler. Nothing to weigh.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'One warden checks your transit card while the other continues the marker post comparison. Non-extraction transit card is correct for this road. He stamps the altitude-section entry and steps back. The cold makes everything faster — no one lingers.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden asks for your pack weight anyway — altitude section protocol requires weight verification even for non-extraction travelers due to the supply cache rules in effect above eight hundred meters. The secondary check adds an entry to the altitude log.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The highland track to the east is not on their marker route.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The eastern track branches off before the patrol\'s marker zone. The wardens are working the main road markers in sequence — they do not cover side tracks during a standard circuit. The eastern track is rougher but it rejoins the main road past the patrol position.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The eastern track is visible from the patrol\'s position on the road. One warden watches you take it and makes a note. Side-track transit is not prohibited but it is logged when seen. The note goes into the altitude ledger.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Altitude Night Camp',
+      text: 'Quota posts close at Giant Council dusk — which at this latitude and altitude in summer falls two hours before local sunset. The mandatory camp notice is posted on a marker post: a stone plaque with the Giant Council dusk hour and the location of the nearest approved camp site. The camp site is a cleared flat section of highland with a wind-break wall, three hundred meters off the main road.',
+      choices: [
+        {
+          text: 'Make camp at the posted rest area. Cold is manageable with the right approach.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The wind-break wall cuts the worst of the highland cold. The flat ground is solid, no root systems. Two other travelers are already at the site. Nobody talks. The Giant Council dusk notice was right about the wind direction. The camp holds through the night.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The wind-break wall has a gap on the north face that the posted map does not show. The gap funnels cold through the camp site for most of the night. The rest is adequate but not restorative.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The highland cold has a pattern. The wind shifts after the second hour.',
+          skill: 'spirit', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('spirit') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The wind shifts at the second hour, predictably, from the northwest to the east. Moving at the shift means moving in the calm window between the two directions. You cover two kilometers before the east wind establishes. Camp at the next natural shelter point with the wind at your back.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The wind shift comes later than the pattern suggested — the highland weather has its own variation. The east wind catches you in the open. The cold is functional: it slows movement and drains warmth faster than it should.');
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Quota Reconciliation Point',
+      text: 'A full extraction weight reconciliation on the highland road — every traveler weighed, every cart logged against the current quota cycle. The equipment is Giant-scaled: the main platform can weigh a fully loaded extraction cart in one pass. Personal travelers register as essentially nothing on the main platform, but the reconciliation protocol requires a secondary handheld scale for anything below the minimum registration threshold.',
+      choices: [
+        {
+          text: 'Queue at the reconciliation post. Personal goods are a known exemption category.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The handheld scale check for personal travelers takes four minutes. The warden marks the exemption category in the reconciliation log, notes the weight in the sub-threshold column, and releases you. The main platform queue is still moving behind you.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The handheld scale reads slightly above the sub-threshold line. The warden is not sure whether to log you as personal-goods or low-extraction. The uncertainty gets referred to the senior warden, whose queue is longer.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Personal travelers can move through the unmeasured lane at the road edge.',
+          skill: 'finesse', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The unmeasured lane exists for exactly this reason: the reconciliation equipment cannot process sub-threshold weights and the protocol acknowledges it. The lane is not marked but it is real. You move through while a warden is occupied recalibrating the handheld scale.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The lane is real but it is not unsupervised — a junior warden is stationed there to redirect travelers to the handheld scale. The reconciliation protocol closes the gap that the equipment cannot cover.');
+              if (typeof addHeat === 'function') addHeat('soreheim', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 9: panim_haven|shirshal
+  window.ROUTE_COMPLICATIONS['panim_haven|shirshal'] = {
+    checkpoint: {
+      title: 'Contested Jurisdiction Post',
+      text: 'A checkpoint post on the coastal road with no clear authority marking — the sign has been changed twice and currently shows both a Panim Haven emblem and a Shirshal district mark, one painted over the other imperfectly. The warden on duty is working from a manifest form that was printed by Panim authority. He is standing in what is technically Shirshal territory. The sound of the sea covers the approach from both directions.',
+      choices: [
+        {
+          text: 'Give enough information that the jurisdictional question resolves itself.',
+          skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Name, departure point, destination — all the information the Panim form requires. The warden fills in the columns without having to decide which jurisdiction to apply. The form is complete, the stamp is Panim, the road is open. Neither of you raises the sign problem.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden asks which jurisdiction you expect to apply. It is the wrong question for him to ask and he knows it. The delay while he figures out what form to use costs half an hour. The entry ends up in both logs.');
+              if (typeof addHeat === 'function') addHeat('panim', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'She has Panim authority but this is Shirshal territory. I know which rules she can enforce.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Panim authority on Shirshal ground can process departures but cannot log arrivals — the log jurisdiction follows the destination, not the departure. The warden understands the distinction and is quietly relieved someone else has figured it out. The departure log only. You continue.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The jurisdictional argument is correct but the warden does not have authority to act on it unilaterally. She calls it in — which means waiting for a response from whoever is on the other end of the coastal message line. The wait is forty minutes.');
+              if (typeof addHeat === 'function') addHeat('shirsh', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Competing Coastal Patrols',
+      text: 'A Panim patrol and a Shirshal patrol have met on the coastal road at a point neither expected the other to reach. They are standing three meters apart having a conversation about whose sector this stretch belongs to. Both patrols have manifest boards. Neither is checking travelers right now. A carter has already driven past while both patrols were occupied with each other.',
+      choices: [
+        {
+          text: 'Walk past while they are talking to each other.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The jurisdictional discussion is loud enough that neither patrol is watching the road. You pass at walking pace without either group acknowledging you. The sound of the sea fills the gap their conversation leaves.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'One member of the Shirshal patrol notices you and uses the interruption as a reason to redirect the discussion toward who should be processing travelers. Both patrols now want to check your papers.');
+              if (typeof addHeat === 'function') addHeat('shirsh', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The coastal path below the road cuts this section entirely.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The coastal path is three meters below the road edge, accessible by a cut in the cliff face. The two patrols cannot see the path from where they are standing. You move through the coastal section below their sightline and rejoin the road past their position.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The cut down to the coastal path is visible from the road edge and the Panim patrol has a member watching the cliff face specifically. The maneuver is spotted before you reach the path.');
+              if (typeof addHeat === 'function') addHeat('panim', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Coastal Road Night',
+      text: 'No authority presence on the coastal road after dark — neither Panim nor Shirshal patrols this section at night, a fact that is documented in both patrol logs as a known gap. The sound of the sea makes it impossible to hear approach from either direction. No waystation at the contested boundary. The road surface is identifiable by the absence of sound — the sea noise stops where the cliff overhang begins.',
+      choices: [
+        {
+          text: 'Camp above the tide line. The road is yours until first light.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Above the tide line, the coastal ground is firm and the cliff provides a windbreak. No patrols, no other travelers. The sea noise is constant but manageable. First light comes with the cliff face brightening before the road does.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The tide line is higher than it appeared in the dark. The camp site floods two hours before dawn. You move to higher ground and lose the rest of the night to repositioning.');
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Moving after dark means no checkpoints, but the coastal path is tide-dependent.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Low tide. The coastal path below the road is fully passable — two meters of dry rock between the cliff face and the water line. No patrols, no checkpoints, no noise except the sea. You cover three kilometers before the tide turns.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The tide is higher than the path\'s passable threshold. The dry section is narrower than a meter in places. You retreat to the road before the path closes entirely, having covered less distance than staying on the road would have given you.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Jurisdictional Document Review',
+      text: 'Both a Panim and a Shirshal warden are present at the same point on the road — not a patrol meeting this time, but a scheduled joint document review. They are cross-checking manifests against each other\'s records, looking for travelers who have been logged by one authority but not the other. The process is methodical and slow. Four travelers ahead of you are in the review queue.',
+      choices: [
+        {
+          text: 'Your papers satisfy both sets of requirements.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Both wardens check your papers against their respective records. The Panim log has you, the Shirshal log has you, the cross-check finds no gap. Both wardens stamp the review record independently and release you. The process takes eight minutes.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The Shirshal log does not have you — the contested checkpoint earlier logged you only in the Panim column. The joint review finds the gap. Neither warden can resolve it without escalation. You wait while they figure out who has authority to close the record.');
+              if (typeof addHeat === 'function') addHeat('shirsh', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'I know which authority has precedent on this section. Say it before they ask.',
+          skill: 'charm', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'Precedent on this section belongs to Shirshal by the coastal demarcation agreement, which means the Shirshal warden\'s log is the primary record. Naming this before they ask short-circuits the cross-check: the Shirshal warden takes the lead, finds your entry, and closes the review. The Panim warden does not argue.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The precedent argument is correct in principle but the demarcation agreement has an exception for this specific kilometer marker. Both wardens know it. The exception puts you back into joint review. Raising the argument made the process longer, not shorter.');
+              if (typeof addHeat === 'function') addHeat('panim', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 10: shirshal|ithtananalor
+  window.ROUTE_COMPLICATIONS['shirshal|ithtananalor'] = {
+    checkpoint: {
+      title: 'Last Maintained Post',
+      text: 'The last Shirshal post before the maintained road ends — a stone waystation, half its windows boarded. A single warden is on duty, logging departures into an unmaintained-route register. The register is a different format than the standard manifest: date, departure time, destination notation, solo or group. The warden has a posted advisory on the desk: the unmaintained section is recommended for groups of three or more.',
+      choices: [
+        {
+          text: 'Declare your destination. The warden logs you as entered on the unmaintained route.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The register entry is straightforward — date, time, destination, solo. The warden stamps it and adds the standard advisory notation. His tone carries no judgment about the solo classification, but he marks the expected return estimate column with a question mark.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden asks for an expected return estimate, which the unmaintained route register requires for solo travelers. You give one. He logs it but adds a note that the estimate is traveler-declared, not warden-verified.');
+              if (typeof addHeat === 'function') addHeat('shirsh', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The warden recommends against going alone. I\'m going anyway.',
+          skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden notes the solo departure in the advisory column and adds a personal note that you were informed of the group recommendation. Then he logs you and steps aside. The advisory is not a prohibition. You are in the register and you are moving.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The warden decides the solo departure requires a secondary authorization form — a recent policy change that the advisory board has not been updated to reflect. The form takes twenty minutes to complete and adds a formal risk-acknowledgment entry to the register.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Wildlife Interference',
+      text: 'A pair of territorial ground birds — dark feathers, wingspan wider than two outstretched arms — have nested in the road verge thirty meters ahead. The nesting pair is using the road margin as a boundary marker, and one bird is standing in the road itself. The road surface here is original stone, partly lifted by root systems; the verge on the north side of the road is thin but the canopy on that side is lower.',
+      choices: [
+        {
+          text: 'Give the nesting area wide berth. The birds don\'t pursue past their territory edge.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The southern side of the road curves away from the nest zone. The wider berth adds two hundred meters but keeps you below the territory threshold. The standing bird watches you leave without moving from the road stone.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The wide berth is not wide enough — the nest territory extends further south than the bird\'s road position suggested. The second bird lifts off from the verge grass before you clear the zone. You move through the alarm response without injury but not without noise.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The north canopy is thin enough for a narrow path around the nest zone.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The path through the north canopy edge is narrow but the birds do not nest on that side of the road. The low branches require crouching but the ground is firm. You emerge on the far side of the nest zone with both birds still focused on the road stone.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The north canopy path is thinner than the tree line suggested — the branches push you back toward the road edge and into the nest zone perimeter. The bird on the road lifts. The alarm call is loud in the unmaintained section.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Forest Road After Dark',
+      text: 'No landmarks visible past five meters. The road surface is identifiable by feel — the original stone is higher than the surrounding earth. Something is moving in the forest parallel to the road: not predatory movement, but not random either. It has been following the same pace as you for a sustained period. The unmaintained road has no warden posts. No one knows you are here except the register entry at the last Shirshal post.',
+      choices: [
+        {
+          text: 'Stop and make camp on the stone road surface, away from the root verge.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The stone surface holds its heat from the day. The forest movement stops when you stop — whatever it was, it was tracking motion, not presence. First light comes slowly; the canopy keeps the dawn grey for an hour before it brightens to green.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The stone is harder than expected and the root verge is closer to the road center than the daylight suggested. The camp holds but the forest movement resumes after an hour of silence. You do not sleep deeply.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Something is moving parallel to the road. It has been doing so for half an hour.',
+          skill: 'spirit', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('spirit') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The movement pattern is not territorial — it is investigative. Something is tracking the stone road surface as a navigation aid, not tracking you. Stopping and letting it pass reveals a large nocturnal grazer moving along its own route. It does not acknowledge you.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The movement stops when you engage with it directly. The silence is worse than the movement. Whatever it is, the pattern has changed and you cannot read the new one.');
+              G.fatigue = (G.fatigue || 0) + 1;
+              if (typeof modHP === 'function') modHP(-2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Road Surface Collapse',
+      text: 'A section of original stone has dropped into a root cavity — the void was forming for years under the lifted road surface and finally gave way. The gap is two meters wide and a meter and a half deep. On the far side, the stone road continues intact. The root cavity walls are solid. The detour around the gap goes through the forest and adds two hours to the transit; a traveler\'s marker stick has been placed at the detour entry.',
+      choices: [
+        {
+          text: 'Take the detour. The root cavity is not crossable without risk.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The detour track is marked by previous travelers — broken branches and compressed ground. Two hours of forest walking brings you back to the stone road on the far side of the gap. The root cavity is visible from the road edge where you rejoin. It is deeper than it looked from the other side.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The detour track loses itself in the forest after the first kilometer. The marker sticks stop. You navigate by general direction and rejoin the road at a different point than intended, adding an extra hour to the already extended detour.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The stone edges of the gap are solid. A running start and the right angle clears it.',
+          skill: 'might', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('might') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The stone edges hold. The angle is correct. The landing on the far side is on solid road surface, not on the gap edge. You are across in three seconds. The detour track marker stick is still visible behind you on the other side.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The angle is slightly off. You clear the gap but land on the edge, not the flat surface. The edge holds but the landing jars. The detour would have been two hours. This cost only ten minutes, but not without physical consequence.');
+              if (typeof modHP === 'function') modHP(-3);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 11: mimolot_academy|ithtananalor
+  window.ROUTE_COMPLICATIONS['mimolot_academy|ithtananalor'] = {
+    checkpoint: {
+      title: 'Academy Exit Seal Check',
+      text: 'The Academy boundary checkpoint on the outbound side — a single warden at a seal verification station, checking all outbound cargo for Academy seals or unsealed Academy materials. Personal transit is a known category: the warden checks for blue wax, checks the weight against the taxable threshold, and logs the departure. The checkpoint is quiet; most traffic on this road moves inbound.',
+      choices: [
+        {
+          text: 'Nothing Academy-sealed. Personal transit declaration.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden checks for blue wax — visual and then by press, feeling for the wax-depth of an Academy seal. Nothing found. She logs the departure as personal transit, non-Academy, and stamps the boundary exit record. Clean departure.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The press-check finds something that reads like wax but is not blue wax — a food storage seal that the warden cannot immediately classify. She asks to open the relevant pocket. The classification takes ten minutes and ends with a non-Academy notation.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The book has an Academy binding but was bought at a non-Academy market.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Secondary-market Academy materials are a known category — binding does not equal seal. The warden checks the book for an Academy colophon and import stamp. Neither present. Secondary-market classification confirmed. The departure log records it correctly and you are through.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The Academy binding is enough for the warden to treat the book as Academy property until proven otherwise. Proving otherwise requires a secondary check against the Academy purchasing records. That check is not available at the boundary checkpoint.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Forest Warden Pair',
+      text: 'Ithtananalor forest wardens on the Academy road section — a pair, moving on a fixed circuit with a rope between them as per forest-road protocol. They are checking for Academy cargo moved without forest transit authorization: the forest authority has its own registration for materials crossing from Academy boundary into the forest section. The pair moves on an eighteen-minute circuit.',
+      choices: [
+        {
+          text: 'Open declaration. No Academy cargo.',
+          skill: 'charm', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Both wardens do a brief visual check — no blue wax visible, pack shape does not suggest Academy cargo format. One warden asks for the Academy boundary exit stamp. You have it. Forest transit authorization is confirmed. They continue their circuit.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The forest wardens want both the Academy exit stamp and a separate forest transit registration, which is a second form that the Academy boundary checkpoint did not provide. The gap between the two authorities\' requirements is your problem.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The forest warden pair moves on an eighteen-minute circuit. I know the timing gap.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The eighteen-minute circuit has a twelve-minute gap at the far end of the route where both wardens are out of sightline of this section. The timing is exact — you move through the gap and are past the patrol zone before the circuit brings them back around.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The circuit timing has changed — the pair is running a fourteen-minute loop today, not eighteen. The gap is shorter than expected. The road warden is back in sightline before you clear the patrol zone.');
+              if (typeof addHeat === 'function') addHeat('union', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'Forest Road Night, Academy Section',
+      text: 'The Academy boundary closes at full dark. The forest beyond has no authority presence after dark. The road between them — a two-kilometer section — is in a gray zone: outside Academy authority, inside forest territory but without forest patrol. Travelers caught here after dark are in an unresolved jurisdictional position that neither authority will act on but both will log.',
+      choices: [
+        {
+          text: 'Stay inside the Academy boundary perimeter until first light. The gray zone has consequences.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The boundary perimeter waystation is inside the Academy fence line. The overnight log is open. The bunk assignment is standard. The gray zone is someone else\'s problem for tonight and both authorities\' problem in the morning.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The waystation has a mandatory declaration form for overnight guests that the boundary warden is enforcing strictly tonight. The form asks for your transit purpose in the Academy zone — which you technically do not have for an inbound overnight stay.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The gray zone is legally unresolved. Move through it at speed.',
+          skill: 'vigor', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'Two kilometers at night, on a road that is maintained on one end and unmaintained on the other. The transition between the surfaces is identifiable by sound — the packed stone gives way to earth and root at the forest boundary. You are through the gray zone in thirty minutes.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The forest boundary in the dark is identifiable by the road surface change but the unmaintained section on the far side is not safe to navigate without light. You stop in the gray zone itself — the worst of the three options.');
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Academy Cargo Inspection',
+      text: 'An Academy inspector on the forest section of the road — a spot-check, not a scheduled inspection. She has a blue wax detection kit: a small brass instrument that registers the cold-resin compound used in Academy seals. Every traveler on the road is being stopped. She is working through packs systematically: visual first, instrument second for anything that shows a seal of any type.',
+      choices: [
+        {
+          text: 'Academy-smell check: nothing sealed, nothing waxed.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The visual check finds no seals. The instrument check confirms no cold-resin compound. The inspector marks your transit record as clear and moves to the next traveler. The spot-check format is efficient — she does not linger on negatives.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The instrument registers a trace reading near the pack bottom — not a current seal, but residue from previous contents. The inspector asks what was stored there before. The answer determines whether the residue requires a full secondary check.');
+              if (typeof addHeat === 'function') addHeat('mimolot', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'No blue wax. Demonstrate this clearly and move.',
+          skill: 'charm', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'Opening the pack completely and presenting the contents for visual inspection before she begins her instrument check saves four minutes per traveler. The inspector acknowledges the efficiency — no instrument check required when the visual is conclusive. She marks you clear and you move before the next traveler has been processed.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The inspector does not accept self-presented inspections — the protocol requires her to conduct the check, not receive the results of yours. The instrument check proceeds at her pace regardless.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 12: amber_fountain_inn|fairhaven
+  window.ROUTE_COMPLICATIONS['amber_fountain_inn|fairhaven'] = {
+    checkpoint: {
+      title: 'River Guild Pilot Check',
+      text: 'A floating post on the river — a flat-bottomed barge with a River Guild mark and a desk on the upper deck. A Guild agent is checking pilot authorization for all vessels entering the lower stretch. The lower stretch has submerged root systems and variable channel depth; River Guild pilot authorization is required for commercial vessels and recommended for personal craft above a certain draft.',
+      choices: [
+        {
+          text: 'Charter includes pilot authorization. Standard check.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The Guild agent checks the charter authorization against the lower-stretch pilot registry, finds your authorization current, and stamps the transit record. The floating post rocks gently while he works. The channel ahead is visible and clear from this position.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The pilot authorization is current but the charter number format has been updated this season. The old format is still accepted but requires a manual cross-reference against a secondary registry on the floating post. The cross-reference takes twenty minutes.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'River Guild pilot authorization is waived for personal travel on vessels under this draft.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The draft threshold for waiver is eight centimeters. Your vessel sits at six. The Guild agent measures the waterline, confirms the waiver applies, and logs you under the personal-transit exemption. No pilot authorization required. He adds a channel advisory for the root system section.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The draft threshold you cited is for the upper stretch, not the lower. The lower stretch threshold is different and your vessel does not qualify for the waiver. The Guild agent is polite but the pilot authorization requirement stands.');
+              if (typeof addHeat === 'function') addHeat('union', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'River Traffic Warden',
+      text: 'A River traffic warden on a shallow-draft patrol boat, moving upstream at a pace that suggests regular circuit work. She carries a manifest board across the gunwale and a stamp kit on her belt. She is flagging vessels for manifest compliance checks — not all vessels, but a systematic sample. Her patrol boat is slower than it looks in moving water.',
+      choices: [
+        {
+          text: 'Manifest open. Everything declared.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The warden pulls alongside, checks the manifest against the board, stamps the river transit record, and falls back. The check takes four minutes. The patrol boat is already pulling toward the next vessel in the sample before you have stowed the manifest.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'One line item on the manifest uses a cargo category that the warden\'s board lists under a different classification. The discrepancy is minor but she logs it. The stamp goes on but with a secondary notation.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'Personal-goods exemption applies to vessels under three passengers. I qualify.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The three-passenger threshold for the personal-goods exemption is real and in effect on this stretch. The warden checks the passenger count — one — confirms the exemption category, and stamps the transit record with the exemption notation. No manifest check required.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The exemption exists but requires a personal-transit declaration form filed at the departure point. You did not file one at Amber Fountain Inn. Without the form, the exemption cannot be applied retroactively on the water. The manifest check proceeds.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'River After Dark',
+      text: 'River navigation after dark requires a river lantern authorization — a specific lighting standard that distinguishes an authorized vessel from debris in the channel. The authorization is issued at departure points and marked on the transit record. Without it, any vessel moving at night is subject to immediate stop-and-board by river wardens. The submerged root systems are not marked at night; the channel line shifts between seasons.',
+      choices: [
+        {
+          text: 'Tie off at the river post and wait for first light.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The river post is a stone bollard with a ring. Tying off takes two minutes. The current pulls gently at the vessel through the night but the tie holds. First light comes with the river mist and the channel line is visible by the second hour of morning.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The post ring is fouled with old rope and the tie is not as secure as it should be. The vessel drifts two meters in the night but does not pull free. The drift means repositioning at first light, which adds an hour to the departure.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The root system patterns are predictable on this stretch. The channel line is known.',
+          skill: 'wits', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The root system on this stretch follows the eastern bank consistently. The channel line runs two meters off the western bank at all water levels. Moving at dead slow speed with a pole for depth confirmation keeps the vessel in clear water. You reach the Fairhaven approach before the river wardens\' morning circuit.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The channel line has shifted since last season. The root system on the eastern bank has expanded into the previous center channel. The vessel grounds on a submerged root at low speed — no damage, but the extraction takes two hours and the river wardens are involved before the end of it.');
+              if (typeof modHP === 'function') modHP(-1);
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Fairhaven Harbor Ledger Check',
+      text: 'The river master at Fairhaven harbor is running a manifest cross-check against the harbor ledger before allowing vessels to dock. The ledger is three days behind — a known lag in the harbor administration — which means vessels that departed after the last ledger update are not in the record and cannot be verified against it. Three vessels are ahead of you in the docking queue.',
+      choices: [
+        {
+          text: 'Your manifest matches your charter. The ledger lag is the river master\'s problem.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The river master checks your manifest against the charter, finds them matching, and applies the ledger-lag override process: a manual entry into the current-day log that acknowledges the three-day gap. Standard procedure for recent departures. You are docked.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The ledger-lag override process requires a secondary endorsement from the harbor authority supervisor, who is not currently at the dock. The river master keeps you in the docking queue while he sends for her.');
+              if (typeof addHeat === 'function') addHeat('union', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'I know which harbor official can authorize a ledger override. Name them.',
+          skill: 'charm', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The harbor authority supervisor has a deputy with override authority for the ledger-lag process when the supervisor is unavailable. Naming the deputy — and knowing that the override authority was delegated last season — gets you to the front of the authorization queue. You are docked before the third vessel in the original queue has been processed.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The deputy you named was reassigned two months ago. The river master knows the name but not as the current override authority. The misinformation is noted and you return to the standard docking queue.');
+              if (typeof addHeat === 'function') addHeat('union', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // Route 13: cosmoria|brineland
+  window.ROUTE_COMPLICATIONS['cosmoria|brineland'] = {
+    checkpoint: {
+      title: 'Brineland Port Arrival',
+      text: 'The Brineland port authority inspection process is thorough by design: weight first, open second, sample third. Wardens in dark green tabards work the arrival dock in teams of two. A posted schedule on the harbor wall shows inspection windows — the current window is standard, not elevated. Three vessels are docked ahead of you and being processed simultaneously.',
+      choices: [
+        {
+          text: 'Manifest first. Declare before the weight scale.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Manifest before scale reads as prepared. The warden accepts the declared weight, runs the scale check, finds it within tolerance, and moves to the open-and-sample step. Nothing unusual in the sample. The inspection record is clean and the dock authorization is issued.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The manifest weight and the scale weight diverge outside tolerance. Not significantly, but enough for the warden to request the secondary weight check. The secondary check confirms the scale; your manifest figure was slightly off. The discrepancy goes in the inspection record.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The Brineland port authority has a cargo-description shortcut for established trade goods.',
+          skill: 'charm', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('charm') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The established-goods shortcut is a real provision — category seven of the Brineland inspection protocol — for cargo with a prior inspection record at this port. Your manifest cites the correct category and the warden confirms the prior record exists. Weight-and-sample only, no open step.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The established-goods provision requires three prior inspection records at Brineland specifically. You have records from Cosmouth but not Brineland. The provision does not transfer between ports. Standard full inspection proceeds.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    patrol: {
+      title: 'Sea Lane Traffic Check',
+      text: 'A Brineland harbor patrol vessel moving the sea lane approach — a low-profile craft with a green pennant, faster than its hull shape suggests. The patrol is doing manifest checks in open water: flagging vessels, pulling alongside, checking papers before the port arrival inspection. It is a pre-screening operation, not a replacement for the dock inspection. The sea lane narrows where the coastal rock formation begins.',
+      choices: [
+        {
+          text: 'Heave to and present manifest. Standard sea-lane protocol.',
+          skill: 'wits', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The patrol vessel pulls alongside. The warden checks the manifest against the pre-screen list, stamps a transit code onto the upper corner, and falls back. The transit code at the dock inspection will shorten the process. Heaving to was the right calculation.');
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The manifest is in order but the pre-screen warden wants a departure authorization stamp from Cosmouth that the Cosmoria departure process does not issue. The gap between what she expects and what the Cosmoria process provides takes fifteen minutes to resolve.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 1);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The sea lane narrows ahead. The patrol vessel is slower than it looks at speed.',
+          skill: 'finesse', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('finesse') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The narrow section between the coastal rocks requires precise navigation that the patrol vessel cannot match at speed. You thread the narrows while the patrol waits for a gap in the cross-current. By the time they have cleared it, you are past the pre-screen zone and approaching the dock queue.');
+              if (typeof gainXp === 'function') gainXp(15);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The patrol vessel has the narrows memorized and uses the eastern passage rather than the main lane. They are alongside before you have cleared the rocks. Attempting to evade a harbor patrol in their own approach lane adds a note to the dock inspection record that was not there before.');
+              if (typeof addHeat === 'function') addHeat('cosmouth', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    night: {
+      title: 'East Wind Warning',
+      text: 'The east wind is rising. A harbor pilot\'s advisory buoy is visible — a lit float with a signal flag indicating wind speed and a posted passage status. The flag shows amber: wind approaching threshold, passage not yet closed, thirty-minute estimate to closure. The Cosmoria-Brineland passage closes when the east wind exceeds the threshold; the closure is enforced by the Brineland harbor authority.',
+      choices: [
+        {
+          text: 'Heave to at the buoy and wait out the window.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'Heaving to at the buoy is the recommended action on amber. Two other vessels are already anchored nearby. The east wind peaks and drops in three hours — not unusual for this passage. The flag shifts to green before the harbor authority issues a formal closure.');
+              G.fatigue = Math.max(0, (G.fatigue || 0) - 1);
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The wind peaks faster than the thirty-minute estimate. The harbor authority issues a closure while you are anchored at the buoy. The closure holds for six hours. The wait at anchor is cold and the sea state makes rest impossible.');
+              G.fatigue = (G.fatigue || 0) + 1;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'East wind windows have a pattern. This one is short. Crossing now is the edge of the window.',
+          skill: 'spirit', tag: 'risky',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('spirit') : { total: 10 };
+            if (r.total >= 13) {
+              if (typeof addNarration === 'function') addNarration('', 'The east wind pattern on this passage follows the pressure gradient from the northern shelf — short windows close in under four hours and the amber flag was posted at the beginning of the decline, not the rise. Crossing now means crossing during the drop. The Brineland approach is rough but passable. You dock ahead of the other vessels at the buoy.');
+              if (typeof gainXp === 'function') gainXp(20);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The window is longer than the pattern suggested. The east wind holds at threshold for five hours rather than dropping. The crossing is feasible but punishing — every meter of progress costs more than it should. You arrive at Brineland depleted and the dock inspection proceeds without allowance for the passage conditions.');
+              G.fatigue = (G.fatigue || 0) + 2;
+              if (typeof modHP === 'function') modHP(-2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    },
+    hazard: {
+      title: 'Storm Window Closure',
+      text: 'The east wind has crossed the threshold. The Brineland harbor authority has issued a formal passage closure — all traffic ordered to heave to. A harbor authority vessel is enforcing the closure: flagging vessels, confirming heave-to compliance, logging vessels that attempt to continue. The main passage is closed. To the north, behind the coastal rock formation, there is a lee channel that stays navigable past the main closure window.',
+      choices: [
+        {
+          text: 'Heave to and comply. The closure is real and the harbor authority knows it.',
+          skill: 'vigor', tag: 'safe',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('vigor') : { total: 10 };
+            if (r.total >= 7) {
+              if (typeof addNarration === 'function') addNarration('', 'The harbor authority vessel logs your heave-to compliance and issues a transit hold number. When the closure lifts, the transit hold number determines the docking queue order. You are number four. The closure lifts after four hours. The dock inspection proceeds without complications from the closure.');
+              G.fatigue = (G.fatigue || 0) + 1;
+              if (typeof gainXp === 'function') gainXp(10);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The heave-to position is in an exposed section of water. The sea state during the closure is worse than at the buoy. The vessel holds but the four hours in the exposed section are not restful.');
+              G.fatigue = (G.fatigue || 0) + 2;
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        },
+        {
+          text: 'The lee channel on the north side stays open two hours past the main closure.',
+          skill: 'might', tag: 'bold',
+          action: function() {
+            var r = typeof rollD20 === 'function' ? rollD20('might') : { total: 10 };
+            if (r.total >= 16) {
+              if (typeof addNarration === 'function') addNarration('', 'The lee channel requires threading between coastal rocks — gaps of three to four meters, wind-shadow on the northern faces, cross-currents at each gap entry. Physical work: pole and oar, not sail, for most of the channel length. You clear the last gap as the harbor authority vessel begins its second sweep of the main passage. Brineland dock is five minutes ahead.');
+              if (typeof gainXp === 'function') gainXp(25);
+            } else {
+              if (typeof addNarration === 'function') addNarration('', 'The lee channel is navigable but the third gap is tighter than the chart suggested. The vessel grounds briefly on a submerged rock ledge. The extraction is manual and damages the hull below the waterline enough to require attention at Brineland before the vessel can continue. The harbor authority logs the lee channel use and the damage.');
+              if (typeof modHP === 'function') modHP(-3);
+              if (typeof addHeat === 'function') addHeat('cosmouth', 2);
+            }
+            setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+          }
+        }
+      ]
+    }
+  };
+
+  // ---------------------------------------------------------------------------
   // Helper: resolve macroregion from locality IDs
   // ---------------------------------------------------------------------------
   function resolveMacroregion(fromId, toId) {
