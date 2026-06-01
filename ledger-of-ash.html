@@ -4866,7 +4866,7 @@ function endCombat(victory) {
   if (victory) {
     const xpGain = Math.min(8, Math.floor(Math.random() * 4) + 4);
     const goldGain = enemy.loot ? enemy.loot.gold : 0;
-    gainXP(xpGain);
+    gainXp(xpGain);
     modGold(goldGain);
     G.renown = (G.renown || 0) + 1;
 
@@ -9458,6 +9458,7 @@ let G = {
   rivalAdventurers:[],
   marenRenown:0, marenRevealed:false,
   travelMode: 'foot',
+  journeyPack: 'standard',
   travelPace: 'normal',
   pace: 'normal',
   supplyTier: 'light',
@@ -12680,7 +12681,7 @@ function getEquipmentBonus(skill) {
 function resolveConsequence(cid, success, partial) {
   const entry = C[cid];
   if (!entry) {
-    if (success) { addNarration('', 'The action finds purchase.', 'success'); gainXP(3); }
+    if (success) { addNarration('', 'The action finds purchase.', 'success'); gainXp(3); }
     else { addNarration('', 'The approach finds no opening. The next move is yours.', 'failure'); }
     setTimeout(function(){ if (typeof loadStageChoices === 'function') loadStageChoices(G.location); }, 400);
     return;
@@ -12689,7 +12690,7 @@ function resolveConsequence(cid, success, partial) {
   const rtype = success ? 'success' : partial ? 'partial' : 'failure';
   addNarration('', res.text, rtype);
   (res.effects || []).forEach(fx => applyEffect(fx));
-  if (res.xp) gainXP(res.xp);
+  if (res.xp) gainXp(res.xp);
   saveGame(); updateHUD();
   checkWorldClockThresholds();
   if (!_awaitingLevelUp && res.next) setTimeout(() => (window._rawRenderChoices || window.renderChoices)(res.next), 400);
@@ -15107,6 +15108,7 @@ function _setMapOverlayContent(titleHtml, bodyHtml, showClose) {
   var closeBtn = document.querySelector('#overlay-map .overlay-close');
   if (closeBtn) closeBtn.style.display = showClose === false ? 'none' : '';
 }
+window._setMapOverlayContent = _setMapOverlayContent;
 
 // ── MAP ───────────────────────────────────────────────────
 function showMap() {
