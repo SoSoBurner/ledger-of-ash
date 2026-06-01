@@ -1728,7 +1728,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `The evidence splits into two streams at the same hour: the Collegium contact receives the coin chain by sealed courier, Merev's informal network gets the cargo anomalies by word of mouth through three separate conversations. The institutional response will arrive, but the underground circuit moves first and leaves no formal record with a name attached. Pressure lands on the operation before the channels that stalled before can close again.`;
+        G.lastResult = `The evidence splits into two streams at the same hour: the Collegium liaison receives the coin chain by sealed courier, Merev's informal network gets the cargo anomalies by word of mouth through three separate conversations. The institutional response will arrive, but the underground circuit moves first and leaves no formal record with a name attached. Pressure lands on the operation before the channels that stalled before can close again.`;
         addJournal('Panim S2 finale: informal circuit activated', 'evidence', `panim-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;

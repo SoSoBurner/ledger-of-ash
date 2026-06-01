@@ -9,7 +9,7 @@ const NOMDARA_STAGE1_CHOICES = [
 
   // ——— SERVICE 1: HEALING ———
   {
-    label: "Speak to Sable — wound or fatigue removal. She finds the route and she finds what ails you.",
+    label: "Sable: wound or fatigue removal. She finds what ails you.",
     tags: ['Nomdara', 'Healing', 'Service'],
     xpReward: 55,
     fn: function() {
@@ -69,7 +69,7 @@ const NOMDARA_STAGE1_CHOICES = [
 
   // ——— MEET NOMDARA CORE CAST ———
   {
-    label: "Speak to the Nomdara Caravan's route shaman, Wren. She reads ash and distance the same way.",
+    label: "Wren reads the road ahead. Ash and distance are the same to her.",
     tags: ['Nomdara', 'Social', 'NPC'],
     xpReward: 55,
     fn: function() {
