@@ -2953,8 +2953,9 @@
   // Helper: resolve macroregion from locality IDs
   // ---------------------------------------------------------------------------
   function resolveMacroregion(fromId, toId) {
-    var from = LOCALITY_MACROREGION[fromId] || 'principalities';
-    var to   = LOCALITY_MACROREGION[toId]   || 'principalities';
+    var lmr = window.LOCALITY_MACROREGION || LOCALITY_MACROREGION || {};
+    var from = lmr[fromId] || 'principalities';
+    var to   = lmr[toId]   || 'principalities';
     // If crossing regions, prefer destination region
     return to || from;
   }
