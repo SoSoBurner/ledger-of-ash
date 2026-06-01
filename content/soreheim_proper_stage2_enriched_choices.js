@@ -829,7 +829,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_wardens_aware)) {
-        G.lastResult = 'The low banner is still hanging at the north gate, brass grommet polished clean against the road grit on its neighbors. Nothing to act on with the Wardens yet — the signal is the invitation, not the meeting. Whoever set it out is watching the rotation change windows. Standing under it before they are ready to receive you accomplishes nothing and may close the contact entirely. Wait for the correct rotation window.';
+        G.lastResult = 'The low banner is still hanging at the north gate, brass grommet polished clean against the road grit on its neighbors. Nothing to act on with the Wardens yet — the signal is the invitation, not the meeting. Whoever set it out is watching the rotation change windows. Standing under it before they are ready to receive you accomplishes nothing and may close the channel entirely. Wait for the correct rotation window.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

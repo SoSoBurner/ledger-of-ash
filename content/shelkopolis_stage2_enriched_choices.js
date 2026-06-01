@@ -405,7 +405,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.stageProgress[2]++;
         G.flags.verdant_row_network_partial = true;
-        G.lastResult = `Two of three protocols land. The network accepts you at low-trust level — rumors only, no primary source access, no names confirmed. The fish-salt smell of the harbor end of the row drifts through while the contact speaks. The rumor they give you is specific enough to act on: a courier running between the Silkweaver's Chapel and the north gate, the same departure window, every mid-week watch. Partial access. Useful partial access. The third protocol will be available once the trust is earned.`;
+        G.lastResult = `Two of three protocols land. The network accepts you at low-trust level — rumors only, no primary source access, no names confirmed. The fish-salt smell of the harbor end of the row drifts through while the intermediary speaks. The rumor they give you is specific enough to act on: a courier running between the Silkweaver's Chapel and the north gate, the same departure window, every mid-week watch. Partial access. Useful partial access. The third protocol will be available once the trust is earned.`;
         addJournal('Verdant Row partial access — courier tracked', 'evidence', `shelk-verdant-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -1207,7 +1207,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
-        G.lastResult = `The relay house back door is latched, not locked. The letter is on the sorting ledge in a bundle of four — the sealed one with the chapel wax mark is third from the bottom. You read it in the stairwell light: a set of coordinates for a north-gate pickup window, the name of a contact, and a phrase that cross-references against the noble quarter records office. The relay house smells of candle wax and old rope. The letter goes back into the bundle in the same position. The contents are now on both sides of the seal.`;
+        G.lastResult = `The relay house back door is latched, not locked. The letter is on the sorting ledge in a bundle of four — the sealed one with the chapel wax mark is third from the bottom. You read it in the stairwell light: a set of coordinates for a north-gate pickup window, the name of an intermediary, and a phrase that cross-references against the noble quarter records office. The relay house smells of candle wax and old rope. The letter goes back into the bundle in the same position. The contents are now on both sides of the seal.`;
         addJournal('Sealed letter contents read at relay house — north-gate pickup window, contact name, noble quarter reference', 'evidence', `shelk-letter-inter-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;

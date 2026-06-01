@@ -730,7 +730,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Cross-reference attempt flagged — comparative analysis procedure invoked, visitor log active', 'complication');
       } else {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The suppression target list and the Compact practitioner citations overlap across eight of the fourteen papers. The pattern is specific enough to be meaningful. Taldan pulls the overlap documents and sets them aside from the main stack. "These eight were the ones they pushed hardest on," he says. "I refused all fourteen, but the pressure on these was different. More persistent." He squares the stack. He does not say what that implies, but he has been thinking about it.';
+        G.lastResult = 'The suppression target list and the Compact practitioner citations overlap across eight of the fourteen papers. The pattern is specific enough to hold weight. Taldan pulls the overlap documents and sets them aside from the main stack. "These eight were the ones they pushed hardest on," he says. "I refused all fourteen, but the pressure on these was different. More persistent." He squares the stack. He does not say what that implies, but he has been thinking about it.';
         addJournal('Eight suppression targets overlap with Compact-cited papers — most persistent suppression on Compact-linked countermeasures', 'evidence');
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -1423,7 +1423,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.sun_orvaith_dataset_critical = true;
         G.investigationProgress++;
-        G.lastResult = `Container volume at eight-fifty pounds, combined with the dispersal medium residue profile from the workspace vessels, gives an approximate radius: large enough to cover a locality district at this elevation. Sufficient for meaningful ward disruption across an inhabited area, not just a single building. The dataset would confirm whether that estimate is conservative or accurate. Elyra has the dataset and has not yet said whether she will share it.`;
+        G.lastResult = `Container volume at eight-fifty pounds, combined with the dispersal medium residue profile from the workspace vessels, gives an approximate radius: large enough to cover a locality district at this elevation. Sufficient to disrupt the ward structure across an inhabited area, not just a single building. The dataset would confirm whether that estimate is conservative or accurate. Elyra has the dataset and has not yet said whether she will share it.`;
         addJournal('Estimated dispersal radius: locality-district scale — Elyra dataset would confirm, not yet offered', 'intelligence', `sun-radius-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
