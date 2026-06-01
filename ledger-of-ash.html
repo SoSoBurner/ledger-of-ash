@@ -13946,8 +13946,8 @@ function _showModeSelectInOverlay(locId) {
       var mode = btn.dataset.mode;
       var destId = btn.dataset.destid;
       var cost = _costs[mode] || 0;
-      if (cost > 0 && _gold < cost) { if (typeof showToast === 'function') showToast('Not enough gold.'); return; }
-      if (cost > 0) { G.gold = Math.max(0, _gold - cost); if (typeof updateHUD === 'function') updateHUD(); }
+      if (cost > 0 && (G.gold || 0) < cost) { if (typeof showToast === 'function') showToast('Not enough gold.'); return; }
+      if (cost > 0) { G.gold = Math.max(0, (G.gold || 0) - cost); if (typeof updateHUD === 'function') updateHUD(); }
       G.travelMode = mode;
       if (typeof _showPackChoicesInOverlay === 'function') {
         _showPackChoicesInOverlay(G.location, destId, mode);

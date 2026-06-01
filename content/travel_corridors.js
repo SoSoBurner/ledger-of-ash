@@ -3179,6 +3179,8 @@
       G.flags._jrn_anchor_day = anchorDay;
       G.flags._jrn_anchor_id  = anchorId;
       window._travelNextEncounter = function() { TRAVEL_CORRIDOR.advanceDayLeg(); };
+      if (G) G.location = toId;
+      if (typeof updateHUD === 'function') updateHUD();
       TRAVEL_CORRIDOR.advanceDayLeg();
     },
     advanceDayLeg: function() {
