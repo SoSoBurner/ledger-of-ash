@@ -42,7 +42,7 @@ const NOMDARA_STAGE2_CHOICES = [
   },
 
   {
-    label: "Train with Wren — esoteric knowledge in exchange for time. 'She reads ash and distance the same way.'",
+    label: "Wren's training: esoteric knowledge, paid in time.",
     tags: ['Training', 'Nomdara'],
     xpReward: 55,
     fn: function() {
@@ -70,7 +70,7 @@ const NOMDARA_STAGE2_CHOICES = [
   },
 
   {
-    label: "Speak to Sable about wound or curse removal — 'She does not explain the route. She finds it.'",
+    label: "Sable's work: wounds and curses. Eighteen coin. She does not explain the route.",
     tags: ['Healing', 'Nomdara'],
     xpReward: 40,
     fn: function() {
@@ -105,7 +105,7 @@ const NOMDARA_STAGE2_CHOICES = [
   },
 
   {
-    label: "Purchase information from Lorn — the caravan sees everything passing through every road. The price is coin and discretion.",
+    label: "Lorn's caravan sees every road. Information is ten coin.",
     tags: ['Information', 'Nomdara'],
     xpReward: 35,
     fn: function() {
