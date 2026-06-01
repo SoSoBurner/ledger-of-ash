@@ -871,7 +871,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_fairhaven = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('faction', 'Oversight Collegium correspondent Avel Prenn: monitoring Fairhaven, needs hard evidence to trigger formal inquiry', `fairhaven-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium correspondent Avel Prenn: monitoring Fairhaven, needs hard evidence to trigger formal inquiry', 'intelligence', `fairhaven-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `The civic registry lists a Collegium address on the east lane — handwritten addition, the ink slightly different from the surrounding entries, added some time after the original filing. The building is a cooperage. Barrel staves stacked along the front wall, the smell of new-cut oak. The owner hasn't heard of anyone by that description and doesn't look like he's being careful when he says so. Either the listing is out of date, or the person it points to doesn't want to be found through that route.`;
         if (!G.flags) G.flags = {};
