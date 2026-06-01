@@ -204,6 +204,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. The classified formula from Mimolot's Memory Hall names what the northern operation is producing and what it will do.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

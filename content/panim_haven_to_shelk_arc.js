@@ -208,6 +208,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. The Bureau case that was suppressed in Panim Haven has its answer here, in the city the coastal passage was supplying.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

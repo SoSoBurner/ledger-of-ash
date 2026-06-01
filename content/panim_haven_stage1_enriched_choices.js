@@ -638,7 +638,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MEDIATION FAILURE: WRONGED FAMILY SPEAKS
   {
-    label: "Every precedent favored her. The official ruled against her. Her home sold within the month.",
+    label: "Every precedent favored her. The adjudicator ruled against her. Her home sold within the month.",
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,

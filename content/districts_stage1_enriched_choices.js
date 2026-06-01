@@ -501,7 +501,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A former Bureau adjudicator, outside official positions for two months, still at the same café.",
+    label: "A former Bureau adjudicator, outside appointed roles for two months, still at the same café.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 70,
     fn: function() {

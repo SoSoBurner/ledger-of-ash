@@ -214,6 +214,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
 
   {
     label: "Enter Shelkopolis proper. The convoy evidence from Sunspire Haven connects to something that was already in motion here before you arrived.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

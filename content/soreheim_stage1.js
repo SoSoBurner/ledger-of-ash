@@ -9,11 +9,11 @@ var SOREHEIM_STAGE1 = (function() {
     if (typeof addNarration === 'function') addNarration('Weigh-Station', G.lastResult);
 
     (window._rawRenderChoices || window.renderChoices)([
-      { id: 'interim_investigate', text: 'Ask the dockworker about the discrepancy.', tag: 'bold',
+      { id: 'interim_investigate', plot: 'main', text: 'Ask the dockworker about the discrepancy.', tag: 'bold',
         action: function() { investigateRegistry(); } },
-      { id: 'interim_observe', text: 'Watch the man in the clan coat.', tag: 'safe',
+      { id: 'interim_observe', plot: 'main', text: 'Watch the man in the clan coat.', tag: 'safe',
         action: function() { observeClanAgent(); } },
-      { id: 'interim_ignore', text: 'This is not your matter. Move on.', tag: 'safe',
+      { id: 'interim_ignore', plot: 'main', text: 'This is not your matter. Move on.', tag: 'safe',
         action: function() { ignoreHook(); } }
     ]);
   }
@@ -50,11 +50,11 @@ var SOREHEIM_STAGE1 = (function() {
 
   function showResolution() {
     (window._rawRenderChoices || window.renderChoices)([
-      { id: 'interim_expose', text: 'Take the evidence to the Soreheim registry oversight office — make it official.', tag: 'risky',
+      { id: 'interim_expose', plot: 'main', text: 'Take the evidence to the Soreheim registry oversight office — make it official.', tag: 'risky',
         action: function() { resolveExpose(); } },
-      { id: 'interim_correct', text: 'Quietly correct the ledger entry through a sympathetic clerk.', tag: 'bold',
+      { id: 'interim_correct', plot: 'main', text: 'Quietly correct the ledger entry through a sympathetic clerk.', tag: 'bold',
         action: function() { resolveCorrect(); } },
-      { id: 'interim_confront', text: 'Confront the Vorrk agent directly — demand a formal accounting.', tag: 'risky',
+      { id: 'interim_confront', plot: 'main', text: 'Confront the Vorrk agent directly — demand a formal accounting.', tag: 'risky',
         action: function() { resolveConfront(); } }
     ]);
   }

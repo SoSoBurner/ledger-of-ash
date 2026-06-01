@@ -484,7 +484,7 @@ const STAGE2_ENRICHED_CHOICES = [
         addJournal('Defector asset acquired', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The extraction route was watched. The faction knew she was considering it — they'd been watching her for weeks. They let the exit attempt run far enough to identify who she contacted. The connection between you and the defection attempt is now documented somewhere you can't access. The watchful patience of a faction that let the attempt run means they wanted the contact's name more than they wanted to prevent the exit.`;
+        G.lastResult = `The extraction route was watched. The faction knew she was considering it — they'd been watching her for weeks. They let the exit attempt run far enough to identify who she contacted. The connection between you and the defection attempt is now documented somewhere you can't access. The watchful patience of a faction that let the attempt run means they wanted the intermediary's name more than they wanted to prevent the exit.`;
         addJournal('Defection traced', 'complication');
       } else {
         G.stageProgress[2]++;
@@ -981,11 +981,11 @@ const STAGE2_ENRICHED_CHOICES = [
         addJournal('Institutional spy asset acquired', 'intelligence');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
-        G.lastResult = `The institution tracks them faster than either of you expected — a movement pattern they were already watching for. The location you chose is compromised within the day. The spy gets out but barely, and they leave behind documents that connect the shelter point to your movements over the previous week. The institution has your general profile now. The scrutiny attached to a connected shelter point means every contact point you've used this week is now under watchful review.`;
+        G.lastResult = `The institution tracks them faster than either of you expected — a movement pattern they were already watching for. The location you chose is compromised within the day. The spy gets out but barely, and they leave behind documents that connect the shelter point to your movements over the previous week. The institution has your general profile now. The scrutiny attached to a connected shelter point means every channel you've used this week is now under watchful review.`;
         addJournal('Accomplice status', 'complication');
       } else {
         G.stageProgress[2]++;
-        G.lastResult = `You keep contact brief and don't ask for everything at once. The spy gives you a structured summary — key personnel, two active operations, one upcoming audit that will expose gaps in the institution's own records. They speak quietly and precisely, the practiced habit of someone used to talking in rooms with thin walls. You don't push for the source documentation. The relationship stays intact and workable for future access. That's the part that matters most.`;
+        G.lastResult = `You keep exchanges brief and don't ask for everything at once. The spy gives you a structured summary — key personnel, two active operations, one upcoming audit that will expose gaps in the institution's own records. They speak quietly and precisely, the practiced habit of someone used to talking in rooms with thin walls. You don't push for the source documentation. The relationship stays intact and workable for future access. That's the part that matters most.`;
         addJournal('Spy contact established', 'intelligence', `spy-contact-${G.dayCount}`);
       }
 

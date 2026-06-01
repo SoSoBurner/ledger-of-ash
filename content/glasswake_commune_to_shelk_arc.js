@@ -205,6 +205,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis carrying the mechanism that explains the entire operation. The shard data is the key — and now it's here.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

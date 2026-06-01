@@ -14,11 +14,11 @@ var SHERESH_STAGE1 = (function() {
 
     setTimeout(function() {
       (window._rawRenderChoices || window.renderChoices)([
-        { id: 'sheresh_ask_elder', text: 'Ask an elder about the gap in the record.', tag: 'bold',
+        { id: 'sheresh_ask_elder', plot: 'main', text: 'Ask an elder about the gap in the record.', tag: 'bold',
           action: function() { askElder(); } },
-        { id: 'sheresh_search_older', text: 'Search older records — find evidence she existed before the gap.', tag: 'risky',
+        { id: 'sheresh_search_older', plot: 'main', text: 'Search older records — find evidence she existed before the gap.', tag: 'risky',
           action: function() { searchOlderRecords(); } },
-        { id: 'sheresh_sit_with_it', text: 'Sit with the knowledge. What does it mean that she is gone from here too?', tag: 'safe',
+        { id: 'sheresh_sit_with_it', plot: 'main', text: 'Sit with the knowledge. What does it mean that she is gone from here too?', tag: 'safe',
           action: function() { sitWithIt(); } }
       ]);
     }, 400);

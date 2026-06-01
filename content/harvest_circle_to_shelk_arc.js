@@ -222,6 +222,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. The supply chain from Harvest Circle feeds into this city's dome infrastructure. You are now inside the operation's target.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

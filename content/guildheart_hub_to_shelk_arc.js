@@ -211,6 +211,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. The pre-Union charter from Guildheart reveals that the northern operation built its legal shelter in this city's own registry office.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

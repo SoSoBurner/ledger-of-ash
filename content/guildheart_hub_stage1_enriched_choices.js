@@ -772,7 +772,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: GUILD ROLE COMPROMISE CHOICE
   {
-    label: "A guild official is complicit. Protect them or expose them.",
+    label: "A guild officer is complicit. Protect them or expose them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     effects: [

@@ -220,6 +220,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. Cadrin's log and the east bank staging area are the physical evidence of what crossed that bridge. Now find where it went.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

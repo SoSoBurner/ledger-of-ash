@@ -9,7 +9,7 @@ var STAGE2_CLIMAX = (function() {
   function phase1() {
     
     G.lastResult = 'A sealed letter bearing the Oversight Collegium\'s iron-quill seal arrives at your lodgings before dawn. Someone slid it under the door. Inside, a single line: "Your inquiries have been noted. Present yourself at the Collegium Hall by sundown. Refusal will be noted as well." The wax seal is still warm.';
-    G.recentOutcomeType = 'investigation';
+    G.recentOutcomeType = 'discovery';
 
     (window._rawRenderChoices || window.renderChoices)([
       {
@@ -122,7 +122,7 @@ var STAGE2_CLIMAX = (function() {
       G.recentOutcomeType = 'success';
       window.addWorldNotice('The suppressed records have been exposed. Shelkopolis will not be the same.');
     } else {
-      G.lastResult = 'Your contact chain is intercepted before the document reaches more than one source. The partial copy is confiscated at the first handoff — someone was watching that courier. You are not arrested. Inquisitor Orveth sends a message, no seal, no signature: "You tried. I respect that. Come find me when you are ready to try more carefully." The records\' existence is now known by more people than you intended. Their contents are still contained. For now.';
+      G.lastResult = 'Your courier chain is intercepted before the document reaches more than one source. The partial copy is confiscated at the first handoff — someone was watching that courier. You are not arrested. Inquisitor Orveth sends a message, no seal, no signature: "You tried. I respect that. Come find me when you are ready to try more carefully." The records\' existence is now known by more people than you intended. Their contents are still contained. For now.';
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 2;
       G.recentOutcomeType = 'complication';
       if (G.flags) { G.flags.fumble_locked = true; G.flags['fumble_locked_climax_p3_expose'] = true; }

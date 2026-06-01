@@ -52,6 +52,7 @@ function triggerStage1MiniBoss() {
 
   var choices = [
     {
+      plot: 'main',
       text: 'He is running out of time on something. Push that thread.',
       tag: 'risky',
       skill: 'persuasion',
@@ -87,6 +88,7 @@ function triggerStage1MiniBoss() {
       }
     },
     {
+      plot: 'main',
       text: 'The alley has a second exit and he has not sealed it yet.',
       tag: 'risky',
       skill: 'stealth',

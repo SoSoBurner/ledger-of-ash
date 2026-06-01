@@ -214,6 +214,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. Aurora Crown showed what the operation looks like at completion. This city shows what it looks like before it begins.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

@@ -217,6 +217,7 @@ const COSMORIA_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. Cosmoria's maritime laundering template and forty-one container arrivals all point to the secondary freight terminal underground channel leading to the dome.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

@@ -217,6 +217,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
 
   {
     label: "Arrive in Shelkopolis. The financial infrastructure of the northern operation is centered here, in the city it was funding the delivery to.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() { return (G.investigationProgress || 0) >= 5 || G.level >= 6; },

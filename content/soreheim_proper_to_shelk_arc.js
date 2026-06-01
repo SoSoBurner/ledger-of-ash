@@ -336,6 +336,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   // 12. ARRIVAL IN SHELKOPOLIS
   {
     label: "Cross into Shelkopolis proper. You are no longer a witness. You are an investigator with evidence in a city where that evidence matters.",
+    plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
     condition: function() {

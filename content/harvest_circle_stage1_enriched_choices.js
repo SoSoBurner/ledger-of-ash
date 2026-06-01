@@ -700,7 +700,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
 
   // 18. MORAL PRESSURE: FAMILY LOYALTY COMPROMISE CHOICE
   {
-    label: "A Harvest Circle official is complicit. Protect them or expose their role.",
+    label: "A Harvest Circle officer is complicit. Protect them or expose their role.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
