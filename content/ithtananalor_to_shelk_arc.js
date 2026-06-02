@@ -198,6 +198,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   {
     label: "The financial trail from Ithtananalor ends in Shelkopolis. The capital is already there. Follow it.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.ithtan_arc_departing); },
     fn: function() {

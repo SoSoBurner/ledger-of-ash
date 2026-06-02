@@ -185,6 +185,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   {
     label: "The formula fragments describe what the operation is building toward. Shelkopolis has the chemists who can confirm the synthesis and the archive that can authenticate the classification history.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.mimolot_arc_departing); },
     fn: function() {

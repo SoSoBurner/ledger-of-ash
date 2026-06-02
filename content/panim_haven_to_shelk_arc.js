@@ -189,6 +189,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   {
     label: "Tazren's case was suppressed because he was right. The evidence you've gathered from Panim Haven continues his work. Move to Shelkopolis.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.panim_arc_departing); },
     fn: function() {

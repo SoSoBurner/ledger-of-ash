@@ -201,6 +201,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   {
     label: "Whitebridge was the crossing point. Shelkopolis is the destination. You've traced the supply chain from east bank staging area to the city's dome infrastructure. Follow it.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.whitebridge_arc_departing); },
     fn: function() {

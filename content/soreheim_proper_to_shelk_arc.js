@@ -279,6 +279,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "You've gathered enough to be dangerous. The question now is what to do with it. Move toward Shelkopolis.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.soreheim_arc_departing); },
     fn: function() {
@@ -300,6 +301,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
   {
     label: "You're being followed. Someone picked you up at the checkpoint and hasn't stopped. Deal with it.",
     tags: ['ArcGate', 'Stealth', 'Combat', 'Risk'],
+    plot: 'main',
     xpReward: 85,
     condition: function() { return G.level >= 6 && (G.flags && G.flags.soreheim_arc_departing) && !(G.flags && G.flags.soreheim_arc_tail_resolved); },
     fn: function() {

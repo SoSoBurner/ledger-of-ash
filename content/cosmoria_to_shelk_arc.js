@@ -198,6 +198,7 @@ const COSMORIA_TO_SHELK_ARC = [
   {
     label: "Cosmoria's ghost vessels delivered to Shelkopolis. The maritime phase is done. The only thing left to do is get to where the delivery ended up.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.cosmoria_arc_departing); },
     fn: function() {

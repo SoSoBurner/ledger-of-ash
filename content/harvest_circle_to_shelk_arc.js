@@ -203,6 +203,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   {
     label: "The charter mark supply chain leads to Shelkopolis. You have enough to justify the journey even without more.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.harvest_arc_departing); },
     fn: function() {

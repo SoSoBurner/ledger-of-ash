@@ -195,6 +195,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   {
     label: "Aurora Crown was deliberate. Shelkopolis uses the same dome architecture — same method, same risk.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.aurora_arc_departing); },
     fn: function() {

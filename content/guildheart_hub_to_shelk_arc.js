@@ -192,6 +192,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   {
     label: "The pre-Union charter is the legal infrastructure of the northern operation. Shelkopolis is where that infrastructure was built and where it can be dismantled.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.guildheart_arc_departing); },
     fn: function() {

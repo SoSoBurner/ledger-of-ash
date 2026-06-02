@@ -186,6 +186,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   {
     label: "Glasswake's suppressed data is the mechanism that explains everything else. Carrying it to Shelkopolis is the most important thing you can do right now.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.glasswake_arc_departing); },
     fn: function() {

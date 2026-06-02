@@ -195,6 +195,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   {
     label: "Level of knowledge, level of risk. You've accumulated enough from Sunspire Haven to justify the move to Shelkopolis.",
     tags: ['ArcGate', 'Decision'],
+    plot: 'main',
     xpReward: 80,
     condition: function() { return G.level >= 6 && !(G.flags && G.flags.sunspire_arc_departing); },
     fn: function() {
