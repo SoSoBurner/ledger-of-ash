@@ -16923,13 +16923,13 @@ function renderShop() {
       + '<div class="shop-item-cost">\u25C8' + item.cost + '</div>'
       + (owned
           ? '<div style="font-size:10px;color:var(--ink-faint);font-family:var(--font-display)">OWNED</div>'
-          : '<button class="shop-buy-btn" ' + (canAfford?'':'disabled ') + 'onclick="buyShopItem(\'' + item.id + '\')">' + (canAfford?'BUY':'NEED \u25C8'+item.cost) + '</button>')
+          : '<button class="shop-buy-btn" ' + (canAfford?'':'disabled ') + 'onclick="buyLegacyShopItem(\'' + item.id + '\')">' + (canAfford?'BUY':'NEED \u25C8'+item.cost) + '</button>')
       + '</div>'
       + '</div>';
   }).join('');
 }
 
-function buyShopItem(itemId) {
+function buyLegacyShopItem(itemId) {
   var items = LOCALITY_SHOPS[G.location] || [];
   var item = items.find(function(i){ return i.id === itemId; });
   if (!item) return;
