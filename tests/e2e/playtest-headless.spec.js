@@ -917,6 +917,15 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       const choiceCount = await waitForChoices(page, PACE.waitChoices);
 
+      // Cap enforcement: choice panel must never exceed 8 choices (weighted prioritizeChoices cap)
+      if (choiceCount > 0 && !g.dead) {
+        const visibleNonDisabled = await page.locator('#action-content .choice-btn:not([disabled])').count().catch(() => 0);
+        if (visibleNonDisabled > 8) {
+          log('[CAP_VIOLATION ' + tag + '] pick=' + picks + ' loc=' + (g.location || '?') + ' count=' + visibleNonDisabled);
+        }
+        expect(visibleNonDisabled).toBeLessThanOrEqual(8);
+      }
+
       // Map travel every 15-20 picks (tests map UI + spreads locality coverage)
       if (shouldTravelNow(picks, lastMapTravelPick)) {
         const fromLoc = g.location || '';
