@@ -9998,7 +9998,6 @@ function getDefaultG() {
     narrationUpdateCounter:0, _narrationFading:false, district:null,
     consecutiveSleepless:0, watchPosted:false, _heatDCMod:0,
     pendingVictoryCallback:null,
-    abilities:[],
     factionClocks:null,
     _pendingHeatEncounter:null,
     inSettlement:true,
@@ -10331,7 +10330,7 @@ function _buildOnboardingPages() {
 }
 
 function showOnboarding() {
-  if (!G || G.flags.onboarding_complete) return;
+  if (!G || !G.flags || G.flags.onboarding_complete) return;
   _currentOnboardingPages = _buildOnboardingPages();
   _onboardingPage = 0;
   _renderOnboardingPage();
@@ -10572,11 +10571,11 @@ function _beginLegendCore() {
       setTimeout(function() { showToast(_arcConf[0] + ' ' + _arcConf[1]); }, 600);
     }
   })();
-  if (G && !G.flags.onboarding_complete) {
+  if (G && G.flags && !G.flags.onboarding_complete) {
     setTimeout(showOnboarding, 400);
   }
   // Plant the mystery hook on first session
-  if (G && !G.flags.mystery_hook_shown) {
+  if (G && G.flags && !G.flags.mystery_hook_shown) {
     G.flags.mystery_hook_shown = true;
     setTimeout(function() {
       if (typeof addJournal === 'function') {
@@ -10797,7 +10796,7 @@ function advanceBackgroundRivals() {
 //               renown 5 = faction consequence + journal
 // Reveal: once profiled + Stage II, show name; otherwise "troublesome rival"
 function advanceMaren() {
-  if (!G || G.flags.maren_oss_resolved) return;
+  if (!G || !G.flags || G.flags.maren_oss_resolved) return;
 
   const prev = G.marenRenown || 0;
   let next = prev;
@@ -13080,10 +13079,8 @@ const COMBAT_SCALING_TABLE = {
 window.COMBAT_SCALING_TABLE = COMBAT_SCALING_TABLE;
 
 function awardAbility(abilityDef) {
-  if (!G.abilities) G.abilities = [];
-  var already = G.abilities.some(function(a) { return a.id === abilityDef.id; });
-  if (already) return;
-  G.abilities.push(abilityDef);
+  if (!G.unlockedAbilities) G.unlockedAbilities = [];
+  if (!G.unlockedAbilities.includes(abilityDef.id)) G.unlockedAbilities.push(abilityDef.id);
   showToast('Ability unlocked: ' + abilityDef.name);
   updateHUD();
 }
@@ -13106,7 +13103,7 @@ function checkLevelUp() {
     _awaitingLevelUp = true;
     G.xp -= needed;
     G.level++;
-    if (G.level === 2 && (!G.abilities || G.abilities.length === 0)) {
+    if (G.level === 2 && (!G.unlockedAbilities || G.unlockedAbilities.length === 0)) {
       var _fam = getArchetypeFamily();
       if (STARTER_ABILITIES[_fam]) awardAbility(STARTER_ABILITIES[_fam]);
     }
