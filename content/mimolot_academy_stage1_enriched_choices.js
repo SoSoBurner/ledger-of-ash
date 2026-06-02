@@ -11,6 +11,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 1. SENIOR LIBRARIAN: RESEARCH RESTRICTIONS TIGHTENING
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "The librarian knows which topics disappeared. He also knows he didn't change them.",
     tags: ['Investigation', 'NPC', 'Observation', 'Knowledge'],
     xpReward: 70,
@@ -55,6 +56,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 2. RESEARCH SCHOLAR: RESEARCH SUPPRESSION
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "Scholars working on institutional critique have been reassigned to cataloging. Their projects still exist.",
     tags: ['Investigation', 'NPC', 'Records', 'Research'],
     xpReward: 75,
@@ -690,6 +692,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "Somewhere a document names who is directing this. The administrative vault is one door further.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,

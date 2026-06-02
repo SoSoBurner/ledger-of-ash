@@ -11,6 +11,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // 1. FOREMAN: QUOTA ESCALATION PATTERN
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "The quota numbers shifted. The foreman watched it happen.",
     tags: ['NPC', 'Labor', 'Pressure'],
     xpReward: 70,
@@ -47,6 +48,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // 2. QUOTA CLERK: LEDGER MANIPULATION
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "The ceiling is set high. The floor rises on failure. Both ends move.",
     tags: ['Investigation', 'NPC', 'Records', 'Bureaucracy', 'Meaningful'],
     xpReward: 75,
@@ -690,6 +692,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The orders predate the quota increase by three weeks. Soreheim was the plan.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,

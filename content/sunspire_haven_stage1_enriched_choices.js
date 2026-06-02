@@ -11,6 +11,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 1. SYNDICATE YARD MASTER: CONVOY ROUTE CHANGES
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "The yard master signs off on routes he didn't write.",
     tags: ['Investigation', 'NPC', 'Syndicate', 'Logistics'],
     xpReward: 70,
@@ -50,6 +51,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 2. FAMILY BROKER: OBLIGATION ENFORCEMENT
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "Family obligations used to be mutual. Something changed who decides what the obligation means.",
     tags: ['Investigation', 'NPC', 'Family', 'Coercion'],
     xpReward: 75,
@@ -740,6 +742,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 18. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The syndicate takes orders from someone outside Sunspire. The courier receipts came from somewhere north.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,

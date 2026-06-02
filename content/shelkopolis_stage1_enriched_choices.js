@@ -11,6 +11,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   // 1. INNKEEPER: GUEST PATTERNS
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "The innkeeper notices things she doesn't write down. Three guests, same careful question.",
     tags: ['NPC', 'Observation', 'Intelligence'],
     xpReward: 70,
@@ -47,6 +48,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   // 2. INNKEEPER: SEALED LETTERS
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "The sealed letters at Silkweaver's Chapel run on a schedule. Twice a week, no names.",
     tags: ['NPC', 'Evidence', 'Mystery'],
     xpReward: 75,
@@ -724,6 +726,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   // 20. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The letters name people by function, not name. They're orders, not correspondence.",
     tags: ['Origin', 'Discovery', 'Climax'],
     xpReward: 80,

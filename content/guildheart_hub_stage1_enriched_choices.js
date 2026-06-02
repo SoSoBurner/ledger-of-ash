@@ -11,6 +11,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 1. GUILD ARBITRATOR: DISPUTE RESOLUTION FAILURES
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "The arbitrator's rulings have gone the same direction for weeks.",
     tags: ['Investigation', 'NPC', 'Guild', 'Justice', 'Meaningful'],
     xpReward: 70,
@@ -52,6 +53,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 2. MERCHANT REPRESENTATIVE: TRADE AGREEMENT CHANGES
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "The merchants who lost agreements last month all trade the same goods. That's not coincidence.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Agreements', 'Meaningful'],
     xpReward: 75,
@@ -817,6 +819,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The corruption in guild arbitration runs through an external hand nobody has named.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,

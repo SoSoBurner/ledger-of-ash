@@ -11,6 +11,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   // 1. CHAPEL WORKER: BLESSING EFFICIENCY DEMANDS
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "The ritual words are the same. The time given them is not.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
     xpReward: 70,
@@ -52,6 +53,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   // 2. MARKET BROKER: SUPPLY DIVERSIONS AND PRICE INFLATION
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "Prices have climbed. The broker knows where the gap started.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Supply', 'Meaningful'],
     xpReward: 75,
@@ -714,6 +716,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   // 18. INSTITUTIONAL WEAPONIZATION: DOCTRINE SERVES SABOTAGE
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "Laid out together, they stop being coincidences. Every institution bent the same direction, same window.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Confrontation', 'Meaningful'],
     xpReward: 80,
