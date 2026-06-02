@@ -100,6 +100,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Craft', 'Supply', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    condition: function() { return (G.investigationProgress||0) < 3; },
     failResult: {
       text: "Master Thren steps in front of the shelf rack. \"Proprietary stock.\" His posture is final without being aggressive — a craftsperson who has made this boundary and expects it to hold. The workshop door is still open. Two jars on the nearest shelf carry the same label but different sediment lines, pale and amber-brown side by side. He hasn't noticed you noticing. The craftsman Halverd works from the same supply source and has been more willing to speak about the failures.",
       xp: 0,
@@ -136,12 +137,13 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   },
 
-  // 4. FOOD PROVISIONER: STORAGE MANIPULATION AND SPOILAGE
+  // 4. FOOD PROVISIONER: STORAGE MANIPULATION AND SPOILAGE [PROGRESS-GATED: mid-progress]
   {
     label: "The grain moved upstairs. Gareth knows what that does to grain.",
     tags: ['Investigation', 'NPC', 'Supply', 'Storage', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     failResult: {
       text: "Old Gareth nods and doesn't elaborate. \"The Shrine Keeper makes the storage decisions now.\" He pulls the cellar door shut behind him — not slammed, just closed, the sound of a man who stopped asking follow-up questions some time ago. The upper store smell follows: faint, still early, but unmistakable. The smell of grain in the wrong conditions for long enough that it has started to answer back. The provisioner's delivery logs are posted on the mill road coordination board.",
       xp: 0,

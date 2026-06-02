@@ -87,6 +87,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Trade'],
     xpReward: 70,
     stageProgress: 1,
+    condition: function() { return (G.investigationProgress||0) < 3; },
     failResult: "Sereth has a client in the fitting alcove when you arrive, pins in hand, a complicated hem requiring all his attention. The fish-salt smell of the harbor comes through the open back window. He waves you toward the counter ledger — browse the open commission records, come back when the fitting is done. The book is there. The abandoned order slips are in it.",
     fn: function() {
       advanceTime(1);
@@ -114,12 +115,13 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     }
   },
 
-  // 4. CLERK/RECORD KEEPER: LEDGER DISCREPANCIES
+  // 4. CLERK/RECORD KEEPER: LEDGER DISCREPANCIES [PROGRESS-GATED: mid-progress reveals deeper record manipulation]
   {
     label: "Autumn entries stop mid-column. The ink around the gap is clean.",
     tags: ['NPC', 'Records', 'Bureaucracy'],
     xpReward: 75,
     stageProgress: 1,
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     failResult: "The reading room is occupied — two estate advocates with a stack of folios that will keep the desk clerk busy until midday. The ledger you want sits on the closed-access shelf behind the counter. The tallow-and-ink smell of the room is patient. The garrison quartermaster's office holds parallel supply columns; that route stays open.",
     fn: function() {
       advanceTime(1);
