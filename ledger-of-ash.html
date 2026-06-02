@@ -10723,6 +10723,7 @@ function resolveRivalOutcome(idx, outcome, success) {
       if (typeof addJournal === 'function') addJournal('Intel exchange with ' + name + '. Unverified lead acquired.', 'intelligence');
       var _spn1 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
       G.stageProgress[_spn1] = (G.stageProgress[_spn1] || 0) + 5;
+      if (typeof shiftTension === 'function') shiftTension(1);
       if (r) r.renown = Math.max(r.renown || 0, 3);
       G.flags = G.flags || {};
       G.flags['rival_claimed_' + G.location + '_' + idx] = (r && r.renown) || 2;
@@ -10746,6 +10747,7 @@ function resolveRivalOutcome(idx, outcome, success) {
       if (typeof addJournal === 'function') addJournal(name + ': has a dossier. Contents unknown — scope suggests pre-existing surveillance.', 'intelligence');
       var _spn2 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
       G.stageProgress[_spn2] = (G.stageProgress[_spn2] || 0) + 8;
+      if (typeof shiftTension === 'function') shiftTension(1);
       G.flags = G.flags || {};
       G.flags['rival_claimed_' + G.location + '_' + idx] = (r && r.renown) || 2;
     } else {
@@ -11336,6 +11338,18 @@ function adaptEnrichedChoice(c) {
           var _riSkillLabel = _riSKD[_ri.skill] || _ri.skill;
           addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _riSkillLabel + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
         }
+        // Bold success reward: +1 renown, track session bold successes for discovery unlock
+        if (_riSucceeded) {
+          var _boldTagCheck = (typeof SEMANTIC_BOLD_TAGS !== 'undefined') ? SEMANTIC_BOLD_TAGS : null;
+          var _cTagsArr = Array.isArray(c.tags) ? c.tags : (c.tag ? [c.tag] : []);
+          var _isBold = (c.tag === 'bold') ||
+            (_boldTagCheck && _cTagsArr.some(function(t){ return _boldTagCheck.has ? _boldTagCheck.has(t) : (_boldTagCheck.indexOf(t) !== -1); }));
+          if (_isBold) {
+            G.renown = (G.renown || 0) + 1;
+            G._boldSuccessThisSession = (G._boldSuccessThisSession || 0) + 1;
+            if (typeof updateHUD === 'function') updateHUD();
+          }
+        }
       }
       const txt = G.lastResult || '';
       const _outcomeType = G.lastResultType || 'neutral';
@@ -11355,7 +11369,14 @@ function adaptEnrichedChoice(c) {
       var _spVal = c.stageProgress || 0;
       if (_spVal && G.stage === 'Stage II' && (_outcomeType === 'success' || _outcomeType === 'crit')) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + _spVal;
+        if (typeof shiftTension === 'function') shiftTension(1);
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+      }
+      // Confrontation-class tag: increment tension on any outcome
+      var _TENSION_TAGS = ['Confrontation','Accusation','Exposure','Betrayal','Tribunal','Ambush'];
+      var _cTagsAll = (c.tags || []).concat(c.tag ? [c.tag] : []);
+      if (_cTagsAll.some(function(t){ return _TENSION_TAGS.indexOf(t) >= 0; })) {
+        if (typeof shiftTension === 'function') shiftTension(1);
       }
       // Soreheim plot currency: increment on enriched choice execution in Soreheim territory
       const _soreLocs = ['soreheim','sunspire'];
@@ -11458,6 +11479,8 @@ function _getAuthorityEncounterChoice(polity) {
 function prioritizeChoices(choices, maxCount) {
   if (!Array.isArray(choices)) return choices;
   var cap = (typeof maxCount === 'number' && maxCount > 0) ? maxCount : 8;
+  // Discovery unlock: bold successes this session grant +1 pool slot to surface archetype-gated choices
+  if (G && (G._boldSuccessThisSession || 0) > 0) cap = cap + 1;
   // Strip combat-context ability choices — these belong only in the enterCombat panel,
   // never in the story choice panel. Guards against leakage via backup-choice queue or
   // any condition() bug that routes them through loadStageChoices.
@@ -12626,6 +12649,7 @@ function handleChoice(choice) {
               var _stageKey = G.stage === 'Stage II' ? 2 : G.stage === 'Stage III' ? 3 : 1;
               G.stageProgress = G.stageProgress || {1:0,2:0,3:0,4:0,5:0};
               G.stageProgress[_stageKey] = (G.stageProgress[_stageKey] || 0) + 1;
+              if (typeof shiftTension === 'function') shiftTension(1);
               G.lastResult = 'You step back and look at the thread from a different angle. The first approach closed, but the routing numbers still exist in a secondary register — and secondary registers are audited less carefully. There is still a way forward.';
               G.recentOutcomeType = 'partial';
               addJournal('Regrouped after failed approach. Secondary angle still open.', 'intelligence');
@@ -12652,6 +12676,7 @@ function handleChoice(choice) {
       if ((G.flags[_critSpKey]||0) < 3) {
         G.stageProgress[_critSK] = (G.stageProgress[_critSK]||0)+1;
         G.flags[_critSpKey] = (G.flags[_critSpKey]||0)+1;
+        if (typeof shiftTension === 'function') shiftTension(1);
       }
     }
 
@@ -14300,6 +14325,7 @@ function campAction(type) {
       ]), 300);
       return;
     }
+    if (typeof shiftTension === 'function') shiftTension(-1);
     let healed = Math.floor(G.maxHp * 0.45);
     // Plentiful supplies: +10% max HP restored
     if (G.supplyTier === 'plentiful') healed += Math.floor(G.maxHp * 0.10);
@@ -14473,6 +14499,7 @@ function campAction(type) {
       setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
     }
   } else if (type === 'sleep') {
+    if (typeof shiftTension === 'function') shiftTension(-1);
     doSleepScene();
   } else if (type === 'campout') {
     var homeCamp = (typeof getActiveCompanions === 'function') ? getActiveCompanions().find(function(c) {
