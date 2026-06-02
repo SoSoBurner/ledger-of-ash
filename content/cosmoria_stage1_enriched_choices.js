@@ -1420,6 +1420,25 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
+  },
+
+  // SIDEPLOT HOOK: HARBOR WEIGHT FRAUD
+  {
+    id: 'cosmoria_sideplot_harbor_open',
+    label: 'The weight discrepancy in the harbor ledger is systematic, not clerical.',
+    skill: 'wits',
+    tags: ['Records', 'Discovery'],
+    plot: 'side',
+    condition: function() { return G && G.flags && !G.flags.sideplot_harbor_fraud_started; },
+    fn: function() {
+      G.flags.sideplot_harbor_fraud_started = true;
+      addNarration('', 'The harbor weight records show a consistent 8% shortfall across three different inspection clerks over fourteen months. The shortfall is too regular to be error — and too distributed to be a single bad actor.');
+      addJournal('Harbor weight records: systematic 8% shortfall across multiple inspectors. Pattern suggests external instruction.', 'evidence');
+      if (window.COSMORIA_HARBOR_WEIGHT_FRAUD && typeof window.COSMORIA_HARBOR_WEIGHT_FRAUD.open === 'function') window.COSMORIA_HARBOR_WEIGHT_FRAUD.open();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The records room is locked during the inspection cycle. Return when the clerks are between rotations.' }
   }
 
 );

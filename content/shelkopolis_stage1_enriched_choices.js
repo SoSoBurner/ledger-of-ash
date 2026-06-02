@@ -1865,6 +1865,25 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
+  },
+
+  // SIDEPLOT HOOK: LEDGER SHADOW
+  {
+    id: 'shelk_sideplot_ledger_shadow_open',
+    label: 'The routing numbers in this ledger have no matching shipment record.',
+    skill: 'wits',
+    tags: ['Records', 'Discovery'],
+    plot: 'side',
+    condition: function() { return G && G.flags && !G.flags.sideplot_ledger_shadow_started; },
+    fn: function() {
+      G.flags.sideplot_ledger_shadow_started = true;
+      addNarration('', 'The transit ledger lists routing numbers with no corresponding shipments anywhere in the manifest registry. Phantom routing codes have been assigned to real institutional capacity — the corridors are real, the registered cargo that should fill them is not. Someone is using the routing structure without using the routes.');
+      addJournal('Transit ledger: routing numbers without corresponding shipments. Phantom assignments using real routing infrastructure.', 'evidence');
+      if (window.SHELK_FAIRHAVEN_LEDGER_SHADOW && typeof window.SHELK_FAIRHAVEN_LEDGER_SHADOW.open === 'function') window.SHELK_FAIRHAVEN_LEDGER_SHADOW.open();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The transit records desk is sealed for a scheduled audit — a duty clerk at the window says the window is closed, no estimate given. The outer ledger rack beside the main counter holds the public routing index. That index is still accessible, and the phantom codes will appear against empty manifests.' }
   }
 
 );

@@ -1524,6 +1524,25 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
+  },
+
+  // SIDEPLOT HOOK: UNION TESTIMONY GAP
+  {
+    id: 'guildheart_sideplot_testimony_open',
+    label: 'The union testimony record has a two-week gap nobody has explained.',
+    skill: 'wits',
+    tags: ['Records', 'Discovery'],
+    plot: 'side',
+    condition: function() { return G && G.flags && !G.flags.sideplot_union_testimony_started; },
+    fn: function() {
+      G.flags.sideplot_union_testimony_started = true;
+      addNarration('', 'Fourteen-day gap in union arbitration records. The senior archivist says "administrative" twice without elaborating. It is the word used when a real answer would require authorization nobody wants to grant. Two weeks of testimony, gone — and the archive continues as if those weeks never existed.');
+      addJournal('Union testimony: fourteen-day gap in arbitration record. Senior archivist explanation insufficient.', 'evidence');
+      if (window.GUILDHEART_UNION_TESTIMONY_GAP && typeof window.GUILDHEART_UNION_TESTIMONY_GAP.open === 'function') window.GUILDHEART_UNION_TESTIMONY_GAP.open();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The arbitration archive corridor is sealed for the current session — a brass-and-wax closure notice on the door, no estimated duration. The senior archivist is inside; the testimony records are with her. The session board outside the east annexe will show when access resumes.' }
   }
 
 );

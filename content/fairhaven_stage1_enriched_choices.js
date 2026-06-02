@@ -1442,6 +1442,25 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     }
+  },
+
+  // SIDEPLOT HOOK: MEADOW MILL DISPLACEMENT
+  {
+    id: 'fairhaven_sideplot_mill_open',
+    label: 'The mill displacement records show dates, not reasons.',
+    skill: 'wits',
+    tags: ['Records', 'Discovery'],
+    plot: 'side',
+    condition: function() { return G && G.flags && !G.flags.sideplot_mill_displacement_started; },
+    fn: function() {
+      G.flags.sideplot_mill_displacement_started = true;
+      addNarration('', 'Three families reassigned from meadow mills to harbor district in six weeks. The reassignment orders are stamped but unsigned — authorization without accountability, a record that names what happened without naming who decided it.');
+      addJournal('Meadow mill: three families displaced. Reassignment orders unsigned — authorization without accountability.', 'evidence');
+      if (window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT && typeof window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.open === 'function') window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.open();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The mill district records office closes at midday. The displacement orders will still be there when it reopens.' }
   }
 
 );
