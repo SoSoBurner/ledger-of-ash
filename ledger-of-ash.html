@@ -11442,13 +11442,25 @@ function prioritizeChoices(choices, maxCount) {
     if (!_family) return true;
     return c.archetypeGroup === _family;
   });
-  var TIERS = { 'main': 1, 'side': 2, 'enriched': 3, 'utility': 4 };
-  var sorted = choices.filter(Boolean).slice().sort(function(a, b) {
-    var ta = TIERS[a.plot] || (a.isUtility ? 4 : 3);
-    var tb = TIERS[b.plot] || (b.isUtility ? 4 : 3);
-    return ta - tb;
+  // Weighted scoring: plot:'main'=4, active questId=3, archetype-family match=2, base=1
+  // Recency bonus: +2 if choice id/cid was one of the last 3 engaged
+  // Utility choices always score 0 (always last)
+  var _recentIds = (G && Array.isArray(G.recentChoiceIds)) ? G.recentChoiceIds : [];
+  var _arcFamily = (G && G.archetype && typeof getArchetypeFamily === 'function') ? getArchetypeFamily() : null;
+  var scored = choices.filter(Boolean).map(function(c) {
+    var pts = 1; // base flavor
+    if (c.plot === 'main') pts += 4;
+    else if (c.plot === 'side') pts += 2;
+    var _choiceQid = c.questId || null;
+    if (_choiceQid && G && G.questHints && G.questHints[_choiceQid]) pts += 3;
+    if (_arcFamily && c.archetypeGroup === _arcFamily) pts += 2;
+    if (c.isUtility) pts = 0; // utility always last
+    var _choiceRecencyId = c.cid || c.id || null;
+    if (_choiceRecencyId && _recentIds.indexOf(_choiceRecencyId) !== -1) pts += 2;
+    return { choice: c, score: pts };
   });
-  return sorted.slice(0, cap);
+  scored.sort(function(a, b) { return b.score - a.score; });
+  return scored.slice(0, cap).map(function(s) { return s.choice; });
 }
 
 /** Builds choice list for current locality: picks from enriched pool, prepends arrival choice if present, calls renderChoices. @param {string} locId */
