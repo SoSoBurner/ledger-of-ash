@@ -36,8 +36,13 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Innkeeper went silent — pushed too hard into private ground', 'complication', `shelkopolis-innkeeper-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Marta leans on the counter and keeps her voice low under the noise of the common room. One guest paid triple for the room that faces the alley, not the street. Another left before dawn and slipped an extra coin under the door to ensure no one noted the hour. "I don't pry," she says. "But I notice." The lamplight catches the ledger page open behind her — she's already written it down somewhere.`;
-        addJournal('Innkeeper noticed unusual guest discretion', 'intelligence', `shelkopolis-innkeeper-caution-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_night_watch_commander) {
+          G.lastResult = `Marta leans on the counter and keeps her voice low. "You spoke to the watch commander." Not a question. She glances at the door. "She sends soldiers in when she wants a count — a census of who's sleeping where. Three of the guests your commander would want to know about paid in new coin, no house marks, and left through the back gate before the morning tally." She taps the ledger. "My count has never matched hers. Now you know why."`;
+          addJournal('Innkeeper confirmed garrison interest in specific guests — new coin, unmarked departure', 'intelligence', `shelkopolis-innkeeper-watchaware-${G.dayCount}`);
+        } else {
+          G.lastResult = `Marta leans on the counter and keeps her voice low under the noise of the common room. One guest paid triple for the room that faces the alley, not the street. Another left before dawn and slipped an extra coin under the door to ensure no one noted the hour. "I don't pry," she says. "But I notice." The lamplight catches the ledger page open behind her — she's already written it down somewhere.`;
+          addJournal('Innkeeper noticed unusual guest discretion', 'intelligence', `shelkopolis-innkeeper-caution-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';
@@ -72,8 +77,13 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Chapel clerk logged your inquiry — visit formally noted', 'complication', `shelkopolis-chapel-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Brother Aldwin confirms letters pass through the chapel — private correspondence for traveling merchants, he says, a service the chapel has offered for generations. His hands stay folded when he says it. He doesn't look at the alcove. He doesn't need to. The wax-and-stone smell of the chapel sits heavy in the air between you. A novice at the far writing desk pauses, then resumes. Whatever the full arrangement is, he's decided the public version is the only one you'll hear today, and he has had this conversation enough times to make that decision feel like generosity.`;
-        addJournal('Chapel involved in letter routing but details refused', 'evidence', `shelkopolis-letters-blocked-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_warden_order_contact) {
+          G.lastResult = `Brother Aldwin's hands stop folding when he sees your face. He says nothing for a moment. Then: "The person you spoke to about the warden order — they pass letters here too." He turns to the alcove without being asked and removes a single slip from the bottom of the stack. The wax seal has been broken and re-pressed. "I've watched the correspondence change. The questions in the early letters were operational. The recent ones are about names." He sets the slip face-down and slides it across. "This came three days ago. I don't know whose."`;
+          addJournal('Chapel letter network: recent correspondence shifted to naming individuals — warden order aware', 'evidence', `shelkopolis-letters-wardenseen-${G.dayCount}`);
+        } else {
+          G.lastResult = `Brother Aldwin confirms letters pass through the chapel — private correspondence for traveling merchants, he says, a service the chapel has offered for generations. His hands stay folded when he says it. He doesn't look at the alcove. He doesn't need to. The wax-and-stone smell of the chapel sits heavy in the air between you. A novice at the far writing desk pauses, then resumes. Whatever the full arrangement is, he's decided the public version is the only one you'll hear today, and he has had this conversation enough times to make that decision feel like generosity.`;
+          addJournal('Chapel involved in letter routing but details refused', 'evidence', `shelkopolis-letters-blocked-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';

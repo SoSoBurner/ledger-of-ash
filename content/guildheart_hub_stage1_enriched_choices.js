@@ -41,8 +41,13 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Arbitrator now protective of guild confidentiality', 'complication', `guildheart-arbitrator-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `The arbiter's office smells of beeswax polish and lamp-oil — scrupulously maintained, like the rest of the east annexe. Kesh straightens a stack of rulings that doesn't need straightening, pressing the edges flush with the desk's leather blotter. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." He begins: "The coordinating—" His eyes go to the corridor window. A clerk passes in the hall beyond the glass. "Not every merchant reads the terms they file under." The interrupted thought is not recovered. Behind him, the shelf of closed dispute folios sits in chronological order — three spines in the last row are new, sharing a reference window with the directive.`;
-        addJournal('Arbitrator confirmed disputed resolution outcomes', 'evidence', `guildheart-arbitrator-pressure-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_paerun_delst) {
+          G.lastResult = `Kesh's eyes move to the corridor window before he speaks. "You found Paerun." He straightens the folder stack without looking at it. "He came to me three weeks before the directive. Said something was wrong with the routing decisions, that the outcomes were being handed down rather than determined." He taps the edge of the desk. "I told him it wasn't my place to name it. He said it would be, eventually." He doesn't say whether he regrets the answer. The three new folio spines on his shelf tell the story of what came after.`;
+          addJournal('Arbitrator confirmed Paerun Delst raised concerns three weeks before directive — outcomes pre-determined', 'evidence', `guildheart-arbitrator-paerun-${G.dayCount}`);
+        } else {
+          G.lastResult = `The arbiter's office smells of beeswax polish and lamp-oil — scrupulously maintained, like the rest of the east annexe. Kesh straightens a stack of rulings that doesn't need straightening, pressing the edges flush with the desk's leather blotter. "Dispute resolution is case-sensitive. Outcomes reflect available documentation." He begins: "The coordinating—" His eyes go to the corridor window. A clerk passes in the hall beyond the glass. "Not every merchant reads the terms they file under." The interrupted thought is not recovered. Behind him, the shelf of closed dispute folios sits in chronological order — three spines in the last row are new, sharing a reference window with the directive.`;
+          addJournal('Arbitrator confirmed disputed resolution outcomes', 'evidence', `guildheart-arbitrator-pressure-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';
@@ -85,8 +90,13 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The loading yard is busy behind Ilya — cart wheels on wet flagstone, a cooper calling for a hand. Ilya handles the pages of her folder carefully, like they might be different from what she last read them as, turning each one flat rather than flipping it. "Terms shift. Notification doesn't always follow." She won't say more than that. Her brass caliper hangs from her belt, unused all morning. She keeps reaching for it, catches herself, lets her hand drop. The movement is a small nervous tic she hasn't fully noticed she's developed.`;
         addJournal('Merchant confirmed trade agreement ambiguity', 'evidence', `guildheart-merchant-unclear-${G.dayCount}`);
       } else {
-        G.lastResult = `Ilya's hand stays flat on the folder, palm down, covering the top page so that nothing is visible to a passing eye. The loading cart behind her creaks as a cooper shifts a barrel. "Guild contract details are Category One. You'd need a registered review authority." She says it without looking up. The words come out practiced — in the cadence of a clerk reading a posted policy rather than in her own voice. The cart moves. The conversation doesn't continue. A second merchant two stalls over has already turned back to his own accounts, but his pen has stopped moving.`;
-        addJournal('Trade agreements blocked without formal guild authorization', 'evidence', `guildheart-merchant-blocked-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_oversight_collegium_observer) {
+          G.lastResult = `Ilya pulls the folder from under the cart bench. "You spoke to the Collegium." She flips to the third page — the amendment field. "They have a copy of mine too. The Collegium observer was here four days after I received it, asking the same things you are." She sets the page flat. "I didn't show him this. I showed him my original. He said the discrepancy was a filing error." She looks at the amendment date. "It predates my notification by eleven days. Filing errors don't predate the filing."`;
+          addJournal('Merchant revealed Collegium observer already reviewed her amended agreements — dismissed discrepancy as filing error', 'evidence', `guildheart-merchant-collegium-${G.dayCount}`);
+        } else {
+          G.lastResult = `Ilya's hand stays flat on the folder, palm down, covering the top page so that nothing is visible to a passing eye. The loading cart behind her creaks as a cooper shifts a barrel. "Guild contract details are Category One. You'd need a registered review authority." She says it without looking up. The words come out practiced — in the cadence of a clerk reading a posted policy rather than in her own voice. The cart moves. The conversation doesn't continue. A second merchant two stalls over has already turned back to his own accounts, but his pen has stopped moving.`;
+          addJournal('Trade agreements blocked without formal guild authorization', 'evidence', `guildheart-merchant-blocked-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';

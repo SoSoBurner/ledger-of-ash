@@ -41,8 +41,13 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Chapel worker reported your inquiry to shrine authority', 'complication', `fairhaven-chapel-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Sister Mara admits the blessing pace has changed. "We serve more households now," she says, but her hands move to her prayer cord and stay there. She doesn't explain the new timeline. She doesn't quite meet your eyes. The compound smell of the burner fills the space between sentences — cedar with something heavier underneath. Whatever the ritual authority told her about the change, she hasn't made peace with it, and the prayer cord keeps moving between her fingers long after she stops speaking.`;
-        addJournal('Chapel worker acknowledged acceleration of blessings', 'evidence', `fairhaven-chapel-acceleration-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_elder_cassian) {
+          G.lastResult = `Sister Mara's hands stop on the prayer cord when you mention Elder Cassian. A beat. "She sent you." Not a question — she says it the way someone says the name of a relief they hadn't expected. "The smell changed at the same time the pace changed. I noticed. I didn't know if it was safe to say so." She reaches into her vestment pocket and produces a fragment of the old compound — sealed in a cloth envelope, her own handwriting on the outside. "Cassian said to pass this along if someone asked the right questions."`;
+          addJournal('Chapel worker gave compound sample fragment — coordinated disclosure with Elder Cassian', 'evidence', `fairhaven-chapel-cassian-${G.dayCount}`);
+        } else {
+          G.lastResult = `Sister Mara admits the blessing pace has changed. "We serve more households now," she says, but her hands move to her prayer cord and stay there. She doesn't explain the new timeline. She doesn't quite meet your eyes. The compound smell of the burner fills the space between sentences — cedar with something heavier underneath. Whatever the ritual authority told her about the change, she hasn't made peace with it, and the prayer cord keeps moving between her fingers long after she stops speaking.`;
+          addJournal('Chapel worker acknowledged acceleration of blessings', 'evidence', `fairhaven-chapel-acceleration-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';
@@ -85,8 +90,13 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Kellen concedes that shipments have been arriving on odd schedules. "Some come late. Some not at all, then double the next week." He calls it market adjustment and doesn't push further. His pen keeps moving across the ledger as he talks, like he's decided not to be in this conversation officially. Behind him, on the manifest cabinet against the back wall, a drawer two positions to the left of the one he opened for you is sealed with red administrative wax — same color, same stamp impression as the Collegium-issued seals on the public filing board beside the door. The drawer he showed you carries no such seal.`;
         addJournal('Broker confirmed unusual supply pattern disruption', 'evidence', `fairhaven-broker-pattern-${G.dayCount}`);
       } else {
-        G.lastResult = `Kellen closes the ledger without looking up. "Supply chain specifics are between the parties to the transaction." He says it the way people say things they've rehearsed. A stack of receipts gets squared against the table edge. A rope of dried herbs gets retied. The stall fills with small motions that have nothing to do with you and everything to do with not having to meet your eyes. By the time he's finished the third unnecessary task, the window has closed, and he's made sure it doesn't reopen.`;
-        addJournal('Broker blocked supply chain inquiry', 'evidence', `fairhaven-broker-blocked-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_nyse_garrison) {
+          G.lastResult = `Kellen looks past you to the square, then leans forward. "The soldier you were speaking with — she patrols this row twice per shift since the diversions started." He squares the ledger but doesn't open it. "Someone is using the route change to count what I stock. Not what I sell — what I have on hand before I sell it." He glances toward the manifest cabinet, the sealed drawer. "Nyse doesn't know what she's counting for. But whoever told her to count it does."`;
+          addJournal('Broker revealed garrison patrol correlates with supply census — stocktaking ahead of diversions', 'evidence', `fairhaven-broker-nyselink-${G.dayCount}`);
+        } else {
+          G.lastResult = `Kellen closes the ledger without looking up. "Supply chain specifics are between the parties to the transaction." He says it the way people say things they've rehearsed. A stack of receipts gets squared against the table edge. A rope of dried herbs gets retied. The stall fills with small motions that have nothing to do with you and everything to do with not having to meet your eyes. By the time he's finished the third unnecessary task, the window has closed, and he's made sure it doesn't reopen.`;
+          addJournal('Broker blocked supply chain inquiry', 'evidence', `fairhaven-broker-blocked-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';

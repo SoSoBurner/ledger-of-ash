@@ -37,8 +37,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.pressure++;
         addJournal('Stable Factor now protective of maritime trade allocation', 'complication', `cosmoria-trade-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Aurek sets down his tally sheet and admits berth priority has been "irregular this season." He gestures toward the harbor window — three brigs riding at anchor in the outer channel, loading cranes idle above them. "Weather and tides make scheduling difficult. That's always been true." He picks up the tally again before you can follow up. The three brigs at anchor are all flying independent merchant pennants — the berths they're waiting for are occupied by vessels with Cosmouth house flags that arrived after them.`;
-        addJournal('Stable Factor confirmed inconsistent route allocations', 'evidence', `cosmoria-trade-pressure-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_kavan_sailor) {
+          G.lastResult = `Aurek sets down his tally sheet. "You've spoken to Kavan." He glances toward the crane operators below. "He filed a formal complaint about his berth delay. I received the complaint three hours after he submitted it — with a notation that it had been 'administratively reviewed.'" He taps the counting-house rail. "His complaint was reviewed before I read it. The harbor administration has access to the filing intake. The berths they favor aren't assigned — they're reserved in advance, before the tide schedules are even posted."`;
+          addJournal('Stable Factor confirmed Kavan complaint intercepted by harbor administration before arbitration', 'evidence', `cosmoria-trade-kavanlink-${G.dayCount}`);
+        } else {
+          G.lastResult = `Aurek sets down his tally sheet and admits berth priority has been "irregular this season." He gestures toward the harbor window — three brigs riding at anchor in the outer channel, loading cranes idle above them. "Weather and tides make scheduling difficult. That's always been true." He picks up the tally again before you can follow up. The three brigs at anchor are all flying independent merchant pennants — the berths they're waiting for are occupied by vessels with Cosmouth house flags that arrived after them.`;
+          addJournal('Stable Factor confirmed inconsistent route allocations', 'evidence', `cosmoria-trade-pressure-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';
@@ -79,8 +84,13 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Coralyn admits provisions have been "difficult to reconcile this quarter." She shows you a single page — rope inventory, two entries that don't add up by thirty fathoms. She covers the column header with her thumb, then lifts it. "Transit loss." She covers it again. "I was told it's standard." She can't tell you what transit loss means, or who authorized that header. Her thumb stays on the line after she stops speaking. The correction appears across three consecutive pages; whoever adjusted these figures is still working through the ledger. Someone was cleaning the record ahead of you. They are still doing it.`;
         addJournal('Quartermaster confirmed supply allocation ambiguity — record being cleaned ahead of inquiry', 'evidence', `cosmoria-supplies-unclear-${G.dayCount}`);
       } else {
-        G.lastResult = `Coralyn says the ledgers require a Cosmouth supply warrant to access. She says it without meeting your eyes, her thumb pressed flat against the warrant procedure notice on her desk as if to keep it from speaking for her. The process takes three days minimum, routes through the harbor administration that manages dock priority, and requires a reason in writing. The clerk of arrivals, Tideon, holds a separate set of carbon copies of the supply receipts as part of the manifest filing chain — a parallel record that doesn't require the same warrant.`;
-        addJournal('Supply records blocked without archive authorization', 'evidence', `cosmoria-supplies-blocked-${G.dayCount}`);
+        if (G && G.flags && G.flags.met_iron_compact_cosmoria) {
+          G.lastResult = `Coralyn's eyes go to the Iron Compact emblem on the document visible in your bag. "You know who manufactures the rope." She says it flatly, then checks the corridor. "The Compact factor came here two months ago and showed me the same ledger entry — the one that says their delivery never arrived, while the supply log says it did. The log is wrong. The Compact delivery came in, was signed off by a third party, and went somewhere other than the quartermaster's store." She sets the ledger down. "I don't know where. I know I didn't sign it out."`;
+          addJournal('Quartermaster confirmed Iron Compact delivery diverted by third party — records falsified', 'evidence', `cosmoria-supplies-compact-${G.dayCount}`);
+        } else {
+          G.lastResult = `Coralyn says the ledgers require a Cosmouth supply warrant to access. She says it without meeting your eyes, her thumb pressed flat against the warrant procedure notice on her desk as if to keep it from speaking for her. The process takes three days minimum, routes through the harbor administration that manages dock priority, and requires a reason in writing. The clerk of arrivals, Tideon, holds a separate set of carbon copies of the supply receipts as part of the manifest filing chain — a parallel record that doesn't require the same warrant.`;
+          addJournal('Supply records blocked without archive authorization', 'evidence', `cosmoria-supplies-blocked-${G.dayCount}`);
+        }
       }
 
       G.recentOutcomeType = 'investigate';
