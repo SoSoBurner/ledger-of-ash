@@ -1460,6 +1460,1114 @@ const STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  // ========== COLLEGIUM FACTION PATH EXPANSION (choices 5–12) ==========
+
+  {
+    id: 's2_collegium_5',
+    label: 'Filing the audit request means flagging the filer.',
+    skill: 'wits',
+    tags: ['Evidence', 'Risk'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 2;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.collegium_audit_flagged = true;
+        addNarration('', 'The internal audit request goes through — but the submission form requires a requester name, and names on audit requests go into a secondary log that is not part of the main index. Seld told you this before you filed it. The log exists, the request exists, and the records you are asking about are now associated with someone who asked about them. The archivist who processes the request does not look at you while she stamps it. The stamp is heavier than it needs to be.');
+        addJournal('Internal audit request filed under own name. Audit log now links requester to suppressed records — access gained, exposure increased.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The form requires a category code from the processing clerks, and the processing clerks are not available until the afternoon rotation. The audit request sits in a pending tray. Seld finds you in the corridor and says the pending tray is reviewed by the reading room supervisor, who logs every request that waits more than two hours. You retrieve the form before the two hours pass. The request has not been filed. The window is still open, but narrower than before.');
+        addJournal('Audit request stalled — requires processing clerk category code. Pending tray under supervisor review.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The audit request requires a category code not available through public channels. The form sits unsubmitted, but the window is still open.'
+    }
+  },
+
+  {
+    id: 's2_collegium_6',
+    label: 'The Collegium source wants something before she speaks.',
+    skill: 'charm',
+    tags: ['Social', 'Negotiation'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 3;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.collegium_witness_met = true;
+        addNarration('', 'She names what she wants without preamble: confirmation that someone outside the Collegium has seen the same routing numbers she has. Not proof, not documents — just confirmation. You give it. She considers for a moment, then produces a folded sheet from inside her sleeve. Three suppression batch references, two dates, and a notation in the margin in a different hand from the main text. The other hand belongs to a records clerk who left the Collegium fourteen months ago under unclear circumstances. She did not say that. You inferred it from the dates.');
+        addJournal('Collegium source provided suppression batch references with marginal notation from a former clerk. Source confirmed: the pattern extends to personnel removals.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'She listens and does not move. What you can offer her is not what she named. She asks one more question — whether you have spoken to anyone in the transit authority directly — and when you answer, something in her posture closes slightly. She says she needs to think. She will be in the east reading room on the morning rotation for the next six days. She does not say which of those days she will be ready to speak.');
+        addJournal('Collegium source declined exchange — requires transit authority confirmation first. Morning rotation contact window open.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The source is not ready to speak yet. She needs confirmation from outside the archive before she will move. The morning rotation window stays open.'
+    }
+  },
+
+  {
+    id: 's2_collegium_7',
+    label: 'The sealed records partition runs on a different access schedule.',
+    skill: 'finesse',
+    tags: ['Stealth', 'Evidence'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 4;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.collegium_sealed_accessed = true;
+        addNarration('', 'The sealed partition uses a rotating key schedule — the same key does not work two days running. The rotation is not posted anywhere, but the clerks who work the partition have to check a board inside the reading room vestibule every morning. You watch the board for two mornings before you understand the pattern. On the third morning you are in and out before the first shift rotation. What you find is a suppression manifest — not the records themselves but the index to them, annotated by hand with a phrase you have not seen before: "axis exploitation, restricted disclosure."');
+        addJournal('Sealed partition accessed. Suppression manifest found with marginal notation: "axis exploitation, restricted disclosure." First reference to the subject of the suppression operation.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The partition key does not match today. Someone changed the schedule — either routine rotation or a response to the audit request. The vestibule board has been wiped clean. A clerk passes through the partition without acknowledging you. Whatever window existed in the rotation has closed. There will be another cycle, but you do not know when, and the audit request may have shortened the interval.');
+        addJournal('Sealed partition access failed — key rotation changed. Audit request may have triggered schedule change.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The partition key rotation is unpredictable. The vestibule board provides the pattern — watch it longer before attempting access again.'
+    }
+  },
+
+  {
+    id: 's2_collegium_8',
+    label: 'One Collegium member broke with the faction over this suppression.',
+    skill: 'charm',
+    tags: ['Social', 'Evidence'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 5;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'He left the Collegium\'s administrative tier fourteen months ago. He says it plainly, without bitterness: he raised a procedural objection to a suppression batch at a records review meeting and the meeting ended early. No one spoke to him afterward. His access to the secondary index was revoked within a week. He still attends the Collegium as a researcher — the research credentials were not pulled, only the administrative ones. He says that tells him something about how the suppression was authorized: narrowly, specifically, and at a level that knew the difference between access types.');
+        addJournal('Former Collegium administrator described selective credential revocation following suppression objection. Authorization was narrow and access-type-specific.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'He listens and does not react with surprise. He has thought about this longer than you have. He asks who sent you, and when you give him an answer he considers adequate, he says: he already told someone else what he knows, and that person has not come back. He does not know if that is because they found what they needed or because they found something else. He will speak again if you can tell him what happened to the first one.');
+        addJournal('Former Collegium administrator: spoke to previous inquirer who did not return. Will share knowledge when prior contact is accounted for.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The former administrator will not speak until the prior inquirer is accounted for. He is not hostile — only careful in a way that suggests he has reason to be.'
+    }
+  },
+
+  {
+    id: 's2_collegium_9',
+    label: 'The suppression authorization came through a transit stamp, not a signatory.',
+    skill: 'wits',
+    tags: ['Evidence', 'Lore'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 6;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The suppression mandate does not carry a personal seal. It carries a transit authority stamp — the kind issued to routing post supervisors to certify cargo manifests. Someone used a transit stamp in place of an administrative signatory, which is procedurally irregular but not technically invalid, because the transit authority charter predates the Collegium\'s suppression protocol by forty years. Whoever authorized this knew the gap existed. The transit post with that stamp series is registered in the Soreheim district. You write down the stamp reference number.');
+        addJournal('Suppression authorization routed through a transit authority stamp, not a personal seal. Stamp series registered to Soreheim transit district — institutional gap exploited deliberately.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The authorization format is unusual — you can see that much. But the procedural basis for the stamp usage requires access to the transit authority charter, which is filed in a different section of the index than the suppression records. The two systems were never designed to interface. You note the stamp reference number and the discrepancy. The charter section is publicly accessible, but cross-referencing it will take time.');
+        addJournal('Transit stamp used in suppression authorization — procedural basis requires charter cross-reference. Stamp reference noted.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The transit charter cross-reference is publicly accessible. The stamp reference number is already noted — the procedural gap just needs time to trace.'
+    }
+  },
+
+  {
+    id: 's2_collegium_10',
+    label: 'Third record. The coordination extends well beyond this polity.',
+    skill: 'wits',
+    tags: ['Evidence', 'Confrontation'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && G.flags.collegium_witness_met && (G.stageProgress[2] || 0) >= 7;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        G.flags.collegium_evidence_complete = true;
+        addNarration('', 'The third record is not from this archive. The Collegium witness produced it from her own keeping — a certified copy of a suppression manifest from a different polity, same routing codes, same stamp series, filed in the same fourteen-month window. The axis exploitation operation was not local. The Collegium in three separate jurisdictions processed suppression batches using the same procedural gap. Someone coordinated this across institutional boundaries without leaving a personal name on any of it. The transit stamp mechanism was the point: it authorized everything without anyone being personally accountable for it.');
+        addJournal('Third suppression record confirmed: axis exploitation operation coordinated across at least three polities using same transit stamp mechanism. No personal authorization — institutional accountability gap exploited at scale.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The record exists — she brought it. But the Collegium certification on it requires a provenance check before it can be used as evidence, and the provenance office is the same office that processed two of the suppression batches in question. She knows this. She says she has submitted a provenance challenge through a separate channel, but challenges take thirty days. The record is real. The mechanism for using it is currently blocked by the mechanism it documents.');
+        addJournal('Third suppression record in hand but certification blocked by the same office it documents. Provenance challenge filed — thirty-day delay.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The third record is real but currently blocked by a provenance challenge. The thirty-day window is running — the evidence trail is complete in substance, if not yet in procedure.'
+    }
+  },
+
+  {
+    id: 's2_collegium_11',
+    label: 'The Collegium will provide cover for the confrontation. At a price.',
+    skill: 'charm',
+    tags: ['Social', 'Alliance'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 8;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.collegium_cover_arranged = true;
+        addNarration('', 'The Collegium faction\'s price is specific: a certified copy of the suppression manifest, filed into the Collegium\'s own sealed index under a category they designate, before any confrontation moves forward. They want the record inside their institutional structure where it cannot be quietly destroyed. The confrontation can proceed once that copy is filed. You agree. Seld counts through all five fingers, both hands, and says the category designation will be ready by morning. The price is not unreasonable. It is the price of having an institution with you rather than in your way.');
+        addJournal('Collegium faction agreed to provide confrontation cover in exchange for certified copy filed in sealed institutional index. Cover arranged pending morning filing.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The Collegium representative listens to the proposal and says: not yet. The evidence trail needs one more confirming element before the faction will commit institutional backing to a confrontation. They are not refusing — they are waiting for a threshold they have not named explicitly. Seld\'s count stops at three. He says he will tell you when the threshold is met.');
+        addJournal('Collegium cover not yet arranged — faction waiting for additional confirming evidence before committing to confrontation backing.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The Collegium faction is not yet ready to commit. They will signal readiness when their internal threshold is met — the window is not closed.'
+    }
+  },
+
+  {
+    id: 's2_collegium_12',
+    label: 'The final Collegium record names the mechanism. Not the person behind it.',
+    skill: 'wits',
+    tags: ['Evidence', 'Discovery'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 9;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        G.flags.gleam_mechanism_identified = true;
+        addNarration('', 'The record is a suppression authorization form — not a batch manifest but the underlying authorization itself. At the top of the form, in administrative typeface, a single line reads: "Enforcement mechanism: GLEAM." Below it, a certification stamp and a transit authority reference number. GLEAM is not a person. It is the name of the enforcement mechanism — the system that coordinates suppression across jurisdictions using transit authority infrastructure. The Collegium record does not name who authorized GLEAM or who administers it. It only confirms that GLEAM exists, that it has a name, and that someone in the transit authority structure knew what to call it.');
+        addJournal('Suppression authorization form identifies enforcement mechanism by codename: GLEAM. Mechanism uses transit authority infrastructure to coordinate cross-jurisdictional suppression. No personal authorization identified — only the mechanism.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The authorization form is behind a locked case in the restricted stacks. The case requires a dual-access process: one key from the reading room supervisor, one from the partition clerk. The partition clerk is on leave until the day after tomorrow. The form is visible through the case glass. One line of typeface is legible from outside the glass — a single word in administrative font that you cannot fully make out at this distance. It begins with G.');
+        addJournal('Authorization form visible in locked case — dual-access required. Partition clerk on leave. Single word legible through glass: begins with G.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The authorization form is behind a dual-access lock. The partition clerk returns the day after tomorrow — the G-word visible through the glass will still be there.'
+    }
+  },
+
+  // ========== ROAD WARDENS FACTION PATH EXPANSION (choices 5–12) ==========
+
+  {
+    id: 's2_wardens_5',
+    label: 'The runner knows three routes nobody maps.',
+    skill: 'finesse',
+    tags: ['Stealth', 'Intelligence'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && (G.stageProgress[2] || 0) >= 2;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.wardens_route_known = true;
+        addNarration('', 'The runner does not write routes down. She walks them, memorizes the variables — which overhangs shelter in rain, which alley angles give sightlines to both checkpoint posts, which dock worker changes shifts at what hour. Three routes. None of them appear on any district transit map. She recites the first two in forty words each, then stops. The third route she will only walk with you, not describe. She picks up her coat and looks at the door. The third route goes somewhere you are going to need.');
+        addJournal('Road Wardens runner identified three unmapped routes through monitored transit district. Third route requires personal escort — she is ready to move.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'She is cautious in a way that suggests she has been burned before. She gives you the first route — one, not three — and watches how you receive the information before committing to the rest. The single route is real: a loading dock alley that bypasses the secondary checkpoint entirely. She says the other two routes depend on who sent you and why. She needs to verify something first. She will find you. She does not say when.');
+        addJournal('Runner provided one of three unmapped routes. Full route access conditional on verification of referral. Partial route confirmed operational.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The runner is cautious. One route confirmed. She is verifying the referral before sharing the rest — she will find you when she is ready.'
+    }
+  },
+
+  {
+    id: 's2_wardens_6',
+    label: 'The cargo broker speaks if the Road Wardens vouch for the meeting.',
+    skill: 'charm',
+    tags: ['Social', 'Evidence'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && (G.stageProgress[2] || 0) >= 3;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.wardens_broker_testimony = true;
+        addNarration('', 'The broker sits with his back to the wall and both hands on the table. The Road Wardens\' vouching is what brought him here, not anything you said. He speaks in the precise, clipped register of someone who has rehearsed this. He handled three cargo movements under the axis exploitation operation. He did not know what the cargo was. He knew the routing was non-manifest and he knew who approved the non-manifest status — not a person\'s name, but a process designation. The same process designation appears on two other manifests he was pressured to countersign. He kept copies of all three. He hands them across the table without being asked.');
+        addJournal('Coerced cargo broker provided testimony and copies of three non-manifest cargo approvals under axis exploitation operation. Process designation confirmed on multiple manifests.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The broker came because the Road Wardens vouched for the meeting, but he arrived already frightened. He sits down, starts to speak, then asks who else has been told about this meeting. When you answer honestly, his hands come off the table. He says he thought this would be a smaller circle. He is not leaving — yet. But the testimony he prepared is back behind his teeth, and getting it out will require rebuilding the trust the answer damaged.');
+        addJournal('Broker arrived frightened — testimony withheld after disclosure question. Circle of knowledge wider than expected. Meeting not lost, but trust damaged.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The broker is still at the table. The trust damage can be repaired — but it will require honesty about why the circle of knowledge is the size it is.'
+    }
+  },
+
+  {
+    id: 's2_wardens_7',
+    label: 'The safe house holds records the archive destroyed.',
+    skill: 'wits',
+    tags: ['Evidence', 'Discovery'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && (G.stageProgress[2] || 0) >= 4;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The safe house is a storage room above a cooperage — barrels going in and out at irregular hours providing cover for everything else. The Road Wardens\' records are not organized by category. They are organized by the people who kept them: each bundle tied with cord in a different color, each color belonging to someone who passed through and left what they had. Three bundles contain duplicates of Collegium records marked for destruction. The destruction order carries a category stamp: "Procedural Alignment." The records themselves were not destroyed. They were copied first, by someone who knew the order was coming.');
+        addJournal('Road Wardens safe house contains duplicated Collegium records marked for destruction under "Procedural Alignment" category. Pre-destruction copies confirm suppression was anticipated and prepared against.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The safe house holds more than you can review in one visit. The records are not indexed — they are stored by keeper, in bundles, by color of cord. You get through two bundles before the cooperage below gets busy enough that someone comes upstairs to check. You leave with what you found in the first bundle, which confirms the safe house is real and the records are genuine, but does not give you the specific documentation you need. A second visit will require a different entry time.');
+        addJournal('Safe house records confirmed genuine — two bundles reviewed. Full documentation requires second visit at lower-traffic time.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The safe house records are genuine. A second visit at a lower-traffic hour will reach the specific documentation — the cooperage schedule provides the window.'
+    }
+  },
+
+  {
+    id: 's2_wardens_8',
+    label: 'Someone displaced by the suppression is still in Shelk.',
+    skill: 'charm',
+    tags: ['Social', 'Moral'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && (G.stageProgress[2] || 0) >= 5;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'He is not hiding, exactly — he is living in a way that does not accumulate records. No registered address, no guild affiliation, work that pays in coin without ledger entries. He speaks slowly and in order, as if he has told this before and knows which parts matter: the axis exploitation operation removed the operational records of his trading post before the post was formally closed. The closure order came after the records were gone. He has been waiting in Shelk for fourteen months because the records that would prove his post was solvent are the same records that disappeared. He asks whether you have found them.');
+        addJournal('Displaced trading post operator waiting in Shelk: records removed before post was formally closed. Operational records would prove solvency — same records in suppression batch.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'He is wary — not of you specifically but of anyone who asks about the suppression. He has been approached before, twice, by people who said they were pursuing the same thread and who he has not seen since. He asks which faction sent you. When you tell him, he is quiet for a moment. Then he says: the Road Wardens have their own reasons for wanting this exposed, and those reasons are not the same as his. He is not refusing. He wants to understand whose agenda he is serving before he speaks.');
+        addJournal('Displaced operator cautious — previous inquirers did not return. Aware of Road Wardens\' separate agenda. Will speak when motivation is clarified.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The displaced operator will speak — but he wants to understand whose interests he is serving. Clarifying the distinction between his goal and the Road Wardens\' will open him.'
+    }
+  },
+
+  {
+    id: 's2_wardens_9',
+    label: 'The Road Wardens know who runs enforcement. They use a codename.',
+    skill: 'finesse',
+    tags: ['Intelligence', 'Stealth'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && (G.stageProgress[2] || 0) >= 6;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The Road Wardens\' senior contact does not write the codename down. She says it once, in a low register, in the middle of a sentence about something else, the way you say a word you do not want anyone in the room to associate with the conversation: Gleam. That is the codename. She does not know if it is a person, a process, or an institutional structure. She knows it has been used in three separate enforcement actions in the past two years, always in connection with transit authority routing, and that no one who tried to identify what is behind it has stayed in a position to keep trying. She says that last part without apparent emotion.');
+        addJournal('Road Wardens senior contact confirmed enforcement codename: Gleam. Linked to three separate enforcement actions via transit authority routing. No one who identified it has continued the inquiry — source stated this without elaboration.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'She almost says it. The word is halfway out before she stops, looks at the door, and finishes the sentence differently. The context gives the shape of it: a codename, one syllable, linked to enforcement actions that use transit authority infrastructure. She says she will tell you the rest when she is satisfied that you have a way out of this that does not go through any institution she knows. She is not being difficult. She has watched what happens to people who know the name without knowing what to do with it.');
+        addJournal('Road Wardens senior contact: enforcement codename withheld pending confirmation of exit strategy. One syllable, transit authority linked.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The source will share the codename when she has confidence in the exit strategy. The shape of the word is already visible in the context — one syllable, transit-linked.'
+    }
+  },
+
+  {
+    id: 's2_wardens_10',
+    label: 'Black market manifests name the routing point. Not the authority behind it.',
+    skill: 'wits',
+    tags: ['Evidence', 'Intelligence'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && G.flags.wardens_broker_testimony && (G.stageProgress[2] || 0) >= 7;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        addNarration('', 'The black market manifests the broker provided contain a routing point that appears in every non-manifest movement: the Soreheim Transit Post. Not the district, not the corridor — the specific post, which is a small waystation operated by a single supervisor whose name appears on the transit stamps used to authorize the suppression mandates. The supervisor\'s name is Torveld Mast. He countersigned the non-manifest movements and he stamped the suppression authorizations, and neither action was technically outside his authority. The mandate structure was built around what he could legally do.');
+        addJournal('Black market manifests confirm routing point: Soreheim Transit Post. Supervisor Torveld Mast countersigned non-manifest cargo and stamped suppression authorizations — both within his technical authority. Transit stamp mechanism built around his legal scope.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The manifests name a transit post but not a person — the stamps on them are position stamps, not personal seals. The routing post supervisor changes on a scheduled rotation, and the manifests span eighteen months. The same stamp appears across the full period, which means either one supervisor held the position for the entire period or the stamps were applied by someone with access to the position stamp rather than by the supervisor personally. Both possibilities are worth noting. The broker confirms the second possibility exists but says he does not know which it was.');
+        addJournal('Black market manifests identify transit post routing point — position stamps, not personal seals. Eighteen-month span with single stamp type: supervisor held position or stamps used without personal authorization.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The routing point is confirmed. The question of personal versus positional authorization requires access to the transit post personnel record — that is the next step.'
+    }
+  },
+
+  {
+    id: 's2_wardens_11',
+    label: 'The Road Wardens can create a distraction when the confrontation comes.',
+    skill: 'finesse',
+    tags: ['Alliance', 'Stealth'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && (G.stageProgress[2] || 0) >= 8;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.wardens_distraction_arranged = true;
+        addNarration('', 'The Road Wardens\' price is operational: they want the confrontation documentation shared with them before any Collegium filing, not after. They want to move first, before the institutional layer can respond. The distraction they are offering is real — a simultaneous disruption at the secondary checkpoint that will pull the enforcement presence away from the primary site for approximately twenty minutes. They have done this before. The twenty minutes is a hard window and they will not extend it. You agree to the sequence. The senior contact notes the agreement without writing it down.');
+        addJournal('Road Wardens agreed to provide twenty-minute enforcement distraction in exchange for pre-filing documentation access. Timing is fixed — window will not extend.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The senior contact is interested but not committed. The distraction requires coordinating two separate Road Wardens cells, and the cells are not currently in contact with each other. She can arrange it, but it will take four days and she needs a specific commitment on the documentation sequence before she begins the coordination. She is not asking for much. She is asking for something that commits you to a sequence you have not yet agreed to. The four-day window is real.');
+        addJournal('Road Wardens distraction possible but requires four-day coordination and pre-commitment on documentation sequence. Window is real — decision required.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The Road Wardens need four days and a sequence commitment. The distraction window is real once the coordination is complete — the decision needs to be made now.'
+    }
+  },
+
+  {
+    id: 's2_wardens_12',
+    label: 'The final Road Wardens source has the enforcement action itself documented.',
+    skill: 'wits',
+    tags: ['Evidence', 'Discovery'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && (G.stageProgress[2] || 0) >= 9;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 14) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+        G.flags.gleam_mechanism_identified = true;
+        addNarration('', 'The source is a former transit authority record keeper who has been carrying this documentation for eleven months, waiting for someone with enough context to understand what it means. The document she produces is an enforcement action order — the primary document, not a copy. At the top: "Enforcement mechanism: GLEAM. Authorization: Ironveil ORE Marshal transit certification." GLEAM is the mechanism\'s name. The enforcement action is what the axis exploitation suppression actually was: a coordinated erasure authorized through ORE Marshal certification, routed through Gleam, and processed by the transit stamp mechanism at Soreheim. The name Ironveil is in the authorization line. Not as a signatory. As the office that issued the certification that allowed the mechanism to function.');
+        addJournal('Former transit record keeper provided primary enforcement action order: mechanism named GLEAM, authorization via Ironveil ORE Marshal transit certification. Gleam is the mechanism; Ironveil provided the institutional authorization that made it operational.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The source arrived but not with the document. She says the document is in a secure location and she will not bring it to a meeting she cannot verify. She needs to see the network that will protect her after she produces it — not a promise, but evidence of the network\'s existence. The Road Wardens can provide that evidence. She knows who to ask. She gives you the name of the Road Wardens contact to send. She will meet again once she has spoken to that contact directly.');
+        addJournal('Final source present but document held pending network verification. Road Wardens contact name provided — source will re-engage after verification meeting.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The source needs to verify the protection network before she produces the document. The Road Wardens contact she named is the next step — she will re-engage after that meeting.'
+    }
+  },
+
+  // ========== ARCHETYPE VARIANTS: COLLEGIUM PATH (4 families) ==========
+
+  {
+    id: 's2_collegium_arch_combat',
+    label: 'Collegium security here is surveillance architecture, not witness protection.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Combat', 'Intelligence'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'combat';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.might || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The Collegium entrance posts are staffed by people trained to watch, not to stop. The sight lines are positioned to log arrivals, not to intercept threats — every blind spot is in the direction that would matter for protecting a witness, not in the direction that would matter for tracking a visitor. Someone designed this building to know who enters and with whom, not to protect the people inside from the people outside. The security arrangement is not for the Collegium\'s protection. It is for documentation.');
+        addJournal('Collegium security arrangement analyzed: sight lines designed for arrival logging, not witness protection. Building architecture functions as surveillance documentation, not defensive posture.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The entrance staff are more alert than the sight lines suggest. One of them notes you assessing the post arrangement and steps slightly to the side in a way that changes the coverage angle. They have seen people do this before. Your read on the security architecture is still accurate, but someone in this building is more aware of being evaluated than the passive surveillance design would imply.');
+        addJournal('Collegium security assessment noted by entrance staff — arrangement is surveillance-focused, but staff awareness is higher than architecture implies.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The entrance staff noted the assessment. The surveillance architecture is still legible — but with more caution on the next visit.'
+    }
+  },
+
+  {
+    id: 's2_collegium_arch_magic',
+    label: 'The ward scan shows institutional certification before the suppression, not after.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Evidence'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'magic';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.spirit || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The ward layer on the Collegium documents is institutional certification — not protection against tampering, but attestation that the document was processed through the proper channel. The ward signatures predate the suppression orders by two to four weeks on every document you can reach. The certification was applied before the suppression was processed. Whoever authorized the suppression used the certification infrastructure as the mechanism, not as a consequence of the process. The wards are the authorization, not the record of it.');
+        addJournal('Ward scan confirms institutional certification predates suppression orders by 2-4 weeks. Certification infrastructure used as authorization mechanism, not as post-process record.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The ward layer is present but layered — multiple certifications, different ages, some applied in sequence over the same document. The oldest certification layer is the authorizing one, but reading the sequence requires a longer attunement than the reading room permits. The ward pattern is real and meaningful; reading it fully will require a less supervised environment and more time than is available now.');
+        addJournal('Ward scan incomplete — multiple certification layers require extended attunement. Oldest layer is the authorizing one. More time in unsupervised access needed.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The ward certification sequence needs extended attunement. The layering pattern is meaningful — unsupervised access will complete the reading.'
+    }
+  },
+
+  {
+    id: 's2_collegium_arch_stealth',
+    label: 'Irregular gaps in the Collegium meeting schedule. Something happens in those gaps.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Stealth', 'Discovery'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The Collegium\'s posted meeting schedule has four gaps in the past eight weeks — each exactly ninety minutes, each on a day when the reading room supervisor is listed as absent. The gaps fall at irregular intervals, which means they are not a routine maintenance window. You track the next gap two days in advance and watch the building from the secondary entry point. Three people enter during the ninety minutes who are not on any publicly posted access list. One of them carries a sealed document case with a transit authority stamp on the latch.');
+        addJournal('Collegium meeting schedule contains four irregular ninety-minute gaps matching reading room supervisor absences. Three unregistered visitors during observed gap — one carrying transit-authority-stamped document case.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The schedule gaps are real but the next one falls during a district inspection period, which means the secondary entry point has additional foot traffic and a posted observer. Watching without being part of the crowd is harder than usual. You see two people enter during the gap but cannot track them to a specific destination inside the building. The pattern is confirmed; the specific content of the meetings inside those gaps is still unobserved.');
+        addJournal('Collegium schedule gaps confirmed — observation of specific gap content blocked by district inspection foot traffic. Pattern real, meetings unobserved.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'District inspection traffic obscured the gap observation. The pattern is confirmed — the next gap outside inspection period will provide cleaner access to the visitor list.'
+    }
+  },
+
+  {
+    id: 's2_collegium_arch_support',
+    label: 'Collegium members who asked too many questions faced internal social pressure.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Intelligence'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'support';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The pattern is consistent across four separate accounts: a member asks a procedural question about the suppression batches, the question is answered without incident, and then — over the following two weeks — small things change. Reading room appointments become harder to schedule. Collaboration requests go unanswered. Social invitations stop arriving. Nobody does anything hostile or explicit. The social infrastructure of the Collegium simply redirects around the person who asked. It is not punishment. It is something more effective than punishment: exclusion without accusation.');
+        addJournal('Four accounts confirm same post-question pattern: no explicit retaliation, but systematic social exclusion over two weeks. Collegium suppression enforced through social infrastructure, not administrative action.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'People will describe the social pattern but not attach names to it. They are still inside the institution and they know how the exclusion works. What they give you is the texture — the specific small ways the social infrastructure redirects — without the specific cases that would make it documentable. The pattern is real and consistent. Making it documentable requires someone willing to be named, and none of the people who understand it best are willing to be the named case.');
+        addJournal('Social exclusion pattern confirmed by multiple accounts but undocumentable — no one willing to be named case. Texture of mechanism is clear; specific evidence requires willing named source.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The social exclusion pattern is real but undocumentable without a named source. The next step is finding someone willing to be named — they exist inside the institution.'
+    }
+  },
+
+  // ========== ARCHETYPE VARIANTS: ROAD WARDENS PATH (4 families) ==========
+
+  {
+    id: 's2_wardens_arch_combat',
+    label: 'Road Wardens counter-surveillance reveals who watches the watchers.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Combat', 'Intelligence'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'combat';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.might || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The Road Wardens use a rotating three-person counter-surveillance formation — one ahead, one behind, one stationary at a fixed point with sightlines to both. You run it with them twice before you understand what it is revealing: the people watching the Road Wardens are not uniformed enforcement. They are moving in pairs, in civilian clothing, using the same checkpoint patterns the non-manifest cargo used on the routes. Whoever is monitoring the Road Wardens is embedded in the same transit infrastructure the suppression relied on. They are not separate operations. They are the same operation watching itself being watched.');
+        addJournal('Road Wardens counter-surveillance pattern reveals monitors using non-manifest cargo checkpoint methods. Enforcement monitoring and cargo suppression operations use same transit infrastructure — one operation, not two.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The counter-surveillance formation requires three people in a pattern you are not practiced in. You break the formation at the wrong moment and the third member of the pair you were tracking notices the repositioning. They do not pursue, but they mark your face. The Road Wardens abort the rotation and move to a secondary position. You identified two of the three monitoring individuals before the formation broke. Two names, partial descriptions, and a broken cover.');
+        addJournal('Counter-surveillance formation broken — monitoring individual marked cover. Two of three identifications made before abort. Road Wardens moved to secondary position.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'Formation broken and one cover marked. Two of three identifications completed — the third member of the monitoring team will require a different approach to identify.'
+    }
+  },
+
+  {
+    id: 's2_wardens_arch_magic',
+    label: 'Arcane traces confirm documents were certified before their destruction.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Evidence'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'magic';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.spirit || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The destroyed documents left residual arcane traces on the cases that held them — certification ward impressions that persist after the documents themselves are gone. The impressions are faint but readable: institutional certification, applied in sequence, predating the destruction order by two to three weeks. The documents were verified as legitimate through the proper certification channel before the destruction order was issued. Whoever ordered the destruction knew the documents were authentic — the certification confirms it. They were not destroyed because they were false. They were destroyed because they were true.');
+        addJournal('Arcane certification traces on destroyed document cases confirm: documents were institutionally certified before destruction order. Destroyed because authentic, not because false — certification predates destruction by 2-3 weeks.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The arcane traces are present but degraded — the cases were cleaned after the documents were removed, and the cleaning compounds used in transit post storage partially disrupt ward impression residue. You can confirm that certification traces existed. You cannot read the certification sequence or determine the timing relationship between certification and destruction. The traces confirm the documents were certified. The sequence and timing require cleaner residue, which may exist on cases that were not cleaned.');
+        addJournal('Arcane traces confirm document certification — sequence and timing unreadable due to case cleaning. Uncleaned cases may carry cleaner residue. Certification existence confirmed.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'Residue degraded by cleaning compounds. Certification existence confirmed — uncleaned cases at the storage origin point may carry the readable sequence.'
+    }
+  },
+
+  {
+    id: 's2_wardens_arch_stealth',
+    label: 'The Wardens\' route network maps the same gaps the suppression relied on.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Stealth', 'Discovery'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The three unmapped routes the Road Wardens\' runner maintains pass through monitoring gaps in the transit checkpoint network — specific intersections where the checkpoint coverage does not overlap, where a movement can occur between the checkpoint timing cycles without being logged. Laying the Road Wardens\' route map against the non-manifest cargo movements reveals the same gaps, used in sequence, over the same eighteen-month window. The Road Wardens did not design the routes to exploit those gaps. They discovered the gaps because someone else was already using them. The route network and the suppression operation share the same geography of absence.');
+        addJournal('Road Wardens route network overlaps precisely with non-manifest cargo movement paths across same 18-month window. Both use same checkpoint coverage gaps — Road Wardens discovered gaps because suppression operation created them.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The overlay requires the full set of three routes, and the runner has only shared two. The third route — the one she will only walk, not describe — is the critical one. The first two routes confirm the gap pattern exists. The third route is where the pattern resolves into a specific location. She knows you need it. She is deciding whether the time is right to show it to you.');
+        addJournal('Route overlay incomplete — third route needed for full gap pattern resolution. Runner aware of need. Timing decision is hers.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'Third route still needed. The runner is deciding — the gap pattern is already visible in the first two, and she knows what the third one resolves to.'
+    }
+  },
+
+  {
+    id: 's2_wardens_arch_support',
+    label: 'The Road Wardens\' network traces who was silenced, who fled, who stayed quiet.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Moral'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_wardens_contact && typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'support';
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('', 'The Road Wardens maintain a list — not written, but kept — of the people who should have filed reports and didn\'t, the people whose credentials were pulled without stated cause, the people who changed routes or localities or occupations in the fourteen-month window of the axis exploitation operation. Eleven names across four polities. The senior contact recites them without referring to anything. Seven fled to different districts. Three stayed and went quiet. One filed a formal objection through the Collegium and was not heard from again. The list is not evidence. It is the shape of what happened to people who noticed.');
+        addJournal('Road Wardens maintain oral record of 11 individuals displaced or silenced in 14-month axis exploitation window across 4 polities. Pattern: 7 fled, 3 silenced in place, 1 filed Collegium objection and disappeared.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The senior contact begins the list and stops at the third name. That person is someone she knows personally, and she is not certain the context is safe enough to share that connection. She gives you the first two names and says she will continue when she has verified the meeting room against the counter-surveillance pattern. She is not being obstructive. She is being careful in a way that the people on the list were not, which is why she is still here to recite their names.');
+        addJournal('Human cost list partially shared — two of eleven names before stop. Third name too personal for current context. Counter-surveillance verification needed before list continues.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'List paused at third name. Counter-surveillance verification will allow the senior contact to continue — she is protecting the third name, not withholding it.'
+    }
+  },
+
+  // ========== DEAD-ENDS AND RECOVERY PAIRS ==========
+
+  {
+    id: 's2_collegium_deadend_1',
+    label: 'Push the Collegium archivist directly for the suppressed records.',
+    skill: 'charm',
+    tags: ['Social', 'Bold'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && !G.flags.collegium_archivist_burned;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      G.flags.collegium_archivist_burned = true;
+      G.flags.recovery_thread_available = true;
+      addNarration('', 'The archivist closes the ledger and calls for a colleague. The archive closes for the day. You will not get another appointment through normal channels — but the junior archive clerk works evenings, and the archivist does not know her.');
+      addJournal('Collegium archivist: direct approach failed. Archive closed. Evening junior clerk access may remain open.', 'complication');
+      G.recentOutcomeType = 'complication';
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_collegium_deadend_1_recovery',
+    label: 'The junior archive clerk works evenings. The archivist does not know her.',
+    skill: 'finesse',
+    tags: ['Stealth', 'Opportunity'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.collegium_archivist_burned && !G.flags.collegium_archive_recovery_done;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.collegium_archive_recovery_done = true;
+        addNarration('', 'The junior clerk does not know about the earlier visit. She shows you to the suppressed records section with the practiced indifference of someone who assumes all requests are legitimate. The records are where the archivist said they were not. The junior clerk does not comment on this. She returns to her station. The section is quiet and the lamp is good. You have approximately forty minutes before the evening rotation changes.');
+        addJournal('Collegium archive: junior clerk evening access — suppressed records section reached. Forty-minute window before rotation change.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The junior clerk is not on the evening rotation tonight. The archive is closed and the main desk is staffed by the duty archivist who already closed your appointment. She works the same shift three evenings a week — tomorrow is one of them.');
+        addJournal('Junior clerk evening access: clerk absent. She works three evenings per week — tomorrow is one of them.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The junior clerk is not on this evening\'s rotation. She works three evenings per week — tomorrow evening is one of them. The archive stays accessible after hours on those rotation nights.'
+    }
+  },
+
+  {
+    id: 's2_collegium_deadend_2',
+    label: 'The Collegium source will trust a name they know. The Road Wardens\' name.',
+    skill: 'charm',
+    tags: ['Social', 'Risk'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact && !G.flags.collegium_wardens_exposed;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      G.flags.collegium_wardens_exposed = true;
+      G.flags.collegium_alt_source_needed = true;
+      addNarration('', 'The Collegium source goes very still when you mention the Road Wardens. She says she needs a moment, then asks how long you have been working with them. Her expression does not change, but she closes the document she had been preparing to show you and puts it back in her coat. She says she will need to reconsider the arrangement. She leaves. The Road Wardens\' name in a Collegium context closed this thread. A different source — one without the Collegium-Wardens tension — may still be reachable.');
+      addJournal('Collegium source withdrew after Road Wardens affiliation disclosed. Institutional tension closed this channel. Alternative source without Collegium-Wardens exposure needed.', 'complication');
+      G.recentOutcomeType = 'complication';
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_collegium_deadend_2_recovery',
+    label: 'A different Collegium source. One who doesn\'t know about the Road Wardens connection.',
+    skill: 'wits',
+    tags: ['Social', 'Intelligence'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.collegium_wardens_exposed && G.flags.collegium_alt_source_needed && !G.flags.collegium_alt_source_found;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.collegium_alt_source_found = true;
+        addNarration('', 'The Collegium has a research tier that is separate from the administrative tier — researchers who use the archive but are not part of the suppression processing chain. One of them has been following the same routing anomalies for academic reasons and has no knowledge of the Road Wardens\' involvement. He is cautious but not frightened. He speaks about the suppression records with the particular precision of someone who is categorizing a pattern without yet understanding its full implication. He is three steps behind where the evidence actually sits. You can move that along carefully without disclosing the source.');
+        addJournal('Alternative Collegium source found in research tier — independent of administrative suppression chain and unaware of Road Wardens connection. Three steps behind but usable.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The research tier operates on a different schedule and the researchers are not easy to approach without a research-appropriate pretext. The Collegium is not large enough for the previous interaction to have gone unnoticed in the research community — word moves through small institutions. You find two researchers who might be useful but both of them mention having heard something about a recent archive disruption. The alternative source exists. Getting to them requires a cleaner approach.');
+        addJournal('Alternative Collegium research source not yet reached — archive disruption noted in research community. Cleaner pretext needed for research-tier access.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The research community heard about the archive disruption. A research-appropriate pretext will open the research tier without the previous complication carrying over.'
+    }
+  },
+
+  {
+    id: 's2_wardens_deadend_1',
+    label: 'Push the coerced cargo broker past what he offered to give.',
+    skill: 'charm',
+    tags: ['Social', 'Bold'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.wardens_broker_testimony && !G.flags.wardens_broker_burned;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      G.flags.wardens_broker_burned = true;
+      G.flags.wardens_broker_partner_lead = true;
+      addNarration('', 'The broker\'s testimony stops completely. He picks up his cup, looks at it, and sets it back down. He says he told you what he could tell you and you asked for what he cannot tell you. He leaves. He will not come back to another meeting arranged through the Road Wardens. His former business partner handled a different set of the non-manifest movements and they have not spoken in eight months. She may still be reachable through a different channel.');
+      addJournal('Cargo broker burned — pushed past voluntary testimony threshold. Partner handled parallel non-manifest movements and may be reachable independently.', 'complication');
+      G.recentOutcomeType = 'complication';
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_wardens_deadend_1_recovery',
+    label: 'The broker\'s former partner worked a different part of the same operation.',
+    skill: 'charm',
+    tags: ['Social', 'Intelligence'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.wardens_broker_burned && G.flags.wardens_broker_partner_lead && !G.flags.wardens_partner_met;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.charm || 0);
+      if (r.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.wardens_partner_met = true;
+        addNarration('', 'The partner was not coerced in the same way the broker was — she chose the non-manifest work, understood the risk, and stopped when the enforcement pressure started. She is not frightened. She is precise. She handled the return cargo movements — the ones after the axis exploitation operation closed the route, when the same transit infrastructure was used to move something in the opposite direction. She does not know what was moved. She knows the weight categories and the manifest classifications. She hands you the classifications without being asked. They match nothing in any public cargo register.');
+        addJournal('Broker\'s former partner provided return-movement cargo data: same transit infrastructure, post-operation, opposite direction. Weight categories and manifest classifications do not match public cargo register.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The partner is harder to find than expected — she relocated after the enforcement pressure started and her current address is not in any register the Road Wardens have access to. You find the previous address and someone there tells you she moved three months ago to a different district. The trail is real and she is findable, but it will take another day or two to locate the current address through secondary channels.');
+        addJournal('Broker\'s partner relocated — previous address has lead to new district. Trail confirmed real but requires 1-2 days secondary channel search.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'Partner relocated to a different district. Secondary channel search will locate the current address within a day or two — the trail is confirmed real.'
+    }
+  },
+
+  {
+    id: 's2_wardens_deadend_2',
+    label: 'The fastest runner is also the most watched. That is the problem.',
+    skill: 'finesse',
+    tags: ['Stealth', 'Risk'],
+    plot: 'main',
+    condition: function() {
+      return G.flags && G.flags.wardens_route_known && !G.flags.wardens_route_compromised;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      G.flags.wardens_route_compromised = true;
+      G.flags.wardens_backup_courier_needed = true;
+      addNarration('', 'The message is intercepted at the secondary checkpoint. The fastest runner uses the most efficient route — which is also the most watched. The Road Wardens\' senior contact says the runner was held for questioning and released without the message, which means someone has read it. The content of the message was operational, not evidential, but whoever intercepted it now has the shape of the current network. A backup courier with a different route is available. She is slower and less known. Those are not separate advantages.');
+      addJournal('Message intercepted — fastest runner\'s primary route monitored. Network shape exposed. Backup courier available: slower, less known, different route.', 'complication');
+      G.recentOutcomeType = 'complication';
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_wardens_deadend_2_recovery',
+    label: 'The backup courier. Slower, less known, different route entirely.',
+    skill: 'finesse',
+    tags: ['Stealth', 'Opportunity'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.wardens_route_compromised && G.flags.wardens_backup_courier_needed && !G.flags.wardens_backup_courier_active;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.finesse || 0);
+      if (r.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.wardens_backup_courier_active = true;
+        addNarration('', 'The backup courier takes twice as long and charges half as much. He moves through dock districts using cargo manifests as cover — he works a legitimate cargo job during the day and the secondary route is the same physical path, just slower and during off-hours. The message arrives. Three days later than planned, but uncompromised. The slower route and the dock-manifest cover make interception impractical for a surveillance operation that is looking for speed and directness. Neither of those are what he offers.');
+        addJournal('Backup courier route confirmed operational — dock-manifest cover renders interception impractical. Message delivered uncompromised, three-day delay.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The backup courier is available but the message needs reformatting — the intercepted runner used a coded format the backup does not recognize, and the backup courier only carries plaintext to avoid having coded materials found on his person during routine dock checks. Reformatting the message in plaintext requires stripping operational detail that makes it actionable. The message can still be sent. It will be less specific than the original.');
+        addJournal('Backup courier available but requires plaintext format — coded message must be stripped of operational detail. Delivery possible with reduced specificity.', 'complication');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'Backup courier requires plaintext format. Reformatting strips operational detail but the message can still be delivered — reduced specificity is better than interception.'
+    }
+  },
+
+  // ========== NAMED NPC CONDITIONAL VARIANTS ==========
+
+  {
+    id: 's2_enforcement_mechanism_variant',
+    label: 'The enforcement mechanism runs on transit infrastructure nobody questioned.',
+    skill: 'wits',
+    tags: ['Evidence', 'Intelligence'],
+    plot: 'main',
+    questId: 'q_s2_boss',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 3 && !G.flags.enforcement_mechanism_surfaced;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 12) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.enforcement_mechanism_surfaced = true;
+        var _resultText = (G.flags && G.flags.gleam_mechanism_identified)
+          ? 'The enforcement mechanism — Gleam — operates as an overlay on the transit authority\'s existing certification infrastructure. It does not require separate authorization for each suppression action because the transit certification channel was never designed to log what it was certifying. The mechanism functions because a gap in the logging protocol was never closed. Someone identified the gap and built the enforcement architecture around it deliberately. The transit infrastructure was not compromised — it was used exactly as designed, for a purpose its designers did not anticipate.'
+          : 'The enforcement mechanism operates as an overlay on the transit authority\'s existing certification infrastructure. It does not require separate authorization for each suppression action because the transit certification channel was never designed to log what it was certifying. The mechanism functions because a gap in the logging protocol was never closed. Someone identified the gap and built an enforcement architecture around it deliberately. The transit infrastructure was not compromised — it was used exactly as designed, for a purpose its designers did not anticipate.';
+        addNarration('', _resultText);
+        addJournal('Enforcement mechanism confirmed: transit certification logging gap exploited deliberately. Architecture built around the gap, not around any individual authorization.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The transit certification logs are voluminous and organized by movement type, not by authorization source. Cross-referencing the suppression batches against the certification logs requires a category key that is not publicly available. The mechanism is visible as a pattern in the data — the same authorization channel appearing across suppression batches from different jurisdictions — but the procedural basis for that channel is in a separate filing system that requires an endorsement to access.');
+        addJournal('Transit certification cross-reference blocked — category key not publicly available. Mechanism visible as pattern but procedural basis in restricted filing system.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The category key is restricted. The pattern is visible without it — the procedural basis just needs an endorsement to access directly.'
+    }
+  },
+
+  {
+    id: 's2_transit_stamp_variant',
+    label: 'The transit stamp series traces to a specific routing post.',
+    skill: 'wits',
+    tags: ['Evidence', 'Intelligence'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 7 && !G.flags.transit_stamp_traced;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.transit_stamp_traced = true;
+        var _questActive = G.questHints && G.questHints['q_s2_climax'];
+        var _resultText = _questActive
+          ? 'The stamp series on the suppression authorizations traces to the Soreheim Transit Post — a waystation authorized to certify cargo movements under the transit charter. The post supervisor holds a rotating position, but the stamp series is continuous across eighteen months, which means the same supervisor held the position for the full period of the axis exploitation operation. The Soreheim Transit Post is the structural mechanism. Whoever holds the supervisor position holds the stamp. The accountability sits with the position, and right now a specific person holds it.'
+          : 'The stamp series on the suppression authorizations traces to a Soreheim-registered transit post — a waystation authorized to certify cargo movements under the transit charter. The post supervisor holds a rotating position, but the stamp series is continuous across eighteen months, which means the same supervisor held the position for the full period of the axis exploitation operation. The Soreheim post is the structural mechanism. Whoever holds the supervisor position holds the stamp.';
+        addNarration('', _resultText);
+        addJournal('Transit stamp series traced to Soreheim Transit Post. Continuous stamp across 18-month operation period — same supervisor held position throughout. Accountability sits with the supervisorial position.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The stamp series is registered in the transit authority charter annex, which is a publicly accessible document but filed by year of charter amendment rather than by stamp series. Cross-referencing the stamp numbers against the correct charter year requires knowing which amendment introduced the stamp series, which is itself in a sub-index that has not been updated since two years before the axis exploitation operation began. The trail is followable. It requires more time than one archive visit.');
+        addJournal('Transit stamp charter cross-reference requires multi-step archive navigation. Trail followable but requires more than one visit.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'The charter cross-reference requires multiple visits. The stamp registration is there — the sub-index just needs to be located in the correct amendment year.'
+    }
+  },
+
+  {
+    id: 's2_institutional_backing_variant',
+    label: 'The coordination extends beyond this polity\'s institutional structure.',
+    skill: 'wits',
+    tags: ['Evidence', 'Lore'],
+    plot: 'main',
+    questId: 'q_s2_climax',
+    condition: function() {
+      return G.flags && G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 7 && !G.flags.cross_polity_scope_confirmed;
+    },
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20(G.skills.wits || 0);
+      if (r.total >= 13) {
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        G.flags.cross_polity_scope_confirmed = true;
+        var _collegiumDeep = G.flags.stage2_collegium_contact && (G.stageProgress[2] || 0) >= 7;
+        var _resultText = _collegiumDeep
+          ? 'The suppression pattern is not localized. The same routing codes, the same stamp series, the same "Procedural Alignment" category appear in Collegium records from three separate polities — and Dravn Pell, who holds a cross-jurisdictional advisory role at the Collegium tier above Seld\'s section, has access to all three filing systems. His advisory role is nominally administrative. His access record shows him logged into the suppressed partitions at each polity on the same days as the largest suppression batches. He did not authorize the suppression. He was present for it across every jurisdiction where it occurred.'
+          : 'The suppression pattern is not localized. The same routing codes, the same stamp series, the same "Procedural Alignment" category appear in Collegium records from three separate polities. Someone with cross-jurisdictional access was present across all three filing systems during the suppression periods. The authorization did not require a personal signature in any single jurisdiction — but the simultaneous access pattern across all three systems points to coordination from above the polity level.';
+        addNarration('', _resultText);
+        addJournal('Cross-polity suppression scope confirmed: same routing codes, stamp series, and category across three Collegium jurisdictions. Coordination evidence points above polity level.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('', 'The cross-jurisdictional scope is visible as a pattern — the same category stamp, the same routing code format — but confirming it as coordination rather than coincidence requires access to the filing records from the other polities, not just this one. The Collegium\'s inter-polity filing protocol requires a specific authorization level to access records from outside the current jurisdiction. That authorization is obtainable, but through the same administrative tier that processed the suppression batches.');
+        addJournal('Cross-polity suppression pattern visible but confirmation requires inter-polity filing access — obtainable only through the administrative tier that processed the batches.', 'intelligence');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof checkStageAdvance === 'function') checkStageAdvance();
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: {
+      text: 'Inter-polity filing access blocked by the administrative tier that processed the batches. The pattern is visible from within this jurisdiction alone — the cross-polity confirmation is a parallel track.'
+    }
+  },
+
   // ========== GENERAL STAGE 2 INVESTIGATION CHOICES (12 choices) ==========
 
   {
