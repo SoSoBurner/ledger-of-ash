@@ -11247,6 +11247,17 @@ function adaptEnrichedChoice(c) {
     plot: c.plot || undefined,
     failResult: c.failResult || undefined,
     action: function() {
+      // Track recency: push this choice's id/cid to G.recentChoiceIds (keep last 3)
+      (function() {
+        var _cRecencyId = c.id || c.cid || null;
+        if (_cRecencyId && G) {
+          if (!Array.isArray(G.recentChoiceIds)) G.recentChoiceIds = [];
+          // Remove existing occurrence then prepend (dedup + move-to-front)
+          G.recentChoiceIds = [_cRecencyId].concat(
+            G.recentChoiceIds.filter(function(x){ return x !== _cRecencyId; })
+          ).slice(0, 3);
+        }
+      })();
       // failResult gate: pre-roll before fn executes, keeping one consistent roll display
       var _gateShown = false;
       if (c.failResult) {
