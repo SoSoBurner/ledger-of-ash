@@ -69,7 +69,7 @@ All paths under `data/reference/V33_2_extracted/V33_2_DnD_Repository/`:
 ## Stage Content Status
 
 - **V1.0 Release scope: Stages 1 and 2** — Stage 3 is NOT part of this release.
-- **Stage 1**: COMPLETE AND FROZEN. 22 localities. Additive fixes only — never reduce choice count or result text.
+- **Stage 1**: Functionally complete. 22 localities. Additive content (new archetype variants, new choices, new sideplot hooks) is always safe. Retheme/rewrite of existing result text is allowed when the net text volume stays equal or grows. Never remove choices or cut result text.
 - **Stage 2**: Completable end-to-end. Content needs expansion to EXCEED Stage 1 total content volume.
 
 ## World Expansion Rule
