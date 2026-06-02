@@ -75,6 +75,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The reclassified sections describe a mechanism. Toman has the numbers in a locked drawer.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 76,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -101,6 +102,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three of five committee members appointed eighteen months ago. Reclassification filed that month.",
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 70,
     failResult: {
       text: "The committee roster is posted in the research hall — five names, areas of expertise, current roles. No appointment history on the posting. Tracing how the three external members arrived requires the archive appointment records, pulled during regular hours with a researcher endorsement. The sluice channels outside carry the morning smell of reed and standing water. Researcher Fen has a working access credential and hasn't yet learned what questions to avoid.",

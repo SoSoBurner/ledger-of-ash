@@ -94,6 +94,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Case assignments stopped rotating four weeks ago. Someone above the clerk is choosing now.",
     tags: ['Investigation', 'NPC', 'Process', 'Justice', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -131,6 +132,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Cases are being closed, not resolved. The witness follow-up fields are blank.",
     tags: ['Investigation', 'NPC', 'Records', 'Procedure', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     stageProgress: 1,
     failResult: {

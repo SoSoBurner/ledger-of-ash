@@ -94,6 +94,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The grain register says scarcity. The grain depot says otherwise.",
     tags: ['Investigation', 'NPC', 'Resources', 'Food'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -130,6 +131,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The same three family names top every premium listing for two months running.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Bias'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     stageProgress: 1,
     fn: function() {

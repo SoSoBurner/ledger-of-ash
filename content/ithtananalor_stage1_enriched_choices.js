@@ -97,6 +97,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "The oath records show new bindings replacing old ones. Permanent commitments being overwritten.",
     tags: ['Investigation', 'NPC', 'Records', 'Binding', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -136,6 +137,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Training has gone past martial standard. The master knows the difference.",
     tags: ['Investigation', 'NPC', 'Training', 'Discipline', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     stageProgress: 1,
     failResult: {

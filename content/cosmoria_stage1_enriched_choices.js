@@ -98,6 +98,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     questId: 'q_s1_converging',
     label: "Some crews get the full rite. Others get turned away. The list decides.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -138,6 +139,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Three vessels, identical manifests word for word. Different ships, different dates.",
     tags: ['Investigation', 'NPC', 'Archives', 'Records', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     stageProgress: 1,
     fn: function() {

@@ -95,6 +95,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Families used to take weeks. Now they're rushed through in days and sent away empty.",
     tags: ['Investigation', 'NPC', 'Grief', 'Ritual', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -132,6 +133,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The processional routes changed three weeks ago. Every path ends at the mediation courts now.",
     tags: ['Investigation', 'NPC', 'Process', 'Routes', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 70,
     stageProgress: 1,
     failResult: {

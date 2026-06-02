@@ -98,6 +98,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The inspection stamps don't match what's coming off the dock. Things are passing that shouldn't.",
     tags: ['Investigation', 'NPC', 'Quality', 'Standards', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     failResult: {
       text: `The inspection bay door is locked. A placard reads: "Active assessment in progress — unregistered access not permitted." Through the glass panel, Noren moves between stacked crates with his caliper, marking something on his clipboard. He doesn't look up. The department's public-facing record — outcome stamps filed by batch number at the main corridor board — is still accessible and carries its own inconsistencies for anyone reading the sequence carefully.`,
@@ -136,6 +137,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The hall keeps turning away the same kinds of merchants. The keeper knows the pattern.",
     tags: ['Investigation', 'NPC', 'Access', 'Membership', 'Meaningful'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     failResult: {
       text: `The counter window is shuttered. A hand-lettered card says: "Hall administration closed for midday registration intake — reopen third bell." The denial log you came to read sits somewhere on the other side of the frosted glass, inaccessible until the hall processes its current applicant queue. Two merchants wait on the bench outside the window. One of them has been here since morning. The corridor board still shows the posted membership count, and the number on it doesn't match the stalls in use.`,

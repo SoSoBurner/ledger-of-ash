@@ -101,6 +101,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Survival supplies are being redirected. The destination codes don't appear in any public record.",
     tags: ['Investigation', 'NPC', 'Logistics', 'Survival'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -143,6 +144,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Critical repairs are sitting in the queue. They have been sitting there for weeks.",
     tags: ['Investigation', 'NPC', 'Maintenance', 'Integrity'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     stageProgress: 1,
     failResult: {

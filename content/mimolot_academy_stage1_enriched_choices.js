@@ -99,6 +99,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The sealed sections keep expanding. Behind them is what senior scholars once read freely.",
     tags: ['Investigation', 'NPC', 'Archives', 'Secrets'],
+    condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     fn: function() {
@@ -138,6 +139,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The archivist has both editions and has been logging the differences for months.",
     tags: ['Investigation', 'NPC', 'History', 'Records'],
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     stageProgress: 1,
     fn: function() {
