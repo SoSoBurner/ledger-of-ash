@@ -339,38 +339,47 @@ async function createCharacter(page, archetypeId, backgroundId) {
 // Level-up handler
 // ---------------------------------------------------------------------------
 async function handleLevelup(page, tag) {
-  try {
-    const block = page.locator('.levelup-block:visible,.level-up-block:visible,#levelup-modal.active').first();
-    if (await block.isVisible({ timeout: 400 })) {
-      // Try modal pick button first
-      const pickBtn = page.locator('#levelup-options .lu-option,#levelup-modal .lu-option').first();
+  let handled = false;
+  // Level-up has 3 sequential steps: stat → trait → ability.
+  // Loop up to 5 times so all steps are resolved in one handleLevelup call.
+  for (let step = 0; step < 5; step++) {
+    try {
+      const block = page.locator('.levelup-block:visible,.level-up-block:visible,#levelup-modal.active').first();
+      if (!await block.isVisible({ timeout: 400 }).catch(() => false)) break;
+
+      // Primary: .lu-option-btn is the actual class used by stat/trait/ability step buttons
+      const pickBtn = block.locator('.lu-option-btn:not([disabled])').first();
       if (await pickBtn.isVisible({ timeout: 500 }).catch(() => false)) {
         await pickBtn.click();
         await page.waitForTimeout(PACE.afterLevelup);
+        handled = true;
         const g = await readG(page);
-        log(`[panel:level-up ${tag}] lvl=${g.level} modal-pick — PASS`);
-        return true;
+        log(`[panel:level-up ${tag}] step=${step + 1} lvl=${g.level} — PASS`);
+        continue;
       }
-      // Fallback: legacy levelup-option button
-      const optBtn = block.locator('.levelup-option button,.levelup-btn').first();
+      // Fallback: legacy selectors for older rendering paths
+      const optBtn = block.locator('.lu-option:not([disabled]),.levelup-option button,.levelup-btn').first();
       if (await optBtn.isVisible({ timeout: 400 }).catch(() => false)) {
         await optBtn.click();
         await page.waitForTimeout(PACE.afterLevelup);
+        handled = true;
         const g = await readG(page);
-        await screenshot(page, `${tag}_levelup_lvl${g.level}`);
-        log(`[panel:level-up ${tag}] lvl=${g.level} — PASS`);
-        return true;
+        log(`[panel:level-up ${tag}] step=${step + 1} lvl=${g.level} fallback — PASS`);
+        continue;
       }
-    }
-  } catch (_) {}
-  return false;
+      break;
+    } catch (_) { break; }
+  }
+  return handled;
 }
 
 // ---------------------------------------------------------------------------
 // Choice picker
 // ---------------------------------------------------------------------------
 async function pickChoice(page, pickNum, forcePlotMain) {
-  const buttons = page.locator('.choice-btn:visible');
+  // :not([disabled]) required — travel mode overlay buttons and maxed stat buttons
+  // are .choice-btn:visible but disabled; clicking them times out waiting for actionability
+  const buttons = page.locator('.choice-btn:visible:not([disabled])');
   const count   = await buttons.count();
   if (count === 0) return { clicked: false };
 

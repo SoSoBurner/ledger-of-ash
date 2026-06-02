@@ -17306,7 +17306,7 @@ function updateStageProgressBar() {
   var track = document.getElementById('stage-progress-track');
   var fill  = document.getElementById('stage-progress-fill');
   if (!track || !fill) return;
-  var stageStr = G.stage || 'Stage I';
+  var stageStr = (typeof G.stage === 'string') ? G.stage : 'Stage I';
   var stageNum = 1;
   var m = stageStr.match(/(\d+)|([IVX]+)/i);
   if (m) {
