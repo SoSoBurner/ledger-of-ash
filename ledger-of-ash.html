@@ -12784,7 +12784,7 @@ function resolveConsequence(cid, success, partial) {
 
 function applyEffect(fx) {
   switch (fx.type) {
-    case 'journal':   addJournal(fx.msg); break;
+    case 'journal':   addJournal(fx.text || fx.msg || '', fx.category || 'discovery'); break;
     case 'quest':     addQuest(fx.msg, fx.hint, fx.questId); break;
     case 'gold':      modGold(fx.n); break;
     case 'faction':   modFaction(fx.id, fx.n); break;
@@ -15490,13 +15490,23 @@ function showJournal() {
   if (!jb) return;
 
   const records = G.journalRecords || [];
+  var _catLabels = {
+    evidence:      'Evidence',
+    intelligence:  'Intelligence',
+    rumor:         'Rumors',
+    discovery:     'Discoveries',
+    contact_made:  'Contacts Made',
+    complication:  'Complications',
+    field_note:    'Field Notes'
+  };
   const byCategory = {
-    quest:       records.filter(e => e.category === 'quest'),
-    field_note:  records.filter(e => e.category === 'field_note'),
-    faction:     records.filter(e => e.category === 'faction'),
-    rival:       records.filter(e => e.category === 'rival'),
-    companion:   records.filter(e => e.category === 'companion'),
-    fact:        records.filter(e => e.category === 'fact'),
+    evidence:     records.filter(e => e.category === 'evidence'),
+    intelligence: records.filter(e => e.category === 'intelligence'),
+    rumor:        records.filter(e => e.category === 'rumor'),
+    discovery:    records.filter(e => e.category === 'discovery'),
+    contact_made: records.filter(e => e.category === 'contact_made'),
+    complication: records.filter(e => e.category === 'complication'),
+    field_note:   records.filter(e => e.category === 'field_note'),
   };
 
   const catSection = (title, entries) => {
@@ -15598,6 +15608,13 @@ function showJournal() {
     '<div class="jov-section"><div class="jov-title">&#x25A0; Faction Relations' + _badge(_jfCount) + '</div>' + factionRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Rival Adventurers' + _badge(_jrCount) + '</div>' + rivalRows + '</div>' +
     '<div class="jov-section"><div class="jov-title">&#x25A0; Journal Entries' + _badge(_jlCount) + '</div>' + loreRows + '</div>' +
+    (function() {
+      var _catHtml = '';
+      ['evidence','intelligence','rumor','discovery','contact_made','complication','field_note'].forEach(function(cat) {
+        _catHtml += catSection(_catLabels[cat] || cat, byCategory[cat] || []);
+      });
+      return _catHtml;
+    })() +
     (function() {
       var _suspects = G.suspects || {};
       var _sKeys = Object.keys(_suspects).filter(function(k){ return _suspects[k] >= 3; });
