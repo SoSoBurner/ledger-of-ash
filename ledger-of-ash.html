@@ -1911,6 +1911,7 @@ input, button, select, textarea { font-family: inherit; }
       <button class="tnav-btn" id="btn-map">Map</button>
       <button class="tnav-btn" id="btn-journal">Journal</button>
       <button class="tnav-btn" id="btn-npcs">Contacts</button>
+      <button class="tnav-btn" id="btn-places" onclick="showPlaces()">Places</button>
       <button class="tnav-btn" id="btn-notices">Board</button>
       <button class="tnav-btn" id="btn-party">Party</button>
       <button class="tnav-btn" id="btn-camp">Camp</button>
@@ -15263,6 +15264,125 @@ function showMap() {
 }
 
 
+// ── PLACES OVERLAY (shops + taverns) ─────────────────────
+function showPlaces() {
+  var _loc = G.location || '';
+  var _data = (window.PLACES_DATA && window.PLACES_DATA[_loc]) || null;
+  var _body = document.getElementById('places-overlay-body');
+  if (!_body) return;
+  if (!_data) {
+    _body.innerHTML = '<div style="color:var(--ink-faint);font-style:italic;font-size:13px">No known establishments at this location.</div>';
+    showOverlay('overlay-places');
+    return;
+  }
+  var html = '';
+  // Shops section
+  if (_data.shops && _data.shops.length) {
+    html += '<div style="margin-bottom:16px">';
+    html += '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:10px">Shops</div>';
+    _data.shops.forEach(function(shop) {
+      html += '<div style="margin-bottom:14px">';
+      html += '<div style="font-family:var(--font-display);font-size:13px;color:var(--gold-bright);margin-bottom:2px">' + shop.name + '</div>';
+      html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:8px;font-style:italic">' + shop.desc + '</div>';
+      if (shop.items && shop.items.length) {
+        shop.items.forEach(function(item) {
+          var _alreadyBought = G.shopSeen && G.shopSeen[item.id];
+          html += '<div class="shop-item' + (_alreadyBought ? ' shop-item--sold' : '') + '">';
+          html += '<div class="shop-item-info">';
+          html += '<div class="shop-item-name">' + item.name + '</div>';
+          html += '<div class="shop-item-desc">' + item.desc + '</div>';
+          html += '</div>';
+          html += '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">';
+          html += '<div class="shop-item-cost">' + item.cost + 'g</div>';
+          if (!_alreadyBought) {
+            html += '<button class="shop-buy-btn" onclick="buyShopItem(\'' + shop.id + '\',\'' + item.id + '\')" '
+              + 'data-cost="' + item.cost + '">'
+              + (G.gold >= item.cost ? 'Buy' : 'Need ' + item.cost + 'g')
+              + '</button>';
+          } else {
+            html += '<span style="font-size:10px;color:var(--ink-faint)">Purchased</span>';
+          }
+          html += '</div></div>';
+        });
+      }
+      html += '</div>';
+    });
+    html += '</div>';
+  }
+  // Tavern section
+  if (_data.tavern) {
+    var _tav = _data.tavern;
+    html += '<div style="border-top:1px solid var(--border);padding-top:14px">';
+    html += '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:10px">Tavern</div>';
+    html += '<div style="font-family:var(--font-display);font-size:13px;color:var(--gold-bright);margin-bottom:2px">' + _tav.name + '</div>';
+    html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:10px;font-style:italic">' + _tav.desc + '</div>';
+    var _inv = (G.investigationProgress || 0);
+    var _eligible = (_tav.rumors || []).filter(function(r) { return (r.minProgress || 0) <= _inv && !(G.tavernRumorsSeen && G.tavernRumorsSeen[r.id]); });
+    if (_eligible.length) {
+      var _shuffled = _eligible.slice().sort(function() { return Math.random() - 0.5; });
+      var _shown = _shuffled.slice(0, 2);
+      html += '<div style="margin-bottom:10px">';
+      html += '<div style="font-size:11px;color:var(--gold-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Overheard</div>';
+      _shown.forEach(function(r) {
+        if (G.tavernRumorsSeen) G.tavernRumorsSeen[r.id] = true;
+        html += '<div style="font-size:13px;color:var(--ink-mid);font-style:italic;border-left:2px solid var(--border);padding-left:10px;margin-bottom:8px">"' + r.text + '"</div>';
+      });
+      html += '</div>';
+    } else {
+      html += '<div style="font-size:12px;color:var(--ink-faint);font-style:italic;margin-bottom:10px">The tavern talk is quiet tonight. Nothing you haven\'t heard.</div>';
+    }
+    var _restCost = _tav.restCost || 4;
+    var _canRest = (G.timeIndex || 0) >= 1;
+    if (_canRest) {
+      html += '<button class="choice-btn" style="width:100%;margin-top:8px;background:var(--char)" onclick="openTavernRest(' + _restCost + ')">'
+        + 'Take a room for the night \u2014 ' + _restCost + 'g'
+        + (G.gold < _restCost ? ' <span style="color:var(--ember);font-size:11px">(need ' + _restCost + 'g)</span>' : '')
+        + '</button>';
+    }
+    html += '</div>';
+  }
+  _body.innerHTML = html;
+  showOverlay('overlay-places');
+}
+
+function buyShopItem(shopId, itemId) {
+  var _loc = G.location || '';
+  var _data = window.PLACES_DATA && window.PLACES_DATA[_loc];
+  if (!_data) return;
+  var _shop = (_data.shops || []).filter(function(s) { return s.id === shopId; })[0];
+  if (!_shop) return;
+  var _item = (_shop.items || []).filter(function(i) { return i.id === itemId; })[0];
+  if (!_item) return;
+  if ((G.gold || 0) < _item.cost) {
+    if (typeof showToast === 'function') showToast('Not enough gold.');
+    return;
+  }
+  G.gold -= _item.cost;
+  if (!G.shopSeen) G.shopSeen = {};
+  G.shopSeen[_item.id] = true;
+  if (_item.effect && _item.effect.type === 'item') {
+    if (!Array.isArray(G.inventory)) G.inventory = [];
+    G.inventory.push({ id: _item.effect.id, name: _item.effect.name });
+  }
+  if (typeof addJournal === 'function') addJournal('Purchased: ' + _item.name + ' (' + _item.cost + 'g)', 'discovery');
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof saveGame === 'function') saveGame();
+  showPlaces();
+}
+
+function openTavernRest(cost) {
+  if ((G.gold || 0) < cost) {
+    if (typeof showToast === 'function') showToast('Not enough gold for a room.');
+    return;
+  }
+  var _ov = document.getElementById('overlay-places');
+  if (_ov) _ov.classList.remove('active');
+  G.gold -= cost;
+  if (typeof addJournal === 'function') addJournal('Paid ' + cost + 'g for a room at the tavern.', 'complication');
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof doSleepScene === 'function') doSleepScene();
+}
+
 // ── LOCAL NPC MENU ────────────────────────────────────────
 function showNPCMenu() {
   if (!G || !G.location) {
@@ -17953,6 +18073,7 @@ document.getElementById('howto-close').addEventListener('click', function() {
 <script src="content/sideplots/fairhaven_meadow_mill_displacement.js"></script>
 <script src="content/sideplots/guildheart_union_testimony_gap.js"></script>
 <!-- ── SCENE MODULES ── -->
+<script src='content/places_data.js'></script>
 <script src='content/locality_narrations.js'></script>
 <script src='content/locality_npcs.js'></script>
 <script src='content/locality_arrival_narrations.js'></script>
