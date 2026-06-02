@@ -134,7 +134,7 @@ window.LOCALITY_ARRIVAL_SCENES = {
 };
 
 function shouldShowArrivalScene(locality) {
-  var stage = G.stage || 'Stage I';
+  var stage = (typeof G.stage === 'string') ? G.stage : 'Stage I';
   var stageKey = stage.replace(/\s+/g, '_');
   var firstVisit = !G.flags['arrived_' + locality];
   var stageReturn = !!G.flags['arrived_' + locality] &&
@@ -144,7 +144,7 @@ function shouldShowArrivalScene(locality) {
 }
 
 function markArrivalComplete(locality) {
-  var stage = G.stage || 'Stage I';
+  var stage = (typeof G.stage === 'string') ? G.stage : 'Stage I';
   G.flags['arrived_' + locality] = true;
   G.flags['arrived_stage_' + locality] = stage.replace(/\s+/g, '_');
 }
