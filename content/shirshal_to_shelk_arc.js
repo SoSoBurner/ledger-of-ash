@@ -10,7 +10,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The ghost visitor records from Shirshal's Bureau prove that Tazren's suppressed case had active investigators — who then stopped appearing in any official record. Move south.",
+    label: "Six names signed into the Bureau. None of them exist in any file after.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   },
 
   {
-    label: "Magistrate Corin gave you one piece of information before closing his door: a case number from the central maritime registry that was formally closed twelve months ago but never disposed.",
+    label: "Closed but never disposed. Someone kept it accessible without archiving it.",
     tags: ['ArcRoad', 'Lore', 'Investigation'],
     xpReward: 70,
     fn: function() {
@@ -51,7 +51,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   },
 
   {
-    label: "Dispossessed shipowner Wend is also heading inland — his shipping license was suspended pending the same review that closed the maritime case. He's furious and detailed.",
+    label: "Wend refused the rerouting order. Three days later, his license was under review.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -78,7 +78,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The ghost vessel registry connects to the charter mark containers: vessels that appeared in Shirshal's maritime log moved cargo that matches the Whitebridge crossing weight class.",
+    label: "Wend's corridor and Cadrin's bridge are parallel channels of the same supply chain.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -98,7 +98,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   },
 
   {
-    label: "Oversight Collegium liaison Parro's check-in logs from Shirshal: he reported no unusual maritime activity in the same weeks the ghost vessels were active.",
+    label: "Parro's clean reports match the ghost vessel dates exactly. He transferred after the last window.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -122,7 +122,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   },
 
   {
-    label: "Shirshal's harbor at night: the last ghost vessel transaction was seventeen days ago. The harbor is quiet now. The maritime phase is complete.",
+    label: "Three berths gone quiet. The maritime phase completed seventeen days ago.",
     tags: ['ArcDeepening', 'Survival', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -147,7 +147,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis coast road approach. The maritime transit lanes visible from the road feed directly into the city's port district — the same infrastructure the ghost vessels were using.",
+    label: "Secondary terminal. Underground channel. The delivery bypassed port inspection entirely.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -172,7 +172,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Shelkopolis maritime handler works out of the secondary port registry office.",
+    label: "Six vessels logged as maintenance transit, never appearing in the maintenance queue.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -200,7 +200,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Shirshal's maritime phase is complete. The material is already in Shelkopolis. You need to be there too.",
+    label: "The ghost visitors and Wend's testimony are the evidence. Move.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -221,7 +221,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. Shirshal's ghost vessels used this city's secondary freight terminal to deliver cargo that bypassed port inspection. It's already here.",
+    label: "Whatever came through on those six vessels is already inside this city.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

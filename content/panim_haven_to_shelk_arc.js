@@ -10,7 +10,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The Bureau case fragments point toward Shelkopolis. Tazren was last seen heading inland. Follow the thread.",
+    label: "Tazren stopped filing. The case didn't stop — he did.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Panim Haven's coastal road has Oversight Collegium observation posts at irregular intervals. Travel through the harbor district to bypass them.",
+    label: "Harbor district traffic provides the cover of normal movement. I use it.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -51,7 +51,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Complainant Sera, whose case was dismissed under Tazren's watch, left a message at the harbor master's office. She's already in Shelkopolis.",
+    label: "Sera moved before me. She found something that made her leave immediately.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -72,7 +72,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The Bureau case number connects to a coastal passage that moved containers south two months before the Reckoning Quarter irregularities began. Tazren found the sequence.",
+    label: "The containers moved before the case opened. Tazren saw the overlap.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -92,7 +92,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "A road waystation: a Bureau courier is waiting for the morning route. She's carrying sealed dispatches. You recognize the case number prefix on the outer label.",
+    label: "Tazren's case number prefix, but a new suffix. Someone inside continued his work.",
     tags: ['ArcDeepening', 'Investigation', 'Risk'],
     xpReward: 75,
     fn: function() {
@@ -116,7 +116,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Oversight Collegium observer Tren Callow's patrol record shows irregular check-ins near the inland route. Someone is watching this road specifically.",
+    label: "Callow isn't patrolling. He's watching this specific stretch of road.",
     tags: ['ArcDeepening', 'Survival', 'Risk'],
     xpReward: 75,
     fn: function() {
@@ -140,7 +140,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis eastern approach. The Reckoning Quarter's administrative network connects to every major district. Panim Haven's case fragments belong here.",
+    label: "Whatever the Bureau suppressed, the original document may still exist here.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -159,7 +159,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Sana at Verdant Row has been holding Case 4-Reckoning since the Bureau dismissed it.",
+    label: "Sana has held this case for eight years. Twenty-three documents, Tazren's six included.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -187,7 +187,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Tazren's case was suppressed because he was right. The evidence you've gathered from Panim Haven continues his work. Move to Shelkopolis.",
+    label: "The case was suppressed because Tazren was right. I carry what he found.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -208,7 +208,7 @@ const PANIM_HAVEN_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. The Bureau case that was suppressed in Panim Haven has its answer here, in the city the coastal passage was supplying.",
+    label: "The answer to why the case was suppressed is in the city it was protecting.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

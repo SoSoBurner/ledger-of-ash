@@ -10,7 +10,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The classified formula fragments from Mimolot's Memory Hall are the chemical specification for what the Craftspire compound and Ironhold mineral produce when combined. Take them south.",
+    label: "The notation looks like coursework. Only I know what it describes.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   },
 
   {
-    label: "Warden Order liaison Brevard Ashe has a transfer authorization to Shelkopolis on file — processed yesterday. He's going where you're going.",
+    label: "Ashe transferred yesterday. He'll see everything that arrives through the network.",
     tags: ['ArcRoad', 'Lore', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -46,7 +46,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   },
 
   {
-    label: "Student Tavin is heading to Shelkopolis for a placement examination. He can carry correspondence through Academy channels — which aren't monitored the same way research transit is.",
+    label: "Tavin carries his own recommendation. I embed the formula inside it.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -71,7 +71,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The Memory Hall document describes the atmospheric compound as 'Synthesis-Class C — regulated atmospheric precursor, deployment-grade configuration possible above 340kg combined mass.'",
+    label: "340 kilograms deployment threshold. Craftspire extracted exactly 340 kilograms.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -91,7 +91,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   },
 
   {
-    label: "Suppressed scholar Doss is already in Shelkopolis — he left three months ago under an academic 'sabbatical' arrangement that was actually forced relocation.",
+    label: "Doss has been in Shelkopolis three months. Long enough to be found.",
     tags: ['ArcDeepening', 'Social', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -110,7 +110,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Scriptorium Steps at dawn: one last check of the Memory Hall secondary index before leaving Mimolot permanently.",
+    label: "One last check of the secondary index before I leave this place for good.",
     tags: ['ArcDeepening', 'Lore', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -136,7 +136,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis academic district. The central Academy archives here are the destination for everything Mimolot suppressed. And Ashe is already stationed here to manage them.",
+    label: "The central Academy review board now has a Warden Order seat. Ashe holds it.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -155,7 +155,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   },
 
   {
-    label: "Doss flagged the formula first. Ashe is already moving — Shelkopolis, before she gets there.",
+    label: "Doss is alive and working. Ashe is looking. I need to get there first.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -183,7 +183,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "The formula fragments describe what the operation is building toward. Shelkopolis has the chemists who can confirm the synthesis and the archive that can authenticate the classification history.",
+    label: "Fragments are not findings. Shelkopolis has the chemists who can make them one.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -204,7 +204,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. The classified formula from Mimolot's Memory Hall names what the northern operation is producing and what it will do.",
+    label: "The formula names what this is. I carry the name south.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

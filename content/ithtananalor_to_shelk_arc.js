@@ -10,7 +10,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The Iron Ledger Ward ghost accounts demonstrate how the northern operation financed itself without leaving traceable capital flows. Carry the transaction pattern to Shelkopolis.",
+    label: "Capital moved in pieces too small to flag. Someone set that threshold deliberately.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   },
 
   {
-    label: "Maret Voss at the Iron Ledger — she flagged the ghost accounts before anyone else did. She's leaving Ithtananalor the same week you are.",
+    label: "Maret's authorization was revoked on a technicality invented after her first inquiry.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -52,7 +52,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   },
 
   {
-    label: "Displaced Captain Lysel's garrison was reduced at the same time the ghost account activity peaked. The timing isn't accidental.",
+    label: "The garrison review was requested by the same person accessing the ghost accounts.",
     tags: ['ArcRoad', 'Lore', 'Investigation'],
     xpReward: 70,
     fn: function() {
@@ -78,7 +78,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The debt leverage trail: the northern operation holds financial pressure on at least three officials across the localities. They can't report what they know.",
+    label: "Every official who processed one became a participant. That was the design.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -98,7 +98,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   },
 
   {
-    label: "A road exchange house south of Ithtananalor: spot a transaction pattern in their public registry that matches the Ithtananalor ghost account methodology exactly.",
+    label: "Same fragmentation pattern. Eighteen transactions. The money is already in Shelkopolis.",
     tags: ['ArcDeepening', 'Lore', 'Craft'],
     xpReward: 75,
     fn: function() {
@@ -122,7 +122,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   },
 
   {
-    label: "Warden Order attaché Denn Calver — the one who accessed the ghost accounts — has a posting history. Trace it.",
+    label: "Calver arrives just before the accounts open. Transfers out after they close.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -149,7 +149,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis financial district. The central capital registry holds twenty years of transaction records. The ghost account methodology will be visible in it — if you know what to look for.",
+    label: "Twenty years of records. The pattern will be there.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -168,7 +168,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   },
 
   {
-    label: "Maret's arbitrator operates outside the Compact's review structure — Shelkopolis is where to look.",
+    label: "Once Hess files the access request, suppressing it creates its own record.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -196,7 +196,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "The financial trail from Ithtananalor ends in Shelkopolis. The capital is already there. Follow it.",
+    label: "The paper trail proves the operation was organized and funded. Without it, nothing holds.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -217,7 +217,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. The financial infrastructure of the northern operation is centered here, in the city it was funding the delivery to.",
+    label: "The money moved here. Whatever it bought is already here too.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

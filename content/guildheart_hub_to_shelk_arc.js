@@ -10,7 +10,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The pre-Union charter fragment from Guildheart's archive gives the northern operation a legal structure to hide behind. Get it to Shelkopolis where it can be properly analyzed.",
+    label: "Forty years old and still protecting something. Someone renewed it recently.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "Displaced factor Paerun Delst has been trying to file a complaint about the off-channel arbiter contact for three months. He hasn't found a venue that will accept it.",
+    label: "Three months of deflections. Each venue named the next one. No one accepted it.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -52,7 +52,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "Oversight Collegium observer Calla Trent filed a transfer request to Shelkopolis two weeks ago — approved immediately. Calla knows what you found in Guildheart.",
+    label: "Calla's transfer was approved in forty-eight hours. Standard takes three weeks.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -73,7 +73,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The off-channel arbiter contact in Guildheart was brokering agreements between guild factions and the northern bloc. Those agreements are enforceable under pre-Union charter law.",
+    label: "Binding agreements, unrecorded. The charter makes them legal and invisible at once.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -93,7 +93,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "The guild memorial bell rings once for each full-member charter holder who dies. It has rung four times in the past six months — more than the previous four years combined.",
+    label: "Four deaths in six months. Each within three weeks of filing an objection.",
     tags: ['ArcDeepening', 'Survival', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -117,7 +117,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "The pre-Union charter was renewed after the consolidation. Someone signed for it.",
+    label: "Renewed off-cycle for entities that don't exist in any registry.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -143,7 +143,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis guild district. The central registry is here — forty years of charter records, and somewhere in it, the pre-Union charter's renewal record.",
+    label: "Forty years of records. The renewal that shouldn't exist is in there somewhere.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -162,7 +162,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "The off-channel arbiter from Guildheart has a counterpart in Shelkopolis. Find them through the Ironspool Ward broker.",
+    label: "Twelve amendments that officially do not exist. Someone kept the copies.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -190,7 +190,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "The pre-Union charter is the legal infrastructure of the northern operation. Shelkopolis is where that infrastructure was built and where it can be dismantled.",
+    label: "The legal case exists in Shelkopolis or it does not exist at all.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -211,7 +211,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. The pre-Union charter from Guildheart reveals that the northern operation built its legal shelter in this city's own registry office.",
+    label: "The operation built its legal shelter inside the body meant to dismantle it.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

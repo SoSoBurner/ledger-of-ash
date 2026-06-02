@@ -10,7 +10,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "Dome substitution documentation — clearest evidence yet. South to Shelkopolis.",
+    label: "Three documents together say something none of them say alone.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   },
 
   {
-    label: "The inspection window opens in four days. South before it does.",
+    label: "Four days before the inspection teams arrive. South before they do.",
     tags: ['ArcRoad', 'Survival', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -51,7 +51,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Engineer Orren left Aurora Crown by a different route two days ago. He left a message at the southern waystation.",
+    label: "Orren left a message at the waystation. He signed with his qualification number.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -72,7 +72,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The undetectable window has closed. The residents are already exposed.",
+    label: "Below threshold, nothing. Above it, six weeks of cover built into the compound.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -92,7 +92,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Merav Solind, Oversight Collegium observer, has a transit authorization on the same southern road. She may be following you, or heading to Shelkopolis for her own reasons.",
+    label: "Solind is on the same road. Her pace doesn't adjust to mine.",
     tags: ['ArcDeepening', 'Stealth', 'Risk'],
     xpReward: 75,
     fn: function() {
@@ -114,7 +114,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   },
 
   {
-    label: "A roadside healer's post. Several people from Aurora Crown's outer settlements are here with the same cluster of symptoms. She's treating them as seasonal fatigue.",
+    label: "Three patients from the same road, same week, same symptoms. Seasonal, she says.",
     tags: ['ArcDeepening', 'Survival', 'Lore'],
     xpReward: 75,
     fn: function() {
@@ -140,7 +140,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis: the dome infrastructure here is the same generation of atmospheric filtration as Aurora Crown's. The same substitution is possible here.",
+    label: "Same chassis. Same input manifolds. Same maintenance access points.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -165,7 +165,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Shelkopolis handler is at a technical archive in the Aurora Heights district. They've been waiting for someone with dome documentation.",
+    label: "Someone in Aurora Heights has been building the same comparison for two months.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -193,7 +193,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Aurora Crown was deliberate. Shelkopolis uses the same dome architecture — same method, same risk.",
+    label: "Aurora Crown didn't end the operation. It proved the method works.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -214,7 +214,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. Aurora Crown showed what the operation looks like at completion. This city shows what it looks like before it begins.",
+    label: "Aurora Crown is what this looks like when it's done. Shelkopolis is now.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

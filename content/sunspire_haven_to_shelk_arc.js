@@ -10,7 +10,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The signal-damping container and the convoy deviation logs are enough to act on. Prepare to move south to Shelkopolis.",
+    label: "Liner spec in my boot. Someone paid heavily to keep this quiet.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Sunspire's Warden Order garrison is rotated out this week. The timing with your departure is uncomfortable. Move before the new garrison arrives.",
+    label: "Four-hour gap between out-processing and the new unit's arrival. I use it.",
     tags: ['ArcRoad', 'Survival', 'Risk'],
     xpReward: 75,
     fn: function() {
@@ -51,7 +51,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "A Sunspire convoy guard named Tennen is also heading south — laid off when the disrupted convoy route was 'suspended pending review.'",
+    label: "Tennen kept his own log. Seventeen deviations, all nights he was replaced.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -78,7 +78,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The container's liner specification matches atmospheric compound transport standards. The convoy was carrying something for deployment, not storage.",
+    label: "Deployment-grade liner releases at a controlled rate. It was never meant to hold permanently.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -98,7 +98,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "A junction town on the road south: the waybill records show three containers of identical weight and specification passing through in the past two months.",
+    label: "Three containers, three alias variants of the same sender. Last one six days ago.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -122,7 +122,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Captain-Adjutant Sera's contact name surfaces again — she transferred to Shelkopolis-region duty last month. This was not a coincidence.",
+    label: "Sera transferred to Shelkopolis region last month. Managed out or brought in.",
     tags: ['ArcDeepening', 'Social', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -140,7 +140,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis western approach — the dome infrastructure is visible two kilometers out. The scale of it makes the container specification suddenly real.",
+    label: "One access point. Full district propagation. I walk slower, then faster.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -165,7 +165,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   },
 
   {
-    label: "Aurora Heights — the handler's address points to a bookbinder in that district.",
+    label: "Three others tried to bring this same evidence south. None of them made it.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -193,7 +193,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Level of knowledge, level of risk. You've accumulated enough from Sunspire Haven to justify the move to Shelkopolis.",
+    label: "Container spec, deviation logs, structural picture. The question of destination has one answer.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -214,7 +214,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Enter Shelkopolis proper. The convoy evidence from Sunspire Haven connects to something that was already in motion here before you arrived.",
+    label: "The operation was already moving here before I started watching it.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

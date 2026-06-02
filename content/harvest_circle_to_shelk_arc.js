@@ -10,7 +10,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The charter mark on the Harvest Circle containers matches Ironhold and Whitebridge. This supply chain has a single origin. Move south to trace it.",
+    label: "The same mark on three different containers from three different places.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Northern Provision Compact has an official transit office at the road junction. Your papers need to look like normal agricultural research transit.",
+    label: "The transit clerk has seen too many academic transfers to care about one more.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -51,7 +51,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Fieldworker Nann, who confirmed the independent harvest count discrepancy, left Harvest Circle two days before you. She's heading to family in Shelkopolis.",
+    label: "Nann left two days before the records went under review. She took copies.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -78,7 +78,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The routing number anomaly from Harvest Circle is a systematic offset — not an error. It was engineered to hide weight by distributing it across legitimate manifests.",
+    label: "Not drift error. Someone set the threshold and calibrated just below it.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -98,7 +98,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   },
 
   {
-    label: "A road market halfway south: a vendor selling agricultural supplies has the same charter mark on his packing crates. He doesn't know what it means.",
+    label: "Same mark. This far south. On crates he empties and returns north.",
     tags: ['ArcDeepening', 'Investigation', 'Social'],
     xpReward: 75,
     fn: function() {
@@ -122,7 +122,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Iron Compact liaison Veth Karst's name appears in a junction town transit authority register. He authorized a special pass for 'coordinated agricultural distribution' two months ago.",
+    label: "Karst invented a transit category that doesn't exist in transit law.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -148,7 +148,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis outer district, Granary Steps. The smell of stored grain and the sound of distribution machinery. This is where Harvest Circle's supply chain ends.",
+    label: "Granary Steps. The loading intake feeds directly into the dome distribution network.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -173,7 +173,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Ironspool Ward address in Shelkopolis: a factor's office that handles 'commodity reconciliation.'",
+    label: "The charter mark is on all four maps. Someone in this office already counted.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -201,7 +201,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "The charter mark supply chain leads to Shelkopolis. You have enough to justify the journey even without more.",
+    label: "Routing anomalies, mark matches, and a picture that only makes sense as a plan.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -222,7 +222,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. The supply chain from Harvest Circle feeds into this city's dome infrastructure. You are now inside the operation's target.",
+    label: "The supply chain that started in Harvest Circle ends here, in this city.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

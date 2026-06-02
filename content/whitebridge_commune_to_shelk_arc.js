@@ -10,7 +10,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "Cadrin's personal log of the midnight crossings is the only record that wasn't cleared from the bridge registry. Get it south before it disappears too.",
+    label: "Cadrin kept his log because something felt wrong. He was right.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Former bridge director Ashe left Whitebridge under pressure six months ago. She's in a village two hours south. She'll want to know what you found.",
+    label: "Ashe refused to sign the schedule that created the night gaps. Then she was removed.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -52,7 +52,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Iron Compact crossing authority Delt Karnn's name appears on a transfer order to Shelkopolis posted last week. He's ahead of you.",
+    label: "Karnn transferred to Shelkopolis last week. He knows what the containers were carrying.",
     tags: ['ArcRoad', 'Lore', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -73,7 +73,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "Cadrin's log: the handlers in protective gloves used reactive material protocols. Those protocols are specific to atmospheric compound handling. The containers were reactive precursor, not inert cargo.",
+    label: "The gloves Cadrin described are the standard for reactive atmospheric compound handling.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -93,7 +93,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Bridge stone stress calculations from Cadrin's weight estimates: three to five tonne loads, consistent with bulk reactive precursor in industrial shipping containers.",
+    label: "Three to five tonnes. Twenty-four crossings where Cadrin heard the bridge flex.",
     tags: ['ArcDeepening', 'Craft', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -117,7 +117,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The unmapped staging area on the east bank of the river: find it before you leave the region. It tells you where the containers came from.",
+    label: "Ruts running northeast toward Ironhold. The supply chain is confirmed end-to-end.",
     tags: ['ArcDeepening', 'Survival', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -145,7 +145,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis western gate. Delt Karnn is somewhere in this city. You need to move carefully.",
+    label: "Karnn is somewhere in this city. I enter through freight lanes during peak delivery.",
     tags: ['ArcArrival', 'Stealth', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -171,7 +171,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Ironspool Ward address: a weights-and-measures office that handles cross-district commodity verification.",
+    label: "Karnn's transfer paperwork is forged. The same fabricated category as Whitebridge.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -199,7 +199,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Whitebridge was the crossing point. Shelkopolis is the destination. You've traced the supply chain from east bank staging area to the city's dome infrastructure. Follow it.",
+    label: "Thirty-one crossings over five months. The last one eleven days ago. I am behind it.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -220,7 +220,7 @@ const WHITEBRIDGE_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. Cadrin's log and the east bank staging area are the physical evidence of what crossed that bridge. Now find where it went.",
+    label: "The names in Cadrin's log stop at a specific date. I carry what comes after.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

@@ -12,7 +12,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 1. DECIDING TO LEAVE
   {
-    label: "The Compact's quota records are damning enough to carry south. Prepare to leave Soreheim Proper.",
+    label: "The numbers are damning. Leaving them here means leaving them reachable.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -32,7 +32,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 2. EARLY ROAD: IRON COMPACT CHECKPOINT
   {
-    label: "An Iron Compact checkpoint stands on the southern road. Find a way through without triggering inspection.",
+    label: "The checkpoint guard has seen too many academic transfers today to care about one more.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
     xpReward: 75,
     fn: function() {
@@ -63,7 +63,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 3. ROAD ENCOUNTER: DISPLACED WORKER
   {
-    label: "A worker on the road south carries the same kind of bundle you do — but larger. She was displaced last month.",
+    label: "Dismissed on the same day. Same template, word for word, across nine workers.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -93,7 +93,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 4. PATTERN RECOGNITION (available when investigationProgress >= 5)
   {
-    label: "The pattern clicks into full shape. Everything from Soreheim connects to something larger. Consider what you're actually carrying.",
+    label: "Quota escalation. Displacement. Unmanned operation. This was designed.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -123,7 +123,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 5. MIDPOINT: COURIER CONTACT ON THE SOUTHERN ROAD
   {
-    label: "A northbound courier presses a sealed letter forward — wrong recipient, or a deliberate test.",
+    label: "Wrong name on the letter. The courier turned off rather than continuing north.",
     tags: ['ArcDeepening', 'Investigation', 'Risk'],
     xpReward: 75,
     fn: function() {
@@ -151,7 +151,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 6. ROAD CAMP: IRON COMPACT LOGISTICS OFFICER
   {
-    label: "A logistics officer eating alone at the road camp. She's not in uniform. She's watching the road.",
+    label: "She's been watching the southern road for three weeks. On her own time.",
     tags: ['ArcDeepening', 'Social', 'Risk'],
     xpReward: 75,
     fn: function() {
@@ -186,7 +186,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 7. OUTER DISTRICT THRESHOLD
   {
-    label: "Shelkopolis outer district. The pressure gradient Letha Dawnsilk described is faint here but already in the air.",
+    label: "Faint brassiness at deep inhale. Early-stage gradient. The dome is visible on the skyline.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -214,7 +214,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 8. FIRST CONTACT: SHELKOPOLIS INVESTIGATION NETWORK
   {
-    label: "A contact passed to you before you left Soreheim — 'find the woman who keeps the unregistered ledger near the Ironspool Ward.' You have an address.",
+    label: "Three people from other localities came through before me. She already has a file.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -243,7 +243,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 9. SHELKOPOLIS ORIENTATION: THE IRONSPOOL WARD
   {
-    label: "Study the Ironspool Ward — industrial hub closest to the dome infrastructure. The evidence converges here.",
+    label: "Workers walk past the dome access points without looking. They've learned not to.",
     tags: ['ArcArrival', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -277,7 +277,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 10. THE WEIGHT OF WHAT YOU CARRY (level gate)
   {
-    label: "You've gathered enough to be dangerous. The question now is what to do with it. Move toward Shelkopolis.",
+    label: "Names, dates, templates, patterns. Together they constitute something worth suppressing.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -299,7 +299,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 11. ROAD: IRON COMPACT TAIL (level gate complication)
   {
-    label: "You're being followed. Someone picked you up at the checkpoint and hasn't stopped. Deal with it.",
+    label: "Someone picked me up at the checkpoint. They haven't stopped.",
     tags: ['ArcGate', 'Stealth', 'Combat', 'Risk'],
     plot: 'main',
     xpReward: 85,
@@ -337,7 +337,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 12. ARRIVAL IN SHELKOPOLIS
   {
-    label: "Cross into Shelkopolis proper. You are no longer a witness. You are an investigator with evidence in a city where that evidence matters.",
+    label: "What started as noticing has become carrying something that matters.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

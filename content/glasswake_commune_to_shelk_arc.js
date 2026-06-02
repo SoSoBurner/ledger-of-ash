@@ -10,7 +10,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "Toman Iceveil's suppressed study sections 7-12 explain Aurora Crown's contamination mechanism. Carry this data south to Shelkopolis before the consortium finds you have it.",
+    label: "The data is in my head now. They cannot take that back.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Junior researcher Fen leaves Glasswake the same day. She's not coming south — she's going to a sister commune. But she's carrying a copy of the study metadata.",
+    label: "Fen is going the other direction. The data doesn't die with me.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -46,7 +46,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Northern Materials Consortium has a transit monitoring contract with the northern road authority. Your departure from Glasswake may be logged.",
+    label: "The monitoring contract covers researcher departures. I am, for the record, a courier.",
     tags: ['ArcRoad', 'Stealth', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -72,7 +72,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The consortium's commercial liability calculation from Toman's notes: the shard amplification effect doubles the active concentration of any atmospheric compound released near a glasswake formation.",
+    label: "Toman's numbers say twice the reach. They held the data that proved they knew.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -92,7 +92,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Committee dissenter Winn sent a message south three weeks ago. Trace where it went.",
+    label: "Winn sent something south three weeks ago. The channel she chose matters.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -116,7 +116,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   },
 
   {
-    label: "Toman's final warning: the shard amplification effect is passive and permanent for formations of this scale. There is no reversing it. Only stopping additional compound release.",
+    label: "Permanent. The only intervention that matters is before it enters the system.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 75,
     fn: function() {
@@ -137,7 +137,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis. The Institute of Applied Atmospheric Sciences is in the Aurora Heights district. This is where Winn's message went — and where the shard data needs to go.",
+    label: "The Institute's sensors won't catch what I'm carrying until it's too late.",
     tags: ['ArcArrival', 'Lore', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -156,7 +156,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Shelkopolis handler knows the cipher. Shard data needs formal atmospheric chemistry terms.",
+    label: "The cipher is useless without someone who can read it formally.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -184,7 +184,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Glasswake's suppressed data is the mechanism that explains everything else. Carrying it to Shelkopolis is the most important thing you can do right now.",
+    label: "Without this data, the contamination looks like an accident.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -205,7 +205,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis carrying the mechanism that explains the entire operation. The shard data is the key — and now it's here.",
+    label: "The suppression ends here. I carry what the consortium could not destroy.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,

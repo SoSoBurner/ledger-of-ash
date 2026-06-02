@@ -10,7 +10,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The Cosmoria laundering template matches what the Shelkopolis port charter obscures.",
+    label: "The template was designed. Someone knew exactly which categories to rotate.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "Iron Compact trade agent Sull Crenn has commercial offices in both Cosmoria and Shelkopolis. He manages the cross-city commercial relationship — which includes the port district charter.",
+    label: "Crenn's Shelkopolis office opened the same month the first ghost vessel transited.",
     tags: ['ArcRoad', 'Lore', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -73,7 +73,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "The same Compact names appear in both. The appointment and the ghost accounts.",
+    label: "Three names on the appointment committee. Same three on the ghost accounts.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -93,7 +93,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "The ghost vessel registry numbers and the Shelkopolis manifests don't reconcile.",
+    label: "Every departure date matches an arrival at the secondary terminal.",
     tags: ['ArcDeepening', 'Lore', 'Craft'],
     xpReward: 75,
     fn: function() {
@@ -117,7 +117,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "The tide marker on Cosmoria's harbor wall: a notation in weathered chalk, re-chalked weekly — coordinates. Someone is still communicating through this harbor.",
+    label: "Re-chalked every week. That frequency is not for navigation.",
     tags: ['ArcDeepening', 'Survival', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -143,7 +143,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— ARRIVAL ———
 
   {
-    label: "Shelkopolis port district. The secondary freight terminal that the ghost vessels used is visible from the harbor road. You're standing at the delivery endpoint.",
+    label: "Secondary terminal. Smaller, quieter, no secondary review required.",
     tags: ['ArcArrival', 'Survival', 'Atmosphere'],
     xpReward: 70,
     fn: function() {
@@ -168,7 +168,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "The Shelkopolis maritime handler — port registry will have Aldeth on file.",
+    label: "Forty-one containers. Someone counted them and said nothing.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -196,7 +196,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— HARD GATE ———
 
   {
-    label: "Cosmoria's ghost vessels delivered to Shelkopolis. The maritime phase is done. The only thing left to do is get to where the delivery ended up.",
+    label: "The coastal delivery phase finished before I left. I am already behind it.",
     tags: ['ArcGate', 'Decision'],
     plot: 'main',
     xpReward: 80,
@@ -217,7 +217,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Arrive in Shelkopolis. Cosmoria's maritime laundering template and forty-one container arrivals all point to the secondary freight terminal underground channel leading to the dome.",
+    label: "Forty-one containers. Someone moved them carefully and left no names.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
