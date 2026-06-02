@@ -3679,6 +3679,12 @@ const ARCHETYPE_TRAIT_POOLS = {
     {id:'tr_wild',       name:'Wilderness Lore',     type:'investigation',desc:'Correctly read weather, animal behavior, or terrain 24 hours in advance. Natural environments hold no secrets from you.', levelMin:3},
     {id:'tr_patience',   name:'Patient Hunter',      type:'active', traitType:'active', activeSkillType:'combative', desc:'Skip your action: next attack gains +3 and costs no action.', levelMin:6, skill:'finesse', bonus:3, successEffect:'The patience pays — the strike finds the exact opening you waited for.', failEffect:'The moment came and passed. The bonus is lost.', critEffect:'Perfect timing: the strike bypasses all defenses.'},
   ],
+  archer:    [
+    {id:'ta_distance',   name:'Long Draw',           type:'passive',      desc:'+2 to ranged attacks at Medium and Long range. At Very Far, ranged attacks are still possible at -1.', levelMin:2},
+    {id:'ta_nock',       name:'Fast Nock',           type:'active', traitType:'active', activeSkillType:'combative', desc:'Draw and fire before an enemy can close range. Can be used at the start of any round before initiative resolves (1/combat).', levelMin:4, skill:'finesse', bonus:2, successEffect:'The arrow is away before they close. They take the hit mid-step.', failEffect:'The nock catches — the moment is gone.', critEffect:'The shot lands center-mass. Their approach ends here.'},
+    {id:'ta_sight',      name:'Range Reading',       type:'passive',      desc:'Accurately estimate distance, cover quality, and line-of-sight from any position without moving.', levelMin:3},
+    {id:'ta_patience',   name:'Held Shot',           type:'passive',      desc:'If you do not move on your turn, your next ranged attack gains +1 and ignores partial cover.', levelMin:6},
+  ],
   rogue:     [
     {id:'tro_shadow',    name:'Shadow Step',         type:'passive',      desc:'Move between cover positions without triggering detection.', levelMin:2},
     {id:'tro_exit',      name:'Quick Exit',          type:'active', traitType:'active', activeSkillType:'utility', desc:'Disengage without rolling if you are currently undetected.', levelMin:4, skill:'finesse', bonus:1, utilityResult:'You are gone before anyone marks the space you occupied.'},
