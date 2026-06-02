@@ -1103,4 +1103,142 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     failResult: 'The dock gate is closed for an inspection check — the freight coordinator is running numbers against the platform stack before the next barge loads. The processing shed side entrance stays open and the sorted output waiting for the dock is visible from there without needing dock authorization.'
   }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — foreman enforcement posture
+  {
+    id: 'soreheim_arch_combat_1',
+    label: 'The yard foremen are positioned at chokepoints, not at work sites. Containment, not supervision.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Labor', 'Enforcement', 'Observation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The yard foremen are stationed at the three corridor junctions between the processing floor and the dock exit — not at the work stations where supervision would improve output. The positioning is a containment deployment: foremen at chokepoints control worker movement between sections without directly managing the work. Someone restructured the foreman role from productivity oversight to population control on the floor. The workers move through the yard aware of exactly where each foreman stands.');
+      addJournal('Soreheim yard foremen deployed at corridor chokepoints, not work sites — containment posture, not supervision posture.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The foreman at the first junction clocks your arrival and positions himself to block line-of-sight to the other foremen positions. The shift coordinator\'s office posts the daily foreman assignment schedule; the current deployment plan compared against the historical work-site pattern will show the shift.' }
+  },
+
+  {
+    id: 'soreheim_arch_combat_2',
+    label: 'The processing yard brought in external muscle last week. The foremen answer to them now.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Labor', 'External', 'Hierarchy'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Three external enforcement personnel arrived at the processing yard last week and have taken positions above the floor foremen in the informal authority hierarchy — foremen check with them before making decisions about worker discipline. They carry no yard authorization papers and are not listed in any labor coordinator documentation. They are present with implied authority from a source nobody on the yard floor will name. The foremen answer to them because not answering has been demonstrated to be worse.');
+      addJournal('External enforcement personnel at Soreheim yard — unlisted in labor documentation, foremen defer to them, source unnamed.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The external personnel are watching the approaches and redirect questions with practiced efficiency. The labor coordinator\'s authorization log lists every person with formal yard access; anyone not in that log is visible by absence.' }
+  },
+
+  // MAGIC ×2 — allocation ward interference
+  {
+    id: 'soreheim_arch_magic_1',
+    label: 'The quota ward was adjusted. The adjustment removed the output floor protection.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Wards', 'Labor'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The processing quota ward carries a recent rewrite over the original inscription. What was removed is the floor protection clause — a provision that established a minimum acceptable output below which penalties could not be assessed. The current ward has no floor. Workers can be penalized for any output level below the ceiling quota, which now floats upward. The rewrite removed the one structural protection workers had against quota escalation without limit. The change was made quietly and without notice to the workers it affected.');
+      addJournal('Soreheim quota ward rewritten: output floor protection removed, penalties now assessable at any output level below ceiling.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward inscription is inside the foreman\'s station, which requires shift supervisor authorization to enter. The outer processing floor board carries the current ward parameters in summary form — the floor protection entry will be absent from a listing that should include it.' }
+  },
+
+  {
+    id: 'soreheim_arch_magic_2',
+    label: 'The output measurement ward has been recalibrated. It measures higher than the actual output.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Measurement', 'Fraud'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The arcane output measurement ward in the main processing corridor reads approximately 12% higher than physical count verification. The discrepancy is consistent across three different measurement points and two different shift periods. A ward that reads higher than actual means every quota comparison uses inflated output figures — workers are measured against a denominator that overstates what they produced. The recalibration makes workers appear to be underperforming when they are not. Someone adjusted the measurement to manufacture a productivity deficit.');
+      addJournal('Output measurement ward reads 12% above physical count — recalibrated to manufacture productivity deficit across all workers.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The measurement ward calibration panel is in the locked utility corridor. The ward\'s current calibration value is posted on the daily output board in the main corridor alongside the standard specification; the gap between posted calibration and specified standard will appear in the comparison.' }
+  },
+
+  // STEALTH ×2 — equipment movement monitoring gaps
+  {
+    id: 'soreheim_arch_stealth_1',
+    label: 'Equipment leaves the yard on a cart that is not on the loading manifest.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Equipment', 'Diversion', 'Gap'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'A supply cart exits the yard at the end of the second shift carrying equipment not listed on the loading manifest for that departure — the cart is logged out under a blanket category entry that covers its movement without specifying its contents. The category entry is legitimate but broad enough to obscure what is actually leaving. The same cart, the same category, the same departure window, three times in the past week. Equipment is being systematically removed from yard inventory under a documentation layer thin enough to pass a casual inspection.');
+      addJournal('Supply cart with unspecified equipment leaving Soreheim yard under blanket category entry, 3x this week — systematic diversion.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The cart is already out the gate — today\'s window closed two minutes ago. The dock exit log requires specific equipment listings by regulation; the blanket category entries will appear as anomalies in a comparison against the same log from three months prior.' }
+  },
+
+  {
+    id: 'soreheim_arch_stealth_2',
+    label: 'The correction log cabinet is accessible during a one-hour window nobody is watching.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Records', 'Access', 'Window'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The correction log cabinet in the north corridor — the one that holds all quota calculation adjustments and error corrections — is unlocked and unmonitored during the hour between the shift end departure and the administrative lockup. The shift coordinator\'s desk is visible from the cabinet position, but the coordinator leaves with the shift. One hour, every day, the correction records are physically accessible without authorization. The quota discrepancies that show in the main records will have their source documents in that cabinet.');
+      addJournal('Correction log cabinet: unmonitored 1-hour window daily between shift end and administrative lockup — quota adjustment source documents accessible.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The window closed ten minutes ago — the administrative lockup ran early today after a processing irregularity flagged an after-hours review. The corridor lamp stays lit through the lockup period; the window timing is predictable from the shift schedule posted at the yard entrance.' }
+  },
+
+  // SUPPORT ×2 — worker mutual-aid network stress
+  {
+    id: 'soreheim_arch_support_1',
+    label: 'The mutual aid rotation stopped. Workers stopped trusting each other to keep it quiet.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Labor', 'Social', 'Fragmentation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Soreheim processing workers have historically maintained an informal mutual aid rotation — shared supplies, shift coverage for sick workers, small pooled funds for families in shortfall. The rotation has stopped. Workers interviewed separately give the same reason without coordinating: someone got reported. A worker who received aid was named in a shift report, and the person who was named had their quota reviewed upward. The mutual aid network collapsed because someone demonstrated that participation could be weaponized against participants.');
+      addJournal('Worker mutual aid rotation stopped — someone was reported for receiving aid, quota reviewed upward, network collapsed by demonstrated risk.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Workers on the floor are not available for side conversations during shift — the foremen at the chokepoints log unsanctioned work interruptions. The end-of-shift gathering point near the main gate is outside the yard boundary and outside foreman jurisdiction.' }
+  },
+
+  {
+    id: 'soreheim_arch_support_2',
+    label: 'The senior workers who trained the new hires have been moved to isolated stations.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Labor', 'Social', 'Isolation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Three workers with more than five years on the floor — the informal knowledge holders for the processing work — have been reassigned to isolated single-person stations on the far end of the yard, away from the new hire sections. The reassignments were framed as efficiency adjustments. The effect is that experienced workers can no longer transmit informal knowledge, mentorship, or production context to newer workers. New hires are operating without the institutional knowledge that would allow them to understand or challenge the quota system. Isolation of expertise is a method of control.');
+      addJournal('Senior workers isolated from new hire sections — expertise network severed, new workers left without institutional knowledge.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The isolated senior workers are at stations too far from the accessible section of the yard to approach without floor authorization. The shift assignment board at the yard entrance posts all worker station assignments by name; the senior workers\' current station locations compared against their historical positions will show the movement.' }
+  }
+
+);
+
 window.SOREHEIM_STAGE1_ENRICHED_CHOICES = SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES;

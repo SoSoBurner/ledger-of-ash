@@ -1026,4 +1026,142 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     failResult: 'The yard gate has closed for the midday count — the handlers run a manifest tally at this hour and don\'t allow observation from the lane while it\'s in progress. The yard reopens for loading in the early afternoon.'
   }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — syndicate guard rotation
+  {
+    id: 'sunspire_arch_combat_1',
+    label: 'The syndicate guard at the registry doubled last month. No new risk was announced.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Registry', 'Escalation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The syndicate family registry building has doubled its guard presence since last month — two guards at the entrance where one stood before, a new position at the rear courtyard gate. No new external threat has been announced. The escalation is inward-facing: the doubled presence protects the registry documents, not the building perimeter. Someone decided the obligation records inside the registry needed more protection than they had before. The timing aligns with when the obligation manipulation began.');
+      addJournal('Syndicate registry: guard doubled, inward-facing protection — obligation records secured against unknown internal review threat.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The guard at the registry entrance is thorough — he asks for name, family affiliation, and purpose before allowing entry. The family obligation board outside the registry posts the public summary of all current obligations; the detailed records are inside, but the summary shows which families are listed for review.' }
+  },
+
+  {
+    id: 'sunspire_arch_combat_2',
+    label: 'The convoy escort has shifted to a family enforcement unit, not a route protection unit.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Convoy', 'Enforcement', 'Purpose'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The escort unit accompanying the current convoy is configured for population compliance, not route security — the formation keeps the convoy handlers inside a controlled perimeter rather than watching the road approaches. Route protection formations look outward. This formation looks inward at the cargo handlers. The convoy is moving under supervision designed to ensure the handlers cannot divert from the designated route or make contact with anyone outside the escort perimeter. Syndicate goods are being moved under guard that monitors the movers.');
+      addJournal('Convoy escort configured for handler containment, not route security — inward formation, handlers under perimeter control.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The escort unit blocks the road observation position when you approach it — standard operational procedure for a perimeter-control formation. The convoy waystation at the next stopping point logs all escort configurations; the form for this unit will show the personnel placement and formation type.' }
+  },
+
+  // MAGIC ×2 — kinship binding ritual changes
+  {
+    id: 'sunspire_arch_magic_1',
+    label: 'The kinship binding ritual now requires syndicate witnessing. It did not before.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Ritual', 'Binding'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The family kinship binding ritual — the ceremony that formally establishes obligation relationships between households — has been updated to require a syndicate representative as witnessing authority. The change took effect two months ago. Under the old requirement, any family elder could witness. Now only syndicate-designated witnesses are recognized. The change means the syndicate controls who can enter binding relationships, which families can formalize obligations to each other, and whose obligations are legitimate. Kinship itself now requires syndicate approval.');
+      addJournal('Kinship binding ritual: syndicate witnessing now required — syndicate controls which family obligations are formally recognized.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ritual preparation chamber is closed for the current ceremony — family business is private during the rite. The public ritual registration board outside the ceremony hall lists all recognized witnessing designations; the shift from family elder to syndicate designee will be visible in the current versus historical listing.' }
+  },
+
+  {
+    id: 'sunspire_arch_magic_2',
+    label: 'The obligation ward inscription changed. The mutual release clause was removed.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Obligation', 'Ward'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The obligation binding wards at the family registry carry a recent rewrite — the mutual release clause has been removed. The original ward allowed either party in an obligation relationship to petition for release under agreed conditions. The current ward has no release mechanism; obligations run to their natural term with no negotiated exit. Families that enter obligation relationships under the new ward cannot leave them. The change transforms obligation from a managed exchange into a permanent binding, and it was made without announcement.');
+      addJournal('Obligation ward rewritten: mutual release clause removed — obligations now permanent, no exit mechanism for either party.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward inscription at the registry is behind the counter, not accessible without entering. The family obligation board outside the building posts the current ward parameters in public summary form; the release clause entry will be absent from a listing that should include it.' }
+  },
+
+  // STEALTH ×2 — route-monitoring gaps
+  {
+    id: 'sunspire_arch_stealth_1',
+    label: 'The family courier skips two houses on the obligation route. Always the same two.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Courier', 'Route', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The syndicate family courier runs a daily obligation notification route — delivering acknowledgment papers to households with active obligations. The route skips two houses consistently: the Thael family on the east lane and the Corrven household at the market corner. Both households have active obligations on file. The courier passes their doors and does not stop. The two households are not receiving their notification papers, which means they cannot respond to obligation updates in the required window, which means their responses are being treated as delinquent by default.');
+      addJournal('Family courier skips Thael and Corrven households on notification route — two families in default by non-delivery design.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The courier route is not publicly posted — it is internal syndicate documentation. The Thael and Corrven households are accessible directly; either family can confirm whether they have received their obligation notifications in the past month.' }
+  },
+
+  {
+    id: 'sunspire_arch_stealth_2',
+    label: 'The overnight convoy yard has a twenty-minute window with no handler present.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Yard', 'Gap', 'Schedule'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The overnight convoy yard has a consistent twenty-minute gap between the end of the evening handler shift and the arrival of the night watch — a window with no syndicate personnel present in the yard. The gap is at the same time each night, which means it is structural, not incidental. The manifest comparison between what is loaded in the evening and what is recorded in the morning departure log will show whether the gap is being used to adjust cargo without record. Something moves in that twenty minutes that is not on any schedule.');
+      addJournal('Convoy yard: 20-minute gap nightly between evening handler shift and night watch — structural, potentially used for unrecorded cargo adjustment.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The gap is tonight, not now — the evening handler shift does not end for another three hours. The morning departure log is public and posted at the yard gate each day; a comparison with the previous evening\'s loading record will show whether cargo quantities changed overnight.' }
+  },
+
+  // SUPPORT ×2 — family obligation coercion
+  {
+    id: 'sunspire_arch_support_1',
+    label: 'Families with unresolved obligations stopped asking each other for help.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Isolation', 'Obligation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Under the traditional obligation system, families with active obligations routinely helped each other navigate the requirements — sharing resources, advising on fulfillment strategies, offering informal support. That informal network has stopped. Families in obligation now manage their situations alone and decline to discuss their obligation status with other families. The isolation is self-protective: helping a family in obligation can be documented as an unauthorized obligation modification, which triggers syndicate review of the helper\'s own accounts. Community support was made into a compliance risk.');
+      addJournal('Obligation families isolated from mutual support — helping someone in obligation now triggers helper\'s own syndicate review, community support criminalized.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Families in obligation are currently the most closed to outside conversation — the compliance risk extends to speaking with outsiders who ask about their situation. The family broker who handles obligation negotiations sees the isolation pattern from the professional side and can describe its structure without implicating specific families.' }
+  },
+
+  {
+    id: 'sunspire_arch_support_2',
+    label: 'Two families merged their household registries. The syndicate refused to recognize the merge.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Resistance', 'Refusal'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The Aldren and Vessin families attempted to merge their household registries — a traditional solidarity move that would combine their obligation loads and allow them to collectively meet what neither could meet individually. The syndicate denied the merger registration without explanation. The two families have appealed twice; both appeals were rejected without stated grounds. Under the old obligation system, household mergers were approved as a matter of routine. Denying them selectively preserves the isolation that keeps individual families in obligation and unable to collectively respond to pressure.');
+      addJournal('Aldren-Vessin household merger denied twice without grounds — selective refusal preserves family isolation under obligation pressure.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The Aldren family is currently in active dispute with the syndicate over the merger decision — they are not available for side conversations while the appeal is open. The family registry\'s merger application file is a public document; the rejection notices will show the absence of stated grounds.' }
+  }
+
+);
+
 window.SUNSPIRE_STAGE1_ENRICHED_CHOICES = SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES;

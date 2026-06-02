@@ -1052,4 +1052,142 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   }
 }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — archive security deployment
+  {
+    id: 'mimolot_arch_combat_1',
+    label: 'The sealed section has a guard now. The reading room never had one before.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Archive', 'Change'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'A guard has been posted at the sealed section entrance in the main archive — a position that did not exist six months ago. The reading room and archive have always been self-regulating through access authorization; introducing a guard changes the enforcement model from administrative to physical. The guard\'s presence means the academy administration is not confident that the access authorization system alone will prevent someone from reading what is inside the sealed section. What is in the sealed section is worth physically protecting.');
+      addJournal('Archive sealed section: new guard post, no historical precedent — administration not confident in access controls alone.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The guard reads your approach and positions himself in front of the sealed section entrance before you reach it. He is polite and absolute. The access authorization request procedure is posted beside the entrance; the backlog of pending requests visible in the window will show how many others have been trying.' }
+  },
+
+  {
+    id: 'mimolot_arch_combat_2',
+    label: 'The reassigned scholars are escorted to their new stations. They do not go alone.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Escort', 'Pressure'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Three scholars recently reassigned from research positions to cataloging duties are transported to their new work stations with an academy security escort each morning. The escort is framed as a courtesy — "showing them to their new assignment." It is not a courtesy. It is a demonstration. The scholars being escorted know it, their former colleagues watching know it, and the administration knows that everyone knows. The escort communicates what happens when research on institutional critique continues: physical relocation with supervision.');
+      addJournal('Reassigned scholars escorted to cataloging stations daily — public demonstration of consequence for institutional research.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The escort is currently in progress — mid-morning is when the reassignment walk happens. The scholars being escorted will be at their cataloging stations in twenty minutes and will be accessible for conversation once the escort has left.' }
+  },
+
+  // MAGIC ×2 — sealed section arcane locks
+  {
+    id: 'mimolot_arch_magic_1',
+    label: 'The sealed section ward was upgraded after the reassignments. The new lock is external-keyed.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Ward', 'Sealed'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The sealed section\'s binding ward has been replaced with a higher-tier version — the new ward requires an external key authorization, meaning the access decision cannot be made by anyone within the academy. The old ward could be opened by the senior librarian under specific conditions; the new ward requires a key held by a Mimolot administrative authority outside the library building. The upgrade removes the possibility of any internal academic decision to open the sealed section. The contents are now protected by an authority that is not accountable to the academy.');
+      addJournal('Sealed section ward upgraded: external-key authorization required, no internal academic authority can open it independently.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward inscription is visible from the doorway but the new lock glyph is on the interior face, requiring access you do not have. The public ward registration board in the academy\'s administrative lobby lists all authorized ward changes; the upgrade date and external key assignment will appear in the current versus previous version comparison.' }
+  },
+
+  {
+    id: 'mimolot_arch_magic_2',
+    label: 'The reading room observation ward was activated two months ago. Nobody announced it.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Surveillance', 'Ward'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'An observation ward is active in the main reading room — a monitoring ward that records which texts are accessed, by whom, and for how long. The ward was activated two months ago without announcement to the scholars or students using the room. Reading in a monitored space without knowing it is monitored changes what people read — and is intended to. The ward\'s arcane signature is faint, designed to be unnoticed by anyone not specifically looking for it. Someone decided the reading patterns of academy scholars needed to be tracked.');
+      addJournal('Reading room observation ward active: records text access, unannounced 2 months ago — scholar reading monitored without consent or knowledge.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The reading room is occupied and the ward\'s signature is faint enough that detecting it requires sustained attention that would be noticed by the scholars present. The late evening session, after most scholars have left, will have fewer observers and more time for the kind of focused arcane examination that would confirm the ward\'s presence.' }
+  },
+
+  // STEALTH ×2 — reading room surveillance gaps
+  {
+    id: 'mimolot_arch_stealth_1',
+    label: 'The sealed section key is in the senior librarian\'s desk during the lunch interval.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Key', 'Access', 'Window'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The senior librarian keeps the sealed section access key in his desk during the midday lunch interval — the same desk that sits in the public registry anteroom during the hour when he is at the refectory. The anteroom is not locked during the lunch interval; it is simply unoccupied. The key is not the external override key added in the recent ward upgrade; it is the internal master key that predates the upgrade and may still open sections of the sealed archive that the new ward does not cover. The old lock structure and the new one are not fully reconciled.');
+      addJournal('Senior librarian\'s desk key accessible during lunch interval — predates ward upgrade, may still open sections the new ward has not reclosed.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The librarian is still in the anteroom — the lunch interval starts at the mid-bell, which is twelve minutes away. The refectory schedule is posted in the main hall; the interval will be precisely as long as the schedule indicates.' }
+  },
+
+  {
+    id: 'mimolot_arch_stealth_2',
+    label: 'A reassigned scholar still has her access card. She uses it after hours.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Access', 'Card', 'Opportunity'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'One of the reassigned scholars still has her original reading room access authorization — the reassignment process failed to revoke her card, an administrative oversight that has persisted for three weeks. She uses the card to enter the reading room after formal hours, when the observation ward is in low-activity mode and the guard rotation covers the sealed section entrance rather than the reading room approach. The oversight creates a window she has been careful not to use visibly. She has been building toward something in those after-hours sessions.');
+      addJournal('Reassigned scholar retains unreoked reading room access — uses it after hours during low-mode observation ward period.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The scholar is at her cataloging station now and cannot discuss her after-hours access without risking the administrative oversight being corrected. The after-hours reading room log — maintained separately from the standard access log — records entry by card number without name; her card number will appear in the after-hours entries.' }
+  },
+
+  // SUPPORT ×2 — scholar reassignment social pressure
+  {
+    id: 'mimolot_arch_support_1',
+    label: 'The research scholars stopped citing each other\'s work. The citation network collapsed.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Academic', 'Fragmentation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Academic citation is the visible structure of scholarly community — it shows who builds on whose work, who trusts whose methods. At Mimolot Academy, citations in current research papers have dropped dramatically in the past two months, with scholars explicitly declining to cite colleagues whose work addresses institutional subjects. Being cited in a suppressed scholar\'s footnotes has become a professional risk. The citation network\'s collapse means the academic community can no longer build on itself; each scholar now works in deliberate isolation from the institutional critique research that preceded them.');
+      addJournal('Mimolot citation network collapsed: scholars declining to cite colleagues on institutional topics — citation as professional risk.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The scholars currently in the reading room are managing their visibility carefully and a direct question about citation practices reads as an administrative probe. The research publication board in the main hall posts all current submitted papers with their citation counts; the comparison between recent and earlier papers will show the collapse numerically.' }
+  },
+
+  {
+    id: 'mimolot_arch_support_2',
+    label: 'A junior scholar publicly defended the administration\'s research restrictions. His colleagues stopped talking to him.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Endorsement', 'Fracture'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Third-year scholar Daves Oril issued a formal statement supporting the administration\'s reclassification of institutional critique research as "pending review." The statement used administration framing and appeared in the academy\'s official bulletin. His cohort has not engaged with him since. He is still present in the reading room, still submitting papers, but he works alone at a table that used to have four regular occupants. Someone gave the administration a public endorsement from within the research community, and the research community responded by excising him from the informal network that makes scholarly work possible.');
+      addJournal('Scholar Oril endorsed administration restrictions — cohort withdrew, informal scholarly network fractured along endorsement line.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Daves Oril is at his usual solo table and will give the administration line clearly if asked directly about his statement. His former cohort members are accessible elsewhere in the reading room and have more complex accounts of what his endorsement meant for the research network.' }
+  }
+
+);
+
 window.MIMOLOT_STAGE1_ENRICHED_CHOICES = MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES;
