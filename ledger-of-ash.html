@@ -2106,7 +2106,7 @@ input, button, select, textarea { font-family: inherit; }
         <button class="camp-action" id="btn-post-watches" data-camp="post_watches"><div class="ca-icon">&#x25CE;</div><div class="ca-title">Post Watches</div><div class="ca-desc">Set companions on rotating watch. Requires at least one companion.</div></button>
         <div class="camp-group-label">Active Threads</div>
         <button class="camp-action" id="btn-campout" data-camp="campout"><div class="ca-icon">&#x25CB;</div><div class="ca-title">Camp Outside</div><div class="ca-desc">Sleep outside the settlement. Risk a night encounter; rolls −1 the following day.</div></button>
-        <button class="camp-action" id="btn-lay-low" data-camp="lay_low" style="display:none"><div class="ca-icon">&#x25AA;</div><div class="ca-title">Lay Low</div><div class="ca-desc">Go quiet for a day. Reduces Watchfulness by 1. Costs a day.</div></button>
+        <button class="camp-action" id="btn-lay-low" data-camp="lay_low" style="display:none"><div class="ca-icon">&#x25AA;</div><div class="ca-title">Lay Low</div><div class="ca-desc">Go quiet for a day. Reduces Watchfulness and each polity heat by 1. Costs a day.</div></button>
         <button class="camp-action" id="btn-review-notes" data-camp="review_notes" style="display:none"><div class="ca-icon">&#x2393;</div><div class="ca-title">Review Notes</div><div class="ca-desc">Go back to the beginning. A lost thread may still hold. Costs a day.</div></button>
       </div>
       <div class="camp-footer"><button class="btn btn-ghost btn-sm" data-close="overlay-camp">&#x2192; Break Camp</button></div>
@@ -11332,7 +11332,7 @@ function adaptEnrichedChoice(c) {
           var _riDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
           var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
           var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
-          var _riSKD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'};
+          var _riSKD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit',craft:'Craft'};
           var _riSkillLabel = _riSKD[_ri.skill] || _ri.skill;
           addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _riSkillLabel + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
         }
@@ -17375,9 +17375,12 @@ function showCamp() {
   // Sleep: show at night
   const sleepBtn = document.querySelector('[data-camp="sleep"]');
   if (sleepBtn) sleepBtn.style.display = (G.timeIndex || 0) >= 2 ? '' : 'none';
-  // Lay Low: show at high watchfulness
+  // Lay Low: show at high watchfulness or when heat exists
   const layLowBtn = document.getElementById('btn-lay-low');
-  if (layLowBtn) layLowBtn.style.display = ((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 3 ? '' : 'none';
+  if (layLowBtn) {
+    var _anyHeat = G.heat && Object.keys(G.heat).some(function(k){ return G.heat[k] > 0; });
+    layLowBtn.style.display = (((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 3 || _anyHeat) ? '' : 'none';
+  }
   // Review Notes: show when thread available
   const reviewNotesBtn = document.getElementById('btn-review-notes');
   if (reviewNotesBtn) reviewNotesBtn.style.display = (G.flags && G.flags.recovery_thread_available) ? '' : 'none';
