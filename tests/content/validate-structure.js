@@ -68,7 +68,7 @@ function checkNoWindowG() {
 //     A reversed call looks like addJournal('evidence', '...long text...')
 //     We heuristically flag calls where arg1 is a known category string.
 
-const VALID_CATS = ['evidence', 'intelligence', 'rumor', 'discovery', 'contact_made', 'complication'];
+const VALID_CATS = ['evidence', 'intelligence', 'rumor', 'discovery', 'contact_made', 'complication', 'field_note'];
 const CAT_PATTERN = new RegExp(`addJournal\\s*\\(\\s*['"](?:${VALID_CATS.join('|')})['"]`, 'g');
 
 function checkAddJournalArgOrder() {
