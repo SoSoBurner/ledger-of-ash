@@ -63,7 +63,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
   // 3. ROAD ENCOUNTER: DISPLACED WORKER
   {
-    label: "Dismissed on the same day. Same template, word for word, across nine workers.",
+    label: "Nine workers dismissed the same day. The form was identical. This was coordinated.",
     tags: ['ArcRoad', 'Social', 'NPC'],
     xpReward: 70,
     fn: function() {

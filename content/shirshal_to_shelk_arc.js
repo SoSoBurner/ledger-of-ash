@@ -78,7 +78,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "Wend's corridor and Cadrin's bridge are parallel channels of the same supply chain.",
+    label: "They're running the same operation through two different doors.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -98,7 +98,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   },
 
   {
-    label: "Parro's clean reports match the ghost vessel dates exactly. He transferred after the last window.",
+    label: "Clean reports, then a transfer, exactly when the last window closed.",
     tags: ['ArcDeepening', 'Lore', 'Investigation'],
     xpReward: 75,
     fn: function() {
@@ -172,7 +172,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
   },
 
   {
-    label: "Six vessels logged as maintenance transit, never appearing in the maintenance queue.",
+    label: "Six maintenance runs with no maintenance. Someone signed them through.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {

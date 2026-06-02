@@ -10,7 +10,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— DEPARTURE (choices 1-3) ———
 
   {
-    label: "The template was designed. Someone knew exactly which categories to rotate.",
+    label: "This wasn't accidental. Someone built the rotation.",
     tags: ['ArcDeparture', 'Investigation', 'Decision'],
     xpReward: 65,
     fn: function() {
@@ -27,7 +27,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "Crenn's Shelkopolis office opened the same month the first ghost vessel transited.",
+    label: "The timing is not coincidence. Crenn moved when the first vessel did.",
     tags: ['ArcRoad', 'Lore', 'Risk'],
     xpReward: 70,
     fn: function() {
@@ -73,7 +73,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "Three names on the appointment committee. Same three on the ghost accounts.",
+    label: "The same three names. One month apart. That is not coincidence.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -168,7 +168,7 @@ const COSMORIA_TO_SHELK_ARC = [
   },
 
   {
-    label: "Forty-one containers. Someone counted them and said nothing.",
+    label: "Forty-one. They were counted, logged, and left invisible.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -217,7 +217,7 @@ const COSMORIA_TO_SHELK_ARC = [
   // ——— FINALE ———
 
   {
-    label: "Forty-one containers. Someone moved them carefully and left no names.",
+    label: "Forty-one. No names. Every transfer deliberate and invisible.",
     plot: 'main',
     tags: ['ArcFinale', 'Decision'],
     xpReward: 100,
