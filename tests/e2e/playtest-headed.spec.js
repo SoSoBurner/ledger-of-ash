@@ -280,10 +280,12 @@ async function isDead(page) {
 
 async function closeOverlay(page) {
   try {
-    await page.evaluate(() => {
-      document.querySelectorAll('.overlay.active').forEach(el => el.classList.remove('active'));
-    });
-    // Wait for overlays to fully hide (CSS transition) before returning
+    const btn = page.locator('.overlay.active .overlay-close, .overlay.active button:has-text("×"), .overlay.active button:has-text("Close")').first();
+    if (await btn.isVisible({ timeout: 500 }).catch(() => false)) {
+      await btn.click();
+    } else {
+      await page.keyboard.press('Escape');
+    }
     await page.waitForSelector('.overlay.active', { state: 'hidden', timeout: 1000 }).catch(() => {});
     await page.waitForTimeout(100);
   } catch (_) {}
@@ -301,11 +303,6 @@ async function dismissOverlays(page) {
       await page.waitForTimeout(PACE.short);
     } catch (_) { break; }
   }
-  // Fallback: remove active class from any remaining overlays and purge Stage 3 end-game modal
-  await page.evaluate(() => {
-    document.querySelectorAll('.overlay.active').forEach(el => el.classList.remove('active'));
-    document.querySelectorAll('.modal-overlay').forEach(el => el.remove());
-  }).catch(() => {});
 }
 
 // ---------------------------------------------------------------------------
@@ -320,10 +317,16 @@ async function createCharacter(page, archetypeId, backgroundId) {
   const name = ARCHETYPE_NAMES[archetypeId] || 'Traveller';
   await page.fill('#char-name', name);
 
-  await page.waitForFunction(() => typeof selectArchetype === 'function', { timeout: 8000 });
-  await page.evaluate((id) => selectArchetype(id), archetypeId);
+  // Click archetype card organically by display name
+  const archetypeName = ARCHETYPE_NAMES[archetypeId] || archetypeId;
+  await page.waitForSelector('.card', { state: 'visible', timeout: 8000 });
+  const archCard = page.locator(`.card:has-text("${archetypeName}")`).first();
+  await archCard.click();
   await page.waitForSelector('#bg-step', { state: 'visible', timeout: 5000 });
-  await page.evaluate(({ bgId, archId }) => selectBackground(bgId, archId), { bgId: backgroundId, archId: archetypeId });
+
+  // Click the first available background card organically
+  const bgCard = page.locator('#bg-step .card').first();
+  await bgCard.click();
 
   await page.waitForSelector('#begin-btn:not([style*="display:none"])', { timeout: 5000 });
   await page.click('#begin-btn');
@@ -1420,246 +1423,21 @@ async function probeEndLegend(page, tag) {
 }
 
 // ---------------------------------------------------------------------------
-// Forced-state alignment + heat probe
+// Forced-state alignment + heat probe — DISABLED (organic HUD-only mode)
+// G-state injection removed. Alignment/heat UI is observed passively during
+// organic play via probeAlignmentBars() and probeHeatHUD().
 // ---------------------------------------------------------------------------
 async function probeForcedStateChecks(page, tag) {
-  try {
-    // Capture original values before mutation
-    const origVals = await page.evaluate(() => {
-      try {
-        return {
-          benevolence: G.benevolence || 0,
-          orderAxis:   G.orderAxis   || 0,
-          heat:        G.heat ? JSON.parse(JSON.stringify(G.heat)) : {},
-        };
-      } catch (_) { return { benevolence: 0, orderAxis: 0, heat: {} }; }
-    }).catch(() => ({ benevolence: 0, orderAxis: 0, heat: {} }));
-
-    // ── Alignment bars: force values past ±10 threshold ──────────────────
-    await page.evaluate(() => {
-      try {
-        G.benevolence = 15;
-        G.orderAxis   = -12;
-        if (typeof updateHUD === 'function') updateHUD();
-      } catch (_) {}
-    }).catch(() => {});
-    await page.waitForTimeout(PACE.short);
-
-    // Open char sheet to see alignment bars
-    const sheetOpened = await openOverlay(page, '#btn-charsheet', '#overlay-charsheet');
-    await screenshot(page, `${tag}_forced_alignment_bars`);
-    if (sheetOpened) {
-      const barEl = await page.locator('[class*="alignment"],[id*="benevolence"],[id*="orderAxis"],[class*="benevolence"],[class*="order-bar"]').isVisible({ timeout: 1000 }).catch(() => false);
-      if (!barEl) {
-        log(`[forced-state ${tag}] VIOLATION: alignment bars not visible after forcing benevolence=15 orderAxis=-12`);
-      } else {
-        log(`[forced-state ${tag}] alignment-bars: PASS (bars visible at forced values)`);
-      }
-      await closeSpecificOverlay(page, 'overlay-charsheet');
-    } else {
-      log(`[forced-state ${tag}] alignment-bars: char sheet not opened — skipping bar check`);
-    }
-
-    // ── Heat HUD: force heat to 5 on shelk ───────────────────────────────
-    await page.evaluate(() => {
-      try {
-        if (!G.heat) G.heat = {};
-        G.heat.shelk = 5;
-        if (typeof updateHUD === 'function') updateHUD();
-      } catch (_) {}
-    }).catch(() => {});
-    await page.waitForTimeout(PACE.short);
-    await screenshot(page, `${tag}_forced_heat_hud`);
-    const heatEl = await page.locator('#hud-heat-row').isVisible({ timeout: 1000 }).catch(() => false);
-    if (!heatEl) {
-      log(`[forced-state ${tag}] VIOLATION: heat HUD row not visible after forcing G.heat.shelk=5`);
-    } else {
-      const heatTxt = await page.locator('#hud-heat-row').innerText().catch(() => '');
-      log(`[forced-state ${tag}] heat-hud: PASS "${heatTxt.slice(0,60)}"`);
-    }
-
-    // ── Restore original values ───────────────────────────────────────────
-    await page.evaluate((orig) => {
-      try {
-        G.benevolence = orig.benevolence;
-        G.orderAxis   = orig.orderAxis;
-        G.heat        = orig.heat;
-        if (typeof updateHUD === 'function') updateHUD();
-      } catch (_) {}
-    }, origVals).catch(() => {});
-    log(`[forced-state ${tag}] restored original values`);
-  } catch (err) {
-    log(`[forced-state ${tag}] WARN: ${err.message}`);
-  }
+  log(`[forced-state ${tag}] SKIPPED — organic mode: G-state injection disabled`);
 }
 
 // ---------------------------------------------------------------------------
-// Combat branch probe — enter, read actions, click Talk/Defend, exit
+// Combat branch probe — DISABLED (organic HUD-only mode)
+// enterCombat() injection removed. Combat is observed organically when the
+// player naturally encounters it through choice selections.
 // ---------------------------------------------------------------------------
 async function probeCombatBranches(page, tag, combatMode) {
-  combatMode = combatMode || 'defend';
-  try {
-    // Capture current G state snapshot so we can restore if needed
-    const preG = await readG(page);
-
-    // Trigger combat via enterCombat — guild_enforcer is a known safe enemy key
-    await page.evaluate(() => {
-      try {
-        if (typeof enterCombat === 'function') {
-          enterCombat('guild_enforcer', { context: 'probe', isBoss: false });
-        }
-      } catch (_) {}
-    }).catch(() => {});
-
-    // Wait for combat UI to appear
-    let combatVisible = false;
-    try {
-      await page.waitForSelector('.combat-actions,.combat-btn,#combat-overlay', { timeout: 3000 });
-      combatVisible = true;
-    } catch (_) {}
-
-    if (!combatVisible) {
-      // Try waiting for choice buttons with combat labels
-      const cnt = await waitForChoices(page, 2000);
-      if (cnt > 0) combatVisible = true;
-    }
-
-    await screenshot(page, `${tag}_combat_probe_entry`);
-
-    if (!combatVisible) {
-      log(`[combat-probe ${tag}] WARN: combat UI not visible after enterCombat — skipping`);
-      return;
-    }
-
-    // Read all visible combat action button labels
-    const combatBtns = await page.locator('.combat-btn:visible,.choice-btn:visible:not([disabled])').allInnerTexts().catch(() => []);
-    log(`[combat-probe ${tag}] combat-entry actions: ${combatBtns.slice(0,6).map(t=>t.replace(/\n/g,' ').slice(0,40)).join(' | ')}`);
-
-    // D1: Strike probe — odd-indexed families
-    if (combatMode === 'strike') {
-      let _hpBefore = -1;
-      try { _hpBefore = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
-      if (_hpBefore >= 10) {
-        const _strikeBtn = page.locator('[data-action="attack"]:visible').first();
-        const _strikeBtnVis = await _strikeBtn.isVisible({ timeout: 800 }).catch(() => false);
-        if (_strikeBtnVis) {
-          await _strikeBtn.click();
-          await page.waitForTimeout(PACE.betweenCombat || 500);
-          let _hpAfter = -1;
-          try { _hpAfter = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
-          await screenshot(page, `${tag}_combat_probe_strike`);
-          log(`[combat-probe ${tag}] strike: hp_before=${_hpBefore} hp_after=${_hpAfter} delta=${_hpAfter - _hpBefore}`);
-
-          // Check for death screen
-          const _deathVisible = await page.locator('#overlay-death').isVisible({ timeout: 1000 }).catch(() => false);
-          if (_deathVisible) {
-            log(`[combat-probe ${tag}] DEATH: hp reached 0 during strike probe`);
-            await screenshot(page, `${tag}_combat_probe_death`);
-            const _loadBtn    = page.locator('button:has-text("Load Last Save"),button:has-text("Continue")').first();
-            const _restartBtn = page.locator('button:has-text("Restart"),button:has-text("New Game")').first();
-            const _endBtn     = page.locator('button:has-text("End Legend")').first();
-            const _loadVis    = await _loadBtn.isVisible({ timeout: 1000 }).catch(() => false);
-            const _restartVis = await _restartBtn.isVisible({ timeout: 1000 }).catch(() => false);
-            const _endVis     = await _endBtn.isVisible({ timeout: 1000 }).catch(() => false);
-            log(`[combat-probe ${tag}] death-screen: load=${_loadVis} restart=${_restartVis} endLegend=${_endVis}`);
-            // Verify save before clicking Load
-            const _hasSave = await page.evaluate(function(){
-              try { return !!(localStorage.getItem('ledgerSave') || localStorage.getItem('loaSave') || localStorage.getItem('saveData')); }
-              catch(_) { return false; }
-            }).catch(() => false);
-            if (_hasSave && _loadVis) {
-              await _loadBtn.click();
-              await page.waitForTimeout(1500);
-              log(`[combat-probe ${tag}] death-resume: Load clicked — save restored`);
-            } else if (_restartVis) {
-              await _restartBtn.click();
-              await page.waitForTimeout(1500);
-              log(`[combat-probe ${tag}] death-resume: Restart clicked (no save found)`);
-            }
-            await screenshot(page, `${tag}_combat_probe_death_resume`);
-            return; // Exit probeCombatBranches — run state was reset, continue from wherever we are
-          }
-        } else {
-          log(`[combat-probe ${tag}] strike: [data-action="attack"] not visible — skipping`);
-        }
-      } else {
-        log(`[combat-probe ${tag}] strike: SKIP hp_low=${_hpBefore}`);
-      }
-    }
-
-    // D1: Defend sub-probe — even-indexed families
-    if (combatMode === 'defend') {
-      let _hpBeforeD = -1;
-      try { _hpBeforeD = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
-      const _defendBtn = page.locator('[data-action="defend"]:visible').first();
-      const _defendVis = await _defendBtn.isVisible({ timeout: 800 }).catch(() => false);
-      if (_defendVis) {
-        await _defendBtn.click();
-        await page.waitForTimeout(PACE.betweenCombat || 500);
-        let _hpAfterD = -1;
-        try { _hpAfterD = await page.evaluate(function(){ return G && G.hp != null ? G.hp : -1; }); } catch(_) {}
-        log(`[combat-probe ${tag}] defend: hp_before=${_hpBeforeD} hp_after=${_hpAfterD}`);
-        await screenshot(page, `${tag}_combat_probe_defend`);
-      }
-    }
-
-    // Prefer Talk or Defend — avoid Press (attacks) which could kill character
-    const SAFE_LABELS = ['Talk', 'Retreat', 'Defend'];
-    let clickedLabel = null;
-    for (const safeLabel of SAFE_LABELS) {
-      const btn = page.locator(`.combat-btn:visible:has-text("${safeLabel}"),.choice-btn:visible:not([disabled]):has-text("${safeLabel}")`).first();
-      if (await btn.isVisible({ timeout: 500 }).catch(() => false)) {
-        await btn.click();
-        clickedLabel = safeLabel;
-        break;
-      }
-    }
-    if (!clickedLabel) {
-      // Fall back to first visible button
-      const fallback = page.locator('.combat-btn:visible,.choice-btn:visible:not([disabled])').first();
-      if (await fallback.isVisible({ timeout: 500 }).catch(() => false)) {
-        clickedLabel = await fallback.innerText().catch(() => '?');
-        await fallback.click();
-      }
-    }
-    await page.waitForTimeout(PACE.betweenCombat);
-    await screenshot(page, `${tag}_combat_probe_after_click`);
-    log(`[combat-probe ${tag}] clicked: "${String(clickedLabel).slice(0,40)}"`);
-
-    // Try to escape/close combat via Escape key or Retreat button
-    for (let i = 0; i < 4; i++) {
-      const retreatBtn = page.locator('.combat-btn:visible:has-text("Retreat"),.choice-btn:visible:not([disabled]):has-text("Retreat")').first();
-      if (await retreatBtn.isVisible({ timeout: 500 }).catch(() => false)) {
-        await retreatBtn.click();
-        break;
-      }
-      await page.keyboard.press('Escape');
-      await page.waitForTimeout(400);
-      const choicesBack = await waitForChoices(page, 800);
-      if (choicesBack > 0) break;
-    }
-
-    // Restore location/tension in case combat left a dirty state
-    await page.evaluate((loc) => {
-      try {
-        if (typeof G !== 'undefined') {
-          G.tensionLevel = 0;
-          try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
-          if (typeof loadStageChoices === 'function' && loc) loadStageChoices(loc);
-        }
-      } catch (_) {}
-    }, preG.location || '').catch(() => {});
-
-    await page.waitForTimeout(PACE.short);
-    log(`[combat-probe ${tag}] PASS — combat branch exercised`);
-  } catch (err) {
-    log(`[combat-probe ${tag}] WARN: ${err.message}`);
-    // Best-effort cleanup
-    await page.evaluate(() => {
-      try { G.tensionLevel = 0; CS = null; } catch (_) {}
-      try { if (typeof loadStageChoices === 'function' && G.location) loadStageChoices(G.location); } catch (_) {}
-    }).catch(() => {});
-  }
+  log(`[combat-probe ${tag}] SKIPPED — organic mode: enterCombat() injection disabled`);
 }
 
 // ---------------------------------------------------------------------------
@@ -1716,142 +1494,12 @@ async function probeHUDFull(page, log_fn, tag) {
 }
 
 // ---------------------------------------------------------------------------
-// Block L — Combat Corridor Probe
-// Runs once per headed test run, around picks 25-30 of family 1.
-// Uses _travelCoreTravelTo to reach a hostile route, then exercises combat UI.
+// Block L — Combat Corridor Probe — DISABLED (organic HUD-only mode)
+// _travelCoreTravelTo() teleport and enterCombat() injection removed.
+// Corridor combat is observed organically when the player uses the map UI.
 // ---------------------------------------------------------------------------
 async function probeCombatCorridor(page, tag) {
-  // Corridor travel routes with high encounter probability (highland/sheresh biomes have highest extra weights)
-  // These use _travelCoreTravelTo(dest) — fires corridor encounters without mode-select UI
-  const HOSTILE_ROUTES = [
-    { from: 'shelkopolis', to: 'aurora_crown_commune' },  // highland biome — extra 1.5 on long routes
-    { from: 'shelkopolis', to: 'glasswake_commune' },     // highland biome
-    { from: 'shelkopolis', to: 'cosmoria' },              // coastal biome with boat
-  ];
-
-  log('[combat-corridor] starting corridor combat probe — ' + HOSTILE_ROUTES.length + ' candidate routes');
-
-  let combatFound = false;
-  for (const route of HOSTILE_ROUTES) {
-    if (combatFound) break;
-    try {
-      // Teleport to origin first — use _travelCoreTravelTo per CLAUDE.md (loadStageChoices re-renders
-      // silently and must not be used for teleports; resolveArrival is the proper in-place re-render fallback).
-      let _originTeleportMethod = 'none';
-      await page.evaluate(function(loc) {
-        try {
-          if (typeof _travelCoreTravelTo === 'function') {
-            _travelCoreTravelTo(loc);
-            return 'travelCore';
-          } else if (typeof resolveArrival === 'function') {
-            G.location = loc;
-            resolveArrival(loc);
-            return 'resolveArrival';
-          } else if (typeof loadStageChoices === 'function') {
-            // last resort — loadStageChoices only if both preferred functions are absent
-            G.location = loc;
-            loadStageChoices(loc);
-            return 'loadStageChoices';
-          }
-          return 'none';
-        } catch (_) { return 'error'; }
-      }, route.from).then(function(method) { _originTeleportMethod = method; }).catch(function() {});
-      if (_originTeleportMethod !== 'travelCore') {
-        log('[combat-corridor] WARNING — _travelCoreTravelTo not defined for origin teleport, used fallback=' + _originTeleportMethod);
-      }
-      await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 5000 }).catch(function() {});
-      await page.waitForTimeout(800);
-
-      // Force a biome-appropriate combat encounter directly — avoids probabilistic _travelCoreTravelTo roll
-      const _combatEnemy = await page.evaluate(function(dest) {
-        try {
-          var biome = (typeof window.getBiomeForRoute === 'function') ? window.getBiomeForRoute(dest, G.location) : 'plains';
-          var pool = (window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[biome]) || ['road_bandit'];
-          var enemy = pool[Math.floor(Math.random() * pool.length)];
-          if (typeof enterCombat === 'function') enterCombat(enemy, { isBoss: false });
-          return enemy;
-        } catch (_) { return null; }
-      }, route.to).catch(function() { return null; });
-      log('[combat-corridor] route=' + route.from + '->' + route.to + ' enterCombat called enemy=' + _combatEnemy);
-
-      // enterCombat renders choices via setTimeout(300ms) — wait for combat choices to replace locality choices
-      await page.waitForTimeout(600);
-      await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 5000 }).catch(function() {});
-
-      // Check for combat UI: encounter panel, or choices containing Attack/Defend/Strike
-      const buttons = await page.locator('.choice-btn:visible:not([disabled])').allInnerTexts().catch(function() { return []; });
-      const buttonText = buttons.join(' ').toLowerCase();
-      const hasCombat = await page.locator('.encounter-panel, .combat-actions, #combat-overlay').isVisible({ timeout: 1000 }).catch(function() { return false; });
-      const hasAttack = /attack|strike|press|defend|retreat/i.test(buttonText);
-
-      if (!hasCombat && !hasAttack) {
-        log('[combat-corridor] route=' + route.from + '->' + route.to + ' — no encounter triggered, trying next');
-        continue;
-      }
-
-      combatFound = true;
-      await screenshot(page, tag + '_corridor_combat_hud');
-      const allBtnText = buttons.slice(0, 6).map(function(t) { return t.replace(/\n/g, ' ').slice(0, 40); }).join(' | ');
-      log('[combat-corridor] ENCOUNTER found route=' + route.from + '->' + route.to + ' choices=[' + allBtnText + ']');
-
-      // Click Attack/Press if visible
-      const attackBtn = page.locator(
-        '.choice-btn:visible:not([disabled]):has-text("Attack"), .choice-btn:visible:not([disabled]):has-text("Strike"), .choice-btn:visible:not([disabled]):has-text("Press")'
-      ).first();
-      const attackVis = await attackBtn.isVisible({ timeout: 1000 }).catch(function() { return false; });
-      if (attackVis) {
-        await attackBtn.click();
-        await page.waitForTimeout(1000);
-        await screenshot(page, tag + '_corridor_combat_attack');
-        log('[combat-corridor] attack clicked');
-      }
-
-      // Wait for result, then retreat/flee if combat still active
-      await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 3000 }).catch(function() {});
-      const postBtns = await page.locator('.choice-btn:visible:not([disabled])').allInnerTexts().catch(function() { return []; });
-      const postText = postBtns.join(' ').toLowerCase();
-      const stillInCombat = /attack|strike|press|defend|retreat/i.test(postText);
-
-      if (stillInCombat) {
-        const retreatBtn = page.locator(
-          '.choice-btn:visible:not([disabled]):has-text("Retreat"), .choice-btn:visible:not([disabled]):has-text("Flee"), .choice-btn:visible:not([disabled]):has-text("Defend")'
-        ).first();
-        const retreatVis = await retreatBtn.isVisible({ timeout: 800 }).catch(function() { return false; });
-        if (retreatVis) {
-          await retreatBtn.click();
-          await page.waitForTimeout(800);
-          log('[combat-corridor] retreated from combat');
-        }
-      }
-
-      await screenshot(page, tag + '_corridor_combat_final');
-      const outcome = stillInCombat ? 'retreated' : 'defeated-or-resolved';
-      log('[combat-corridor] outcome=' + outcome);
-
-      // Restore clean state — use _travelCoreTravelTo / resolveArrival (not loadStageChoices for teleports)
-      await page.evaluate(function() {
-        try {
-          G.tensionLevel = 0;
-          try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
-          if (typeof _travelCoreTravelTo === 'function') {
-            _travelCoreTravelTo(G.location);
-          } else if (typeof resolveArrival === 'function') {
-            resolveArrival(G.location);
-          } else if (typeof loadStageChoices === 'function') {
-            loadStageChoices(G.location); // last resort
-          }
-        } catch (_) {}
-      }).catch(function() {});
-      await page.waitForTimeout(500);
-
-    } catch (routeErr) {
-      log('[combat-corridor] WARN route=' + route.from + '->' + route.to + ': ' + routeErr.message);
-    }
-  }
-
-  if (!combatFound) {
-    log('[combat-corridor] outcome=no-encounter (all routes tried)');
-  }
+  log('[combat-corridor] SKIPPED — organic mode: teleport and enterCombat() injection disabled');
 }
 
 let _lastProbedAtPick = -1;
@@ -1934,57 +1582,8 @@ async function handleDeadEndRepair(page, tag, pickNum) {
   try { await page.click('#btn-camp'); await page.waitForTimeout(2000); await closeOverlay(page); } catch (_) {}
   if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R2-camp worked`); return true; }
 
-  // R3: loadStageChoices
-  try {
-    await page.evaluate(() => {
-      if (typeof loadStageChoices === 'function' && typeof G !== 'undefined' && G.location)
-        loadStageChoices(G.location);
-    });
-    await page.waitForTimeout(1500);
-  } catch (_) {}
-  if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R3-loadStageChoices worked`); return true; }
-
-  // R4: Blank-panel guard inject
-  try {
-    await page.evaluate(() => {
-      const panel = document.getElementById('action-content');
-      if (panel && !panel.querySelector('.choice-btn,.levelup-block,.move-block')) {
-        if (typeof loadStageChoices === 'function' && typeof G !== 'undefined' && G.location)
-          loadStageChoices(G.location);
-      }
-    });
-    await page.waitForTimeout(2000);
-  } catch (_) {}
-  if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R4-blank-panel-inject worked`); return true; }
-
-  // R5: Tension/combat dead end — reset tensionLevel and clear CS
-  try {
-    await page.evaluate(() => {
-      if (typeof G !== 'undefined') {
-        G.tensionLevel = 0;
-        try { if (typeof CS !== 'undefined') { CS = null; G.spentAbilities = {}; } } catch (_) {}
-        if (typeof loadStageChoices === 'function' && G.location)
-          loadStageChoices(G.location);
-      }
-    });
-    await page.waitForTimeout(1500);
-  } catch (_) {}
-  if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R5-tension-reset worked`); return true; }
-
-  // R6: Navigate to a random Stage 1 locality
-  try {
-    await page.evaluate(() => {
-      if (typeof G === 'undefined') return;
-      const pool = window.STAGE_LOCALITY_POOL && window.STAGE_LOCALITY_POOL[1];
-      const locs = pool ? Object.keys(pool) : ['shelkopolis'];
-      G.location = locs[Math.floor(Math.random() * locs.length)];
-      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
-    });
-    await page.waitForTimeout(1500);
-  } catch (_) {}
-  if (await waitForChoices(page, 1200) > 0) { log(`[repair ${tag}] R6-location-change worked`); return true; }
-
-  log(`[repair ${tag}] ALL strategies exhausted pick=${pickNum}`);
+  // R3–R6 removed — organic HUD-only mode: no loadStageChoices, tensionLevel reset, or G.location teleport
+  log(`[repair ${tag}] R1+R2 exhausted pick=${pickNum} — organic mode has no further repair strategies`);
   return false;
 }
 
