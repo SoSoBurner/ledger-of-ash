@@ -11,6 +11,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 1. CASE CLERK: WITNESS STATEMENTS DISAPPEARING
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "Eight years of filing statements. He knows when one goes missing.",
     tags: ['Investigation', 'NPC', 'Evidence', 'Records', 'Meaningful'],
     xpReward: 70,
@@ -50,6 +51,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 2. EVIDENCE HANDLER: MAGICAL ANOMALY RECORDS FALSIFIED
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "He filed what he observed. What's in the log now is not what he filed.",
     tags: ['Investigation', 'NPC', 'Magic', 'Evidence', 'Meaningful'],
     xpReward: 75,
@@ -681,6 +683,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 18. CONSPIRACY EXPOSURE: SYSTEMATIC JUSTICE WEAPONIZATION
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The thread runs clean from external directive to forged authorization to falsified outcome.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure', 'Meaningful'],
     xpReward: 80,

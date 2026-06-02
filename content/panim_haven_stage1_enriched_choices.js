@@ -11,6 +11,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 1. SHRINE HELPER: OFFERING PATTERNS CORRUPTED
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "Copper mixed with iron is being accepted now. That was always sent back before.",
     tags: ['Investigation', 'NPC', 'Ritual', 'Offerings', 'Meaningful'],
     xpReward: 70,
@@ -51,6 +52,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 2. LEDGER KEEPER: MEDIATION RECORDS TAMPERED
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "The mediation ledger entries from six weeks ago use newer ink than the dates claim.",
     tags: ['Investigation', 'NPC', 'Records', 'Mediation', 'Meaningful'],
     xpReward: 75,
@@ -679,6 +681,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 18. LAYERED REVELATION: MEDIATION AS INSTRUMENT
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The system isn't broken. It's been reoriented toward the same beneficiaries every time.",
     tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure', 'Meaningful'],
     xpReward: 80,

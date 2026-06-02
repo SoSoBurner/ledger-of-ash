@@ -11,6 +11,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 1. STABLE FACTOR: TRADE ROUTES MANIPULATION
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "Three brigs at anchor, idle cranes. Cosmouth vessels have their berths.",
     tags: ['Investigation', 'NPC', 'Maritime', 'Commerce', 'Meaningful'],
     xpReward: 70,
@@ -52,6 +53,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 2. QUARTERMASTER: SUPPLY CHAIN DIVERSION
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "Forty for Cosmouth crews. Twenty for independents. Different hand wrote the correction.",
     tags: ['Investigation', 'NPC', 'Resources', 'Supply', 'Meaningful'],
     xpReward: 75,
@@ -93,6 +95,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 3. SHRINE CARETAKER: RITUAL CORRUPTION
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "Some crews get the full rite. Others get turned away. The list decides.",
     tags: ['Investigation', 'NPC', 'Faith', 'Ritual', 'Meaningful'],
     xpReward: 70,
@@ -752,6 +755,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   // 20. DISCOVERY MOMENT: EXTERNAL COORDINATION SOURCE
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The money came first. The charter amendments followed. Cosmoria's institutions didn't change from inside.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,

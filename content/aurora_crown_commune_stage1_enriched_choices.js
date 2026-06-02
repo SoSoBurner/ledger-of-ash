@@ -11,6 +11,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 1. DOME TECHNICIAN: MAINTENANCE ROTATIONS DISRUPTED
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "The rotations increased. The repairs that matter most have fewer hands.",
     tags: ['Investigation', 'NPC', 'Observation', 'Infrastructure'],
     xpReward: 70,
@@ -55,6 +56,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 2. RESEARCH ARCHIVIST: CELESTIAL RECORDS REMOVAL
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "The observation logs have been moved. The authorization isn't on the board.",
     tags: ['Investigation', 'NPC', 'Records', 'Knowledge'],
     xpReward: 75,
@@ -727,6 +729,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "The instruction chain passes through the relay and ends somewhere unnamed.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,

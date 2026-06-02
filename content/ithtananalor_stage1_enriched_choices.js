@@ -11,6 +11,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 1. MARTIAL COMMANDER: COMMAND STRUCTURE FRACTURING
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "Orders are contradicting each other. No one up the chain will say why.",
     tags: ['Investigation', 'NPC', 'Observation', 'Military', 'Meaningful'],
     xpReward: 70,
@@ -93,6 +94,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 3. OATH KEEPER: OATH RECORDS FALSIFIED
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "The oath records show new bindings replacing old ones. Permanent commitments being overwritten.",
     tags: ['Investigation', 'NPC', 'Records', 'Binding', 'Meaningful'],
     xpReward: 70,
@@ -685,6 +687,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "A document names who is directing this from outside. The records point there.",
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax', 'Meaningful'],
     xpReward: 80,

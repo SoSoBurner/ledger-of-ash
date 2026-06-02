@@ -10,6 +10,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 1. FIRST ENCOUNTER: TOMAN ICEVEIL
   {
     plot: 'main',
+    questId: 'q_s1_pattern',
     label: "A researcher cited in suppressed documents is still here. Waiting for someone to ask.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
@@ -40,6 +41,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 2. CLUE: SUPPRESSED SHARD STUDY
   {
     plot: 'main',
+    questId: 'q_s1_converging',
     label: "Sections marked 'pending administrative review.' Filed fourteen months ago. No review entry exists.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
@@ -471,6 +473,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 18. INVESTIGATION: THE PREDECESSOR STUDY
   {
     plot: 'main',
+    questId: 'q_s1_close',
     label: "Toman's work built on an earlier study. Someone noticed the amplification first.",
     tags: ['Investigation', 'Lore', 'Stage1'],
     xpReward: 68,
