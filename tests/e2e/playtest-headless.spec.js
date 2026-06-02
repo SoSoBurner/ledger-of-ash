@@ -771,6 +771,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   var _lastSp2AtTriage        = -1;
   var _sp2FrozenCount         = 0;
   var _lastStage2EnrichedPick = 0;
+  const capViolations = [];
   while (picks < MAX_PICKS) {
     if (pageIsClosed) break;
 
@@ -917,13 +918,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
 
       const choiceCount = await waitForChoices(page, PACE.waitChoices);
 
-      // Cap enforcement: choice panel must never exceed 8 choices (weighted prioritizeChoices cap)
+      // Cap enforcement: log violations (> 8 choices in panel); hard assert runs outside loop to avoid stalling
       if (choiceCount > 0 && !g.dead) {
         const visibleNonDisabled = await page.locator('#action-content .choice-btn:not([disabled])').count().catch(() => 0);
         if (visibleNonDisabled > 8) {
           log('[CAP_VIOLATION ' + tag + '] pick=' + picks + ' loc=' + (g.location || '?') + ' count=' + visibleNonDisabled);
+          capViolations.push({ pick: picks, loc: g.location || '?', count: visibleNonDisabled });
         }
-        expect(visibleNonDisabled).toBeLessThanOrEqual(8);
       }
 
       // Map travel every 15-20 picks (tests map UI + spreads locality coverage)
@@ -1074,6 +1075,12 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       log(`[run:${tag}] loop-error pick=${picks}: ${loopErr.message}`);
     }
   }
+
+  // Hard cap assert after run — violations logged above; assert here so test suite reports failures
+  if (capViolations.length) {
+    log('[CAP_SUMMARY ' + tag + '] ' + capViolations.length + ' cap violation(s): ' + JSON.stringify(capViolations.slice(0, 5)));
+  }
+  expect(capViolations.length, 'Choice panel exceeded 8 — see CAP_VIOLATION log lines').toBe(0);
 
   g = await readG(page);
   await screenshot(page, `${tag}_timeout_p${picks}`);
