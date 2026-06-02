@@ -9523,8 +9523,7 @@ function addHeat(polity, amount) {
   // Queue authority encounter when heat crosses threshold for first time (fires on next loadStageChoices)
   [5, 8].forEach(function(t) {
     if (_prev < t && _new >= t) {
-      if (!G._pendingHeatEncounter || G._pendingHeatEncounter.level < t)
-        G._pendingHeatEncounter = { polity: polity, level: _new };
+      // Heat threshold crossed (authority encounter logic moved to enterAuthorityConfrontation)
     }
   });
   if (!G.tutorialFlags) G.tutorialFlags = {};
@@ -12961,11 +12960,6 @@ function modHP(n) {
 }
 
 // ── XP AND LEVEL UP ──────────────────────────────────────
-function gainXP(n) {
-  G.xp = (G.xp || 0) + n;
-  if (_awaitingLevelUp && !document.querySelector('.levelup-block')) _awaitingLevelUp = false;
-  checkLevelUp();
-}
 
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
 
@@ -13856,59 +13850,6 @@ function checkEnforcementEncounter() {
   if (G.flags && G.flags['enforcement_' + G.location + '_' + (G.dayCount||0)]) return false;
   if (G.flags) G.flags['enforcement_' + G.location + '_' + (G.dayCount||0)] = true;
   return true;
-}
-
-function showEnforcementEncounter() {
-  const tier = getLocalityHeatTier(G.location);
-  const el = document.getElementById('action-content') || document.getElementById('narrative-content');
-  if (!el) return;
-  const block = document.createElement('div');
-  block.className = 'scene-block choice-block enforcement-block';
-  const intro = tier === 'hot'
-    ? 'Guardsfolk step into your path as you move through the settlement. Their hands are not on weapons — yet. "A word," the lead officer says. This is not a request.'
-    : 'Two officials in Principality colors have been watching you. They move to intercept. Word travels fast in this city.';
-  block.innerHTML = '<div class="choice-label" style="color:var(--blood-bright)">\u26A0 Enforcement Attention</div>' +
-    '<p style="margin:0.5rem 0;font-style:italic">' + intro + '</p>' +
-    '<div class="choices">' +
-    '<button class="choice-btn" data-enf="submit"><span class="choice-text">Submit — cooperate and face the consequences</span><span class="choice-meta"><span class="choice-tag safe">submit</span></span></button>' +
-    '<button class="choice-btn" data-enf="fight"><span class="choice-text">Refuse — this escalates to combat</span><span class="choice-meta"><span class="choice-tag bold">fight</span></span></button>' +
-    '<button class="choice-btn" data-enf="stealth"><span class="choice-text">Slip away — use the crowd to disappear</span><span class="choice-meta"><span class="choice-skill">finesse</span><span class="choice-tag risky">stealth</span></span></button>' +
-    '</div>';
-  el.appendChild(block);
-  block.querySelectorAll('[data-enf]').forEach(btn => {
-    btn.addEventListener('click', () => { block.remove(); resolveEnforcementChoice(btn.dataset.enf); });
-  });
-  if (typeof scrollNarrative === 'function') scrollNarrative();
-}
-
-function resolveEnforcementChoice(choice) {
-  const tier = getLocalityHeatTier(G.location);
-  if (choice === 'submit') {
-    const days = tier === 'hot' ? Math.floor(Math.random()*20)+5 : Math.floor(Math.random()*5)+1;
-    G.dayCount = (G.dayCount||0) + days; G.restCount = 0;
-    G.worldClocks = G.worldClocks || {};
-    G.worldClocks.rival = (G.worldClocks.rival||0) + Math.ceil(days/3);
-    updateLocalityHeat(G.location, -10);
-    addNarration('', 'You submit without incident. ' + days + ' days pass in custody — fined, cautioned, and released. The rival has not been idle. ' + (days >= 10 ? 'A warrant note remains on file.' : ''), 'complication');
-    if (typeof updateHUD === 'function') updateHUD();
-  } else if (choice === 'fight') {
-    if (typeof startCombat === 'function') startCombat('patrol_guard', { enforcement: true });
-    else addNarration('', 'The confrontation turns violent. The street clears around you.', 'combat');
-    updateLocalityHeat(G.location, 8);
-    shiftAlignment(-3, -2);
-  } else {
-    const roll = Math.floor(Math.random()*20)+1 + (G.skills.finesse||0);
-    const dc = tier === 'hot' ? 14 : 10;
-    if (roll >= dc) {
-      updateLocalityHeat(G.location, 2);
-      addNarration('', 'You read the crowd, slip between market stalls, and lose them three blocks east. Your face will be remembered.', 'success');
-    } else {
-      updateLocalityHeat(G.location, 5);
-      addNarration('', 'They catch up at the alley mouth. You have run out of options.', 'complication');
-      setTimeout(() => { if (typeof startCombat === 'function') startCombat('patrol_guard', { enforcement: true }); }, 400);
-    }
-  }
-  if (typeof saveGame === 'function') saveGame();
 }
 
 // ── MECHANICS ────────────────────────────────────────────
