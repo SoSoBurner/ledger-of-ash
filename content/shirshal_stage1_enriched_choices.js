@@ -171,12 +171,12 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 5. INVESTIGATOR: CASE BRIEFINGS WITHHELD OR ALTERED
   {
-    label: "The investigators are being given briefings with sections already missing.",
+    label: "The case officers are being given briefings with sections already missing.",
     tags: ['Investigation', 'NPC', 'Information', 'Obstruction', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: "The investigators' workroom is locked — field rotation day, the hall runs short-staffed through midmorning. A duty board outside lists the active investigators by case assignment, all of them out. The community notice board near the harbor fishmonger stalls carries recent postings from citizens whose cases were recently closed; the pattern of what's publicly visible there may lead somewhere the sealed workroom cannot.",
+      text: "The case officers' workroom is locked — field rotation day, the hall runs short-staffed through midmorning. A duty board outside lists the active case officers by assignment, all of them out. The community notice board near the harbor fishmonger stalls carries recent postings from citizens whose cases were recently closed; the pattern of what's publicly visible there may lead somewhere the sealed workroom cannot.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     },
     fn: function() {
@@ -189,16 +189,16 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Investigator Kess speaks with a flat, controlled anger. "Briefings arrive with sections missing — 'under review,' 'reserved for magistrate eyes.' We proceed with whatever we're given, request the missing sections, get told the case is already resolved at a higher level." She sets a file on the table. "Three weeks of work. Marked closed yesterday. I found out from the docket board, not from anyone above me. Whatever we're doing out there, it's procedural cover. Someone else is making the actual determinations."`;
+        G.lastResult = `Kess speaks with a flat, controlled anger. "Briefings arrive with sections missing — 'under review,' 'reserved for magistrate eyes.' We proceed with whatever we're given, request the missing sections, get told the case is already resolved at a higher level." She sets a file on the table. "Three weeks of work. Marked closed yesterday. I found out from the docket board, not from anyone above me. Whatever we're doing out there, it's procedural cover. Someone else is making the actual determinations."`;
         G.stageProgress[1]++;
-        addJournal('Investigator revealed information compartmentalization', 'evidence', `shirshal-investigator-${G.dayCount}`);
+        addJournal('Kess revealed information compartmentalization — briefings arrive with sections removed', 'evidence', `shirshal-investigator-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Kess stops mid-sentence and recalibrates. "Case detail discussions with outsiders can compromise proceedings. You understand that." She's not hostile — she's been trained recently. Whatever prompted that training is more recent than the paint on the hall's east corridor, which still smells of fresh lime. The training also means she is already noticed this conversation and will be expected to report it.`;
         G.worldClocks.pressure++;
-        addJournal('Investigator now distrustful of your questions', 'complication', `shirshal-investigator-hostile-${G.dayCount}`);
+        addJournal('Kess now distrustful of your questions — was recently briefed to report this', 'complication', `shirshal-investigator-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `"Need-to-know is the operating standard now," Kess says. She doesn't look happy about it — not angry either, something flatter than anger, more like a person who has stopped expecting the answer to change. Across the room, another investigator reads what's clearly an abbreviated brief — one sheet where there should be six, edges visible where the document was cut down. Neither of them mentions it. The hall's east corridor smells of fresh lime. The paint is still damp.`;
-        addJournal('Investigator confirmed information restriction', 'evidence', `shirshal-investigator-restricted-${G.dayCount}`);
+        G.lastResult = `"Need-to-know is the operating standard now," Kess says. She doesn't look happy about it — not angry either, something flatter than anger, more like a person who has stopped expecting the answer to change. Across the room, a case officer reads what's clearly an abbreviated brief — one sheet where there should be six, edges visible where the document was cut down. Neither of them mentions it. The hall's east corridor smells of fresh lime. The paint is still damp.`;
+        addJournal('Kess confirmed information restriction — briefings cut down before distribution', 'evidence', `shirshal-investigator-restricted-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -643,12 +643,12 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INSTITUTIONAL BREAKDOWN: INVESTIGATOR DEFECTION
   {
-    label: "One investigator has been keeping personal notes. She's leaving Shirshal at dawn.",
+    label: "One case officer has been keeping personal notes. She's leaving Shirshal at dawn.",
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: "The eastern walkway is occupied tonight — a chandler working late repairing a hull lantern, a couple of dock hands finishing off a bottle at the channel edge. Too many people, too little cover for a conversation that needs to go unobserved. Shirshal's investigators rotate through an early morning coffee spot near the hall's north entrance before first session; one of them arrives alone, twenty minutes before the others. That's the window.",
+      text: "The eastern walkway is occupied tonight — a chandler working late repairing a hull lantern, a couple of dock hands finishing off a bottle at the channel edge. Too many people, too little cover for a conversation that needs to go unobserved. Shirshal's case officers rotate through an early morning coffee spot near the hall's north entrance before first session; one of them arrives alone, twenty minutes before the others. That's the window.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     },
     fn: function() {
@@ -663,17 +663,17 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.lastResult = `Past the tenth bell, the eastern walkway near the archive is empty. Kess has a leather satchel under her arm. "I've been compiling this for two months." She opens it briefly — case files, witness logs, a comparison of pre- and post-closure record entries. "Cases I worked that were closed without my knowledge. Statements I filed that aren't in the current record. Magistrate rulings that contradict the evidence I submitted." She closes the satchel. "I'm leaving Shirshal at dawn. I need someone outside this system to hold what I've documented. Someone they can't reach through the hall's procedures." She waits.`;
         G.stageProgress[1]++;
-        addJournal('Investigator defected with system documentation', 'evidence', `shirshal-defection-${G.dayCount}`);
+        addJournal('Kess defected with system documentation — cases closed without her knowledge, filed statements missing from the record', 'evidence', `shirshal-defection-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The investigator listens, nods once, and reports the conversation before you've left the building. The message reaches the magistracy as a formal notation: "outside party encouraging investigators to breach institutional loyalty." The language is precise and pre-existing — someone wrote that category in advance. The investigator won't meet your eyes in the corridor the next morning. The pressure of that formal notation means the next investigator you approach will already know your name.`;
+        G.lastResult = `The case officer listens, nods once, and reports the conversation before you've left the building. The message reaches the magistracy as a formal notation: "outside party encouraging case officers to breach institutional loyalty." The language is precise and pre-existing — someone wrote that category in advance. The case officer won't meet your eyes in the corridor the next morning. The pressure of that formal notation means the next case officer you approach will already know your name.`;
         G.worldClocks.pressure++;
-        addJournal('You are reported as attempting to recruit investigator defection', 'complication', `shirshal-defection-caught-${G.dayCount}`);
+        addJournal('Reported for attempting to recruit a case officer defection', 'complication', `shirshal-defection-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The investigator admits, quietly and without preamble, that they've been keeping notes. "Not formal records. Personal notes." They don't show you. They hold the edge of a pocket where paper crinkles when they move. "I'd need to think about who else sees them." Fear is the word they don't say, but it's present in how long they pause before each sentence.`;
-        addJournal('Investigator shows defection potential but hesitates', 'evidence', `shirshal-defection-close-${G.dayCount}`);
+        G.lastResult = `The case officer admits, quietly and without preamble, that they've been keeping notes. "Not formal records. Personal notes." They don't show you. They hold the edge of a pocket where paper crinkles when they move. "I'd need to think about who else sees them." Fear is the word they don't say, but it's present in how long they pause before each sentence.`;
+        addJournal('Case officer shows defection potential but hesitates', 'evidence', `shirshal-defection-close-${G.dayCount}`);
       } else {
-        G.lastResult = `Every investigator you approach today gives you a version of the same answer: Shirshal's system is sound, procedures are working, they have no concerns to share. Two of them use the phrase "confidence in the framework" unprompted. A third says "institutional trust is the foundation of effective process" without being asked anything about trust. The consistency is itself a tell — people with genuine confidence in a system don't reach for the same phrasing simultaneously. Someone has briefed them recently and recently enough that the language hasn't worn down to individual variation yet.`;
-        addJournal('Investigators remain publicly loyal', 'evidence', `shirshal-defection-blocked-${G.dayCount}`);
+        G.lastResult = `Every case officer you approach today gives you a version of the same answer: Shirshal's system is sound, procedures are working, they have no concerns to share. Two of them use the phrase "confidence in the framework" unprompted. A third says "institutional trust is the foundation of effective process" without being asked anything about trust. The consistency is itself a tell — people with genuine confidence in a system don't reach for the same phrasing simultaneously. Someone has briefed them recently and recently enough that the language hasn't worn down to individual variation yet.`;
+        addJournal('Case officers remain publicly loyal — consistent pre-briefed phrasing', 'evidence', `shirshal-defection-blocked-${G.dayCount}`);
       }
 
       addHeat('shirsh', 1);

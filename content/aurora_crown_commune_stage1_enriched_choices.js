@@ -1089,7 +1089,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('Rival-adjacent operative confirmed investigating Aurora Crown dome failure ahead of you', 'complication', `aurora-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative confirmed working the Aurora Crown dome failure ahead of you', 'complication', `aurora-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -1804,7 +1804,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
         addJournal('Accessed secondary maintenance board — unlisted category marker on two vent slots', 'evidence');
       } else {
         G.lastResult = 'The patrol window holds, but the junction seal is noisier than expected — the hiss when it opens is short, but short isn\'t nothing in a dome corridor. You clear the junction and reach the secondary section without incident. But you hear the patrol slow behind you. They don\'t stop. You keep moving and find a pressure alcove to wait in until the corridor sound settles back to baseline.';
-        addJournal('Junction traversal: patrol noticed seal noise, did not investigate', 'discovery');
+        addJournal('Junction traversal: patrol noticed seal noise, did not follow up', 'discovery');
       }
 
       G.recentOutcomeType = 'stealth';

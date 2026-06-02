@@ -52,7 +52,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Tazren pulls the copy from a locked drawer, not the filing cabinet. Eight months of work: the sealed charter pattern, the Fairhaven staging point, the glyph surge correlation — all named, all dated. He was pulled from the case six months ago and told the file was archived. "Archived means it stops. I wasn't finished." He slides the copy across the desk without ceremony. The pages are organized. He was waiting for someone to ask.`;
-        addJournal('Bureau investigator Tazren — 8-month parallel case file shared, case was suppressed', 'evidence', `shir-tazren-${G.dayCount}`);
+        addJournal('Tazren — 8-month parallel case file shared, case was suppressed before he finished', 'evidence', `shir-tazren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `Tazren listens to your first two sentences and reaches for his visitor log without looking up. "Knowing the specifics of a Bureau case thread without credentials is a concern I'm required to document." He copies your name in a neat hand and asks for origin papers with the flat efficiency of someone who has run this procedure before and does not enjoy it. A summary of the visit is on its way to his supervisory chain before the conversation has properly ended. Whatever goodwill this interview might have built has been spent on a protocol note.`;
@@ -62,7 +62,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Tazren confirms the case and stops there. "I can't share an archived file without a reinstatement order." He pauses. "The charter pattern you described is in it. I'll confirm that much." He straightens the papers on his desk — the dry air of the records hall keeps them flat, no warping, the ink precise after eight months. "An archived case doesn't mean the subject stopped moving. It means the oversight stopped."`;
-        addJournal('Bureau archived case confirmed — investigation moved off-record', 'evidence', `shir-tazren-partial-${G.dayCount}`);
+        addJournal('Bureau archived case confirmed — moved off-record while subject was still active', 'evidence', `shir-tazren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -573,7 +573,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The surge reports and dismissal dates don't match the official account.",
+    label: "The surge reports and dismissal dates don't match the filed account.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     fn: function() {

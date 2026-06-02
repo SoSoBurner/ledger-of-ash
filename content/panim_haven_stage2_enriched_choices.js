@@ -270,7 +270,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 2;
         G.lastResult = `The doctrinal response is confident and wrong, and the observer catches it. Their posture shifts — the studied ease of a scholar drops and something more deliberate replaces it. The conversation ends on a courtesy that means nothing. Before the evening bell the Collegium has a report: unaffiliated operative, unknown allegiance, active in Panim mediation inquiry. The framing has changed from parallel to competing.`;
-        addJournal('Collegium treating investigation as competing operation', 'complication', `panim-collegium-fail-${G.dayCount}`);
+        addJournal('Collegium treating your approach as a competing operation', 'complication', `panim-collegium-fail-${G.dayCount}`);
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.lastResult = `The observer's doctrinal citations are precise and the conversation stays on that surface — two scholars discussing archival practice in a memorial hall, the lamplight steady on the stone table between you. The harbor gulls are audible even here, through the thick walls of the mediation building. No names exchanged. No intent declared. When it ends, there is a beat of shared understanding that the exchange was not about archives. The Collegium has taken a note. The note carries no category yet. That window is still open.`;

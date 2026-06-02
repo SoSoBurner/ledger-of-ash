@@ -232,7 +232,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('Dret: Shelkopolis investigation network active, three prior arrivals', 'discovery', `soreheim-arc-dret-${G.dayCount}`);
+        addJournal('Dret: Shelkopolis network active, three prior arrivals before you', 'discovery', `soreheim-arc-dret-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Dret is not at the address. A note in the door says the shop is closed for inventory. You'll have to find another approach. Shelkopolis doesn't open easily to strangers with questions.`;

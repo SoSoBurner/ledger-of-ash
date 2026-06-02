@@ -66,7 +66,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The archive clerk who logged the surge incidents was reassigned three days ago. No reason on file, no forwarding desk. The surge records are sealed under a Roadwarden review notation — a review with no assigned officer and no scheduled completion date. The door the records sit behind is new: the hinges show no dust and the lock mechanism hasn't worn. Someone moved the clerk and locked the door in the same week, and both moves were planned before you arrived to ask.`;
         drawSocialMisstep(G.location);
-        addJournal('Glyph records sealed during investigation', 'complication', `shelk-glyph-sealed-${G.dayCount}`);
+        addJournal('Glyph records sealed — clerk reassigned, lock replaced in the same week', 'complication', `shelk-glyph-sealed-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.investigationProgress++;
@@ -131,11 +131,11 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.stage2_evidence_shared_crit = true;
         G.worldClocks.omens = (G.worldClocks.omens||0) + 1;
         G.lastResult = `You spread the documents across the table and let the archivist read without speaking. They finish, tap one entry, and name a third party you hadn't placed yet — someone who bridges the chapel network and the guild records, a name that appears twice in the margin notations and nowhere in the body text. They slide the papers back and say: "Keep going. Carefully." The reading room smells of old hemp and pressed wax. The work is shared now. So is the exposure.`;
-        addJournal('Evidence shared — investigation expanded', 'evidence', `shelk-evidence-shared-${G.dayCount}`);
+        addJournal('Evidence shared — third party named, work expanded', 'evidence', `shelk-evidence-shared-${G.dayCount}`);
       } else {
         G.stage2_evidence_shared = false;
         G.lastResult = `You folder the documents and put them back in your coat. The advantage of what you know stays yours — no one else's read on it, no one else's agenda shaping where it goes next, no one else's exposure attached to yours. The lamp in the reading room burns without comment. The risk stays yours too. That's the same thing said twice, and both versions are accurate: you are alone in this, and alone is a choice you've made.`;
-        addJournal('Evidence withheld — solo investigation continues', 'evidence', `shelk-evidence-held-${G.dayCount}`);
+        addJournal('Evidence withheld — working alone, exposure stays yours', 'evidence', `shelk-evidence-held-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

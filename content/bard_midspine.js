@@ -186,7 +186,7 @@ window.BARD_MIDSPINE_NODES = [
         G.signals.bardSpine = 'converged';
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 5;
         gainXp(22, 'bard mid-spine: account recovered (critical)');
-        addJournal(`Critical: recovered the suppressed account in ${loc.name}. The account feeds directly into the eastern route investigation.`,
+        addJournal(`Critical: recovered the suppressed account in ${loc.name}. The account feeds directly into the eastern route thread.`,
           'intelligence',
           `bard-spine-node3-crit-${G.dayCount}`
         );
@@ -199,7 +199,7 @@ window.BARD_MIDSPINE_NODES = [
         G.signals.bardSpine = 'converged';
         G.stageProgress[1] = (G.stageProgress[1] || 0) + 3;
         gainXp(18, 'bard mid-spine: account recovered');
-        addJournal(`Recovered the suppressed account in ${loc.name}. The eastern route investigation is now the active pressure.`,
+        addJournal(`Recovered the suppressed account in ${loc.name}. The eastern route thread is now the active pressure.`,
           'intelligence',
           `bard-spine-node3-${G.dayCount}`
         );

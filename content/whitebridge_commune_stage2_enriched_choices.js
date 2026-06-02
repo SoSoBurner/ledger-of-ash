@@ -88,7 +88,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_arbiter_nyra_thawmark = true;
         G.investigationProgress++;
         G.lastResult = `Nyra opens the folder and reads the farmer's description aloud without showing you the page. Bridge midpoint, sealed container, geometric mark, heavy. "Yes, that matches what you're describing." She closes it again. "I retained samples — the apothecary flagged them as unusual. I can't release them while the arbitration is open. But I'll confirm they exist and that the retention was deliberate." She holds eye contact. She wants you to know the evidence is there.`;
-        addJournal('Arbiter retained unusual container samples — consistent with investigation targets', 'evidence', `wb-nyra-partial-${G.dayCount}`);
+        addJournal('Arbiter retained unusual container samples — consistent with what you are tracking', 'evidence', `wb-nyra-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }

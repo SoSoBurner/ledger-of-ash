@@ -91,7 +91,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 3: THE OFFER ———
   {
-    label: "Edvar contacts you again with an offer. The Warden Order wants to fold your work into their official structure.",
+    label: "Edvar contacts you again with an offer. The Warden Order wants to fold your work into their structure.",
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 95,
     condition: function() {

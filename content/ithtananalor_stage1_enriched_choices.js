@@ -913,7 +913,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_ithtananalor = true;
         G.factionHostility.warden_order += 1;
-        addJournal('Warden Order attaché Denn Calver: confirmed awareness of financial anomalies, gauging investigator alignment', 'intelligence', `ithtananalor-warden-${G.dayCount}`);
+        addJournal('Warden Order attaché Denn Calver: confirmed awareness of financial anomalies, gauging who you work for', 'intelligence', `ithtananalor-warden-${G.dayCount}`);
       } else {
         G.lastResult = `The attaché is busy and professional, his desk covered with ledger extracts and a sealed correspondence bundle still uncut. Formal appointment required — submitted through the standard administrative channel, two working days for confirmation. The Warden Order's financial presence here is real but guarded in the way institutional presences guard themselves when operating in sensitive territory. Access requires proper introduction and a stated purpose that will withstand scrutiny. Today's approach produced neither. A named introduction through Maret Voss would clear the proper introduction requirement.`;
         if (!G.flags) G.flags = {};
@@ -1016,7 +1016,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('Rival-adjacent operative visited Maret Voss one day before you — investigating same financial anomalies', 'complication', `ithtananalor-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative visited Maret Voss one day before you — working the same financial anomalies', 'complication', `ithtananalor-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

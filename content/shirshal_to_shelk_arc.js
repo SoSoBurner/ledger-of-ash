@@ -22,7 +22,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `The ghost visitor records are names that appeared in Shirshal's Bureau reception log and then never appeared in any official file, case assignment, or personnel record. They were there. They signed in. Then they ceased to exist administratively. Six names over four months, all during the period Tazren's case was active. Whatever they were tracing, the trail ended them — not the other way around. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('Left Shirshal with ghost visitor records — six investigators disappeared administratively during Tazren case', 'intelligence', `shirshal-arc-departure-${G.dayCount}`);
+      addJournal('Left Shirshal with ghost visitor records — six case officers disappeared administratively during Tazren case', 'intelligence', `shirshal-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -135,7 +135,7 @@ const SHIRSHAL_TO_SHELK_ARC = [
       if (result.total >= 10) {
         G.lastResult = `The mooring patterns have changed. Three berths that were in regular use during the ghost vessel period now show no wear patterns consistent with recent use. The supply chain through Shirshal's harbor is finished. Whatever it was building toward, the maritime delivery phase was completed seventeen days ago. You're behind the supply chain. Shelkopolis is where you catch up.`;
         G.flags.shirshal_arc_maritime_complete = true;
-        addJournal('Shirshal harbor maritime phase complete 17 days ago — supply chain delivered before investigation concluded', 'discovery', `shirshal-arc-harbor-${G.dayCount}`);
+        addJournal('Shirshal harbor maritime phase complete 17 days ago — supply chain delivered before the trail was followed to completion', 'discovery', `shirshal-arc-harbor-${G.dayCount}`);
         G.recentOutcomeType = 'neutral';
       } else {
         G.lastResult = `The harbor is busy enough that changes in mooring patterns are hard to read. You note that it's quieter than it was during the ghost vessel period.`;

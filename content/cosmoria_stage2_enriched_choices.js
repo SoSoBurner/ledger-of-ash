@@ -2105,7 +2105,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.flags.cosmoria_clerk_flipped = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        addJournal('Archive clerk broke under pressure: standing instruction to delay investigative requests for Tier 3 shipping ledgers and log names to a private registry — source named.', 'evidence', 'cos-clerk-crit-' + G.dayCount);
+        addJournal('Archive clerk broke under pressure: standing instruction to delay outside requests for Tier 3 shipping ledgers and log names to a private registry — source named.', 'evidence', 'cos-clerk-crit-' + G.dayCount);
         G.lastResult = 'The delay was deliberate. Under direct pressure the clerk breaks — a standing instruction to hold any outside party asking about Tier 3 shipping ledgers and log their name to a private registry alongside the request. He names the authority who placed the instruction. The name belongs to an administrative office that was dissolved two years ago. The instruction has been running on inertia since then.';
       } else if (result.isFumble) {
         addHeat('cosmouth', 1);
@@ -2115,7 +2115,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'The clerk does not break, but he stops stalling. Under direct pressure he confirms: an instruction exists to delay certain categories of outside inquiry and log the details. He will not name the source. "I process the instruction. I did not place it." He goes back to the ledger. The delay is over. The ledger is open. What was being protected from view is now accessible.';
-        addJournal('Archive clerk confirmed: standing instruction delays investigative requests, logs identities — source not disclosed', 'intelligence', 'cos-clerk-partial-' + G.dayCount);
+        addJournal('Archive clerk confirmed: standing instruction delays outside requests, logs identities — source not disclosed', 'intelligence', 'cos-clerk-partial-' + G.dayCount);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -2141,7 +2141,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'He remembers every ship that came at night and left before the morning count. Three such shipments six months before the audit — he names the dates without checking anything. "Logged under a transit code I haven\'t seen since." He pulls the current transit code directory, finds no entry, and sets it down. "Someone cleaned the directory. The ships were real. I loaded two of them myself." He names the cargo broker who handled all three.';
       } else if (result.isFumble) {
         G.lastResult = 'The approach reads as an angle before the second sentence finishes. He closes the drink back on the counter and straightens in his chair. "I\'ve had this conversation before, in different forms." He is done. He stays polite, but the door back into his memory has closed. He knows how to wait out a conversation that has nothing in it for him.';
-        addJournal('Harbor master disengaged — approach read as investigative, no information recovered', 'complication', 'cos-harbmaster-fail-' + G.dayCount);
+        addJournal('Harbor master disengaged — approach read as a probe, no information recovered', 'complication', 'cos-harbmaster-fail-' + G.dayCount);
       } else {
         G.flags.met_harbor_master = true;
         G.investigationProgress++;

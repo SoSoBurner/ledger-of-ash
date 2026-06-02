@@ -86,7 +86,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
         G.lastResult = `The shrine's traveler accounts are protected under Cysur's doctrinal confidentiality. The shrine is a place of sanctuary; what is spoken here stays here. She does not explain further, does not gesture toward the door, does not shift her expression by any measurable degree. The lantern above the offering ledger burns without sound, the pine resin in its wick putting out a thin thread of scent. The packed-earth floor between the two of you is exactly as wide as it needs to be. Outside, the wind off the high route moves through the eaves.`;
-        addJournal('Shrine traveler accounts protected under Cysur doctrine — not investigative records', 'complication', `plumes-cysur-fail-${G.dayCount}`);
+        addJournal('Shrine traveler accounts protected under Cysur doctrine — sealed by sanctuary rule', 'complication', `plumes-cysur-fail-${G.dayCount}`);
       } else {
         G.flags.met_shrine_keeper_cysur = true;
         G.investigationProgress++;

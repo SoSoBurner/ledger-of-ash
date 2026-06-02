@@ -121,7 +121,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "The district runs on a tight production clock. What's happening doesn't match the schedule.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
-    failResult: "The district moves on a synchronized clock — shift bells, production rotations, inspection rounds. The posted schedule is accurate as far as it goes. Reading the gaps in it, the unmarked movements and the workshop activity that falls outside the official timetable, requires more time on the floor than one pass allows. The sixth bell shift change opens a longer observation window.",
+    failResult: "The district moves on a synchronized clock — shift bells, production rotations, inspection rounds. The posted schedule is accurate as far as it goes. Reading the gaps in it, the unmarked movements and the workshop activity that falls outside the posted timetable, requires more time on the floor than one pass allows. The sixth bell shift change opens a longer observation window.",
     xpReward: 67,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -382,7 +382,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. ATMOSPHERE: THE GUILD FORGE AT NIGHT
   {
-    label: "The forge doesn't stop at closing. Something runs after official hours.",
+    label: "The forge doesn't stop at closing. Something runs after the bell.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The guild district winds down in layers after ninth bell — first the small workshops, then the secondary forges, finally the apprentice dormitory lights. The central forge stays lit. Whatever continues tonight does so without an audience. The approach routes to the forge yard are narrow and the smell of hot metal carries far in still air. The north alley stays in shadow until the tenth bell lamp rotation.",
     xpReward: 50,

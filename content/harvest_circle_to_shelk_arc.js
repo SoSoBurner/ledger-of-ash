@@ -189,7 +189,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('Reth: four-piece investigation network assembling in Shelkopolis — charter mark links all', 'discovery', `harvest-arc-reth-${G.dayCount}`);
+        addJournal('Reth: four-piece network assembling in Shelkopolis — charter mark links all four', 'discovery', `harvest-arc-reth-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The factor's office is closed for two days — a district inspection cycle. You'll have to wait or find another contact.`;

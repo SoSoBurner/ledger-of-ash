@@ -70,7 +70,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Serin closes the ledger before you finish asking. "Those are labor administration documents. You'll need a management authorization stamp." She is already writing something down — not the authorization. Her hand moves quickly and she doesn't look up again. By the time you reach the yard, a labor coordinator is crossing toward the records building. The watchful crossing means the ledger room will be harder to approach again.`;
         G.worldClocks.watchfulness++;
-        addJournal('Labor coordinator now investigating your inquiry', 'complication', `soreheim-clerk-alert-${G.dayCount}`);
+        addJournal('Labor coordinator alerted to your records inquiry', 'complication', `soreheim-clerk-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `Serin lets you hold the ledger but keeps her hand on the edge of it. Quota increases are recorded in clean ink. Worker replacements follow within a week of each shortfall. Some entries have been crossed out and rewritten in a different hand — dates adjusted, performance figures altered. She watches you notice. She doesn't say anything about it. The smell of the room is dry paper and cold lamp oil. She has been sitting with this ledger for a long time.`;
         addJournal('Quota records show signs of alteration', 'evidence', `soreheim-clerk-altered-${G.dayCount}`);
@@ -247,7 +247,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Parol shuts the ledger cabinet and locks it. "Employment documentation requires a labor administration request stamp. That's procedure." He picks up a form from the outbox and walks it to another desk — not in a hurry, just done with the conversation. The form he's filing has your name on it, written before you finished asking. The pressure of that pre-written form means someone anticipated this inquiry and prepared for it — you were tracked before you arrived.`;
         G.worldClocks.pressure++;
-        addJournal('Labor authorities now investigating your records inquiry', 'complication', `soreheim-records-alert-${G.dayCount}`);
+        addJournal('Labor authorities alerted — pre-written form filed before you finished asking', 'complication', `soreheim-records-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The intake ledger has two different inks in the correction column — original entries in brown, alterations in black. Four workers listed as "transferred" have no destination recorded. One entry for a worker named Grett has a line drawn through it and nothing written underneath. Parol watches you notice. He doesn't explain. The alteration ink is consistent across six weeks of corrections — the same pen, the same hand, always after the fact. This is not clerical error. This is a second author working the ledger systematically.`;
         addJournal('Worker records show signs of deliberate alteration', 'evidence', `soreheim-records-altered-${G.dayCount}`);

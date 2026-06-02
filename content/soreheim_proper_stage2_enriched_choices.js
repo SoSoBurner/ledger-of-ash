@@ -62,7 +62,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.factionHostility.iron_compact = (G.factionHostility.iron_compact||0) + 2;
         G.lastResult = `Mordoth stands before you finish. "You're attempting to leverage Alliance council members with unauthorized documentation." He crosses to the door and opens it. "The Council Security committee will receive a full account of this meeting." He holds the door. The meeting is over. He does not look at the contracts on the table between you. The committee convenes the same afternoon. The documentation you carried in will be named in their proceedings by end of day.`;
         drawSocialMisstep(G.location);
-        addJournal('Alliance Council Security committee — investigation designated infrastructure threat', 'complication', `sor-mordoth-fail-${G.dayCount}`);
+        addJournal('Alliance Council Security committee — your approach designated infrastructure threat', 'complication', `sor-mordoth-fail-${G.dayCount}`);
       } else {
         G.flags.met_mordoth_valinheim = true;
         G.investigationProgress++;

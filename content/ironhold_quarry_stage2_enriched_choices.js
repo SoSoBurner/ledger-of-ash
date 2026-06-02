@@ -632,7 +632,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
         G.lastResult = `Velka's injury logs, the mineral sample, and the extraction classification documents go to the Roadwarden post at Ithtananalor — delivered directly, bypassing the ORE command chain that owns the classification. The Roadwarden duty officer receives the package at the intake desk and reads the mineral assay first. The special extraction order at Ironhold is suspended pending supply chain review by end of the following day. Stage III opens with a Roadwarden review running parallel to whatever ORE command does next.`;
-        addJournal('Ironhold S2 finale: Roadwarden supply chain investigation — special extraction suspended', 'evidence', `iron-finale-inst-${G.dayCount}`);
+        addJournal('Ironhold S2 finale: Roadwarden supply chain review running — special extraction suspended', 'evidence', `iron-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;

@@ -150,7 +150,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Keldan's posture changes mid-sentence. "Why are you asking about contract distribution?" He doesn't wait for the answer. The conversation ends, and by the next market bell, two other merchants near the cloth stalls have received some version of your description and the nature of your questions. The attention that a distributed description carries is harder to step out of than a single closed door.`;
         G.worldClocks.isolation++;
-        addJournal('Merchants now viewing you as potential investigator', 'complication', `sunspire-textile-hostile-${G.dayCount}`);
+        addJournal('Merchants now viewing you as a threat — description circulated at market bells', 'complication', `sunspire-textile-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `Keldan acknowledges uneven distribution without naming its source. "Competitive positions vary across families." He straightens a bolt of cloth that didn't need straightening. The contract board on the market's east wall has three family names appearing in six of the last seven premium material listings. Wind off the high plain moves through the market lane. He picks up a second bolt and doesn't look at the board again.`;
         addJournal('Merchant confirmed trade opportunity inequality', 'evidence', `sunspire-textile-confirmed-${G.dayCount}`);
@@ -190,7 +190,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Neria closes the ledger and lifts her hand to flag the syndicate administrator across the room. "Production records aren't for outside review." The flagging is deliberate, visible, a message being sent in front of you rather than behind you. By the time you leave the quota hall, a report on your inquiry is already moving upward through the syndicate's coordination chain. The pressure of a report already in motion means the quota hall will be watched for you before the next bell.`;
         G.worldClocks.pressure++;
-        addJournal('Syndicate investigating your quota system inquiry', 'complication', `sunspire-quota-alert-${G.dayCount}`);
+        addJournal('Syndicate alerted — quota inquiry report already moving up the coordination chain', 'complication', `sunspire-quota-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
         G.lastResult = `The targets have been adjusted in the past two cycles. Some families miss consistently — not by large margins, but always by enough to trigger a review. Other families hit their targets with room to spare. The resource allocations that accompany those targets don't explain the gap. The targets explain the gap. Neria stacks the ledger closed and turns away. The watchtower on the plain is visible through the high narrow window above the intake desk.`;
         addJournal('Quota records show signs of deliberate inequality', 'evidence', `sunspire-quota-altered-${G.dayCount}`);
@@ -967,7 +967,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('Rival-adjacent operative confirmed investigating Sunspire convoy disruption ahead of you', 'complication', `sunspire-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative confirmed working the Sunspire convoy disruption ahead of you', 'complication', `sunspire-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

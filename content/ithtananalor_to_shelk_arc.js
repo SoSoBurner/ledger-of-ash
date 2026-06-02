@@ -45,7 +45,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
         addJournal('Maret\'s authorization revoked after inquiry — carrying findings in her head, Shelkopolis contact ready', 'discovery', `ithtan-arc-maret-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Maret travels separately by design. "Don't follow me," she says, not unkindly. "If we're seen together, we're connected. Connected investigators are easier to suppress than separate ones."`;
+        G.lastResult = `Maret travels separately by design. "Don't follow me," she says, not unkindly. "If we're seen together, we're connected. Two people working the same thread are easier to suppress than two people no one can link."`;
         G.recentOutcomeType = 'neutral';
       }
     }

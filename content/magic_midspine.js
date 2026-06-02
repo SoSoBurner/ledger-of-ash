@@ -46,7 +46,7 @@ const MAGIC_MIDSPINE_CHOICES = [
 
   // ——— NODE 2: THE CHOICE ———
   {
-    label: "The forbidden knowledge is now yours. Disclose it through official channels — or protect it from institutional suppression by keeping it off the formal record.",
+    label: "The forbidden knowledge is now yours. Disclose it through registered channels — or protect it from institutional suppression by keeping it off the formal record.",
     tags: ['Midspine', 'Magic', 'Decision'],
     xpReward: 90,
     condition: function() {

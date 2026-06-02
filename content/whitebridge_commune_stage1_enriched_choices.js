@@ -161,7 +161,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Authority', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
-      text: "The access log entries encode account identifiers through the commune's administrative cipher before storage. Timestamps and document references are readable; the account name behind each entry is a string of characters that requires the commune's administrative key to resolve. The clerk who holds that key is the bridge director's office — not the archive. Access to the decoded account identifiers runs through the same administrative channel being investigated.",
+      text: "The access log entries encode account identifiers through the commune's administrative cipher before storage. Timestamps and document references are readable; the account name behind each entry is a string of characters that requires the commune's administrative key to resolve. The clerk who holds that key is the bridge director's office — not the archive. Access to the decoded account identifiers runs through the same administrative channel you are trying to trace.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     },
     fn: function() {

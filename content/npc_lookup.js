@@ -221,9 +221,9 @@
       ask_indirect: 'Find the angle that does not expose the full ask.',
       ask_indirect_label: 'Read the room for what the House currently needs.',
       offer_help: 'The House has a problem I may be able to solve. Make it worth my time.',
-      offer_help_label: 'Name something the House cannot solve through official channels.',
+      offer_help_label: 'Name something the House cannot solve through registered channels.',
       success: {
-        default: 'She considers. The house has obligations she cannot discharge through official channels — she does not name the problem directly, she names a problem adjacent to it, and watches to see whether you understand the gap. You do. The conversation that follows is more useful than the one you came prepared for.',
+        default: 'She considers. The house has obligations she cannot discharge through registered channels — she does not name the problem directly, she names a problem adjacent to it, and watches to see whether you understand the gap. You do. The conversation that follows is more useful than the one you came prepared for.',
         support: 'Something in how you present yourself shifts her register. She speaks with fewer pauses. A support-class traveler draws a different kind of attention to house business, and she has decided to say so. She tells you what she cannot tell an enforcer.',
         magic: 'She is careful around arcane matters — the House has investments in regulated institutions. But your particular kind of careful draws hers. She speaks in terms of what the house can provide without entanglement.',
         stealth: 'She does not ask how you learned certain things. She notes that you learned them, and that matters more. She speaks plainly about what the House can offer someone who operates the way you appear to operate.'

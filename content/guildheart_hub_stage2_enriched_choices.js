@@ -1158,7 +1158,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('charm', {dc: 12, locality: 'guildheart_hub', label: 'Registrar rapport'});
       if (result.isCrit) {
         G.stageProgress[2]++;
-        addJournal('Senior registrar confirmed: the backlog is manufactured. Requests are accepted and filed as processing indefinitely to prevent investigators from timing the suppression window.', 'evidence');
+        addJournal('Senior registrar confirmed: the backlog is manufactured. Requests are accepted and filed as processing indefinitely to prevent anyone from timing the suppression window.', 'evidence');
         G.lastResult = 'She appreciates the question — no one has, she says, in a tone that suggests she had stopped expecting anyone to. Over the next hour, in a back room with the door closed and a cup of cooling tea between you, she explains exactly how the backlog works. It is not a failure of staffing or procedure. It is calibrated delay: requests accepted, logged as processing indefinitely, never formally denied. Investigators cannot time the suppression window because the clock never officially stops. She has been watching it operate for three years.';
       } else if (result.isFumble) {
         G.lastResult = 'Your approach reads as flattery and she withdraws with a politeness that has been refined through repeated use — she has seen too many people try this particular angle, and she knows exactly when sympathy is a tool rather than a genuine gesture. The warmth goes out of the conversation without ceremony. You have used this approach with her; it is closed now. She will not be readable through it again.';

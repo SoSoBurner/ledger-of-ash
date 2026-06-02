@@ -2038,7 +2038,7 @@ const STAGE2_ENRICHED_CHOICES = [
         addJournal('Ward scan confirms institutional certification predates suppression orders by 2-4 weeks. Certification infrastructure used as authorization mechanism, not as post-process record.', 'evidence');
         G.recentOutcomeType = 'discovery';
       } else {
-        addNarration('', 'The ward layer is present but layered — multiple certifications, different ages, some applied in sequence over the same document. The oldest certification layer is the authorizing one, but reading the sequence requires a longer attunement than the reading room permits. The ward pattern is real and meaningful; reading it fully will require a less supervised environment and more time than is available now.');
+        addNarration('', 'The ward layer is present but layered — multiple certifications, different ages, some applied in sequence over the same document. The oldest certification layer is the authorizing one, but reading the sequence requires a longer attunement than the reading room permits. The ward pattern holds; reading it fully will require a less supervised environment and more time than is available now.');
         addJournal('Ward scan incomplete — multiple certification layers require extended attunement. Oldest layer is the authorizing one. More time in unsupervised access needed.', 'intelligence');
         G.recentOutcomeType = 'complication';
       }
@@ -2046,7 +2046,7 @@ const STAGE2_ENRICHED_CHOICES = [
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: {
-      text: 'The ward certification sequence needs extended attunement. The layering pattern is meaningful — unsupervised access will complete the reading.'
+      text: 'The ward certification sequence needs extended attunement. The layering pattern holds — unsupervised access will complete the reading.'
     }
   },
 

@@ -864,10 +864,10 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
-        G.lastResult = `You find him before he finds information about you. He's a young man who's been approached three times by people he describes as "professional — not like the usual buyers." Each time, they asked about anyone asking about the dome terminals. He hasn't reported you yet because you're the first investigator he's met who found him first. He tells you the three buyers' physical descriptions. One matches Delt Karnn.`;
+        G.lastResult = `You find him before he finds information about you. He's a young man who's been approached three times by people he describes as "professional — not like the usual buyers." Each time, they asked about anyone asking about the dome terminals. He hasn't reported you yet because you're the first person asking who found him before he could pass word. He tells you the three buyers' physical descriptions. One matches Delt Karnn.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addJournal('Low Ward informant: Karnn is one of three buyers monitoring for dome terminal investigations', 'evidence', `low-ward-s1-informant-${G.dayCount}`);
+        addJournal('Low Ward informant: Karnn is one of three buyers monitoring for dome terminal inquiries', 'evidence', `low-ward-s1-informant-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The corner table is empty. His cup is still there, still warm. Someone moved faster than you did — word that an inquiry was running reached him before you arrived, and he stepped out. He'll resurface when the situation settles, but not before he's passed your description to whoever is paying him. The buyers monitoring for dome terminal inquiries now have a new entry. The watchfulness clock just moved.`;

@@ -94,7 +94,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.warden_order = (G.factionHostility.warden_order||0) + 2;
         G.lastResult = `Two steps inside the Shadowhands Wing, a pair of unit officers bracket the approach and redirect without touching anything. The meeting request was received; no meeting will occur. At the security desk, a formal note is written and signed — not a refusal on paper but a flag, routed upward within the hour. The Roazian enforcement apparatus has now classified the approach as a hostile operation, which changes every access point downstream.`;
-        addJournal('Shadowhands — investigation classified as hostile', 'complication', `ith-velden-fail-${G.dayCount}`);
+        addJournal('Shadowhands — your approach classified as hostile operation', 'complication', `ith-velden-fail-${G.dayCount}`);
       } else {
         G.flags.met_velden_ironspike = true;
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
