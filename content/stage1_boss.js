@@ -269,6 +269,7 @@ function _stage1MainBossResolution() {
 // Trigger check — call from checkStageAdvance or locality arrival
 function checkStage1BossTriggered() {
   if (!G || G.stage !== 'Stage I') return;
+  if (G.location !== 'shelkopolis') return;
   var _sp1 = G.stageProgress[1]||0;
   // At sp1 >= 18, player has progressed past miniboss window — bypass it so main boss fires
   if (!(G.flags && G.flags.stage1_miniboss_complete) && _sp1 >= 18) {

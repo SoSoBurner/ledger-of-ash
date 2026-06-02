@@ -5521,6 +5521,23 @@ window.LOCALITY_MACROREGION = {
   nomdara: 'nomdara'
 };
 
+// Stage 1 accessible localities per starting locality — derived from TRAVEL_ROUTES (single-hop edges).
+// Key = game engine locality ID; value = array of directly adjacent engine locality IDs.
+window.STAGE1_ADJACENCY = {
+  'shelkopolis':       ['fairhaven', 'aurora', 'glasswake_commune', 'cosmoria'],
+  'fairhaven':         ['shelkopolis', 'guildheart', 'ithtananalor', 'mimolot', 'panim', 'shirshal', 'soreheim', 'sunspire', 'aurora'],
+  'guildheart':        ['fairhaven', 'ithtananalor', 'soreheim', 'mimolot'],
+  'soreheim':          ['guildheart', 'sunspire', 'fairhaven'],
+  'sunspire':          ['soreheim', 'fairhaven'],
+  'mimolot':           ['guildheart', 'ithtananalor', 'fairhaven'],
+  'ithtananalor':      ['guildheart', 'mimolot', 'shirshal', 'fairhaven'],
+  'panim':             ['shirshal', 'fairhaven'],
+  'shirshal':          ['panim', 'ithtananalor', 'fairhaven'],
+  'aurora':            ['shelkopolis', 'fairhaven'],
+  'glasswake_commune': ['shelkopolis'],
+  'cosmoria':          ['shelkopolis'],
+};
+
 const TIMES = ['Dawnrise','Midlight','Duskcall','Nightwatch'];
 
 // ── ARCHETYPE ABILITY TREES ─────────────────────────────
@@ -13913,13 +13930,12 @@ function _showModeSelectInOverlay(locId) {
   var loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
   var cur = WORLD_LOCATIONS[G.location];
-  if (G.stage === 'Stage I' && cur) {
-    var lmr = window.LOCALITY_MACROREGION || {};
-    var sameMacro = lmr[locId] && lmr[G.location] && lmr[locId] === lmr[G.location];
-    var samePolitya = loc.polity === cur.polity;
-    var plotUnlock = G.flags && G.flags['travel_unlock_' + locId];
-    if (!samePolitya && !sameMacro && !plotUnlock) {
-      addNarration('', '<em style="color:var(--gold-dim)">The road to ' + loc.name + ' lies beyond your current range. Advance to Stage II to journey further.</em>');
+  if (G.stage === 'Stage I') {
+    var _s1Adj = window.STAGE1_ADJACENCY && G.startingLocality ? (window.STAGE1_ADJACENCY[G.startingLocality] || []) : [];
+    var _s1ok = locId === G.startingLocality || _s1Adj.includes(locId);
+    var _plotUnlock = G.flags && G.flags['travel_unlock_' + locId];
+    if (!_s1ok && !_plotUnlock) {
+      addNarration('', '<em style="color:var(--gold-dim)">The road to ' + loc.name + ' lies beyond your current range. Journey to Shelkopolis to unlock Stage II.</em>');
       return;
     }
   }
@@ -15126,18 +15142,13 @@ function showMap() {
   const locs = Object.values(WORLD_LOCATIONS);
   const _lmrShow = window.LOCALITY_MACROREGION || {};
   const _curMacroShow = _lmrShow[G.location] || _lmrShow[settlementId] || '';
-  const stage1Locs = _curMacroShow
-    ? locs.filter(l => _lmrShow[l.id] === _curMacroShow || l.region === curRegion)
-    : locs.filter(l => l.region === curRegion);
-  // If current polity has only the current locality (stranded at guildheart/panim/etc. via story choice),
-  // show all cross-polity destinations so the player isn't dead-ended.
-  const stranded = stage1Locs.filter(l => l.id !== settlementId).length === 0;
-  const stage2Locs = (G.stage !== 'Stage I' || stranded)
-    ? locs.filter(l => !stage1Locs.some(s => s.id === l.id)) : [];
+  // Stage I shows all localities but locks non-adjacent ones; adjacency is keyed on G.startingLocality.
+  const stage1Locs = locs;
+  const stage2Locs = [];
 
   let html = '<div style="color:var(--ink-dim);font-size:13px;margin-bottom:16px">' +
     (G.stage === 'Stage I' ?
-      'Stage I restricts travel to <strong>' + curRegion + '</strong>. Advance to Stage II to unlock cross-polity travel.' :
+      'Stage I travel is limited to localities adjacent to your starting region. Journey to Shelkopolis to unlock Stage II.' :
       'Stage II unlocked. Canon-supported routes connect the polities below.') +
     '</div>';
 
@@ -15186,11 +15197,10 @@ function showMap() {
   html += '<div class="map-locations">' +
     stage1Locs.concat(stage2Locs).map(l => {
       const isCur = l.id === settlementId;
-      const _lmr = window.LOCALITY_MACROREGION || {};
-      const _samePol = l.polity && cur && l.polity === cur.polity;
-      const _sameMacro = _lmr[l.id] && _lmr[G.location] && _lmr[l.id] === _lmr[G.location];
+      const _s1Adj = window.STAGE1_ADJACENCY && G.startingLocality ? (window.STAGE1_ADJACENCY[G.startingLocality] || []) : [];
+      const _s1Accessible = l.id === (G.startingLocality || G.location) || _s1Adj.includes(l.id);
       const _plotUnlock = G.flags && G.flags['travel_unlock_' + l.id];
-      const locked = G.stage === 'Stage I' && !_samePol && !_sameMacro && !_plotUnlock && !stranded;
+      const locked = G.stage === 'Stage I' && !_s1Accessible && !_plotUnlock;
       return '<div class="map-loc' + (isCur?' current':'') + (locked?' locked':'') + '">' +
         '<div class="map-loc-name">' + l.name + (isCur?' &#x2605;':'') + (locked?' &#x1F512;':'') + '</div>' +
         '<div class="map-loc-region">' + l.region + '</div>' +
