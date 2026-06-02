@@ -1443,4 +1443,141 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
 
 );
 
+// ── ADDITIONAL ARCHETYPE CHOICES ──────────────────────────────
+COSMORIA_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — Cosmouth harbor enforcement spacing
+  {
+    id: 'cosmoria_arch_combat_3',
+    label: 'Cosmouth enforcement vessels are positioned to block the independent berth approach.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Naval', 'Enforcement', 'Blocking'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Two Cosmouth-flagged enforcement vessels are anchored at angles that physically constrain the approach lane to the independent berthing section — not blocking it outright, but narrowing it to single-file movement with no overtaking space. The positioning is not a navigational hazard; it is a tactical deterrent. Any independent captain reading the approach will recognize that running it slowly means running it under observation at close range. The independent berths are accessible. The access has been made uncomfortable.');
+      addJournal('Cosmouth enforcement vessels positioned to constrain independent berth approach — tactical deterrent, not formal blockade.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The harbor master\'s aide redirects the question to the official vessel positioning registry before you finish asking it. The registry is public and posts anchorage authorizations by vessel and date; Cosmouth enforcement vessels will appear there alongside the independent berthing approach coordinates.' }
+  },
+
+  {
+    id: 'cosmoria_arch_combat_4',
+    label: 'The cargo inspection team carries Cosmouth credentials. The harbor master did not issue them.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Authority', 'Credentials'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The cargo inspection team operating on the eastern quay carries Cosmouth commercial house credentials, not harbor master inspection authority. They have the physical presence and the behavioral confidence of authorized inspectors, but their documentation is from a private commercial entity, not a public port authority. Independent captains being inspected by this team have no mechanism to challenge or appeal their findings — there is no institutional superior to complain to because the inspectors are not part of the institutional structure.');
+      addJournal('Eastern quay inspectors: Cosmouth commercial credentials, not harbor authority — independent captains have no appeal mechanism.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The inspection team captain declines to show credentials to someone who is not a cargo captain under inspection. The harbor master\'s authorization registry lists all persons with official inspection authority; an entity not in that registry is visible by absence.' }
+  },
+
+  // MAGIC ×2 — port arcane inspection anomalies
+  {
+    id: 'cosmoria_arch_magic_3',
+    label: 'The port arcane inspection ward flags independent cargo. Cosmouth cargo passes without trigger.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Inspection', 'Bias'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The port arcane inspection ward at the main quay is calibrated to trigger on the cargo signature pattern commonly found in independent fishing and trade consignments — a pattern that varies by origin region and container type. Cosmouth commercial vessels use standardized containers with a different signature profile, and that profile is excluded from the trigger range. The ward looks impartial. Its calibration is not. Independent cargo receives mandatory secondary inspection; Cosmouth cargo moves through uninspected by design.');
+      addJournal('Port inspection ward: calibrated to flag independent cargo signatures, Cosmouth container profile excluded from trigger range.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward calibration panel is inside the port authority office, which is not public access. The ward\'s operational parameters — including which cargo types trigger mandatory secondary inspection — are listed in the public port charter posted in the harbor master\'s entry hall.' }
+  },
+
+  {
+    id: 'cosmoria_arch_magic_4',
+    label: 'The weight certification ward was reissued. The new version can be adjusted post-certification.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Certification', 'Fraud'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The standard weight certification ward seals a cargo manifest at the moment of measurement — the ward is designed to be immutable after certification to prevent retroactive alteration. The current ward version in use at the harbor has a modification: a secondary authorization key held by the harbor weight master allows the certified value to be adjusted within a 10% variance window after the initial seal. The modification enables systematic shortfalls to be entered after the fact while the certification stamp appears valid.');
+      addJournal('Weight certification ward reissued with post-seal adjustment key — enables systematic shortfall entry after certification.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward technical specification is inside the port authority registry, restricted to authorized review. The public certification standard posted in the harbor master\'s hall shows the required specification; a comparison against an actual certified manifest will show whether the sealed value matches the listed standard.' }
+  },
+
+  // STEALTH ×2 — cargo inspection scheduling gaps
+  {
+    id: 'cosmoria_arch_stealth_3',
+    label: 'Certain cargo arrives at the pre-dawn window. No inspection team is ever present.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Cargo', 'Schedule', 'Gap'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The harbor inspection schedule has a consistent gap between the midnight shift end and the pre-dawn shift start — a forty-minute window with no inspection team present at the north quay. Vessel arrivals at the north quay between 3:40 and 4:20 receive no primary inspection. Three vessels over the past month have arrived in that window and berthed at the private pier with no arrival log entry. The window is not an oversight. It is a schedule built around a need.');
+      addJournal('North quay: 40-minute pre-dawn inspection gap, 3 vessels arrived unlogged in window this month — deliberate schedule.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The night shift inspection team is transitioning when you arrive at the quay — the shift change window is happening now, which means both teams are occupied with handover and no one is watching the approach. The arrival log for the north quay berths is posted at the dock master\'s station at the end of each shift.' }
+  },
+
+  {
+    id: 'cosmoria_arch_stealth_4',
+    label: 'The weight clerk uses a second ledger. It leaves the building in her bag.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Records', 'Ledger', 'Extraction'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The harbor weight clerk keeps a personal ledger in addition to the official registry — a smaller book, bound in plain cloth, which she carries into and out of the records room in her bag. The official registry stays in the building. The personal ledger travels. Two-ledger systems in inspection roles indicate either a protection copy — someone afraid the official record will be altered — or a parallel record of the true measurements kept separately from the falsified official version. Either interpretation means the official record cannot be trusted.');
+      addJournal('Harbor weight clerk maintains personal traveling ledger alongside official registry — either protection copy or true-measurement parallel record.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The clerk is at her station and the ledger is in her bag, which is under her desk. A direct question about the personal ledger will end the conversation. The inspector who worked the same station before the current clerk can describe what the standard single-ledger practice looked like.' }
+  },
+
+  // SUPPORT ×2 — dockhands communication fractures
+  {
+    id: 'cosmoria_arch_support_3',
+    label: 'The dockhands stopped sharing shift information after two of them were let go without reason.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Fragmentation', 'Fear'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The Cosmoria dockhand community runs on mutual information — who needs a hand, which shift needs filling, who is reliable. Two dockhands were dismissed six weeks ago without stated reason, the same week the Cosmouth allocation changes went into effect. Since then, shift information sharing has dropped significantly; crews arrive separately and avoid the usual coordination. The dismissals were not explained, but the community understood the message clearly enough to change its behavior.');
+      addJournal('Dockhand information sharing stopped after 2 unexplained dismissals — community understood message, changed behavior immediately.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The dockhand community has closed to outside questions since the dismissals — they are not hostile, they are careful. The dismissed dockhands are no longer on the harbor, but the waystation keeper logged their final work days in the standard labor record; the dismissal dates will appear there.' }
+  },
+
+  {
+    id: 'cosmoria_arch_support_4',
+    label: 'The independent captains no longer share a table. That table sat six for years.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Network', 'Fracture'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The common table at the harbor waystation where independent captains historically gathered for shared meal and informal coordination has been unused for two months. The captains still come to the waystation, still eat there, but now at separate tables. The fragmentation of the independent fleet\'s informal coordination network means there is no mechanism for collective response to the Cosmouth pressure. Isolated captains negotiating individually with a coordinated commercial power are in a structurally weaker position. The table being empty is not coincidence; it is outcome.');
+      addJournal('Independent fleet common table unused 2 months — informal coordination network fragmented, captains negotiating individually against coordinated Cosmouth pressure.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The captains read outside interest in their coordination as one more form of observation — the table has been empty partly because sitting together felt like drawing attention. The waystation keeper has watched the shift happen over two months and can describe it without implicating herself in either side.' }
+  }
+
+);
+
 window.COSMORIA_STAGE1_ENRICHED_CHOICES = COSMORIA_STAGE1_ENRICHED_CHOICES;

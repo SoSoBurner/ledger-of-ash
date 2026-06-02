@@ -762,4 +762,142 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   }
 }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — Harvest Circle guard deployment
+  {
+    id: 'glasswake_arch_combat_1',
+    label: 'The Harvest Circle committee moved its guards to the archive, away from the estuary path.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Archive', 'Observation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The Harvest Circle administrative committee has repositioned its security personnel from the estuary research path — where they have been posted for years — to the document archive at the commune center. The redeployment happened without announcement. The archive holds the shard study records; the estuary path leads to where Toman Iceveil works in the evenings. Someone decided protecting the documents mattered more than managing the researcher.');
+      addJournal('Harvest Circle security redeployed from estuary path to document archive — protecting research records, not the researcher.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The committee security guard steps into the path before you reach the archive entrance and holds position. He is doing his job correctly. The estuary research path is now unguarded, which means Toman Iceveil\'s evening workspace is accessible without the security presence that used to monitor it.' }
+  },
+
+  {
+    id: 'glasswake_arch_combat_2',
+    label: 'Two researchers were escorted from the commune last month. No formal expulsion record exists.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Expulsion', 'Records'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Two senior researchers departed Glasswake last month with committee security personnel present at their departure — witnessed by three commune members and the waystation log keeper. No formal expulsion proceeding appears in the commune record. No appeal was filed because no formal action was recorded. The escorts were present, the departure was coerced, and the mechanism that would allow a challenge was bypassed by ensuring no institutional record of the action existed. Someone was removed without being removed on paper.');
+      addJournal('Two researchers escorted out by committee security — no formal expulsion record, departure coerced outside institutional process.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The committee secretary declines to discuss personnel departures without a formal inquiry filing. The waystation log keeper witnessed both departures and is not affiliated with the committee; her account is available as a personal observation, not an institutional record.' }
+  },
+
+  // MAGIC ×2 — soil ward disruption patterns
+  {
+    id: 'glasswake_arch_magic_1',
+    label: 'The shard research wards were tuned down. The suppression level is administrative, not safety.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Wards', 'Research'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The research containment wards on the shard study annex have been tuned to a lower attenuation level than the commune safety standard requires — the ward is operating at 40% of the rated threshold, not the 80% minimum for active shard work. The tuning is not a safety failure; it is an administrative decision. At 40% attenuation, arcane observation of ward activity from outside the annex is possible. Someone adjusted the wards to allow external monitoring of the research space without the researchers knowing.');
+      addJournal('Shard research wards tuned to 40% of safety minimum — deliberately allows external arcane monitoring of the research space.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The research annex ward inspection requires a committee authorization that takes two days to process. The public ward registration board outside the annex door lists the current attenuation rating alongside the required standard — the gap between them is visible without authorization.' }
+  },
+
+  {
+    id: 'glasswake_arch_magic_2',
+    label: 'The amplification data Toman found — someone added a dampening ward to the estuary site.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Site', 'Evidence'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The estuary shard sampling site has a new dampening ward installed over the primary measurement point — the location where Toman first observed the amplification effect. The ward reduces arcane signal output from the site to near baseline, making it appear quiescent in any standard survey. The installation is recent: the ward inscription lacks the weathering of the surrounding stone. Someone installed a ward specifically designed to conceal the phenomenon that Toman\'s research was documenting.');
+      addJournal('Estuary sampling site: new dampening ward over primary measurement point — installed to conceal the amplification effect from survey.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward installation is at the water\'s edge and the tide is in — the inscription is partially submerged. The secondary sampling point thirty meters upstream carries no ward and shows the unmasked baseline reading that would confirm the contrast with the suppressed primary site.' }
+  },
+
+  // STEALTH ×2 — crop allocation route changes
+  {
+    id: 'glasswake_arch_stealth_1',
+    label: 'The committee uses a messenger who does not appear on any commune staff record.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Messenger', 'Records', 'Surveillance'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The Harvest Circle administrative committee uses a regular messenger for its inter-commune communications — a young man who travels the estuary path at dawn on the second and fifth day of each week. He carries sealed packets, does not stop at the waystation, and is not listed in any commune staff or service registry. An unregistered messenger running a regular schedule for institutional communications means the committee is routing correspondence outside the standard record system. The packets go somewhere specific that the committee does not want to appear in public logs.');
+      addJournal('Committee uses unregistered messenger on fixed schedule — institutional correspondence routed outside public record system.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The messenger clocks your attention on the path and varies his route — takes the long way around the estuary inlet instead of the direct path. He is trained for observation avoidance. The second-day schedule still holds; the alternative route passes the north waystation where the keeper has noted his unusual regularity.' }
+  },
+
+  {
+    id: 'glasswake_arch_stealth_2',
+    label: 'The restricted archive has a second entrance. The committee uses it alone.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Archive', 'Access', 'Gap'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The restricted research archive has a secondary entrance on its north face — a maintenance access point, fitted with the same committee key series as the administrative offices, invisible from the main research hall approach. The wear pattern on the lock indicates regular recent use; the maintenance log for the archive does not record any maintenance work in the past three months. Committee members can enter the restricted archive without appearing in the public access log. The research suppression operation has an unsupervised door.');
+      addJournal('Restricted archive: second entrance with committee key access, not in maintenance log, regularly used outside public record.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The north maintenance entrance is visible from the lane but currently has a fresh wax seal on the lock — someone sealed it in the past day or two, which itself is worth noting. The main archive access log in the reading room will show when the secondary entrance was last officially unsealed.' }
+  },
+
+  // SUPPORT ×2 — harvester family allocation stress
+  {
+    id: 'glasswake_arch_support_1',
+    label: 'The harvester families are petitioning the committee less. They stopped expecting it to help.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Trust', 'Erosion'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Glasswake\'s harvester families have always brought allocation disputes to the commune committee — it was the structural mechanism for fairness. In the past two months, petition filings from harvester families have dropped by two-thirds. The families are not resolving their disputes privately; they are not filing them at all. The withdrawal indicates that the community has concluded the committee is no longer a resource for their interests. That conclusion means the institutional trust structure has collapsed at the household level.');
+      addJournal('Harvester family petitions down two-thirds in 2 months — families stopped filing, not resolving: institutional trust collapsed.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The harvester families are not hostile to the question but they are tired of outside interest that does not produce results. The commune clerk who handles petition filings keeps a monthly count for administrative purposes — that count for the past six months is public record.' }
+  },
+
+  {
+    id: 'glasswake_arch_support_2',
+    label: 'A senior researcher backed the committee\'s suppression publicly. His colleagues stopped trusting him.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Defection', 'Network'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Senior Researcher Davin Marsh issued a public statement supporting the committee\'s administrative review classification of the shard amplification studies. The statement was voluntary and used committee framing. His colleagues in the research annex have not spoken to him since. The research network — which depended on peer trust for data sharing — has fragmented along that line. Davin Marsh still works in the annex. He works alone now, in a room that used to be collaborative. Someone got a public endorsement and destroyed a research community\'s functioning in exchange for it.');
+      addJournal('Researcher Marsh endorsed committee suppression — colleagues withdrew trust, research network fractured along the endorsement line.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Davin Marsh is in the annex and knows what a direct question about his statement means — he will give you the committee line clearly and briefly. Toman Iceveil saw what happened from the outside and has a more complete picture of what Marsh was offered.' }
+  }
+
+);
+
 window.GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES;

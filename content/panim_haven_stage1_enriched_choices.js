@@ -1036,4 +1036,142 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     failResult: 'The waystation log cover is latched — a registrar is making entries and the book is on their side of the counter. The crossroads post opens the log to public reading again once the registrar finishes the morning batch.'
   }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+PANIM_HAVEN_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — harbor watch deployment
+  {
+    id: 'panim_arch_combat_1',
+    label: 'Harbor watch positions doubled since last season. No public notice of the change.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Military', 'Harbor', 'Observation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The harbor watch has doubled its posting count on the eastern pier — two guards where one stood for years, new assignment covering the approach from the shallow-water route. No public notice was posted, no change logged in the harbor master\'s board. The change in force presence happened quietly and quickly, which means someone with authority to move the watch made the decision without going through the standard procedure.');
+      addJournal('Harbor watch doubled at eastern pier — no public notice, non-standard deployment, authority outside normal chain.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The watch captain moves to intercept the moment your gaze lingers on the pier positioning. He is professional and final: the watch deployment is internal safety business. The harbor master\'s duty board on the main quay lists all official watch changes going back six weeks — the absence of this one in the log will be visible.' }
+  },
+
+  {
+    id: 'panim_arch_combat_2',
+    label: 'The private pier security answers to someone outside the harbor master\'s chain.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Authority', 'Chain'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The security personnel at the private pier on the north side carry no harbor master credentials. Their authorization papers bear a different stamp — a commercial charter mark from a trading entity not listed in Panim Haven\'s registered harbor roster. They operate parallel to the official watch, with physical access to the pier network, under authority from an external commercial body. The harbor master cannot order them. Someone arranged this deliberately.');
+      addJournal('Private pier security: chartered under external commercial body, outside harbor master authority entirely.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The private security personnel decline questions without hostility — they are authorized to be there and their authorization is complete. The commercial charter registry in the harbor master\'s office lists all registered entities with pier access; an entity not in that registry would appear as a gap.' }
+  },
+
+  // MAGIC ×2 — tidal ward changes
+  {
+    id: 'panim_arch_magic_1',
+    label: 'The tidal ward at the shrine entry was adjusted. The adjustment removed a transparency clause.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Wards', 'Shrine'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The ward inscription at the shrine entrance carries a layered rewrite — the original registration glyph remains partially legible beneath the current version. The removed element is a transparency clause, a provision that required ward activity to be logged in the shrine registry. The current ward operates without any logging requirement. Transactions, petitions, and offerings processed under this ward now leave no arcane record. The removal was deliberate and specific.');
+      addJournal('Shrine entry ward rewritten: transparency clause removed, ward activity now unlogged by design.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The shrine attendant steps across the inscription when your examination becomes apparent. The outer harbor wayshrine carries the same ward type with an older, unmodified inscription — the comparison between the two versions would be visible there without restriction.' }
+  },
+
+  {
+    id: 'panim_arch_magic_2',
+    label: 'A mediation rite was conducted without the standard witnessing glyph. No arcane record exists.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Ritual', 'Records'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'A mediation proceeding from six weeks ago shows no witnessing glyph in the ritual record — the arcane signature that confirms a rite was conducted under proper observance is absent. The physical record exists; the mediation happened. But without the witnessing glyph, the ritual outcome is not binding under shrine law and cannot be appealed. Someone conducted a formal mediation with full institutional appearance but no arcane accountability, producing an outcome with no recourse mechanism for the party who lost.');
+      addJournal('Mediation six weeks ago: no witnessing glyph. Outcome not binding under shrine law, no appeal mechanism.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ritual archive is sealed for the current blessing cycle. The ritual master\'s public register in the main hall carries summaries of all conducted rites — the summary entry for the relevant week will show whether a witnessing glyph was recorded.' }
+  },
+
+  // STEALTH ×2 — dock movement gaps
+  {
+    id: 'panim_arch_stealth_1',
+    label: 'There is a window in harbor watch coverage every morning just before the bell.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Surveillance', 'Gap', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The harbor watch coverage has a consistent gap between the pre-bell departure of the night watch and the arrival of the morning shift — four to six minutes, varying by day, at the eastern pier access point. The gap is not large but it is reliable, and reliable gaps in secure locations are not accidents. Something or someone exploits this window regularly; the approach path from the shallow-water channel points directly at the gap timing.');
+      addJournal('Harbor watch gap: 4-6 minutes pre-bell at eastern pier access, consistent, likely exploited regularly.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The morning changeover today runs early — both shifts overlap by eight minutes instead of gapping. The timing shift was unscheduled; someone adjusted the rotation. The gap pattern is still in the previous week\'s watch log, which is posted for harbor master review at the quay office.' }
+  },
+
+  {
+    id: 'panim_arch_stealth_2',
+    label: 'The cargo inspection schedule has blind spots. The same manifest categories always pass at dusk.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Cargo', 'Schedule', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Three cargo manifest categories — sealed religious goods, personal effects under shrine seal, and medicinal consignments — are never inspected during the dusk shift. The pattern is consistent across fourteen entries over six weeks. Dusk inspection is lowest-staff; the categories that pass uninspected are exactly the categories that would conceal displaced supply without triggering a report. The scheduling produces a predictable channel for uninspected cargo movement.');
+      addJournal('Dusk shift: three manifest categories systematically pass uninspected, consistent 6-week pattern, deliberate channel.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The manifest board is turned inward during the dusk changeover — the inspection records go to the harbor master at shift close and are not public during that window. The public manifest summary on the exterior quay board carries category-level data going back three weeks.' }
+  },
+
+  // SUPPORT ×2 — fisher community displacement stress
+  {
+    id: 'panim_arch_support_1',
+    label: 'The fisher families stopped sharing tide information with each other two months ago.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Community', 'Fragmentation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Fisher communities in harbor towns survive on shared tidal knowledge — route timing, shoal position, seasonal channel shifts. The Panim Haven fishers have stopped sharing this information. The habit broke two months ago and did not return. Each family now holds their tidal knowledge privately. The fragmentation costs them catches and safety, and they know it. Something applied enough pressure to override a survival-level cooperative behavior.');
+      addJournal('Fisher community: tidal knowledge sharing stopped 2 months ago — pressure severe enough to override cooperative survival behavior.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The fisher families are closed to outside questions — a stranger asking about their internal patterns after two months of institutional pressure reads as another form of surveillance. The shrine helper who works the morning offering preparation grew up in the fisher community and still has one foot in it.' }
+  },
+
+  {
+    id: 'panim_arch_support_2',
+    label: 'The mediation petitioners no longer come as families. They come alone.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Isolation', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Mediation in Panim Haven has always been a communal act — families petition together, witnesses attend, the ritual includes the community in the resolution. Over the past two months, petitioners have begun arriving alone. No support witnesses, no family presence, no communal acknowledgment of the proceeding. The isolation of petitioners from their support networks is not incidental — it makes petitioners more vulnerable in proceedings and removes the community check on outcomes. Someone benefits from isolated petitioners.');
+      addJournal('Mediation petitioners now arrive alone — community witnesses absent, deliberate or pressured isolation from support network.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The petitioner in the hall today is alone but aware and on guard — they have been through the system enough to know that outside interest in their case is not necessarily helpful. The memorial counselor at the shrine has observed the same pattern from the outside and has formed conclusions she is willing to share.' }
+  }
+
+);
+
 window.PANIM_STAGE1_ENRICHED_CHOICES = PANIM_HAVEN_STAGE1_ENRICHED_CHOICES;

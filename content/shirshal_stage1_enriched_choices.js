@@ -1010,4 +1010,142 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   }
 }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+SHIRSHAL_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — frontier patrol formations
+  {
+    id: 'shirshal_arch_combat_1',
+    label: 'The patrol formation at the frontier post is a containment formation, not an intercept one.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Military', 'Patrol', 'Observation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The patrol at the frontier checkpoint is using a containment formation — the unit is positioned to prevent movement outward from the settlement, not to intercept movement from the road. A combat-trained eye reads the difference clearly: intercept formations face the approach vector; containment formations face the population. Someone changed the patrol objective from border security to population control, and the soldiers are executing it without knowing it has a name.');
+      addJournal('Frontier patrol: containment formation facing settlement, not intercept formation facing border — objective changed.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The patrol officer catches your line of sight and reads the evaluation in it — he steps to block the formation view without acknowledging what he is doing. The waystation crossing two leagues south runs a different patrol unit; the formation there would not be adjusted for your presence.' }
+  },
+
+  {
+    id: 'shirshal_arch_combat_2',
+    label: 'House Shirsh guard rotation at the contract hall shortened to every two hours. Wartime pace.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Security', 'Schedule', 'Escalation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'House Shirsh guard rotation at the frontier contract hall has shortened from the standard four-hour interval to two-hour shifts — a wartime pace in a peacetime setting. Two-hour rotations indicate either elevated threat assessment or the presence of something worth protecting at a higher level of vigilance. The contract hall currently holds the frontier labor agreements for three settlements. Those agreements are worth protecting if someone wants to change what is in them.');
+      addJournal('Shirsh contract hall: guard rotation at wartime pace, 2-hour shifts — elevated protection for frontier labor agreements.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The hall guard steps to the door when you approach and the body language closes any casual inquiry before it starts. The hall duty log is posted on the exterior board by regulation — the last six weeks of rotation times will be there, and two-hour entries will stand out against the historical four-hour standard.' }
+  },
+
+  // MAGIC ×2 — House Shirsh binding ward changes
+  {
+    id: 'shirshal_arch_magic_1',
+    label: 'The binding ward on the frontier contracts was rewritten. The witnessing provision is gone.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Wards', 'Contracts'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The binding ward inscription on the frontier labor contracts carries a fresh rewrite over the older layering. What was removed is the witnessing provision — the clause that required a neutral arcane witness to be present during contract execution. Contracts bound under the current ward are legally enforceable under House Shirsh authority with no external verification requirement. The change removes the one structural check on whether the contracts represent what both parties agreed to.');
+      addJournal('Frontier contract ward rewritten: witnessing provision removed, contracts now enforceable without neutral arcane verification.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The contract ward inscription is inside the hall, past the guard threshold. The external registration glyph on the building\'s corner stone carries the same pattern update and is visible from the public lane without entering the hall.' }
+  },
+
+  {
+    id: 'shirshal_arch_magic_2',
+    label: 'The anomaly suppression ward was not logged with the regional arcane registry.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Authorization', 'Records'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'A suppression ward operates over the eastern evidence archive — a ward designed to reduce arcane signature detection within its radius. The ward carries no registration number in the regional arcane registry. Unregistered suppression wards are prohibited in judicial facilities by House Shirsh law; they prevent independent arcane audit of evidence integrity. Someone installed a ward that specifically makes it harder to detect tampering with magical evidence, and installed it without creating any official record of its existence.');
+      addJournal('Unregistered suppression ward in evidence archive — reduces arcane audit capability, installed without registry record.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The suppression ward\'s perimeter extends to the archive doorway — stepping inside would place your arcane perception inside its dampening radius. The hall\'s exterior registration stone carries all ward authorizations for the building; an absence in that list is visible without entering the suppressed zone.' }
+  },
+
+  // STEALTH ×2 — border crossing timing gaps
+  {
+    id: 'shirshal_arch_stealth_1',
+    label: 'Three documents left the archive at night. No exit log entry exists.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Records', 'Extraction', 'Gap'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The archive exit log has three nights with no document entries but binding wear patterns consistent with heavy use of the restricted case files — the thread on the binding spines shows handling stress that does not match the logged access record. Documents were removed and returned without logging. The operation required after-hours access and knowledge of which files to pull, which means it was done by someone with legitimate access who chose to avoid the record.');
+      addJournal('Archive exit log gap: binding wear shows 3 nights of heavy use, no corresponding entries — documents moved without record.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The archive attendant closes the inspection window before you reach the binding wear question — the day\'s access period ended two minutes ago. The exterior duty log on the hallway board shows all overnight access authorizations; the nights in question will show either a logged authorization or a blank.' }
+  },
+
+  {
+    id: 'shirshal_arch_stealth_2',
+    label: 'The witness deposition route passes a blind spot. Someone mapped it before using it.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Surveillance', 'Route', 'Intercept'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The standard route for witness transfer from the hall to the deposition annex passes a twenty-meter stretch with no sight lines from the hall windows or the street — a natural blind spot in the building geometry. A witness approached during that stretch would have no immediate recourse. Two witnesses who later recanted depositions were processed on the same afternoon schedule, through the same route, in the same blind-spot window. The route is standard. The timing selection was deliberate.');
+      addJournal('Witness transfer route: 20m blind spot exploited in two recantation cases — deliberate timing, mapped in advance.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Today\'s witness transfer uses an alternate route — the hall administrator changed the protocol this morning, citing a maintenance issue in the standard corridor. The change was unscheduled. The hall logbook records all route deviations; the entry today and the absence of similar deviations in earlier weeks will both be there.' }
+  },
+
+  // SUPPORT ×2 — Shirsh household relationship fractures
+  {
+    id: 'shirshal_arch_support_1',
+    label: 'Two families who used to share a defense bond have stopped speaking.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Community', 'Fracture'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The mutual defense compact between the Vereth and Collan families has been in place for forty years. Both families have declined to renew it this cycle, and neither will say why to an outsider. The mutual silence suggests the fracture was engineered — both families are quiet in the same direction, which means both families know what happened and have been persuaded or pressured not to discuss it. A fractured defense compact leaves both families individually vulnerable to institutional pressure.');
+      addJournal('Vereth-Collan defense compact dissolved — both families silent in the same direction, engineered fracture likely.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Both families read the question as potential interference in a private matter and close simultaneously. The shrine counselor who handled the renewal paperwork has a professional relationship with both and may be willing to describe the procedural aspects of what happened without breaching confidentiality.' }
+  },
+
+  {
+    id: 'shirshal_arch_support_2',
+    label: 'The clerk now accepts settlements she refused three months ago. Something changed.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Coercion', 'Change'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The hall records clerk has a documented history of refusing settlements that lacked proper witness signatures — she returned three filings over the past two years for that reason. In the past three months, she has accepted four settlements with the same deficiency without comment. The shift in behavior is precise: it starts at the same week that the magistrate rotation changed. Someone applied pressure to the clerk\'s professional environment at exactly the point where a new magistrate was assigned to her oversight.');
+      addJournal('Hall clerk behavior changed: now accepts improper settlements — change began same week as new magistrate assignment.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The clerk is aware of the observation and keeps to her counter role with practiced neutrality. The pattern is visible in the record without her participation — the hall\'s public settlement registry lists filer, date, and witness status for every accepted filing. The deficiency entries will be findable without her input.' }
+  }
+
+);
+
 window.SHIRSHAL_STAGE1_ENRICHED_CHOICES = SHIRSHAL_STAGE1_ENRICHED_CHOICES;

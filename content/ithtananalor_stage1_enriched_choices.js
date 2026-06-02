@@ -1079,4 +1079,142 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     failResult: 'The mid-span stalls are packing down early — a supply cart needs the lane and the holders are clearing space. The lower market near the lock gate stays open longer and runs the same goods.'
   }
 ];
+
+// ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
+ITHTANANALOR_STAGE1_ENRICHED_CHOICES.push(
+
+  // COMBAT ×2 — physical enforcement patterns
+  {
+    id: 'ithtan_arch_combat_1',
+    label: 'The formation spacing at the gate changed. Guards watch inward now, not outward.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Military', 'Observation', 'Tactics'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The garrison gate rotation has inverted — the watch posture faces the interior corridor, not the border road. A combat-trained eye reads it immediately: this formation is not about external threat. It is about controlling what moves in and out of the garrison itself. Someone changed the standing orders, and the soldiers are following them without asking why.');
+      addJournal('Garrison watch posture inverted — guards face inward, suggesting internal control directive.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The gate captain waves you back from the formation inspection line — no civilian access to the duty rotation. The supply manifest board outside the east commissary lists the same garrison\'s requisition patterns over the past six weeks. That board is open.' }
+  },
+
+  {
+    id: 'ithtan_arch_combat_2',
+    label: 'The off-duty soldiers are not where off-duty soldiers go. They are stationed.',
+    skill: 'might',
+    archetypeGroup: 'combat',
+    tags: ['Military', 'Pattern', 'Observation'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'Three soldiers in undress uniform positioned at the market crossing, two more near the lock gate. Off-duty behavior has a posture — it slouches, clusters, moves. These men are still. The staging is tactical, not casual. Someone is using off-duty soldiers for surveillance deployment without formal posting, which means there is no record of the order.');
+      addJournal('Off-duty soldiers deployed in surveillance formation — no formal posting record, likely informal command.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The soldiers clock your attention and shift position smoothly — not hostile, just practiced. They have done this before and know how to make the formation disappear. The commissary adjutant across the lane has been watching the same crossing for two days and has opinions.' }
+  },
+
+  // MAGIC ×2 — transit ward patterns
+  {
+    id: 'ithtan_arch_magic_1',
+    label: 'The oath-binding wards at the garrison post were rewritten in the last month.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Wards', 'Evidence'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The binding sigils at the main garrison post carry a recent rewrite over older layering — the original ward inscription remains partially visible beneath the new work, like text written over text. The new version removes the mutual-obligation clause. The ward used to bind both parties. Now it binds only the soldier. Someone with ward authority rewrote a loyalty structure, and the soldiers who took the oath do not know what they bound themselves to.');
+      addJournal('Garrison oath wards rewritten — mutual-obligation clause removed, one-directional binding now in place.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The ward inscription is partially obscured by a banner hung over it — a seasonal marker, nothing sinister, but it blocks the key sigil section. The outer courtyard inscription is fully visible and shows the same rewrite pattern without obstruction.' }
+  },
+
+  {
+    id: 'ithtan_arch_magic_2',
+    label: 'The transit ward at the checkpoint was not authorized by the garrison commander.',
+    skill: 'spirit',
+    archetypeGroup: 'magic',
+    tags: ['Magic', 'Authorization', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The transit inspection ward at the northern checkpoint carries a different arcane signature from the garrison wards. The garrison uses a registered House Roaz pattern. This ward uses a secondary pattern — not unregistered, but assigned to a different institutional authority. Someone outside the garrison chain installed a transit inspection ward at a garrison checkpoint. The permit routing is being filtered through an external arcane authority.');
+      addJournal('Checkpoint transit ward: external arcane authority signature, not garrison chain. Permit routing filtered externally.', 'evidence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The checkpoint officer steps in front of the ward inscription when he notices your attention. He is polite but firm — the ward architecture is internal garrison business. The inscription on the supply depot gate to the south carries the same secondary pattern and is not currently supervised.' }
+  },
+
+  // STEALTH ×2 — courier dead-drop routes
+  {
+    id: 'ithtan_arch_stealth_1',
+    label: 'The courier makes a stop that is not on the official route. A window, briefly.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Surveillance', 'Courier', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The garrison courier deviates seven steps off the official route at the third lamp post — a window ledge at the rear of the commissary building, one hand motion, then back to route. The stop takes less than four seconds and is invisible to anyone not tracking the route. A dead drop, running on schedule. The window ledge has been in use long enough that the stone beneath it shows a wear pattern from repeated hand contact.');
+      addJournal('Garrison courier dead drop identified at commissary rear window — scheduled, long-running, off-route.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The courier route changes today — the morning shift adjusts it by a full block, cutting the dead drop out of the path entirely. Someone flagged the route for review. The commissary rear window is still visible from the lane; the wear pattern on the stone will still be there tomorrow.' }
+  },
+
+  {
+    id: 'ithtan_arch_stealth_2',
+    label: 'The patrol timing has a gap. Exactly two minutes, exactly at midnight.',
+    skill: 'finesse',
+    archetypeGroup: 'stealth',
+    tags: ['Patrol', 'Gap', 'Pattern'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The northern perimeter patrol has a two-minute gap at the midnight changeover — both patrol legs arrive late at the same corner by the same interval, every night for at least a week. Two minutes is too precise to be accident and too consistent to be laziness. It is a scheduled window, deliberately cut into the patrol pattern. Something or someone moves through that gap, and the schedule was adjusted to let it.');
+      addJournal('Northern perimeter: two-minute patrol gap at midnight changeover, consistent, deliberately scheduled.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'Tonight the patrol adjusts — an extra post at the corner closes the gap. Someone changed the schedule after the last inspection, which means the schedule is being monitored. The duty posting board in the main hall shows the last three weeks of assignments; the adjustment date will be visible there.' }
+  },
+
+  // SUPPORT ×2 — Roaz merchant network strain
+  {
+    id: 'ithtan_arch_support_1',
+    label: 'The Roaz merchants are not talking to each other the way they used to.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Network', 'Pressure'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The Roaz merchant cluster at the crossing usually works as a network — shared information, mutual pricing, coordinated supply timing. Now they arrive separately, keep separate ledgers visible, and avoid the corner table they always shared. The fragmentation is deliberate and visible to anyone who has watched them before. Something applied pressure to the network and the merchants are performing independence they do not feel.');
+      addJournal('Roaz merchant network fractured — deliberate performance of independence under observed pressure.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The merchants clock your approach and shift into practiced public behavior — formal, pleasant, reveals nothing. The network performs well under observation. The wayfarer hostel across the crossing is where the merchants stay; the evening common room is less formal.' }
+  },
+
+  {
+    id: 'ithtan_arch_support_2',
+    label: 'A factor who used to smooth disputes now refuses to take sides. That is new.',
+    skill: 'charm',
+    archetypeGroup: 'support',
+    tags: ['Social', 'Pressure', 'Change'],
+    fn: function() {
+      G.investigationProgress = (G.investigationProgress||0) + 1;
+      addNarration('', 'The transit factor who handled merchant-garrison disputes for three years has stepped back from all active cases. He is still present, still visible at his usual table, but he declines every request for arbitration with the same phrase: "That is not mine to manage now." The phrase is rehearsed. Someone told him to step back, and he complied. The void his withdrawal created is not filled — disputes sit unresolved and the merchants absorb the cost.');
+      addJournal('Transit factor withdrew from arbitration — rehearsed refusal, deliberate withdrawal under instruction.', 'intelligence');
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: { text: 'The factor sees you coming and pre-empts with a polite but definitive deflection — "not mine to manage now" — before you finish the question. He has given this answer enough times that it costs him nothing. The merchant association secretary handles formal dispute records and may have logged the pattern.' }
+  }
+
+);
+
 window.ITHTANANALOR_STAGE1_ENRICHED_CHOICES = ITHTANANALOR_STAGE1_ENRICHED_CHOICES;
