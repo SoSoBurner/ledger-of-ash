@@ -2130,6 +2130,15 @@ input, button, select, textarea { font-family: inherit; }
     <div class="overlay-body" id="npc-overlay-body"></div>
   </div>
 </div>
+<div class="overlay" id="overlay-places">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="overlay-title">Places</span>
+      <button class="overlay-close" data-close="overlay-places">&#x00D7;</button>
+    </div>
+    <div class="overlay-body" id="places-overlay-body"></div>
+  </div>
+</div>
 <div class="overlay" id="overlay-hall">
   <div class="overlay-box overlay-wide">
     <div class="overlay-header"><span class="overlay-title">Hall of Legends</span><button class="overlay-close" data-close="overlay-hall">&#x00D7;</button></div>
@@ -9483,6 +9492,8 @@ let G = {
   journeyFatigue: 0,
   recentOutcomeType: null,
   recentChoiceIds: [],   // last 3 enriched choice ids engaged; used for recency bonus in prioritizeChoices
+  shopSeen: {},          // keyed by item.id — tracks purchased items for sold-out state
+  tavernRumorsSeen: {},  // keyed by rumor.id — tracks shown rumors to avoid repeat same visit
   narrationUpdateCounter: 0,
   _narrationFading: false,
   district: null,
