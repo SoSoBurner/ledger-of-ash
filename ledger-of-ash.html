@@ -11509,10 +11509,13 @@ function loadStageChoices(locId) {
       const j = Math.floor(Math.random() * (i + 1));
       const tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
     }
-    // Guarantee at least 1 plot:main choice per render (blue border = stage progress signal)
+    // Pass a wide candidate set to prioritizeChoices — scoring + cap happens downstream.
+    // Up to 3 plot:main choices + up to 9 others gives prioritizeChoices full range to score.
     const _plotMain = pool.filter(function(c){ return c && c.plot === 'main'; });
     const _nonPlot  = pool.filter(function(c){ return c && c.plot !== 'main'; });
-    const picked = (_plotMain.length ? [_plotMain[0]] : []).concat(_nonPlot).slice(0, 4);
+    const _mainCandidates = _plotMain.slice(0, 3);
+    const _otherCandidates = _nonPlot.slice(0, 9);
+    const picked = _mainCandidates.concat(_otherCandidates);
     picked.forEach(function(c) { seen[c.label || c.id || c.text] = true; });
     const adapted = picked.map(adaptEnrichedChoice);
     if ((G.timeIndex || 0) >= 2) {
