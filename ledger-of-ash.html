@@ -12815,6 +12815,10 @@ function applyEffect(fx) {
       G.suspects[_sNpc] = Math.min(10, (G.suspects[_sNpc] || 0) + (fx.n || 1));
       break;
     }
+    case 'rival':
+      G.worldClocks = G.worldClocks || {};
+      G.worldClocks.rival = Math.min(10, (G.worldClocks.rival || 0) + (fx.amount || fx.n || 1));
+      break;
   }
 }
 
