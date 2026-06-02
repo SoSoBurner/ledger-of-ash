@@ -90,6 +90,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Craft', 'Equipment', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
+    condition: function() { return (G.investigationProgress||0) < 3; },
     failResult: 'This path is closed here, but Halden posts his workshop schedule on the side door — the late-shift cleaning window runs without oversight and he works long past the bell when a repair is behind. The door stays propped open during those hours to clear the solvent fumes. The parts shelf he mentioned is against the back wall, visible from the doorway without entering. A count of what is stocked against what the repair log shows pending would be readable from there.',
     fn: function() {
       advanceTime(1);
@@ -117,12 +118,13 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     }
   },
 
-  // 4. REPAIR WORKER: WORKPLACE ACCIDENTS
+  // 4. REPAIR WORKER: WORKPLACE ACCIDENTS [PROGRESS-GATED: reveals physical harm documentation pattern at mid-progress]
   {
     label: "Three accidents this month. Nobody is filing complaints. That's the point.",
     tags: ['Investigation', 'NPC', 'Safety', 'Labor', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
+    condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     failResult: 'This path is closed here, but the repair crew takes its water break at the stone trough behind the grinding shed — away from the yard supervisors, away from the quota board, twelve minutes no one documents. The trough is set into the back wall of the shed, below the sound of the equipment; anything said there stays there. Eldis fills his cup slowly when he has something to say and quickly when he does not. Arriving before the bell gives a read of which it will be.',
     fn: function() {
       advanceTime(1);
