@@ -1688,8 +1688,13 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       }
 
       // 60-second stall guard — no successful pick in 60s = stuck loop → failed run
+      // Exception: stall after Stage II climax is expected (no more choices) — count as success
       if (Date.now() - lastPickTime > 60000) {
         g = await readG(page);
+        if (g.flags && (g.flags.stage2_climax_complete || g.flags.maren_oss_resolved)) {
+          log(`[run:${tag}] SUCCESS (post-climax-stall) pick=${picks} — climax complete, stall expected`);
+          return { success: true, reason: 'climax-complete', picks, g };
+        }
         await screenshot(page, `${tag}_stall_p${picks}`);
         log(`[run:${tag}] STALL pick=${picks} — no progress in 60s, counting as failed run`);
         return { success: false, reason: 'stall-timeout', picks, g };
