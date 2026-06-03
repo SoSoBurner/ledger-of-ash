@@ -16,7 +16,7 @@
  *   recovered at runtime. No user input needed for up to 8 hours.
  */
 
-const { test } = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 const fs   = require('fs');
 const path = require('path');
 
@@ -732,6 +732,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
   const isHeaded = mode === 'headed';
   ceiling = ceiling || 'Stage II';
   tracker = tracker || new CoverageTracker();
+  _runStartMs = Date.now(); // reset per-attempt so 55-min soft threshold is per-run, not per-suite
   log(`\n[run:${tag}] starting archetype=${archetypeId} bg=${backgroundId} family=${family} mode=${mode}`);
 
   let pageIsClosed = false;
@@ -928,8 +929,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       const choiceCount = await waitForChoices(page, PACE.waitChoices);
 
       // Cap enforcement: log violations (> 8 choices in panel); hard assert runs outside loop to avoid stalling
+      // Exclude synthetic engine buttons (.combat-lv3 = G1 escalation, .combat-flip-btn = tension combat flip)
       if (choiceCount > 0 && !g.dead) {
-        const visibleNonDisabled = await page.locator('#action-content .choice-btn:not([disabled])').count().catch(() => 0);
+        const visibleNonDisabled = await page.locator('#action-content .choice-btn:not([disabled]):not(.combat-lv3):not(.combat-flip-btn)').count().catch(() => 0);
         if (visibleNonDisabled > 8) {
           log('[CAP_VIOLATION ' + tag + '] pick=' + picks + ' loc=' + (g.location || '?') + ' count=' + visibleNonDisabled);
           capViolations.push({ pick: picks, loc: g.location || '?', count: visibleNonDisabled });
@@ -1184,7 +1186,6 @@ test.describe('Headless QA — 4 families', () => {
     log(`[suite:headless] Stage ceiling detected: ${ceilingLabel(ceiling)}`);
     reporter.setCeiling(ceiling);
 
-    _runStartMs = Date.now();
     for (const family of HEADLESS_FAMILY_ORDER) {
       if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
         log(`[suite:headless] 1hr cap reached — stopping before family:${family}`);
@@ -1196,7 +1197,8 @@ test.describe('Headless QA — 4 families', () => {
       log('='.repeat(60));
 
       const remaining = HEADLESS_CAP - (Date.now() - suiteStart);
-      const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, remaining, ceiling, tracker);
+      const familyCap = Math.min(remaining, Math.floor(HEADLESS_CAP / 4));
+      const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, familyCap, ceiling, tracker);
       familyResults[family] = r;
       reporter.addFamily({ family, ...r });
       if (r.success) {
@@ -1218,7 +1220,8 @@ test.describe('Headless QA — 4 families', () => {
         log(`[family:${retryTag}] re-running (headless retry)`);
         log('='.repeat(60));
         const remaining = HEADLESS_CAP - (Date.now() - suiteStart);
-        const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, remaining, ceiling, tracker);
+        const retryCap = Math.min(remaining, Math.floor(HEADLESS_CAP / 4));
+        const r = await runFamily(browser, family, HEADLESS_FAMILY_POOLS, jsErrors, 'headless', null, retryCap, ceiling, tracker);
         familyResults[retryTag] = r;
         reporter.addFamily({ family: retryTag, ...r });
         if (r.success) {

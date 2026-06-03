@@ -73,6 +73,8 @@ window.ENEMY_STATS = {
   principality_militia:       { name:'Principality Militia',       hp:14, atk:4, def:3, desc:'Local volunteer security. Loyal to settlement, wary of outsiders.', loot:[], group:'principality_highland' },
   fashion_circuit_rival:      { name:'Fashion Circuit Rival',      hp:13, atk:4, def:3, desc:'Competitive collective member. Escalation is rarely planned.', loot:[], group:'principality_highland' },
   highland_route_patrol:      { name:'Highland Route Patrol',      hp:16, atk:4, def:4, desc:'Shelk network security between settlements. Regular patrols.', loot:[], group:'principality_highland' },
+  warrant_patrol:             { name:'Warrant Patrol',             hp:20, atk:5, def:5, desc:'Shelk enforcement officers acting on a named warrant. They have your description and legal authority to detain.', loot:[], group:'principality_highland' },
+  patrol_guard:               { name:'Patrol Guard',               hp:16, atk:4, def:4, desc:'Authority patrol. Present at checkpoints and disputed corridors. Trained to detain before escalating.', loot:[], group:'principality_highland' },
 
   // ── COASTAL MARITIME ─────────────────────────────────────
   cosmouth_dock_guard:        { name:'Cosmouth Dock Guard',        hp:16, atk:5, def:4, desc:'House Cosmouth harbor security. Experienced with boarding actions.', loot:[], group:'coastal_maritime' },
