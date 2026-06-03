@@ -13394,7 +13394,12 @@ function checkStageAdvance() {
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
     }
     // Intentional: Stage 2 uses checkTrigger, not shouldTrigger. This is not a bug.
-    if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) { window.STAGE2_BOSS_MODULE.checkTrigger(); return; }
+    // Only return if checkTrigger actually fired the miniboss (started=true). If seedReady=false
+    // (sp2<12 and seed not seen), checkTrigger does nothing — do not return, let sp2 advance to 12.
+    if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) {
+      window.STAGE2_BOSS_MODULE.checkTrigger();
+      if (G.flags.stage2_miniboss_started) return;
+    }
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
     // Stage 2 faction arcs — only run while no arc has completed (faction_contact_made gates antechamber)
     if (!G.flags.stage2_faction_contact_made) {
