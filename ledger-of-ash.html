@@ -1961,11 +1961,9 @@ input, button, select, textarea { font-family: inherit; }
           <span id="hud-plotcredits" style="display:none;font-size:11px;color:var(--gold-dim)"></span>
         </div>
         <div id="hud-consumable-count" class="stat-val" style="display:none;color:var(--jade-bright);font-size:10px;margin-top:2px;text-align:center"></div>
-        <div id="hud-watchfulness" data-clock="watchfulness" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center"></div>
         <div id="hud-day" data-clock="day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-rival" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-heat" data-clock="heat" style="display:none;font-size:11px;color:var(--danger);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
-        <div id="hud-watch" style="display:none;font-size:11px;color:var(--blood-bright);margin-top:2px;text-align:center;font-family:var(--font-body)">WATCH: <span id="hud-watch-val">0</span></div>
         <div id="hud-progress" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:3px;text-align:center;font-family:var(--font-body);letter-spacing:0.04em"></div>
         <div id="hud-companions" style="display:none;margin-top:8px;padding-top:8px;border-top:1px solid var(--char)"></div>
       </div>
@@ -1992,7 +1990,7 @@ input, button, select, textarea { font-family: inherit; }
       <div class="pressure-bars" id="hud-pressure-bars">
         <div class="pressure-bar-row" id="hud-watch-row" style="display:none">
           <div class="pressure-bar-label">
-            <span>WATCHFULNESS</span><span class="pbar-val">0</span>
+            <span>WATCHFULNESS</span><span class="pbar-val" id="hud-watch-pbar-val">0</span>
           </div>
           <div class="pressure-bar-track">
             <div class="pressure-bar-fill watchfulness-fill" id="hud-watch-fill" style="width:0%"></div>
@@ -4362,8 +4360,9 @@ function renderCombatRound() {
   if (!CS) return;
   const archId = G.archetype ? G.archetype.id : 'warrior';
   const abilities = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
+  const _CAB_KEY_NORM = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
   const usableAbilities = abilities.filter(a => {
-    const sk = G.skills[a.skillReq] || 0;
+    const sk = G.skills[_CAB_KEY_NORM[a.skillReq] || a.skillReq] || 0;
     return sk >= a.minSkill;
   });
 
@@ -15781,7 +15780,7 @@ function activateAbilityFromSheet(abilityId) {
   if (!G.spentAbilities) G.spentAbilities = {};
   if (G.spentAbilities[abilityId]) return;
   G.spentAbilities[abilityId] = true;
-  addNarration('', '<em style="color:var(--accent-gold)">Ability activated.</em>', 'success');
+  activateAbility(abilityId);
   showCharSheet();
 }
 
@@ -17065,9 +17064,6 @@ function updateHUD() {
   setText('hud-renown',  (G.renown||0) + ' — ' + getRenownedTitle());
   setText('hud-hp',      G.hp+' / '+G.maxHp);
   setText('hud-gold',    G.gold);
-  // Watchfulness — suppress old plain-text div
-  var _wEl = document.getElementById('hud-watchfulness');
-  if (_wEl) { _wEl.style.display = 'none'; }
   // Day count
   var _dayEl = document.getElementById('hud-day');
   if (_dayEl) { var _day = G.dayCount || 0; _dayEl.textContent = 'Day ' + _day; _dayEl.style.display = ''; }
@@ -17089,20 +17085,12 @@ function updateHUD() {
   var _heatRow = document.getElementById('hud-heat-row');
   var _pBars = document.getElementById('hud-pressure-bars');
   if (_watchRow) { _watchRow.style.display = ''; _watchRow.style.opacity = _watch === 0 ? '0.35' : '1'; }
-  if (document.getElementById('hud-watch-val')) document.getElementById('hud-watch-val').textContent = _watch;
+  if (document.getElementById('hud-watch-pbar-val')) document.getElementById('hud-watch-pbar-val').textContent = _watch;
   if (document.getElementById('hud-watch-fill')) document.getElementById('hud-watch-fill').style.width = Math.min(100, _watch*10) + '%';
   if (_heatRow) { _heatRow.style.display = _maxHeat > 0 ? '' : 'none'; _heatRow.style.opacity = '1'; }
   if (document.getElementById('hud-heat-val')) document.getElementById('hud-heat-val').textContent = _maxHeat;
   if (document.getElementById('hud-heat-fill')) document.getElementById('hud-heat-fill').style.width = Math.min(100, _maxHeat*10) + '%';
   if (_pBars) _pBars.classList.add('has-values');
-  // Watchfulness simple row
-  var _watchVal = (G && G.worldClocks && G.worldClocks.watchfulness) || 0;
-  var _watchEl = document.getElementById('hud-watch');
-  if (_watchEl) {
-    _watchEl.style.display = _watchVal > 0 ? '' : 'none';
-    var _wv = document.getElementById('hud-watch-val');
-    if (_wv) _wv.textContent = _watchVal;
-  }
   // Consumable count
   var _consumCount = (G.inventory || []).filter(function(i){ return i.type === 'consumable'; }).length;
   var _consumEl = document.getElementById('hud-consumable-count');
