@@ -239,7 +239,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
 
       G.lastResult = `Shelkopolis.${finalText} Stage 2 begins here.`;
       G.location = 'shelkopolis';
-      G.stage = 2;
+      G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
       addJournal('Arrived in Shelkopolis from Sunspire Haven — Stage 2 begins', 'evidence', `sunspire-arc-finale-${G.dayCount}`);

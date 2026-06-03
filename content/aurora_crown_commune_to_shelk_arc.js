@@ -239,7 +239,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
 
       G.lastResult = `Shelkopolis — the dome terminals visible on the western skyline, the same chassis as Aurora Crown, the same input manifolds, the maintenance schedule running four months overdue.${finalText} Stage 2 begins here.`;
       G.location = 'shelkopolis';
-      G.stage = 2;
+      G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
       addJournal('Arrived in Shelkopolis from Aurora Crown — Stage 2 begins', 'evidence', `aurora-arc-finale-${G.dayCount}`);

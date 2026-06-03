@@ -371,7 +371,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
       G.lastResult = `Shelkopolis. The dome infrastructure catches the morning light on the western skyline.${finalText} Soreheim is behind you. Everything it pointed at is ahead. Stage 2 begins here.`;
       G.location = 'shelkopolis';
-      G.stage = 2;
+      G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
       addJournal('Arrived in Shelkopolis from Soreheim Proper — Stage 2 begins', 'evidence', `soreheim-arc-finale-${G.dayCount}`);

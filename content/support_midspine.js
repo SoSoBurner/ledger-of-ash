@@ -1,7 +1,7 @@
 /**
  * SUPPORT ARCHETYPE MIDSPINE
  * 3-node consequence chain — factional loyalty test
- * Condition: G.archetype.group === 'support' AND G.stage === 1 AND G.stageProgress[1] >= 5
+ * Condition: G.archetype.group === 'support' AND G.stage === 'Stage I' AND G.stageProgress[1] >= 5
  * Global var: SUPPORT_MIDSPINE_CHOICES
  */
 
@@ -14,7 +14,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     xpReward: 85,
     condition: function() {
       return G.archetype && G.archetype.group === 'support'
-        && G.stage === 1
+        && G.stage === 'Stage I'
         && G.stageProgress && (G.stageProgress[1] || 0) >= 5
         && !(G.flags && G.flags.support_midspine_node1_complete);
     },
@@ -53,7 +53,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     xpReward: 90,
     condition: function() {
       return G.archetype && G.archetype.group === 'support'
-        && G.stage === 1
+        && G.stage === 'Stage I'
         && G.stageProgress && (G.stageProgress[1] || 0) >= 5
         && G.flags && G.flags.support_midspine_node1_complete
         && !(G.flags && G.flags.support_midspine_node2_complete);
@@ -93,7 +93,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
     xpReward: 95,
     condition: function() {
       return G.archetype && G.archetype.group === 'support'
-        && G.stage === 1
+        && G.stage === 'Stage I'
         && G.stageProgress && (G.stageProgress[1] || 0) >= 5
         && G.flags && G.flags.support_midspine_node2_complete
         && !(G.flags && G.flags.support_midspine_node3_complete);

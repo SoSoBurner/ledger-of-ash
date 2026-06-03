@@ -236,7 +236,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
 
       G.lastResult = `Shelkopolis — the guild district visible from the main gate, the central registry building spanning a full block, forty years of charter records inside it and twelve unrecorded amendments in a locked box beneath a retired registrar's workbench.${finalText} Stage 2 begins here.`;
       G.location = 'shelkopolis';
-      G.stage = 2;
+      G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
       addJournal('Arrived in Shelkopolis from Guildheart Hub — Stage 2 begins', 'evidence', `guildheart-arc-finale-${G.dayCount}`);

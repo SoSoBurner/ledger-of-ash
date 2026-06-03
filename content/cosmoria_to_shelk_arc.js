@@ -242,7 +242,7 @@ const COSMORIA_TO_SHELK_ARC = [
 
       G.lastResult = `Shelkopolis — the harbor road leads into the port district, and the secondary freight terminal sits two hundred metres from the main gate, unmarked, unguarded, with a loading door that opens onto an underground channel four kilometres long.${finalText} Stage 2 begins here.`;
       G.location = 'shelkopolis';
-      G.stage = 2;
+      G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
       addJournal('Arrived in Shelkopolis from Cosmoria — Stage 2 begins', 'discovery');

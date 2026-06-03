@@ -1,7 +1,7 @@
 /**
  * STEALTH ARCHETYPE MIDSPINE
  * 3-node consequence chain — information network entanglement
- * Condition: G.archetype.group === 'stealth' AND G.stage === 1 AND G.stageProgress[1] >= 5
+ * Condition: G.archetype.group === 'stealth' AND G.stage === 'Stage I' AND G.stageProgress[1] >= 5
  * Global var: STEALTH_MIDSPINE_CHOICES
  */
 
@@ -14,7 +14,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     xpReward: 85,
     condition: function() {
       return G.archetype && G.archetype.group === 'stealth'
-        && G.stage === 1
+        && G.stage === 'Stage I'
         && G.stageProgress && (G.stageProgress[1] || 0) >= 5
         && !(G.flags && G.flags.stealth_midspine_node1_complete);
     },
@@ -52,7 +52,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     xpReward: 90,
     condition: function() {
       return G.archetype && G.archetype.group === 'stealth'
-        && G.stage === 1
+        && G.stage === 'Stage I'
         && G.stageProgress && (G.stageProgress[1] || 0) >= 5
         && G.flags && G.flags.stealth_midspine_node1_complete
         && !(G.flags && G.flags.stealth_midspine_node2_complete);
@@ -92,7 +92,7 @@ const STEALTH_MIDSPINE_CHOICES = [
     xpReward: 95,
     condition: function() {
       return G.archetype && G.archetype.group === 'stealth'
-        && G.stage === 1
+        && G.stage === 'Stage I'
         && G.stageProgress && (G.stageProgress[1] || 0) >= 5
         && G.flags && G.flags.stealth_midspine_node2_complete
         && !(G.flags && G.flags.stealth_midspine_node3_complete);
