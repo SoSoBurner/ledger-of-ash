@@ -4291,6 +4291,7 @@
       window._travelNextEncounter = function() { TRAVEL_CORRIDOR.advanceDayLeg(); };
       if (G) G.location = toId;
       if (typeof updateHUD === 'function') updateHUD();
+      if (typeof closeOverlay === 'function') closeOverlay('overlay-map');
       TRAVEL_CORRIDOR.advanceDayLeg();
     },
     advanceDayLeg: function() {

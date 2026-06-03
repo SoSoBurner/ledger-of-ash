@@ -1190,10 +1190,10 @@ async function probeShop(page, tag, g) {
         const gAfterBuy = await readG(page);
         log(`[panel:shop ${tag}] buy-attempt: "${itemLabel.slice(0,40)}" gold-before=${goldBefore} gold-after=${gAfterBuy.gold}`);
         bought = true;
-        // Close shop before opening inventory via char sheet
+        // Close shop before opening char sheet for equip + sell
         await closeOverlay(page);
         await page.waitForTimeout(PACE.short);
-        // Sell flow: char sheet → inventory tab → sell button
+        // Equip + sell flow: char sheet → inventory tab → equip, then sell
         try {
           const csBtn = page.locator('#btn-charsheet').first();
           if (await csBtn.isVisible({ timeout: 600 }).catch(() => false)) {
@@ -1203,6 +1203,28 @@ async function probeShop(page, tag, g) {
             if (await invTab.isVisible({ timeout: 600 }).catch(() => false)) {
               await invTab.click();
               await page.waitForTimeout(PACE.short);
+              await screenshot(page, `${tag}_shop_inventory`);
+              // Equip first equippable item (weapon/armor)
+              const equipBtn = page.locator('[data-pane="inventory"] button:has-text("Equip"),.sheet-tab-pane button:has-text("Equip")').first();
+              if (await equipBtn.isVisible({ timeout: 800 }).catch(() => false)) {
+                await equipBtn.click();
+                await page.waitForTimeout(PACE.short);
+                await screenshot(page, `${tag}_shop_equip`);
+                log(`[panel:shop ${tag}] equip: clicked Equip button`);
+                // Switch to equipment tab to verify equipped state
+                const eqTab = page.locator('.sheet-tab[data-tab="equipment"]');
+                if (await eqTab.isVisible({ timeout: 600 }).catch(() => false)) {
+                  await eqTab.click();
+                  await page.waitForTimeout(PACE.short);
+                  await screenshot(page, `${tag}_shop_equipped_tab`);
+                  const eqTxt = await page.locator('[data-pane="equipment"]').innerText().catch(() => '');
+                  log(`[panel:shop ${tag}] equipment-tab: "${eqTxt.slice(0,120).replace(/\n/g,' ')}"`);
+                }
+                // Switch back to inventory to sell the equipped item's slot (unequip then sell is fine; just sell any unequipped item)
+                await invTab.click().catch(() => {});
+                await page.waitForTimeout(PACE.short);
+              }
+              // Sell flow: find sell button in inventory
               const sellBtn = page.locator('.sell-btn[data-idx],button:has-text("Sell")').first();
               if (await sellBtn.isVisible({ timeout: 800 }).catch(() => false)) {
                 const goldBeforeSell = (await readG(page)).gold;
@@ -1212,14 +1234,14 @@ async function probeShop(page, tag, g) {
                 const goldAfterSell = (await readG(page)).gold;
                 log(`[panel:shop ${tag}] sell gold-before=${goldBeforeSell} gold-after=${goldAfterSell} delta=${goldAfterSell - goldBeforeSell}`);
               } else {
-                const _invCountAfterBuy = await page.locator('.inv-item,[data-pane="inventory"] .item-row,.item-card').count().catch(() => 0);
-                log(`[panel:shop ${tag}] sell: no sell button (items in inventory=${_invCountAfterBuy})`);
+                const _invCount = await page.locator('.inv-item,[data-pane="inventory"] .item-row,.item-card').count().catch(() => 0);
+                log(`[panel:shop ${tag}] sell: no sell button (inv-items=${_invCount})`);
               }
             }
             await closeSpecificOverlay(page, 'overlay-charsheet');
           }
-        } catch (sellErr) {
-          log(`[panel:shop ${tag}] WARN: sell flow error: ${sellErr.message}`);
+        } catch (shopFlowErr) {
+          log(`[panel:shop ${tag}] WARN: equip/sell flow error: ${shopFlowErr.message}`);
         }
         break;
       }

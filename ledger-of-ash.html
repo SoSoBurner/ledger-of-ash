@@ -1622,6 +1622,9 @@ input, button, select, textarea { font-family: inherit; }
 .shop-item-name { font-family: var(--font-display); font-size: 13.2px; color: var(--gold-bright); font-weight: 700; margin-bottom: 3px; letter-spacing: 1px; }
 .shop-item-desc { font-size: 13px; color: var(--ink-faint); font-family: var(--font-body); line-height: 1.4; font-style: normal; }
 .shop-item-cost { font-family: var(--font-display); font-size: 12.1px; color: var(--gold); font-weight: 700; white-space: nowrap; }
+.shop-tab-row { display:flex; flex-wrap:wrap; gap:4px; margin-bottom:12px; }
+.shop-tab-btn { background:var(--coal); border:1px solid var(--border); padding:4px 10px; cursor:pointer; font-family:var(--font-display); font-size:9px; letter-spacing:1px; text-transform:uppercase; border-radius:2px; color:var(--ink-dim); transition:all .15s; }
+.shop-tab-btn.active, .shop-tab-btn:hover { border-color:var(--ember-lo); color:var(--ember-hi); }
 .shop-buy-btn { background: var(--ember-lo); border: 1px solid var(--ember); color: var(--ember-hi); padding: 5px 10px; cursor: pointer; font-family: var(--font-display); font-size: 8.8px; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; transition: all .15s; }
 .shop-buy-btn:hover { background: var(--ember); color: var(--white); box-shadow: 0 2px 10px var(--ember-glow); }
 .sell-item-btn { background: #7a3a1e; color: #e8d5b0; border: 1px solid #c17f3a; border-radius: 3px; padding: 2px 8px; cursor: pointer; font-size: 0.85em; flex-shrink: 0; margin-left: 4px; }
@@ -16533,6 +16536,13 @@ var MATERIAL_SELL_PRICES = {
   beast_hide: 5
 };
 
+function shopShowTab(tab) {
+  document.querySelectorAll('#shop-tab-row .shop-tab-btn').forEach(function(b) { b.classList.toggle('active', b.dataset.tab === tab); });
+  document.querySelectorAll('.shop-item[data-shoptype]').forEach(function(el) {
+    el.style.display = (tab === 'all' || el.dataset.shoptype === tab) ? '' : 'none';
+  });
+}
+
 function showShop() {
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_shop');
   const locId = G.location;
@@ -16566,13 +16576,25 @@ function showShop() {
     html += '<div style="margin-bottom:10px"><button class="btn btn-ghost btn-xs" id="btn-sore-credit">Call in your standing</button></div>';
   }
 
+  // Tab row — show only when 2+ item types exist
+  const _typeSet = [...new Set(items.map(function(it){ return it.type || 'other'; }))];
+  const _tabLabels = {weapon:'Weapons', armor:'Armor', tool:'Tools', consumable:'Consumables', other:'Other'};
+  if (_typeSet.length > 1) {
+    html += '<div class="shop-tab-row" id="shop-tab-row">';
+    html += '<button class="shop-tab-btn active" data-tab="all" onclick="shopShowTab(\'all\')">All</button>';
+    _typeSet.forEach(function(t) {
+      html += '<button class="shop-tab-btn" data-tab="' + t + '" onclick="shopShowTab(\'' + t + '\')">' + (_tabLabels[t] || t) + '</button>';
+    });
+    html += '</div>';
+  }
+
   items.forEach((item, i) => {
     const boost = isSorehimShop ? (G.shopCreditBoost || 0) : 0;
     const effectiveCost = Math.max(1, item.cost - boost);
     const canAfford = isSorehimShop ? (G.sorePlotCredits || 0) >= effectiveCost : G.gold >= effectiveCost;
     const alreadyOwned = (G.inventory||[]).find(inv => inv.id === item.id);
     const costLabel = boost > 0 ? '<span style="text-decoration:line-through;color:var(--ink-faint)">' + item.cost + _currSymbol + '</span> <span style="color:var(--jade-bright)">' + effectiveCost + _currSymbol + '</span>' : item.cost + _currSymbol;
-    html += '<div class="shop-item">' +
+    html += '<div class="shop-item" data-shoptype="' + (item.type || 'other') + '">' +
       '<div class="shop-item-info">' +
         '<div class="shop-item-name">' + item.name + '</div>' +
         '<div class="shop-item-desc">' + item.desc + ' &middot; ' + item.site + '</div>' +
