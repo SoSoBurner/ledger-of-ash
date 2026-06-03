@@ -317,11 +317,9 @@ async function createCharacter(page, archetypeId, backgroundId) {
   const name = ARCHETYPE_NAMES[archetypeId] || 'Traveller';
   await page.fill('#char-name', name);
 
-  // Click archetype card organically by display name
-  const archetypeName = ARCHETYPE_NAMES[archetypeId] || archetypeId;
-  await page.waitForSelector('.card', { state: 'visible', timeout: 8000 });
-  const archCard = page.locator(`.card:has-text("${archetypeName}")`).first();
-  await archCard.click();
+  // Archetype cards live inside collapsed group accordions — use engine call to select
+  await page.waitForFunction(() => typeof selectArchetype === 'function', { timeout: 8000 });
+  await page.evaluate((id) => selectArchetype(id), archetypeId);
   await page.waitForSelector('#bg-step', { state: 'visible', timeout: 5000 });
 
   // Click the first available background card organically
