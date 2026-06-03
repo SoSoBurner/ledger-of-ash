@@ -2207,7 +2207,6 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               document.querySelectorAll('.combat-section, .combat-block, .choice-block, .move-block').forEach(function(el) { el.remove(); });
               const cur = G.location || '';
               const dest = escLocs.find(l => l !== cur) || 'shelkopolis';
-              G.location = dest;
               G.flags = G.flags || {};
               // Stage I boss interrupted → force-complete so Stage II unlocks
               if (G.stage === 'Stage I' && G.stageProgress && G.stageProgress[1] >= 10 &&
@@ -2229,11 +2228,17 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
                 G.flags.stage2_faction_contact_made = true;
               }
               if (typeof checkStageAdvance === 'function') checkStageAdvance();
-              // Skip loadStageChoices if antechamber/climax just took over rendering
-              var _antechamberRendered = !!(G.flags.stage2_antechamber_started && !G.flags.stage2_antechamber_done);
-              var _climaxRendered = !!(G.flags.stage2_climax_started && !G.flags.stage2_climax_complete);
-              if (!_antechamberRendered && !_climaxRendered) {
-                if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+              // Use _travelCoreTravelTo so escape fires real travel corridor with narrative
+              // rather than a jarring direct location jump. Falls back to direct assign if unavailable.
+              if (typeof _travelCoreTravelTo === 'function') {
+                _travelCoreTravelTo(dest);
+              } else {
+                G.location = dest;
+                var _antechamberRendered = !!(G.flags.stage2_antechamber_started && !G.flags.stage2_antechamber_done);
+                var _climaxRendered = !!(G.flags.stage2_climax_started && !G.flags.stage2_climax_complete);
+                if (!_antechamberRendered && !_climaxRendered) {
+                  if (typeof loadStageChoices === 'function') loadStageChoices(dest);
+                }
               }
             }
           }, ESCAPE_LOCS);
