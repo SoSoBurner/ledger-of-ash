@@ -2154,7 +2154,7 @@ input, button, select, textarea { font-family: inherit; }
       <p id="death-location-text" style="font-size:13px;color:var(--ink-faint);margin:0;"></p>
       <button class="btn btn-danger" id="btn-confirm-end">Record My End</button>
       <div id="death-load-save-wrap"></div>
-      <button class="btn btn-ghost btn-sm" data-close="overlay-death">Not yet.</button>
+      <button class="btn btn-ghost btn-sm" onclick="doSurvive()">Not yet.</button>
     </div>
   </div>
 </div>
@@ -17487,6 +17487,32 @@ function confirmDeath() {
     }
   }
 }
+function doSurvive() {
+  var _archGroup = G.archetype && G.archetype.group;
+  var _archId    = G.archetype && G.archetype.id;
+  var _locId     = G.location || '';
+  var _locName   = (typeof WORLD_LOCATIONS !== 'undefined' && WORLD_LOCATIONS && WORLD_LOCATIONS[_locId]) ? WORLD_LOCATIONS[_locId].name : (_locId || 'the road');
+  var _hasWound  = G.wounds && G.wounds.filter(function(w){ return !w.healed; }).length > 0;
+
+  var _survivalText;
+  if (_archGroup === 'combat' || _archId === 'warden' || _archId === 'death_knight' || _archId === 'warlord') {
+    _survivalText = 'The killing blow did not land clean. You come back to yourself in stages: sound first, then pain, then the cold of ' + _locName + ' beneath you. Your body knows how to survive — it has done this before, in other places, under other names for bad luck. You push yourself upright. One hand, then both. The wound is real and it will cost you, but it is not the worst you have carried. You are still here. That is enough to work with.';
+  } else if (_archGroup === 'magic') {
+    _survivalText = 'Something in the working held. Not intention — reflex, older than the spell that almost ended you. You wake on the ground in ' + _locName + ', the air flat with residual discharge. Your reserves are empty and the pain is immediate and specific. But the thread is still there. Whatever caught you held just long enough, and now it has let go, and you are breathing again. The knowledge is still in you. That is what matters.';
+  } else if (_archGroup === 'stealth') {
+    _survivalText = 'You rolled with it. That is all — no technique, no preparation, just the instinct of someone who has spent years reading the moment before things go wrong. You come back to yourself on the ground in ' + _locName + ', listening before you move. The wound is real and you are not moving quickly for a while. But you know how to wait, and you know how to read a situation, and when you finally sit up you already have the beginning of a plan.';
+  } else {
+    _survivalText = 'The margin was thinner than you would like to admit. You have seen enough close ones to know what they look like, and this qualifies. ' + _locName + ' is quiet around you now — whatever happened has passed, at least for the moment. You take inventory: what you have left, where you are, what the situation requires. The body does strange things at the edge. Whatever kept you breathing is not entirely logical. But it worked. You are still here.';
+  }
+
+  G.dead = false;
+  G.hp   = 1;
+  G.lastResult       = _survivalText;
+  G.recentOutcomeType = 'neutral';
+  closeOverlay('overlay-death');
+  if (typeof loadStageChoices === 'function') loadStageChoices();
+}
+
 function endLegend() {
   const legends = (function(){ try { return JSON.parse(localStorage.getItem('loa_legends')||'[]'); } catch(e) { return []; } })();
   const topFaction = (G.factions||[]).sort((a,b)=>b.rep-a.rep)[0];
@@ -17973,7 +17999,11 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
 
 </script>
 <script>
-document.getElementById('btn-new-legend').addEventListener('click', () => { showScreen('screen-create'); initCreate(); });
+document.getElementById('btn-new-legend').addEventListener('click', () => {
+  document.getElementById('onboarding-modal').classList.remove('active');
+  showScreen('screen-create');
+  initCreate();
+});
 document.getElementById('btn-hall').addEventListener('click', showHallOfLegends);
 document.getElementById('char-name').addEventListener('input', updateCreateNarrative);
 

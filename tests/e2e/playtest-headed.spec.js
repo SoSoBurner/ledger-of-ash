@@ -993,8 +993,13 @@ async function probeMap(page, tag, g) {
     }
     if (travelBtn) {
       const destLocId = await travelBtn.evaluate(el => el.getAttribute('data-locid')).catch(() => '');
-      await travelBtn.click();
-      await page.waitForTimeout(1500); // allow travel to resolve
+      // Close overlay before travel — clicking map-travel-btn opens mode-select → pack-choices
+      // inside #overlay-map which blocks subsequent choice clicks. Use engine function directly.
+      await closeSpecificOverlay(page, 'overlay-map');
+      await page.evaluate((locId) => {
+        try { if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(locId); } catch (_) {}
+      }, destLocId).catch(() => {});
+      await page.waitForTimeout(1500);
       await waitForChoices(page, 3000);
       await screenshot(page, `${tag}_map_travel_arrival_${destLocId}`);
       await dismissOverlays(page).catch(() => {});
