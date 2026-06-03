@@ -4275,7 +4275,7 @@
       }
       var paceMod = { fatiguePerDay: 1 };
       G.fatigue = (G.fatigue || 0) + Math.ceil(totalDays * 0.3);
-      if (typeof advanceTime === 'function') advanceTime(totalDays);
+      G.dayCount = (G.dayCount || 0) + Math.ceil(totalDays);
       if (typeof updateHUD === 'function') updateHUD();
       G.flags._jrn_from      = fromId;
       G.flags._jrn_to        = toId;
