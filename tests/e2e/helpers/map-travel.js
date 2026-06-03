@@ -110,6 +110,24 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
       }, target).catch(() => {});
     }
 
+    // Stage II travel shows a mode-select overlay (foot/horse/cart) after clicking the travel button.
+    // Pick 'foot' (always free) before returning — without this the mode select is left open and
+    // dismissOverlays() closes it before pickChoice can interact, so G.location never changes.
+    await page.waitForTimeout(200);
+    const modeCount = await page.locator('.overlay-mode-btn:visible:not([disabled])').count().catch(() => 0);
+    if (modeCount > 0) {
+      const footBtn = page.locator('.overlay-mode-btn[data-mode="foot"]:visible:not([disabled])').first();
+      const anyBtn  = page.locator('.overlay-mode-btn:visible:not([disabled])').first();
+      try {
+        const useFoot = await footBtn.count().catch(() => 0) > 0;
+        await (useFoot ? footBtn : anyBtn).click({ timeout: 2000 });
+        log(`[map-travel] pick=${picks} — mode-select: clicked ${useFoot ? 'foot' : 'first'} travel mode`);
+      } catch (_) {
+        log(`[map-travel] pick=${picks} — mode-select: click failed, using travelTo fallback`);
+        await page.evaluate((locId) => { try { travelTo(locId); } catch (_) {} }, target).catch(() => {});
+      }
+    }
+
     resetInterval();
     // Wait for choices to appear at destination (up to 5s)
     await page.waitForSelector('.choice-btn:visible', { timeout: 5000 }).catch(() => {});
