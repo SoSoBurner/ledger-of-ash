@@ -13386,6 +13386,13 @@ function checkStageAdvance() {
       G.flags.quest_s2_climax_hint = true;
       addQuest('Torveld Mast authorized the suppression.', 'The Soreheim Transit Post. He stamps what he is told to stamp. The accounting ends there.', 'q_s2_climax');
     }
+    // Deadlock recovery: miniboss was started (expose path → combat) but player fled without winning.
+    // stage2_miniboss_started=true blocks re-trigger; force-complete once sp2 is far enough ahead.
+    if (G.flags && G.flags.stage2_miniboss_started && !G.flags.stage2_miniboss_complete && ((G.stageProgress && G.stageProgress[2]) || 0) >= 15) {
+      G.flags.stage2_miniboss_complete = true;
+      G.flags.stage2_miniboss_resolution = G.flags.stage2_miniboss_resolution || 'evaded';
+      G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
+    }
     // Intentional: Stage 2 uses checkTrigger, not shouldTrigger. This is not a bug.
     if (window.STAGE2_BOSS_MODULE && !G.flags.stage2_miniboss_complete && !G.flags.stage2_miniboss_started && (G.stageProgress && G.stageProgress[2] || 0) >= 8) { window.STAGE2_BOSS_MODULE.checkTrigger(); return; }
     if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }

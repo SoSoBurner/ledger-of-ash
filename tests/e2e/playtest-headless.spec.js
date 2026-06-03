@@ -277,9 +277,12 @@ async function closeOverlay(page) {
 }
 
 async function dismissOverlays(page) {
-  // DOM-level cleanup first: remove any id="...-modal" overlay divs
+  // DOM-level cleanup first: remove any id="...-modal" overlay divs and .modal-overlay (Stage III blocked modal)
   await page.evaluate(() => {
     document.querySelectorAll('[id$="-modal"]').forEach(function(el) {
+      if (el && el.parentNode) el.parentNode.removeChild(el);
+    });
+    document.querySelectorAll('.modal-overlay').forEach(function(el) {
       if (el && el.parentNode) el.parentNode.removeChild(el);
     });
     document.querySelectorAll('.overlay.active').forEach(function(el) {
@@ -289,7 +292,7 @@ async function dismissOverlays(page) {
 
   for (let i = 0; i < 5; i++) {
     try {
-      const ov = page.locator('.overlay.active, [id$="-modal"]:visible, .modal:visible').first();
+      const ov = page.locator('.overlay.active, [id$="-modal"]:visible, .modal:visible, .modal-overlay:visible').first();
       if (!await ov.isVisible({ timeout: 300 }).catch(() => false)) break;
       const btn = ov.locator('button.overlay-close,.overlay-close,button:has-text("×"),button:has-text("Close"),button:has-text("Cancel")').first();
       if (await btn.isVisible({ timeout: 300 }).catch(() => false)) await btn.click();
