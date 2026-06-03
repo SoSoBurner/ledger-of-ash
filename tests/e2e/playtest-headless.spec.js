@@ -929,9 +929,9 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       const choiceCount = await waitForChoices(page, PACE.waitChoices);
 
       // Cap enforcement: log violations (> 8 choices in panel); hard assert runs outside loop to avoid stalling
-      // Exclude synthetic engine buttons (.combat-lv3 = G1 escalation, .combat-flip-btn = tension combat flip)
+      // Exclude: .combat-btn (attack/defend/flee combat actions), .combat-lv3 (G1 escalation), .combat-flip-btn (tension flip)
       if (choiceCount > 0 && !g.dead) {
-        const visibleNonDisabled = await page.locator('#action-content .choice-btn:not([disabled]):not(.combat-lv3):not(.combat-flip-btn)').count().catch(() => 0);
+        const visibleNonDisabled = await page.locator('#action-content .choice-btn:not([disabled]):not(.combat-lv3):not(.combat-flip-btn):not(.combat-btn)').count().catch(() => 0);
         if (visibleNonDisabled > 8) {
           log('[CAP_VIOLATION ' + tag + '] pick=' + picks + ' loc=' + (g.location || '?') + ' count=' + visibleNonDisabled);
           capViolations.push({ pick: picks, loc: g.location || '?', count: visibleNonDisabled });
