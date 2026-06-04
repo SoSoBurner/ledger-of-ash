@@ -22,7 +22,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `Sections 7-12 run to twenty-three pages. You spend two hours with the critical diagrams and memorize the key concentration figures. The rest you copy in a technical shorthand you devised for your own fieldwork — notation that reads as illegible marginal notes to anyone who does not know the system. The physical pages go to three separate locations in Glasswake as insurance. What you carry south is a cipher that exists only in your head and on paper no one else can parse. The consortium has eyes on departures. Someone is already watching which direction you went.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('Left Glasswake carrying shard data in personal cipher — originals distributed as insurance', 'field_note', `glasswake-arc-departure-${G.dayCount}`);
+      addJournal('Left Glasswake carrying shard data in personal cipher — originals distributed as insurance', 'intelligence', `glasswake-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -40,7 +40,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       G.flags.fen_glasswake_distributed = true;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('Fen distributed study metadata — findings can be independently reconstructed by materials chemist', 'fact', `glasswake-arc-fen-${G.dayCount}`);
+      addJournal('Fen distributed study metadata — findings can be independently reconstructed by materials chemist', 'discovery', `glasswake-arc-fen-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -86,7 +86,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
 
       G.lastResult = `The glasswake shard formation near Aurora Crown amplifies ambient atmospheric compounds — all of them, indiscriminately, including any substitute additive that enters the dome filtration system. The consortium suppressed this data not because of licensing concerns. They suppressed it because the study proved that Aurora Crown's contamination would be dramatically more severe than the baseline compound alone would produce. The formation doubles the effective concentration. They knew this. They held the data that proved they knew. That is not negligence.`;
       G.flags.glasswake_arc_complicity_established = true;
-      addJournal('Consortium suppressed data proving amplification doubles contamination — known complicity, not negligence', 'fact', `glasswake-arc-complicity-${G.dayCount}`);
+      addJournal('Consortium suppressed data proving amplification doubles contamination — known complicity, not negligence', 'discovery', `glasswake-arc-complicity-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -106,7 +106,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
         G.lastResult = `Winn's message went to the Shelkopolis Institute of Applied Atmospheric Sciences — the one body with jurisdictional authority to demand the suppressed study from the Glasswake committee under research transparency protocols. An Institute request cannot be ignored the way a private complaint can. But the process moves slowly: initial inquiry, committee response, formal review. Months, at minimum. The operation will conclude before the Institute's first formal filing reaches the Glasswake registry.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Winn contacted Shelkopolis Institute — official channel exists but too slow for timeline', 'fact', `glasswake-arc-winn-${G.dayCount}`);
+        addJournal('Winn contacted Shelkopolis Institute — official channel exists but too slow for timeline', 'discovery', `glasswake-arc-winn-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The courier routing Winn used distributes messages through three relay points before reaching its destination — a privacy measure that makes it difficult to trace the endpoint without registry access you do not have here. You know it went south. You know Winn chose someone with authority to act on it. Shelkopolis is where you will find out who received it.`;
@@ -129,7 +129,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
 
       G.lastResult = `The glasswake formation is passive and permanent at this scale. It amplifies whatever compound is present in the surrounding atmosphere without discrimination or limit. Once the substitute additive concentration in Aurora Crown crosses the activation threshold, the shard formation locks it there — amplified, dispersed, sustained indefinitely. Toman's note on this is direct: there is no remediation. The only intervention that matters is preventing the source material from reaching Shelkopolis's dome input manifolds. Before it enters the system, the formation is irrelevant. After it does, the formation becomes the primary threat.`;
       G.flags.glasswake_arc_urgency_established = true;
-      addJournal('Shard amplification is permanent — only prevention matters, not remediation', 'fact', `glasswake-arc-urgency-${G.dayCount}`);
+      addJournal('Shard amplification is permanent — only prevention matters, not remediation', 'discovery', `glasswake-arc-urgency-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -150,7 +150,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
 
       G.lastResult = `The Institute building takes up a full block in Aurora Heights — stone facade, rooftop instruments visible from two streets away. Passive atmospheric sensors, updated quarterly. They are calibrated to detect compound concentrations well above the activation threshold — they will not register the substitution until it has already caused harm. The shard data you carry tells the Institute what its own instruments cannot. That gap is what makes you useful to them.`;
       G.flags.glasswake_arc_institute_located = true;
-      addJournal('Shelkopolis Institute located — carrying shard data that gives it actionable intelligence', 'fact', `glasswake-arc-institute-${G.dayCount}`);
+      addJournal('Shelkopolis Institute located — carrying shard data that gives it actionable intelligence', 'discovery', `glasswake-arc-institute-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
     }
   },
@@ -172,7 +172,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('Oslet: shard data formally entered into Institute review — in official and network channels', 'fact', `glasswake-arc-oslet-${G.dayCount}`);
+        addJournal('Oslet: shard data formally entered into Institute review — in official and network channels', 'discovery', `glasswake-arc-oslet-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Oslet is at an observatory rotation that runs two more days. Her assistant is a second-year student who cannot accept research data submissions without a faculty sign-off. You leave a message with your lodging address and keep the cipher in your possession. Two days of the city, two days of not knowing whether the data is safe, before you can deliver it to anyone who can use it.`;
@@ -217,7 +217,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       G.flags.arrived_from_glasswake = true;
       if ((G.investigationProgress || 0) < 5 && G.level >= 6) {
-        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'field_note');
+        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'intelligence');
       }
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -233,7 +233,7 @@ const GLASSWAKE_TO_SHELK_ARC = [
       G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('Arrived in Shelkopolis from Glasswake — Stage 2 begins', 'fact', `glasswake-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Glasswake — Stage 2 begins', 'evidence', `glasswake-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

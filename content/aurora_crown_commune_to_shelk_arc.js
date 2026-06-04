@@ -22,7 +22,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `Three documents rolled together and wrapped in oilcloth: the original dome filtration specification, the replacement additive delivery manifest, and the pressure monitoring log that shows the gradient shift beginning two days after substitution. Read separately, each is administrative paper. Together, they show a residential atmospheric system changed by design. You carry them south. Leaving them in Aurora Crown means leaving them within reach of whoever changed the system to begin with. Word of your movements has reached someone who tracks such things.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('Left Aurora Crown carrying dome contamination documentation south', 'field_note', `aurora-arc-departure-${G.dayCount}`);
+      addJournal('Left Aurora Crown carrying dome contamination documentation south', 'intelligence', `aurora-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -64,7 +64,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       G.flags.aurora_arc_orren_message = true;
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('Orren: dome may be at saturation threshold — 4 months from substitution start', 'fact', `aurora-arc-orren-${G.dayCount}`);
+      addJournal('Orren: dome may be at saturation threshold — 4 months from substitution start', 'discovery', `aurora-arc-orren-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -86,7 +86,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
 
       G.lastResult = `Below a certain concentration, the substitute additive produces nothing — no smell, no irritation, no symptom cluster. Above the threshold, it creates pressure gradient sensitivity: the kind of response Letha Dawnsilk's outpost has been logging at eighty kilometres' distance and attributing to axial weather. Aurora Crown's residential population has been above that threshold for approximately six weeks. The symptoms that follow — fatigue, low-grade respiratory irritation — are indistinguishable from late-season illness. Whoever designed this built the cover into the compound itself.`;
       G.flags.aurora_arc_exposure_timeline = true;
-      addJournal('Exposure above threshold for 6 weeks — symptoms present as seasonal illness, cover is built-in', 'fact', `aurora-arc-exposure-${G.dayCount}`);
+      addJournal('Exposure above threshold for 6 weeks — symptoms present as seasonal illness, cover is built-in', 'discovery', `aurora-arc-exposure-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -128,7 +128,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
         G.lastResult = `Three patients waiting on the healer's bench, all from outer settlements along the same road. They describe fatigue, intermittent throat irritation, a pressure behind the eyes that comes and goes. The healer is giving them willow-bark preparation and telling them to rest. That is the correct treatment for late-season fever. It is the wrong treatment for sub-threshold atmospheric compound exposure, which would not respond to it regardless. You ask where they came from. All three settlements fall within eight kilometres of Aurora Crown's dome infrastructure.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Symptom cluster within 8km of Aurora Crown dome — compound exposure presenting as seasonal illness', 'fact', `aurora-arc-symptoms-${G.dayCount}`);
+        addJournal('Symptom cluster within 8km of Aurora Crown dome — compound exposure presenting as seasonal illness', 'discovery', `aurora-arc-symptoms-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The patients look worn down in the way people look at the tail end of a hard season — not dramatically ill, just depleted. Without the technical background to read the symptom pattern against compound exposure data, you cannot tell what you are looking at. You note that there are three of them, from the same road, presenting on the same day. Then you keep moving.`;
@@ -155,7 +155,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       if (result.total >= 11) {
         G.lastResult = `The filtration access terminals along Shelkopolis's outer ring use the same pressure regulation chassis as Aurora Crown's — same generation, same maintenance access points, same additive input manifolds. The installation dates are staggered by two years but the specification is identical. What was done to Aurora Crown's atmospheric system can be done here using the same method. Based on the supply chain evidence from Craftspire and Ironhold, the material to do it is already moving south. Aurora Crown did not end anything. It demonstrated that the method works.`;
         G.flags.aurora_arc_shelk_dome_match = true;
-        addJournal('Shelkopolis dome architecture matches Aurora Crown — same substitution is possible here', 'fact', `aurora-arc-dome-match-${G.dayCount}`);
+        addJournal('Shelkopolis dome architecture matches Aurora Crown — same substitution is possible here', 'discovery', `aurora-arc-dome-match-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The filtration terminals look similar to Aurora Crown's from the outside but you cannot read the internal specification without the technical documents to compare against. The chassis design might match or might be a different generation entirely. An engineer would know. You need to find one before drawing conclusions.`;
@@ -181,7 +181,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('Doran: Shelkopolis dome uninspected for 11 months — Aurora Crown was a template, not test', 'fact', `aurora-arc-doran-${G.dayCount}`);
+        addJournal('Doran: Shelkopolis dome uninspected for 11 months — Aurora Crown was a template, not test', 'discovery', `aurora-arc-doran-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `A junior assistant is holding down the archive desk. She cannot access personnel contact records — that requires Doran's sign-off and Doran is on a scheduled observatory rotation. She takes your name and writes it on a slip of paper she folds into a ledger. You find a room nearby and wait.`;
@@ -226,7 +226,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       G.flags.arrived_from_aurora_crown = true;
       if ((G.investigationProgress || 0) < 5 && G.level >= 6) {
-        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'field_note');
+        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'intelligence');
       }
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -242,7 +242,7 @@ const AURORA_CROWN_TO_SHELK_ARC = [
       G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('Arrived in Shelkopolis from Aurora Crown — Stage 2 begins', 'fact', `aurora-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Aurora Crown — Stage 2 begins', 'evidence', `aurora-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

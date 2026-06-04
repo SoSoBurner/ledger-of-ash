@@ -26,7 +26,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
       G.lastResult = `You copy the most critical quota ledger entries onto loose paper — compact, deniable. The originals stay in the files where they belong. Anyone looking for tampering will find none. You, though, carry the pattern in your head and on your person. Soreheim's labor machinery grinds on behind you as you pack. Somewhere behind you, a record of your departure has already been made.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('Left Soreheim with quota evidence', 'field_note', `soreheim-departure-${G.dayCount}`);
+      addJournal('Left Soreheim with quota evidence', 'intelligence', `soreheim-departure-${G.dayCount}`);
     }
   },
 
@@ -80,7 +80,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
         G.flags.met_ossa_displaced = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Ossa: dismissals follow identical template across shifts', 'fact', `soreheim-ossa-${G.dayCount}`);
+        addJournal('Ossa: dismissals follow identical template across shifts', 'discovery', `soreheim-ossa-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `She's wary and doesn't give her name. "There's nothing to find," she says, and the way she says it tells you someone has told her that specifically. She walks faster. You let her go.`;
@@ -116,7 +116,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
         G.lastResult = `The pieces align when you stop thinking about them separately. Quota escalation — displacement — unmanned operation. Someone is clearing the workforce to remove eyes from Soreheim at a specific time. The timing connects to every other irregularity you've found. Shelkopolis is where this thread leads.`;
       }
       G.flags.soreheim_arc_pattern_recognized = true;
-      addJournal('Workforce clearance is pre-operational preparation', 'fact', `soreheim-pattern-${G.dayCount}`);
+      addJournal('Workforce clearance is pre-operational preparation', 'discovery', `soreheim-pattern-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -138,7 +138,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
         G.lastResult = `The seal is Iron Compact — but the wax impression is one designation off from authentic. Someone made this in a hurry or without access to a real Compact seal kit. You decline the letter and keep walking. Behind you, the courier turns down a side path rather than continuing north. He was testing the route, not delivering to you.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addJournal('False courier on the southern road — route is being monitored', 'fact', `soreheim-arc-courier-${G.dayCount}`);
+        addJournal('False courier on the southern road — route is being monitored', 'evidence', `soreheim-arc-courier-${G.dayCount}`);
         G.recentOutcomeType = 'complication';
       } else {
         G.lastResult = `You take the letter by instinct and only realize afterward that wasn't your name on the front. The courier is already gone. The letter is sealed. You don't open it — it's not yours. But now you're carrying something you can't account for if stopped.`;
@@ -168,7 +168,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
         G.flags.met_vael_logistics = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Vael: undeclared weight moving south matches quota anomaly dates', 'fact', `soreheim-arc-vael-${G.dayCount}`);
+        addJournal('Vael: undeclared weight moving south matches quota anomaly dates', 'discovery', `soreheim-arc-vael-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else if (result.total >= target) {
         G.lastResult = `She's polite but careful. You share enough to establish you're heading to Shelkopolis with questions, not answers. She says only: "Whatever you think you found, it's been moving for longer than you know." She doesn't offer her name.`;
@@ -203,7 +203,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       if (result.total >= target) {
         G.lastResult = `The outer district's air is different from the road — not wrong yet, but carrying something. A faint brassiness in the back of the throat at deep inhale. You've read about atmospheric precursors. This is what the Plumes End outpost reports described as "early-stage gradient exposure." The dome infrastructure visible on the skyline is where it converges.`;
         G.flags.soreheim_arc_sensed_gradient = true;
-        addJournal('Outer district atmospheric gradient — early stage per Dawnsilk report pattern', 'fact', `soreheim-arc-gradient-${G.dayCount}`);
+        addJournal('Outer district atmospheric gradient — early stage per Dawnsilk report pattern', 'discovery', `soreheim-arc-gradient-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The outer district is dense and loud and your senses are overwhelmed before they can calibrate. Shelkopolis at this end is not quiet. You find a cheap room and sleep. In the morning you'll know where to start.`;
@@ -232,7 +232,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('Dret: Shelkopolis network active, three prior arrivals before you', 'fact', `soreheim-arc-dret-${G.dayCount}`);
+        addJournal('Dret: Shelkopolis network active, three prior arrivals before you', 'discovery', `soreheim-arc-dret-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Dret is not at the address. A note in the door says the shop is closed for inventory. You'll have to find another approach. Shelkopolis doesn't open easily to strangers with questions.`;
@@ -266,7 +266,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
 
       G.lastResult = `The Ironspool Ward at day's end: industrial stacks cooling, dome infrastructure rising to the west, the faint brassiness in the air heavier near the access terminals.${arcText} Shelkopolis is where everything Soreheim's operation was building toward is pointed.`;
       G.flags.soreheim_arc_ironspool_surveyed = true;
-      addJournal('Ironspool Ward: dome infrastructure convergence point', 'fact', `soreheim-arc-ironspool-${G.dayCount}`);
+      addJournal('Ironspool Ward: dome infrastructure convergence point', 'discovery', `soreheim-arc-ironspool-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
@@ -351,7 +351,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       G.flags.arrived_from_soreheim_proper = true;
       if ((G.investigationProgress || 0) < 5 && G.level >= 6) {
-        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'field_note');
+        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'intelligence');
       }
 
       if (!G.worldClocks) G.worldClocks = {};
@@ -374,7 +374,7 @@ const SOREHEIM_PROPER_TO_SHELK_ARC = [
       G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('Arrived in Shelkopolis from Soreheim Proper — Stage 2 begins', 'fact', `soreheim-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Soreheim Proper — Stage 2 begins', 'evidence', `soreheim-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

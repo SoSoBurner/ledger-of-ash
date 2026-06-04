@@ -22,7 +22,7 @@ const COSMORIA_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `The template runs on three manifest categories: maintenance transit, emergency supply, and safety inspection response. Each triggers automatic port clearance — no secondary review required. The ghost vessels rotated between the three on consecutive voyages, keeping each category's usage low enough to avoid frequency flags. No single vessel appeared twice under the same category within any sixty-day window. This was not a workaround that developed through practice. Someone designed it specifically for the purpose of moving cargo through maritime checkpoints without it being opened. Somewhere behind you, a record of your departure has already been made.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('Left Cosmoria with transit laundering template — three-category rotation designed to avoid flagging', 'field_note');
+      addJournal('Left Cosmoria with transit laundering template — three-category rotation designed to avoid flagging', 'intelligence');
     }
   },
 
@@ -40,7 +40,7 @@ const COSMORIA_TO_SHELK_ARC = [
       G.flags.crenn_in_shelkopolis = true;
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-      addJournal('Crenn has Shelkopolis office opened 14 months ago matching charter/vessel timeline — cover and operation', 'fact', `cosmoria-arc-crenn-${G.dayCount}`);
+      addJournal('Crenn has Shelkopolis office opened 14 months ago matching charter/vessel timeline — cover and operation', 'discovery', `cosmoria-arc-crenn-${G.dayCount}`);
       G.recentOutcomeType = 'complication';
     }
   },
@@ -61,7 +61,7 @@ const COSMORIA_TO_SHELK_ARC = [
         G.flags.kavan_traveling_south = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Kavan: container dimensions match Whitebridge weight class — inland and coastal supply chains are same containers', 'fact', `cosmoria-arc-kavan-${G.dayCount}`);
+        addJournal('Kavan: container dimensions match Whitebridge weight class — inland and coastal supply chains are same containers', 'discovery', `cosmoria-arc-kavan-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Kavan is on a posting deadline and moves at a pace that discourages conversation. You share the road for half a day without more than a nod. He turns off at a junction and you keep south. What he witnessed is still only what you already know he witnessed — unconfirmed, unuseful without the right follow-up questions.`;
@@ -87,7 +87,7 @@ const COSMORIA_TO_SHELK_ARC = [
 
       G.lastResult = `Three names appear on both documents. The Cosmoria port administrator appointment committee, sixteen months ago. The Ithtananalor ghost account authorization records, fifteen months ago. One month between the committee's work and the ghost accounts going active. The administrator's role is operational — she approves the manifest categories the transit template uses for automatic clearance. She was appointed to that desk specifically so the clearance mechanism would have an authorized signature behind it.`;
       G.flags.cosmoria_arc_committee_link = true;
-      addJournal('Port administrator appointed by same committee as ghost account authorizations — installed to approve transit clearances', 'fact', `cosmoria-arc-committee-${G.dayCount}`);
+      addJournal('Port administrator appointed by same committee as ghost account authorizations — installed to approve transit clearances', 'discovery', `cosmoria-arc-committee-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -107,7 +107,7 @@ const COSMORIA_TO_SHELK_ARC = [
         G.lastResult = `Each ghost vessel departure date from Cosmoria corresponds to an arrival at Shelkopolis's secondary freight terminal, logged under one of the same three manifest categories. The transit times match standard maritime speed along the coastal route. The cargo that left Cosmoria's harbor arrived at Shelkopolis's secondary terminal. The last arrival entry is dated nineteen days ago. The coastal delivery phase of this supply chain finished before you left Cosmoria.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Ghost vessel departure dates match Shelkopolis secondary terminal arrivals — coastal delivery phase complete 19 days ago', 'fact', `cosmoria-arc-crossref-${G.dayCount}`);
+        addJournal('Ghost vessel departure dates match Shelkopolis secondary terminal arrivals — coastal delivery phase complete 19 days ago', 'discovery', `cosmoria-arc-crossref-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The Shelkopolis inbound manifest records are available to view but not to copy without a registered trade credential. You can read arrival dates and terminal categories. Cargo details are locked behind the secondary review tier. You have arrival patterns. What was in the containers stays unconfirmed until you find someone with better access.`;
@@ -131,7 +131,7 @@ const COSMORIA_TO_SHELK_ARC = [
         G.lastResult = `The chalk notation is not harbor depth marking — the format is a compressed inland grid reference, updated weekly in fresh chalk over older marks. The coordinates resolve to a location in Shelkopolis's outer district. Someone at Cosmoria's harbor is still communicating position information to maritime contacts. The delivery phase may be complete but the operation has not withdrawn its presence from the harbor. Someone is still watching it and reporting south.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Tide marker: updated inland coordinates for Shelkopolis outer district — operation still has active maritime observer', 'fact', `cosmoria-arc-tides-${G.dayCount}`);
+        addJournal('Tide marker: updated inland coordinates for Shelkopolis outer district — operation still has active maritime observer', 'discovery', `cosmoria-arc-tides-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The chalk marks follow a harbor notation format — depth references, current markers, standard piloting shorthand. You cannot read anything out of the ordinary in them without the background to decode a compressed grid reference from the format. You note that someone re-chalks them weekly. That is an unusual frequency for navigation marks that do not change.`;
@@ -158,7 +158,7 @@ const COSMORIA_TO_SHELK_ARC = [
       if (result.total >= 10) {
         G.lastResult = `The secondary freight terminal sits adjacent to the main port — a smaller, quieter building staffed by three full-time workers and a rotating duty officer. It handles non-commercial cargo: maintenance equipment, emergency provisions, inspection materials. Nothing here is supposed to be reviewed at the commercial tier. An underground freight channel runs from the terminal's loading bay four kilometres to the dome infrastructure's primary distribution hub. This is where the coastal supply chain hands off to the city's interior delivery system.`;
         G.flags.cosmoria_arc_terminal_surveyed = true;
-        addJournal('Secondary terminal underground channel runs 4km to dome infrastructure primary distribution hub', 'fact', `cosmoria-arc-terminal-${G.dayCount}`);
+        addJournal('Secondary terminal underground channel runs 4km to dome infrastructure primary distribution hub', 'discovery', `cosmoria-arc-terminal-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The secondary terminal is a plain structure with loading doors that face away from the main port road. You walk past it twice before confirming it is the right building. The underground channel entrance is not visible from the street. You note the location and continue into the city.`;
@@ -184,7 +184,7 @@ const COSMORIA_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 2;
-        addJournal('Sevel and Aldeth: 41 containers via secondary terminal into underground channel — channel terminus is dome infrastructure', 'fact', `cosmoria-arc-sevel-${G.dayCount}`);
+        addJournal('Sevel and Aldeth: 41 containers via secondary terminal into underground channel — channel terminus is dome infrastructure', 'discovery', `cosmoria-arc-sevel-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The maritime archivist you need is at the main port authority managing the afternoon shipping register — a process that runs until the last vessel logs in, which could be any time in the next three hours. You find a bench outside the authority building and wait. The harbor smell, the loading sounds, the afternoon light on the water. You have time to think about forty-one containers and what was in them.`;
@@ -229,7 +229,7 @@ const COSMORIA_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       G.flags.arrived_from_cosmoria = true;
       if ((G.investigationProgress || 0) < 5 && G.level >= 6) {
-        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'field_note');
+        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'intelligence');
       }
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -245,7 +245,7 @@ const COSMORIA_TO_SHELK_ARC = [
       G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('Arrived in Shelkopolis from Cosmoria — Stage 2 begins', 'fact');
+      addJournal('Arrived in Shelkopolis from Cosmoria — Stage 2 begins', 'discovery');
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }

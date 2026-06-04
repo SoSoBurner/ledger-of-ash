@@ -22,7 +22,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
       G.lastResult = `The container's liner — non-reactive polymer rated for atmospheric compounds — came from a Principalities supplier. That provenance detail is not in any Sunspire manifest. You've transcribed the chemical liner rating onto paper small enough to fold into your boot. Someone spent significant capital to keep this moving quietly. The people who paid that capital track who comes asking about it.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('Left Sunspire Haven with container liner evidence', 'field_note', `sunspire-arc-departure-${G.dayCount}`);
+      addJournal('Left Sunspire Haven with container liner evidence', 'intelligence', `sunspire-arc-departure-${G.dayCount}`);
     }
   },
 
@@ -66,7 +66,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
         G.flags.met_tennen_sunspire = true;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Tennen: convoy guard rotation matches deviation dates — guards were managed', 'fact', `sunspire-arc-tennen-${G.dayCount}`);
+        addJournal('Tennen: convoy guard rotation matches deviation dates — guards were managed', 'discovery', `sunspire-arc-tennen-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `Tennen walks south without talking. He's not hostile — just done. You travel in parallel for half a day and then the roads split.`;
@@ -92,7 +92,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
 
       G.lastResult = `Storage-grade liner is designed to prevent leakage. Deployment-grade liner is designed to release at a controlled rate under temperature or pressure change. The Sunspire container has deployment-grade specifications. It was never meant to hold something permanently — it was meant to release it. The dome infrastructure in Shelkopolis's outer districts runs on pressure-regulated atmospheric systems. The pieces align.`;
       G.flags.sunspire_arc_deployment_identified = true;
-      addJournal('Container is deployment-grade — designed for controlled release into dome systems', 'fact', `sunspire-arc-deployment-${G.dayCount}`);
+      addJournal('Container is deployment-grade — designed for controlled release into dome systems', 'discovery', `sunspire-arc-deployment-${G.dayCount}`);
       G.recentOutcomeType = 'success';
     }
   },
@@ -112,7 +112,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
         G.lastResult = `Three identical specifications, three different declared senders — all using name variations that differ by one word: "Regional Supplies Consortium," "Northern Regional Supplies," "Regional Supply Coordination." Same entity, rotating its alias. The last container passed through six days ago.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
-        addJournal('Three containers, three alias variants of same sender — 6 days ago, last passage', 'fact', `sunspire-arc-waybill-${G.dayCount}`);
+        addJournal('Three containers, three alias variants of same sender — 6 days ago, last passage', 'discovery', `sunspire-arc-waybill-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The waybill clerk isn't available and the records are in a back room. You note that the junction town exists and keep moving. What the road junction knows is less important than what Shelkopolis knows.`;
@@ -155,7 +155,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       if (result.total >= 10) {
         G.lastResult = `The dome serves the outer six districts simultaneously — a unified atmospheric system, pressure-equalized, meaning what enters one access point propagates to all six. The Sunspire container, deployment-configured, released at one access point would disperse to a combined residential and industrial population of several hundred thousand. You walk slower for a moment. Then you walk faster.`;
         G.flags.sunspire_arc_dome_scale_understood = true;
-        addJournal('Dome atmospheric system is unified — single access point, full district propagation', 'fact', `sunspire-arc-dome-${G.dayCount}`);
+        addJournal('Dome atmospheric system is unified — single access point, full district propagation', 'discovery', `sunspire-arc-dome-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The dome infrastructure is impressive and its scale matters but you don't have enough technical knowledge to read it precisely. You file the observation and continue into the city.`;
@@ -181,7 +181,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
-        addJournal('Bookbinder: three prior Sunspire contacts never arrived — evidence now distributed', 'fact', `sunspire-arc-contact-${G.dayCount}`);
+        addJournal('Bookbinder: three prior Sunspire contacts never arrived — evidence now distributed', 'discovery', `sunspire-arc-contact-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The bookbinder is closed. A note on the door gives another address in the Verdant Row. You note it for tomorrow.`;
@@ -226,7 +226,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       if (!G.flags) G.flags = {};
       G.flags.arrived_from_sunspire_haven = true;
       if ((G.investigationProgress || 0) < 5 && G.level >= 6) {
-        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'field_note');
+        addJournal('You have reached the limit of what this stage can teach you. The road south is open — but the threads you leave unresolved will cost you in Shelkopolis.', 'intelligence');
       }
       if (!G.worldClocks) G.worldClocks = {};
       G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -242,7 +242,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       G.stage = 'Stage II';
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
-      addJournal('Arrived in Shelkopolis from Sunspire Haven — Stage 2 begins', 'fact', `sunspire-arc-finale-${G.dayCount}`);
+      addJournal('Arrived in Shelkopolis from Sunspire Haven — Stage 2 begins', 'evidence', `sunspire-arc-finale-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }
