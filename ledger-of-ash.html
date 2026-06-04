@@ -2969,7 +2969,7 @@ function renderChoicesWeighted(choices) {
 // ── ENEMY TEMPLATES ─────────────────────────────────────
 const ENEMY_TEMPLATES = {
   patrol_guard:{
-    name:'Roadwarden Patrol Guard', hp:18, maxHp:18,
+    name:'Patrol Guard', hp:18, maxHp:18,
     attack:4, defense:6, morale:10,
     desc:'Armored and disciplined. Follows procedure until procedure fails.',
     loot:{gold:8, item:'Patrol Report (evidence)', materials:[{id:'patrol_insignia',qty:1,chance:0.5},{id:'stamped_paper',qty:1,chance:0.7}]},
@@ -4942,8 +4942,7 @@ function selectEncounterForLocation(locId) {
     const pick = bl.encounter_table[Math.floor(Math.random() * bl.encounter_table.length)];
     if (ENEMY_TEMPLATES[pick]) return pick;
   }
-  // Fallback: first key in ENEMY_TEMPLATES
-  return Object.keys(ENEMY_TEMPLATES)[0] || 'patrol_guard';
+  return 'patrol_guard';
 }
 
 // Called from consequence nodes with: { type:'combat', enemy:'patrol_guard', context:{...} }
