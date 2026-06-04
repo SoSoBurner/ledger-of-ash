@@ -1253,7 +1253,7 @@ input, button, select, textarea { font-family: inherit; }
 .clock-fill { height:100%; background:var(--ember-lo,#8b4a1a); border-radius:2px; transition:width 0.3s; }
 .clock-val { color:var(--ink-faint); width:16px; text-align:right; flex-shrink:0; }
 .world-notice { font-size:0.78em; color:var(--ink-faint); font-family: var(--font-body); margin:4px 0 0; }
-.stage-transition-banner { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:9999; font-family:var(--font-display); font-size:18px; letter-spacing:4px; text-transform:uppercase; color:var(--gold-bright); background:rgba(7,6,13,.92); border:1px solid var(--gold-dim); padding:18px 38px; border-radius:2px; pointer-events:none; animation:stageBannerFade 3s ease-out forwards; }
+.stage-transition-banner { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); z-index:9999; font-family:var(--font-display); font-size:18px; letter-spacing:4px; text-transform:uppercase; color:var(--gold-bright); background:rgba(7,6,13,.92); border:1px solid var(--gold-dim); padding:18px 38px; border-radius:2px; pointer-events:none; animation:stageBannerFade 1.5s ease-out forwards; }
 @keyframes stageBannerFade { 0%{opacity:0;transform:translate(-50%,-50%) scale(.96)} 20%{opacity:1;transform:translate(-50%,-50%) scale(1)} 70%{opacity:1} 100%{opacity:0;transform:translate(-50%,-50%) scale(1.02)} }
 
 /* Quest items */
@@ -2057,6 +2057,7 @@ input, button, select, textarea { font-family: inherit; }
       <div class="r-section">
         <div class="r-section-title"><span class="r-icon">&#x29BF;</span> World Clocks</div>
         <div id="tab-world"><div class="r-empty">No pressures recorded.</div></div>
+        <div id="tab-notices"></div>
       </div>
       <div class="r-section">
         <div class="r-section-title"><span class="r-icon">&#x2605;</span> Party</div>
@@ -12616,8 +12617,13 @@ function handleChoice(choice) {
   rollDisplay += ' = <strong>' + total + '</strong> vs DC ' + diff + (levelMod ? ' (L' + (G.level||1) + '+' + levelMod + ')' : '') + (_stageNum > 0 ? ' <span style="color:var(--ink-faint);font-size:11px">(Stage ' + _stageRoman + ' pressure +' + _stageNum + ')</span>' : '') + ' — ' + (success ? 'Success' : 'Failure');
 
   var _critPrefix = '';
-  if (roll === 20) _critPrefix = '<span style="color:var(--accent-gold);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Success! </span>';
-  else if (roll === 1) _critPrefix = '<span style="color:var(--danger);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Failure! </span>';
+  if (roll === 20) {
+    _critPrefix = '<span style="color:var(--accent-gold);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Success! </span>';
+    G.renown = (G.renown || 0) + 1;
+    updateHUD();
+  } else if (roll === 1) {
+    _critPrefix = '<span style="color:var(--danger);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Failure! </span>';
+  }
   addNarration('', _critPrefix + '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">' + rollDisplay + '</span>');
 
   // First-choice tutorial callout — fires once after the player's first real roll
@@ -13354,7 +13360,7 @@ function showTransitionBanner(text) {
   el.className = 'stage-transition-banner';
   el.textContent = text;
   container.appendChild(el);
-  setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 3000);
+  setTimeout(function() { if (el.parentNode) el.parentNode.removeChild(el); }, 1500);
 }
 
 /** Stage gate: S1→S2 when stage1_narrative_complete flag set (Sera Ironveil defeated); S2→S3 via canAdvanceToStage3(). Also triggers Maren, antechamber, climax in order. Called by checkLevelUp(). */
@@ -14381,16 +14387,38 @@ function consumeHalfMaterials(recipe) {
 
 // ── CAMP ─────────────────────────────────────────────────
 /** @param {'post_watches'|'craft'|'review_notes'} type — post_watches requires >=1 active companion; review_notes requires recovery_thread_available flag. */
+/** Show a temporary camp-result overlay that auto-dismisses after 2500ms then fires callback. */
+function showCampResultModal(heading, body, type, callback) {
+  var container = document.getElementById('game') || document.body;
+  var modal = document.createElement('div');
+  modal.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9998;background:rgba(7,6,13,.95);border:1px solid var(--border);border-radius:4px;padding:22px 32px;max-width:380px;text-align:center;font-family:var(--font-body);cursor:pointer;';
+  var color = type === 'success' ? 'var(--clover,#4a7c4e)' : type === 'failure' ? 'var(--danger,#8b1a1a)' : 'var(--ink-dim)';
+  modal.innerHTML = '<div style="font-family:var(--font-display);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:' + color + ';margin-bottom:8px">' + heading + '</div>'
+    + '<div style="font-size:14px;color:var(--ink);line-height:1.5">' + body + '</div>'
+    + '<div style="font-size:11px;color:var(--ink-faint);margin-top:10px">(click to continue)</div>';
+  container.appendChild(modal);
+  var done = false;
+  var finish = function() {
+    if (done) return; done = true;
+    modal.style.transition = 'opacity 0.3s';
+    modal.style.opacity = '0';
+    setTimeout(function() { if (modal.parentNode) modal.parentNode.removeChild(modal); if (callback) callback(); }, 350);
+  };
+  modal.addEventListener('click', finish);
+  setTimeout(finish, 2500);
+}
+
 function campAction(type) {
   closeOverlay('overlay-camp');
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_camp');
   if (type === 'rest') {
     if ((G.restCount || 0) >= 2) {
       G.lastResult = 'Your body resists sleep — you have already rested twice today. The night passes without benefit.';
-      addNarration('Camp', G.lastResult, 'failure');
-      setTimeout(() => renderChoices([
-        { text:'Break camp and move on.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' }
-      ]), 300);
+      showCampResultModal('Camp', G.lastResult, 'failure', function() {
+        renderChoices([
+          { text:'Break camp and move on.', skill:'lore', tag:'safe', align:'neutral', cid:'passive_intel' }
+        ]);
+      });
       return;
     }
     if (typeof shiftTension === 'function') shiftTension(-1);
@@ -14402,13 +14430,14 @@ function campAction(type) {
     if (G.traits) { G.traits.forEach(function(t) { if (t && t.passive !== true) t.used = false; }); }
     updateRecoveryState();
     G.restCount = (G.restCount || 0) + 1;
-    addNarration('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success');
     addJournal('Rested at camp. Recovered HP. Trait refreshed.', 'discovery');
     updateHUD(); saveGame();
-    setTimeout(() => renderChoices([
-      { text:'The city still has threads worth pulling.', skill:'lore', tag:'risky', align:'neutral', cid:'market_intel' },
-      { text:'The eastern route is where this leads.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road' }
-    ]), 300);
+    showCampResultModal('Camp', 'You rest. +' + healed + ' HP. Trait refreshed.', 'success', function() {
+      renderChoices([
+        { text:'The city still has threads worth pulling.', skill:'lore', tag:'risky', align:'neutral', cid:'market_intel' },
+        { text:'The eastern route is where this leads.', skill:'survival', tag:'bold', align:'neutral', cid:'east_road' }
+      ]);
+    });
   } else if (type === 'talk') {
     if (typeof showCampTalk === 'function') {
       showCampTalk();
@@ -15830,7 +15859,7 @@ function activateAbilityFromSheet(abilityId) {
 
 // ── CHARACTER SHEET ────────────────────────────────────────
 function showCharSheet() {
-  setText('sheet-title', G.name || 'Character');
+  setText('sheet-title', G.name || (G.archetype && G.archetype.name) || 'Character');
   const needed = G.level === 1 ? 120 : G.level * 60;
   const sb = document.getElementById('sheet-body');
 
@@ -17369,8 +17398,13 @@ function updateWorldTab() {
            '<div class="clock-track"><div class="clock-fill" style="' + fillStyle + '"></div></div>' +
            '<span class="clock-val"' + labelStyle + '>' + val + '</span></div>';
   }).join('');
-  var notices = (G.worldNotices || []).slice(-3).map(function(n){ return '<p class="world-notice">' + (n.text || n) + '</p>'; }).join('');
-  el.innerHTML = '<h4 style="margin:0 0 8px;font-size:0.8em;color:var(--ink-dim)">WORLD CLOCKS</h4>' + html + notices;
+  el.innerHTML = '<h4 style="margin:0 0 8px;font-size:0.8em;color:var(--ink-dim)">WORLD CLOCKS</h4>' + html;
+  // Render notices in a separate section below the numeric clocks
+  var noticesEl = document.getElementById('tab-notices');
+  if (noticesEl) {
+    var notices = (G.worldNotices || []).slice(-3).map(function(n){ return '<p class="world-notice">' + (n.text || n) + '</p>'; }).join('');
+    noticesEl.innerHTML = notices ? '<h4 style="margin:8px 0 4px;font-size:0.8em;color:var(--ink-dim)">NOTICES</h4>' + notices : '';
+  }
 }
 window.updateWorldTab = updateWorldTab;
 
