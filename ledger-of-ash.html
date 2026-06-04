@@ -4606,7 +4606,10 @@ function resolveCombatAction(action, abilityId) {
     const stratAtkBonus = (CS.strategyActive === 'focus_boss' && CS.strategyRoundsLeft > 0) ? 2 : 0;
     CS.nextAttackBonus = 0;
     CS.enemyDefMod = 0;
-    const total = roll + combatSkill + traitCombatBonus + rangeBonus + compAtkBonus + nextAtkBonus + stratAtkBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
+    var _ucab = G.unlockedCombatAbilities || [];
+    var _painFeedBonus = _ucab.indexOf('pain_feed') !== -1 ? (G.wounds || []).filter(function(w){return !w.healed;}).length : 0;
+    var _bmFlankBonus = _ucab.indexOf('bm_flank') !== -1 ? 1 : 0;
+    const total = roll + combatSkill + traitCombatBonus + rangeBonus + compAtkBonus + nextAtkBonus + stratAtkBonus + _painFeedBonus + _bmFlankBonus + (G._traitBonus && G._traitBonus.skill === 'combat' ? G._traitBonus.bonus : 0);
     if (G._traitBonus && G._traitBonus.skill === 'combat') G._traitBonus = null;
     var _atkThreshold = (CS.enemy.defense + enemyDefAdj) + 5 - (_archFamily === 'combat' ? 2 : 0);
     const hit = total >= _atkThreshold;
@@ -4641,7 +4644,13 @@ function resolveCombatAction(action, abilityId) {
     CS.enemyDefMod = 0; // debuffs expire at action resolution
     const roll = d20();
     const stratDefBonus = (CS.strategyActive === 'defensive' && CS.strategyRoundsLeft > 0) ? 3 : 0;
-    const total = roll + survSkill + stratDefBonus;
+    var _ucabD = G.unlockedCombatAbilities || [];
+    var _passiveDefBonus = (_ucabD.indexOf('read_intent') !== -1 ? 1 : 0)
+      + (_ucabD.indexOf('presence') !== -1 ? 1 : 0)
+      + (_ucabD.indexOf('or_foresee') !== -1 ? 1 : 0)
+      + (_ucabD.indexOf('dk_relentless') !== -1 ? 1 : 0)
+      + (_ucabD.indexOf('death_sight') !== -1 && CS.enemy && CS.enemy.type === 'undead' ? 1 : 0);
+    const total = roll + survSkill + stratDefBonus + _passiveDefBonus;
     var _defThreshold = _archFamily === 'combat' ? 9 : 10;
     const defended = total >= _defThreshold;
     // Enemy still attacks but reduced
