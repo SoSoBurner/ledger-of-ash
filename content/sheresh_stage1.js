@@ -104,7 +104,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(65, 'reading commune record board');
       G.stageProgress[1]++;
-      var result = rollD20('wits', (G.skills && G.skills.lore) || 0);
+      var result = rollD20('wits', (G.skills && G.skills.wits) || 0);
       if (result.total >= 12) {
         G.lastResult = 'The board holds three months of postings. Near the bottom, almost covered by a harvest notice, is a complaint filed by a commune member against external record revision. The signature block is intact. The response block is blank — the board received it and nothing happened. The complaint describes an entry removed from the health registry without a correction order, without a notified party, without any procedural basis. It names no one responsible because no one came to answer it.';
         G.flags.sheresh_board_complaint_found = true;
@@ -131,7 +131,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(60, 'surveying eastern water route');
       G.stageProgress[1]++;
-      var result = rollD20('vigor', (G.skills && G.skills.survival) || 0);
+      var result = rollD20('vigor', (G.skills && G.skills.vigor) || 0);
       if (result.total >= 10) {
         G.lastResult = 'The marker stakes have been reset recently — the ground around the new positions is softer than the surrounding soil, undisturbed in a way that marks recent work. The old positions are still visible as faint impressions in the earth. The rerouting pushes the path sixty meters north of the original line, away from the stand of medicinal plants that grows along the original route. Nobody who uses that route for harvesting would have chosen this change. It was made by someone who does not use it.';
         G.flags.sheresh_water_route_redirected = true;
@@ -157,7 +157,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(65, 'reading provisioning log');
       G.stageProgress[1]++;
-      var result = rollD20('wits', (G.skills && G.skills.lore) || 0);
+      var result = rollD20('wits', (G.skills && G.skills.wits) || 0);
       if (result.total >= 10) {
         G.lastResult = 'The log runs in a consistent hand for four years — regular entries, corrections noted in margin, the ordinary accumulation of a working settlement. Then a gap: eleven months where the entry count drops to a third of the usual rate. The remaining entries in that period are formal and brief, stripped of the annotation that makes the other years readable. Someone was still writing, but carefully. The gap closes when the handwriting changes — a different recorder started, and the normal volume returned. The name of the prior recorder does not appear in the log after that.';
         G.flags.sheresh_provisioning_gap_found = true;
