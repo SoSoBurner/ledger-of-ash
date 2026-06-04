@@ -29,7 +29,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading blessing pressure');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -76,7 +76,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'tracing supply manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Kellen draws you past the stacked crates to the back of the stall. "Three weeks ago a grain shipment came in from the south and went straight back out toward Watcher's Perch. Last week, alchemical supplies bound for the chapel ended up at an unmarked waystation north of the glyph cave. I have two witnesses to each." He spreads his hands. "Replacement supplies come back through the same channels at prices nobody was quoting two months ago. Someone upstream is coordinating with the original brokers. This isn't a routing error. Fairhaven is short because Fairhaven is being kept short."`;
@@ -167,7 +167,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'investigating supply storage');
       G.stageProgress[1]++;
 
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Old Gareth closes the cellar door behind you and speaks at the wall. "Three weeks ago they moved the grain to the upper stores. Warmer, less air. I told the Shrine Keeper — grain needs cool and dark or it turns. He said the new procedure was spiritually aligned with something. I didn't understand the doctrine. What I understand is that last week's sack had mold on the bottom seam." He pulls it out and holds it up. The smell is unmistakable. "We're not supposed to question the procedure."`;
@@ -245,7 +245,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'investigating garrison reallocation');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Captain Vren doesn't sit. He stands at the window and counts on his fingers. "I had forty-two posted here a month ago. I have twenty-nine now. Temporary reassignments — that's what the order says. They're not coming back and nobody's confirmed a return date." He turns. "The supply route patrols are running at half schedule. The glyph cave perimeter hasn't had a full circuit since the third week of last month. I put this to the Shrine Keeper in writing. The reply cited doctrine. I don't know which doctrine covers garrison deployment, but apparently one does now."`;
@@ -287,7 +287,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'confronting shrine authority');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Keeper Ilsa doesn't answer immediately. She straightens the offering cloth on the altar, then: "Directives have been arriving through the regional hierarchy. Sealed letters. Blessing procedures, storage protocols, deployment schedules — all framed as spiritual advancement." She sets her hands flat on the altar surface. "I have implemented every one of them. And in the three months since, the town has gotten quieter in a way I don't have doctrine for." She doesn't use the word sabotage. But she doesn't look away either.`;
@@ -329,7 +329,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'mapping supply logistics');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Merrel wipes down the bar and doesn't look up. "Shipments used to come straight from the south. Now they go north first — up through Watcher's Perch, around the glyph cave perimeter. Adds two days minimum." She pauses at a sticky ring on the wood. "A merchant who stayed here last week said there's a waystation out past the cave. Supplies stop there for inspection, he said. Some continue to Fairhaven. Some don't." She sets the cloth down. "The men who came through coordinating it — I couldn't place their accents. None of them were from here."`;
@@ -370,7 +370,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'glyph cave activity analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The warning posts say stay back. The ground says something else. Boot prints in the clay — multiple sets, different tread, all coming from the same direction and going into the cave. Waystation markers have been repositioned recently; the disturbed soil is fresh. Inside the mouth of the cave: a storage alcove, partially screened by a brush pile that didn't grow there. The glyph cave is being used as a throughpoint. The danger notices are keeping locals away while someone else moves freely through.`;
@@ -412,7 +412,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'locating hidden supply network');
       G.stageProgress[1]++;
 
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The shielded cave sits forty paces past the posted perimeter, screened on three sides by a natural shelf of rock. Inside: stacked crates, a grain cache, a locked document box with a broken hasp — someone left in a hurry. The shipping manifests still inside show Fairhaven quantities crossing off the expected destination and picking up a new routing mark. Contracts in two languages cover what gets stored here and where it continues. On the manifest cabinet against the far wall, a second drawer sits sealed with administrative wax — same stamp, same red, different drawer than the one left open. This isn't improvised. The shelving is fixed. The drainage channel in the floor was cut deliberately.`;
@@ -538,7 +538,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'glyph doctrine analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The older texts treat the glyph cave as a threshold — harrowing, requiring preparation, but crossable by those who knew the markers. The current doctrine, written into the standard teaching pamphlets distributed to households over the last fourteen months, calls it an absolute barrier and describes the danger as intensifying. No corresponding event or glyph survey is cited. The escalation in the texts is not matched by any recorded change in cave conditions — only by a change in who is writing about it.`;
@@ -580,7 +580,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'tracing philosophical inversion');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The founding texts are unambiguous: faith and practical provision were treated as the same obligation — a blessed harvest was proof of right relationship with the divine, and a failed harvest demanded both prayer and better technique. The current instructional texts, circulated as supplements over the past eighteen months, reframe this. Provision is now subordinated to devotion. A shortage is recast as spiritual testing rather than logistical failure. The shift is consistent across eight separate documents — not one author reconsidering, but a coordinated revision that arrived at the same conclusion through different stated paths.`;
@@ -660,7 +660,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'documenting critical failure');
       G.stageProgress[1]++;
 
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `The plow snaps mid-furrow with a sound like a short word being cut off. The farmer stands in the turned earth for a moment before he kneels. "New enchantment," he says — not to you, to himself. "Three weeks old." The rune seam has separated cleanly: not stress fracture, not overload, but a binding that was never fully seated. You find the gap in the third rune of the anchor sequence. Someone removed a component from the formula and left the rest intact enough to pass production check. The tool was finished. It just wasn't meant to last.`;
@@ -702,7 +702,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'gathering community impact testimony');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `A widow near the south well is rationing grain that, by any prior season's standard, should still be plentiful. A cobbler on the mill road can't source leather in a region with functioning tanneries two days' travel away. A mother counts her family's winter provisions aloud while you listen — she's done the arithmetic before; the numbers haven't changed. Each one, when asked what changed, says some version of the same thing: "The shrine says this is what faith requires." They aren't resigned. They're complying with an explanation someone gave them for something they didn't cause.`;
@@ -750,7 +750,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing institutional weaponization');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
         G.lastResult = `Laid out together — the formula records, the supply manifests, the garrison reduction orders, the doctrine supplements, the community testimony, the broken plow — they stop being coincidences. Every institution in Fairhaven has been adjusted in the same direction over the same fourteen-month period: each change reducing practical capacity while a doctrinal justification was provided for accepting it. The knowledge required to do this was specific and internal. Whoever coordinated it understood Fairhaven's systems well enough to find the tolerance in each one — the place where a change wouldn't trigger immediate resistance.`;
@@ -794,7 +794,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The order specifies traditional compound ingredients exactly. The delivery receipt stamps it "equivalent substitution approved — regional materials update." That category exists in the administrative codex. The shrine's own policy register, filed separately, shows no regional materials update was ever ratified. The authorization cites a category that was never enacted. Someone wrote a policy-shaped entry into the system that pointed to nothing behind it.`;
         if (!G.flags) G.flags = {};
@@ -880,7 +880,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'making Oversight Collegium contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Collegium correspondent Avel Prenn runs a small goods trade as cover — soap, tied twine, dried lemon peel. She talks to you while rewrapping an already-wrapped bar of soap, seam aligned on the underside each time. "The doctrine revisions are being reported to us as voluntary community spiritual development. The Collegium hasn't categorized them as a compliance concern yet." The soap goes into the display stack, seam down. "I've been waiting for hard evidence of coordination." Formula substitution data would move the assessment from monitoring to investigating.`;
         if (!G.flags) G.flags = {};
@@ -933,7 +933,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'speaking to elder keeper');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.flags.met_elder_cassian = true;
         G.lastResult = `Cassian doesn't rush. She pours two cups of something that isn't the shrine's blend and sits. "The compound changed about a year ago. I noticed at the first morning ceremony. The smell was similar — not the same." Between sentences she draws one slow breath through her nose — not conspicuously, just the way someone orients by scent rather than by sight. "There is a quiet that comes from presence and a quiet that comes from weight. This one presses down." She has a sealed jar from the old batch in a cabinet at home. She'll give it over — "so there's a record of what the original was."`;
@@ -960,7 +960,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'interviewing retained garrison soldier');
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
         if (!G.flags) G.flags = {};
         G.flags.met_nyse_garrison = true;
@@ -1134,7 +1134,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'forcing locked berth before tide');
       G.stageProgress[1]++;
 
-      var result = rollD20('combat', (G.skills.combat || 0));
+      var result = rollD20('combat', (G.skills.might || 0));
       var target = 14;
 
       if (result.isCrit) {
@@ -1176,7 +1176,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'holding position against harbor enforcers');
       G.stageProgress[1]++;
 
-      var result = rollD20('combat', (G.skills.combat || 0));
+      var result = rollD20('combat', (G.skills.might || 0));
       var target = 14;
 
       if (result.isCrit) {
@@ -1220,7 +1220,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'reading tide patterns for unlogged shipment window');
       G.stageProgress[1]++;
 
-      var result = rollD20('lore', (G.skills.lore || 0));
+      var result = rollD20('lore', (G.skills.wits || 0));
       var target = 13;
 
       if (result.isCrit) {
@@ -1262,7 +1262,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'decoding secondary script in harbor registry margin');
       G.stageProgress[1]++;
 
-      var result = rollD20('lore', (G.skills.lore || 0));
+      var result = rollD20('lore', (G.skills.wits || 0));
       var target = 13;
 
       if (result.isCrit) {
@@ -1305,7 +1305,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'slipping through harbor log checkpoint unlogged');
       G.stageProgress[1]++;
 
-      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var result = rollD20('stealth', (G.skills.finesse || 0));
       var target = 15;
 
       if (result.isCrit) {
@@ -1348,7 +1348,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'boarding guarded vessel at stern watch gap');
       G.stageProgress[1]++;
 
-      var result = rollD20('stealth', (G.skills.stealth || 0));
+      var result = rollD20('stealth', (G.skills.finesse || 0));
       var target = 15;
 
       if (result.isCrit) {
@@ -1391,7 +1391,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'coordinating dock worker distraction');
       G.stageProgress[1]++;
 
-      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var result = rollD20('persuasion', (G.skills.charm || 0));
       var target = 13;
 
       if (result.isCrit) {
@@ -1433,7 +1433,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       gainXp(65, 'drawing out clerk\'s flagged discrepancy');
       G.stageProgress[1]++;
 
-      var result = rollD20('persuasion', (G.skills.persuasion || 0));
+      var result = rollD20('persuasion', (G.skills.charm || 0));
       var target = 13;
 
       if (result.isCrit) {

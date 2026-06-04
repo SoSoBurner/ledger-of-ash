@@ -23,7 +23,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'meeting Velka Ironspike');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Velka is at the production checkpoint with a tally board, marking off the morning output. She listens without turning from the board. "Twenty years at this face. I know what comes out of it and what doesn't." She caps her pen and sets it in the same groove on the board frame — a groove worn smooth from use, the wood darker there than anywhere else. "There's a section on the eastern side that doesn't appear in the weekly reports. I've been logging it myself because the official record is wrong on purpose." She has the tone of someone who has waited a long time for the right question.`;
         G.flags.met_velka_ironspike = true;
@@ -85,7 +85,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Darian's working schedule, pinned to the board inside the management shed, shows eastern face crew assignments on three days the official calendar leaves blank. Each of those days falls within a known courier window — the same windows Velka noted in her log as off-schedule shipment days. The extraction runs when the quarry's own oversight rotation is inactive. Someone read the inspection timetable before building the extraction timetable around it.`;
         if (!G.flags) G.flags = {};
@@ -173,7 +173,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Kess is at the assay station near the equipment sheds, running tallies in a bound register. She listens without putting the register down. "Off-calendar extraction at a Compact-affiliated quarry is a production disclosure violation. Full stop." When you describe the mineral category as a reactive precursor, she sets the register on the table and makes a notation in a different ledger — the one with the blue binding. "That changes the tier." The Compact has revenue interest in Ironhold's yield. Unauthorized extraction of a tiered material is their problem to pursue.`;
         if (!G.flags) G.flags = {};
@@ -203,7 +203,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'researching Darian\'s background');
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Darian's appointment at Ironhold is eighteen months old — the same period when the eastern face reached the secondary mineral layer. The appointment came through the quarry's external ownership structure, bypassing the internal promotion process that had been in use for twenty years. Before Ironhold he managed a processing facility in the northern commercial district. The facility's primary product line: reactive compound handling. He arrived at Ironhold already knowing what the eastern face would produce.`;
         if (!G.flags) G.flags = {};
@@ -255,7 +255,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.lastResult = `The container leaves the eastern face on a cart moving at walking pace, heading not toward the main gate but along a service track behind the drainage berm — a road that doesn't appear on the quarry's official site map. At the perimeter fence it transfers to a covered wagon. The charter mark stenciled low on the wagon's side panel is the same mark Whitebridge's Cadrin described on night-crossing wagons — the ones using the river bridge after dark on new-moon schedules. The extraction and the crossings are one operation. Ironhold to Whitebridge to wherever.`;
         if (!G.flags) G.flags = {};
@@ -310,7 +310,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Ironhold's operating license sits under the Compact's quarrying affiliate, registered with a controlling interest held by a northern investment consortium incorporated two years ago. The consortium's principal address in the Compact's registry is a Unity Square post office — the same address the Northern Route Coordination Consortium uses. Same entity behind two separate commercial instruments. Whatever northern bloc has appeared before has Ironhold's quarrying affiliate in the same portfolio.`;
         if (!G.flags) G.flags = {};
@@ -387,7 +387,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing eastern face worker');
 
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Worge speaks at the water barrel near the main face, keeping her back to the equipment shed. Three months on the eastern face rotation — before she asked to be moved and wasn't given a reason why that was allowed. "First thing they tell you: don't ask what you're pulling." The pay supplement was listed as technical complexity. The gloves were heavier than standard quarry issue. "Chart on the wall in the eastern shed — not a hazard chart. A quantity tracker. Every shift's output was marked against a number. We were working toward a specific total and nobody named what the total was for." The operation has a completion point. Someone knows what it is.`;
         if (!G.flags) G.flags = {};
@@ -473,7 +473,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The two supply streams map against each other: Ironhold's raw mineral precursor and Craftspire's extracted compound reach industrial-grade concentration only in combination. Neither is sufficient alone. Both are moving. The Whitebridge crossing sits on the route that connects both origin points to Shelkopolis's outer district. The combination occurs at a third location — not a quarry, not a processing facility. The scale of what the combined material enables points toward dome-level infrastructure. Something in Shelkopolis's outer district is the endpoint.`;
         if (!G.flags) G.flags = {};
@@ -521,7 +521,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'assessing post-extraction timeline');
 
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `Compound stability data against the extraction timeline: the combined material from Ironhold and Craftspire degrades within days of final collection if not applied. There's no viable storage window. The extraction isn't leading to a preparation phase — the preparation is concurrent. When the last container clears Ironhold, the clock on deployment is already running. Six weeks to extraction completion means six weeks to application. This operation has been building toward a specific date, not a general readiness. The plan is in its final stage.`;
         if (!G.flags) G.flags = {};
@@ -635,7 +635,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'sampling eastern drainage channel');
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `After this morning's rain, the main face drainage channels run grey-brown — standard quarry runoff, stone particulate and surface clay. The eastern face channel runs a slightly different shade: duller, less reflective, with a surface film that doesn't appear in the western channels. The film isn't thick enough to be residue from a spill. It's consistent with persistent low-level leaching from material stored or processed in that section over a sustained period. The eastern face has been producing this signature long enough that it shows in the drainage pattern.`;
         if (!G.flags) G.flags = {};
@@ -656,7 +656,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'tracking ghost container batch');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {
         G.lastResult = `Batch reference IH-4471-E appears in the operations manifest as received and processed — but no corresponding entry exists in the intake log, and no dispatch record carries it out. The batch exists in the middle of the supply chain with no origin and no destination in the official record. IH-prefix codes belong to the eastern face designation series. A container that arrived and left without being logged at either end was handled by a process running parallel to the official system. The manifest entry is the only trace — whoever maintained the parallel process missed one record.`;
         if (!G.flags) G.flags = {};
@@ -696,7 +696,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'intercepting the night delivery contractor');
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
         G.lastResult = `The contractor goes by a supply house name rather than a personal name, which means the conversation happens at the service track where the cart waits during unloading. "I deliver. I don't ask." He says it before you've finished the question. What he will confirm: the order comes through a routing number that bypasses the standard quarry supply channel, the equipment specs are provided by the client, not selected from a standard catalog, and payment clears before each delivery, not after — which is unusual enough that he noted it. He doesn't know what the equipment is used for. He knows he's not supposed to be there during daylight.`;
         if (!G.flags) G.flags = {};
@@ -735,7 +735,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reading geological survey with redaction');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
         G.lastResult = `The filed geological survey is eighty-three pages. Pages forty-one through forty-seven are replaced with a single redaction notice: "Section 7 — Stratum Composition Detail — withheld per Compact resource classification protocol." The protocol it cites was in effect eight years ago, which means someone used an existing regulatory mechanism to seal what a geological survey found in a specific stratum. The redaction is legal. The stratum it covers corresponds to the eastern face's depth range. Someone found something in that layer and immediately classified what they found.`;
         if (!G.flags) G.flags = {};
