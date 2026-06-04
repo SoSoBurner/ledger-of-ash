@@ -13506,7 +13506,6 @@ function checkStageAdvance() {
     addQuest('Stage V: Determine what the cargo was — and whether it can be recovered or must be destroyed.');
     addQuest('Stage V: Prevent the next inversion window from being used again.');
   }
-  if (typeof checkStage1BossTriggered === 'function') checkStage1BossTriggered();
   } finally {
     checkStageAdvance._running = false;
   }
@@ -13805,6 +13804,16 @@ function showLevelUpScreen() {
   }
 
   renderStatStep();
+
+  // Safety timeout: headless/automated runs never click the level-up UI.
+  // After 3 s, clear the flag and remove any remaining level-up block so
+  // subsequent gainXp() calls are not permanently blocked.
+  setTimeout(function() {
+    if (_awaitingLevelUp) {
+      _awaitingLevelUp = false;
+      document.querySelectorAll('.levelup-block').forEach(function(b) { b.remove(); });
+    }
+  }, 3000);
 }
 
 function _finalizeLevelUp(statKey, trait) {
