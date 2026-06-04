@@ -31,7 +31,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Toman confirms the correlation without looking at his notes — he has run this argument enough times that it sits in recall. "The surge pattern has characteristics of an external modulated signal. Natural variance doesn't produce this regularity." He says it flatly, the way someone states a finding they know will be contested. He submitted the correlation for peer review six months ago. The suppression requests started within the week. He hasn't published since and doesn't say whether he intends to.`;
         addJournal('Surge pattern has external modulated signal characteristics — publication suppressed', 'evidence', `glass-toman-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -60,7 +60,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Lenna sets her clerk's index on the desk and opens it to the suppression order entry. The archive room is cold at this hour, morning mist still threading through the reed-lined window gaps from the estuary side. She can describe the document's structure without reading its classified sections aloud. Four research conclusions are named in the order's scope: shard amplification mechanics, timing window analysis, compound delivery methodology, and population exposure modeling. She reads each topic heading once, then closes the index without comment. The four topics are not from four separate fields — they describe the same operation from four different angles.`;
         addJournal('Four suppression topics identified — shard, timing, compounds, population dosing', 'evidence', `glass-lenna-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -76,7 +76,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       if (!(G.flags && G.flags.met_toman_iceveil) && !(G.flags && G.flags.met_lenna_bannerhold)) {
         G.lastResult = `The routing channel requires both researchers' cooperation — Toman's data and Lenna's access to the suppression order's structure. The fishing nets off the commune's east dock creak against their bollards in the morning wind, a sound that carries all the way to this corridor at low tide. Without both threads confirmed, the package that reaches the archive will be incomplete, and an incomplete submission won't carry the weight needed to protect it from the mechanism that killed the original publications. The groundwork here is not done yet.`;
-        G.recentOutcomeType = 'investigate'; return;
+        G.recentOutcomeType = 'partial'; return;
       }
       const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
       if (result.isCrit) {
@@ -95,7 +95,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The research reaches the secure channel intact, but the archive's protective seal is conditional — shrine doctrine protects the document from commercial suppression orders, not from direct institutional authority. It is preserved and inaccessible to the suppression mechanism for now. The operation's architects will know within a day that the research is held somewhere they cannot easily reach. That knowledge alone will change how they move next.`;
         addJournal('Research in secure channel — preserved but not public, architects alerted', 'evidence', `glass-route-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -126,7 +126,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Toman shows one chart — the most recent clear-sky window. The observation gallery smells of cold stone and damp wool, the estuary light flat and pale through the narrow window slats. The resonance spike is narrow, precise, and two hours after solar peak. "I have two more that match." He won't produce them here, but he confirms the interval is consistent across all three events. "Forty-three days. Every time." He folds the chart along its original crease and pockets it before anyone passes the doorway.`;
         addJournal('One confirmed spike — 43-day interval, Iceveil has two more matching charts', 'evidence', `glass-toman2-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -157,7 +157,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The shards are denser at the formation center than the quarantine maps show. The trench holds cold air even at midday, the sluice-channel sound from the commune's water intake carrying across the open ground. The pressure gradient at the trench edge runs counter to what the posted data boards list — inward pull where the readings claim neutral. The discrepancy is measurable with bare attention from this distance. Whether it was misread or deliberately misreported is a question the formation itself cannot answer.`;
         addJournal('Pressure gradient counter to posted readings — inward pull at shard center', 'evidence', `glass-site-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -188,7 +188,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Lenna accepts the explanation but logs a formal note rather than dismissing the breach. The archive room holds the smell of lake water and old paper, the winter light off the estuary thin and grey through the high window. "I can mark this as remediated, not absent." She hands over a blank scan form, the paper slightly damp from the room's humidity. "Submit this before any further perimeter access. The Concord reads absences as intent." Not a threat — the actual rule, stated plainly and without editorial weight added to it.`;
         addJournal('Breach marked remediated — scan form required for further perimeter access', 'intelligence', `glass-lenna2-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -216,7 +216,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Sormund confirms two dates where her field readings differed from the published official log. She will not say by how much. "The field note is mine. The published record is the Concord's." She closes the field book and pockets it. She does not deny the discrepancy. "If someone else asked me the same question with a Concord authorization form, I would show them the numbers."`;
         addJournal('Containment warden confirms two field-log discrepancies — official log differs, Concord authorization needed to see numbers', 'intelligence', `glass-pita-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -244,7 +244,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The receipt names "Northern Glyph Oversight Commission" as the sender. Lenna reads the return postal code carefully: "That's a Shelkopolis government routing designation. They don't assign those to private or commercial addresses." She looks it up in the commune's postal reference binder. The NGOC does not appear. "A government routing code without a civic registration. That's not supposed to be possible."`;
         addJournal('NGOC uses government routing code without civic registration — impossible under standard postal rules', 'intelligence', `glass-ngoc-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -273,7 +273,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Fen Ashmark confirms the schedule change without consulting the ledger — he was on shift the night it happened. Third watch, six months ago. "Environmental assessors don't run overlap on that shift. Never have." He won't say the word correlation. But he pulls the current month's run sheet and holds it where the total weight column is visible: the entries from third-watch runs are in a different hand from the rest.`;
         addJournal('Third-watch disposal runs logged in different handwriting — Ashmark confirmed schedule change date', 'intelligence', `glass-disposal-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -301,7 +301,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three years of baseline readings, then the shift. The spikes in the recent record are higher than anything in the prior archive and they hold shape across separate events — same rise time, same plateau duration. A natural variance event does not repeat with that consistency. The archivist notes the same anomaly in the margin of the most recent quarterly summary but has not filed a formal report. "I was waiting for the Concord's review to close before I sent anything."`;
         addJournal('Archivist noticed spike pattern, margin note only — formal report held pending Concord review', 'intelligence', `glass-archive-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -330,7 +330,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Lenna shows one page — the first sheet, the one without the most identifiable notation. Compound ratios, four ingredients, two unknown by commune labeling convention. The handwriting is precise, the spacing consistent with someone accustomed to formal documentation. "It was in the back of a text returned by a visiting researcher from Mimolot. I checked the return log." She photographs the page entry in the archive log. "I know I have to report this. I wanted someone else to see it first."`;
         addJournal('One formula page shown — Mimolot visitor return log confirmed, Lenna will report but wanted witness', 'intelligence', `glass-lenna-formula-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -358,7 +358,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `"Verath Dunnell, Mimolot Academy, glyph properties study." Departure date, no completion note. The visitor log sits on the intake desk, the pages stiffened slightly from the estuary damp that works into everything at this end of the building. The commune's equipment request records are stored separately and accessible to researchers — Dunnell's name appears twice: containment-grade sample jar requests, both approved, both returned on the departure date. The samples those jars held are not logged anywhere in the commune's records.`;
         addJournal('Dunnell requested containment-grade sample jars, returned equipment on departure — sample destination unrecorded', 'intelligence', `glass-mimolot-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -387,7 +387,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Sormund acknowledges the second book exists but does not produce it. "There are dates where the sweep ran outside cycle. I noted them." She confirms two of those dates match the field reading discrepancies she described. "I log what I observe. What it means is not my job." She will share the dates verbally: they fall six and twelve weeks before the disposal schedule changed.`;
         addJournal('Sormund confirms anomalous sweep dates verbally — precede disposal schedule change by 6 and 12 weeks', 'intelligence', `glass-pita2-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -416,7 +416,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The motion proposer is named: Orend Cavel. Three votes to two in favor. The minority dissent is recorded in a single line: "Scope restriction conflicts with commune founding charter research mandate." The dissenting board members are not named. Cavel's own governance profile shows a residency start date of eight months ago. The restriction was one of the first motions he filed.`;
         addJournal('Orend Cavel proposed scope restriction within weeks of joining board — dissent recorded, minority unnamed', 'intelligence', `glass-governance-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -444,7 +444,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Maret Sunnol is guarded but doesn't deny the tally. "I count because the run sheets have been wrong before." She will not open the locker. She confirms the direction of the discrepancy: her count runs higher than what the official sheet records. "Every time. Not by much. But always the same direction." She says it matter-of-factly, as if describing weather.`;
         addJournal('Sunnol confirms count always higher than run sheet — systematic underage, direction consistent', 'intelligence', `glass-maret-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -472,7 +472,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The base plate marker is visible for long enough: four characters, unfamiliar designation format, not matching the commune's own technical spec binder entry. The commune's spec uses a two-character system. This plate uses four, with a prefix character that matches a standard used in civic infrastructure work. Someone with civic infrastructure access sourced this pylon and had it installed before the commune's own procurement process would have applied.`;
         addJournal('Pylon base plate uses 4-char civic infrastructure format — sourced outside commune procurement process', 'intelligence', `glass-pylon-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -501,7 +501,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The residue is visible without handling the fragment. Pale, fine-grained, not the formation's saline profile — the color is slightly different at the shard tip compared to the base. The lab's posted mineral reference chart lists the formation's signature clearly. This residue does not match it. The tray label shows no notation for compound treatment. Either someone treated this shard without logging it, or the tray sample is mislabeled.`;
         addJournal('Shard residue does not match posted formation mineral signature — compound treatment unlogged or mislabeled', 'intelligence', `glass-residue-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -529,7 +529,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The delivery manifest entry is on an old form type — pre-printed, two-column, no longer in standard use. The authorization name is unfamiliar. The commune supply clerk checks the staff roster on the desk and confirms: "That name's not on the current list. Could be a temp authorization from a visiting contractor." The weighing station log shows no corresponding entry. Either the station was bypassed or the delivery was logged retroactively from somewhere else.`;
         addJournal('Old-form delivery with unrecognized authorization — not found in current staff roster, absent from weigh log', 'intelligence', `glass-manifest-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -557,7 +557,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The calendar entries give function, not name. "Concord liaison review" appears on six dates over the last two months, all mid-week. The courier intake shelf beside the door holds one sealed envelope — the wax is a dark burgundy, a device that looks official rather than personal. The correlation between liaison review dates and known disposal run dates is not visible from here without Fen Ashmark's schedule data. But the seal's color matches what Lenna described from the suppression order's courier packet.`;
         addJournal('Cavel calendar shows Concord liaison reviews mid-week — envelope seal matches suppression courier color', 'intelligence', `glass-cavel-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -585,7 +585,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The gradient is readable: pale residue higher at the north end of the trench than the south. The direction points toward the disposal run exit path. The concentration at the north is enough to identify as the same chemical profile as the lab fragment — same acrid note, same pale grain. Something is introduced at the north trench end. Whether that happens during or after the run, this section of soil cannot say.`;
         addJournal('Residue gradient traces toward north disposal exit — same profile as lab fragment, introduction point identified', 'intelligence', `glass-gradient-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -598,7 +598,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(106, 'Glasswake Commune Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The research package exists in pieces but not yet as a whole. Toman's correlation data, Lenna's suppression order structure, the shard site readings — together they form an argument. Separately they're notes. Acting now means presenting an incomplete case to institutions that will need a reason to move against their own interests. The commune's threads aren't assembled into something that holds yet.`;
-        G.recentOutcomeType = 'investigate'; return;
+        G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -615,7 +615,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glasswake S2 finale: operation mechanism published across all networks', 'evidence', `glass-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -650,7 +650,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Station A logs are available at the environmental post. The numbers are lower than Station B at every corresponding date. Cold morning light off the shard field refracts through the post window and runs pale lines across the logbook pages. The discrepancy is consistent: not a single spike or error, but a steady eleven-percent gap. A methodical undercount produces exactly this pattern. The calibration binder for Station A has a gap where the installation sheets should be.';
         addJournal('Station A systematically eleven percent below Station B — calibration installation sheets missing from binder', 'intelligence', 'gla-stations-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -682,7 +682,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The reduction is documented: northwest quadrant, fourteen meters. The stated reason references a Station A quarterly assessment. The actual shard density map from the same period — available in the open monitoring files — shows the northwest cluster unchanged. The morning glare off the formation makes the marker stakes visible from the commune perimeter. The new boundary line runs inside the old one. The shards behind it are the same shards.';
         addJournal('Boundary reduction documented — supporting Station A assessment references formation data contradicted by unchanged density maps', 'intelligence', 'gla-boundary-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -714,7 +714,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Lenna pulls the suppression request cover page — the part she can access without opening classified content. The secondary reviewer line is blank. It should not be: Concord suppression procedure requires two reviewers minimum. She checks the procedural manual on the shelf behind her desk without being asked. "Single-reviewer suppression isn\'t valid under current protocol." She closes the manual. "It was filed anyway."';
         addJournal('Suppression request filed with single reviewer — secondary reviewer line blank, Concord protocol requires two', 'intelligence', 'gla-reviewer-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -746,7 +746,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'East, south, central, perimeter. The report covers all of those. The northwest cluster is not listed. The cold refractive glare off the shard formation is strongest in the northwest quadrant at this hour — the light hits at an angle that makes the crystalline tips glow faintly against the grey estuary sky. It is visible from the commune gate. It is not in the report. No annotation explains the omission.';
         addJournal('Northwest cluster absent from quarterly report — all other zones present, no annotation or explanation', 'intelligence', 'gla-quarterly-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -780,7 +780,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Toman allows a partial look — three pages from the northwest cluster observation series, his handwriting close and measured. The glyph inflow readings he logged are higher than anything in the submitted record for the same period. He watches while the pages are reviewed. "The formation is drawing more pressure than it was six months ago. The quarterly report does not show this." He takes the pages back and returns them to the shelf. "Now you know why I keep the folder."';
         addJournal('Toman personal notes partial review: northwest cluster inflow rising — discrepancy with submitted quarterly record confirmed', 'intelligence', 'gla-toman-notes-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -812,7 +812,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Lenna shows the margin tally without commentary: four held submissions, northwest cluster, six months. She covers the researcher name with her thumb — not obstructing, just keeping the conversation on what she can confirm without it. "Four held with no reviewer. That\'s irregular. The log should show a reviewer name within ten days of submission." She looks at the log, not at the room. "They\'ve been sitting for between three and five months each."';
         addJournal('Lenna confirms four held northwest cluster submissions, no reviewer within protocol window — held three to five months each', 'intelligence', 'gla-lenna-preaudit-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -844,7 +844,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Toman confirms the complaint exists without describing it. "Fourteen weeks ago. It is in the Concord\'s correspondence register." He pauses. The observation gallery holds the cold smell of stone and the faint acrid trace from the shard field that works into every room on the north side of the building. "My fieldwork access was suspended the week after I filed." He does not say what he concludes from that. He doesn\'t need to.';
         addJournal('Toman confirms complaint, 14 weeks — fieldwork access suspended the week after filing, no stated conclusion', 'intelligence', 'gla-toman-complaint-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -876,7 +876,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Lenna explains the notation system without elaborating on what she\'s found using it. One mark for clean filings, two marks for filings with anomalies, a dash for filings without protocol basis. She does not say which files carry which marks. She does say: "I started using it six months ago. Before that the distinctions didn\'t seem necessary." The archive room is cold, the damp paper smell working up from the lower shelves.';
         addJournal('Lenna confirms three-tier notation system begun six months ago — specific file marks not disclosed', 'intelligence', 'gla-lenna-notation-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -908,7 +908,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Toman acknowledges the meeting without specifics: he approached Lenna with a formal request eight weeks ago. He describes her response as procedurally correct. He does not describe the request or its outcome. The cold morning air from the shard field has worked its way into the observation gallery — the window frames carry a faint white mineral deposit at their edges from repeated condensation. "I learned what I needed to know about the routing system from that conversation."';
         addJournal('Toman confirms prior meeting with Lenna — formal request, procedurally correct response, routing system behavior confirmed', 'intelligence', 'gla-prior-meeting-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -942,7 +942,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The routing protocol exists in the handbook: submissions matching designated subject codes go to secondary review automatically. Lenna pulls the current subject code list from the administrative drawer. Seven codes. She reads them aloud and stops at the fifth: "northwest formation anomaly." She sets the list down. "I process submissions. I do not see the subject code field unless I look for it." She has clearly looked for it.';
         addJournal('Subject code list confirmed — northwest formation anomaly code active, Lenna found it after reviewing routing anomalies', 'intelligence', 'gla-mechanism-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -974,7 +974,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Lenna confirms what she is able to say: the secondary review queue has reviewer positions designated by the Concord, and she does not process the queue — that is Concord administration. "I can tell you what goes in. I cannot tell you whether anything comes out." She sets her pen on the submission log. The cold window light from the estuary side catches the pale surface of the open page. "In five months, I have not seen a held submission receive a reviewer assignment."';
         addJournal('Lenna confirms: five months active queue, no reviewer assignment seen — Concord administers queue, she only processes intake', 'intelligence', 'gla-queue-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1008,7 +1008,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The Tidereach merchant council\'s research notification board is semi-public — guild members and registered researchers can read it. The Cosmouth entry is dated three weeks before the Glasswake filing: Post Line 7, NGOC, tidal glyph pressure mapping. The subject at Cosmouth and the subject at Glasswake are adjacent — the estuary inflow patterns the Cosmouth order suppressed are the same patterns Toman\'s correlation data depends on for its external signal argument. Suppressing both removes the evidence base from two directions at once.';
         addJournal('NGOC suppressed Cosmouth tidal inflow data 3 weeks before Glasswake filing — both subjects required to build Toman\'s external signal argument', 'intelligence', 'gla-cosmouth-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1040,7 +1040,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The directory lists the NGOC under regulatory oversight. Post Line 7. The commune\'s research administrator, who handles the Shelkopolis affiliate charter annually, knows Post Line 7 without looking it up: "That\'s the relay node for provisional and distributed bodies. Not a street address." He checks whether the NGOC has a secondary listing showing a permanent office. It does not. "They exist in the directory. They just don\'t exist anywhere you can go."';
         addJournal('NGOC listed at Post Line 7 relay — commune administrator confirms relay designation, no permanent office secondary listing', 'intelligence', 'gla-ngoc-address-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1055,7 +1055,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'water allocation diversion');
       G.lastResult = 'The allocation ledger lists disbursement points by grid reference. All but one match a location on the commune\'s posted infrastructure map. The last entry — consistent, seasonal, a significant volume — references a grid point that does not correspond to any listed infrastructure, distribution point, or storage basin. It has been there for four seasons. The steward who pulls the ledger for you does not comment on it.';
       addJournal('Glasswake Commune water allocation records show regular disbursements to an unlisted grid reference — four seasons of entries, no infrastructure match. Source: Glasswake Commune allocation office.', 'evidence');
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }
@@ -1070,7 +1070,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(15, 'steward NPC agenda');
       G.lastResult = 'She does not lie. She is precise about what she says and what she does not say. Every answer describes Glasswake\'s position relative to external bodies — what the commune owes, what it has agreed to, what the review schedule requires. She is protecting the relationships that keep the commune functioning. Anything that threatens those relationships does not get a direct answer. She confirms what is already documented. She does not add to it.';
       addJournal('The Glasswake Commune steward answered questions carefully — only confirming documented positions, deflecting anything that could affect external relationships. Source: Glasswake Commune steward office.', 'intelligence');
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }
   },
@@ -1084,7 +1084,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(15, 'pre-steward anomaly');
       G.lastResult = 'The current steward took her post six seasons ago. The unlisted allocation entry begins eight seasons ago. She did not create it. She inherited it. Which means she found it, evaluated it, and chose to leave it in place — or was told to. The entry is in the same handwriting as the surrounding entries for its first two seasons, then shifts to the current steward\'s notation style. She updated it. She knows exactly what it is.';
       addJournal('The Glasswake allocation anomaly predates the current steward by two seasons — she subsequently updated the notation style, confirming awareness. Source: Glasswake Commune allocation records, handwriting comparison.', 'intelligence');
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }
@@ -1099,7 +1099,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(25, 'unreported upstream discovery');
       G.lastResult = 'The upstream measurement posts report flow volume to the guild on a quarterly schedule. Glasswake keeps its own measurements daily — internal only, not submitted. The internal logs show volume consistently lower than the guild\'s posted upstream figures for the past three seasons. The commune is receiving less than the guild\'s records show. Either the guild\'s upstream measurements are wrong or the difference is going somewhere. No discrepancy report has been filed.';
       addJournal('Glasswake Commune internal water measurements show consistent shortfall versus guild upstream figures for three seasons — no discrepancy report filed. Source: Glasswake internal measurement logs.', 'evidence');
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }

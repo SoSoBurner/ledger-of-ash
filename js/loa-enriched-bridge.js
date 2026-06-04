@@ -56,7 +56,15 @@ window.rollD20 = function(skill, bonus) {
 };
 
 window.maybeStageAdvance = function() {
+  // Sync investigationProgress → stageProgress[2] before stage advance check
+  // Mirrors the HTML's maybeStageAdvance() so enriched-choice fns that call maybeStageAdvance()
+  // correctly propagate investigationProgress increments to stageProgress[2].
+  var _G = (typeof G !== 'undefined') ? G : window.G;
+  if (_G && _G.stage === 'Stage II' && typeof _G.investigationProgress === 'number' && _G.stageProgress) {
+    _G.stageProgress[2] = Math.max(_G.stageProgress[2] || 0, _G.investigationProgress);
+  }
   if (typeof checkStageAdvance === 'function') checkStageAdvance();
+  if (typeof updateHUD === 'function') updateHUD();
 };
 
 // addJournal arg-order bridge:

@@ -95,7 +95,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Sera confirms the irregularities without being told what you already know. "Consistent with external recalibration," she says, pulling a second file. She's been working on the access event since she found it. "Someone changed our baseline readings." She writes something in her log, caps the pen, looks at you. "I don't know why yet. I intend to." She smooths the written statement flat with one hand and does not look at it again. Her jaw is set. She's already moving to the next step before you've left the room.`;
         addJournal('Dome sensor baseline changed by external access — Sera working the access event', 'evidence', `aur-sera-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -124,7 +124,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Theron confirms the monthly deliveries and walks you to the intake log. The quarantine bypass authorization sits in the Collegium maintenance category. "That's above my level to question," he says. He doesn't say it like someone who's at peace with it. He taps one line in the manifest — the chemical compound column. "The smell was wrong. Not what filtration supplies smell like." He logs everything that comes through. He logged that too.`;
         addJournal('Monthly quarantine-bypassed deliveries — unusual chemical profile', 'evidence', `aur-theron-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -153,7 +153,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Cadrin confirms the tripling when you set the numbers side by side on the counter. He pulls the prior year ledger to check — the specialized compound category simply didn't exist before. "The supplier name isn't in our approved vendor registry." He checks twice. "Expense was approved at Collegium liaison level." He writes that down in his own notes while he's still holding the thought. He doesn't say anything else, but he doesn't close the ledger either.`;
         addJournal('Dome budget increase in unregistered supplier category — Collegium liaison approval', 'evidence', `aur-cadrin-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -182,7 +182,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Mariel describes the liaison efficiently: punctual, formal, one night per visit, always the same room. "The documentation they bring is always sealed." She wipes down the counter. "On departure it's sealed differently than it arrived." She says it the way she might mention a guest's preference for cold water — observed, filed, not yet interpreted. "I notice things. It's useful." She goes back to the room ledger. She's given you what she has.`;
         addJournal('Liaison documentation seal changes between arrival and departure', 'evidence', `aur-mariel-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -215,7 +215,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Liora nods before you finish describing the delivery correlation. She's seen it herself. "I brought it to the medical board six weeks ago — the petition spike pattern against the maintenance schedule." She straightens the record book on the counter. "They said it was seasonal." A pause. "It follows a monthly delivery schedule exactly." She looks out past you at the shrine space. She doesn't have a word for what she's looking at, but she's been sitting with it for six weeks.`;
         addJournal('Respiratory correlation documented — medical board dismissed as seasonal', 'evidence', `aur-liora-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -368,7 +368,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Sera pulls the supplier change authorization and reads it through once before she hands it to you. The founding charter technical committee signed off on it. She shows you the committee's meeting schedule on the wall calendar — the last session was eight months ago. "They have standing authority," she says. "The authorization was technically valid." She taps the compound class listed for Northern Provision Compact. "That class is not in our approved registry." She's already started a second file on the desk, pulling records in sequence.`;
         addJournal('Filtration supplier approved by dormant committee — compound class outside approved registry', 'intelligence', `aur-sera-supplier-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -400,7 +400,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Liora looks at the residential map for a long time before she says anything. She doesn't use the attendance records — doctrine is doctrine. But she talks through what she's observed without opening a file: the residents she sees weekly now. She describes which parts of the commune they come from, working from memory. You mark the map as she speaks. When she stops, the marks cluster at the intake corridor end of the eastern quarters, radiating outward. She looks at the cluster. "I didn't put it in those terms before," she says quietly.`;
         addJournal('Shrine attendant locates intake-adjacent resident cluster from memory — exposure pattern consistent', 'intelligence', `aur-liora-geo-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -431,7 +431,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Theron's hand goes to the door frame before he answers — two fingers against the seal edge, a brief press. "Porter protocol: I move what the order says, I don't open what I'm not clearing." He meets your eyes once. "The orders come from the filtration access corridor. They go to the east storage bay." He doesn't say what time. He doesn't say how often. He picks up his routing board. His fingers leave a smudge on the door seal that stays after he moves away.`;
         addJournal('Theron confirms crate movements from filtration corridor to east bay — movement order source noted', 'intelligence', `aur-theron-crates-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -462,7 +462,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `She doesn't introduce herself. She opens the log to the month the new compound arrived and sets it on the table between you without explanation. "I recorded the intake concentrations every delivery. The smell was wrong from the first one." She turns to the page with her dismissal date marked in the margin. "I'd submitted two anomaly reports by then." The log is complete. It covers the period before her dismissal. She did not give up her copy when she left because no one asked her to.`;
         addJournal('Dismissed technician log confirms compound anomaly reported before dismissal — two reports on file', 'intelligence', `aur-tech-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -494,7 +494,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Cadrin finds the sealant purchase in thirty seconds — a line item that size is not easy to miss once you know to look. He checks the maintenance inventory without being asked. "Received and signed for four months ago. Current stores hold about a month's worth of normal use." He does the subtraction on the ledger margin, pencil, no calculator. "The rest isn't in any maintenance record." He underlines the number. "If it was moved, it was moved without a transfer entry." He does not speculate about where it went.`;
         addJournal('Dome sealant bulk purchase confirmed — surplus absent from all maintenance records', 'intelligence', `aur-cadrin-sealant-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -526,7 +526,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The access log shows credential activity attributed to the liaison on dates that don't line up with the inn's booking record. The discrepancy is three days across four months — narrow enough to miss without both records side by side. You note the dates. Someone with the liaison's credential code made archive changes between visits. The log doesn't record who held the physical access key. That answer is somewhere else in the dome.`;
         addJournal('Liaison credential active between visits — 3-day access discrepancy confirmed', 'intelligence', `aur-cred-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -557,7 +557,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Orvyn knows the condensate network the way he knows his own sleep schedule — by feel, not by reading. He talks through the secondary loop without pulling the schematic: intake manifold feeds into a thermal exchange junction, condensate recirculates through the potable distribution leg. He stops there. "If something's in the filtration intake, it doesn't just move through the air cycle." He looks at the manifold housing. "It goes everywhere the water goes." He doesn't say anything further. He picks up his clipboard and checks a valve gauge that he's probably already checked this morning.`;
         addJournal('Condensate loop carries filtration compounds into potable water distribution — full commune exposure', 'intelligence', `aur-orvyn-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -588,7 +588,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The minutes show a filtration audit motion reaching the floor, receiving a second, and then the record jumps to the next agenda item without a vote entry. You read the page twice. A tabling requires a notation; a withdrawal requires the mover's signature. Neither is present. The council member who seconded the motion is no longer on the council — the departure recorded as a voluntary resignation. The jump in the minutes is four lines. The absence of four lines is everything.`;
         addJournal('Filtration audit motion unrecorded in council minutes — seconder later resigned', 'intelligence', `aur-council-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -620,7 +620,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Pella talks through the entry log without opening it — she knows the Collegium liaison visits from memory. "Every visit, one case in, one case out. That's the standard." She pauses. "Mostly." The exit log is behind her on the cargo shelf. She doesn't reach for it immediately. "On some visits the cargo clearance is logged under a return code I've had to look up each time. It's not a standard equipment code." She looks at the shelf. "I can show you the log. I'd need to note that I showed you."`;
         addJournal('Liaison departure cargo logged under non-standard return code — Pella notes access on record', 'intelligence', `aur-pella-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -650,7 +650,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The east storage bay holds the Class-C crates in the back section, stacked and sealed. The crates are labeled correctly — compound class, supplier, handling instructions. One crate's transport seal is newer than its exterior markings. The adhesive line under the fresh seal hasn't fully bonded to the older surface. You can't open it without leaving evidence. But the concentration value printed on the outside label is twice what the intake manifests describe as the compound's standard application rate. The numbers on the crate and the numbers in the maintenance log do not agree.`;
         addJournal('East bay crate seal replaced — exterior concentration label contradicts intake manifest figures', 'intelligence', `aur-eastbay-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -681,7 +681,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Both reports are in the variance archive — not the anomaly record, the variance archive. Reclassified within forty-eight hours of filing, each one. The reclassification entries have an authorization code, but it's a liaison-tier code, not a maintenance supervisor code. A maintenance supervisor should be reclassifying maintenance reports. The person who filed the reclassifications isn't in the maintenance chain. The dismissed technician's reports were accurate. They reached the right desk. The right desk buried them.`;
         addJournal('Technician anomaly reports reclassified by liaison-tier code — buried in variance archive, not maintenance log', 'intelligence', `aur-reports-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -712,7 +712,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Sovan keeps his eyes on the labor board while he talks. Workers were rotated off the filtration intake section over the past three months — he confirms the number without naming anyone. "Each one received a hazard credit bonus at rotation." He taps a line on the board. "Hazard credit for rotating off a section. That's not how hazard pay works in this commune." He doesn't say anything else about it. He writes something in the labor log and dates it. His hand is steady.`;
         addJournal('Labor rep confirms intake section rotation bonuses — hazard pay structure applied incorrectly', 'intelligence', `aur-sovan-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -742,7 +742,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Theron's vehicle notations from the intake bay log give you four fleet mark sets across the last six deliveries. You run them against the transport registry at the market counter — Northern Provision Compact has no fleet registration at all. The marks on three of the vehicles match a Cosmouth-based haulage company. One mark comes back unregistered. The deliveries are arriving in vehicles that don't belong to the supplier listed on the intake manifests. The manifest supplier and the actual carrier are different entities.`;
         addJournal('Northern Provision Compact has no registered fleet — delivery vehicles belong to Cosmouth haulage company', 'intelligence', `aur-fleet-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -776,7 +776,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The compound profile in the technician\'s log is consistent with a Compact-documented dispersal method — the concentration curve follows the same shape, the ventilation-cycle timing matches. Consistent is not identical, and the Compact\'s original documentation is not accessible here in full. But the technician examines the field notes and says, quietly, that she has seen the intake behavior before in a research context she does not name. The connection is there. It is not yet closeable.';
         addJournal('Dome intake profile consistent with Compact dispersal method — technician confirms pattern without naming source', 'evidence');
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -789,7 +789,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(110, 'Aurora Crown Commune Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The evidence chain isn't complete yet. Acting on the dome system now, without the full documentation, leaves too many gaps for the delivery contract to survive a challenge. More is needed before the next move. The meeting house holds the woodsmoke from the morning's council session — the collective governance of Aurora Crown doesn't act on incomplete information, and that same standard applies here. A partial presentation gives the Collegium liaison room to dismiss the claim before the full record is assembled.`;
-        G.recentOutcomeType = 'investigate'; return;
+        G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -806,7 +806,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Aurora Crown S2 finale: dosing evidence publicly released — delivery contract canceled', 'evidence', `aur-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -819,7 +819,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'calendar gap anomaly');
       G.lastResult = 'The ritual calendar is maintained in the dome archive — precise, continuous, going back fifteen cycles. Every observance period is logged: preparation, peak, close. One period is absent entirely. The surrounding entries continue without notation. There is no cancellation record, no postponement, no explanation. The gap is the right duration for the period that should be there. The calendar simply skips it, as if the observance never existed.';
       addJournal('Aurora Crown Commune ritual calendar shows a missing observance period — no cancellation or postponement recorded, surrounding entries uninterrupted. Source: Aurora Crown dome archive.', 'evidence', `aur-cal-gap-${G.dayCount}`);
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }
@@ -834,7 +834,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(15, 'dome keeper deflection');
       G.lastResult = 'She knows which period you mean before you finish naming it. Her answer is about the dome\'s light-indexing system — how the apertures are calibrated, how each cycle\'s records feed the next cycle\'s alignment. It is accurate and detailed and has nothing to do with what you asked. She does not say there is nothing unusual. She does not say the period existed. She answers the question she prefers you to have asked.';
       addJournal('Aurora Crown dome keeper gave a detailed deflection about light-indexing when asked about the missing observance period. Source: Aurora Crown dome archive, keeper\'s office.', 'intelligence', `aur-keeper-deflect-${G.dayCount}`);
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }
   },
@@ -848,7 +848,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'observation gap correlation');
       G.lastResult = 'The dome\'s observational records and the ritual calendar are kept separately, cross-referenced by date. The observation records for the missing period are there — nightly entries, aperture readings, alignment notes. But they are not cross-referenced to any ritual entry. The observation continued. The ritual did not. Whatever happened during that period was observed but not marked. The dome was watching. The calendar was told to look away.';
       addJournal('Aurora Crown celestial observation records continue through the missing calendar period with no ritual cross-reference — the dome observed, but the period was not marked. Source: Aurora Crown observation archive.', 'evidence', `aur-obs-gap-${G.dayCount}`);
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }
@@ -863,7 +863,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(25, 'dome calendar timing reference');
       G.lastResult = 'The dome calendar is public — the commune uses it for everything. Cross-referencing dates: an administrative filing elsewhere cites an Aurora Crown observance date as its effective date. Not a guild date. Not a seasonal date. A specific light-calendar observance from the dome. Someone used Aurora Crown\'s ritual calendar as the timing mechanism for an administrative action taken somewhere else. The missing observance period corresponds to a filing that has no effective date recorded.';
       addJournal('An external administrative filing uses Aurora Crown dome calendar dates as timing reference — the missing observance period corresponds to a filing with no effective date. Source: Aurora Crown archive, cross-reference research.', 'evidence', `aur-cal-timing-${G.dayCount}`);
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }
@@ -900,7 +900,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Three index numbers in the surge monitoring sequence are absent. Not flagged, not annotated — simply gone, the surrounding entries running normally on either side of the gap. You check the service log clipped to the intake manifold housing. The intake draw was elevated on all three dates. The digital log and the handwritten service card tell different stories about the same three days. One of them was edited. The other one hangs on a wall hook in the maintenance corridor and has not been touched since the last inspection.';
         addJournal('Surge log index gaps on elevated-intake days — physical service card contradicts digital archive', 'evidence', 'aur-surge-gap-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -932,7 +932,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The cycle timer parameter history shows a dwell-time change four months back — ninety minutes extended to two hundred and forty. The authorization code in the change log is a Collegium technical services designation. A longer dwell time means air recirculates longer before venting. You note the date the change took effect and set it against the delivery schedule in your notes. The extended dwell began two weeks after the first Northern Provision Compact delivery. The timing is not a coincidence.';
         addJournal('Cycle dwell extended 4mo ago under Collegium auth — extension postdates first NPC delivery by 2 weeks', 'evidence', 'aur-cycle-timer-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -964,7 +964,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Three months of residue concentration reports, lined up on the screen. The numbers match across all twelve measurement points on all three reports. Sensor data does not produce identical readings month to month — temperature variation alone shifts the decimals. You compare them a second time. They are copied. Someone has been submitting the prior month\'s report as the current month\'s data for at least three cycles. The actual readings from the sensors are going somewhere that is not the commune archive.';
         addJournal('Three months of residue reports show identical values — actual sensor readings not reaching archive', 'evidence', 'aur-residue-clone-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -996,7 +996,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The crew is in the eastern corridor, not the western one the schedule posts. You watch from the junction before they notice you — they are servicing a manifold housing that is not on the wall-mounted schematic near the intake. The housing connects to something further into the dome structure. The foreman sees you eventually and the work stops. "Routine service," he says. He does not say what system the housing connects to. He marks you in his work log before he goes back to it.';
         addJournal('Maintenance crew in eastern corridor — working undocumented manifold housing not on public schematic', 'evidence', 'aur-route-diverge-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1026,7 +1026,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Theron confirms the blank but doesn\'t explain it directly. He compares the seven-day window against the maintenance schedule posted on the inner corridor wall — slowly, finger moving down each line. The dome sealing cycle on the schedule doesn\'t match the dates in his log. He marks the discrepancy with his pencil, then caps it. "I log what I observe," he says. "The schedule is what someone else wrote." He hands you the log open to the relevant week.';
         addJournal('Porter log blank vs maintenance schedule mismatch — sealed period not posted on schedule', 'evidence', 'aur-theron-seal-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1061,7 +1061,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Sera doesn\'t address the bedroll under her desk. She opens a folder and sets it between you — a classified administration document, pulled from the archive last night. An internal review of the filtration anomalies. She has read it twice. "The review concluded it was intentional," she says. She taps the signature on the classification order. "This is the executive who buried it." She does not say what she is going to do with that name yet. Her pen is uncapped on the desk. She has been writing something. She turns it face-down.';
         addJournal('Classified compliance review shows intentional dosing finding — commune executive signature on suppression order', 'evidence', 'aur-sera-overnight-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1093,7 +1093,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Mariel looks at you for a moment, then at the space behind the key hooks. She brings out a smaller ledger without comment and sets it on the counter, open to the middle section. "I write down things that don\'t fit the pattern of a normal stay." She doesn\'t open it fully — but you can see it is organized by guest, and there are six entries in the Collegium liaison section, each with a margin notation. She is showing you that it exists and that it is detailed. Whether she shows you the details is a different question.';
         addJournal('Mariel\'s secondary ledger confirmed — six liaison entries with margin notes, full access not yet granted', 'intelligence', 'aur-mariel-book-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1126,7 +1126,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Cadrin takes a moment before he answers — a pause that is about deciding, not remembering. "I cross-referenced the Northern Provision Compact payments against the maintenance output records." He does not bring out any paper. "There\'s no installed equipment logged under that supplier. No labor records. The compound deliveries are the only output I can find." He underlines nothing. He is looking at the counter. He has been sitting with this for two weeks and he says it the way someone says a thing they\'ve said to themselves too many times already.';
         addJournal('Cadrin confirms NPC payments with zero installed equipment output — compound deliveries only attributed output', 'evidence', 'aur-cadrin-audit-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1159,7 +1159,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Liora touches her robe pocket once before she answers — a small gesture, quick, then stopped. "I keep notes," she says. "Not shrine records. Personal notes about patterns I have observed over time." She does not bring them out. "Thirty-one people came to the shrine with one kind of symptom and came back with a different kind. The medical board has the petition data. They have not connected it the way I have." She looks at the dome venting grate above the memorial stone. "I have not shared my notes because I was not sure they were enough. I am still not sure."';
         addJournal('Liora has personal notes on 31 symptom-progression cases — not yet shared, questioning whether sufficient', 'intelligence', 'aur-liora-tally-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1191,7 +1191,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Theron doesn\'t explain the margin column — he just angles the routing log so you can read it. One word per delivery entry, going back to the start of the current posting cycle. The word changes four months ago. He taps the first changed entry with one finger and leaves it there. "Standard filtration compound smells like mineral dust and old metal." He taps the changed entry again. "This is something else." He does not speculate about what something else means. He closes the log and picks up his pencil.';
         addJournal('Theron smell log shows anomaly starting 4 months ago — delivery-correlated change in compound odor', 'evidence', 'aur-theron-smell-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1223,7 +1223,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Mariel checks the register and confirms the arrival date without elaboration. Two guests, same day. "Different rooms. They didn\'t eat together." She wipes down the counter in the deliberate way that means she is thinking while she does it. "Their transit stamps were the same kind. Specialized. Not what most guests carry." She doesn\'t say what kind. She goes back to the hooks. But she leaves the register open on the counter rather than putting it away. You can read the stamp notation in the margin if you look at the right column.';
         addJournal('Two guests with matching specialized transit stamps — same arrival day, deliberate separation at inn', 'intelligence', 'aur-mariel-guests-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1257,7 +1257,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The drainage channel access panel is not locked, but it requires a crouch and a moment of not being seen, both of which you manage. Inside: pale amber residue along the channel floor, heavier near the intake section. The smell comes up immediately — waxy, faintly resinous. Not drainage smell, not standard mineral-dust filtration smell. The same amber as the intake throat deposit. The compound is cycling through the system and settling here. You pull back and reset the panel. It takes a minute to stop smelling it.';
         addJournal('Drainage channel amber residue confirmed — same odor as intake throat deposit, intake-proximate concentration', 'evidence', 'aur-drain-residue-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1289,7 +1289,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Two of the three grates you examine have residue on both faces — interior and exterior. Interior is expected, from air supply cycling. Exterior is not. The compound would need to have been applied from the room side of the grate to deposit on the exterior face. You check the distribution loop the three grates share. They are all on the eastern quarter residential loop — the catchment zone nearest the intake manifold. The residents here are already getting the heaviest exposure from the air supply. Something additional is reaching them through a different path.';
         addJournal('Grates on eastern quarter loop have double-sided residue — room-side deposition suggests second introduction point', 'evidence', 'aur-double-source-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1321,7 +1321,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The assay strip changes when you press it against the amber residue — dark blue, spreading from the contact point. The reaction is slow, which means the compound concentration is low, but the color is definitive: glyph-reactive. Standard filtration compound produces no color on the strip. Whatever is in the intake system carries a glyph-interaction profile. You fold the strip and put it away. The dome\'s air filtration system was designed to protect the residents\' glyph-sensitivity from environmental surge. Something glyph-active is being introduced through the same infrastructure.';
         addJournal('Amber residue glyph-reactive confirmed by assay paper — intentional glyph-sensitivity pathway targeting via filtration system', 'evidence', 'aur-glyph-react-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1353,7 +1353,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The dome design specifications list the compound class used by Northern Provision Compact as compatible with the intake system — not added after commissioning, written into the original specification. The dome was designed to accept this class of compound from the beginning. The filtration intake was built to accommodate it. You set the design document against the delivery manifests. The intake system and the compound were specified in the same period, by the same technical authority. This was not opportunistic. Someone planned it.';
         addJournal('Compound class in original dome design spec — intake built to accept it from construction, same Collegium authority throughout', 'evidence', 'aur-compound-predates-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1387,7 +1387,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Northern Provision Compact appears in Harvest Circle\'s maintenance records — three entries, field drainage systems, same four-month window as Aurora Crown. The authorization code on the Harvest Circle entries matches the Collegium liaison authorization code from the Aurora Crown filtration budget. Different locality. Different infrastructure. Same supplier code. Same authorizing identity. The operation runs across at least two localities simultaneously. You copy both sets of entries and put them side by side. The shape of the thing is larger than one dome.';
         addJournal('NPC in Harvest Circle drainage records — same liaison code, same period, same ghost vendor, two-locality pattern confirmed', 'evidence', 'aur-harvest-link-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1419,7 +1419,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The northern circuit rider knows the liaison from transit work. She does not give the full name unprompted, but when you describe the person — the Collegium coat, the sealed documentation, the regular Aurora Crown visits — she nods and says a name. It is not the name in the dome administration register. She does not explain the difference. "I carry what I\'m given. I note who gave it." She finishes her drink. "That name has come up in more than one direction on the circuit." She does not say more. She does not need to.';
         addJournal('Transit rider gives different name for liaison — northern circuit name diverges from dome register, described as multi-directional presence on circuit', 'intelligence', 'aur-liaison-alias-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1454,7 +1454,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The pressure tape shows an elevated draw period on the delivery date — eleven minutes, 1.4 times normal. You check the filed summary for the same month. Normal parameters across the whole month. The summary and the tape are from the same system but they do not agree about those eleven minutes. The tape is paper. It keeps printing regardless of what is filed. You note the date and the duration. The smell of the stabilizer corridor — filtered air, faint trace of glyph-burn, something waxy at the lower ventilation seam — sits in your throat on the walk back.';
         addJournal('Intake pressure spike on delivery date absent from monthly summary — raw tape and filed report diverge', 'evidence', 'aur-pressure-spike-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1486,7 +1486,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'One entry in the stabilizer panel log has no name in the authorizing party column. Every other entry does — date, event, name, certification number. This one has "technical services" and nothing else. The event is a threshold alarm disable, dated three weeks before the first delivery. Protocol requires a name. The entry doesn\'t have one. Whatever standard prevented the dome\'s alarm from sounding when the compound concentrations rose, it was turned off by someone who did not want to be identified in the log.';
         addJournal('Surge alarm disabled by unnamed "technical services" entry — protocol violation, predates deliveries', 'evidence', 'aur-alarm-disable-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1518,7 +1518,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The flow rate cards for the delivery dates all show the same eight-hour low-rate window. Thirty percent of standard, starting two hours after vehicle arrival. The window ends and flow returns to normal. Every delivery, same window, same reduction. A throttled flow rate means whatever enters the intake during that window stays in the air system longer. The filtered air smell in the corridor is slightly different here than in the residential sections — cleaner, more mineral. In the residential sections it carries something else underneath.';
         addJournal('Flow rate throttled on every delivery date — 8hr window at 30% draw, consistent across all deliveries', 'evidence', 'aur-flow-throttle-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1550,7 +1550,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The air quality certification posted at the main gate names the Northern Settlements Technical Consortium as certifying authority. The Consortium\'s membership list includes Northern Provision Compact. The certifier and the supplier are members of the same body. The certification was renewed after the deliveries began. The dome\'s posted proof of safe air was produced by an organization whose member is introducing the compound into the dome\'s air system. You write the Consortium\'s name next to the supplier\'s name in your notes. The two names share a line.';
         addJournal('Air quality certifier Consortium includes supplier as member — certification renewed after deliveries began, conflict of interest confirmed', 'evidence', 'aur-certifier-conflict-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1582,7 +1582,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The dismissed technician\'s copy of the original schematic differs from the current posted version in ways that take a moment to see clearly: the secondary condensate loop is absent, the eastern residential vent junction does not appear, the undocumented manifold housing in the eastern corridor is not there. The distribution infrastructure that carries compound exposure through the dome was not in the original design. It was added. The schematic in the dome archive was replaced to match the modified infrastructure rather than the original build. You set the two versions side by side on her table. The differences are exact.';
         addJournal('Original schematic missing secondary loop and undocumented manifold — modifications to dome post-construction created compound delivery pathways', 'evidence', 'aur-original-schema-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1617,7 +1617,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The document on Sera\'s desk is three pages, signed, addressed to the Collegium Regional Oversight Board. She doesn\'t cover it. "I drafted it four days ago," she says. "I have not sent it because filing it triggers an automatic administrative review of this office, and the person who can authorize that review is the same person who buried the compliance report." She smooths the top page once. "I need the evidence to be complete enough that the review cannot dismiss it." She looks at you. "What have you found since we last spoke?"';
         addJournal('Sera complaint drafted, not filed — waiting on complete evidence to withstand commune executive administrative review', 'intelligence', 'aur-sera-complaint-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1649,7 +1649,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Mariel polishes the counter for a moment before she speaks. "A transit rider mentioned the liaison in conversation last month. Used a different name than the one in the dome register." She does not offer the name unprompted. "I noticed. I write things down." She opens the ledger to the relevant week, not the memory book — the official room register. The transit rider\'s booking is on the page. She taps the entry without naming the rider or the name. "The information is there if you know how to read it."';
         addJournal('Mariel confirms second name heard for liaison via transit rider — points to room register without naming it directly', 'intelligence', 'aur-mariel-name-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1682,7 +1682,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Cadrin opens the ledger to the registration search note he left folded in the margin. "Northern Provision Compact registered twenty-three days before the delivery contract was signed here." He reads the date aloud, then puts his finger on the contract date in the ledger. "Twenty-three days to set up a supply infrastructure capable of delivering specialized filtration compounds monthly." He underlines the gap. He doesn\'t speculate. He underlines the gap the way a person underlines something that does the arguing on its own.';
         addJournal('NPC registered 23 days before delivery contract — registration-to-supply timeline impossible for legitimate startup', 'evidence', 'aur-cadrin-regdate-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1715,7 +1715,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Liora listens to the compound profile description and is still for a moment longer than usual — the kind of stillness that is not hesitation but recognition. "I have seen something like this profile before. Not here." She goes to the treatment cabinet and checks something inside it without bringing it out. "A research context, years ago, southern circuit." She closes the cabinet. "The compound class was associated with glyph-sensitivity monitoring in controlled environments." She turns back. "Not treatment. Monitoring." The memorial candle sends a thin ribbon of smoke toward the dome venting grate. She watches it. "The study ended."';
         addJournal('Liora recognizes compound from southern circuit research — glyph-sensitivity monitoring application, study discontinued', 'intelligence', 'aur-liora-prior-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1747,7 +1747,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Theron stands with one hand on the door frame and confirms the date you name without asking how you know it. "I came in off-rotation. Liaison office request, not the rotation office." His fingers press against the seal edge. "I moved two crates. I wrote it in my personal log, not the rotation log, because the movement order didn\'t come through proper channels." He does not say where the crates went. He taps the door frame once with two fingers. "I\'ve been looking for the official movement record since then. There isn\'t one."';
         addJournal('Theron confirms off-rotation crate move on liaison request — entered in personal log only, no official movement record', 'evidence', 'aur-theron-offrot-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1780,7 +1780,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Sera looks at the scuff marks on the floor where her desk used to be, then at you. "I moved it three days ago." She reaches into the bottom drawer and brings out a small sealed sample tube — a dome air sample, labeled with the grate position and a date. "I ran an assay." She doesn\'t open the drawer all the way. "The concentration at the north grate is higher than the residential average." She puts the tube back. "The marshal\'s office is directly on the filtration intake corridor. I wanted to know what I was working in." She caps the pen on her desk. "Now I know."';
         addJournal('Sera moved desk after personal air test — intake corridor grate concentration above residential average, test result kept in desk drawer', 'intelligence', 'aur-sera-office-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1814,7 +1814,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The residue sample dissolves in water. You use the field kit from the technician\'s shelf: ten milliliters, forty seconds, clean dissolution. Completely water-soluble, no particulate. Orvyn said the condensate loop feeds back into the potable water distribution system through the thermal junction. A compound that dissolves completely in water and is present in a condensate cycle that serves the dome\'s drinking supply is entering it every time the condensate cycle runs. The waxy amber trace at the intake throat is the first point. The tap is another.';
         addJournal('Residue water-soluble — condensate-to-potable-water pathway confirmed as second exposure route', 'evidence', 'aur-water-soluble-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1846,7 +1846,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The deposit measurements from six points in the drainage channel plot a clear gradient when you set them against the delivery dates. Heaviest at the intake manifold end. Progressively lighter as the channel runs outward. The secondary loop junction — where Orvyn said the condensate cycle feeds back into the distribution system — shows a delayed peak: lighter on delivery day, heavier the day after. The compound cycles through and concentrates downstream. Whatever the residents breathe and drink on delivery day is less than what they breathe and drink twenty-four hours later.';
         addJournal('Residue gradient peaks downstream on day-after delivery — compound concentration highest 24hrs post-introduction', 'evidence', 'aur-residue-map-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1878,7 +1878,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Two of the intake corridor workers have faint pale marks on the backs of their hands and inner wrists — visible when the manifold access panel light catches at the right angle. The dismissed technician described the same marks in her own log, dated four weeks into the compound period. You check her wrists when you return to her residence. The marks are still present, three months later. The workers at the manifold end are showing the same compound interaction she documented in herself. They are still working that section.';
         addJournal('Two intake workers show glyph-trace wrist marks matching technician\'s own documented markers — workers still on the section', 'evidence', 'aur-skin-trace-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1910,7 +1910,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Six deliveries. Six civic assembly or council review events. You put the delivery dates next to the assembly calendar dates. Every delivery precedes a governance event by four to six days. Given the dwell extension and the residue accumulation pattern, peak concentration in the dome\'s air supply falls on the day of the assembly or the day before. The schedule is not convenient for a supplier\'s logistics. It is tuned to the commune\'s deliberative calendar. Whatever the compound does to glyph-sensitivity, it is being applied specifically when residents gather to make communal decisions.';
         addJournal('Delivery schedule maps to pre-assembly timing — peak compound concentration falls on civic governance days', 'evidence', 'aur-assembly-pattern-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1944,7 +1944,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The dissolution archive has an entry for Verath Crossing: a dome commune in the eastern circuit, dissolved by collective vote four years ago. The dissolution petition cites civic fatigue and governance collapse over an eighteen-month period following a Collegium-authorized infrastructure upgrade. The settlement\'s medical records in the archive show respiratory and fatigue complaints that match the pattern Liora has been tracking. The Collegium technical authority named in the Verath Crossing upgrade is the same one named in Aurora Crown\'s sensor recalibration documents. The precedent exists. This has happened before.';
         addJournal('Verath Crossing dissolution — same Collegium authority, same symptom timeline, governance collapse preceding unanimous dissolution vote', 'evidence', 'aur-verath-link-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1976,7 +1976,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The inter-settlement access log shows the liaison credential active in three localities within a five-day window. You check the transit schedule between them. Aurora Crown to Harvest Circle: two days minimum. Harvest Circle to Tidal Bridge: another two days. The credential was used in all three within five days, across routes that would take longer than five days to travel. Either the credential is in more than one person\'s possession or the access is being generated remotely. The liaison who visits the inn once a quarter is not the only operator using that code.';
         addJournal('Liaison credential active in 3 localities in 5 days — physical transit impossible, multiple operators or remote credential use', 'evidence', 'aur-multicred-part-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 

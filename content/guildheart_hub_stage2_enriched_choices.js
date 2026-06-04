@@ -33,7 +33,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The three exemptions carry the same unusual charter pattern — confirmed without hesitation. The source reference log comes out and a finger runs down two columns before stopping. "Predates current Union governance. I can't source it further without the subsidiary archive, and that's a separate request." The log closes. "Old paper. New ink on the renewal line." The abacus at the desk corner sits untouched; the calculation has already been done. The ink on that renewal line is this season's batch — the Hub switched compounds in spring.`;
         addJournal('Pre-Union charter with recent renewal line — old structure, active use', 'evidence', `guild-sable-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -61,7 +61,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The night-loading runs are confirmed without evasion. "Three batches, past regular hours. Weight didn't match the description category on the manifest — too dense for textile, too light for stone." The official log was filed, not a discrepancy report. "Charter exemption means no secondary review. That's in the protocol. Always has been." A mark goes on the clipboard as if the protocol settled the question. It didn't. The transit yard smells of rope oil and cold canal water. Luthen turns back to the bay without waiting to see if there are more questions.`;
         addJournal('Charter-exempt cargo weight mismatch — no-questions protocol cited', 'evidence', `guild-luthen-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -88,7 +88,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The zero-rating is confirmed without looking at the file. "That category was set eight months ago and hasn't been reviewed." A knuckle taps the counter. "Volume triggers a standard audit at a specific threshold. This category passed that threshold in month three." A pause. "Nobody filed for audit review. Nobody's questioned it." The counter smells of ink and old parchment. Derris straightens the ledger stack by one corner and leaves the conversation there — not hostile, just finished.`;
         addJournal('Zero-rated import category passed audit threshold — no review filed', 'evidence', `guild-derris-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -118,7 +118,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Cala thinks before answering, which means she's deciding how much. "Comes in from the east. Leaves northwest. Carries sealed documentation, never leaves it in the room." She refills a cup before continuing. "She's not here for any arbitration I've seen go through the main hall. I'd remember — those are logged at the desk." She straightens the cup handle before setting it down. Whatever else she knows, she has decided that is the portion she is giving.`;
         addJournal('Regular off-channel arbiter: east arrival, northwest departure, sealed documents', 'evidence', `guild-cala-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -147,7 +147,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Nyra describes the insignia of both parties without names — two different institutional categories, she confirms. A document passed between them. One party produced it, the other signed. "They left separately, at least ten minutes apart." She pauses. "The timing of that meeting falls within the same week the charter exemptions were filed at the tariff counter." The shrine alcove holds a faint smell of cedar oil from the offering lamp. Nyra folds her hands and waits, giving the silence the same attention she gave the exchange.`;
         addJournal('Shrine document exchange at charter exemption filing week', 'evidence', `guild-nyra-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -252,7 +252,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The registration renewal is confirmed as monthly, same clerk, same arrival day. "I process what comes in. Riders go in the supplementary file." She pulls the supplementary file. The rider is one page — dense legalese. She reads the first clause and stops. "This exempts the registrant from freight liability under charter umbrella coverage." A pause. "Standard registrations don't carry charter umbrella coverage at all."`;
         addJournal('Provisional registration rider exempts registrant from freight liability — non-standard charter umbrella coverage', 'intelligence', `guild-provreg-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -282,7 +282,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The active seal register goes back six years. The cipher on the rider isn't in it. "Pre-reform seals aren't in this register — they're in the legacy index, back cabinet." The legacy index is found after ten minutes of searching. The cipher matches a notary who retired before the reform. The entry is marked INACTIVE in the legacy index. "Pre-reform instruments are still technically operable if the receiving institution never formally closed the acceptance window." She looks at the legacy index entry. "Guildheart Hub never closed it."`;
         addJournal('Shelk notary cipher pre-dates reform — Guildheart Hub acceptance window never formally closed', 'intelligence', `guild-notary-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -311,7 +311,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The northeast waypoint isn't in the Union registry. A registry clerk suggests the supplementary annex volumes — pre-consolidation instruments that weren't transferred into the main registry. The relevant annex is found on the third attempt. The waypoint is listed under a Shelk private freight covenant, marked as a government-designated hand-off point with an inspection exemption clause. The covenant page carries a margin note in pencil: ACTIVE PER RIDER. The handwriting matches nothing else in the volume.`;
         addJournal('Northeast waypoint: pre-consolidation Shelk government hand-off point with penciled ACTIVE PER RIDER margin note', 'intelligence', `guild-waypoint-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -340,7 +340,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Arbiter Dunmore doesn't deny it. "The completion form was filed because someone told me the audit had been resolved through a separate channel. I filed the completion to close the administrative loop." He doesn't look at the review form. "I didn't ask what channel. That was my error." He knows it's worse than an error. He will not name who instructed him without a formal protection filing in place first. "Put that on record for me and I'll answer every question you have." The corridor outside his office smells of old lamp oil and stacked paper. His hands stay flat on the desk.`;
         addJournal('Arbiter Dunmore admits filing false completion on instruction — will cooperate under formal protection filing', 'intelligence', `guild-arbiter-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -368,7 +368,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The attaché registry shows a departure record for the Panim cultural position three years ago with no replacement filed. The stamp on the zero-rated import classification carries that departed attaché's seal designation. "The seal retirement record is here — we received it at departure. Retired seals are not supposed to be in circulation." The registry clerk compares the seal on file against the impression on the import form. "The motif is right. The ink is wrong. Ours used an iron-based compound. This one didn't."`;
         addJournal('Panim attaché seal: retired 3 years ago, reproduced with incorrect ink compound on zero-rated import forms', 'intelligence', `guild-panim-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -398,7 +398,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Callard confirms the three loads went through without standard insurance bonding. "Pre-signed liability waiver — not my form, not the Hub's form. Something I hadn't seen before." He shows the instrument: a Union freight council authorization, countersigned by a guild mark. "I asked about it at the time. I was told to process and file." He filed. He kept a duplicate in a separate cabinet. "Bonding brokers always keep duplicates. That's what brokers do."`;
         addJournal('Union bonding waiver on charter-exempt loads — unfamiliar instrument form, guild mark counter-signature, broker kept duplicate', 'intelligence', `guild-bonding-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -427,7 +427,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The posted roster shows three ninety-minute gaps across different weeks — each one inside the window Luthen described for the off-hours loads. The same supervisor's initials mark the route change on each. The annotation is identical across all three: MAINTENANCE OBSTACLE. No maintenance report is pinned alongside. The gatehouse log has a column for countersignatures on route deviations. All three are blank.`;
         addJournal('Watchers roster: three matching patrol gaps, same supervisor initials — countersignature column blank on all three', 'intelligence', `guild-watchers-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -455,7 +455,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The declared throughput ceiling for Ithtananalor is right at the top of the node index — clear enough to check in thirty seconds. The assigned volume across the three charter-exempt months runs four times that figure. "Node capacity is a guideline unless the excess flag is triggered." The index column for excess flags is consulted. All three months show the flag cleared. "Cleared flags need an approval mark." The approval mark is there. No name beside it.`;
         addJournal('Ithtananalor: 4x capacity overage, excess flags cleared by unnamed approval mark — index confirms systematic override', 'intelligence', `guild-ithtan-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -483,7 +483,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The press keeper shows the current ink compound in use: Hub-standard black iron. The press beds are clean. But the backing roller, which receives ink bleed during runs, carries a faint blue-green tinge along one edge that the standard compound does not produce. "I clean the beds. The roller gets cleaned quarterly." She looks at the roller. "Quarterly cleaning was two weeks ago." The tinge is fresh.`;
         addJournal('Hub seal press roller: blue-green Shelk compound residue post-quarterly cleaning — recent non-standard use confirmed', 'intelligence', `guild-sealpress-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -511,7 +511,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The reclassified maintenance incident report is found after working backward through the maintenance sublevel index by date. The original language is still in the document — smoke damage, charter exemption subroom, eleven file references. The reclassification stamp sits over the top right corner: ROUTINE MAINTENANCE INCIDENT — NO FURTHER ACTION. The stamp used a different ink than the rest of the document. It was applied after the fact.`;
         addJournal('Archive fire report reclassified post-hoc — smoke damage to charter exemption subroom, 11 file references listed', 'intelligence', `guild-fire-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -539,7 +539,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Morwick Pen remembers the grievance without being prompted — it was withdrawn under circumstances he describes as irregular. "Code used to close it isn't one our chapter uses." He shows the entry in his own book: the filing, the withdrawal, the foreign code. He won't speculate on what it means, but he makes a copy of the page on his own initiative and slides it across the desk. "Copies stay with the claimant. That's in the charter." He keeps the book open until the copy is in hand.`;
         addJournal('Labor grievance closed with unfamiliar waiver code — steward provided copy, records withdrawal as irregular', 'intelligence', `guild-labor-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -569,7 +569,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The Sanction Board record lists the witness by name and title, with a testimony notation. Sivault, when found on the tariff floor, recognizes her own name in the record and says nothing for a moment. "I was not called to any hearing on this." She reads the notation again. "That is not my testimony. I have not provided testimony on charter exemptions." She asks to see the session date. She was working a double shift that day — her own time log would confirm it. She was never in the Board chambers.`;
         addJournal('Sanction Board witness notation fabricated — Sivault confirmed absent on session date, own time log as alibi', 'intelligence', `guild-witness-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -597,7 +597,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The amendment sits between two routine category updates — visible only if someone reads the registry in sequence rather than by keyword search. "Designated transit materials" is the added phrase. The filing category is clerical correction. "Clerical corrections don't go to policy review. They close an ambiguity, they don't change scope." The clerk reading it looks up. "This changes scope." The registry stamp at the bottom carries a number for a clerk who is no longer at this Hub.`;
         addJournal('Charter category clerical amendment: "designated transit materials" added — scope change filed without policy review, stamping clerk transferred out', 'intelligence', `guild-amendment-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -610,7 +610,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(108, 'Guildheart Hub Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The Council clerk reviews the summary and sets it aside without opening the accompanying documents. "The chain requires corroboration at three points. Filed correctly, this moves. Filed now, it stalls." He hands it back. The case isn't ready. The Arbitration Hall's ambient sound fills the pause — pens on ledgers, the creak of a bench, someone counting aloud in a distant room. The clerk's expression doesn't shift. He has sent better-prepared cases back before.`;
-        G.recentOutcomeType = 'investigate'; return;
+        G.recentOutcomeType = 'partial'; return;
       }
       const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
@@ -625,7 +625,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Guildheart S2 finale: charter evidence distributed to competing factions simultaneously', 'evidence', `guild-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -653,7 +653,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Toven pulls the routing ledger, finds the Collegium block, and opens it to the right page without hesitation — he has looked at this page before. "Manifest numbers are assigned at filing. I process what comes through." He closes the ledger. His thumbnail runs the full length of the binding edge before he sets it back on the shelf. He is not going to say more than that, not here. The routing desk smells of chalk dust and slightly damp parchment. Whatever Toven has concluded, he concluded it weeks ago and has been waiting to see who else would notice.';
         addJournal('Guildheart factor Toven: Collegium routing block located in transit ledger — he has checked this page before.', 'intelligence');
       }
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -679,7 +679,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         addJournal('Guildheart transit records: Collegium order misfiled in standard freight block — sealed, blank category, dated three weeks prior.', 'evidence');
         G.investigationProgress = (G.investigationProgress||0) + 1;
       }
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -696,7 +696,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       G.flags.stage2_faction_collegium_aware = true;
       G.lastResult = 'The alcove off the charter hall seats two Arbiters by bench design — a reading chair and a writing chair, fixed. A third chair has been carried in from the clerks row and set at an angle that puts its back to the doorway. The runner on the floor is indented in two places where a heavier chair used to stand. Sable passes the alcove without looking in. Her thumb adjusts the edge of her reference index as she goes, which is what she does when she wants to be seen being busy. Someone from outside the registry is sitting audit in that alcove, and no one on the floor is being told.';
       addJournal('Guildheart Arbiter alcove — third chair placed against protocol, registry staff avoiding the sightline', 'intelligence', `guild-collegium-aware-${G.dayCount}`);
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success'; maybeStageAdvance();
     }
   },
 
@@ -716,7 +716,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       G.flags.stage2_faction_collegium_contacted = true;
       G.lastResult = 'The auditor is an older man in a plain grey coat with no guild mark and a single Collegium cipher stitched at the cuff. He does not rise. He turns the third chair so it faces you and taps the arm twice — an invitation that is also a timing cue. "Peregrin Vas. Oversight." He does not offer a title. His tell is a folded Union registry slip between his first and second fingers like a cigarette he will not light. He wants the Shelk contract rider — the one Sable flagged. A certified copy, filed to Collegium intake before the audit rotation closes in four days. Not taken. Filed. By someone not already on the registry watch.' + applyTensionModifier('collegium_any');
       addJournal('Met Auditor Peregrin Vas (Oversight Collegium) — wants certified copy of Shelk contract rider filed to Collegium intake within 4 days', 'contact_made', `guild-collegium-contacted-${G.dayCount}`);
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success'; maybeStageAdvance();
     }
   },
 
@@ -742,7 +742,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       }
       G.lastResult = 'Peregrin takes the certified copy without turning it over. He reads only the intake stamp. "Good. The rider was renewed through an administrative back-channel the Collegium has been unable to subpoena — every formal request for the source authority has been met with a missing signatory line and a date gap we cannot reconcile. Your filing creates standing. With standing, the Collegium can compel the renewal office to produce the authorizing name." He writes a single clerk code on the back of your carbon and slides it across. "When you see that code on a Guildheart notice, the compel has landed. Do not be in the building that day."' + tension;
       addJournal('Oversight Collegium intel: contract rider renewed via administrative back-channel — missing signatory line and unreconciled date gap in every prior subpoena', 'evidence', `guild-collegium-payoff-${G.dayCount}`);
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -823,7 +823,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'collegium thread contact');
       G.lastResult = 'The factor\'s name is Cadlen. He has been with the transit desk eleven years. He pulls the same manifest you flagged — without being asked — and sets it on the edge of the desk facing you. "The authorization stamp is wrong. Third column." He says it the way someone says a thing they have been waiting to say to someone who would understand it. He does not say anything else.';
       addJournal('A Guildheart factor named Cadlen pointed to a mismatched authorization stamp on a transit manifest — unprompted. He\'s been noting it for weeks. Source: Guildheart Hub factor office, Cadlen.', 'intelligence');
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }
@@ -838,7 +838,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'amendment registry anomaly');
       G.lastResult = 'The amendment log goes back four seasons. Through season three, one stamp: the local guild factor\'s mark, green ink, consistent. In season two, a second stamp appears alongside it — smaller, red, Collegium administrative font. In season one, only the red stamp. The local mark did not exist yet. Someone added the local authorization retroactively. Two column dates do not match the binding dates on the same entries.';
       addJournal('The Guildheart Hub amendment registry shows two overlapping authorization stamps with mismatched dates — Collegium administrative and local guild marks applied out of sequence. Source: Guildheart Hub registry annex.', 'evidence');
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
     }
@@ -853,7 +853,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(15, 'sealed manifest section');
       G.lastResult = 'Three seasons of freight manifests for the northern corridor. The bottom third of the last page is sealed with red administrative wax — not the guild\'s amber, the Collegium\'s red. The seal is intact. The clerk does not offer to break it. She does not acknowledge it. She sets the rest of the manifest in front of you and waits while you read the unsealed portion, which tells you nothing.';
       addJournal('A freight manifest at Guildheart Hub is sealed in the lower third with Collegium-red administrative wax. The clerk made no mention of it. Source: Guildheart Hub loading records desk.', 'intelligence');
-      G.recentOutcomeType = 'investigate';
+      G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }
   },
@@ -875,7 +875,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'The clerk\'s name is Fenwick. He has filed the deviation note seven times — once a fortnight, beginning the season the transit exemptions changed. Each note went to the Collegium intake desk downstairs. None received a response or acknowledgment stamp. He pulls the carbon copies from a folder he keeps in his own drawer, not the official file. He sets them on the desk and smooths the edges with the heel of his hand. "Someone should see these," he says. "That is all I am saying."';
         addJournal('Guildheart routing clerk Fenwick has filed seven unanswered Collegium deviation notes on transit exemptions. He keeps the carbon copies himself. Source: Guildheart Hub routing desk.', 'evidence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -902,7 +902,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The Guild Council correspondence archive keeps outbound inquiries in a bound register by session date. Guildmaster Selene Marchant filed a formal charter exemption inquiry four months ago — the entry is in her hand, sealed with her council mark, addressed to the charter desk for response within ten working days. The response copy that should be filed behind it is absent. The acknowledgment stamp on the original shows it was received. It was never answered. A formal inquiry from the Guildmaster of the Guild Council sat unaddressed for four months, and the charter desk that received it processed two new exemption renewals in the same period.';
         addJournal('Guildmaster Marchant\'s formal charter exemption inquiry: received 4 months ago, never answered — charter desk processed 2 renewals during same window without responding', 'evidence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -928,12 +928,12 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The charter category\'s registered capacity is a number set at the time of original exemption filing — a figure that caps the total volume of goods that can move under the exemption annually without triggering a mandatory review. The trade record for the past six months runs at double that figure. The mandatory review threshold was crossed in month three. The charter desk\'s own compliance calendar has a flagged entry for it: REVIEW REQUIRED — CAPACITY OVERAGE. The flag was marked DEFERRED with no date. DEFERRED has no defined status in the charter desk procedural manual. It is not a recognized disposition code.';
         addJournal('Charter category running at 2x registered capacity for 6 months — mandatory review flagged then marked DEFERRED with no date; DEFERRED is not a valid disposition code', 'evidence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.lastResult = 'The trade record volume for the charter category is accessible at the public tariff summary board — a monthly poster pinned near the registry entrance. The figures confirm the category is active and large. Whether the volume exceeds a registered capacity ceiling requires access to the original exemption filing to find the ceiling figure, and the filing is in the subsidiary archive where access requires a pre-submitted research credential.';
         addJournal('Charter category trade volume confirmed large at public tariff board — capacity ceiling comparison requires original exemption filing access', 'intelligence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'complication';
         maybeStageAdvance();
       }
     }
@@ -954,7 +954,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'Guild Council meeting minutes are bound quarterly and shelved in the public record wing — open access, no research credential required. The bound volume for the relevant quarter has a visible stitch gap between pages 34 and 37: two pages removed after binding, leaving a clean cut at the thread line. Pages 35 and 36 would cover the session date when the charter exemption was initially approved. The table of contents entry for that session reads: "Charter Exemption Review — Agenda Item 4 (see attached)." The attached document is absent. The table of contents was printed before the pages were removed.';
         addJournal('Guild Council minutes: pages 35-36 removed after binding — covers charter exemption approval session; table of contents references attached document now absent', 'evidence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -998,7 +998,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Porter Ledgermere does not pretend the two columns agree. "Fourteen months of monthly shortfall, same amount each time." He opens the ledger to the holding account entry without being asked. The account carries a Union subsidiary mark rather than a named registrant. "Charter desk told me it was a standing instrument. I filed the discrepancy notice. They closed it." He sets his ink-brush on the stand. "I kept the carbon of the discrepancy notice. Charter desk\'s response is stapled to the back."';
         addJournal('Counting House ledger: 14-month fixed monthly shortfall routed to unnamed Union subsidiary — Porter Ledgermere\'s discrepancy notice closed by charter desk without explanation', 'evidence', 'guild-porter-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1032,7 +1032,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Sena Ledgermere considers the question for longer than the mediator\'s usual cadence. "The dispute outcome is public record." She pauses. "My recommendation and the outcome are not the same document." She does not say more than that, but she does not leave. "Mediators are advisory. The charter desk takes the recommendation under consideration. In this case they considered it briefly." Her hands fold on the table in the way of someone who has finished saying what she can say.';
         addJournal('Arbitration Hall: Sena Ledgermere confirms her charter dispute recommendation diverged from the recorded outcome — charter desk overruled her', 'intelligence', 'guild-sena-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1066,7 +1066,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'Orin Hearthmark confirms the manifest is not in the queue. "Charter-exempt. Pre-matched, doesn\'t run through floor routing." He holds the manifest against the copy board rather than setting it down. The printed font is Shelk-style, not Union-standard — visible from two feet away. "Buyer changes each run. Lot doesn\'t." He marks his board. "Exchange doesn\'t record pre-matched lots in the floor register. That\'s in the charter protocol." He says it the way a man cites a rule he didn\'t write and doesn\'t agree with.';
         addJournal('Freight Exchange pre-matched charter-exempt lot: Shelk-format manifest, rotating buyer names, no floor register entry — Hearthmark keeps personal record', 'intelligence', 'guild-orin-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1100,7 +1100,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The retraction slip is real and correctly formatted. The original posting it references is not in the board log. Tinmarch is located at the Exchange annex and confirms the sequence: he was told a notice had been posted using his registration mark and was directed to file a retraction immediately to prevent a procedural challenge to his status. "I filed it the same morning." He keeps the instruction slip in his coat. "Someone posted a notice in my name. I don\'t know what was on it. I never saw it. By the time I got to the board it had already been pulled."';
         addJournal('Notice Board: notice posted under Tinmarch\'s mark then pulled before he arrived — retraction filed on external instruction, original content unknown', 'intelligence', 'guild-renn-partial-' + G.dayCount);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 

@@ -38,7 +38,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Two of the three accounts are clearly ghost entries — no owner, no delivery receipts, no correspondence, just clean recurring figures moving through a registered slot. The third has enough layered transaction noise to be ambiguous without deeper access. Two confirmed ghosts are enough to establish the pattern and give the chain a starting point. The third can be resolved later.`;
         addJournal('Two ghost accounts confirmed — third ambiguous', 'evidence', `ith-ledger-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -70,7 +70,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The transaction log stays on the counter between you and Ivena as she speaks. She confirms irregular entries without naming them precisely, voice held steady and even. "I process what comes to me. What is above me is not my function." The phrasing arrives too cleanly — the rhythm of a sentence that has been rehearsed until its edges are smooth. She is confirming what she knows and drawing a careful line at what she will not carry.`;
         addJournal('Ivena confirms irregularities — careful deflection', 'evidence', `ith-ivena-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -104,7 +104,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three minutes, standing — no chair offered, no document produced. The accounts are not named directly. But there are pauses where there should not be pauses, and a stillness in the jaw when specific routing numbers are mentioned that only happens when the name is recognized. The Shadowhands have operational knowledge of these accounts. What the three-minute meeting cannot resolve is whether what they know is authorized from above or something running below the command line.`;
         addJournal('Velden meeting — Shadowhands knowledge confirmed, intent unclear', 'evidence', `ith-velden-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -135,7 +135,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `At the side altar, Brenn arranges the votive stones in a slow, deliberate order before speaking. The evening activity was real — multiple enforcement officers in the quarter after the compliance cycle closed, no unit identification marks visible on their gear. In Ithtananalor, enforcement officers without unit identification means Shadowhands operating outside standard logged duty. The absence of markings is itself the identifier. Brenn offers nothing further beyond confirming what was seen.`;
         addJournal('Brenn confirms unidentified enforcement evening activity', 'evidence', `ith-brenn-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -167,7 +167,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Four hours of ordinary enforcement quarter conversation — complaint about a shift assignment, a card game that ends poorly, a long argument about supply quality. Nothing explicitly incriminating. But the way two particular officer pairs communicate has a specific quality: gaps where names should appear, glances that carry shared meaning, a precision about what is not said that ordinary unit conversation does not produce. The operational knowledge is there. It's just distributed across the silences.`;
         addJournal('Inn observation — officer group cohesion suggests operational knowledge', 'evidence', `ith-harlan-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -198,7 +198,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The shadow market's outer tier is accessible — enough to observe the shape of what moves through it without being able to touch the interior channels. The cargo being traded requires enforcement authorization to handle without triggering the anti-magic statute: the classification alone confirms the accounts are moving contraband through the apparatus itself. The specific account numbers and routing codes sit deeper, behind access that the current position does not reach. The shape of it is there. The details are not.`;
         addJournal('Shadow market confirmed — arcane contraband through enforcement channels', 'evidence', `ith-shadow-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -229,7 +229,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The public record is clean and internally consistent — no disciplinary gaps, no command decisions that contradict the accountability pattern, no reassignments in either direction that suggest prior knowledge of the accounts. The evidence against the accounts is also real. Both things cannot be true at once unless the corruption is running below the threshold of his operational visibility, which is possible in a system this layered. The assessment cannot resolve it. A direct meeting is the only path left.`;
         addJournal('Roaz assessment — inconclusive, direct contact warranted', 'evidence', `ith-roaz-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -327,7 +327,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The indexes intersect, but the access tier available here grants headers only — case titles, dates, and classification marks, nothing below that surface. Four case numbers appear in both catalogues, the binding-law index and the enforcement catalogue sharing the same numeric spine at one point where the classification systems were never cleanly separated. The headers are benign. The case bodies require a clearance that a public seal cannot approximate. Enough to know the seam is real, and that someone had reason to let it stay unsealed. Not enough to open what sits behind it.`;
         addJournal('Archive seam located — four cross-referenced cases behind higher access', 'evidence', `ith-archive-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -356,7 +356,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The rotation is there — forty-minute intervals, pair-based, all markings absent from their gear. The pattern resolves before the balcony position becomes conspicuous and the exit is clean. What cannot be confirmed from this vantage is whether the pairs are watching the ward itself or watching a specific class of visitor to the terminals where the recent queries landed. The distinction matters considerably for what comes next. A ward-watch and a query-watch require entirely different responses, and the evidence from here is not enough to distinguish between them.`;
         addJournal('Second perimeter confirmed — targeting unclear', 'intelligence', `ith-perimeter-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -385,7 +385,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Brenn offers a ceremonial blessing — the shrine's standard cover for a brief exchange at the altar rail, low voices underneath the ritual words, the lamp oil smell of the side nave keeping the cold at arm's length. The officer has been at the threshold three mornings running. Brenn will not repeat what the officer said, only that the phrasing arrived already finished, built to be remembered and passed on. Whatever the sentence was, it was constructed to travel from one mouth to another. Brenn is choosing not to be the mouth that carries it forward.`;
         addJournal('Brenn confirms officer is seeding a message — refusing to transmit', 'evidence', `ith-brenn-pressure-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -417,7 +417,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The forwarding seal is in the uncollected tray. The registry date matches the week of the reassignment. The clerk confirms the credential mark is an internal enforcement division — not a regional posting, not a transit billet. The officer stayed in Ithtananalor under a reclassified unit designation. The unit name on the seal is partially legible through the wax impression: logistics, a word, then an authorization sequence the clerk will not read aloud.`;
         addJournal('Transferred officer seal recovered — stayed in Ithtananalor, reclassified unit', 'intelligence', `ith-officer-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -449,7 +449,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The threshold is 847 weight-units. Cross-referencing public audit schedules and trade registration floor values confirms the figure is not administratively standard — it falls below every published audit trigger in the registry by a margin too precise to be coincidental. The specific derivation requires a formula this analysis cannot reconstruct without restricted enforcement parameters, but the intentionality is clear. Someone calculated this number to avoid automatic detection.`;
         addJournal('Quota threshold 847 — non-standard, deliberately calibrated below all public audit triggers', 'evidence', `ith-quota-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -480,7 +480,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The physical survey of the three cold holds requires working through the service access on a maintenance schedule. Two hold examination confirms standard evidence protocols. The third is accessible from the exterior bracket only — the service hatch is sealed from inside. The temperature differential between the bracket and the wall surface is measurable with a hand pressed flat against the stone: colder than the other two, colder than necessary for evidence preservation. Something is stored there on a cycle that does not match the maintenance log.`;
         addJournal('Third cold hold exterior survey — below-protocol temp, sealed interior access', 'intelligence', `ith-cold-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -512,7 +512,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The exemption clause sits at the bottom of the third page, in a hand that tilts forward where the rest of the document tilts back. The ink in that section has a slightly different sheen under angled light — a different mixing ratio, a different preparation. Without laboratory comparison it cannot be confirmed as a later insertion, but the physical difference is present and consistent. The clause that grants enforcement bypass of containment protocols reads like it was added rather than written with the document.`;
         addJournal('Statute exemption — physical inconsistency suggests later insertion, unconfirmed without lab analysis', 'intelligence', `ith-statute-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -544,7 +544,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The ledger is accessible for thirty seconds before Harlan returns from the cellar stair. Eight entries are visible in that window — dates and unit abbreviations, nothing self-explaining. Three of the dates land within a day of ghost account transaction dates from the evidence already gathered. The unit abbreviation is consistent across all eight: a two-letter code that does not appear on any public enforcement org chart. The ledger closes when Harlan's steps reach the top of the stair.`;
         addJournal('Harlan ledger — eight entries visible, three dates match ghost account activity, unknown unit code', 'intelligence', `ith-harlan-ledger-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -576,7 +576,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The assay records for the three-consignment window are accessible at the summary level, the garrison stone of the service walkway cold through the boot soles as the vent deposits come into view above. The declared grade is IV across all three — a high-purity designation carrying significant quota value above Grade II material. The foundry vent deposit color visible from the walkway runs dark and sulfurous, a Grade II chemistry indicator, unambiguous to anyone who has spent time near a working smelter. The chemistry does not match the paper. Confirming the discrepancy precisely requires the technical intake records, a tier above what is available here.`;
         addJournal('Assay grade declared vs foundry vent chemistry mismatched — technical records inaccessible', 'intelligence', `ith-assay-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -607,7 +607,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Two mornings of observation confirm the courier stops at both the foundry dock and the cold hold on the same circuit. The stop duration is consistent: short enough that no goods exchange is possible, long enough that something else is happening. The gloves are the same style both mornings — indoor courier gloves, grip-reinforced, an unusual choice for a route that is mostly interior. The pattern is clear. The mechanism is not.`;
         addJournal('Courier route confirmed — same stops, same gloves, mechanism unclear', 'intelligence', `ith-courier-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -639,7 +639,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The secondary layer exists. Three notices visible from the available angle before the position becomes conspicuous — two carry the two-letter unit code, one carries a date and a status mark. The status mark uses a symbol that does not appear in any public enforcement cipher, which means it is internal to the unit. The board is a communication channel for the unlisted logistics sub-unit. Reading the full layer requires more time and a better cover than is available now.`;
         addJournal('Notice board secondary layer confirmed — unlisted unit communication channel', 'intelligence', `ith-noticeboard-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -671,7 +671,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The intake register shows a case number with an opening date and a sealed notation. The docket column is empty. The intake clerk, when asked about the procedural gap, consults a manual she has not opened in some time and confirms that sealed-before-docket requires a magistrate override — the system does not permit it otherwise. She cannot say who executed the override from her access tier. The case itself is sealed. The existence of the override is now documented.`;
         addJournal('Tribunal case opened-sealed-undocketed confirmed — magistrate override required, identity unknown', 'intelligence', `ith-tribunal-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -703,7 +703,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Ansel Druve does not produce her strip immediately, but she confirms she keeps one. The declared numbers come from the quota intake desk, not from her floor tally, and the two sets of numbers do not always agree. She characterizes the discrepancy as "measurement variance" in the same careful register Ivena used with her practiced deflection — the phrase of someone who has found a way to name the thing without carrying it. She did not say the numbers match. She said variance.`;
         addJournal('Supervisor Druve confirms pre-quota tally discrepancy — "measurement variance"', 'intelligence', `ith-supervisor-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -735,7 +735,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The personnel registry locates Pell Varic in the transit administration tier — a posting that takes a moment to find because it does not appear in the standard enforcement org chart. His formal query from eighteen months ago is listed as closed; the closure notation is brief and offers no substance. The transfer and the closure share a date proximity that is too tight for coincidence. Varic is findable. Getting to him without alerting whatever channel processed his original query is the problem.`;
         addJournal('Pell Varic located — transit admin non-posting, query closure date matches transfer', 'intelligence', `ith-varic-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -766,7 +766,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The exterior stairwell count from ground level: seven landings, six windows on the south face. The discrepancy is one floor. The seventh landing door is visible from the sixth-floor corridor through the gap between a storage rack and the wall — heavier frame, different hardware, no unit placard. The access system is independent of the floor below. Whatever occupies the seventh floor does not share access protocols with the standard enforcement quarter. The interior is not visible from this position.`;
         addJournal('Seventh floor physical evidence — heavier door, independent access, no placard', 'intelligence', `ith-logistics-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -798,7 +798,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The compliance ledger confirms auditor sign-ins for all three periods. The transit registry is accessible for the same date ranges and shows no arrival entry for the auditor's credential mark during any of the three windows. Both records cannot be accurate. The discrepancy is real and documented across two independent administrative systems that do not communicate with each other, which means the inconsistency has existed without being noticed or without anyone having cause to check.`;
         addJournal('Compliance sign-ins vs transit registry — auditor presence unverifiable across three periods', 'intelligence', `ith-auditor-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -812,7 +812,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(115, 'Ithtananalor Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The evidence map on the table has empty columns where the critical links should be — gaps that an enforcement apparatus practiced at self-protection will exploit the moment the package is presented. The ghost account chain requires full documentation across every step: origin authorization, routing, endpoint activity, and the chain of oversight that permitted it to run without intervention. A presentation now gives the apparatus room to discredit each piece individually, detaching them from the chain they form together until none of them carry enough weight alone. The chain needs closing before it goes anywhere.`;
-        G.recentOutcomeType = 'investigate'; return;
+        G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -829,7 +829,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ithtananalor S2 finale: independent disclosure path', 'evidence', `ith-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -851,12 +851,12 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The forest compact boundary is a legal demarcation that establishes which arcane activities require forest-authority licensing — anything within the boundary requires approval from the compact\'s oversight body. The archive map shows the boundary running along the eastern ridge. The physical markers in the ground run two hundred meters east of the ridge, which places the enforcement quarter\'s anti-magic statute coverage area inside the compact zone. Operations that need compact oversight have been conducted without it. The discrepancy is not new: the markers were moved six years ago. The archive map was never updated. Someone left both records to coexist.';
         addJournal('Forest compact boundary markers moved 200m east of archive map position — enforcement quarter operations in compact zone without required oversight for 6 years', 'evidence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.lastResult = 'The compact boundary map is a large-format document that requires the reading room\'s extended table to lay flat. The reading room extended table is reserved for the morning session — afternoon walk-in access requires a confirmed booking. The booking register for this week is full. The compact boundary position can be verified physically by walking the marker line, which takes two hours and produces no written record.';
         addJournal('Compact boundary archive map inaccessible afternoon — extended table reserved; physical marker survey possible but produces no record', 'intelligence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'complication';
         maybeStageAdvance();
       }
     }
@@ -878,7 +878,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The magical licensing register and the application log are two separate documents that are supposed to match — each approval in the register should correspond to a filed application. Cross-referencing the two reveals seven approvals in the register with no corresponding application: the approval was issued, the license number assigned, and the fee collected, but the originating application form does not exist in the log. The fee collection dates cluster around the same months the ghost ore accounts were active. The license fees went somewhere. The applications they purchased do not exist.';
         addJournal('Magical licensing register: 7 approvals issued with no corresponding applications — fee collection dates match ghost account activity period', 'evidence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -905,7 +905,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The subject index for arcane research materials runs from A to W. There is no X, Y, or Z section — the binding is intact on both sides of the gap, which means the sections were removed before the index was bound, not after. The removed sections covered research classifications beginning with the prefix "xen-" — a categorization used exclusively for cross-boundary arcane transfer, the class of activity the ghost accounts were funding. The removal was planned, not reactive. Whoever structured this archive knew what knowledge would need to be inaccessible before the accounts were ever opened.';
         addJournal('Arcane research index: xen- classification sections removed before binding — cross-boundary transfer research excised in advance of ghost account activity', 'evidence');
-        G.recentOutcomeType = 'investigate';
+        G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.lastResult = 'The subject index gaps are visible — sections missing from the binding — but the categories they covered are not labeled on any adjacent page. The archive attendant, when asked about the gaps, consults a procedure card taped inside the reference desk drawer. "Classification restructuring," she says. "Some categories were consolidated." The procedure card she consulted is dated two weeks ago. The restructuring explanation is recent enough to be a prepared response.';

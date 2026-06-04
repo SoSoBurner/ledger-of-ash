@@ -87,7 +87,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan confirms the requests without prompting — he's been expecting someone to ask. "An authority I cannot verify in three major legal registers is not an authority." He taps the file. Multiple requests, same fake citation, same pattern of targeted documentation. He has not complied with any of them. The refusals are logged carefully, each one cross-referenced to the register checks he ran. He has been building a record on the assumption that the record would eventually matter.`;
         addJournal('Suppression requests from unverified authority — Taldan declined compliance', 'evidence', `sun-taldan-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -115,7 +115,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Kael pulls the requisition from the bench shelf without ceremony and reads the spec line aloud before you can ask: insulation, not for temperature regulation. "More like signal damping," he says, turning the page to show the material notations. "Not standard convoy equipment — not anything I've built for a standard customer." He's already done the comparison in his head. He sets the sheet on the bench between you and picks up a caliper, waiting for the next question.`;
         addJournal('Signal-damping container insulation produced at Sunspire — not standard equipment', 'evidence', `sun-kael-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -144,7 +144,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Orvak sets the docket on the edge of the desk where you can both read it. The commissioning party is a subsidiary charter entity — he can confirm that, and confirm the reference code was used for the work order. The ultimate principal sits behind the subsidiary structure, and identifying them requires a compliance review order from the Adjudicator's board. "The subsidiary is real. What is behind it is not recorded here." He closes the docket with both hands and squares its edge with the desk corner.`;
         addJournal('Charter subsidiary confirmed as commissioning party — principal identification requires formal order', 'evidence', `sun-orvak-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -176,7 +176,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elyra's thumb flattens against the logbook cover while she speaks. She exhales through her nose — small, controlled. "Every indicator species has shifted northwest in the past four months. Something in the pressure gradient is wrong." Her thumb does not lift. She gestures with her other hand at a stack of copied reports on the counter. "I have filed these. No response has come back." The stack is taller than a week's worth.`;
         addJournal('Abnormal northwest migration — pressure gradient anomaly, unreported', 'evidence', `sun-elyra-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -204,7 +204,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Jorva squares the handler statements against her desk edge before she reads them out — corner to corner, a gesture she does not announce. External payments to three convoy handlers are confirmed. The documentation used by the payer was described as "sealed official charter." The handlers have not been forthcoming about what the work entailed. Her thumb rests on the corner of the squared stack while she waits for the next question.`;
         addJournal('External charter payments to convoy handlers — work nature undisclosed', 'evidence', `sun-jorva-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -356,7 +356,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Bessa pulls the index without ceremony and opens it to class 7-F. Diplomatic sealed correspondence. She reads the threshold aloud — twelve pounds — and then looks at the staging manifest on her desk without touching it. "I cite the number because the paperwork requires a citation. The paperwork has always required a citation." She closes the index. She does not say that the discrepancy is obvious, because she has already decided not to be the one who says it.`;
         addJournal('7-F diplomatic exemption applied to bulk cargo — staging clerk aware of weight discrepancy', 'intelligence', `sun-weight-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -387,7 +387,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The visitor log shows one entry in the last year — six months back, a charter reference and the notation "compliance review." The date is close to when Taldan's suppression files start. The name attached to the visit is written in careful block letters, not cursive, which is unusual for registry procedure. Whether the name is real or assumed cannot be determined from the log alone, but the charter reference number is legible and matches at least one number already in the file.`;
         addJournal('Off-site archive: one visitor six months ago, charter ref matches existing file — name unverified', 'intelligence', `sun-backup-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -419,7 +419,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elyra opens the ledger to the dispute entry and taps the reference number with one finger. A funded researcher filed, then withdrew three days later. No resolution record. The research topic — glyph pressure work — is listed as "suspended pending review." She keeps her finger on the entry. "I do not know why it was withdrawn. I know the researcher did not contact me before he withdrew it." She closes the ledger with both hands, squaring the cover.`;
         addJournal('Mossbane ledger: glyph research dispute withdrawn without patron contact — research suspended', 'intelligence', `sun-dispute-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -451,7 +451,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The bay is narrow, stone-floored, with a low table at center and a set of brass anchor points spaced along its edges. The anchor point spacing is wider than standard workshop fixtures. The table surface carries shallow scoring in a grid — not random wear, too even. Kael stands at the door and says nothing, which is its own answer. The dimensions of the anchor point array are close enough to the container specs in his requisition records to ask whether they are the same.`;
         addJournal('Sealed bay contains brass anchor array matching container dimensions — table scoring consistent with pressure calibration', 'intelligence', `sun-bay-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -482,7 +482,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The workspace door is unlocked — the closure paperwork has not caught up to the room yet. The slate board carries partial notation in a small, dense hand: threshold values for glyph pressure dispersal, a column of container weight estimates. The glass vessels on the bench are residue-clouded, not cleaned. Whatever Orvaith was building toward, he left in the middle of a working session rather than at a natural stopping point.`;
         addJournal('Orvaith workspace: pressure threshold notation and container weight estimates — abandoned mid-session', 'intelligence', `sun-orvaith-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -513,7 +513,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Pelsa opens the log to the gap and keeps his thumb on the edge of the page rather than pointing directly at anything. "Protocol override stamp. Used when the Adjudicator's office has already logged the transit." He turns the page. "These entries have the stamp but no corresponding Adjudicator log number in the margin." He closes the log and sets it square with the desk corner. He does not say what that means because he does not want to be on record as saying it.`;
         addJournal('North gate: override stamps with no Adjudicator log numbers — procedural gap confirmed', 'intelligence', `sun-gate-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -545,7 +545,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Jorva squares both documents against the desk edge before she compares them. Physical count is lower than the registry total — consistently, across the last two complete reporting cycles. She sets her hand flat on the count sheet. "A discrepancy this consistent is not measurement error." She pulls a separate form from the drawer: a communal resource displacement report, blank, date-ready. She has not yet decided whether to file it.`;
         addJournal('Grain stock vs registry: consistent discrepancy across 2 cycles — Jorva has blank displacement report ready', 'intelligence', `sun-grain-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -575,7 +575,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Tavar Brenn picks a thread from his sleeve hem and works it without pulling while he decides what to say. "Loading work. Nothing I was not told to do." He sets the thread down. "The containers were heavier than the documentation said they were." He does not elaborate on how he knew what the documentation said. He finishes the meal and leaves without being dismissed, and the thread is still on the table.`;
         addJournal('Handler confirms containers heavier than documentation declared — aware of documentation', 'intelligence', `sun-handler-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -605,7 +605,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The rotation board shows the modification period as double-staffed night watch under a nonstandard notation. The names are in chalk and the board is a working document — they will be wiped when the next rotation cycle posts. Three of the four names are already in Jorva's payment file. The fourth is a staging hand whose name appears only in this six-week window and nowhere before or after it.`;
         addJournal('Rotation board: 4th handler name appears only during container work window — not in payment file', 'intelligence', `sun-watch-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -638,7 +638,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elyra opens the logbook past the last submitted entry and holds it open without narrating the contents. The entries visible are marked with small field-notation codes alongside the ecological data — a secondary column, not standard patrol format. Her thumb finds the spine. "I kept more than I filed." She does not say why, but the field notation codes appear in a consistent pattern alongside the dates of the container modification work.`;
         addJournal('Mossbane logbook: secondary notation column alongside container work dates — unfiled field data confirmed', 'intelligence', `sun-elyra2-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -668,7 +668,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Mirren reads the first suppression request without touching it and tilts her head. "The slope is wrong for a local hand. We write right-forward here." She moves to the second request and the third. "Same person. Not from Sunspire, not trained here." She sets the stamp callus on her ring finger against the edge of the page without pressing it. "The letterhead looks pressed, not institutional. Portable equipment." She steps back and leaves the comparison to you.`;
         addJournal('Suppression requests: non-local hand, portable press letterhead — external author confirmed', 'intelligence', `sun-author-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -700,7 +700,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Orvak opens the charter entry file to the secondary signature line and sets a finger alongside it without covering the name. "An external agent is permitted to sign on behalf of a subsidiary principal under entry protocol." The name is legible. He closes the file and squares it with the desk edge. "I am not authorized to provide further biographical detail on charter signatories. The name is in the public entry record."`;
         addJournal('Charter entry record: local agent name identified in public secondary signature — no further detail available', 'intelligence', `sun-agent-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -733,7 +733,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The suppression target list and the Compact practitioner citations overlap across eight of the fourteen papers. The pattern is specific enough to hold weight. Taldan pulls the overlap documents and sets them aside from the main stack. "These eight were the ones they pushed hardest on," he says. "I refused all fourteen, but the pressure on these was different. More persistent." He squares the stack. He does not say what that implies, but he has been thinking about it.';
         addJournal('Eight suppression targets overlap with Compact-cited papers — most persistent suppression on Compact-linked countermeasures', 'evidence');
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -768,7 +768,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan confirms the second tier exists and sets the authorization form on the reading ledge without opening it. The form has not been revised in eighteen months — he supplies this detail unprompted, running a finger across the document date. The last revision coincides with when the northern convoy pattern changed. He closes the form. He will not open the tier itself without a cross-registry authorization, but he has said everything else.`;
         addJournal('Registry second tier confirmed — authorization form revision date matches convoy pattern shift', 'evidence', `sun-taldan2-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -800,7 +800,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan opens the intake ledger without hesitation and runs his thumb along the stamp sequence until it jumps. He keeps his thumb at the gap. "Administrative relocation," he says. "That notation does not appear anywhere else in the seven-year ledger." He does not move his thumb. The gap runs three weeks and covers the same period as the container modification work. He closes the ledger with both hands.`;
         addJournal('Registry intake gap: 3-week administrative relocation notation — unique in 7-year ledger', 'intelligence', `sun-intake-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -830,7 +830,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan holds the access log open to the charter reference entries while you compare dates against the suppression request stack. The references align — access visits, then suppression requests, same material, same charter number. He sets the log flat. "The party accessed the material. Then tried to ensure no one else could." He squares the log with the desk edge and does not say what that sequence of events suggests. He doesn't need to.`;
         addJournal('Access log dates precede suppression requests — party accessed then attempted to suppress same documents', 'intelligence', `sun-accesslog-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -860,7 +860,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan gestures toward the reading-room door without leading the eye directly to the seals. "The wards were upgraded four months ago. I commissioned it through the craftsman registry." The resin is visibly newer than the stonework around it. He sets his hand on the door frame beside the seal rather than on the seal itself. He does not explain the timing. The first suppression request arrived five weeks before the upgrade.`;
         addJournal('Registry ward upgrade commissioned 4 months ago — new resin visible, timing near suppression request period', 'intelligence', `sun-wards-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -889,7 +889,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan opens the register to the relevant week without checking the index — he knows where it is. Two withdrawals, same week, no stated reason on either. He keeps the register open. "The withdrawal notation is standard. There is nothing in the record that says why." His thumb finds the spine. The date sits inside the window when the suppression pressure was most active.`;
         addJournal('Two researcher withdrawals same week — no stated reason, timing inside peak suppression window', 'intelligence', `sun-withdrawals-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -919,7 +919,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The two-letter code "WH" appears in eight index entries, all within the glyph countermeasure sub-collection, all added in the same period. The standard locality codes Sunspire uses are three letters. This one is shorter and appears in no Sunspire district mapping. Whatever it refers to is outside the usual index structure. The entries it appears in are the same eight that drew the most persistent suppression pressure.`;
         addJournal('Unknown 2-letter cross-reference "WH" in 8 high-pressure suppression targets — outside standard locality code system', 'intelligence', `sun-crossref-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -948,7 +948,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The Accord's binding runs from page 1 to 84, then skips to 112. The index lists a third annex. Taldan sets the document flat and opens it to the gap without directing attention to it. "I noticed this during a routine collection check. The intake record shows the document as received complete." He does not say when he noticed. He sets the Accord square with the reading ledge and waits.`;
         addJournal('Northern Charter Accord: binding gap at pages 84–112, third annex listed but absent — Taldan aware', 'intelligence', `sun-accord-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -979,7 +979,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elyra holds the patrol log open without pointing at the relevant sections. The routes on the page curve away from the northern staging road — it is visible in the route line itself, the drawn path bending east. "Charter activity on that road means I route my people around it." She closes the log with one hand. "I have not been told when the charter activity ends."`;
         addJournal('Elyra patrol routes curve east of northern staging road — charter activity ongoing, no end date given', 'intelligence', `sun-elyra3-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1008,7 +1008,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Kael slides the machinery log to the edge of the bench where both of you can see it. He taps the gap with the caliper. "Three convoy cycles. No entries." He says this without explanation. The log is otherwise meticulous — daily notation, equipment check stamps, a consistent hand. The gap sits inside the container modification window. He sets the caliper down and waits for the next question without picking it back up.`;
         addJournal('Machinery log gap: 3 convoy cycles with no entries — otherwise meticulous record, gap inside modification window', 'intelligence', `sun-kaellog-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1037,7 +1037,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Orvak sets the after-hours log on the desk and opens it to the relevant entry without prompting. A party with sealed charter documentation came after second bell. He declined. The charter reference in his log matches the subsidiary code. He squares the log with the desk edge before closing it. "I record everything after second bell. It is a policy I applied before this specific situation arose." He does not say when the policy started.`;
         addJournal('After-hours access attempt with subsidiary charter ref logged by Orvak — declined, fully documented', 'intelligence', `sun-orvakbell-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1066,7 +1066,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Jorva sets her hand on the new lock without pointing at it. "Two months ago, the records room was accessed after bell hours." She does not say by whom. She squares the ledger corner to corner. "I added the lock after. That is not unusual — it is what you do when you find a door open that should be closed." Her thumb rests on the clasp plate and does not leave it.`;
         addJournal('Communal records room accessed after-hours 2 months ago — new lock added by Jorva, no identification of party', 'intelligence', `sun-jorvalock-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1096,7 +1096,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan pulls the denial letter from his outbox without prompting. Two months ago, denied. "Charter sovereignty of transit records" — he reads the phrase aloud and sets the letter square with the reading ledge. "That phrase does not appear in any charter I can locate." He closes the denial. The petition is still in the tray behind him, not yet archived. He has not decided what to do with it.`;
         addJournal('Taldan oversight petition denied — "charter sovereignty of transit records" phrase not found in any charter', 'intelligence', `sun-taldanoversight-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1126,7 +1126,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elyra exhales through her nose — small, controlled — and keeps her thumb on the spine. "I knew him. We worked in proximity on field data." She does not elaborate. "He sent me materials before the withdrawal. I have them." She does not say what the materials are or where they are kept. The logbook stays closed under her hand and she waits.`;
         addJournal('Elyra knew Orvaith, received materials before his withdrawal — will not specify contents or location', 'intelligence', `sun-elyraorvaith-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1156,7 +1156,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Kael sets the caliper down and exhales. "The spec notation matched something I'd built before. Different size, same layering logic." He does not say who the prior commission was for. He taps the new commission spec with one finger. "When you see the same abbreviation system twice, you know it's the same desk." He picks up the caliper and goes back to the bench, which closes the conversation.`;
         addJournal('Kael: new commission spec matches prior work abbreviation system — same operator, origin undisclosed', 'intelligence', `sun-kaelguild-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1188,7 +1188,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The public map and the handler's route sheet don't match — two stops on the handler's sheet don't appear on the public version. One is marked "WH-1," the second "WH-2," both using a designation that doesn't correspond to any Roadwarden waypoint code in the index. The public map shows forest at both locations. Whatever the waypoints are, they are maintained under a separate notation system.`;
         addJournal('Two unlisted waypoints WH-1 and WH-2 on handler route sheet — not on public Roadwarden map', 'intelligence', `sun-waypoints-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1217,7 +1217,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Pelsa opens the transit log without prompting and sets it beside the road infrastructure guide. The axle-load section gives a depth-to-weight table. He taps the rut depth column and then the declaration weight column. They do not agree. He does not say the discrepancy is intentional. He closes both documents and squares them with the station edge, which is its own kind of statement.`;
         addJournal('Axle-load depth vs weight declaration mismatch — Pelsa demonstrated comparison without comment', 'intelligence', `sun-weight2-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1246,7 +1246,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three registries checked — no Creston Halt in any of them. The manifest origin is a locality name that sounds functional but leaves no trace. Taldan sets the manifest flat. "This is not an error. Errors produce a name that exists but is wrong. This name simply does not exist." He squares the document. The cargo cleared the gate regardless because the 7-F exemption waived origin verification.`;
         addJournal('Manifest origin locality nonexistent across 3 registries — 7-F exemption waived verification', 'intelligence', `sun-manifest-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1275,7 +1275,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Jorva opens the equipment registry and squares the crane lease entry against the desk edge before reading it aloud. Rented by the charter subsidiary, same period as the container work. She sets the rated capacity figure beside the declared container weight figures. "The crane is rated for considerably more than the declared cargo weight would require." She closes the registry. She has done the arithmetic already.`;
         addJournal('Crane rental: charter subsidiary, rated capacity exceeds declared container weights by 2.4x', 'intelligence', `sun-crane-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1304,7 +1304,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Nevel rotates the route token once before speaking. "We were rerouted. Charter override, north of the standard exit." She sets the token flat. "The stop was not on any map I carry. There was loading equipment already there." She does not say what was loaded or offloaded. She picks up the token and pockets it, which closes the subject. She has said more than she planned to when she sat down.`;
         addJournal('Driver confirms charter-override reroute to unmapped waypoint with pre-placed loading equipment', 'intelligence', `sun-drivers-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1335,7 +1335,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The slate board threshold and the container calibration specs from the sealed bay point in the same direction: an activation mechanism that requires external glyph pressure applied within a specific range. The compound stays inert below the threshold. Applied at calibration range, it activates. The Sunspire calibration work was precision work — not rough approximation but exact threshold-setting to prevent transit activation.`;
         addJournal('Container calibration sets activation threshold — compound inert below range, activates under precise applied pressure', 'intelligence', `sun-compound-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1368,7 +1368,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The evidence threads converge: a compound that disrupts glyph ward maintenance frequencies, delivered in sealed containers, calibrated to activate under specific pressure, documented to suppress countermeasure research. The result is ward degradation over weeks — slow enough to appear as maintenance attrition, traceable only if you know what the countermeasures were designed to find. The suppression campaign removed the detection tools before the compound shipped.`;
         addJournal('Compound identified as ward-maintenance frequency disruptor — degradation mimics attrition, countermeasure suppression removed detection', 'evidence', `sun-purpose-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1397,7 +1397,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The calibration bay is at Sunspire's highest point — maximum elevation within the settlement. The sealed bay's anchor spacing matches containers designed to hold a compound at rest at this altitude's ambient pressure. Lower elevation means higher ambient glyph saturation. A compound activated by applied pressure needs ambient saturation below its activation threshold during transit. Sunspire provides exactly that.`;
         addJournal('Calibration bay at maximum elevation — altitude provides ambient pressure below activation threshold for safe transit', 'intelligence', `sun-altitude-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1426,7 +1426,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Container volume at eight-fifty pounds, combined with the dispersal medium residue profile from the workspace vessels, gives an approximate radius: large enough to cover a locality district at this elevation. Sufficient to disrupt the ward structure across an inhabited area, not just a single building. The dataset would confirm whether that estimate is conservative or accurate. Elyra has the dataset and has not yet said whether she will share it.`;
         addJournal('Estimated dispersal radius: locality-district scale — Elyra dataset would confirm, not yet offered', 'intelligence', `sun-radius-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1458,7 +1458,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The subsidiary's registered address is in Guildheart — visible on the adjudication record's filing header, not protected by confidentiality because it is a commercial public registration. Orvak leaves the document open where the address is legible. "Registered addresses are public charter record," he says, closing the file with both hands once the information has been read.`;
         addJournal('Charter subsidiary registered in Guildheart — address visible on public adjudication filing header', 'intelligence', `sun-guildheart-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1489,7 +1489,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Taldan opens the northern circuit correspondence file to a Watchers Perch letter, two months old. The post there received suppression requests that match the Sunspire pattern — same fake regulatory authority, same targeted documentation category. Taldan sets the letter beside his own suppression file. "They acted before reaching us. Whether they succeeded there, I cannot say from this correspondence alone."`;
         addJournal('Watchers Perch received identical suppression requests 2 months before Sunspire — prior locality targeted first', 'intelligence', `sun-priorloc-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1503,7 +1503,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(104, 'Sunspire Haven Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The documentation is incomplete. The subsidiary charter, the container modification records, the suppression requests — they point in the same direction, but the chain between them has gaps. Presenting this to the Patron-Family council or releasing it publicly without a closed chain gives the other side room to discredit the pieces rather than answer the whole. More threads need to be followed before the next move.`;
-        G.recentOutcomeType = 'investigate'; return;
+        G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -1520,7 +1520,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Sunspire S2 finale: suppressed countermeasure docs published via Knowledge Registry', 'evidence', `sun-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 

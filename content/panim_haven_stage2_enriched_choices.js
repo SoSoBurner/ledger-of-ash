@@ -93,7 +93,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three entries stand out clearly under the lamplight of the records room. You document them and note what they share: all three involve memorial service dates that cluster within a four-day window, twice in six months. The smell of old paper and cold stone fills the narrow reading space. Single irregular entries can be administrative error. The clustering is not. Whatever produced these entries ran on a schedule, and schedules leave traces.`;
         addJournal('Ledger clustering pattern identified', 'evidence', `panim-ledger-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -124,7 +124,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The office door stays open when Elior speaks, which keeps the exchange on the record. The backlog exists and is sealed — he confirms this without hesitation. Formal authorization is required before it opens. The suppression pattern is real, long-standing, and documented. He is telling you as much as he can within the boundaries of what his position permits him to say.`;
         addJournal('Elior confirms suppressed backlog — access refused without authorization', 'evidence', `panim-elior-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -154,7 +154,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The reroutes are real and recent. Three specific streets have been systematically deprioritized in official processional scheduling across the last three months. The reason given in each case is "ritual traffic management" — a designation that requires no further documentation and carries no review requirement. The salt-and-pitch smell of the harbor reaches even here, carried on the morning air through the open corridor window. Whatever changed the scheduling had access to the notation system and knew exactly which label to apply.`;
         addJournal('Processional reroutes confirmed — ritual traffic cover', 'evidence', `panim-process-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -184,7 +184,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Saryna confirms the irregularities and produces three flagged entries from the copy she keeps beneath the market stall's supply shelf — the originals never came back. Her thumb keeps the corner of each page flat while you read. The suppression chain stops at the mediation oversight level, one rank above Elior. That rank is not accountable to civic review without a formal inquest, and a formal inquest requires standing that neither of them holds. The stall's offering candles gutter in the harbor draft.`;
         addJournal('Saryna flags confirmed — oversight suppression chain', 'evidence', `panim-saryna-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -215,7 +215,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Velune confirms unusual evening visits with her back to the shrine's offering shelf, not looking at you directly — the attendant's habit of maintaining witness distance from difficult disclosures. The lamplight in the shrine catches the mineral dust that settles on every surface near the harbor. "Someone who knows how to use the shrine without being known here." She pauses and adds nothing further. That phrasing is specific enough to tell you the person is trained, and trained in this particular tradition rather than a neighboring one.`;
         addJournal('Velune confirms unusual shrine visits — trained visitor', 'evidence', `panim-velune-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -245,7 +245,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Ithren confirms unusual cargo movement without details. The harbor smell — salt, cured rope, old wood — is strong near the porter's gate where he stands, and he does not step away from it to continue the conversation. "Some things arrive as one type and leave as another. I don't ask. That's not my role." He sets his hand on the gate register with a flat, decisive weight and holds eye contact long enough for you to understand this is as much of an answer as the role permits him to give.`;
         addJournal('Ithren confirms cargo irregularity — no details given', 'evidence', `panim-ithren-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -308,7 +308,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Six files before the watch rotation closes the window. The candlelight is dim enough to work by and no more. Each page confirms what the daylight work suggested: the transaction chain is real, structured, and older than the past six months. Two endpoints emerge with enough clarity to act on. The full thirty-one remain sealed. What's in hand is a foothold, not a complete picture.`;
         addJournal('Registry partial access — transaction endpoints identified', 'evidence', `panim-registry-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -338,7 +338,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three guests, no names offered — Merev makes this boundary clear before beginning the description. They spoke quietly and occupied the same corner table each visit. Payment came in exact amounts, no exchange of change. "Everything about them was deliberate. That's what I remember most." A cloth is folded and set down. The description ends there, but the observation itself is sharp enough to be useful.`;
         addJournal('Memorial Inn — deliberate guests noted without detail', 'evidence', `panim-merev-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -367,7 +367,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The pattern is there but stops short of proof of intent. Specific cases routed to defer at predictable intervals, the scheduling notation consistent enough to suggest a practiced hand rather than administrative drift. Someone with access to the mediation hall's priority queue has been making quiet adjustments. The scheduling system requires a clerk-level appointment to modify. That narrows the field without closing it.`;
         addJournal('Backlog management pattern — scheduling access implicated', 'evidence', `panim-backlog-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -480,7 +480,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Nemeia confirms the unsealed shipments without naming count. The coffin bench smell is close here — pine pitch, linen, the mineral cold of worked stone — and she does not step away from her work to answer. "More than one. Less than ten. All in the last season. All cleared above my head." She taps the bench surface twice with two knuckles, a foreman's punctuation, and returns to her crew without further eye contact. The confirmation is all she will give today, and she has given it clearly.`;
         addJournal('Nemeia confirms unsealed shipment pattern — count withheld', 'evidence', `panim-nemeia-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -508,7 +508,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The figure emerges at exactly the third hour, crosses the courtyard on a line that keeps to the shadow of the colonnade, and exits through the porter's gate as Velune described. The night carries the smell of low tide and cured fish from the harbor below. You catch the shape of a covered cart waiting beyond the arch, the driver's face turned away, but cannot reach a position to read the axle plate before it rolls. The route is confirmed. The seal is not yet.`;
         addJournal('Egress route confirmed — cart seal unread', 'evidence', `panim-egress-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -540,7 +540,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The registration address is real on paper and wrong on the ground. A note in the margin of the third renewal says "address under civic review" — a designation that has sat unchanged for seven years without triggering any suspension of the charter's active status. The district archive carries the smell of old wax and damp stone through its reading room. The entity's account activity is current; the address is not. Whatever administrative mechanism should have caught this gap and closed the charter, it did not run.`;
         addJournal('Northern charter — valid accounts, unresolvable civic address', 'intelligence', `panim-charter-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -572,7 +572,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The interior confirms use without revealing what it holds. The stone bench carries weight marks from regular loading — rectangular, consistent with standard memorial containers. The floor near the southwest corner shows fine grit swept into the mortar lines but not out of them. Something rested here often enough to leave the pattern. Whatever was stored here was moved with care, not in haste.`;
         addJournal('Unregistered building — load marks confirm storage use', 'evidence', `panim-building-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -604,7 +604,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Caldor deviates once — a brief stop at a chandler's shop that reads as routine. Duration too short for an actual purchase. The shop closes its shutters from the inside while he is there. He emerges and continues without looking back. The deviation is documented. The chandler's shop location and the northern charter's registered trade address are worth cross-referencing before taking the next step.`;
         addJournal('Caldor route deviation — chandler stop duration noted', 'intelligence', `panim-caldor-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -636,7 +636,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `One cart in three carries a seal that does not match its manifest type. The axle plate is readable for a half-second as the cart rounds the lane corner — oversight-tier denomination, not funerary service. The driver's route takes the cart past the archive annex and continues without stopping. Where it stops is beyond the visible section of the lane from this position.`;
         addJournal('Freight lane — mismatched seal cart confirmed, destination unclear', 'intelligence', `panim-freight-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -668,7 +668,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Orvath confirms the reports without producing them. Three filings, three identical responses, all from the same oversight tier signatory. He does not name the signatory — the name is in the reports and the reports are filed. He confirms they are accessible through the district archive intake log. That log is public record. The path to the reports does not require his cooperation; he is telling you this without saying it directly.`;
         addJournal('Orvath — three oversight-suppressed reports accessible via archive intake log', 'intelligence', `panim-captain-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -700,7 +700,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The current quarter's permits are open stack. Four of the twelve sealed cargo shipments bear the same signatory in the oversight-tier authorization field — a name that does not appear on any other cargo permit category in the same period. The name itself is not yet readable from this position in the file; the signature's style is consistent and trained, the work of someone who authorizes documents as a regular function of their role.`;
         addJournal('Memorial cargo permits share signatory — identity not yet confirmed', 'intelligence', `panim-transit-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -732,7 +732,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The fold lines carry a deposit that does not match incense residue in color or texture — it is dry, pale, and crystalline where incense ash is dark and oily. The compound is familiar in broad category: mineral salts used in storage. The specific formulation would require a reference text to narrow further. What is already clear is that ritual wrapping cloth should not carry this residue at all.`;
         addJournal('Wrapping residue — mineral salt, non-ritual, storage category confirmed', 'intelligence', `panim-residue-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -764,7 +764,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The family describes the transaction clearly: paid in advance, received a reference number, arrived to find no record. The clerk told them the file had been archived under a different classification and offered a refund. They are still deciding whether to accept. The reference number on their receipt is the kind that should trace back through the ledger system — it is worth cross-referencing against the phantom contract cluster.`;
         addJournal('Family testimony — advance payment, record gap, reference number to trace', 'intelligence', `panim-family-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -796,7 +796,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The back room is in use as a correspondence staging point — writing supplies, a correspondence box, wall hooks for message tubes. Nothing currently present that names a party or purpose. The desk surface carries ink patterns from recent drafting: two documents, one shorter than the other, both produced with the same pen. The setup is administrative, not commercial. A chandler's back room furnished as a relay station.`;
         addJournal('Chandler back room — correspondence relay point confirmed, no current contents', 'intelligence', `panim-chandler-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -829,7 +829,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The public summary of Caldor's appointment lists four notary signatures and standard authorization dates. The dates themselves do not flag anything from the summary alone. The full appointment record — which would show each notary's own registration date — requires the restricted access level the current overview review controls. The summary contains enough to know the question is worth asking with proper authorization.`;
         addJournal('Caldor appointment chain — four notaries, full records blocked pending review', 'intelligence', `panim-notary-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -861,7 +861,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The log shows unscheduled arrivals in the right column for the past quarter — more than the scheduled deliveries in some weeks. The notation field for these arrivals reads "OT auth" — an abbreviation that could mean oversight-tier authorization, but the full form is not defined on the log header. The volume of unscheduled arrivals at an archive annex is unusual enough to document. What went in has not been cross-referenced yet against what the annex officially holds.`;
         addJournal('Archive annex — unscheduled arrivals exceed scheduled, OT auth notation', 'intelligence', `panim-annex-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -892,7 +892,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The trade charter records are public. Of the twenty-seven sanctuary names, twelve appear in a northern district trade charter as registered laborers. The charter entity is not one you have seen before — a different name from the ghost subsidiary but with the same northern quarter address structure. The remaining fifteen names do not appear in any accessible record. Trade charter registration without congregant or transit history is unusual. The combination warrants further access.`;
         addJournal('Twelve sanctuary names on northern charter roster — entity differs from known subsidiary', 'intelligence', `panim-roster-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -924,7 +924,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The waterworks record is available at the civic works office and shows the conduit path through the memorial district. The route passes beneath a section of the district that includes the unregistered building's block. Whether the conduit has an access point directly under that building requires the maintenance map, which the counter clerk says is filed separately under infrastructure reference. That map is available but requires a half-day processing request through the district registry.`;
         addJournal('Shrine conduit traced to unregistered building block — maintenance map pending', 'intelligence', `panim-water-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -957,7 +957,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The clustering is real and not explained by any scheduling or denominational sorting rule Marrowen names. She produces the standard categories without hesitation and none of them produce spatial groupings. Whatever sorted these contracts into a cluster did so through physical origin, not administrative process. That narrows where the contracts entered the registry from but does not yet name who carried them.`;
         addJournal('Afterlife ledger clustering — spatial origin confirmed, entry point unidentified', 'evidence', `panim-cluster-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -992,7 +992,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Celis confirms the pattern without opening the ledger. Several families presented valid memorial contracts for relatives who could not be located in the registry under any name variant or date. She directed them to the formal petition process. She cannot say what happened to those petitions after they left her office. Her expression carries the specific flatness of someone who knows the answer and has concluded that knowing it is not the same as being able to do anything about it.`;
         addJournal('Celis confirms registry-absent family cases — petition outcomes unknown', 'intelligence', `panim-celis-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1027,7 +1027,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Toriel has noticed the reroutes and is willing to say so. The specific detail she offers is small and precise: the gap always begins two hours before the dawn bell and resolves before the first services. She has never seen a posted reason. The Mortuary Hall does not post processional schedules — she checks the route boards the way anyone who works the block does, out of habit. The gap has been long enough to become routine.`;
         addJournal('Toriel confirms processional gap timing — pre-dawn window, no posted reason', 'intelligence', `panim-toriel-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1063,7 +1063,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The mediation oversight correspondence index is produced on schedule. It lists document categories, date ranges, and originating parties without full names — a reference summary. One category appears more frequently than the others in the past eight months: sealed correspondence between the oversight tier and the district archive annex. The volume of that correspondence category is three times any comparable period in the five years prior. What those documents contain is not in the index. The frequency itself is the find.`;
         addJournal('Panim Archives index — sealed oversight-annex correspondence volume tripled in eight months', 'intelligence', `panim-pelor-partial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1096,7 +1096,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Eleven months of entries share the same format deviation: the second witness line is blank. The pattern holds across every entry in that window without a single exception. Earlier volumes show both lines signed. No administrative memo marks the change. The second witness was quietly removed from the process at some point, and the ledger kept moving forward as if the line had always been decorative.`;
         addJournal('Afterlife ledger: second witness column systematically vacant — eleven months', 'evidence', `pan-witness-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1127,7 +1127,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three entries show the ledger date recorded after the contract filing date — a sequence that should not be possible. The ledger is supposed to exist first; the contract is supposed to follow it. These three entries invert that order by three to five days each. It is a small gap. Small enough to survive a casual review and large enough, for anyone who knew what to look for, to make the entire sequence of filings fall apart.`;
         addJournal('Death-date sequence inverted in three entries — contracts predate registry', 'evidence', `pan-datecheck-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1160,7 +1160,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Seven entries carry addendum packets affixed to the back cover page rather than filed separately, which the archive protocol requires. The packets are sealed with a stamp not visible in the reference index of authorized clerical marks. Addenda are supplemental documents — they are not supposed to travel with the primary ledger at all. Whatever is inside those seven packets was meant to stay close to these specific entries and stay unread.`;
         addJournal('Seven ledger entries carry unauthorized addendum packets — unregistered seals', 'evidence', `pan-addenda-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1191,7 +1191,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The entries written during the quarterly sealed mediation periods use a different ink than the rest — slightly lighter under indirect light, with a finer spread across the parchment grain. No supply requisition in the archive record accounts for a second ink formula. The clerk who orders supplies uses a single standard blend. Whatever brought the second formula into the archive did not come through the normal procurement channel.`;
         addJournal('Ledger ink formula shifts quarterly — no supply order on record', 'evidence', `pan-ink-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1223,7 +1223,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Earlier volumes carry a consistent pattern of margin annotations — procedural cross-checks, date confirmations, and discrepancy flags written in a second hand alongside the primary entry clerk's script. That second hand disappears at the same point the sealed record volume increases. The annotations don't thin out gradually. They stop on a specific date and do not return. Whatever the second annotator was flagging, someone ensured they would not be flagging it anymore.`;
         addJournal('Margin annotation second hand stops — coincides with sealed record expansion', 'intelligence', `pan-margin-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1254,7 +1254,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Fourteen entries in the past eight months carry a filing initial that does not match any current archive staff member. Cross-referencing the current personnel register against the initial produces no match. The most recent volume of the personnel roster does not show the initial's owner at all. The entries are recent — within the current archive period — but the clerk whose mark they carry has not been on staff for long enough that their name no longer appears in the current roster books.`;
         addJournal('Ghost clerk initial in 14 recent entries — no current staff match', 'evidence', `pan-ghost-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1289,7 +1289,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elior confirms the records are sealed and says that sealing decisions rest with the senior mediator's discretion under standing clerical charter. He does not confirm or deny the timing. His eyes do not move to the sealed folder on the desk — he has been careful not to look at it since the conversation began, which is its own kind of answer. Route adjustments and mediation business are separate offices, he says again, and returns to the document he was reading before the door opened.`;
         addJournal('Elior Sepulcher: confirmed sealed records, denied route-connection — deliberate misdirection noted', 'intelligence', `pan-elior-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1320,7 +1320,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Merev confirms she maintains a parallel lodging register. She keeps it because the civic form's categories don't capture what she actually needs to track. She does not offer to show it, but she does not move it off the counter either. She mentions, without being asked, that she has had several guests over the past year whose stays coincided with mediation sessions — guests who paid in advance and left no forwarding address. She names no names. The ledger sits between them on the counter.`;
         addJournal('Merev Sepulcher: parallel lodging register confirmed — mediation-window guests noted', 'intelligence', `pan-merev-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1351,7 +1351,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Saryna confirms the gap. That week's receipts are not in the archive sleeve where they should be. She says there is a withdrawal record — someone pulled the batch with proper authorization — but she cannot produce the receipts themselves because they are not here. She knows who the withdrawal was attributed to by office, though not by name. She writes the office on a slip of paper and slides it across the counter with the same motion she uses for change.`;
         addJournal('Saryna: receipt batch withdrawn under district office authorization — office name provided', 'evidence', `pan-saryna-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1382,7 +1382,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Velune confirms the pattern before the question is fully framed. Three regular attendees are never present on sealed mediation days. She noticed it herself several months ago and made a note in the log margin. She does not know where those three are on those days — only that they are not at the shrine. She recites their names from memory without looking at the log. She has been keeping track without knowing what she was tracking.`;
         addJournal('Velune: 3 regular attendees consistently absent on sealed mediation days — names known', 'evidence', `pan-velune-att-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1413,7 +1413,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Ithren's porter log lists eleven cargo movements during the processional no-traffic periods — hours when the road should have been cleared of all freight traffic for ceremonial use. The entries have no consignee name on any of them. Ithren says he filled in what the authorization slip told him to fill in. The authorization slips for those eleven runs are not attached to the log entries. He stored them separately, he says. He is not certain where separately is.`;
         addJournal('Ithren: 11 cargo movements in no-traffic windows, no consignee, authorization slips missing', 'evidence', `pan-ithren-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1446,7 +1446,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Elior's handwriting is recognizable from his public mediation filings — a compressed, upright script with consistent pressure across horizontal strokes. The same hand appears in the margin annotations of the ledger addenda. He is not listed as an author, a reviewer, or a co-signatory on any of the seven documents. His script is there anyway, in the same ink as the addendum text, not added after the fact. He wrote into those documents before they were sealed and did not put his name on them.`;
         addJournal('Elior Sepulcher script identified in 7 addenda — not listed as author on any', 'evidence', `pan-elior-hand-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1477,7 +1477,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Merev says she has had several guests in the past year who left before the processional lanterns were lit for the morning route — before any civic traffic moved on the road. She used to note those departures in the register under a courtesy entry. She stopped doing that after someone asked her about them. She does not say who asked. She says only that after they asked, she decided her record of it was better kept somewhere that required less explanation.`;
         addJournal('Merev: pre-dawn departures noted privately since unnamed inquiry — register entries stopped', 'intelligence', `pan-merev-dawn-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1510,7 +1510,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The processional road runs between the harbor approach and the mediation district under a no-freight order during clerical transit hours. The transit warden's log shows three enforcement waivers granted in the past eight months — each one on a date that corresponds to a sealed mediation session. The waivers name a shipper category rather than a specific consignee. The shipper category listed on all three is the same: "archival materials transfer, district annex." No annex transfer receipt exists for any of the three.`;
         addJournal('Three processional waivers for unnamed archival transfers — no receipts on file at annex', 'evidence', `pan-procession-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1541,7 +1541,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The shrine annex bay-availability log shows the storage space as empty and under routine inspection on the three mornings when the processional no-traffic waivers were active. An empty bay under active inspection would not be accessible for cargo receipt. But the bay was accessible — the door wear pattern and the transit log both suggest it was opened. The inspection entries are cover entries, written to ensure the bay appeared unavailable to anyone who looked at the log rather than the door.`;
         addJournal('Shrine annex bay: inspection entries used to paper-clear active cargo receipt', 'evidence', `pan-shrine-bay-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1572,7 +1572,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The transit warden who granted the three processional waivers was transferred to a different district posting fourteen days after the last waiver was signed. The transfer is documented as routine — lateral reassignment, standard administrative language. But the timing is specific enough that the distance between the final waiver date and the transfer date fits inside a two-week window during which no new waivers were granted and the sealed mediation process entered a quiet period. The transfer removed the one person who could explain the waiver authorizations from the office that held them.`;
         addJournal('Transit warden transferred 14 days after final waiver — removed before questions could reach her', 'intelligence', `pan-warden-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1606,7 +1606,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three cargo arrivals on the harbor manifest correspond to the mornings the processional no-traffic waivers were active. None of the three appear in the standard dock clearance log — they were processed under a category exemption that bypasses the standard log requirement. That exemption requires a receiving party's counter-signature. The counter-signatures are not in the archive, the dock record, or the port authority's own file. The cargo arrived, was moved, and left no completed documentation chain behind it.`;
         addJournal('3 harbor arrivals bypassed dock log — no counter-signatures in any archive', 'evidence', `pan-harbor-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1639,7 +1639,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `All three sealed mediation sessions were booked under the emergency session code rather than the standard advance-request process. The emergency code is used on average twice per year in the full reservation log — an infrequent designation for unusual situations. Using it three times in eight months is outside the pattern. Using it for sessions that appear to have been planned rather than emergent — as evidenced by their correlation with the cargo transfer windows — suggests the code was chosen specifically for what it waives rather than for what it authorizes.`;
         addJournal('Emergency session code: 3 uses in 8 months vs 2-per-year average — code selected for its waivers', 'evidence', `pan-emergency-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1670,7 +1670,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `All three sealed records list the same co-signatory clerk number. The clerk number system assigns a unique identifier to each staff position — not each individual, but each post. Cross-referencing the number against the current clerk register produces no match. The number belongs to a post that is not currently active. A co-signatory requirement exists precisely to ensure a second party witnesses the sealing process. Using an inactive clerk number satisfies the format of the requirement while ensuring the witness was never actually present.`;
         addJournal('Same inactive clerk number on all 3 seals — co-signatory requirement satisfied in form only', 'evidence', `pan-cosig-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1702,7 +1702,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Three separate parties filed review requests for the sealed records at different points over eight months. All three received denial letters the same day their requests arrived. The standard processing window runs ten days. A same-day denial requires either an exceptional pre-existing determination or prior knowledge that the request was coming. The denial letters cite the same charter subsection in the same phrasing. They read as a single document issued three times to three different parties who had no connection to each other.`;
         addJournal('3 review requests denied same day — identical language, no connection between requesters', 'evidence', `pan-denial-${G.dayCount}`);
       }
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
@@ -1715,7 +1715,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(110, 'Panim Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The evidence chain in Panim Haven is not yet complete. What exists points in the right direction but carries gaps — missing links between the coin trail and the cargo anomalies, an authorization chain that needs one more document to close. The mediation halls are quiet in the early afternoon, clerks at their counters, the smell of sealed wax and harbor damp settling through the stone corridors. Presenting now hands the operation a half-built case it can absorb without difficulty. More ground needs to be covered before this can move.`;
-        G.recentOutcomeType = 'investigate'; return;
+        G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -1732,7 +1732,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Panim S2 finale: informal circuit activated', 'evidence', `panim-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
-      G.recentOutcomeType = 'investigate'; maybeStageAdvance();
+      G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
