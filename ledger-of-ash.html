@@ -12716,6 +12716,16 @@ function handleChoice(choice) {
       if (typeof gainXp === 'function') gainXp(10); else G.xp = (G.xp||0)+10;
     }
 
+    // B1: Bold success → +2 stageProgress; safe/risky success → +1 stageProgress
+    if (success) {
+      var _b1SK = G.stage === 'Stage II' ? 2 : G.stage === 'Stage III' ? 3 : 1;
+      G.stageProgress = G.stageProgress || {1:0,2:0,3:0,4:0,5:0};
+      var _b1Award = (_resolvedTier === 'bold') ? 2 : 1;
+      G.stageProgress[_b1SK] = (G.stageProgress[_b1SK] || 0) + _b1Award;
+      if (typeof shiftTension === 'function' && _resolvedTier === 'bold') shiftTension(1);
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    }
+
     resolveConsequence(choice.cid, success, false);
 
     // Archetype confirmation beat — track skill roll count on primary skill
@@ -12848,8 +12858,22 @@ function applyEffect(fx) {
     case 'heal':      G.hp = Math.min(G.maxHp, G.hp + Math.floor(G.maxHp * (fx.pct || 0.2))); updateHUD(); break;
     case 'tick':      tickAxis(fx.n || 1); break;
     case 'renown':    G.renown = Math.max(0, (G.renown||0) + fx.n); updateHUD(); break;
-    case 'morality': case 'benevolence': shiftAlignment(fx.n, 0); break;
-    case 'order': case 'orderAxis':     shiftAlignment(0, fx.n); break;
+    case 'morality': case 'benevolence': {
+      var _prevBen = G.benevolence || 0;
+      shiftAlignment(fx.n, 0);
+      if (Math.floor(Math.abs(_prevBen) / 10) !== Math.floor(Math.abs(G.benevolence || 0) / 10)) {
+        if (typeof addNarration === 'function') addNarration('', 'Your sense of where you stand shifts.', 'dim');
+      }
+      break;
+    }
+    case 'order': case 'orderAxis': {
+      var _prevOrd = G.orderAxis || 0;
+      shiftAlignment(0, fx.n);
+      if (Math.floor(Math.abs(_prevOrd) / 10) !== Math.floor(Math.abs(G.orderAxis || 0) / 10)) {
+        if (typeof addNarration === 'function') addNarration('', 'Your sense of where you stand shifts.', 'dim');
+      }
+      break;
+    }
     case 'combat':    if (typeof triggerCombatEncounter === 'function') triggerCombatEncounter(fx.enemy, fx.context||{}); break;
     case 'npcmem':    updateNPCMemory(fx.npc, fx.change); break;
     case 'additem':   addToInventory(fx.item); break;
@@ -13384,6 +13408,7 @@ function checkStageAdvance() {
       G.flags.stage1_bridge_shown = true;
     }
     G.stage = 'Stage II'; G.stageLabel = 'Local Inter-Polity';
+    updateHUD(); // B4: synchronous pill update — must happen before banner/narration
     G.flags.principalities_route_unlocked = true;
     showTransitionBanner('Stage II — The Scope Expands');
     showToast('Chapter II has begun. The threads grow tighter.');
@@ -17178,7 +17203,7 @@ function updateHUD() {
   if (spGoalEl) {
     if (G.stage === 'Stage I') {
       var sp1 = (G.stageProgress && G.stageProgress[1]) || 0;
-      spGoalEl.textContent = sp1 >= 5 ? 'Stage I \u2014 ready to advance.' : 'Stage I \u2014 build your reputation.';
+      spGoalEl.textContent = sp1 >= 12 ? 'Stage I \u2014 ready to advance.' : 'Stage I \u2014 build your reputation.';
       spGoalEl.style.display = 'block';
     } else {
       spGoalEl.style.display = 'none';
@@ -17479,10 +17504,12 @@ function showCamp() {
   if (craftBtn) {
     if ((G.level || 1) < 2) {
       craftBtn.disabled = true;
+      craftBtn.title = 'Level 2 required';
       var craftDesc = craftBtn.querySelector('.ca-desc');
       if (craftDesc) craftDesc.textContent = 'Craft — Level 2 required.';
     } else {
       craftBtn.disabled = false;
+      craftBtn.title = '';
       var craftDesc2 = craftBtn.querySelector('.ca-desc');
       if (craftDesc2) craftDesc2.textContent = 'Prepare rations, tools, and materials. Requires Level 2.';
     }
@@ -17836,6 +17863,11 @@ function showSaveModal(mode) {
 // Legacy key helper (used by death screen cleanup)
 function saveKey() {
   return (G && G.lastUsedSlot) || 'loa_slot_1';
+}
+
+// B6: showSaveLoad — alias for showSaveModal; opens save/load overlay. 'save' mode by default.
+function showSaveLoad(mode) {
+  showSaveModal(mode || 'save');
 }
 
 // ── WATCHFULNESS ─────────────────────────────────────────
