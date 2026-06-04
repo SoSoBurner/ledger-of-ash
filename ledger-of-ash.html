@@ -17327,11 +17327,14 @@ function updateHUD() {
   // Only count unlocked abilities from ARCHETYPE_ABILITY_TREES (type:'active') as truly activatable.
   // Archetype background traits (G.traits, source:'archetype') are combat-only via useTrait button —
   // counting them as "READY" misleads players who see no activation path outside combat.
+  var _archTreeForBadge = (G.archetype && ARCHETYPE_ABILITY_TREES && ARCHETYPE_ABILITY_TREES[G.archetype.id || G.archetype]) || [];
+  var _activeAbilIds = _archTreeForBadge.filter(function(a){ return a.type === 'active'; }).map(function(a){ return a.id; });
   var _unlockedActive = (G.unlockedAbilities || []).filter(function(id) {
+    if (_activeAbilIds.indexOf(id) === -1) return false;
     if (!G.abilityUsedThisRest || !G.abilityUsedThisRest[id]) return true;
     return false;
   }).length;
-  var _totalUnlocked = (G.unlockedAbilities || []).length;
+  var _totalUnlocked = (G.unlockedAbilities || []).filter(function(id){ return _activeAbilIds.indexOf(id) !== -1; }).length;
   // Background archetype trait: usable in combat only — show as PASSIVE if no unlocked abilities exist
   var _archTrait = (G.traits || []).filter(function(t){ return t.source === 'archetype' && t.passive !== true; });
   var _archTraitReady = _archTrait.filter(function(t){ return !t.used; }).length;
