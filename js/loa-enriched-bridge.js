@@ -9,10 +9,6 @@
 
 // ── FUNCTION SHIMS ──────────────────────────────────────────
 
-window.gainXp = function(n, _reason) {
-  if (typeof gainXP === 'function') gainXP(n);
-};
-
 if (typeof window.advanceTime !== 'function') {
   window.advanceTime = function(days) {
     if (window.G && typeof window.G.dayCount !== 'undefined') window.G.dayCount += (days || 1);

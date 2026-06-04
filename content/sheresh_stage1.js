@@ -96,7 +96,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Records', 'Observation', 'Stage1'],
     xpReward: 65,
-    skill: 'lore',
+    skill: 'wits',
     dc: 7,
     fn: function() {
       advanceTime(1);
@@ -123,7 +123,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
     label: 'The water-route marks moved north without a vote.',
     tags: ['Survey', 'Observation', 'Stage1'],
     xpReward: 60,
-    skill: 'survival',
+    skill: 'vigor',
     dc: 7,
     fn: function() {
       advanceTime(1);
@@ -149,7 +149,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
     label: 'One year in the provisioning log is nearly empty.',
     tags: ['Records', 'Inquiry', 'Stage1'],
     xpReward: 65,
-    skill: 'lore',
+    skill: 'wits',
     dc: 7,
     fn: function() {
       advanceTime(1);
