@@ -2096,6 +2096,7 @@ input, button, select, textarea { font-family: inherit; }
     <div class="overlay-header"><span class="overlay-title">Make Camp</span><button class="overlay-close" data-close="overlay-camp">&#x00D7;</button></div>
     <div class="overlay-body">
       <p class="camp-intro">The fire is low. The road can wait.</p>
+      <div id="camp-supply-display" style="font-size:12px;color:var(--ink-dim);margin-bottom:6px;text-align:center"></div>
       <div class="camp-grid">
         <div class="camp-group-label">Recover</div>
         <button class="camp-action" data-camp="rest"><div class="ca-icon">&#x2665;</div><div class="ca-title">Rest</div><div class="ca-desc">Recover HP. Refreshes traits. Limit 2 per day.</div></button>
@@ -14570,11 +14571,11 @@ function campAction(type) {
       G.lastResult = 'You go quiet — no meetings, no movement, no visible trail. The attention fades by one degree. The day is gone.';
     }
     addNarration('Working Local', G.lastResult);
-    addJournal('Spent a day off the institutional channels. Watchfulness reduced.', 'complication');
+    addJournal('Spent a day off the official channels. Watchfulness reduced.', 'complication');
     updateHUD(); saveGame();
     setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
   } else if (type === 'review_notes') {
-    if (!G.flags.recovery_thread_available) {
+    if (!(G && G.flags && G.flags.recovery_thread_available)) {
       addNarration('Camp', 'Nothing in your notes demands another pass. The trail is still warm.', 'failure');
       setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
     } else {
@@ -17514,6 +17515,9 @@ function showOverlay(id) { var _e = document.getElementById(id); if (_e) _e.clas
 function closeOverlay(id) { var _e = document.getElementById(id); if (_e) _e.classList.remove('active'); }
 function showCamp() {
   const loc = (G.location||'').toLowerCase().replace(/-/g,'_');
+  // Supply display
+  var _supplyEl = document.getElementById('camp-supply-display');
+  if (_supplyEl) _supplyEl.textContent = 'Supply: ' + (G.supply !== undefined ? G.supply : 10) + ' / 10';
   // Post Watches: only show when maren_oss_resolved AND companions present
   const _marenGate = !!(G.flags && G.flags.maren_oss_resolved);
   const pw = document.getElementById('btn-post-watches');
@@ -18343,6 +18347,12 @@ document.getElementById('howto-close').addEventListener('click', function() {
         }
       }, 300);
       return;
+    }
+
+    // Supply drain: each journey costs 1 supply; exhaustion if empty.
+    G.supply = Math.max(0, (G.supply || 10) - 1);
+    if (G.supply <= 0 && typeof G.fatigue !== 'undefined') {
+      G.fatigue = Math.min(10, G.fatigue + 1);
     }
 
     // Reset supply tier at destination (resupply at each arrival).
