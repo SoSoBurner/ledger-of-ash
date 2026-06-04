@@ -23,13 +23,13 @@ window.BARD_MIDSPINE_NODES = [
       G.signals = G.signals || {};
 
       const loc = getLocality(G.location);
-      const r = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const r = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const dc = 10;
       const success = r.isCrit || (r.total >= dc && !r.isFumble);
 
       G.lastRoll = {
         action: 'Listen for the shape of the silence',
-        skill: 'persuasion', total: r.total, target: dc,
+        skill: 'charm', total: r.total, target: dc,
         success, die: r.die, crit: r.isCrit, fumble: r.isFumble
       };
 
@@ -90,13 +90,13 @@ window.BARD_MIDSPINE_NODES = [
       G.signals = G.signals || {};
 
       const loc = getLocality(G.location);
-      const r = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const r = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const dc = 12;
       const success = r.isCrit || (r.total >= dc && !r.isFumble);
 
       G.lastRoll = {
         action: 'Follow the suppressed thread',
-        skill: 'persuasion', total: r.total, target: dc,
+        skill: 'charm', total: r.total, target: dc,
         success, die: r.die, crit: r.isCrit, fumble: r.isFumble
       };
 
@@ -158,13 +158,13 @@ window.BARD_MIDSPINE_NODES = [
       G.signals = G.signals || {};
 
       const loc = getLocality(G.location);
-      const r = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const r = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const dc = 14;
       const success = r.isCrit || (r.total >= dc && !r.isFumble);
 
       G.lastRoll = {
         action: 'Recover the suppressed account',
-        skill: 'persuasion', total: r.total, target: dc,
+        skill: 'charm', total: r.total, target: dc,
         success, die: r.die, crit: r.isCrit, fumble: r.isFumble
       };
 
