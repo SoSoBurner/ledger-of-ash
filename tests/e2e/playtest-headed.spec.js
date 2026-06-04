@@ -1066,25 +1066,7 @@ async function probeContacts(page, tag) {
     log(`[panel:contacts ${tag}] contacts=${npcNames.length} objObj=${objObj} names="${npcNames.slice(0,5).join(', ')}"`);
     if (txt.length > 10) log(`[panel:contacts ${tag}] text: "${txt.slice(0,150).replace(/\n/g,' ')}"`);
     probeCanonText(txt, tag, 'contacts');
-    // Click all visible contact cards
-    const contactCards = await page.locator('#npc-overlay-body .npc-entry, #npc-overlay-body .contact-card, [data-npcid], .npc-card').all().catch(() => []);
-    log(`[panel:contacts ${tag}] clicking ${contactCards.length} contact cards`);
-    for (const card of contactCards) {
-      try {
-        const cardName = await card.evaluate(el => el.textContent.trim().slice(0, 40)).catch(() => '');
-        await card.click();
-        await page.waitForTimeout(PACE.panelDwell);
-        await screenshot(page, `${tag}_contact_${cardName.replace(/[^a-z0-9]/gi,'_').slice(0,20)}`);
-        const dialogTxt = await page.locator('.npc-dialog-text,.contact-dialog,.npc-bio,.npc-detail').first().innerText().catch(() => '');
-        log(`[panel:contacts ${tag}] contact="${cardName.slice(0,30)}" dialog="${dialogTxt.slice(0,120).replace(/\n/g,' ')}"`);
-        // Close dialog only via explicit close button — never Escape (Escape closes the whole contacts overlay)
-        const closeBtn = page.locator('button:has-text("×"),button:has-text("Close"),[data-close],.npc-close').first();
-        if (await closeBtn.isVisible({ timeout: 400 }).catch(() => false)) await closeBtn.click();
-        await page.waitForTimeout(PACE.short);
-      } catch (_) {}
-    }
-    if (contactCards.length === 0) log(`[panel:contacts ${tag}] WARN: no contact cards visible`);
-    // --- Approach buttons FIRST (before card-click loop which may close overlay) ---
+    // --- Approach buttons FIRST — must run before card-click loop which may close the overlay ---
     const approachBtns = await page.locator('.npc-approach-btn[data-npc-name]:not([data-npc-name=""])').all().catch(() => []);
     const _visibleApproachBtns = [];
     for (const b of approachBtns) {
@@ -1109,17 +1091,17 @@ async function probeContacts(page, tag) {
           await page.locator('.choice-btn:visible:not([disabled])').first().click().catch(() => {});
           await page.waitForTimeout(PACE.short);
         }
-        const closeBtn = page.locator('button:has-text("×"),button:has-text("Close"),[data-close]').first();
-        if (await closeBtn.isVisible({ timeout: 400 }).catch(() => false)) await closeBtn.click();
-        else await page.keyboard.press('Escape');
+        await page.keyboard.press('Escape');
         await page.waitForTimeout(PACE.short);
         break; // Overlay closes after first approach
       } catch (_approachErr) {
         log(`[panel:contacts ${tag}] approach-btn error: ${_approachErr.message}`);
       }
     }
-    if (_visibleApproachBtns.length === 0) log(`[panel:contacts ${tag}] npc-approach: no visible .npc-approach-btn (tension=0 or not at current locality)`);
-    // Card-click loop runs after approach probe — overlay may already be closed
+    if (_visibleApproachBtns.length === 0) log(`[panel:contacts ${tag}] npc-approach: no visible .npc-approach-btn (trust<0 or not at current locality)`);
+    // Card-click loop — runs after approach probe; overlay may already be closed
+    const contactCards = await page.locator('#npc-overlay-body .npc-entry, #npc-overlay-body .contact-card, [data-npcid], .npc-card').all().catch(() => []);
+    log(`[panel:contacts ${tag}] clicking ${contactCards.length} contact cards`);
     const _overlayStillOpen = await page.locator('#overlay-npcs').isVisible({ timeout: 600 }).catch(() => false);
     if (_overlayStillOpen) {
       for (const card of contactCards) {
@@ -1130,13 +1112,12 @@ async function probeContacts(page, tag) {
           await screenshot(page, `${tag}_contact_${cardName.replace(/[^a-z0-9]/gi,'_').slice(0,20)}`);
           const dialogTxt = await page.locator('.npc-dialog-text,.contact-dialog,.npc-bio,.npc-detail').first().innerText().catch(() => '');
           log(`[panel:contacts ${tag}] contact="${cardName.slice(0,30)}" dialog="${dialogTxt.slice(0,120).replace(/\n/g,' ')}"`);
-          const closeBtn = page.locator('button:has-text("×"),button:has-text("Close"),[data-close],.npc-close').first();
-          if (await closeBtn.isVisible({ timeout: 400 }).catch(() => false)) await closeBtn.click();
           await page.waitForTimeout(PACE.short);
           if (!await page.locator('#overlay-npcs').isVisible({ timeout: 400 }).catch(() => false)) break;
         } catch (_) {}
       }
     }
+    if (contactCards.length === 0) log(`[panel:contacts ${tag}] WARN: no contact cards visible`);
     await closeSpecificOverlay(page, 'overlay-npcs');
   } catch (err) {
     log(`[panel:contacts ${tag}] WARN: ${err.message}`);
