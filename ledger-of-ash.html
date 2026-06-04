@@ -13810,16 +13810,6 @@ function showLevelUpScreen() {
   }
 
   renderStatStep();
-
-  // Safety timeout: headless/automated runs never click the level-up UI.
-  // After 3 s, clear the flag and remove any remaining level-up block so
-  // subsequent gainXp() calls are not permanently blocked.
-  setTimeout(function() {
-    if (_awaitingLevelUp) {
-      _awaitingLevelUp = false;
-      document.querySelectorAll('.levelup-block').forEach(function(b) { b.remove(); });
-    }
-  }, 3000);
 }
 
 function _finalizeLevelUp(statKey, trait) {
