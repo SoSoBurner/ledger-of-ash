@@ -420,6 +420,23 @@ async function pickChoice(page, pickNum, forcePlotMain) {
     const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
   }
   const snap = await snapshotChoices(page);
+
+  // When ALL visible choices are combat buttons, randomize to prevent single-ability spiral.
+  // Also prefer Flee every ~8 picks to let combat complete naturally.
+  const allCombat = snap.length > 0 && snap.every(s => s.cls.includes('combat-btn'));
+  if (allCombat) {
+    // Every 8th pick in combat, prefer Flee to break out
+    const fleeIdx = snap.findIndex(s => /^Flee/i.test(s.text.trim()));
+    if (pickNum % 8 === 0 && fleeIdx >= 0) {
+      const btn = buttons.nth(fleeIdx);
+      const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
+    }
+    // Otherwise randomize among combat choices
+    const idx = Math.floor(Math.random() * count);
+    const btn = buttons.nth(idx);
+    const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
+  }
+
   // Score each choice: prefer inner-voice labels (no infinitives, no ?), prefer longer text
   const INFINITIVE_STARTS = /^(To |Ask |Tell |Go |Find |Report |Speak |Look |Check |Examine |Take |Give |Use |Try |Get |Make |Help |Stop |Push |Pull |Open |Close |Enter |Leave |Follow |Wait |Watch |Return |Walk |Run )/i;
   let bestIdx = 0, bestScore = -Infinity;
