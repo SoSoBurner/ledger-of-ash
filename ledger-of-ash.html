@@ -11585,7 +11585,8 @@ function loadStageChoices(locId) {
   if (enriched && enriched.length) {
     const seenKey = '_seen_enriched_' + stageNum;
     const seen = G.flags[seenKey] = G.flags[seenKey] || {};
-    let pool = enriched.filter(function(c) { return c && !seen[c.label || c.id || c.text] && (!c.condition || c.condition()); });
+    function _checkCond(c) { if (!c.condition) return true; try { return c.condition(); } catch(e) { return false; } }
+    let pool = enriched.filter(function(c) { return c && !seen[c.label || c.id || c.text] && _checkCond(c); });
     if (pool.length < 2) { G.flags[seenKey] = {}; pool = enriched.filter(Boolean); }
     // Fisher-Yates shuffle
     for (let i = pool.length - 1; i > 0; i--) {
