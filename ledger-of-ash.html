@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Ledger of Ash — A Living World RPG</title>
-  <meta name="description" content="A text RPG of investigation and consequence. Navigate the factional politics of Shelkopolis — where every choice shapes the city's memory of you.">
+  <meta name="description" content="A text RPG of consequence and discovery. Navigate the factional politics of Shelkopolis — where every choice shapes the city's memory of you.">
 <style id="offline-fonts">
 @font-face {
   font-family: 'Cinzel';
@@ -3985,7 +3985,7 @@ const ARCHETYPE_TRAIT_POOLS = {
       skill:'wits', bonus:1, utilityLabel:'Read their next move.',
       utilityResult:'Intent crystallizes. You know which direction they are leaning before they do.' },
     { id:'precognitive_edge', name:'Precognitive Edge', traitType:'passive',
-      desc:'Glimpses of outcome improve reaction. Wits checks for investigation gain +2.',
+      desc:'Glimpses of outcome improve reaction. Wits checks for uncovering facts gain +2.',
       bonusSkill:'wits', bonus:2 },
     { id:'seen_this', name:'Seen This', traitType:'passive',
       desc:'Deja vu is information. Wits rolls when encountering a familiar situation gain +2.',
@@ -4311,7 +4311,7 @@ function startCombat(enemyTemplateId, context) {
 
 function shiftTension(delta) {
   if (!G) return;
-  G.tensionLevel = Math.max(0, Math.min(2, (G.tensionLevel||0) + delta));
+  G.tensionLevel = Math.max(0, Math.min(4, (G.tensionLevel||0) + delta));
   if (typeof updateHUD === 'function') updateHUD();
 }
 
@@ -4986,7 +4986,7 @@ const GROUP_BACKSTORIES = {
   },
   support: {
     hook: 'You know what it costs to keep something running, and who pays when it doesn\'t.',
-    body: 'You have built, healed, led, or sustained — functions that exist because other systems break down. You understand infrastructure: what it costs to maintain, what it costs when it fails, who absorbs that cost when the ledger-keepers decide it is acceptable. The investigation will take you into supply chains and institutional records. You have spent your career learning what those documents actually mean.',
+    body: 'You have built, healed, led, or sustained — functions that exist because other systems break down. You understand infrastructure: what it costs to maintain, what it costs when it fails, who absorbs that cost when the ledger-keepers decide it is acceptable. The work will take you into supply chains and institutional records. You have spent your career learning what those documents actually mean.',
     tension: 'The falsification you have been sent to find is not random. Someone made a series of decisions. Follow the decisions and you find the system. Follow the system and you find the person.'
   },
   neutral: {
@@ -6363,7 +6363,7 @@ iq_shirsh:{text:'Shirshal evidence vaults contain records of things done quietly
   {text:'Apply specialist knowledge to read what others cannot.', skill:'lore', tag:'risky', align:'neutral', cid:'magic_read'},
   {text:'The Roadwardens. Shirsh investigator credentials give you standing here.', skill:'lore', tag:'safe', align:'lawful', cid:'garrison_contact'},
   {text:'The House Shelk receiving office. Announce your presence and purpose.', skill:'persuasion', tag:'bold', align:'lawful', cid:'house_shelk_meeting'},
-  {text:'Observe before announcing. Let the investigation determine who needs to know you are here.', skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'}
+  {text:'Observe before announcing. Let the situation determine who needs to know you are here.', skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'}
 ]},
 iq_mimolot:{text:'You investigated scholars who exceeded their access permissions. You found one whose reasons for exceeding them were more significant than the violation. That scholar is in Shelkopolis, working for a private collection that does not advertise. You followed them here with the tariff office brief to recover a restricted text. The text is secondary.',choices:[
     {text:'The Mimolot archive holds unpublished submissions. That is where the suppressed analysis lives.', skill:'lore', tag:'safe', align:'neutral', cid:'mimolot_archive_read'},
@@ -6399,7 +6399,7 @@ ro_shelk:{text:'Information is currency in Shelkopolis. You were good at earning
 ro_union:{text:'The sea smells like salt and plausible deniability. Guildheart Hub dock work taught you that the gap between manifest and actual cargo is where everything interesting lives. You are in Shelkopolis because a consignment you helped move three weeks ago is now the subject of a Roadwarden investigation. The investigation is not finding you yet.',choices:[
     {text:'The Union freight manifests are the most comprehensive records on the route. Read them.', skill:'lore', tag:'safe', align:'neutral', cid:'guildheart_manifest_read'},
   {text:'The operation is already running. Nobody looks at someone who is just watching.', skill:'stealth', tag:'bold', align:'neutral', cid:'stealth_surveillance'},
-  {text:'Find out how close the investigation is before deciding what to do.', skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'},
+  {text:'Find out how close they are before deciding what to do.', skill:'stealth', tag:'risky', align:'neutral', cid:'passive_intel'},
   {text:'The Shadowhands. You need to know if they are already managing this.', skill:'stealth', tag:'bold', align:'chaotic', cid:'shadowhands_contact'},
   {text:'Distance yourself from the consignment. Change your visible activity.', skill:'lore', tag:'safe', align:'neutral', cid:'find_work'}
 ]},
@@ -7098,7 +7098,7 @@ const C = {
       xp:8, effects:[{type:'journal',msg:'Union Rep Garrin: unauthorized Union manifests. Internal breach confirmed.'},{type:'faction',id:'the_union',n:10},{type:'quest',msg:'Find who within the Union authorized the unauthorized eastern depot manifests.'}],
       next:[
         {text:'Work with Garrin to identify the insider.', skill:'persuasion', tag:'safe', align:'lawful', cid:'report_findings'},
-        {text:'Keep the Union out of it. Internal investigations favor the insider.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel'},
+        {text:'Keep the Union out of it. Internal proceedings favor the insider.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel'},
         {text:'Bring this to House Shelk. Their depot was compromised.', skill:'persuasion', tag:'bold', align:'lawful', cid:'house_shelk_meeting'}
       ]
     },
@@ -8448,7 +8448,7 @@ const C = {
       text:"Toriel reads the injury documentation slowly. When he looks up his expression is controlled but not calm. 'I flagged these three cases. My flags were overridden by administrative review.' He opens a drawer and removes a folder. 'I kept copies. I always keep copies.' He sets the folder on the table between you. 'I've been waiting for someone who wasn't going to tell me the review was sufficient.'",
       xp:7, effects:[{type:'journal',msg:'Toriel Palevow has documentation of three flagged cases, overridden by administrative review. Has retained copies.',category:'fact',dedupeKey:'toriel_flagged_cases'},{type:'npcmem',npc:'Toriel Palevow',change:{trust:8,note:'holds override-suppressed flag documentation'}}],
       next:[
-        {text:"Ask Toriel to come with you. This investigation needs a medical witness.", skill:'persuasion', tag:'safe', align:'good', cid:'__recruit__toriel_palevow__join'},
+        {text:"Ask Toriel to come with you. This case needs a medical witness.", skill:'persuasion', tag:'safe', align:'good', cid:'__recruit__toriel_palevow__join'},
         {text:"Take the folder and move. You have what you need.", skill:'lore', tag:'safe', align:'neutral', cid:'study_packet'},
         {text:"Ask him who filed the administrative override.", skill:'lore', tag:'risky', align:'neutral', cid:'probe_order_origin'}
       ]
@@ -10015,6 +10015,7 @@ function getDefaultG() {
     recentOutcomeType:null, recentChoiceIds:[], shopSeen:{}, tavernRumorsSeen:{},
     narrationUpdateCounter:0, _narrationFading:false, district:null,
     consecutiveSleepless:0, watchPosted:false, _heatDCMod:0,
+    _nonCombatPicks:0,
     pendingVictoryCallback:null,
     factionClocks:null,
     _pendingHeatEncounter:null,
@@ -11196,6 +11197,8 @@ function addNarration(label, html, resultType) {
   }
   block.innerHTML = inner;
   el.appendChild(block);
+  // Keep narrative-content trimmed to last 5 blocks to prevent unbounded DOM growth
+  while (el.childNodes.length > 5) el.removeChild(el.firstChild);
   scrollNarrative();
 }
 
@@ -12007,8 +12010,9 @@ function renderChoices(choices) {
     bold: 'Bold choices are high stakes — greater reward, permanent consequences on fumble.'
   };
   // G2: Escalation weight injection — inject threatLevel:1 on random non-safe choices by archetype
+  // Only fires when tensionLevel >= 3 (throttle: low-tension phases surface non-combat choices)
   var _escalStage = G.stage === 'Stage I' || G.stage === 'Stage II';
-  if (_escalStage) {
+  if (_escalStage && (G.tensionLevel||0) >= 3) {
     var _archFam2 = typeof getArchetypeFamily === 'function' && G.archetype ? getArchetypeFamily(G.archetype.id) : null;
     var _escalChance = _archFam2 === 'combat' ? 0.40 : (_archFam2 === 'magic' || _archFam2 === 'stealth') ? 0.30 : 0.10;
     choices.forEach(function(c) {
@@ -12044,8 +12048,8 @@ function renderChoices(choices) {
     if (c.cid && _combatWillCids.indexOf(c.cid) !== -1 && c.combat == null) btnClasses += ' choice-btn--combat-will';
     var npcEl = document.getElementById('npc-container') || document.getElementById('npc-display');
     if (npcEl) {
-      npcEl.classList.toggle('tension-warn', (G.tensionLevel||0) >= 1);
-      npcEl.classList.toggle('tension-hot',  (G.tensionLevel||0) >= 2);
+      npcEl.classList.toggle('tension-warn', (G.tensionLevel||0) >= 2);
+      npcEl.classList.toggle('tension-hot',  (G.tensionLevel||0) >= 3);
     }
     // G1: threatLevel border color
     var threatStyle = '';
@@ -12082,8 +12086,8 @@ function renderChoices(choices) {
       }
     }
   });
-  // Combat flip: at tensionLevel 2, inject a "force it" option that opens tactical UI
-  if ((G.tensionLevel||0) >= 2) {
+  // Combat flip: at tensionLevel 3+, inject a "force it" option that opens tactical UI
+  if ((G.tensionLevel||0) >= 3) {
     var fightIdx = choices.length;
     html += '<button class="choice-btn tension-hot combat-flip-btn" data-idx="' + fightIdx + '">' +
       '<span class="choice-text">Force it — reach for your weapon.</span>' +
@@ -12524,8 +12528,20 @@ function handleChoice(choice) {
     }
 
     // Decrement tension on any normal action choice (combat flip resets to 0 itself)
-    if ((G.tensionLevel||0) >= 2 && choice.id !== '_tension_combat_flip') {
+    if ((G.tensionLevel||0) >= 3 && choice.id !== '_tension_combat_flip') {
       if (typeof shiftTension === 'function') shiftTension(-1);
+    }
+    // Tension bleed-off: every 3 consecutive non-combat picks, drain tension by 1 (min 0)
+    var _isCombatChoice = (choice.skill === 'combat' || (choice.tag === 'bold' && choice.align === 'chaotic') ||
+      (choice.cid && (choice.cid.indexOf('combat') !== -1 || choice.cid.indexOf('fight') !== -1)));
+    if (!_isCombatChoice) {
+      G._nonCombatPicks = (G._nonCombatPicks || 0) + 1;
+      if (G._nonCombatPicks >= 3) {
+        G._nonCombatPicks = 0;
+        if ((G.tensionLevel||0) > 0 && typeof shiftTension === 'function') shiftTension(-1);
+      }
+    } else {
+      G._nonCombatPicks = 0;
     }
     try {
       choice.action();
@@ -12607,8 +12623,8 @@ function handleChoice(choice) {
   // First-choice tutorial callout — fires once after the player's first real roll
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_choice');
 
-  // Decrement tension on normal roll path (keeps tension from locking at 2 forever)
-  if ((G.tensionLevel||0) >= 2) { if (typeof shiftTension === 'function') shiftTension(-1); }
+  // Decrement tension on normal roll path (keeps tension from locking forever)
+  if ((G.tensionLevel||0) >= 3) { if (typeof shiftTension === 'function') shiftTension(-1); }
 
   // Alignment
   const alignShifts = {lawful:[0,5], chaotic:[0,-5], good:[8,0], evil:[-8,0]};
@@ -13176,7 +13192,7 @@ function showStage3Epilogue() {
   var hasInquisitor = !!(G.flags && G.flags.stage2_climax_inquisitor_contact);
   var hasMaren = !!(G.flags && G.flags.maren_oss_resolved);
 
-  var opening = 'The investigation is not over. It has changed shape.';
+  var opening = 'The work is not over. It has changed shape.';
   if (res === 'expose') opening = 'The ledger\'s contents are out. The city is reading them. You cannot unsay what was said.';
   else if (res === 'align') opening = 'You have an uneasy alliance with the Oversight Collegium. Inquisitor Orveth has not explained what she intends to do with what you gave her.';
   else opening = 'The ledger is hidden. Seld is gone. The city breathes, unknowing. You are the only person who knows what you know.';
@@ -13273,7 +13289,7 @@ function _showStage3BlockerLegacy() {
         Thank You for Playing v0.1
       </h2>
       <p style="color:var(--ink-mid,#b0a89a);font-size:1.1rem;line-height:1.7;margin-bottom:1.5rem">
-        You have reached the end of what is playable in this release. The investigation has
+        You have reached the end of what is playable in this release. The work has
         cracked open something larger than it appeared — and what comes next will change
         everything you think you know about the axis, the factions, and the ash itself.
       </p>
@@ -13289,7 +13305,7 @@ function _showStage3BlockerLegacy() {
         transition:background 0.2s
       ">Return to Stage II — Continue Your Story</button>
       <p style="color:var(--ink-faint,#666);font-size:0.8rem;margin-top:1.5rem">
-        Stage II remains fully open. Complete unfinished investigations, forge alliances,
+        Stage II remains fully open. Forge alliances, settle open threads,
         and prepare for what is coming.
       </p>
     </div>
@@ -13422,10 +13438,10 @@ function checkStageAdvance() {
       if (typeof addNarration === 'function' && !G.flags._stage3_hint_shown) {
         G.flags._stage3_hint_shown = true;
         if (G.flags.stage2_climax_complete) {
-          addWorldNotice('The investigation is complete. The world remains open — your work here isn\'t finished.');
+          addWorldNotice('The case is resolved. The world remains open — your work here isn\'t finished.');
         } else {
           const missing = [];
-          if (!G.flags.stage2_climax_complete) missing.push('the investigation has no resolution yet');
+          if (!G.flags.stage2_climax_complete) missing.push('The case has no resolution yet');
           if ((G.stageProgress && G.stageProgress[2]||0) < 15) missing.push('more time is needed in the field');
           addNarration('', '<em style="color:var(--ink-faint)">The path forward is not yet open. ' + missing.join('; ') + '.</em>');
         }
@@ -13506,7 +13522,7 @@ function checkNeutralArcScene() {
   if (b <= 8 && o <= 8 && inv >= 6 && G.stage === 'Stage II' && !G.flags.neutral_arc_fired) {
     G.flags.neutral_arc_fired = true;
     if (typeof addNarration === 'function') {
-      addNarration('Contact', 'A message reaches you through an intermediary — no name, no faction seal. <em>"We have been watching how you work. You have not aligned yourself with any of the parties who have an interest in this investigation. That is either very careful or very naive. Either way, it makes you useful. There is a meeting. If you want it, the invitation is in the transit post at Soreheim. Ask for the Unmarked Ledger."</em>');
+      addNarration('Contact', 'A message reaches you through an intermediary — no name, no faction seal. <em>"We have been watching how you work. You have not aligned yourself with any of the parties who have an interest in this matter. That is either very careful or very naive. Either way, it makes you useful. There is a meeting. If you want it, the invitation is in the transit post at Soreheim. Ask for the Unmarked Ledger."</em>');
     }
     if (typeof addJournal === 'function') addJournal('An anonymous contact has noticed your neutrality. A meeting is offered at Soreheim transit post — ask for the Unmarked Ledger.', 'intelligence');
     if (typeof addWorldNotice === 'function') addWorldNotice('An unknown faction has made contact. Your neutrality appears to be worth something.');
@@ -13532,7 +13548,7 @@ function _showStage3BlockedModal() {
     '<div style="font-family:var(--font-display,\'Cinzel\',serif);font-size:20px;color:var(--accent-gold,#d89a2c);margin-bottom:20px;letter-spacing:.06em;">Thank You for Playing</div>' +
     '<div style="font-family:\'Crimson Pro\',serif;font-size:18px;line-height:1.75;color:var(--ink-mid,#c4b49a);margin-bottom:32px;">' +
     'You have reached the end of Ledger of Ash v0.1.<br><br>' +
-    'Stage III is in development. The investigation is not over.' +
+    'Stage III is in development. The story is not over.' +
     '</div>' +
     '<button class="btn btn-primary choice-btn" onclick="this.closest(\'[style*=position\\\\:fixed]\').remove();if(typeof loadStageChoices===\'function\')loadStageChoices();" style="min-width:160px;">Return to Stage II</button>' +
     '</div>';
@@ -14648,7 +14664,7 @@ function doSleepScene() {
       magic: 'You have moved through this as someone who reads before they act. Pattern first, then decision. That is the way you work.',
       stealth: 'You have been careful about what you leave in the record. Invisible work, legible results. That is the register you operate in.',
       support: 'The thread you have been following isn\'t yours alone — it connects to other people\'s problems. You have been treating it that way.',
-      craft: 'The work reveals itself in what you make and what you repair. The investigation is another kind of construction. You know this.',
+      craft: 'The work reveals itself in what you make and what you repair. The case is another kind of construction. You know this.',
       neutral: 'The work has taken on its own shape. You have been moving through it as yourself. That is enough of a start.'
     };
     var _reflection = _archetypeReflections[G.archetype && G.archetype.group] || _archetypeReflections.neutral;
@@ -17226,21 +17242,30 @@ function updateHUD() {
     _fatigueEl.style.display = _fatigue > 0 ? '' : 'none';
     _fatigueEl.style.color = _fatigue >= 5 ? 'var(--danger)' : 'var(--ink-faint)';
   }
-  // Active trait readiness indicator (traits + unlocked active abilities)
-  var _nonPassive = (G.traits || []).filter(function(t){ return t.passive !== true && t.traitType !== 'passive'; });
-  var _readyTraits = _nonPassive.filter(function(t){ return !t.used; }).length;
+  // Active trait readiness indicator
+  // Only count unlocked abilities from ARCHETYPE_ABILITY_TREES (type:'active') as truly activatable.
+  // Archetype background traits (G.traits, source:'archetype') are combat-only via useTrait button —
+  // counting them as "READY" misleads players who see no activation path outside combat.
   var _unlockedActive = (G.unlockedAbilities || []).filter(function(id) {
     if (!G.abilityUsedThisRest || !G.abilityUsedThisRest[id]) return true;
     return false;
   }).length;
-  var _totalActive = _nonPassive.length + (G.unlockedAbilities || []).length;
-  var _totalReady = _readyTraits + _unlockedActive;
+  var _totalUnlocked = (G.unlockedAbilities || []).length;
+  // Background archetype trait: usable in combat only — show as PASSIVE if no unlocked abilities exist
+  var _archTrait = (G.traits || []).filter(function(t){ return t.source === 'archetype' && t.passive !== true; });
+  var _archTraitReady = _archTrait.filter(function(t){ return !t.used; }).length;
   var _traitEl = document.getElementById('hud-trait-ready');
   if (_traitEl) {
-    if (_totalActive > 0) {
-      _traitEl.textContent = 'ABILITIES ' + _totalReady + '/' + _totalActive + ' READY';
+    if (_totalUnlocked > 0) {
+      // Has unlocked active abilities — show ready count accurately
+      _traitEl.textContent = 'ABILITIES ' + _unlockedActive + '/' + _totalUnlocked + ' READY';
       _traitEl.style.display = '';
-      _traitEl.style.color = _totalReady > 0 ? 'var(--jade-bright)' : 'var(--ink-faint)';
+      _traitEl.style.color = _unlockedActive > 0 ? 'var(--jade-bright)' : 'var(--ink-faint)';
+    } else if (_archTrait.length > 0) {
+      // Only archetype background trait exists — it activates in combat via the Trait button
+      _traitEl.textContent = _archTraitReady > 0 ? 'TRAIT READY' : 'TRAIT SPENT';
+      _traitEl.style.display = '';
+      _traitEl.style.color = _archTraitReady > 0 ? 'var(--jade-bright)' : 'var(--ink-faint)';
     } else {
       _traitEl.style.display = 'none';
     }
@@ -17540,7 +17565,7 @@ function endLegend() {
   let significance = '';
   if (G.renown >= 65) significance = 'A legend of the Material Planet, known across polity lines.';
   else if (G.renown >= 20) significance = 'Respected within the region. What you found will be remembered.';
-  else if ((G.quests||[]).length >= 3) significance = 'The investigation moved forward. Not far enough, but forward.';
+  else if ((G.quests||[]).length >= 3) significance = 'The work moved forward. Not far enough, but forward.';
   else significance = 'Brief. But you were here, and you looked.';
 
   legends.push({
@@ -18042,8 +18067,8 @@ var HOWTO_SECTIONS = [
   { heading: 'Camp & Recovery', body: 'The <strong>Camp</strong> button rests outside settlements — it\'s free. Resting at an <strong>inn</strong> costs 1 gold and is available through locality choices. Both restore HP and clear travel fatigue. Active traits reset on rest; passive traits remain. Companions check in at camp when available.' },
   { heading: 'Mastery', body: 'When you reach your stage\'s level cap, experience converts to Mastery XP. Spend Mastery XP at training sessions to push your skills past the cap. Check the Training option when resting.' },
   { heading: 'Alignment', body: 'Your Benevolence and Order scores shift with your choices. Open the character sheet to see your current alignment bars. These affect how certain NPCs and factions respond to you at key moments.' },
-  { heading: 'Companions', body: 'As your investigation deepens, allies may join you. Once unlocked, companions appear in your character sheet. They carry their own agendas and may assist or complicate your choices.' },
-  { heading: 'Journal', body: 'The journal records evidence, intelligence, contacts, and discoveries automatically. Open it to review what you know. The investigation advances when your evidence reaches thresholds — check your progress in the stage bar.' },
+  { heading: 'Companions', body: 'As the case develops, allies may join you. Once unlocked, companions appear in your character sheet. They carry their own agendas and may assist or complicate your choices.' },
+  { heading: 'Journal', body: 'The journal records evidence, intelligence, contacts, and discoveries automatically. Open it to review what you know. Progress advances when your evidence reaches thresholds — check your stage bar.' },
   { heading: 'Shops & Services', body: 'Localities offer shops, inns, and services through the choice panel. When in a settlement, look for choices that lead to vendors, rest, or local services. Your inventory and equipment are in the character sheet.' },
   { heading: 'Choice Colors', body: '<strong>Blue border</strong>: Main quest — advances the central story. <strong>Orange border</strong>: Confrontation or accusation — high consequence. <strong>Dark amber border</strong>: Conflict, betrayal, or exposure. <strong>Red border</strong>: Combat action. Choices with no border are standard.' },
   { heading: 'Roll System', body: 'Every choice involves a d20 roll. Your skill modifier is added to the result and compared to a Difficulty Class (DC). Safe choices use DC 7, risky choices DC 13, bold choices DC 16. Rolling a natural 20 gives a bonus; rolling a natural 1 is always a critical failure regardless of modifiers. Higher skills make difficult DCs more reliably passable — but the dice are never fully tamed.' },
@@ -18052,7 +18077,7 @@ var HOWTO_SECTIONS = [
   { heading: 'Travel', body: 'Move between localities by opening the map. On foot is free but slow. Horse, cart, and boat cost gold per leg but cover more ground. Your pace (fast, normal, slow) affects encounter chance — fast pace risks complications; slow pace reduces them. Supplies deplete each day of travel. Running out of supplies imposes penalties to Vigor rolls until you resupply at the next settlement.' },
   { heading: 'Camp & Rest', body: 'Rest at camp to recover HP. The amount healed scales with your Vigor skill. Crafting at camp uses a Spirit roll against the recipe difficulty — success produces the item, failure consumes materials. If you have companions, posting watches overnight converts potential ambushes into warned encounters where you act first. Camp is also where companion-specific events can trigger.' },
   { heading: 'Companions', body: 'Companions join after you resolve the Maren Oss encounter in Stage I. Vorath Gelden provides combat bonuses and intimidation presence. Mira Calden provides skill bonuses to lore and stealth. Each companion has an agenda that can create friction — they are not tools, they have opinions. Companion bonuses apply passively to relevant rolls. Losing a companion mid-stage has lasting narrative consequences.' },
-  { heading: 'Stage Progress', body: 'The investigation bar in your HUD tracks your stage progress. Risky and bold choices advance it; safe choices do not. The bar must reach 3 for the stage miniboss to unlock, and 8 or higher to face the stage boss. Completing the boss encounter clears the way to advance. You cannot skip stages — the investigation must be developed before the confrontation becomes possible.' },
+  { heading: 'Stage Progress', body: 'The progress bar in your HUD tracks your stage advancement. Risky and bold choices advance it; safe choices do not. The bar must reach 3 for the stage miniboss to unlock, and 8 or higher to face the stage boss. Completing the boss encounter clears the way to advance. You cannot skip stages — the groundwork must be laid before the confrontation becomes possible.' },
   { heading: 'Alignment', body: 'Two hidden axes track your moral character: Benevolence (-50 to +50) and Order (-50 to +50). Choices that help others at personal cost raise benevolence; choices that harm others lower it. Choices that uphold law and structure raise order; lawbreaking lowers it. At plus or minus 10, alignment badges appear on your character sheet. NPCs in later stages react to your alignment — some paths close, others open.' },
 ];
 
