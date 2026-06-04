@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SHELKOPOLIS STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to NPC work and locality tensions
  * Generated for: Trade vs dignity, refinement vs necessity, public harmony vs covert rivalry

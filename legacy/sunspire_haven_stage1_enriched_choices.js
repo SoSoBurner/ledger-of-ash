@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SUNSPIRE HAVEN STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to family syndicate control and resource isolation
  * Generated for: Fair exchange vs family obligation, communal good vs personal profit, syndicate weaponization and coercion

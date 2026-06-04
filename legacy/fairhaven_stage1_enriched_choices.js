@@ -1,4 +1,4 @@
-﻿/**
+/**
  * FAIRHAVEN STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to supply work and frontier faith
  * Generated for: Faith devotion vs practical necessity, supply security vs glyph danger, commerce vs purity

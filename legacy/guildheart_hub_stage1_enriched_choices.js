@@ -1,4 +1,4 @@
-﻿/**
+/**
  * GUILDHEART HUB STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to guild arbitration and trade disputes
  * Generated for: Guild loyalty vs individual innovation, tradition vs progress, records corruption and arbitration poisoning

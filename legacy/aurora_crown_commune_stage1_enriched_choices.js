@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AURORA CROWN COMMUNE STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to dome maintenance, survival, and contamination
  * Generated for: Individual need vs collective survival, hope vs fatalism, containment vs contamination

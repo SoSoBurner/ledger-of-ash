@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SOREHEIM PROPER STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 deeply grounded investigation paths tied to labor tensions and quota systems
  * Generated for: Community autonomy vs merchant control, craft integrity vs production quota, quota manipulation and worker displacement
