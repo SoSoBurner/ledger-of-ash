@@ -11539,10 +11539,6 @@ function loadStageChoices(locId) {
     return;
   }
   if (G && !G.flags) G.flags = {};
-  // If the Stage I boss encounter is active (started but not yet narrative-complete), do not overwrite boss choices.
-  // This guards the case where checkStageAdvance() was called externally (e.g. from resolveArrival) just before
-  // loadStageChoices runs in the same setTimeout — without this guard, boss choices are immediately overwritten.
-  if (G && G.flags && G.flags.stage1_boss_started && !G.flags.stage1_narrative_complete) return;
   // Stage I boss check — fires once when sp1≥15 and boss hasn't started yet; bails out so boss choices aren't overwritten
   if (G && G.stage === 'Stage I' && G.flags && !G.flags.stage1_boss_started &&
       (G.stageProgress && G.stageProgress[1] >= 15) &&
@@ -14234,7 +14230,18 @@ function resolveArrival(locId) {
     updateHUD();
   }
   setTimeout(() => {
-    if (typeof checkStageAdvance === 'function') checkStageAdvance();
+    if (typeof checkStageAdvance === 'function') {
+      var _s1bossWas      = G.flags ? !!G.flags.stage1_boss_started      : false;
+      var _s1mainbossWas  = G.flags ? !!G.flags.stage1_mainboss_started   : false;
+      checkStageAdvance();
+      // If checkStageAdvance just activated the miniboss or main boss, it already called renderChoices.
+      // Skip loadStageChoices so those boss choices aren't immediately overwritten.
+      var _bossJustFired = G.flags && (
+        (G.flags.stage1_boss_started     && !_s1bossWas) ||
+        (G.flags.stage1_mainboss_started && !_s1mainbossWas)
+      );
+      if (_bossJustFired) return;
+    }
     if (typeof loadStageChoices === 'function') {
       loadStageChoices(locId, G.stage);
     } else {
