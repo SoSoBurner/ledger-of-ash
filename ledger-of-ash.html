@@ -11955,7 +11955,7 @@ function activateAbility(abilId) {
     wl_order:             { type: 'roll_bonus', skill: 'persuasion', bonus: 3 },
     wl_hold_ground:       { type: 'roll_bonus', skill: 'combat',     bonus: 2 },
     // death knight
-    dk_finish_it:         { type: 'roll_bonus', skill: 'combat',     bonus: 3 }
+    dk_finish:            { type: 'roll_bonus', skill: 'combat',     bonus: 3 }
   };
 
   var effect = ABILITY_EFFECTS[abilId];
@@ -11970,11 +11970,8 @@ function activateAbility(abilId) {
       if (typeof updateHUD === 'function') updateHUD();
     }
   } else {
-    // Fallback: ability ID missing from dispatch table — should not happen for authored abilities
+    // All authored active abilities are mapped above — reaching here is a bug
     console.error('[activateAbility] No effect defined for ability ID: ' + abilId);
-    var skillKey = ab.skillReq && ab.skillReq.skill ? ab.skillReq.skill : null;
-    G._pendingAbilityBonus = 2;
-    G._pendingAbilitySkill = skillKey;
   }
 
   addNarration(ab.name, '<p style="font-style:italic;color:var(--ink-dim)">' + (ab.desc || ab.gameEffect || '') + '</p>', 'neutral');
