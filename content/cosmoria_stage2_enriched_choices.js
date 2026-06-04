@@ -51,7 +51,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'pressuring Harbor Captain Marrow Tideglass on sealed cargo waivers');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_marrow_tideglass = true;
         G.investigationProgress++;
@@ -173,7 +173,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('charm', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
         G.flags.coralyn_reviewer_log_seen = true;
         G.investigationProgress++;
@@ -196,7 +196,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(30, 'examining the night airship loading quay for physical evidence');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('vigor', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.vigor);
       if (roll.total >= 13) {
         G.flags.quay_markings_examined = true;
         G.investigationProgress++;
@@ -280,7 +280,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.night_manifest_column_found = true;
         G.investigationProgress++;
@@ -344,7 +344,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.selka_second_register_seen = true;
         G.investigationProgress++;
@@ -437,7 +437,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.cargo_insurer_policy_holder_found = true;
         G.investigationProgress++;
@@ -531,7 +531,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.airship_unlisted_category_found = true;
         G.investigationProgress++;
@@ -563,7 +563,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.weighmaster_zero_entries_found = true;
         G.investigationProgress++;
@@ -624,7 +624,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.dock_factor_wax_seal_found = true;
         G.investigationProgress++;
@@ -659,7 +659,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -718,7 +718,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'Cosmoria Collegium archivist cadence');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
       if (result.isCrit || result.total >= 13) {
         G.flags.met_archivist_peldan = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -867,7 +867,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
         return;
       }
       gainXp(80, 'advancing Collegium chain at Cosmoria');
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
       if (result.total >= 13) {
         G.flags.collegium_contact_2 = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -924,7 +924,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'seawall inscription re-chiseling');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('vigor', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.vigor);
       if (roll.total >= 13) {
         G.flags.cos_seawall_inscriptions = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
@@ -1138,7 +1138,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_doran_wavecrest = true;
         G.investigationProgress++;
@@ -1406,7 +1406,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.selka_five_rooms_pattern = true;
         G.investigationProgress++;
@@ -1507,7 +1507,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.marrow_objection_returned = true;
         G.investigationProgress++;
@@ -1540,7 +1540,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.staging_second_floor_found = true;
         G.investigationProgress++;
@@ -1738,7 +1738,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.tide_gauge_discrepancy = true;
         G.investigationProgress++;
@@ -1836,7 +1836,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.selka_off_list_room = true;
         G.investigationProgress++;
@@ -1869,7 +1869,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.selka_third_manifest_copy = true;
         G.investigationProgress++;
@@ -1934,7 +1934,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.nerissa_shrine_visitor = true;
         G.investigationProgress++;
@@ -2000,7 +2000,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.port_surgeon_log_gap = true;
         G.investigationProgress++;
@@ -2033,7 +2033,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.crane_bell_count = true;
         G.investigationProgress++;

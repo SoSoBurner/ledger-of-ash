@@ -18,7 +18,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.investigationProgress++;
@@ -52,7 +52,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(78, 'questioning Ivena Ironspike');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_ivena_ironspike = true;
         G.investigationProgress++;
@@ -86,7 +86,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.factionHostility) G.factionHostility = {};
       if (!G.rivalId) G.rivalId = 'warden_captain';
-      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.might||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_velden_ironspike = true;
         G.flags.stage2_faction_contact_made = true;
@@ -118,7 +118,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'questioning Brenn Ironspike shrine keeper');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_brenn_ironspike = true;
         G.investigationProgress++;
@@ -149,7 +149,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(78, 'observing enforcement quarter inn');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_harlan_ironspike = true;
         G.investigationProgress++;
@@ -181,7 +181,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(84, 'accessing Ithtananalor shadow market');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -213,7 +213,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
       const arch = G.archetype && G.archetype.group;
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.captain_roaz_assessed = true;
         G.flags.stage2_faction_contact_made = true;
@@ -242,7 +242,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('charm', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
         G.flags.ivena_second_contact = true;
         G.investigationProgress++;
@@ -265,7 +265,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -288,7 +288,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var roll = rollD20('finesse', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -310,7 +310,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'working the archive classification seam');
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -339,7 +339,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'reading the second perimeter');
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.ith_second_perimeter_read = true;
         G.investigationProgress++;
@@ -368,7 +368,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'checking on Brenn under pressure');
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.brenn_under_pressure = true;
         G.investigationProgress++;
@@ -399,7 +399,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'tracing transferred duty officer forwarding seal');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.duty_officer_trace_complete = true;
         G.investigationProgress++;
@@ -431,7 +431,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'analyzing quota calibration mathematics');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.quota_calibration_traced = true;
         G.investigationProgress++;
@@ -463,7 +463,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'locating cold storage endpoint for contraband materials');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.cold_hold_located = true;
         G.investigationProgress++;
@@ -526,7 +526,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'accessing Harlan\'s private ledger of enforcement names and dates');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.harlan_ledger_read = true;
         G.investigationProgress++;
@@ -590,7 +590,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'mapping Shadowhands courier route');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.courier_route_mapped = true;
         G.investigationProgress++;
@@ -621,7 +621,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'reading enforcement quarter notice board second layer');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.notice_board_second_layer = true;
         G.investigationProgress++;
@@ -653,7 +653,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'examining civic tribunal sealed undocketed case file');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.tribunal_sealed_case_found = true;
         G.investigationProgress++;
@@ -685,7 +685,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'speaking with foundry supervisor about pre-quota weight tally');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.foundry_supervisor_tally = true;
         G.investigationProgress++;
@@ -717,7 +717,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'tracing compliance officer transfer after filing formal query');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.compliance_officer_trace = true;
         G.investigationProgress++;
@@ -749,7 +749,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'locating unlisted logistics unit floor in enforcement quarter');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.logistics_floor_located = true;
         G.investigationProgress++;
@@ -780,7 +780,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'tracing external auditor absence from compliance cycle');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.auditor_absence_confirmed = true;
         G.investigationProgress++;
@@ -816,7 +816,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('combat', (G.skills.combat||0) + Math.floor(G.level/2));
+      const result = rollD20('combat', (G.skills.might||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -845,7 +845,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'forest compact boundary discrepancy');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.flags.ith_forest_compact_boundary = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
@@ -872,7 +872,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       gainXp(20, 'magical licensing register ghost approvals');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.flags.ith_licensing_ghost_approvals = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
@@ -899,7 +899,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'knowledge suppression archive pattern');
       if (!G.flags) G.flags = {};
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.flags.ith_knowledge_suppression_pattern = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
