@@ -11548,12 +11548,12 @@ function loadStageChoices(locId) {
     return;
   }
   if (G && !G.flags) G.flags = {};
-  // Stage I boss check — fires once when sp1≥15 and boss hasn't started yet; bails out so boss choices aren't overwritten
-  if (G && G.stage === 'Stage I' && G.flags && !G.flags.stage1_boss_started &&
+  // Stage I boss check — fires when sp1≥15 and main boss hasn't started yet (allows re-trigger after miniboss completes)
+  if (G && G.stage === 'Stage I' && G.flags && !G.flags.stage1_mainboss_started &&
       (G.stageProgress && G.stageProgress[1] >= 15) &&
       typeof checkStageAdvance === 'function' && !checkStageAdvance._running) {
     checkStageAdvance();
-    if (G.flags.stage1_boss_started) return; // boss just fired — don't overwrite its choices
+    if (G.flags.stage1_boss_started || G.flags.stage1_mainboss_started) return; // boss just fired — don't overwrite its choices
   }
   // Faction contact hint — fires once when sp2>=10 and no contact made yet
   if (G.stageProgress && G.stageProgress[2] >= 10 && G.flags && !G.flags.stage2_faction_contact_made && !G.flags.faction_hint_shown) {
@@ -13397,7 +13397,7 @@ function checkStageAdvance() {
     addQuest('The anomalies are part of a pattern.', 'Keep following the institutional record — the shape becomes clearer with each locality.', 'q_s1_pattern');
   }
   // Stage 1 boss: Marshal Sera Ironveil fires at stageProgress[1] >= 15
-  if (!G.flags.stage1_narrative_complete && !G.flags.stage1_boss_started
+  if (!G.flags.stage1_narrative_complete && !G.flags.stage1_mainboss_started
       && _sp1n >= 15
       && typeof STAGE1_BOSS_MODULE !== 'undefined'
       // Stage 1 uses shouldTrigger; Stage 2 uses checkTrigger — intentionally asymmetric. See content/stage1_boss.js and stage2_boss.js.

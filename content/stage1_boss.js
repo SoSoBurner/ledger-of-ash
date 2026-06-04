@@ -271,7 +271,7 @@ function _stage1MainBossResolution() {
 function canTriggerStage1Boss() {
   if (!G || !G.flags) return false;
   if (G.stage !== 'Stage I') return false;
-  if (G.flags.stage1_boss_started || G.flags.stage1_narrative_complete) return false;
+  if (G.flags.stage1_mainboss_started || G.flags.stage1_narrative_complete) return false;
   var _sp1 = G.stageProgress[1]||0;
   if (_sp1 < 10) return false;
   // Miniboss window: not yet complete
@@ -292,7 +292,7 @@ function checkStage1BossTriggered() {
   if (!G.flags) G.flags = {};
   var _sp1 = G.stageProgress[1]||0;
   if (_sp1 < 10) return;
-  if (G.flags.stage1_boss_started || G.flags.stage1_narrative_complete) return;
+  if (G.flags.stage1_mainboss_started || G.flags.stage1_narrative_complete) return;
   // At sp1 >= 18, player has progressed past miniboss window — bypass it so main boss fires
   if (!G.flags.stage1_miniboss_complete && _sp1 >= 18) {
     G.flags.stage1_miniboss_complete = true;
