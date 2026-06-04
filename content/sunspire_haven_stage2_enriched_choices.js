@@ -68,7 +68,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
@@ -128,7 +128,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'examining container commission dispute with Orvak Strone');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_orvak_strone = true;
         G.investigationProgress++;
@@ -158,7 +158,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_elyra_mossbane_sun = true;
         G.investigationProgress++;
@@ -189,7 +189,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(64, 'reviewing convoy handler payment report with Jorva Helmrune');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_jorva_helmrune_sun = true;
         G.investigationProgress++;
@@ -216,7 +216,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('charm', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.kael_ledger_gap_revealed = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -237,7 +237,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.storehouse_glyph_marks_examined = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -259,7 +259,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('finesse', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.sunspire_social_breach_navigated = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -279,7 +279,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('vigor', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.vigor);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('The Shed Off the Back Lane', 'The porter — name unasked, cheap tin whistle on a cord around his neck that he flicks against his collarbone every few strides — has walked you halfway there before he realizes he has walked you there. The shuttered cart shed sits behind the third textile yard, padlocked with new brass on old iron. The ground inside the lane is compacted in a pattern that says heavy convoy weight has been parked here recently, despite the shed\'s paint having weathered past two seasons. The porter flicks the whistle, once, and does not ask what you are looking at.');
@@ -297,7 +297,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('charm', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Paperwork Clarification, Stall Sixteen', 'The clerk at stall sixteen — name patch worn, thumb bandaged from a stamp lip — keeps rotating his stamp through his fingers while he works. The disputed papers sit top of his queue: a grain manifest with two family endorsements that contradict each other on the origin yard. The dispute was filed three days ago and escalated to steward arbitration at noon. He rotates the stamp twice more. "One of these endorsements is a forged family mark. I cannot tell which." He sets the stamp down. He has already flagged it to the escalation board.');
@@ -315,7 +315,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('finesse', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13 || roll.isCrit) {
         G.flags.sunspire_retainer_greeting_mirrored = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -339,7 +339,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_weight_exemption_traced = true;
         G.investigationProgress++;
@@ -370,7 +370,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_backup_archive_traced = true;
         G.investigationProgress++;
@@ -401,7 +401,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_mossbane_dispute_traced = true;
         G.flags.met_elyra_mossbane_sun = true;
@@ -433,7 +433,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_sealed_bay_examined = true;
         G.flags.met_kael_emberthrone = true;
@@ -496,7 +496,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_north_gate_log_examined = true;
         G.investigationProgress++;
@@ -527,7 +527,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_grain_stock_discrepancy = true;
         G.flags.met_jorva_helmrune_sun = true;
@@ -559,7 +559,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_handler_testimony_secured = true;
         G.investigationProgress++;
@@ -589,7 +589,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_watch_rotation_examined = true;
         G.investigationProgress++;
@@ -619,7 +619,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_elyra_unsubmitted_data = true;
         G.flags.met_elyra_mossbane_sun = true;
@@ -652,7 +652,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_suppression_author_identified = true;
         G.investigationProgress++;
@@ -682,7 +682,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_local_agent_identified = true;
         G.flags.met_orvak_strone = true;
@@ -717,7 +717,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The pattern in Taldan\'s suppression files is clear — targeted documentation, not broad censorship. Fourteen requests, a fake regulatory authority, all of it pointing at the same narrow category of countermeasure knowledge. The dry air off the high-plain carries the smell of warmed stone through the registry window. But the connection to any specific practitioner group requires a thread that has not yet surfaced here. There is more to find in the other localities before this line opens.';
         return;
       }
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.total >= 13 || result.isCrit) {
         G.flags.arcane_contact_2 = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -750,7 +750,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'auditing magical knowledge registry tiers with Overseer Taldan Veyst');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
@@ -782,7 +782,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
@@ -813,7 +813,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(78, 'cross-checking restricted access log against suppression request charter references');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.flags.sun_access_log_linked = true;
@@ -873,7 +873,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'tracing withdrawn restricted access applications at Knowledge Registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
@@ -902,7 +902,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'tracing anomalous cross-reference notation in Knowledge Registry index');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_registry_crossref = true;
         G.investigationProgress++;
@@ -932,7 +932,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(66, 'auditing Northern Charter Accord holdings in Knowledge Registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
@@ -963,7 +963,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(65, 'observing Elyra Mossbane patrol route pattern');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_elyra_mossbane_sun = true;
         G.investigationProgress++;
@@ -1021,7 +1021,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(66, 'probing Orvak Strone after-hours docket access incident');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_orvak_strone = true;
         G.investigationProgress++;
@@ -1050,7 +1050,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(65, 'examining Jorva Helmrune communal ledger security change');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_jorva_helmrune_sun = true;
         G.investigationProgress++;
@@ -1079,7 +1079,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'documenting Taldan Veyst oversight authority request and denial');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.flags.sun_taldan_oversight_denied = true;
@@ -1109,7 +1109,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(67, 'cross-examining Elyra Mossbane on Lenn Orvaith connection');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_elyra_mossbane_sun = true;
         G.flags.sun_elyra_orvaith_link = true;
@@ -1171,7 +1171,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'cross-checking northern staging road against Roadwarden public waypoint map');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_staging_waypoints_found = true;
         G.investigationProgress++;
@@ -1201,7 +1201,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'cross-referencing north gate weight declarations against axle-load records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_weight_underreport = true;
         G.investigationProgress++;
@@ -1230,7 +1230,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'tracing false origin locality on convoy manifest');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_false_origin_manifest = true;
         G.investigationProgress++;
@@ -1288,7 +1288,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(69, 'locating convoy drivers who took undocumented northern deviation');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_drivers_testimony = true;
         G.investigationProgress++;
@@ -1319,7 +1319,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(80, 'cross-referencing suppression compound activation conditions from Orvaith workspace data');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_compound_theory_advanced = true;
         G.investigationProgress++;
@@ -1352,7 +1352,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The theoretical framework is not yet closed. The compound's purpose requires cross-referencing the container specs, the registry's suppressed documentation, and Orvaith's dispersal research — and not all of those threads are in hand yet. The pine resin smell from the timber yard carries on the altitude wind through the corridor. There is more to follow before this conclusion can be reached.`;
         return;
       }
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_compound_purpose_identified = true;
         G.investigationProgress++;
@@ -1381,7 +1381,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(73, 'documenting altitude-dependency of suppression compound calibration');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_altitude_calibration = true;
         G.investigationProgress++;
@@ -1410,7 +1410,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(77, 'establishing Orvaith dataset as critical missing evidence for compound radius');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_orvaith_dataset_critical = true;
         G.investigationProgress++;
@@ -1441,7 +1441,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(82, 'tracing charter subsidiary registration address to Guildheart');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_guildheart_link = true;
         G.flags.sun_local_agent_identified = true;
@@ -1472,7 +1472,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.sun_prior_locality_link = true;
         G.investigationProgress++;
@@ -1507,7 +1507,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/2));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

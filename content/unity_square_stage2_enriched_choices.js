@@ -15,7 +15,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'exposing arrival registry shadow sub-register with Vale Brokerwell');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.investigationProgress++;
@@ -44,7 +44,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing mediation participants with Vale Ledgermere');
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.investigationProgress++;
@@ -74,7 +74,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
 
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_tinmarch = true;
         G.investigationProgress++;
@@ -105,7 +105,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.brokerwell_second_ledger = true;
         G.investigationProgress++;
@@ -137,7 +137,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.consignment_route_traced = true;
         G.investigationProgress++;
@@ -168,7 +168,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.ward_mediation_friction_resolved = true;
         G.investigationProgress++;
@@ -195,7 +195,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'cross-referencing tally tower clerk observations with shadow register entries');
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_tally_clerk_fera = true;
         G.investigationProgress++;
@@ -224,7 +224,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'observing the unindexed counting house during off-hours');
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.counting_house_interior_seen = true;
         G.investigationProgress++;
@@ -254,7 +254,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'extracting route and timing intelligence from the arbitration runner');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.runner_routes_confirmed = true;
         G.investigationProgress++;
@@ -284,7 +284,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing unindexed charter series absence in Ward tax records');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.ward_tax_gap_confirmed = true;
         G.investigationProgress++;
@@ -314,7 +314,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing consenting patient about symptom timeline');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.patient_symptom_timeline_confirmed = true;
         G.investigationProgress++;
@@ -342,7 +342,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing diplomatic exemption renewal signatures to institutional enabler');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.exemption_signer_identified = true;
         G.investigationProgress++;
@@ -371,7 +371,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'examining gatekeeper post logs for deliberate scheduling gaps');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.gatekeeper_schedule_confirmed = true;
         G.investigationProgress++;
@@ -405,7 +405,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -431,7 +431,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing overlapping awning territory dispute filings in Unity Square registry');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
         G.flags.awning_dispute_triple_filing_found = true;
         G.investigationProgress++;
@@ -464,7 +464,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing perpetual tally exemption in Unity Square tally tower night log');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
         G.flags.tally_tower_night_exemption_found = true;
         G.investigationProgress++;
@@ -497,7 +497,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'tracing street physician supply reroute through Unity Square bonding house');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
       if (result.isCrit) {
         G.flags.tinmarch_supply_reroute_confirmed = true;
         G.investigationProgress++;
@@ -595,7 +595,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'tracing secondary notations in the arrival registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.investigationProgress++;
@@ -625,7 +625,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'auditing the holding classification in the arrival registry');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -653,7 +653,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'cross-referencing charter party arrival intervals');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -681,7 +681,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'examining the unsigned central registry directive');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -709,7 +709,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'cross-checking cargo weights against suppression compound volumes');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -737,7 +737,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'cross-referencing the registry gap with ward security review dates');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -767,7 +767,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'tracing the third-party listing on bypass forms');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -795,7 +795,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'tracing mediation bypass counter relocations');
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -823,7 +823,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'correlating bypass filing spikes with transit arrival clusters');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.flags.met_vale_brokerwell = true;
@@ -852,7 +852,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(71, 'examining sealed administrative exemption bypass routing');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -880,7 +880,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'documenting the north gate ward boundary marker relocation');
       if (!G.flags) G.flags = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('survival', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -910,7 +910,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'comparing Brokerwell\'s personal archive against the official record');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -938,7 +938,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(69, 'documenting bypass processing during Ledgermere\'s absence');
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_ledgermere = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -966,7 +966,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'cross-referencing Tinmarch\'s patient log against the registry gap');
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_tinmarch = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -994,7 +994,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(77, 'tracing unregistered arrivals through Tinmarch\'s patient records');
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_tinmarch = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1022,7 +1022,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reading Brokerwell\'s margin notes in the transit ledger');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1050,7 +1050,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'learning from Tinmarch about pre-registry tenement deliveries');
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_tinmarch = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1080,7 +1080,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(79, 'matching transit routing codes to Guildheart Hub outbound manifests');
       if (!G.flags) G.flags = {};
-      const result = rollD20('lore', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1108,7 +1108,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'documenting the eastern alley cargo handoff outside oversight hours');
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'The eastern alley has a recessed loading bay that was reclassified as a storage annex in last year\'s ward survey — meaning it no longer appears on the active commercial inspection circuit. Between the fourth and sixth hour of the morning, a two-cart operation runs through the bay: sealed canisters transferred from one cart to another with practiced efficiency. No ward documentation changes hands. The lantern on the bay post is unlit. The team works by the ambient light from the square\'s main corridor, twenty meters away.';
@@ -1134,7 +1134,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'locating the unmapped staging point for cross-district freight');
       if (!G.flags) G.flags = {};
-      const result = rollD20('survival', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('survival', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_vale_brokerwell = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;

@@ -20,7 +20,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'investigating sealed letter network');
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -57,7 +57,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'correlating glyph and letter patterns');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress++;
@@ -89,7 +89,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'mapping noble faction benefit');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -129,7 +129,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `You lay out what you have on the table: partial dates, two names with unconfirmed roles, a pattern that holds in three of five cases and won't hold under scrutiny in the other two. The lamp beside the table burns steady. It isn't enough. Sharing this now hands someone a half-built case they can dismantle, absorb, or redirect against you. The picture needs more before it can be moved. Come back when the gaps are closed.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stage2_evidence_shared = true;
         G.flags.stage2_evidence_shared_crit = true;
@@ -158,7 +158,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'approaching House Shelk matriarch');
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -192,7 +192,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'briefing Roadwarden command');
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.flags.met_captain_windrider = true;
@@ -227,7 +227,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'consulting High Priestess on ritual routes');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.stageProgress[2]++;
@@ -262,7 +262,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'first Warden Order contact');
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       // Set rival on first encounter
       if (!G.rivalId) G.rivalId = 'warden_captain';
@@ -301,7 +301,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `Multiple sources have confirmed the same description: someone asking the same questions, at the same addresses, one day behind your movements. The herbalist. The archive clerk. The duty board at the garrison. All of them recognize the pattern. You haven't shared the same room yet. The gap is real but hasn't closed. The moment to act or avoid hasn't arrived — but it's been scheduled by someone else's timeline, and that someone is precise.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('combat', (G.skills.might || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       if (result.isCrit) {
         G.stage2_rival_status = 'negotiated';
@@ -342,7 +342,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.flags.warden_invitation_seen = true;
         G.recentOutcomeType = 'faction'; maybeStageAdvance(); return;
       }
-      const result = rollD20('combat', (G.skills.combat || 0) + Math.floor(G.level / 3));
+      const result = rollD20('combat', (G.skills.might || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.warden_invitation_seen = true;
         G.flags.warden_interest_declared = true;
@@ -368,7 +368,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'cathedral archive access attempt');
       const arch = G.archetype && G.archetype.group;
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         if (!G.rivalId && arch === 'magic') G.rivalId = 'archivist_veld';
@@ -400,7 +400,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'learning Verdant Row information protocols');
       const arch = G.archetype && G.archetype.group;
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         if (!G.rivalId && arch === 'stealth') G.rivalId = 'shadow_broker';
@@ -436,7 +436,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'facilitating guild audit');
       const arch = G.archetype && G.archetype.group;
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       if (result.isCrit) {
         G.stageProgress[2]++;
         if (!G.rivalId && arch === 'support') G.rivalId = 'provost_lenn';
@@ -471,7 +471,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'accessing innkeeper log');
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.innkeeper_log = true;
         G.investigationProgress++;
@@ -499,7 +499,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'analyzing glyph surge residue');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The scorch patterns don't radiate from a center — they lean. The damage is heavier on the northwest-facing surfaces of every stall that burned. The surge was channeled in from outside the market, not generated within it. Northwest means the archival quarter. Channeling a surge requires working knowledge of the city's underground glyph grid — the kind of knowledge that's held by fewer than a dozen people with active registry credentials. The figure at the far table has not ordered anything in two hours. Red Hood does not announce itself. It simply notes where you are.`;
@@ -525,7 +525,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'evaluating patrol leader arrangement');
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         G.lastResult = `The personal matter is a property boundary dispute that's been stalled in the civic queue for eight months — real, concrete, and solvable. You work it through a guild records clerk who owes you nothing but processes the paperwork anyway. Three days later the patrol leader slides three folded pages across the tavern table without making eye contact. The pages name two relay stations on the northern route network, both listed under supply depot classifications that don't match their described locations.`;
@@ -557,7 +557,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The evidence on the table points in a direction but doesn't reach the origin. Each document names a link; each link points to another that isn't yet in reach. The authorization chain requires more links before the terminal point becomes visible. The tallow smell of the registry table is patient. The shape of the operation is clear. The name at the top is not, and without it the rest is a pattern waiting for its anchor.`;
         G.recentOutcomeType = 'investigate'; maybeStageAdvance(); return;
       }
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 2));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 2));
       if (result.isCrit) {
         G.investigationProgress += 2;
         if (G.investigationProgress >= 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -588,7 +588,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'Elowen shell subsidiary lead');
-      var roll = rollD20('charm', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
         G.lastResult = 'Elowen meets you in the guild anteroom, not her office. She keeps the door to the corridor open. When she speaks she does it quietly, facing the window that overlooks the Artisans Quarter. She\'s found a third contract that routes revenue through a subsidiary with no registered master craftsman — a dead shell, four years old, active only during disruption windows. She slides the contract face-down across the table and does not touch it again. The name of the subsidiary\'s founding signatory is visible through the paper when the light catches it right.';
         addJournal('Elowen Shelk — shell subsidiary linked to disruption windows, founding signatory visible', 'evidence');
@@ -610,7 +610,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'Great Registry sub-level seal dates');
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.lastResult = 'The Great Registry\'s sub-level seal archive smells of old wax and stone cold enough to see breath in. The shelf markers are hand-labeled in two different scripts — the originals and a second hand that came through later, re-sorting. You find the block covering the chapel letter period. Three seal impressions carry dates that precede the corresponding filings by eleven days. Pre-dated registrations are a charter technique: the authorization existed before the action, which means someone planned the cover before the operation began.';
         addJournal('Great Registry — pre-dated seal impressions confirm pre-planned authorization structure', 'evidence');
@@ -632,7 +632,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'Verdant Row Collective territorial read');
-      var roll = rollD20('finesse', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13) {
         G.lastResult = 'The Fashion Artisans Collective mark on your coat tag is the wrong House color for the Verdant Row end of the market — visible enough that two stall runners clock it in the first thirty seconds. You catch the look before either of them moves and peel the tag at the seam before it becomes a formal correction. The man who was watching from the grain exchange doorway stops watching and goes back inside. The Collective\'s territorial grammar here is enforced by attention, not ordinance, and you\'ve just demonstrated you can read it.';
         addJournal('Shelkopolis Artisans Collective — territorial mark system observed, decorum breach avoided', 'discovery');
@@ -658,7 +658,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracking the Panim mediator courier');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.panim_courier_located = true;
         G.investigationProgress++;
@@ -689,7 +689,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'surveilling Roadwarden aide Forren Dass at the south dock');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.forren_dass_movement_mapped = true;
         G.investigationProgress++;
@@ -718,7 +718,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating the unpublished Director of Civic Charter Integrity office');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.charter_integrity_office_located = true;
         G.investigationProgress++;
@@ -748,7 +748,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating suppressed docket complainants still in Shelkopolis');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.suppressed_complainants_found = true;
         G.investigationProgress++;
@@ -777,7 +777,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'assessing the charter amendment ratification deadline');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.amendment_deadline_known = true;
         G.flags.amendment_panim_brake_confirmed = true;
@@ -839,7 +839,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the dead-proxy shell subsidiary authorization chain');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.shell_proxy_chain_confirmed = true;
         G.investigationProgress++;
@@ -869,7 +869,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the Ironspool factor Panim transfer record');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.ironspool_factor_panim_link = true;
         G.investigationProgress++;
@@ -901,7 +901,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The picture is not complete. The evidence chain has gaps, and presenting it now hands someone an incomplete case they can absorb, redirect, or use to close doors against you. Stage III requires the full picture: authorization confirmed, network mapped, and no missing links that a well-briefed opponent could exploit. The lamp on the table burns steady. More ground to cover before this can move forward.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
       if (result.total >= 14 || result.isCrit) {
         // Path A: institutional backing
         G.flags.stage2_finale_institutional = true;
@@ -996,7 +996,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'reading crane load logs at Titan Tower south dock against Ironspool intake weight slips');
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -1028,7 +1028,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading the Oversight Collegium arbiter docket');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.collegium_docket_gap_confirmed = true;
         G.investigationProgress++;
@@ -1059,7 +1059,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'approaching Inquisitor Orveth at the Stoat and Wax');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.met_inquisitor_orveth = true;
         G.investigationProgress++;
@@ -1090,7 +1090,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'pressing the Ironspool night foreman for intake bypass detail');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.survival || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.ironspool_intake_bypass_named = true;
         G.investigationProgress++;
@@ -1119,7 +1119,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the Collegium charter amendment signature chain');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.collegium_amendment_signature_tracked = true;
         G.investigationProgress++;
@@ -1149,7 +1149,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating Inquisitor Orveth\'s sealed fourth-case notes');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.orveth_fourth_case_notes_found = true;
         G.investigationProgress++;
@@ -1178,7 +1178,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'Elowen pressure reveal');
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.flags.met_elowen_shelk = true;
         G.flags.elowen_under_pressure = true;
@@ -1214,7 +1214,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'reading south gate tollbook arrival patterns');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1244,7 +1244,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'intercepting sealed letter at unattended relay house');
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1275,7 +1275,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing suppressed contracts at guild registry');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1306,7 +1306,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'approaching the recurring figure at the far table');
-      const result = rollD20('finesse', (G.skills.stealth || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1337,7 +1337,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reading Aelra\'s second margin cipher in the room ledger');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1366,7 +1366,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'meeting the Warden Order second representative');
-      const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1399,7 +1399,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(77, 'analyzing the chapel oversight amendment for retroactive additions');
-      const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;

@@ -3000,7 +3000,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(88, 'intercepting restricted document courier in transit');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var r = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (r.total >= 13) {
         G.flags.s2_stealth_courier_done = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -3033,7 +3033,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(85, 'copying restricted ledger page during clerk absence');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var r = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (r.total >= 13) {
         G.flags.s2_stealth_ledger_done = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -3066,7 +3066,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(92, 'trailing liaison officer to off-roster contact meeting');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var r = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (r.isCrit) {
         G.flags.s2_stealth_shadow_done = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
@@ -3293,7 +3293,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.combat || 0);
+      var r = rollD20(G.skills.might || 0);
       if (r.total >= 12) {
         G.lastResult = 'The warden\'s hand stops moving when you step closer. You don\'t touch him. You don\'t need to — what you project is the specific patience of someone who has hurt people for functional reasons and found it unremarkable. He recalculates something privately and pushes the ledger across the table. The entry you wanted to see is circled in the original ink, flagged for review by someone whose name is in a column the public version does not include. He doesn\'t look up while you read.';
         G.recentOutcomeType = 'discovery';
@@ -3325,7 +3325,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.combat || 0);
+      var r = rollD20(G.skills.might || 0);
       if (r.total >= 11) {
         G.lastResult = 'Three figures step out of the alley at the second crossing — the kind of interception that requires someone knowing the route in advance. You read the geometry before they\'ve finished moving: two flanking, one center, the center one watching your hands. You close the distance fast enough that the center step becomes a retreat. They peel off within a block. The courier says nothing for the rest of the walk. At the handoff point, she gives you a name: the clerk who told someone about the schedule.';
         G.recentOutcomeType = 'discovery';
@@ -3357,7 +3357,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.combat || 0);
+      var r = rollD20(G.skills.might || 0);
       if (r.total >= 10) {
         G.lastResult = 'A tactical eye reads this the same way it reads any changed deployment: there is a reason, and the reason is the thing being protected. The new patrol arc covers the transit administration\'s rear entrance and the weighmaster\'s annex — two buildings that share a wall but have no public connection. The coverage gap they created is over the public records entrance, which is now effectively unmonitored at shift change. Someone repositioned the wardens toward what matters and left the appearance of coverage intact.';
         G.recentOutcomeType = 'discovery';
@@ -3387,7 +3387,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.combat || 0);
+      var r = rollD20(G.skills.might || 0);
       if (r.total >= 13) {
         G.lastResult = 'You choose the time and the ground — a narrow service passage, no exits to either side. He rounds the corner and stops when he sees you\'ve turned. For a moment the calculation runs on both sides. He\'s good: his weight is forward, hands relaxed, feet wider than a civilian would stand. He was told to follow, not to engage. You tell him what you know and who you think gave the order. He doesn\'t confirm anything, but the specific way he doesn\'t confirm it is its own answer. He leaves. By morning, whoever sent him knows what you said.';
         G.recentOutcomeType = 'discovery';
@@ -3418,7 +3418,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.combat || 0);
+      var r = rollD20(G.skills.might || 0);
       if (r.total >= 12) {
         G.lastResult = 'He makes it half a block before your hand is on his shoulder. He\'s not a fighter — the satchel drops and he starts talking before you\'ve said anything. The document inside is a routing variance authorization signed by someone three ranks above the clerk\'s supervisor. He was told to deliver it to a private residence address and destroy the transit record. The address is on the document header. He didn\'t write it there; someone above him did, which means the paper has a chain even it didn\'t intend to have.';
         G.recentOutcomeType = 'discovery';
@@ -3449,7 +3449,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing courier network gaps');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.courier_ledger_gap_found = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3479,7 +3479,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-polity name suppression pattern');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.suppressed_name_crosspolity = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3509,7 +3509,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'mapping Collegium liaison inconsistencies');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.collegium_liaison_divergence = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3538,7 +3538,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading unlogged waystation transit');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.waystation_unlogged_transit = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3598,7 +3598,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing courier route notices');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.courier_route_discrepancy = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3628,7 +3628,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'dating Collegium seal documents');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.collegium_seal_anachronism = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3658,7 +3658,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading archivist roster against access log');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.archivist_offhours_entries = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3687,7 +3687,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-checking broker ledger against Guild registry');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.broker_unlicensed_clients = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3716,7 +3716,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'questioning transit warden inspection procedure');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.transit_warden_uninspected = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3744,7 +3744,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing retroactively filed supply allocation');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.supply_retroactive_filing = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3773,7 +3773,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing vacant clearance role');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.clearance_role_vacant = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
