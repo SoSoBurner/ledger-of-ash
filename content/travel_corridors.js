@@ -4659,9 +4659,9 @@
       title: 'Unofficial Toll',
       text: 'Two people block the narrow section of path where the trees press closest. They have a rope across the track at knee height, slack enough to step over. The taller one names a figure. It is not high. The other is watching your hands.',
       choices: [
-        { text: 'The figure is low enough to mean this is a test, not a profession.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: 'tep_forest_toll_talk' },
+        { text: 'The figure is low enough to mean this is a test, not a profession.', skill: 'charm', tag: 'risky', align: 'neutral', cid: 'tep_forest_toll_talk' },
         { text: 'Pay it. Low toll, specific location — road knowledge has value here.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'tep_forest_toll_pay' },
-        { text: 'Step the rope and move through them before they decide what to do about it.', skill: 'combat', tag: 'bold', align: 'chaotic', cid: 'tep_forest_toll_push' }
+        { text: 'Step the rope and move through them before they decide what to do about it.', skill: 'might', tag: 'bold', align: 'chaotic', cid: 'tep_forest_toll_push' }
       ]
     },
     {
@@ -4691,7 +4691,7 @@
       text: 'The Roadwarden post at this junction is staffed — lantern lit, door open, boots visible under the desk inside. But no one answers when you call at the window. The transit log on the counter is open to today\'s date. The last entry is two hours old.',
       choices: [
         { text: 'Two hours and no entry means something interrupted the post mid-shift.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_road_warden_investigate' },
-        { text: 'Log yourself in the transit book and move. The post\'s problem is its own.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'tep_road_warden_self_log' }
+        { text: 'Log yourself in the transit book and move. The post\'s problem is its own.', skill: 'charm', tag: 'safe', align: 'neutral', cid: 'tep_road_warden_self_log' }
       ]
     }
   ];
@@ -4713,7 +4713,7 @@
       text: 'The captain calls you to the cargo hold. Three crates have been stacked against one marked in the manifest as empty. The seal on the empty crate is different from the others — older, from a routing office that closed two years ago. Someone loaded this before your departure.',
       choices: [
         { text: 'A sealed crate with a closed office mark is not empty. Open it.', skill: 'wits', tag: 'bold', align: 'neutral', cid: 'tep_sea_manifest_open' },
-        { text: 'The manifest discrepancy belongs to the captain, not to a passenger.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'tep_sea_manifest_pass' }
+        { text: 'The manifest discrepancy belongs to the captain, not to a passenger.', skill: 'charm', tag: 'safe', align: 'neutral', cid: 'tep_sea_manifest_pass' }
       ]
     }
   ];

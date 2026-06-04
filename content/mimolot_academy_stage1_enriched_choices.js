@@ -1050,7 +1050,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
   },
   failResult: {
     text: `The notice board outside the main registry has been cleared since the morning posting — the pins are still in place but the papers are gone, which happens when the administration pulls notices it has reconsidered. A fresh posting cycle begins at the morning bell tomorrow. The bulletin board at the refectory entrance runs on a separate posting schedule and is maintained by student organizations rather than the administration. That one is usually still current in the afternoon.`,
-    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
   }
 }
 ];

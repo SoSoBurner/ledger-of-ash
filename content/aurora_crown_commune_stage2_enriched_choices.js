@@ -108,7 +108,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'examining filtration maintenance deliveries with Theron Sealwater');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_theron_sealwater = true;
         G.investigationProgress++;
@@ -166,7 +166,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(66, 'questioning Mariel Sealwater about Collegium liaison activity');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mariel_sealwater = true;
         G.investigationProgress++;
@@ -196,7 +196,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_liora_sealwater = true;
         G.investigationProgress++;
@@ -227,7 +227,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.flags.met_alis_sealwater = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -248,7 +248,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('vigor', G.skills.survival);
+      var roll = rollD20('vigor', G.skills.vigor);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Residue in the Intake Gallery', 'The maintenance gallery runs along the dome\'s lower curve, warm from the thermal conduits packed into the wall behind the paneling. The filtration intake manifold is third on the left — a chest-high unit bolted into the floor, inspection cover accessible without tools. The residue ring inside the intake throat is the wrong color: pale amber where it should be grey-white, with a waxy deposit along the lower seam. The service log clipped to the unit shows the last inspection as routine. Nothing about amber. Nothing about the waxy line.');
@@ -269,7 +269,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var roll = rollD20('finesse', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Screening Queue, Side Gate', 'The side gate queue moves faster and the steward running it is younger — checking transit stamps without reading the names above them. The contamination-check notation on your record is a secondary flag, not a primary hold; it only surfaces if the steward cross-references the transit log against the daily alert sheet. This one does not. You are through in four minutes. Behind you, another steward at the main gate is going sheet by sheet. The two queues are twenty meters apart and processing the same list by different methods.');
@@ -288,7 +288,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('charm', G.skills.persuasion);
+      var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
         G.flags.met_bastian_sealwater = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -307,7 +307,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     xpReward: 32,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('finesse', G.skills.stealth);
+      var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -327,7 +327,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('wits', G.skills.lore);
+      var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('East Gate, Manufactured Argument', 'The east gate argument is being performed. A haulier in a Collegium-marked coat is disputing a contamination-check stamp he clearly knows is valid — voice pitched to carry, gestures wide enough to pull every steward within thirty paces. While the duty steward steps out of the intake shed to mediate, a second figure in the same coat pattern walks a sealed case through the unattended inspection bench without logging it. Two minutes, maybe three. The haulier calms the instant the case clears the bench. The queue resumes. The intake log has a gap for that window.');
@@ -349,7 +349,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_warden_sera_whiteglass = true;
         G.flags.aurora_supplier_change_traced = true;
@@ -382,7 +382,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_liora_sealwater = true;
         G.flags.aurora_intake_geography_confirmed = true;
@@ -414,7 +414,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_theron_sealwater = true;
         G.flags.aurora_theron_crates_confirmed = true;
@@ -445,7 +445,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_dismissed_technician_found = true;
         G.investigationProgress++;
@@ -476,7 +476,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cadrin_sealwater = true;
         G.flags.aurora_sealant_surplus_traced = true;
@@ -508,7 +508,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_credential_ghost_access = true;
         G.investigationProgress++;
@@ -540,7 +540,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_orvyn_mast = true;
         G.flags.aurora_condensate_vector_confirmed = true;
@@ -602,7 +602,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_pella_greave = true;
         G.flags.aurora_liaison_exit_log_mismatch = true;
@@ -634,7 +634,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_east_bay_examined = true;
         G.investigationProgress++;
@@ -664,7 +664,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_anomaly_reports_traced = true;
         G.investigationProgress++;
@@ -695,7 +695,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_sovan_drest = true;
         G.flags.aurora_worker_reassignment_confirmed = true;
@@ -726,7 +726,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_fleet_marks_traced = true;
         G.investigationProgress++;
@@ -759,7 +759,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The amber residue and the intake concentrations tell part of the story, but matching them to any specific documented technique requires a thread that has not yet surfaced here. There is more groundwork to lay before this connection can be made. The pine cold comes through the high-latitude hall vents — the commune\'s ventilation runs continuously, regardless of season, regardless of what moves through it. Whatever is in the system is already circulating. The documentation to name it precisely isn\'t in hand yet.';
         return;
       }
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.total >= 13 || result.isCrit) {
         G.flags.arcane_contact_3 = true;
         G.flags.stage2_faction_contact_made = true;
@@ -882,7 +882,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_surge_log_gap_traced = true;
         G.investigationProgress++;
@@ -914,7 +914,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_cycle_timer_extended = true;
         G.investigationProgress++;
@@ -978,7 +978,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_maintenance_route_diverges = true;
         G.investigationProgress++;
@@ -1009,7 +1009,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'cross-referencing porter log gaps with dome sealing records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_theron_sealwater = true;
         G.investigationProgress++;
@@ -1075,7 +1075,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mariel_sealwater = true;
         G.flags.aurora_mariel_memory_book = true;
@@ -1107,7 +1107,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cadrin_sealwater = true;
         G.flags.aurora_cadrin_independent_audit = true;
@@ -1140,7 +1140,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_liora_sealwater = true;
         G.flags.aurora_liora_personal_tally = true;
@@ -1173,7 +1173,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_theron_sealwater = true;
         G.flags.aurora_theron_smell_log = true;
@@ -1205,7 +1205,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mariel_sealwater = true;
         G.flags.aurora_mariel_two_guests = true;
@@ -1239,7 +1239,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_drainage_residue_confirmed = true;
         G.investigationProgress++;
@@ -1303,7 +1303,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_glyph_reactive_confirmed = true;
         G.investigationProgress++;
@@ -1335,7 +1335,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_compound_predates_dome = true;
         G.investigationProgress++;
@@ -1369,7 +1369,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_harvest_circle_connection = true;
         G.investigationProgress++;
@@ -1401,7 +1401,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.persuasion||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_liaison_alias_confirmed = true;
         G.investigationProgress++;
@@ -1436,7 +1436,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_pressure_log_discrepancy = true;
         G.investigationProgress++;
@@ -1500,7 +1500,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_flow_throttle_confirmed = true;
         G.investigationProgress++;
@@ -1532,7 +1532,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_certifier_conflict_found = true;
         G.investigationProgress++;
@@ -1564,7 +1564,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_original_schematics_found = true;
         G.investigationProgress++;
@@ -1631,7 +1631,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_mariel_sealwater = true;
         G.flags.aurora_mariel_second_name = true;
@@ -1663,7 +1663,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_cadrin_sealwater = true;
         G.flags.aurora_cadrin_registration_date = true;
@@ -1696,7 +1696,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_liora_sealwater = true;
         G.flags.aurora_liora_prior_exposure = true;
@@ -1729,7 +1729,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_theron_sealwater = true;
         G.flags.aurora_theron_off_rotation_move = true;
@@ -1796,7 +1796,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_residue_water_soluble = true;
         G.investigationProgress++;
@@ -1828,7 +1828,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_residue_accumulation_mapped = true;
         G.investigationProgress++;
@@ -1860,7 +1860,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.survival||0) + Math.floor(G.level/3));
+      var result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_skin_trace_observed = true;
         G.investigationProgress++;
@@ -1926,7 +1926,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.lore||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_eastern_settlement_precedent = true;
         G.investigationProgress++;
@@ -1958,7 +1958,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('finesse', (G.skills.stealth||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.aurora_credential_multi_locality = true;
         G.investigationProgress++;

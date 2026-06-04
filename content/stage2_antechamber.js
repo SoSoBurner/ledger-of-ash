@@ -5,7 +5,7 @@ window.STAGE2_ANTECHAMBER = (function() {
     if (!G || !G.flags || !G.stageProgress) return false;
     return (
       !G.flags.stage2_antechamber_done &&
-      (G.stageProgress[2] || 0) >= 12
+      (G.stageProgress[2] || 0) >= 10
     );
   }
 

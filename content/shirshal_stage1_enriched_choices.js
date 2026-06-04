@@ -999,7 +999,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   xpReward: 5,
   failResult: {
     text: "The board is empty this morning — notices cleared at dawn as part of the weekly rotation, new postings not yet pinned. The harbor master's board near the south dock gate runs on a different schedule and is still current. What gets posted there reflects the fishing community's concerns more directly than the hall's sanctioned board does.",
-    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
   },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;

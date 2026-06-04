@@ -1026,7 +1026,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
   xpReward: 5,
   failResult: {
     text: "The notice board's frame is empty — the day's postings have been taken down and the replacement batch hasn't gone up yet. The gap between cycles runs an hour or two at most. The board sits at the main garrison court entrance, visible from the outer plaza; it will have new postings by the next bell. The garrison duty schedule and public administrative notices are also available through the annex window during standard access hours.",
-    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
   },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
