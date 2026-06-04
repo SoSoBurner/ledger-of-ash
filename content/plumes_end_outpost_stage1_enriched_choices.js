@@ -33,7 +33,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `Letha's posted schedule is law here — the checkpoint board lists her available times, and this isn't one of them. The duty clerk at the supply station takes your name without expression and posts it in the visitor log. Outside, the wind pushes in from the northeast. You can wait until her scheduled period, or find another way into the records before you find your way to her.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Check the patrol board for other leads', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Check the patrol board for other leads', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -70,7 +70,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `Letha's records are accessible only through Letha. The suppression pulled every copy out of the sanctioned chain — no duplicates, no archive deposit, no patrol copies. Without her authorization, the column of dates and readings on that desk stays closed. The outpost's oilcloth curtain shifts in the draft from the northeast door. The data is there. The path to it runs through her trust.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Find another way to earn Letha\'s confidence', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find another way to earn Letha\'s confidence', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -102,7 +102,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The suppression order's language is deliberately broad, and the name on it reads as legitimate enough that without a regional authority directory — which sits locked in Letha's office — you can't confirm it's fabricated. The outpost supply station smells of cook-fire and oilcloth. The answer is in that directory. The directory is behind a door that requires her clearance.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Work through Letha to access the directory', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Work through Letha to access the directory', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -134,7 +134,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The rangers' patrol logs record the route changes but flag them as seasonal variation — without Letha's directional pressure data beside the observation notes, the pattern stays inconclusive. The log room is open during the administrative period. You have the information in front of you and not enough framework to make it mean something yet. The data needs a different anchor before it speaks.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Return to Letha\'s pressure records for the anchor point', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Return to Letha\'s pressure records for the anchor point', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -164,7 +164,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The perimeter walk gives you wind and a view. The northeastern quadrant looks like the other three until it doesn't — but whatever difference is there won't resolve without Letha's six months of readings beside you as a reference point. The frontier edge without the data is just edge. The thread picks up again at her desk.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Return to Letha\'s records before reading the perimeter again', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Return to Letha\'s records before reading the perimeter again', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -196,7 +196,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The Warden Order's inquiry process loops back through the regional coordination channel — the same one the suppression order closed. The coordinator is polite about it. The supply station is quiet at this hour, the oilcloth over the window lifting in the draft from the northeast. An inquiry requires documentation the suppression made unavailable. The path is blocked at the source.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Find a way around the compromised channel', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find a way around the compromised channel', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -224,7 +224,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The suppression order circulated to all outpost personnel and Ranger Coss absorbed it. He's not going to speak against the sanctioned record to a stranger passing through. The patrol board needs straightening; he straightens it. The northeast route assignments are posted there in his handwriting. The evidence of what he knows is on the board. He won't speak it aloud.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Read the patrol board instead of the ranger', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Read the patrol board instead of the ranger', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -297,7 +297,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The watchtower access requires a patrol authorization during Letha's scheduled quiet periods — a procedure the overnight watch enforces without exception. The supply station below smells of cook-fire and old oilcloth. The northeast horizon is visible from ground level too, but from this angle the quality Letha describes won't resolve. The view you need is one flight of stairs and one authorization away.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Request Letha\'s authorization for tower access', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Request Letha\'s authorization for tower access', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -327,7 +327,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The archive room's older volumes are in a condition that needs careful handling — the seasonal records from thirty years back are still legible, but reading across the full forty-year run for a single type of entry requires more time than the administrative period allows. The archive closes at the posted hour. The historical comparison is there; finding it is a full session's work.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Return during the next administrative period with a clearer search target', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Return during the next administrative period with a clearer search target', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -379,7 +379,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The supply traders are between runs — the current circuit doesn't reach Plumes End until the next resupply, and the outpost's last trader contact was four days ago. The notice board has their scheduled return posted in pencil. What they've heard on the northeastern circuit will keep until then. The frontier runs on a schedule and the rumors travel on it.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Check the notice board for other current leads', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Check the notice board for other current leads', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -407,7 +407,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The displaced families from the northeast holdings scattered south and went quiet — no recorded destinations, no filed claims, no addresses at any way station along the supply circuit. The traders carried some of them but didn't track where they stopped. The people you need are somewhere between here and the interior and the trail is four months cold. Letha's patrol network has wider reach. This requires her cooperation before it requires your legwork.`,
       xp: 0,
       effects: [],
-      next: [{text: "Letha's patrol network covers this area. She'll know where they went.", skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Letha's patrol network covers this area. She'll know where they went.", skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -443,7 +443,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The radius calculation needs Letha's directional anchor — without a fixed station log at consistent intervals, the displacement corridors and farmer accounts can suggest a direction but not a boundary. The oilcloth over the north window shifts in a draft from outside. The math is available. The foundation it requires is in Letha's records, behind her authorization.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Secure Letha\'s records before attempting the radius calculation', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Secure Letha\'s records before attempting the radius calculation', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -464,7 +464,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `After-dark observation at the perimeter requires overnight patrol authorization — the watch rotation doesn't allow unaccompanied access to the northeast edge past the supply station after the second bell. Letha's name on a pass would solve it. The glow Wess has mentioned on his routes is documented in his own patrol notes; those are available through the duty station during the administrative period.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Request overnight perimeter access through Letha', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Request overnight perimeter access through Letha', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -490,7 +490,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `Central coordination's response thresholds are in a coordination-level protocol manual that isn't posted at frontier outposts. Letha's protocol references them by section number without quoting the criteria. The calculation requires a document that lives at a higher access level than this supply station carries. The answer exists — it's in a binder in a coordination office you haven't reached yet.`,
       xp: 0,
       effects: [],
-      next: [{text: 'File this thread for when you reach a coordination-level archive', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'File this thread for when you reach a coordination-level archive', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -511,7 +511,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `Letha's desk is closed during the briefing period — the books are visible through the window in the door, three volumes spine-out on the left side. The clerk says she'll be available at the posted time. The titles on those spines are readable from where you stand in the corridor: atmospheric chemistry, filtration mechanics, compound-class toxicology. She ordered them herself.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Return at Letha\'s posted available time', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Return at Letha\'s posted available time', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -539,7 +539,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `The threads are present but won't connect yet — the Glasswake data, the Aurora Crown additive substitution, the ghost institutions, Plumes End's readings. Something in the chain is still missing. The cook-fire at the overnight hearth fills the supply station with the smell of woodsmoke and oilcloth. The picture assembles when you have all the pieces. One of them is still somewhere in this outpost.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Keep gathering before attempting the full synthesis', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Keep gathering before attempting the full synthesis', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -693,7 +693,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       text: `Recruit Wess is out on the current rotation — his name is on the northeast circuit posting, which means he won't be back until the evening changeover. The patrol board shows his return time penciled in below the route assignment. The supply station has his annotated route markers from last week mounted on the wall behind the duty clerk's desk, but interpreting them without him explaining the boundary shifts requires a familiarity with patrol notation you'd need to develop first.`,
       xp: 0,
       effects: [],
-      next: [{text: 'Wait for Wess at the evening changeover', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Wait for Wess at the evening changeover', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     }
   },
 
@@ -770,7 +770,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     text: `The notice board is there but the postings are from three days ago — supply schedule updates, a patrol assignment change, a note about oilcloth requisitions. Nothing that wasn't already general knowledge. The wind comes in from the northeast when the supply station door opens. The board will have something worth reading when the next supply circuit arrives.`,
     xp: 0,
     effects: [],
-    next: [{text: 'Check back when the next supply run posts', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    next: [{text: 'Check back when the next supply run posts', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
   }
 }
 ];

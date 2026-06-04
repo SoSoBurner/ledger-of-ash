@@ -15,7 +15,7 @@ var STAGE2_MINIBOSS_SEED_CHOICES = [
     id: 'stage2_boss_seed_1',
     text: 'The same signature appears in four separate manifest bundles. That\'s not coincidence.',
     tag: 'risky',
-    skill: 'lore',
+    skill: 'wits',
     dc: 12,
     locality: null,
     stageMin: 'Stage II',
@@ -32,7 +32,7 @@ var STAGE2_MINIBOSS_SEED_CHOICES = [
     id: 'stage2_boss_seed_2',
     text: 'That Collegium badge doesn\'t match the post assignment for this route. Someone followed me here.',
     tag: 'risky',
-    skill: 'stealth',
+    skill: 'finesse',
     dc: 12,
     locality: null,
     stageMin: 'Stage II',
@@ -58,7 +58,7 @@ function _pell_phase1() {
     {
       text: 'The form is real. Refusing escalates this in ways I can\'t predict.',
       tag: 'safe',
-      skill: 'lore',
+      skill: 'wits',
       failResult: 'This path is closed here, but the inquiry form carries a room number and a time — appearing late is not the same as refusing. Pell has a window to fill. Arriving at the tail of it, with less in hand than he expects, is still a way through.',
       action: function() {
         addNarration('', 'The room is a third-floor transit office, clean and unremarkable. Pell is already seated when you arrive. He does not stand. The inquiry form you were sent sits face-down on the desk in front of him — he received his copy before you got yours. He waits for you to sit, then turns it over and reads it, as though he has not already read it twice. "Thank you for coming in a timely manner," he says. "Pursuant to the Division\'s current audit scope, I have a few procedural questions." He lays his pen flat — nib toward him — before he says anything further. Nothing about him is rushed.');
@@ -69,7 +69,7 @@ function _pell_phase1() {
     {
       text: 'I can comply and give him nothing useful.',
       tag: 'risky',
-      skill: 'stealth',
+      skill: 'finesse',
       action: function() {
         var roll = rollD20('finesse');
         var dc = DC_PELL_DISAPPEAR;
@@ -88,7 +88,7 @@ function _pell_phase1() {
     {
       text: 'An inquiry form is not a warrant. His timeline is not mine.',
       tag: 'risky',
-      skill: 'survival',
+      skill: 'vigor',
       action: function() {
         var roll = rollD20('vigor');
         var dc = DC_PELL_DISAPPEAR;
@@ -128,19 +128,19 @@ function _pell_phase2() {
     {
       text: 'He was assigned before any complaint existed. That\'s the thread that unravels him.',
       tag: 'bold',
-      skill: 'lore',
+      skill: 'wits',
       action: function() { _pell_resolve_expose(); }
     },
     {
       text: 'A clean exit for him means I keep working beneath his notice.',
       tag: 'risky',
-      skill: 'persuasion',
+      skill: 'charm',
       action: function() { _pell_resolve_negotiate(); }
     },
     {
       text: 'His inquiry window expires without a target if I leave now.',
       tag: 'safe',
-      skill: 'survival',
+      skill: 'vigor',
       failResult: 'This path is closed here, but the inquiry window has days left in it — and Pell filed a pursuit notation the moment the routes went quiet. The transit posts closer to the city boundary are less watched. Working from there while the window runs is still a form of distance.',
       action: function() { _pell_resolve_disappear(); }
     }

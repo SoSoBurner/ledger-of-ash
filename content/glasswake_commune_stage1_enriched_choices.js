@@ -18,7 +18,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The research annex is quiet this time of day, reed-thatch smell drifting in from the waterline. Toman Iceveil's colleagues deflect without meeting your eyes — formal hours, prepared statements, nothing beyond that. One of them straightens sample jars that were already straight. His name keeps surfacing, then getting pulled back. He works after the committee leaves. The estuary at evening is where the administrative visibility ends; that's where a real conversation becomes possible.",
       xp: 0,
       effects: [],
-      next: [{text: 'Find Toman at the estuary after the committee leaves for the day.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find Toman at the estuary after the committee leaves for the day.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -49,7 +49,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The catalogue lists sections 7 through 12 in plain sight — not hidden, just walled. Physical access to the restricted shelves requires a senior researcher's endorsement signature. The archivist on duty names Toman Iceveil first when you ask who could provide one, then corrects herself too quickly. Water light moves across the archive table from the estuary window. Toman works late, after the committee leaves. He's the name. He's always been the name.",
       xp: 0,
       effects: [],
-      next: [{text: 'Toman can open the restricted shelves. Find him after hours.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Toman can open the restricted shelves. Find him after hours.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -108,7 +108,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The committee roster is posted in the research hall — five names, areas of expertise, current roles. No appointment history on the posting. Tracing how the three external members arrived requires the archive appointment records, pulled during regular hours with a researcher endorsement. The sluice channels outside carry the morning smell of reed and standing water. Researcher Fen has a working access credential and hasn't yet learned what questions to avoid.",
       xp: 0,
       effects: [],
-      next: [{text: 'Fen has archive access and no practiced caution yet.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Fen has archive access and no practiced caution yet.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -138,7 +138,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The research quarter at evening is quieter than it should be. Doors closed, walkway lamps reflected in the channel water below, the smell of net-rope and old mineral compound mixing in the mist off the estuary. Researchers move with their heads down and their cases close. Something is being communicated in the collective posture of this place, but the specific pattern isn't readable from outside. Toman knows the quarter's rhythms well enough to translate what the behavior means.",
       xp: 0,
       effects: [],
-      next: [{text: 'Toman can explain what the researchers are doing and why.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Toman can explain what the researchers are doing and why.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -168,7 +168,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "Fen keeps glancing toward the corridor. The older researchers told her to be careful with visitors she doesn't know — the caution was passed down in exact language and she's repeating its shape. 'I can show you the public catalogue.' Through the estuary-facing window behind her, morning mist sits low on the water, net floats half-visible. She wants to help. She was told not to. Toman's name is the one that came up before hers, and his hours are known.",
       xp: 0,
       effects: [],
-      next: [{text: 'Toman works after the committee leaves. His hours are known.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Toman works after the committee leaves. His hours are known.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -196,7 +196,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The Collegium liaison table stands unmanned near the administrative hall entrance. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk slides a blank form across the counter without looking up — written request, registered party affiliation, supporting documentation attached. The room smells of floor wax and old paper. The consortium connection, three committee members appointed through an unprecedented procedural category, is the kind of documentation that changes what a formal petition can compel.",
       xp: 0,
       effects: [],
-      next: [{text: 'Document the external committee appointments before the next petition window.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Document the external committee appointments before the next petition window.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -280,7 +280,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The Regional Science Review's public response log shows a single entry: 'received — deferred pending institutional review, per current review protocol.' The entry is dated two days after submission. Invoking that protocol requires a registered reviewing institution to formally request it. The Review's partnership agreements are public charter filings. One of them was signed shortly before Toman's submission date — the register is accessible at the commune archive during regular hours.",
       xp: 0,
       effects: [],
-      next: [{text: 'The charter filing date is in the commune archive. It answers the question.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'The charter filing date is in the commune archive. It answers the question.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -308,7 +308,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The gallery is open and unmanned. Shard samples behind glass, interpretation panels on the walls, the low sound of water moving through the sluice channel beneath the floor. The display is polished and complete — too complete. Aesthetic framing, spiritual significance, nothing about resonance or amplification. The panels were recently updated; the older text is still faintly legible under the new layer near the mounting hardware. Toman can tell you what the original interpretation said before it was revised.",
       xp: 0,
       effects: [],
-      next: [{text: 'Toman knows what the original gallery text said. He was there when it changed.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Toman knows what the original gallery text said. He was there when it changed.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -351,7 +351,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The committee proceedings file is classified under the same order that covers the reclassified research — the archivist locates the file number without difficulty, then stops. Committee authorization is required to open it. One committee member could share the record informally. Researcher Winn voted against the reclassification and stayed on the committee specifically to keep the dissent inside the record. She keeps notes on every session and keeps them somewhere the classification order can't reach.",
       xp: 0,
       effects: [],
-      next: [{text: 'Researcher Winn has the vote record and has been waiting for someone to ask.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Researcher Winn has the vote record and has been waiting for someone to ask.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -403,7 +403,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "Researcher Winn listens to the first sentence, then sets her pen down and straightens papers that were already straight. 'I'm not in a position to speak informally about committee proceedings.' Each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name — that record is in the same classified file as Toman's research, but Winn keeps her own parallel notes outside the committee's filing system.",
       xp: 0,
       effects: [],
-      next: [{text: "Winn's parallel notes sit outside the classified system. She can be approached again.", skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Winn's parallel notes sit outside the classified system. She can be approached again.", skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -431,7 +431,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The commune is aware something is wrong — you can hear it in the careful pauses, the way conversations shift when certain names come up near the committee hall. Nobody has the full shape of it. The notice board near the water-clock tower carries community postings; the morning crier covers what the board doesn't. Between the two, a partial picture assembles. The missing part is the part that requires someone who was in the room when the vote happened.",
       xp: 0,
       effects: [],
-      next: [{text: 'The notice board and morning crier carry the pieces that are already public.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'The notice board and morning crier carry the pieces that are already public.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -460,7 +460,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The research annex is locked at this hour. Through the window: a lamp still burning over Toman's worktable, a measuring rig he built himself positioned in the middle of the room, shard samples in their brackets. He's inside. The door is closed to people he doesn't yet trust. The estuary path runs behind the annex building — the side entrance is where he comes and goes after hours, away from the main corridor.",
       xp: 0,
       effects: [],
-      next: [{text: 'The side entrance is how he moves after hours. Try there.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'The side entrance is how he moves after hours. Try there.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -483,7 +483,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The founder's study is in the archive under standard classification — not restricted. A reading table near the estuary window, pages smelling of old binding and mineral dust. The anomaly observation is in a supplementary appendix, footnoted in a smaller hand than the rest of the document, never referenced in the main body. Thirty years of research passed over it. The observation was always there; the question is why no one was looking for it. Toman's work made it relevant, and he can tell you how he found it.",
       xp: 0,
       effects: [],
-      next: [{text: 'Toman knows the chain of study. He followed it from the beginning.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Toman knows the chain of study. He followed it from the beginning.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -553,7 +553,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The shard field path is gated before sunrise — a rope-and-plank barrier across the access walkway, mist off the estuary sitting thick over the planks. A notice on the barrier post lists field access hours: sunrise to midday, midday rest break excluded. The shards are visible past the gate, dark against the pale water behind them. The morning water-clock chime is still an hour off. The access window opens with the light.",
       xp: 0,
       effects: [],
-      next: [{text: 'Return at sunrise when the field access opens.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Return at sunrise when the field access opens.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -705,7 +705,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "The survey maps Toman references are in the research annex during formal hours — publicly accessible, not restricted. The annex is closed this afternoon for scheduled maintenance. The water-clock chime marks the hour from somewhere further along the sluice channel. The comparative maps showing the original field boundaries and the current ones are posted in the shard gallery's back room, available during gallery hours, no endorsement required.",
       xp: 0,
       effects: [],
-      next: [{text: 'The shard gallery back room has the comparative maps. Gallery hours are open.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'The shard gallery back room has the comparative maps. Gallery hours are open.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -725,7 +725,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       text: "Arven and Missa are visible in the committee chamber from the public gallery — two figures at the far end of the long table, notebooks open, pens moving. The session ends in forty minutes. The corridor outside the chamber is where people linger after adjournment, away from the formal record. They carry their own notebooks, not the committee's standard forms. Whatever they document, it lives outside the committee minutes. The corridor at session end is the window.",
       xp: 0,
       effects: [],
-      next: [{text: 'Wait for the session to end. The corridor outside is where they can speak.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Wait for the session to end. The corridor outside is where they can speak.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -751,7 +751,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     text: "The notice board near the water-clock tower is crowded with overlapping postings, several layers deep at the center. The newest sheet is pinned at the corner where the reed-thatch overhang keeps the mist off — dry paper, recent ink. Nothing useful surfaces today. The morning crier covers the settlement at the second water-clock chime; her route ends near the canal gate where the sluice authority keeps its tally board.",
     xp: 0,
     effects: [],
-    next: [{text: 'The morning crier covers what the board misses.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    next: [{text: 'The morning crier covers what the board misses.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
   },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;

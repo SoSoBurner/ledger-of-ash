@@ -324,7 +324,7 @@
         choices: [
           {
             text: 'What the maintenance exposed is worth more than the time it takes.',
-            skill: 'survival', tag: 'risky', align: 'neutral',
+            skill: 'vigor', tag: 'risky', align: 'neutral',
             cid: 'corridor_scavenge_short_search',
             action: function() {
               var r = (typeof rollD20 === 'function') ? rollD20('vigor', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
@@ -348,7 +348,7 @@
           },
           {
             text: 'Road maintenance debris is a Roadwarden accounting problem.',
-            skill: 'survival', tag: 'safe', align: 'neutral',
+            skill: 'vigor', tag: 'safe', align: 'neutral',
             cid: 'corridor_scavenge_short_pass',
             action: function() {
               setTimeout(function() {
@@ -564,7 +564,7 @@
         choices: [
           {
             text: 'Old trackways and sealed jars do not sit together by accident.',
-            skill: 'survival', tag: 'risky', align: 'neutral',
+            skill: 'vigor', tag: 'risky', align: 'neutral',
             cid: 'corridor_scavenge_medium_search',
             action: function() {
               var r = (typeof rollD20 === 'function') ? rollD20('vigor', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
@@ -588,7 +588,7 @@
           },
           {
             text: 'A collapsed wall on someone\'s field boundary is someone else\'s problem.',
-            skill: 'lore', tag: 'safe', align: 'neutral',
+            skill: 'wits', tag: 'safe', align: 'neutral',
             cid: 'corridor_scavenge_medium_pass',
             action: function() {
               setTimeout(function() {
@@ -831,7 +831,7 @@
         choices: [
           {
             text: 'Fresh chalk and a clerical route notation mean someone is coming back for this.',
-            skill: 'survival', tag: 'bold', align: 'neutral',
+            skill: 'vigor', tag: 'bold', align: 'neutral',
             cid: 'corridor_scavenge_long_search',
             action: function() {
               var r = (typeof rollD20 === 'function') ? rollD20('vigor', (G && G.skills ? G.skills.survival : 0)) : {roll:10,total:10,isCrit:false,isFumble:false};
@@ -855,7 +855,7 @@
           },
           {
             text: 'Cache hollows on long routes are someone\'s operational infrastructure. Leave it alone.',
-            skill: 'survival', tag: 'safe', align: 'neutral',
+            skill: 'vigor', tag: 'safe', align: 'neutral',
             cid: 'corridor_scavenge_long_pass',
             action: function() {
               if (typeof addMaterial === 'function') addMaterial('ritual_wax', 1);
@@ -4630,9 +4630,9 @@
       title: 'Movement in the Tree Line',
       text: 'Something moves parallel to the path, keeping pace. Not an animal — the rhythm is wrong, too deliberate, pausing when you pause. The tree cover here is dense enough that only sound tells you it is there.',
       choices: [
-        { text: 'Stop moving. Let it show itself or move off.', skill: 'stealth', tag: 'risky', align: 'neutral', cid: 'tep_forest_treeline_wait' },
-        { text: 'Change direction sharply and cut behind it.', skill: 'survival', tag: 'bold', align: 'neutral', cid: 'tep_forest_treeline_flank' },
-        { text: 'Keep the pace and give it nothing to read.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'tep_forest_treeline_ignore' }
+        { text: 'Stop moving. Let it show itself or move off.', skill: 'finesse', tag: 'risky', align: 'neutral', cid: 'tep_forest_treeline_wait' },
+        { text: 'Change direction sharply and cut behind it.', skill: 'vigor', tag: 'bold', align: 'neutral', cid: 'tep_forest_treeline_flank' },
+        { text: 'Keep the pace and give it nothing to read.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'tep_forest_treeline_ignore' }
       ]
     },
     {
@@ -4640,8 +4640,8 @@
       title: 'Deadfall Crossing',
       text: 'The path drops into a dry creek bed choked with deadfall — trunks across the crossing point, bark stripped, cut ends showing. Someone cleared this deliberately, then left the trunks in place. The crossing is passable but slow. Fresh boot prints go in and do not come out the other side.',
       choices: [
-        { text: 'The prints go in. Someone is waiting at the deadfall.', skill: 'survival', tag: 'risky', align: 'neutral', cid: 'tep_forest_deadfall_careful' },
-        { text: 'Find a crossing upstream. The deadfall is the point.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'tep_forest_deadfall_detour' }
+        { text: 'The prints go in. Someone is waiting at the deadfall.', skill: 'vigor', tag: 'risky', align: 'neutral', cid: 'tep_forest_deadfall_careful' },
+        { text: 'Find a crossing upstream. The deadfall is the point.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'tep_forest_deadfall_detour' }
       ]
     },
     {
@@ -4649,9 +4649,9 @@
       title: 'Abandoned Camp',
       text: 'A camp that was occupied recently: fire ring with ash still warm at the center, cut brush arranged as windbreak, three cord ties on a branch overhead where packs were hung. Left in order, not abandoned in a hurry. A chalk mark on the nearest trunk — a direction arrow, pointing back toward the road.',
       choices: [
-        { text: 'Warm ash and chalk arrows mean someone is coming back here.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'tep_forest_camp_wait' },
-        { text: 'Follow the chalk direction. Whoever left it wants it followed.', skill: 'survival', tag: 'bold', align: 'neutral', cid: 'tep_forest_camp_follow' },
-        { text: 'Leave it as found. Forest camps are operational — not yours to read.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: 'tep_forest_camp_leave' }
+        { text: 'Warm ash and chalk arrows mean someone is coming back here.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_forest_camp_wait' },
+        { text: 'Follow the chalk direction. Whoever left it wants it followed.', skill: 'vigor', tag: 'bold', align: 'neutral', cid: 'tep_forest_camp_follow' },
+        { text: 'Leave it as found. Forest camps are operational — not yours to read.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: 'tep_forest_camp_leave' }
       ]
     },
     {
@@ -4660,7 +4660,7 @@
       text: 'Two people block the narrow section of path where the trees press closest. They have a rope across the track at knee height, slack enough to step over. The taller one names a figure. It is not high. The other is watching your hands.',
       choices: [
         { text: 'The figure is low enough to mean this is a test, not a profession.', skill: 'persuasion', tag: 'risky', align: 'neutral', cid: 'tep_forest_toll_talk' },
-        { text: 'Pay it. Low toll, specific location — road knowledge has value here.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'tep_forest_toll_pay' },
+        { text: 'Pay it. Low toll, specific location — road knowledge has value here.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'tep_forest_toll_pay' },
         { text: 'Step the rope and move through them before they decide what to do about it.', skill: 'combat', tag: 'bold', align: 'chaotic', cid: 'tep_forest_toll_push' }
       ]
     },
@@ -4669,8 +4669,8 @@
       title: 'Sinkhole on the Track',
       text: 'The track ends at a sinkhole roughly three meters across, edges raw — recent collapse. Cart ruts go up to the edge and stop. On the far side, the ruts resume. Whatever made them went through here before the ground gave.',
       choices: [
-        { text: 'Work around the perimeter. The collapse is not finished.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'tep_forest_sinkhole_around' },
-        { text: 'Check the depth. A shallow sinkhole has a different explanation than a deep one.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'tep_forest_sinkhole_check' }
+        { text: 'Work around the perimeter. The collapse is not finished.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'tep_forest_sinkhole_around' },
+        { text: 'Check the depth. A shallow sinkhole has a different explanation than a deep one.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_forest_sinkhole_check' }
       ]
     }
   ];
@@ -4681,8 +4681,8 @@
       title: 'Tampered Milestone',
       text: 'The league marker at the road edge has been turned to face the ditch — no vandalism otherwise, no damage, just rotated. The Roadwarden dispatch box at its base has a fresh seal mark from this morning. Someone turned it after the warden passed.',
       choices: [
-        { text: 'A turned milestone on a staffed route is a signal, not an accident.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'tep_road_milestone_read' },
-        { text: 'Rotate it back and keep moving. The warden will not notice either way.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'tep_road_milestone_restore' }
+        { text: 'A turned milestone on a staffed route is a signal, not an accident.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_road_milestone_read' },
+        { text: 'Rotate it back and keep moving. The warden will not notice either way.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'tep_road_milestone_restore' }
       ]
     },
     {
@@ -4690,7 +4690,7 @@
       title: 'Warden Post Empty',
       text: 'The Roadwarden post at this junction is staffed — lantern lit, door open, boots visible under the desk inside. But no one answers when you call at the window. The transit log on the counter is open to today\'s date. The last entry is two hours old.',
       choices: [
-        { text: 'Two hours and no entry means something interrupted the post mid-shift.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'tep_road_warden_investigate' },
+        { text: 'Two hours and no entry means something interrupted the post mid-shift.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_road_warden_investigate' },
         { text: 'Log yourself in the transit book and move. The post\'s problem is its own.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'tep_road_warden_self_log' }
       ]
     }
@@ -4702,9 +4702,9 @@
       title: 'Vessel Running Parallel',
       text: 'A smaller boat has been matching your vessel\'s course for the last two hours — close enough to read its lines, too far to hail comfortably. No flag. No hull mark visible at this distance. When your vessel adjusts heading, it adjusts. The captain has noticed.',
       choices: [
-        { text: 'A vessel that shadows without flagging is reading cargo or route, not requesting passage.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'tep_sea_following_read' },
-        { text: 'Put distance on it. Change speed. See whether it holds or falls back.', skill: 'survival', tag: 'bold', align: 'neutral', cid: 'tep_sea_following_evade' },
-        { text: 'It is the captain\'s water and the captain\'s problem. Stay out of it.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'tep_sea_following_ignore' }
+        { text: 'A vessel that shadows without flagging is reading cargo or route, not requesting passage.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_sea_following_read' },
+        { text: 'Put distance on it. Change speed. See whether it holds or falls back.', skill: 'vigor', tag: 'bold', align: 'neutral', cid: 'tep_sea_following_evade' },
+        { text: 'It is the captain\'s water and the captain\'s problem. Stay out of it.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'tep_sea_following_ignore' }
       ]
     },
     {
@@ -4712,7 +4712,7 @@
       title: 'Manifest Dispute',
       text: 'The captain calls you to the cargo hold. Three crates have been stacked against one marked in the manifest as empty. The seal on the empty crate is different from the others — older, from a routing office that closed two years ago. Someone loaded this before your departure.',
       choices: [
-        { text: 'A sealed crate with a closed office mark is not empty. Open it.', skill: 'lore', tag: 'bold', align: 'neutral', cid: 'tep_sea_manifest_open' },
+        { text: 'A sealed crate with a closed office mark is not empty. Open it.', skill: 'wits', tag: 'bold', align: 'neutral', cid: 'tep_sea_manifest_open' },
         { text: 'The manifest discrepancy belongs to the captain, not to a passenger.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: 'tep_sea_manifest_pass' }
       ]
     }
@@ -4724,8 +4724,8 @@
       title: 'Weather Coming In',
       text: 'The cloud base has dropped three hundred meters in the last hour. The path ahead is still visible but the next ridge is not. Highland travelers coming the other direction are moving faster than is comfortable on this terrain. One of them gives you a single look but does not stop.',
       choices: [
-        { text: 'Make the ridge before the cloud closes. The other travelers are reading it right.', skill: 'survival', tag: 'bold', align: 'neutral', cid: 'tep_highland_weather_push' },
-        { text: 'Find a sheltered position and wait for the cloud to lift or commit.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'tep_highland_weather_shelter' }
+        { text: 'Make the ridge before the cloud closes. The other travelers are reading it right.', skill: 'vigor', tag: 'bold', align: 'neutral', cid: 'tep_highland_weather_push' },
+        { text: 'Find a sheltered position and wait for the cloud to lift or commit.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'tep_highland_weather_shelter' }
       ]
     },
     {
@@ -4733,9 +4733,9 @@
       title: 'Cairn Chain Broken',
       text: 'The waymarker cairns on this section of path run at fifty-meter intervals. One is knocked over — not collapsed, knocked, stones scattered in a fan pattern. The next cairn is intact. The one after that is gone entirely. The path continues but unmarked for a stretch ahead.',
       choices: [
-        { text: 'A knocked cairn means someone came through here in a hurry or with a reason.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'tep_highland_cairn_read' },
-        { text: 'Navigate by terrain to the next visible waymark. The path is recoverable.', skill: 'survival', tag: 'risky', align: 'neutral', cid: 'tep_highland_cairn_navigate' },
-        { text: 'Rebuild the knocked cairn before continuing. Someone coming the other direction will need it.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'tep_highland_cairn_rebuild' }
+        { text: 'A knocked cairn means someone came through here in a hurry or with a reason.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_highland_cairn_read' },
+        { text: 'Navigate by terrain to the next visible waymark. The path is recoverable.', skill: 'vigor', tag: 'risky', align: 'neutral', cid: 'tep_highland_cairn_navigate' },
+        { text: 'Rebuild the knocked cairn before continuing. Someone coming the other direction will need it.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'tep_highland_cairn_rebuild' }
       ]
     },
     {
@@ -4743,8 +4743,8 @@
       title: 'Border Marker Dispute',
       text: 'Two people are arguing on the path beside a boundary stone. One is holding a document. The other is holding an older document. The boundary stone itself has been recently re-cut on one face — the chisel marks are clean. Both of them stop arguing when you arrive.',
       choices: [
-        { text: 'A re-cut boundary stone with two competing documents is not a private dispute.', skill: 'lore', tag: 'risky', align: 'neutral', cid: 'tep_highland_border_read' },
-        { text: 'Step around them. Highland boundary disputes resolve at the commune level, not on the path.', skill: 'survival', tag: 'safe', align: 'neutral', cid: 'tep_highland_border_pass' }
+        { text: 'A re-cut boundary stone with two competing documents is not a private dispute.', skill: 'wits', tag: 'risky', align: 'neutral', cid: 'tep_highland_border_read' },
+        { text: 'Step around them. Highland boundary disputes resolve at the commune level, not on the path.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: 'tep_highland_border_pass' }
       ]
     }
   ];

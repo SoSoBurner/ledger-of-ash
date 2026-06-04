@@ -193,7 +193,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "Sister Velda is mid-ceremony when you arrive — a full ward renewal, her back to the nave, hands pressed flat to the floor stone. The wax smell of the chapel is heavy and close. The ceremony runs long. When it ends, two families waiting for private blessings step forward before you can, and Velda moves to them without pausing. The chapel records her renewal schedule in an open ledger on the reading stand near the entrance. The dates are there. The intervals between them tell a story of their own.",
       xp: 0,
       effects: [],
-      next: [{text: "Read the ward renewal schedule in the open ledger.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Read the ward renewal schedule in the open ledger.", skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -232,7 +232,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "Kaen is mid-transaction when you reach his stall — two estate stewards with a price dispute and a ledger spread between them, a conversation that will not yield its space. The fish-salt of the harbor hangs over Verdant Row. His tally board is visible from where you stand: three blank supplier lines in the northern column, no names, no quantity marks. He does not look up. The manifest board near the harbor gate posts the same commodity codes. That board does not require a conversation.",
       xp: 0,
       effects: [],
-      next: [{text: "Check the harbor gate manifest board for northern commodity codes.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Check the harbor gate manifest board for northern commodity codes.", skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -273,7 +273,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "Captain Thorne is at the garrison's duty desk when you arrive, signing off a rotation change with two clerks waiting on him. The coal-smoke smell of the precinct carries through the open side door. He does not look up. The duty clerk beside him moves to intercept — standard procedure, officer engaged, come back the following watch. The patrol rotation board is visible from the corridor outside, mounted on the wall beside the dispatch window. The Ironspool column's recent crossings-out are legible from the public side of the counter.",
       xp: 0,
       effects: [],
-      next: [{text: "Read the patrol rotation board from the corridor.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Read the patrol rotation board from the corridor.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -314,7 +314,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "Brother Aldwin is leading the morning petitioners through the nave when you arrive — a full public observance, the chapel doors open, the wax-and-stone smell carrying into the street. It runs long. When it closes, a family requiring a private blessing takes his attention next, and then a shrine novice with a scheduling question he cannot defer. The morning is gone. The confession register sits open on the reading stand at the nave entrance. It does not contain confessions — it contains the weekly attendance count, and the numbers since autumn have a pattern of their own.",
       xp: 0,
       effects: [],
-      next: [{text: "Read the weekly attendance register at the nave entrance.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Read the weekly attendance register at the nave entrance.", skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -565,7 +565,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The square near the chapel is busy — a market day, stalls open, rope-and-fish smell from the harbor end mixing with the coal smoke from Ironspool. The people here are moving, not gathering. The short conversations you try to join close naturally, no one rude, no one willing to slow down. The Amber Fountain's notice board carries two new postings this week. A notice board speaks when people don't.",
       xp: 0,
       effects: [],
-      next: [{text: "Read the Amber Fountain's notice board.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Read the Amber Fountain's notice board.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -642,7 +642,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The market is loud this hour — brass clanging from the tinsmith's row, a harbor crier running a shipping announcement past the salt stalls. The fish-smell from the eastern end is sharp. The conversations you can reach are about prices and weather and a wedding two streets over. Nothing with a lowered voice. The quieter end of Verdant Row — cloth brokers, the small herbalist — tends toward patience. That end of the market talks after the crowd thins.",
       xp: 0,
       effects: [],
-      next: [{text: "Wait for the market crowd to thin, then try the cloth broker end.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Wait for the market crowd to thin, then try the cloth broker end.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -809,7 +809,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The Ironspool district ward markers are visible from the street — chalk and pressed wax on the corner stones, each one dated in shrine notation at the lower margin. Most of the markers here are still within their normal renewal window; the anomalies are further in, past the junction where the northwest road meets the commercial lane. The outer markers tell you where to look next. The direction is clear.",
       xp: 0,
       effects: [],
-      next: [{text: "Follow the ward marker dates inward toward the northwest junction.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Follow the ward marker dates inward toward the northwest junction.", skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -854,7 +854,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "Verdant Row is crowded this hour — cloth buyers from the harbor estates, two guild stewards with a dispute about a commission deadline. The officer you were told to look for is not on the Row today, or not visible. The coal-smoke smell from Ironspool drifts over. Warden Order officers in a working city rarely stand still. The garrison precinct notice board posts visiting authority credentials by district. That board is public.",
       xp: 0,
       effects: [],
-      next: [{text: "Check the garrison precinct notice board for Warden Order credentials.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Check the garrison precinct notice board for Warden Order credentials.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -882,7 +882,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The merchant you were told to find has his stall closed — a slip of paper tacked to the frame says back at the second bell, which is two hours off. The fish-salt of the harbor drifts down Verdant Row. Other stall holders nearby heard the same questions being asked over the past week; one of them is still thinking about what he saw. He is not the person you came to find, but the harbor end of the Row knows what its neighbors know.",
       xp: 0,
       effects: [],
-      next: [{text: "The neighboring stall holder was here. They saw what happened.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "The neighboring stall holder was here. They saw what happened.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -911,7 +911,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The Amber Fountain's evening crowd is thin — a cold night, or just a quiet stretch in the week's rhythm. The handful of regulars present sit separately and nurse their cups with the focused attention of people who came to be alone in company. Marta moves between them without pause. The common room does not open tonight. The notice board near the door has two new postings. That much is available.",
       xp: 0,
       effects: [],
-      next: [{text: "Read the notice board by the door before leaving.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Read the notice board by the door before leaving.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -935,7 +935,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The chapel reading room is occupied — a petitioner with a genealogy request and a novice working through the archive bins with a quill and a slow hand. The blessing record book sits on the closed-access shelf. The wax-and-stone smell of the room is thick and patient. The chapel posts a summary of blessing dates by ward district on the public notice board outside the nave entrance. That summary carries enough of the date column to begin the comparison.",
       xp: 0,
       effects: [],
-      next: [{text: "Use the public ward blessing summary to start the date comparison.", skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Use the public ward blessing summary to start the date comparison.", skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -964,7 +964,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The night-watch commander is not at her desk — the duty clerk says she is making rounds, expected back at the third bell. The garrison precinct smells of coal smoke and oiled leather. The watch dispatch board near the corridor window posts the current shift assignments: Ironspool district's night column has a different officer's name this month than last. The board is public-facing. The change in assignment is there to read.",
       xp: 0,
       effects: [],
-      next: [{text: "Note the Ironspool night assignment change on the dispatch board.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Note the Ironspool night assignment change on the dispatch board.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1080,7 +1080,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       text: "The Amber Fountain is running at full press — a guild dinner in the back room, three extra tables of harbor workers in from the late shift, and Marta moving between them at a pace that leaves no opening. She catches your eye once across the bar and gives the small nod that means later, which means not now. The notice board by the door has two new postings from this week. The room will thin by the second bell.",
       xp: 0,
       effects: [],
-      next: [{text: "Check the notice board and come back when the room clears.", skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Check the notice board and come back when the room clears.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1196,7 +1196,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The clerk keeps his hand flat on the ledger cover and his expression entirely still. He has been trained for exactly this kind of pressure — the guild factors all have. When your posture shifts, he reaches under the counter and presses something. A second clerk enters from the back room inside thirty seconds. Two clerks and a closed ledger is the same as one clerk and a closed ledger, except now there is a witness. You leave without the ledger.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find a different route into the counting house records.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find a different route into the counting house records.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1239,7 +1239,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The courier is faster than his build suggests — he takes the alley at a run when he sees your position and is through the gate at the far end before you close the angle. The relay post gate shuts behind him. The dispatch is inside the post. The alley is empty and the gate will not open without a guild courier token you do not have.',
       xp: 0,
       effects: [],
-      next: [{text: 'Circle to the relay post\'s secondary entrance while the courier files the dispatch.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Circle to the relay post\'s secondary entrance while the courier files the dispatch.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1283,7 +1283,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The documents are behind the counting house grille and the grille requires a guild key to open. The ward marks are visible through the grille but reading them at this angle and distance loses the fine-grain sigil detail that would distinguish the layers. The documents sit one door away from a full reading.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find a guild key or a different access angle to the documents.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find a guild key or a different access angle to the documents.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1325,7 +1325,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The manifest is on the clerk\'s desk, not the open reading counter, and the clerk does not leave his desk. The cipher column is visible from your position but not at a reading angle — you can see there is something there but not what it says. The public reading counter holds last quarter\'s filed manifests. The current one stays on the clerk\'s desk.',
       xp: 0,
       effects: [],
-      next: [{text: 'Read last quarter\'s filed manifests for the same cipher pattern instead.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Read last quarter\'s filed manifests for the same cipher pattern instead.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1368,7 +1368,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The commercial district is more crowded at this hour than it was when you mapped the factor\'s route — a textile delivery blocking the second junction and two guild clerks standing in the usual shadow position. The factor\'s route takes him through the crowd without pause. You lose the angle at the second junction and he is gone into the counting house row before you re-acquire. The route mapping needs a quieter hour.',
       xp: 0,
       effects: [],
-      next: [{text: 'Wait for a quieter hour and re-map the factor\'s route.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Wait for a quieter hour and re-map the factor\'s route.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1410,7 +1410,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'One clerk stays late. He is at the desk nearest the ledger stack and he does not move for the hour you wait across the street. The counting house lamp stays lit. The clerk does not leave. By the time the street quiets enough for a move on the back entrance, the night watch has begun its commercial district circuit and the window has closed.',
       xp: 0,
       effects: [],
-      next: [{text: 'Map the night watch circuit for a future attempt.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Map the night watch circuit for a future attempt.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1454,7 +1454,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The factor listens to the concession proposal and nods slowly at the wrong parts — the parts that sound like the right answer but are not the actual offer. By the time you have made the real offer, his expression has already decided. He thanks you for the conversation and reaches for a routing form. The routing form means the conversation is over. Whatever he was protecting in the manifest, the concession did not reach it.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find a different point of leverage for the manifest access.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find a different point of leverage for the manifest access.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1497,7 +1497,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The clerk\'s expression does not change when you make the connection for her. She has already made it. She set it aside. Whatever the cost of the discrepancy, she has decided the cost of addressing it is higher. She straightens the intake log without opening it. "I recommend the supplemental inquiry form." She says it the way someone says a phrase they have said many times. The window is closed.',
       xp: 0,
       effects: [],
-      next: [{text: 'File the supplemental inquiry form as she recommends.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'File the supplemental inquiry form as she recommends.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1548,7 +1548,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The clerk steps back from the counter before you finish moving — his left hand finds the bell rope without looking and he pulls it once, short. By the time the sound settles two factors are in the doorway and the ledger is under the counter. The guild knows how to end these conversations quickly. The entry on the counter record will read "threshold dispute, Category Three." You are now in a category.',
       xp: 0,
       effects: [],
-      next: [{text: 'Clear the building before the Category Three log reaches the registry.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Clear the building before the Category Three log reaches the registry.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1591,7 +1591,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The courier takes a different route — a variation you didn\'t account for. By the time you reorient, he\'s three blocks ahead and inside the next guild post. The documents he was carrying are now logged under two seals. Whatever was in transit is no longer in transit. It has arrived.',
       xp: 0,
       effects: [],
-      next: [{text: 'Fall back and find another approach before the post logs receipt.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Fall back and find another approach before the post logs receipt.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1634,7 +1634,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The documents on the public table carry standard guild ward notation — correctly applied, nothing to read between the lines. Whatever you were looking for is not in the publicly visible layer. The sealed archive holds the older documents, and the reading room requires a registered introduction from a guild factor.',
       xp: 0,
       effects: [],
-      next: [{text: 'A guild factor introduction opens the sealed archive.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'A guild factor introduction opens the sealed archive.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1676,7 +1676,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The margin notation is too compressed to read without a key — it could be bookkeeping shorthand, it could be something else. The guild archive holds the manifest notation standards manual, which would confirm whether this is authorized margin use. The reading room requires a registered introduction to access.',
       xp: 0,
       effects: [],
-      next: [{text: 'A registered introduction opens the notation standards manual.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'A registered introduction opens the notation standards manual.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1719,7 +1719,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The factor varies his route this morning — a new street, a covered arcade you hadn\'t mapped. By the time you reorient he\'s inside the guild post and the door is closed. Whatever the morning route was meant to show you, it showed you nothing today.',
       xp: 0,
       effects: [],
-      next: [{text: 'Fall back and map the route properly before the next morning.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Fall back and map the route properly before the next morning.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1761,7 +1761,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The back entrance locks earlier than the posted schedule suggests — a recent change, no notice posted. You find the latch seated before you reach it and the ward mark on the frame freshly activated. Someone updated the lock schedule and didn\'t announce it. The front entrance closes at the same hour. The counting house is sealed for the night.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find another approach before the night patrol begins.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find another approach before the night patrol begins.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1804,7 +1804,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The factor considers the concession and declines without explaining why — a specific decline, not a general one. Whatever you offered has a problem you\'re not aware of. He straightens a stack of papers that doesn\'t need straightening and waits for you to leave. The ledger access is more protected than the concession covers.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find a more valuable lever before the factor closes the window.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find a more valuable lever before the factor closes the window.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1846,7 +1846,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
       text: 'The clerk listens to the framing and doesn\'t move. "Discrepancy resolution is Category Two. Category Two goes through the oversight desk." She sets a routing form on the counter. The form requires a registered factor as co-signatory. She knows you don\'t have a registered factor. The form is a door that looks like a form.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find a registered factor co-signatory before the window closes.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find a registered factor co-signatory before the window closes.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);

@@ -15,7 +15,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: {
       text: "The crossing station is staffed but Cadrin is mid-count, stylus tracking a cart convoy through the eastern gate. A chalk notation on the door frame reads: NO INTERRUPTIONS DURING LOG ENTRY. The walker at the near end waves you back without looking up. Cadrin's shift ends at the evening handover, when the bridge director's office closes and the overnight crew takes the station. The commune's log protocols run on their own schedule.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -43,7 +43,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 74,
     failResult: {
       text: "The commune registry is housed in the administrative building, accessible during posted hours — which closed forty minutes ago. A handwritten schedule on the door lists next opening at the second bell tomorrow. Cadrin's personal log is his property and stays at the station. Without both documents at the same desk, the comparison cannot be made. The archive committee meets Thursday mornings; requests for after-hours access go through them.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -72,7 +72,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 72,
     failResult: {
       text: "The trade registers for the current season are checked out to a factor from the southern bank who submitted a commercial review request three days ago — return date is Friday. The commune archive clerk writes the mark description onto a request slip and sets it in a tray with seventeen others. The specialized transport registries are held in the regional administrative center, not locally. This path requires either patience or a different route into the record.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -102,7 +102,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     failResult: {
       text: "The western approach roads carry enough cart traffic that individual ruts dissolve into the general pattern — the clay is worked into uniformity by daily use. Without a distinct marker or a witnessed departure point, the approach yields nothing usable as evidence. The bridge deck sees more than the roads do. Cadrin's crossing timings, laid against the watch rotation schedule, would give the window the roads can't.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -134,7 +134,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 67,
     failResult: {
       text: "The bridge at low traffic is still a public crossing — a commune worker repairing mortar on the eastern rail, a factor waiting for a cart to clear the center span. Without the crowd, the watchers are easier to notice, and they notice back. The bridge does not give up structural details under observation. The dawn shift reads differently from the night; what the stone holds can be found when the crossing is empty.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -162,7 +162,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 72,
     failResult: {
       text: "The access log entries encode account identifiers through the commune's administrative cipher before storage. Timestamps and document references are readable; the account name behind each entry is a string of characters that requires the commune's administrative key to resolve. The clerk who holds that key is the bridge director's office — not the archive. Access to the decoded account identifiers runs through the same administrative channel you are trying to trace.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -188,7 +188,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: {
       text: "The trade office counter has a queue and a process: transit compliance inquiries require a written statement with documentation attached before the duty representative schedules a conversation. The form has seven sections, none of them brief. The clerk behind the counter takes the request without comment and sets it in a tray marked PENDING. The Compact representative will review submitted forms tomorrow morning during the posted administrative session.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -218,7 +218,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 65,
     failResult: {
       text: "Terris is on the bridge approach mid-count, marking a grain convoy through with his brass clicker. He holds up one hand — not dismissive, simply occupied. His tally cannot pause mid-convoy without losing the running total. The count takes priority over conversation; the commune's crossing protocols are explicit on this point. He'll be free at the evening handover, when the next walker takes the post at the eastern station.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -265,7 +265,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     failResult: {
       text: "The bridge deck shows visible wear on the eastern span — compressed mortar at the joints, edge fractures consistent with repeated load. Translating that wear pattern to a specific weight range requires a structural mason's assessment. Without the training, the estimates span a range too wide to carry as evidence. A mason's opinion would close the gap; the commune's bridge maintenance committee meets bi-weekly and keeps records of every structural review.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -293,7 +293,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 50,
     failResult: {
       text: "By mid-morning the bridge is operating at full volume — grain factors, market vendors, message runners, and maintenance workers moving in overlapping patterns. In that density, observing specific behavior requires a fixed position and uninterrupted time. The commune's crossing culture is built for throughput, not for standing still and watching. The early dawn window, before the seventh bell, is when the bridge reads differently.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -312,7 +312,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     failResult: {
       text: "Internal inquiry logs and closed review records are not public documents — they're held in the commune's administrative archive, accessible only with authorization from the bridge director's office. The bridge director's current authorization posture toward outside inquiries is unknown. A formal introduction through Cadrin, who holds a standing relationship with the director's office, would establish the grounds for access that a cold request cannot.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -363,7 +363,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 60,
     failResult: {
       text: "The bridge-side inn is quiet tonight — the regular commercial traffic is thin, and the few travelers at the bar are local workers at the end of a shift, not passing merchants. Conversations stay narrow: shift complaints, canal water levels, a dispute over a crossing fee. Nothing surfaces about the midnight runs or the cargo patterns. The inn picks up what the crossing moves through it; when the crossing is quiet, so is the room.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -390,7 +390,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 67,
     failResult: {
       text: "Ashe left Whitebridge two months after handing in her post — relocated across the crossing to a neighboring settlement, close enough that she'd see the bridge lanterns on a clear night if she faced that direction. No one at the commune office will explain the departure, only that it was her choice. Getting to her requires crossing the bridge she no longer manages and finding the address on the far side without a formal introduction.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -415,7 +415,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 76,
     failResult: {
       text: "The branch track has a watcher posted in the treeline fifty meters back from the staging area — upwind, motionless, positioned where the approach narrows. A low whistle travels down the track. No carts arrive that night; the staging area stays empty until first light. The operation aborted cleanly. The next new moon is twenty-seven days out. The watcher's positioning suggests the approach will be covered again.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -449,7 +449,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 48,
     failResult: {
       text: "The night-to-morning handover happens at the station on the eastern abutment — a brief window when both the outgoing and incoming keepers are present simultaneously. That window closed twenty minutes ago; Cadrin's morning shift partner has already taken the station. The handover ritual is brief and not for observers. Cadrin himself will be at the station through mid-morning before his administrative hours begin.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -469,7 +469,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 73,
     failResult: {
       text: "The credential chain leads to a regional body with a name that doesn't appear in any register held at the commune archive. The authorization codes are valid but the issuing authority is not documented locally. Tracing who granted that body its own credentials requires access to institutional records held at the regional administrative center — not in Whitebridge. The Iron Compact's transit compliance office keeps cross-district authorization registries as part of their operational mandate.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -495,7 +495,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 50,
     failResult: {
       text: "Cadrin is in the middle of a complicated crossing dispute — two factors arguing over toll classification for a mixed-cargo cart, both citing different sections of the commune's fee schedule. He mediates with the particular patience of someone who has run this exact argument many times before. The dispute will take another quarter hour at minimum. The crossing station is his domain; personal conversation waits until the deck is clear.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -642,7 +642,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 55,
     failResult: {
       text: "The elder council chamber is dark — no session scheduled until the third bell tomorrow, and the clerk who manages the meeting records left an hour ago. The communal governance calendar is posted outside the administrative building: council sessions, committee hearings, public access hours. The conflict-filing pattern would show up in the session records, which are public documents available during the archive's morning hours.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -714,7 +714,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   xpReward: 5,
   failResult: {
     text: "The notice board outside the crossing station is bare — the morning's postings have been cleared and the afternoon batch isn't up yet. The commune posts notices twice daily; the next posting goes up at the fourth bell. A chalk mark on the board frame says NEXT POSTING: 4TH BELL. Whatever the commune wanted the bridge traffic to know this morning is already gone.",
-    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+    next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
   },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;

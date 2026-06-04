@@ -44,7 +44,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Corbek turns back to the manifest board before you finish. The yard gate is open; the handlers near it are not. Your questions have moved faster than you did — two family names from the supply chain have already heard your description by the time you reach the waystation lane. The morning convoy is loading in the east yard. The routes recorded there are the only ones you'll read today.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -86,7 +86,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Lysander folds his hands once and looks past you at the registry door. The obligation records stay on their shelf. Without family standing in Sunspire's registry, the system here doesn't open to questions from outside it — and the registry desk closes for meal break in ten minutes. The market square is accessible and the waystation board posts public notices through the afternoon.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -123,7 +123,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Mirrin pulls the allocation ledger close and finds something to write. The harvest hall has three staff within earshot and all three have gone quiet in that particular way. Word about distribution questions travels through Sunspire faster than the grain itself. The common room at the waystation unlocks after the midday bell — public space, no standing required, travelers moving in and out.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -164,7 +164,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Keldan has straightened that bolt of cloth once already. Commercial records in Sunspire's trade registry require merchant standing, and he's not offering to vouch for you — the offer doesn't come close enough to be declined. The market lane runs the length of the east wall. The contract board near the crossroads entrance posts this season's public listings without requiring any standing at all.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -204,7 +204,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Neria returns the ledger stack to the wall with both hands, spines inward. The quota hall's window faces the watchtower plain and the light coming through it doesn't reach the shelf. Production records in Sunspire require family registry standing to open — a requirement that routes through the same authority it protects. The outer passage is still accessible and the public posting board near the east entrance lists current work assignments.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -241,7 +241,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Tholen steps behind the manifest cart and that's the end of it. He's not refusing because he doesn't know — the fear is in how quickly his hands found something else to do. The yard departure log is public through the main gate window, visible if not accessible. The waystation innkeeper has been watching convoy operations from the same corner table for years and doesn't stop travelers from sitting across from her.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -281,7 +281,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Daven closes the governance room door before you find a follow-up. Stone corridor, lamp oil, morning quiet. Family standing in Sunspire's registry requires the very authority that door protects — a loop he doesn't bother to name. Two people who were watching from doorways in the courtyard have already stepped back inside. The outer courtyard is still open. The market square opens to all travelers through the north gate.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -321,7 +321,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Varen places the enforcement log on the high shelf with both hands and leaves it there. The market's midday noise carries through the stone arch — vendors calling measures, cart wheels on the lane. Without market authority in Sunspire's trade registry, the enforcement records stay up there, out of casual reach. The market floor itself is open. Stall holders have eyes on the inspection patterns whether or not they're willing to describe them.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -360,7 +360,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The registry desk flags your second volume request and the family structure records go behind a locked cabinet before you finish the column. Sunspire's work assignment data is internal documentation — open hours at the registry run until the afternoon bell, but access requires family standing the desk clerk can't grant. The work assignment board near the yard entrance posts current placements publicly, names and locations visible without authorization.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -400,7 +400,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The harvest intake records are in the yard master's office behind a door requiring family standing. Without the intake baseline, the gap between what arrives and what's distributed stays invisible in the math — the discrepancy is present but can't be characterized. The grain store distribution column is still open on the hall desk. The yard exterior is accessible; convoy weight checks happen at the gate in plain view.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -437,7 +437,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The syndicate monitors write your name in the duty log beside the posting station with today's date. The message board stays accessible — the postings are still up, the gaps still visible. But a second pass at this board today will draw the same attention. Travelers moving through the waystation common room carry news from the outside roads without needing to post anything. The common room opens to all arriving travelers.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -477,7 +477,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The families here are careful and the conversations close fast — the wariness is real, but the mechanism behind it won't surface in a single pass. Each door opened today leads to a practiced brevity rehearsed across multiple interactions. The market square at midday shows the pattern in behavior rather than in what anyone says. Observation costs nothing and the square stays open until the evening bell.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -514,7 +514,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The syndicate coordinator is already at the yard gate with your name in a log started before the conversation. The outbound manifests return to the locked cabinet and the gate closes to further review. The filed convoy routes are still posted on the public departure board at the waystation — destinations and departure times visible, the manifest totals recorded at the base of each posting by the handler on duty.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -554,7 +554,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "Three people have changed their route to avoid the communal meal area by midday. Word about your questions travels through Sunspire faster than you do — whatever is being asked, its subject moves ahead of it. The communal square itself stays open; the fire is lit through evening. Sitting near it without asking anything is not the same as asking. The pattern visible in who gathers, and who doesn't, is its own record.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -594,7 +594,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The syndicate administrator finds you at the work assignment board before you finish the second column and enters your name in the day log. The board stays public, the names and locations still legible on the face of each posting. Cross-referencing across multiple family units requires a longer window than today's access allows. The housing blocks at the outer residential zone are accessible to travelers passing through — the separation visible in plain geography.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -634,7 +634,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The syndicate communication officer closes the communal hall session around you, formally and without haste. The governance minutes remain on file — their record of unanimous votes is still legible to anyone who knows what unanimous on every major decision actually means. The market square is open and the families moving through it carry the same practiced phrasing in their descriptions of what they've accepted. That phrasing is its own evidence.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -702,7 +702,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: "The syndicate coordinator arrives at the waystation before you return, moving at the pace of someone who doesn't need to hurry. The warning is delivered in administrative language and your name enters the syndicate's notation before you've left the room. The resource records are still in the hall — the discrepancies visible in what's accessible without the external comparison data. That comparison requires records from wherever the convoys end up, which is not Sunspire Haven.",
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 

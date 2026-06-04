@@ -15,7 +15,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sunweave_records',
         text: 'His tally sheet has more crossings than the gate log shows.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Sunweave sets down his cup with precise care before answering. The discrepancy you named is not a discrepancy, he says — it is a correction. Three carts passed at the outer marker before the gate opened. He logged them anyway, as procedure requires. The inner gate clerk did not. This happens more often than it should, and the missing entries accumulate somewhere they cannot be corrected. He picks up his cup again. His face gives nothing away.',
@@ -25,7 +25,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sunweave_pressure',
         text: 'Someone told him which carts not to log. He absorbed that instruction without writing it down.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'A pause — longer than a denial would need. Sunweave straightens the edge of his tally sheet. He says he has logged every crossing he has witnessed, in sequence, as required. Then he adds, without looking up: testimony is only as reliable as the witness position. He was inside during the fourth hour. He cannot speak to what passed while he was inside. The sheet goes flat under his palm. He moves on to the next column.',
@@ -35,7 +35,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sunweave_network',
         text: 'The strain in how he holds his pen is not tiredness. It is calculation.',
-        tag: 'bold · lore · DC 16',
+        tag: 'bold',
         skill: 'lore',
         dc: 16,
         result: 'You wait him out. Sunweave finishes a line in the tally, caps his pen, and looks at you with the patience of someone who has explained difficult things to difficult people before. He says there is a record for every crossing he has authorized. He says the copies go to three offices and none of them compare notes. He says this is not his fault. Then he uncaps the pen and writes something that is not a crossing — a name, a route marker, a day notation — and slides the sheet to the edge of the table without comment.',
@@ -59,7 +59,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'tideglass_manifest',
         text: 'The two manifests cover the same cargo. They do not agree on weight.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Tideglass does not look up from the document. She says: which manifest are you referring to — the submission copy, the clearance copy, or the archive copy? She asks this the way someone asks when they already know the answer will narrow the conversation. When you specify, she sets one sheet beside the other and draws a small mark at the column where the figures diverge. The mark is precise, contained, and leaves no room for interpretation. She says the discrepancy is logged.',
@@ -69,7 +69,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'tideglass_tampering',
         text: 'She knows the difference between a correction and an alteration. She has seen both.',
-        tag: 'risky · lore · DC 13',
+        tag: 'risky',
         skill: 'lore',
         dc: 13,
         result: 'Tideglass sets down her pen. She says there is a procedural distinction between an amendment, which requires countersignature, and a correction, which requires margin notation and date. She says she has received documents that bear neither. She selects her next words with the care of someone writing for the record: she does not know what was changed, or when, or by whom. She knows the chain of custody was broken between the Soreheim relay and the Cosmoria intake stamp. She resumes writing.',
@@ -79,7 +79,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'tideglass_exposure',
         text: 'The missing name is the one she chose not to write.',
-        tag: 'bold · persuasion · DC 16',
+        tag: 'bold',
         skill: 'persuasion',
         dc: 16,
         result: 'A long silence. Tideglass straightens a stack of forms that is already straight. She says she is going to tell you something she has not put in writing, and that what she says now is not part of the archive, and that you should treat it accordingly. She says the relay clerk stamp was applied post-marking — she can tell by the impression depth, which varies with document age. The stamp was added after the document was already sealed. She pauses. She says she has documented the intake anomaly. She has not documented her inference. There is a difference.',
@@ -104,7 +104,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'whiteglass_seepage',
         text: 'That report is older than this morning. She is reading it again for a reason.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Whiteglass does not look up from the document, but she stops turning pages. The seepage reading at Section Nine has been flagged three times in the last rotation cycle, she says. Each time, the repair order went out. Each time, the follow-up inspection noted it resolved. She sets the report down on the inlet ledge, smooths the edge flat with two fingers. The readings are still climbing, she adds, and the inspection forms say they are not. She does not say what that means. She does not need to.',
@@ -114,7 +114,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'whiteglass_records',
         text: 'The repair forms are correct. The dome is not. Someone is managing the gap.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'A long pause. Whiteglass sets the report on the ledge and turns to face you fully — the posture of someone deciding how much to anchor to the record. She says dome maintenance submissions require a countersignature from the stewards rotation lead before closure. She says the Section Nine closures have the right signature. She says the rotation lead on two of those three cycles was covering a doubled shift. She says she has not yet filed a formal query. Her eyes go to the structural joint, then back to you. She says she has not yet.',
@@ -135,7 +135,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'ledgermere_shortage',
         text: 'The yard count does not match what the board says is available.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Ledgermere closes the ledger, opens it again to a different page. He says the board reflects licensed allocation — what has been formally assigned for active commissions. The physical yard count includes reserve stock and contested lots. The difference is procedural, not a discrepancy. He says this the way someone says a thing they have said many times before, with the precision of a person who stopped believing it around the third or fourth repetition. His thumb finds the spine of the ledger before he finishes the sentence.',
@@ -145,7 +145,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'ledgermere_obligation',
         text: 'He is managing a loss that belongs to someone above him in this building.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Ledgermere goes still. His thumb moves along the ledger spine — once, deliberate. He says every allocation cycle carries forward obligations from the previous one. He says that is standard practice under copy-right enforcement. He says the current forward balance is within variance. He does not say whose variance he is absorbing. He selects his next words as if for the record: he has logged every measurement he has witnessed, in the sequence they were given to him, as his role requires. He does not say who gave the sequence.',
@@ -166,7 +166,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sunweave_access',
         text: 'That notice was handed to her privately. She read it where no one from the estate could see.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Aelra Sunweave tucks the notice into her sleeve before you are close enough to read the seal. She says she handles liaison correspondence throughout the district and most of it is administrative — property access, schedule coordination, estate maintenance requests. She names these with the rhythm of someone reciting a list they use to make space. She adds, without changing tone: the Aurora Heights estate records are reviewed through a separate office from the main Shelkopolis civic archive. Different submission calendar. Different clerk rotation. Most people do not know that.',
@@ -176,7 +176,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sunweave_scandal',
         text: 'Something in that notice would reach the wrong clerks if she did not intercept it first.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'A pause — long enough that you can hear the boulevard fountain. Sunweave straightens her cuff, left over right, slow. She says estate liaison work involves managing the distance between private estate records and civic-level disclosure requirements. She says there are obligations, on both sides, to maintain that distance appropriately. She says the notice she received relates to a maintenance schedule — she names the category carefully, like a person choosing a container that will hold without spilling. She says the maintenance schedule touches a property whose civic registration has not been updated since a prior owner. She says she is managing the alignment. She does not say for whom.',
@@ -197,7 +197,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'bloomcrest_tally',
         text: 'He ran that count twice. The first count was not wrong.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Bloomcrest does not acknowledge the observation directly. He seals the cart log with his thumb stamp and hands it back to the driver. Then he says, while still looking at the gate: there have been three carts in the last eight days carrying reagents without purification seal documentation. Standard road law requires the seal for anything bound toward Verdant Caves approach. He got all three flagged. He says this the way a person states a number they are not proud of. He says the problem is the carts that come through while he is covering the south approach.',
@@ -207,7 +207,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'bloomcrest_corruption',
         text: 'He knows where the glyph corruption is moving. He has not written it down.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Bloomcrest goes still at the gate frame. Then he rolls his left shoulder once, and turns partly toward you — not fully, in case someone from the market is watching. He says the Watcher\'s Perch readings have been moving southeast for about three weeks. He says this is not in any report because the reading markers are maintained by cave wardens, not watch, and the last warden to update them has not come back from the third passage. He says he sent a message to the Shelkopolis relay six days ago. He says he has not received a response. He says these things without inflection, in the order they happened.',
@@ -228,7 +228,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'rimebridge_instruments',
         text: 'That annotation has been rewritten three times. The instruments arrived wrong.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Rimebridge sets down her pen without closing the log. She says two of the seven calibration instruments in this shipment arrived outside tolerance — not damaged, just off by enough that running them would skew the contamination readings for the entire east wing for the next exposure cycle. She taps the annotation. The supplier listed them as certified. She is deciding how to log the discrepancy so the record stays accurate without triggering a full supply chain audit that the commune cannot absorb right now. She picks up the nearest sealed canister and holds it while she thinks.',
@@ -238,7 +238,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'rimebridge_exposure',
         text: 'The quarantine fatigue here is not exhaustion. Someone has been falsifying clear readings.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Rimebridge goes still. She picks up a proximity counter from the counter — the kind used to verify personal scan results — and turns it over in her hand once, twice. She says the commune runs on the principle that every breach is treated as real until cleared. She says that principle requires instruments that tell the truth. She says three of the last seven personal clearance scans in the outer labs came back clean on instruments she now has reason to question. She sets the counter down. She does not say what that means. She says she has not yet written anything down about it.',
@@ -259,7 +259,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'oss_manifest',
         text: 'He is comparing two documents that should match. They do not.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Oss does not look up. He says the registered freight declaration for this consignment lists forty-three sealed crates. The bonded warehouse receipt from the same intake day lists forty-one. He underlines the difference on his counter-manifest with a single precise stroke. He says two crates either passed through without registration, or were registered under a separate submission that he has not located. He says he has not yet located it. He says this in the tone of someone who expects to locate it shortly and is not pleased about what he expects to find there.',
@@ -269,7 +269,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'oss_fraud',
         text: 'The Red Hood rumors are not rumors. He has paper that connects them to the crate gap.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Oss sets his pen down. A long pause — long enough that two arbitration clerks pass in the corridor without either of them glancing his way, which means he chose this spot deliberately. He says there are three registered merchant houses in the Guildheart Hub that have each reported minor intake discrepancies in the last two quarters. He says minor is a defined term here: under six units per consignment cycle. He says the combined sum of those minor discrepancies, across those three houses, over two quarters, is not minor. He writes one word in his margin notes and does not show it to you. He says he needs the chain of custody records for the bonded warehouse\'s night intake window for the last forty days.',
@@ -290,7 +290,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'mossbane_spoilage',
         text: 'Those samples are from a field section the quota notice does not account for.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Mossbane holds one of the samples up to the light — a gesture she has done ten thousand times — and says the northern boundary sections were reclassified last cycle from communal to patron-family allocation. She says the reclassification changed whose counts those yields go into. She says the drying rack batch in front of her comes from a section whose ownership is still disputed between two families. She sets the sample back. She looks at the nearest wagon wheel. She says both families submitted their quotas showing this yield in their column. The alliance redistribution office has not yet resolved which column is correct. The grain dries regardless.',
@@ -300,7 +300,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'mossbane_feud',
         text: 'The two families contesting this yield have been contesting things longer than the reclassification.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Mossbane looks at a cart axle to her left. She stays there for a moment. She says she has worked the cultivated wilds boundary for eleven years and the two families whose names appear on that disputed quota have each tried, at different times, to have her position reclassified under their household rather than under the alliance protectorate. She says she has filed the required objections both times. She says the current dispute over the northern section boundary is not about grain yield. She says it never is. She looks back at the samples and begins sorting them by weight without further comment.',
@@ -321,7 +321,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'ironspike_papers',
         text: 'His inspection is slower than the line requires. He is reading something else in those documents.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Ironspike does not look up while he speaks. He says the south gate processes eighty to a hundred transit documents on a standard day. He says the transit document in his hand is not irregular. He says he reads irregular documents differently from standard ones, and that most travelers cannot tell which category they have been assigned. He hands back the papers with the clean efficiency of someone who finished reading them two minutes ago. He adds, as if noting weather: the checkpoint log has a five-minute gap recorded at the third bell. It is logged as routine patrol overlap. He did not write that entry.',
@@ -331,7 +331,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'ironspike_shadowhands',
         text: 'The gap in that log was made deliberately, and he knows by whom.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'A pause — not hesitation, the pause of a man deciding how much is already visible before committing to a position. Ironspike picks up the wax stamp from the ledge and sets it back without pressing it. He says the Shadowhands operate under a doctrine of compartmentalized action: each operative logs their own segment, no operative logs another\'s. He says the five-minute gap falls in a segment that was not assigned to any logged operative that cycle. He says this means either the doctrine was followed and the segment was left intentionally unassigned, or the doctrine was not followed. He says he has not yet determined which. He stamps the next document and does not look up again.',
@@ -352,7 +352,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'quillfire_folio',
         text: 'That folio has a House Mimolot import seal on it. She is not happy about what it says.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Quillfire closes the folio before answering, but keeps her finger between the pages. She says the Academy operates on a book-tariff schedule tied to knowledge acquisition cycles — texts brought in from outside the polity require import documentation and duty clearance before entering the teaching archive. She says this is not a restriction on learning. She says this the way someone says a thing they have repeated enough times that they no longer have to believe it. She adds: the current cycle has seventeen texts still in tariff review. Eleven of those were submitted by one family\'s household library. She touches her collar once. She does not say which family.',
@@ -362,7 +362,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'quillfire_debt',
         text: 'The family behind that tariff backlog could end her appointment here if she pressed them.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'A long pause. Quillfire opens the folio again, finds a different page, closes it. She says the Tutor-Magistrate role at Mimolot Academy carries academic authority but not institutional protection — the appointment is reviewed each cycle by the House, and House review does not require explanation. She says this the way someone quotes a rule they have turned over in their hands many times. She says a tariff dispute that embarrassed a sponsoring family would not survive review. She says she is aware of this. Her two fingers find the collar of her robe and rest there. She says she has not yet filed the tariff delinquency notice for the eleven texts. She has not yet decided if she will.',
@@ -383,7 +383,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sepulcher_registry',
         text: 'That offering entry has been rewritten. The original notation is still visible underneath.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Sepulcher does not look up from the registry. He says offering records are maintained to a higher standard than civic documents because their purpose is perpetual — the record is not only for this pilgrimage cycle but for every mediation that references it afterward. He sets down his pen and smooths the page with the flat of his hand. He says the original notation was incomplete. He says an incomplete sacred record is not a record at all. He says this the way a man says something he has said so many times it has become structurally true, regardless of whether he still believes the structure. He does not say what the original notation was missing.',
@@ -393,7 +393,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sepulcher_balance',
         text: 'Three pilgrimage cycles of unclosed accounts sit beneath the surface of this registry.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Sepulcher goes still. He exhales slowly through his nose — once, measured. He says divine balance mediation works on a principle of closed accounts: every offering made in petition must be answered with a recorded outcome, and every unresolved outcome carries forward as an obligation against the mediator who received the initial petition. He says he has thirty-seven open petitions across three pilgrimage cycles that are classified as pending divine response. He says this classification is correct — the divine response has not yet manifested in a form that satisfies the ledger. He says he is not certain the form it would need to take still exists. His hand rests flat on the registry. He does not say what he means by that.',
@@ -414,7 +414,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sunweave_routes',
         text: 'She is counting something on that road chart. The number she arrives at bothers her.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Sunweave folds the chart at the crease and looks up. She says the northern segment between Plume\'s End and Fairhaven has had six caravan delays in the last twelve days — four reported as weather, two reported as missing axle hardware. She says she has run the northern route herself since taking the patrol post and she knows what weather delay looks like on a manifest. She says two of the weather delays were logged on days she was on the route. She says the sky that day was clear. She steps half a pace to the left. She says the delays are not the problem she is most concerned about.',
@@ -424,7 +424,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'sunweave_enforcers',
         text: 'The celestial enforcer sightings she has not reported are connected to those delays.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Sunweave goes still, then steps fully toward you, her shoulder turned, the chart folded tight in her hand. She says celestial enforcer sightings require a verification threshold before they can go into a formal relay report — two independent witnesses, sequential sightings within the same route segment, logged on patrol sheets. She says she has four sightings across nine days. Three of her own. One from a caravan lead whose name she trusts. She says she does not yet have the second witness for two of the four. She says she is waiting. She unfolds the chart once, at the crease, and folds it again. She says the caravans that delayed on those days were moving between the third and fifth road markers. She says that is where three of the four sightings occurred.',
@@ -445,7 +445,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'ironspike_weight',
         text: 'That cart weighed less at the gate than the manifest says it should.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Ironspike does not look up from the manifest. He says the transit weight stamp is applied at load point. The gate weight is measured on arrival. He says the difference between those two numbers is the variance field. He taps the variance column with two fingers and holds them there. He says the variance on this cart is within the tolerance range documented by the Iron Accord for road loss and settling. He says this is the fourth cart this week whose variance lands at exactly the top edge of that tolerance range. He lifts his fingers. He does not say what he thinks about that.',
@@ -455,7 +455,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'ironspike_theft',
         text: 'Someone is skimming ore and they know exactly where the tolerance ceiling is.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'A pause — not surprise, the pause of someone who has been waiting for this conversation. Ironspike sets two fingers on the variance column of the manifest. He says the Iron Accord tolerance was set at three percent of load weight to cover legitimate road variance. He says he has been tracking manifest variance figures for six weeks. He says the average variance across all carts originating from the lower east face is two-point-eight percent. He says this is consistent. He says consistent variance is not road variance. He lifts his fingers. He says the lower east face loading crew has rotated three times in six weeks. The rotation schedule is managed by an overseer whose name he does not say aloud at a transit gate.',
@@ -476,7 +476,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'firesoul_shortfall',
         text: 'Her count is three manifests short and the floor knows it.',
-        tag: 'safe · survival · DC 7',
+        tag: 'safe',
         skill: 'survival',
         dc: 7,
         result: 'Firesoul glances at the workers before answering — a quick sweep, habit. She says the floor runs on quota tolerance and right now tolerance is being extended. Three manifests is not a crisis. Three manifests becomes a crisis when it gets to reporting. She touches the insignia pin at her collar without seeming to notice. She says she is managing the gap and does not need it managed for her. The tone is flat, not hostile. She is stating a fact.',
@@ -486,7 +486,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'firesoul_obligation',
         text: 'Someone she owes is part of why the shortfall exists.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Firesoul goes still. Not defensive — still, the way someone goes still when they are deciding how much is already visible. She adjusts the clip on her belt without looking at it. She says there are operational debts in every export cycle and she clears them in order. She does not say what order that is. She says the shortfall will be absorbed before the end of the quarter. She says this like it is already done, which means it is not done, and she knows it.',
@@ -496,7 +496,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'firesoul_rupture',
         text: 'If this reaches reporting, someone above her authorized the original gap.',
-        tag: 'bold · combat · DC 16',
+        tag: 'bold',
         skill: 'combat',
         dc: 16,
         result: 'Firesoul looks at you for a long moment. Then she walks to the edge of the floor where the noise covers conversation and waits for you to follow. She says the Soreheim transit ledger runs in two columns — what is stamped for export and what is counted on the floor. They have not matched for eleven months. She has been covering the difference. She touches the insignia pin, then drops her hand deliberately. She says she does not know who authorized the original disparity. She knows who signs the transit stamps. That name is not hers.',
@@ -520,7 +520,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'coilspire_anomaly',
         text: 'The anomaly report in that sleeve is not the same case logged on the open board.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Coilspire does not look up from the documents. The anomaly registry and the municipal case board are maintained by separate desks under different filing cycles, they say. Cross-reference errors surface regularly. They smooth the page with two fingers. They add, without changing tone: the current discrepancy involves a ward-fracture incident logged three days ago in the municipal record and absent entirely from the anomaly registry. The municipal record exists. The anomaly registry shows no corresponding entry for that date. They do not say what that means.',
@@ -530,7 +530,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'coilspire_suppression',
         text: 'That ward-fracture incident was removed from the anomaly registry deliberately.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'A pause — the kind that fills with calculation rather than doubt. Coilspire smooths the page once more, then sets both hands flat. They say the anomaly registry requires a countersignature from the Magi Magistratus duty officer before any entry can be closed or withheld. They say the ward-fracture date in question falls in a duty cycle when the rotation officer was covering a reassigned shift. They say they have not yet filed a formal discrepancy query. They look at the document rather than at you. They say they have not yet filed it.',
@@ -551,7 +551,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'emberthrone_damage',
         text: 'That damage count is not wear. Something hit those tools from the outside.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Emberthrone does not dispute the read. He says the outer yard tool stores have taken irregular damage across four inventory cycles — not breakage patterns you get from heavy use, not rust from storage. He picks up a worn fitting from the gate ledge and turns it over once. He says the last three rotations of haul crews working the outer lanes have each reported noise from the north tree margin after dark. He says he has logged the tool losses under equipment variance. He says this the way someone states a category they chose for a specific reason.',
@@ -561,7 +561,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'emberthrone_deterrence',
         text: 'The north tree margin problem is bigger than the workshop can hold back on its own.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Emberthrone sets the fitting down with a deliberate click. He says the Unternal overseer role covers workshop security inside the yard perimeter. Beyond the perimeter, deterrence falls under regional authority. He says he sent a formal request to the regional steward office eleven days ago for an outer-margin patrol increase. He says it has not been actioned. He says the outer lanes are staffed at the same level they were before the damage pattern started. He looks at the inventory sheet. He does not say what he thinks will happen next. He does not need to.',
@@ -582,7 +582,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'brokerwell_tally',
         text: 'That tally entry has been rewritten twice. The first number was the accurate one.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Brokerwell does not argue the point. They say the inspection shed tally covers declared cargo weight at intake. The number changes when the carrier submits a revised load manifest after inspection — which is permitted under guild arbitration procedure within the same trading day. They draw a small circle around the discrepancy in the margin. They say this is the fourth revised-down tally this week from carts running the eastern loading lane. Each revision is within procedure. Each revision drops the declared weight by a margin just below the threshold that triggers a secondary inspection. They say this the way someone recites a pattern they are tired of watching.',
@@ -592,7 +592,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'brokerwell_theft',
         text: 'The revised tallies are covering cargo removals that happened before intake, not after.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Brokerwell goes still at the inspection ledge. They write something in the margin — a number — and circle it, then look up. They say arbitration procedure permits load revision up until the end-of-day settlement. They say the eastern lane carts are authorized through a licensed guild delegate whose inspection seal covers the entire convoy, not individual units. They say a manifest revision on a sealed convoy does not require secondary inspection — that is standard protocol. They say this without inflection, carefully, in the register of someone explaining a system they know is being used incorrectly and have no sanctioned way to stop. They say they have logged the pattern. They say the log does not yet constitute a formal dispute.',
@@ -613,7 +613,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'thawmark_declaration',
         text: 'That route declaration was filed late. The expedition left before declaring intent.',
-        tag: 'safe · lore · DC 7',
+        tag: 'safe',
         skill: 'lore',
         dc: 7,
         result: 'Thawmark sets down her pen. She says crossing declaration law requires route intent to be filed before departure — the registry entry must precede the crossing, not follow it. She says the declaration in front of her was filed two days after the departure the witnesses described. She places two fingers on the date notation and does not move them. She says a post-filing is not a declaration. It is a record of absence. She says this the way a person says something that has legal weight and personal weight and she is only speaking to one of them right now.',
@@ -623,7 +623,7 @@ window.LOCALITY_NPCS = {
       {
         id: 'thawmark_expedition',
         text: 'The missing expedition has witnesses. The Route Warden Compact has stalled on the claim anyway.',
-        tag: 'risky · persuasion · DC 13',
+        tag: 'risky',
         skill: 'persuasion',
         dc: 13,
         result: 'Thawmark folds her hands on the table and says nothing for a moment. She says the loss claim for this expedition has been in review for three cycles under Route Warden Compact jurisdiction. She says the Compact\'s position is that the post-filing creates ambiguity about authorized route versus actual route taken, and that ambiguity is sufficient to defer the claim. She says she has submitted a formal arbiter\'s finding that the post-filing does not void the expedition\'s membership in a declared family group — which would resolve the claim regardless of route ambiguity. She says the Compact has not yet accepted her finding. She says this without heat. She looks at the date notation on the declaration and does not look away from it.',

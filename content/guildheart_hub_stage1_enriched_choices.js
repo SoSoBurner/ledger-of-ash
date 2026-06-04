@@ -19,7 +19,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `Kesh is not in. The east annexe clerk stamps your inquiry form without reading it and sets it in a tray already thick with unanswered requests. "Arbiter Kesh receives formal inquiry during posted office hours. Walk-in access is not available for Category Two matters." The stamp is still wet when it goes in the tray. The inquiry will wait. The ruling schedule posted on the corridor board does not.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The rulings board in the main corridor is still accessible.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The rulings board in the main corridor is still accessible.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -66,7 +66,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `Ilya is not at her stall. The loading yard factor says she left for the east annexe an hour ago — a re-filing appointment, Category Two, no walk-ins. Her abacus hangs from its hook above the cart bench. The brass beads are still set from her last count. The amendment folders you came to read are stacked under the bench, cover-down. The opportunity to compare them today has closed. The trade category patterns that link the lost agreements are visible through a different thread: the arbitration archive, open to anyone with a filed introduction.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The arbitration archive keeps its own record of outcomes.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The arbitration archive keeps its own record of outcomes.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -114,7 +114,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The inspection bay door is locked. A placard reads: "Active assessment in progress — unregistered access not permitted." Through the glass panel, Noren moves between stacked crates with his caliper, marking something on his clipboard. He doesn't look up. The department's public-facing record — outcome stamps filed by batch number at the main corridor board — is still accessible and carries its own inconsistencies for anyone reading the sequence carefully.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The outcome stamps on the corridor board are readable without clearance.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The outcome stamps on the corridor board are readable without clearance.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -153,7 +153,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The counter window is shuttered. A hand-lettered card says: "Hall administration closed for midday registration intake — reopen third bell." The denial log you came to read sits somewhere on the other side of the frosted glass, inaccessible until the hall processes its current applicant queue. Two merchants wait on the bench outside the window. One of them has been here since morning. The corridor board still shows the posted membership count, and the number on it doesn't match the stalls in use.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The posted membership count and the active stalls tell their own story.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The posted membership count and the active stalls tell their own story.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -195,7 +195,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The financial office is locked and the corridor outside it smells of fresh wax seal — documents processed and closed for the day. A clerk at the adjacent desk says Toren is in a category review session until close. "File your inquiry in the morning register. He acknowledges within two working days." The form she offers has three lines for authorization number before the inquiry field. The public quarterly summary posted outside the main hall covers the same period. It is less detailed. It is still accessible.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The public quarterly summary is still posted outside the main hall.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The public quarterly summary is still posted outside the main hall.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -237,7 +237,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The warehouse yard is locked between loading shifts — the east gate chained, the broker's standing desk empty. A carter near the west wall says the midday yard closure runs until the third-bell rotation. Bay Seven is visible from the outer walkway through the gate slats: the same four crates still staged against the far wall, none of them bearing transit marks. Their hold status is legible on the printed routing board posted beside the yard clerk's window, which faces the public walkway and is not behind a gate.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The routing board outside the yard clerk\'s window is publicly posted.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The routing board outside the yard clerk\'s window is publicly posted.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -276,7 +276,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The initiation chamber is occupied — a session in progress, the door warded with a Category One seal pressed into the wood at eye height. Voices inside, low and formal, following a call-and-response structure. The corridor is not a place to wait. Posted on the west notice board outside the east annexe, the standard initiation requirement summary is a public document. It lists the oath's general categories without quoting language. The difference between what it lists and what initiates describe is the thread worth tracing.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The public initiation summary is posted on the west notice board.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The public initiation summary is posted on the west notice board.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -318,7 +318,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The training division is locked for afternoon instruction. A notice card says walk-in inquiry is not available during session hours and directs visitors to the mentor registry in the east annexe. The registry is open. It holds a complete list of currently approved syllabus modules with their assigned placement levels — a public document, filed for member review. The modules that were recently moved from year-one to Level Four placement are listed there by name, with revision dates. The dates are specific.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The mentor registry in the east annexe holds the full syllabus placement list.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The mentor registry in the east annexe holds the full syllabus placement list.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -362,7 +362,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The charter display in the main hall has a clerk positioned beside it — a new addition since this morning, standing close enough to answer questions. His presence is an answer in itself. He asks for guild registration before permitting document handling. The posted organizational chart on the east wall — a different document, less detailed, open to any visitor — lists department names without naming the individuals who currently fill or vacate them. The department head roster is posted separately in the member registry window during open hours.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The member registry window posts the department head roster during open hours.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The member registry window posts the department head roster during open hours.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -401,7 +401,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The commercial operations counter is staffed by a single clerk who asks for authorization before pulling the comparison records. Without it, the request sits in a morning queue. The active stall assignments are publicly visible from the merchant yard walkway — stall numbers, categories, posted names. The count there doesn't require authorization. Walking the yard and writing down the active names takes an hour and produces a partial roster that can be compared against the previous quarter's public summary, still posted on the south wall of the registry annex.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The active stalls and public summary are both readable without authorization.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The active stalls and public summary are both readable without authorization.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -443,7 +443,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `Both merchants are gone for the afternoon — one at a hall session, one on a supply run. The quarter is quieter at this hour. The freight counter clerk at the east gate, who hears everything that passes the covered walkway, is still at her post. She doesn't volunteer information, but she doesn't turn away inquiries either. She describes events by their logistical consequences: what moved, what didn't, what arrived in a different condition than it left. That register carries its own record of the event both merchants described.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The freight counter clerk tracks events through what moved and what didn\'t.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The freight counter clerk tracks events through what moved and what didn\'t.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -482,7 +482,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The merchants you want are not at their stalls. A factor nearby says the three who filed complaints this season have all moved to the outer yard since the arbitration cycle closed — shorter hours, reduced stock. She doesn't say why. The complaint register in the arbitration office is not publicly accessible, but the timing of each ruling is posted with the outcome stamp. Ruling dates and the dates losses were reported by the affected merchants can be cross-referenced from public documents alone. The interval is in the record if the record is read in sequence.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'Ruling dates and public outcome stamps are readable in sequence.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'Ruling dates and public outcome stamps are readable in sequence.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -524,7 +524,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The financial operations office is closed for a category review — the door sealed with the blue wax the guild uses for restricted sessions. The posted quarterly summary outside the main hall is still accessible. It shows totals by category without the subsidiary breakdowns. The gap between total intake and posted expenditure is visible in that summary even without the subsidiary line items. The number standing in the gap is the question. What the gap is labeled as is in the annual register, filed with the Collegium observer's office for public review.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The Collegium observer\'s annual register copy is filed for public review.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The Collegium observer\'s annual register copy is filed for public review.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -563,7 +563,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The midday session convenes and the hall fills with procedural noise — the arbiter's counter opens, a queue forms, clerks move between the annexe windows. The patterns that are visible in the empty common bench disappear into the managed activity of the session. They'll be legible again at close of hall, when merchants re-sort themselves by instinct rather than procedure. The bench outside the arbitration window, visible from the covered walkway, holds the same arrangement at every session. Who sits alone there, and who doesn't sit at all, is a record of its own.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'Close of hall is when the patterns become legible again.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'Close of hall is when the patterns become legible again.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -605,7 +605,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The exposed merchants are in session — four of them behind the arbitration window at once, a cluster that doesn't normally appear on the same calendar day. The procedure will keep them occupied for another hour at least. The posted supplier registry on the south wall of the merchant annex lists each registered trader's declared primary and secondary trade relationships. Which merchants listed no secondary supplier is visible there, in ink, from the public corridor, without authorization or conversation required.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The supplier registry on the south annex wall is publicly posted.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The supplier registry on the south annex wall is publicly posted.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -647,7 +647,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The decision board is occupied — a guild officer stationed directly in front of it, logging visitors. His clipboard already has names. He asks for registry number before permitting close reading. The rulings posted there are dated, stamped, and cross-referenced to parties; none of that requires close reading to record. The reference categories cited — the ones marked "per coordinating directive" — are visible at arm's length from the corridor. Writing down which rulings share the category, and on which dates, costs nothing and requires no authorization. Pattern first. Detail later.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'Recording which rulings share the directive category requires no clearance.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'Recording which rulings share the directive category requires no clearance.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -691,7 +691,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The quarter is quiet — the midday session has pulled most of the foot traffic toward the hall. The two merchants you approached have moved on or gone inside. The covered walkway echoes with cart noise but no conversation. The rumors that move through here travel best at the margins of the trading day: early morning at the water trough, end-of-afternoon at the factor's bench near the gate. Coming back at either of those hours would find the rumor current in circulation rather than the story already told and put away.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'Merchant gossip circulates most freely at the margins of the trading day.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'Merchant gossip circulates most freely at the margins of the trading day.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -721,7 +721,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The loading crews are mid-shift — coordinated, loud, no gaps in the work pattern where a conversation would fit. The carter foreman moves through the yard giving counts. None of the crews stop what they're doing. The after-hours assembly point is a bench along the outer wall of the warehouse annex, visible from the street. It's empty now. At close-of-yard, the crews who've been in Bay Seven all day will sit there while the next rotation comes on. That handoff is when the day's account gets told.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The Bay Seven crews talk at the close-of-yard handoff, bench on the outer wall.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The Bay Seven crews talk at the close-of-yard handoff, bench on the outer wall.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -751,7 +751,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The archive reading room requires a registered introduction — the archive clerk asks for it at the door before the reading table is offered. Unregistered visitors are not turned away; they're directed to the public holdings shelf, which carries only finalized rulings without accompanying notes or correspondence. The finalized record is thinner evidence than the internal correspondence, but it is a record. Seven rulings citing the same category in the same nine-week window are documented in the public holdings. That sequence is a place to start.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The public holdings shelf carries finalized rulings without requiring a registered introduction.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The public holdings shelf carries finalized rulings without requiring a registered introduction.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -797,7 +797,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The official is in session — the anteroom clerk says it will be two hours, possibly three. The wait bench is narrow and faces the corridor, where everyone who passes can see who is sitting and for how long. Waiting here is its own kind of visibility. The evidence you've gathered is already assembled; the confrontation is a matter of timing. Coming back at close of hall, when the corridors are thinner and the session doors open of their own accord, would find the official alone with the folder still on the table.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'Close of hall is a better moment — fewer witnesses, the session already concluded.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'Close of hall is a better moment — fewer witnesses, the session already concluded.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -839,7 +839,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The archive corridor is locked for the afternoon — a Category One session in progress, the door sealed. The courier intake desk beside the east annexe exit is still staffed. Courier receipts from the past six weeks are public record, held at the desk for thirty days before filing. The routing codes on incoming parcels are stamped on the receipt copies. A routing code that doesn't appear in the Guildheart manifest registry will stand out in the sequence — visibly, without pulling restricted documents. The stack for the current month is on the desk.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The courier receipt stack at the east annexe desk is public record for thirty days.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The courier receipt stack at the east annexe desk is public record for thirty days.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     stageProgress: 1,
     fn: function() {
@@ -883,7 +883,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The basement stacks are closed — a water repair has the lower archive off-limits since the previous evening. A notice card in the corridor gives no timeline for reopening. The Collegium observer's office on the second floor holds a certified copy of the pre-Union charter as part of its monitoring file. Observer Trent described it as submitted through the formal channel — a public document available for review with a written introduction. The authority clause in the current mandate is the discrepancy worth comparing. That comparison is possible from the second floor copy if the ground floor is sealed.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The Collegium observer holds a certified copy of the pre-Union charter on the second floor.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The Collegium observer holds a certified copy of the pre-Union charter on the second floor.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -915,7 +915,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `Close of hall comes and the arbiter exits through the east corridor, turns south — and boards a guild transport that carries four other officers toward the residential quarter. A group departure on guild transport leaves no readable off-channel thread. Whatever meeting is scheduled, if there is one tonight, happens after the transport drops. The cartwright's workshop on the east side of the residential block is still worth examining in daylight — courier stops don't always require the principal to be present, and the lamp-above-scale mark may appear on other materials stored there.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The cartwright\'s workshop with the courier stop is still worth examining in daylight.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The cartwright\'s workshop with the courier stop is still worth examining in daylight.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -951,7 +951,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The trading floor is in full midday session — too much noise, too much coordinated movement for the secondary patterns to separate from the primary ones. The arbiter's presence on the floor during peak hours compresses every conversation into its most formal register. The patterns that reveal the parallel economy — the gestural exchanges, the early sentence-endings, the glances toward the east corridor — are only legible when the floor is at partial capacity. The early morning opening, before the session fills, is when the second accounting shows itself.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The floor\'s second economy is legible at partial capacity, before the session fills.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The floor\'s second economy is legible at partial capacity, before the session fills.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1009,7 +1009,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The bell tower is locked — the door at its base carries a maintenance seal, the stair inside inaccessible. The bell rings anyway, at its hour, without a ringer visible. The mechanism is automated, the chain set on a weighted clock pull. The factor you wanted to ask about the count is already gone from her stall. The story about the nine rings and the twelve guilds moves through the quarter at a pace of its own. Waiting at the south gate in the late afternoon finds the same factor returning with her cart, the day's business done, unhurried.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The factor returns to the south gate in the late afternoon with her empty cart.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The factor returns to the south gate in the late afternoon with her empty cart.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1076,7 +1076,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The dockside factor is in conversation with a hall clerk when you approach — a formal exchange, ledger open between them, nothing to interrupt. She clocks your approach without acknowledging it and keeps her attention on the clerk. The note she meant to pass stays in her apron. When the clerk leaves she moves directly to her next stall. The passage for it will come later — she'll look for you at the freight counter's east end during the slow hour before close of yard, which is where she handles anything that shouldn't be handed over in a crowd.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The factor will look for you at the freight counter\'s east end before close of yard.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The factor will look for you at the freight counter\'s east end before close of yard.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1116,7 +1116,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       text: `The freight counter is briefly occupied — a carter presents a routing dispute, the two officials you're watching are pulled into the paper exchange. Whatever was being discussed before the carter arrived is finished; the conversation won't resume with an audience at the counter. The east end of the counter has a pigeonhole rack where filed routing categories are posted by the day's shift. Category D, which the one official named, corresponds to a specific hold classification. The hold register for the current week sits in a tray visible from the public side of the counter.`,
       xp: 0,
       effects: [],
-      next: [{ text: 'The Category D hold register for this week sits in the public tray at the counter\'s east end.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+      next: [{ text: 'The Category D hold register for this week sits in the public tray at the counter\'s east end.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
     },
     fn: function() {
       advanceTime(1);
@@ -1139,7 +1139,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     text: `The notice board is bare — stripped for the daily re-posting that happens at close of hall. A clerk with a stack of fresh notices is making her way from the east annexe, cards in hand, but she's been stopped at the corridor junction by a registrar with a question. The board will be current again in ten minutes. The old postings, the ones taken down, accumulate in a wire basket below the board for three days before filing. Yesterday's notices are still in the basket, rubber-banded and legible.`,
     xp: 0,
     effects: [],
-    next: [{ text: 'Yesterday\'s notices are still in the wire basket below the board.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+    next: [{ text: 'Yesterday\'s notices are still in the wire basket below the board.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
   },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
@@ -1159,7 +1159,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     text: `The manifest desk is empty — both officials gone, the counter clear, the shift handoff in progress. A replacement clerk is still coming up from the lower office. The reference code that stopped the earlier conversation is no longer being spoken; it's filed somewhere in the routing stack behind the counter, visible only to desk staff. The public routing board on the adjacent wall lists active administrative references by category. An administrative reference code, heard in context with a Category D hold and a Bay Seven clearance, narrows to a small section of that board — three or four entries at most.`,
     xp: 0,
     effects: [],
-    next: [{ text: 'The public routing board narrows the reference code to three or four category entries.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+    next: [{ text: 'The public routing board narrows the reference code to three or four category entries.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
   },
   fn: function() {
     advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1208,7 +1208,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The three blocking the route are better positioned than they look — two have the high ground on the road shoulder and the third is behind a loaded cart that would take both of you to move. The blockade is professionally set. You withdraw and circle to the waymark post through the secondary footpath, which adds two hours to the route.',
       xp: 0,
       effects: [],
-      next: [{text: 'Take the secondary footpath around the blockade to the waymark post.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Take the secondary footpath around the blockade to the waymark post.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1250,7 +1250,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The courier is already past the intersection when you clear the staging area corner. He is inside the relay post gate before you reach the intersection. The gate closes with the standard relay post security lock. The dispatch is filed. Whatever it contained is now inside the post record, and the post record is guild-restricted access.',
       xp: 0,
       effects: [],
-      next: [{text: 'The relay post has a formal channel. Use that instead.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'The relay post has a formal channel. Use that instead.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1294,7 +1294,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The manifest is on the loading factor\'s desk and the loading factor is currently working through it with a caravan captain. The cipher column is visible from the queue but reading it accurately requires the desk angle. The public routing board in the staging area carries last-quarter filed manifests that may have the same cipher if it predates the current month.',
       xp: 0,
       effects: [],
-      next: [{text: 'Read last quarter\'s routing board manifests for the cipher pattern.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Read last quarter\'s routing board manifests for the cipher pattern.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1336,7 +1336,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The waymark post is at the center of the staging area and reading the inscriptions at close range requires standing at the post long enough to attract the staging area factor\'s attention. The factor asks your business before you have time to isolate the secondary layer. The public routing board beside the post has the same guild marks; the secondary inscription, if it is there, would appear in both places.',
       xp: 0,
       effects: [],
-      next: [{text: 'Read the routing board inscription instead of the post directly.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Read the routing board inscription instead of the post directly.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1379,7 +1379,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The transit district at third bell is busier than the courier\'s route suggested — a caravan staging at the main intersection blocks the sight line for the second junction. You lose the courier\'s position in the caravan traffic and he is gone into the relay post district before you re-acquire. The route pattern needs a quieter bell.',
       xp: 0,
       effects: [],
-      next: [{text: 'Re-map the courier\'s route at a quieter bell.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Re-map the courier\'s route at a quieter bell.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1421,7 +1421,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The guard\'s circuit is shorter than it appeared from the staging area perimeter — he cuts through the center of the staging area on every second pass, which halves the window at the shed. You are at the shed door when his lantern appears between the caravan rows. You do not open the shed. You pull back and wait out his circuit. The manifest box stays locked until a longer window opens.',
       xp: 0,
       effects: [],
-      next: [{text: 'Map the guard\'s full circuit pattern before the next attempt.', skill: 'stealth', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Map the guard\'s full circuit pattern before the next attempt.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1464,7 +1464,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The factor\'s ask is specific enough that he already has something in mind — it is not a negotiating position, it is a price list item. Whatever he wants is not something you can provide in this conversation. He acknowledges this without rancor and returns to his desk. The emergency route arrangement does not happen. The sealed cargo stays in the staging area.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find what the factor wants and come back with it.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find what the factor wants and come back with it.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1506,7 +1506,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       text: 'The waymark factor has already made the calculation you are trying to walk him through — he made it three weeks ago and decided the risk to his own operation was manageable compared to the alternative. Whatever the alternative is, it was convincing enough that the route discrepancy is still in his records without correction. He listens to the argument without responding to it. He has heard it. He chose.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find what overrides the factor\'s risk calculation.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find what overrides the factor\'s risk calculation.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);

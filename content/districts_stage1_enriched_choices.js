@@ -47,7 +47,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The gallery fills early and the credentialed seating is full before the session opens. A clerk at the public entrance runs the access list — district residency registration or institutional observer credentials required to enter. The Aurora Heights civic halls are not public by habit, only by charter. The archived docket summaries are posted outside on a printed sheet after adjournment, which is something. The archive reading room two corridors east holds the same record in searchable form.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -76,7 +76,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The archive reading room is only accessible during the two hours the district archivist is on duty — a window that closed forty minutes ago. The Titan Tower shadows cross the civic hall entrance on a schedule the archivist follows with precision. The district maintenance office two floors up keeps contractor logs in a public-facing register, accessible during standard civic hours, indexed by filing date rather than contractor name. A narrower search from a specific date range would work there.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -143,7 +143,7 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `Shift change ends and the ward floor settles into its working rhythm — smaller crews, longer stretches between movement, the kind of quiet that makes a standing stranger visible. The Ironspool Ward community board near the dome terminal entrance posts shift schedules and crew rosters for the week. Returning during the second-shift change, or reading the board to find a specific crew, would open a narrower approach with less noise around it.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -171,7 +171,7 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The cargo registry access window is restricted to guild-credentialed trade representatives during the morning intake period — the desk clerk points to the posted hours without looking up. The ward's public-facing intake board lists category totals and clearing officer names by date, no quantities. That board is updated daily and sits on the south wall of the main corridor, accessible without credentials. It won't show individual entries, but it shows patterns across a week.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -221,7 +221,7 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The residential block near the dome terminal is a closed row — buildings fronting a shared courtyard, entry to the courtyard through a single arch with a guild mark stamped into the keystone. The residents here know each other and know who doesn't belong. A second approach carrying something specific — a building reference, a name from the ward roster, a question about the duty officer cycle — would land differently than showing up at a stranger's door. The courtyard arch is not locked, just watched.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   }
 
@@ -253,7 +253,7 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The botanical station requires a posted visitor authorization for extended access — visitors conducting inquiry rather than depositing samples need a researcher sponsor on-file. The station's public-facing display case near the entrance holds current monitoring summaries: eight weeks of atmospheric exposure data, charted by specimen row, updated weekly. Guild markers on the display frame indicate which Titan Tower administrative sector funded the monitoring series. The data is posted. The full ledger behind the glass requires a sponsor.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -281,7 +281,7 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The collective's waiting bench holds six people and the healer is already behind the curtain. Morning hours are walk-in only — no extended conversations during active care hours. The Verdant Row community garden draws healers for informal conversation after the second bell, when the morning rush clears. The botanical station's symptom-exposure summary posted near the entrance describes the same presentation pattern in aggregate. Either route opens the same door, without competing with a waiting room.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -351,7 +351,7 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The formal records request runs through a documentation process that requires a guild-registered institutional affiliation and a forty-eight hour processing window. The intake counter closes during the midday shift change and the second clerk on duty handles paperwork only. The Granary Steps distribution floor is accessible without credentials during active intake hours — the floor supervisor keeps a running tally of anomalous intake flags in a chalk board visible from the loading bay entrance. That route bypasses the paperwork entirely.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -408,7 +408,7 @@ var IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The Iron Ledger Ward's public registry room is open but the credentialed search assistant — the only person authorized to run the cross-reference system — is booked through the afternoon with a formal audit review. Walk-in searches require either the assistant's support or a specific transaction reference to navigate the ledger manually. Maret Voss keeps a condensed pattern summary from her own three-month trace; she's reachable most mornings in the ward and her notes are already indexed. That route cuts through the volume problem.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -434,7 +434,7 @@ var IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The engagement form requires a registered institutional affiliation in one of four recognized Compact categories — none of which covers independent inquiry. The Iron Ledger Ward's public posting boards carry instrument summaries from the past quarter, categorized by creditor type and obligation structure. The pattern the specialist would describe is partially visible in the aggregate — three creditor entities appearing across multiple postings with identical clause language in the exits, readable without an engagement on file.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -463,7 +463,7 @@ var IRON_LEDGER_WARD_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The review session runs through midday — the colleague at the front desk checks the schedule twice before confirming it. Maret's published case summaries from the past two quarters are filed in the public reading shelf outside her door; she posts them herself, formatted for reference rather than confidential use. The pattern structure she's been documenting is partially visible in those summaries. The transaction registry across the corridor holds the same methodology in raw form, accessible now without waiting.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   }
 
@@ -496,7 +496,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The docket research requires either a specific case reference or a credentialed appointment — neither available without advance preparation. The Reckoning Quarter posts a weekly administrative transfer summary outside the justice hall entrance: cases moved to non-public review status, listed by transfer date and jurisdictional category without party names. Three entries in the past four months sit under the same category code. The transfer summary is posted, readable, and doesn't require credentials. The names behind those entries are the next step.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -525,7 +525,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `She leaves before the conversation opens. The café outside the Reckoning Quarter justice hall is a fixed point in her day — the same table, the same hour, according to the server who comes to clear the cup without being asked. The public docket transfer summary posted on the justice hall exterior wall names three frozen cases by category code. Arriving with a specific case reference rather than a general inquiry gives the conversation somewhere to go that her patience might allow.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -579,7 +579,7 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The atmospheric science rows are full and the browsing hour is busy — two researchers working the same section, moving methodically through the shelves. Without a specific title or shelf mark, the section takes more time than today's access window allows. The classification review board posts its recent decisions in a summary folio at the circulation desk — public record, updated quarterly, listing texts reclassified or marked supplementary with the board decision date. That folio points directly at the gaps in the stacks.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -605,7 +605,7 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The two board members he names are both off-site today — one presenting at a guild-adjacent symposium, one on field leave. The classification review decision folio at the circulation desk is publicly posted and doesn't require a board member to interpret. Eleven entries in the past eighteen months, each one dated and annotated with the board composition that approved it. The Warden Order liaison's name appears on every entry in the past fourteen months. The folio is there, readable, and waiting.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -634,7 +634,7 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The reference section is empty at this hour — morning access only for non-affiliated visitors, and Doss comes early. The Scriptorium Steps atmospheric science stacks hold the texts he works from: the published base studies, marked supplementary, with margin annotations that show which readers have been working the same question. His handwriting appears in the margins of the pressure regulation text in the second row. The notes he's left in the margins are readable without him there to explain them.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   }
 
@@ -666,7 +666,7 @@ var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `Gallery access requires an observer credential issued by the district authority office the morning of each hearing — a process that closed an hour ago when the session opened. The High Quarter posts its hearing agendas on a printed board outside the civic entrance, updated the day before each session. The contract renewal items listed on the next session's agenda include two maintenance bids; the bidding entity names are posted in full. The board is outside, visible, and doesn't require credentials to read.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -694,7 +694,7 @@ var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The restricted section access window opens only with twenty-four hours' notice and the right credentials — both currently missing. The public catalog in the reading room lists restricted holdings by title, date filed, and administrative category. Sub-registry charter filings appear as a distinct category in that catalog, searchable by year without restricted access. The catalog is open, the administrative category is there, and the filing dates narrow the search to a window small enough to work from tomorrow's access request.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -721,7 +721,7 @@ var HIGH_QUARTER_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The liaison's appointment window fills by mid-morning — walk-in inquiries on general matters are referred to the formal intake process, which takes forty-eight hours and requires a stated institutional purpose. The High Quarter hearing agenda posted outside the civic entrance lists the current active disputes by category. Vent shaft access appears as a line entry, with the filing party names visible. That gives a specific reference to bring to the next appointment request, something more targeted than a general research interest.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   }
 
@@ -753,7 +753,7 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The market clears quickly after the midday rush — vendors packing early, the main corridor halved in foot traffic within an hour. The community board near the south entrance carries warnings between the ordinary postings: residents noting changes near the dome access terminals, written in the shorthand of people who've learned not to report things formally. The pattern is there in the handwriting without requiring anyone to stop and talk.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
@@ -779,7 +779,7 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
     },
     failResult: {
       text: `The corner table reads you before you reach it — his cup refills twice during the conversation and his eyes move to the door twice without you noticing a reason. He doesn't engage on price or subject today. The Common Quarter market runs on close-range trust, and that trust builds through presence rather than approach. The community board near the south entrance carries the same intelligence in public form — residents documenting terminal activity in writing rather than words, already posted, already readable.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
