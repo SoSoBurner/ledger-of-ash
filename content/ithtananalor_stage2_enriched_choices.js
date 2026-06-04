@@ -9,6 +9,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Iron Ledger Ward has three ghost accounts that were flagged and then left alone.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 82,
     fn: function() {
@@ -43,6 +44,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "She processes every transaction. She has seen the ghost account activity and said nothing.",
+    skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -74,6 +76,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Velden commands the Shadowhands. The accounts point there. A meeting is one option.",
+    skill: 'might',
     tags: ['NPC', 'Combat', 'Authority', 'Stage2', 'Meaningful'],
     xpReward: 90,
     fn: function() {
@@ -107,6 +110,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Unusual evening proceedings at the enforcement quarter. The shrine attendant witnessed them.",
+    skill: 'charm',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -137,6 +141,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Off-duty Shadowhands officers stay at the quarter inn. An evening there would tell something.",
+    skill: 'finesse',
     tags: ['Stealth', 'NPC', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -168,6 +173,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The enforcement culture created a shadow market. The ghost account endpoints are somewhere inside it.",
+    skill: 'finesse',
     tags: ['Stealth', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -198,6 +204,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Roaz commands ORE. Either he's been bypassed or his record is cover.",
+    skill: 'wits',
     tags: ['Combat', 'Investigation', 'Personal', 'Stage2', 'Meaningful'],
     xpReward: 88,
     fn: function() {
@@ -228,6 +235,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "That deflection was rehearsed. She rehearses lines when she has something to protect",
+    skill: 'charm',
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     fn: function() {
@@ -250,6 +258,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The dock is moving weight on nights the ledger shows nothing moving.",
+    skill: 'wits',
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     fn: function() {
@@ -271,6 +280,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The checkpoint officer clocked my hesitation — in Ithtananalor that hesitation is already a record",
+    skill: 'finesse',
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     fn: function() {
@@ -294,6 +304,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The archive's binding-law index bleeds into the enforcement catalogue at one seam",
+    skill: 'wits',
     tags: ['stage2', 'ithtananalor', 'Archive', 'Meaningful'],
     xpReward: 82,
     fn: function() {
@@ -322,6 +333,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A second perimeter circles the Ledger Ward — unmarked, paired, started after my query",
+    skill: 'finesse',
     tags: ['stage2', 'ithtananalor', 'Stealth', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -350,6 +362,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The same officer has stood at Brenn's shrine threshold three mornings running",
+    skill: 'charm',
     tags: ['stage2', 'ithtananalor', 'NPC', 'Persuasion', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -378,6 +391,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The transferred officer left a forwarding seal at the transit registry. It was never collected.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -409,6 +423,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The threshold isn't a round number. Someone calculated the exact audit ceiling.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -440,6 +455,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The contraband needs cold storage. Three registered cold holds in the enforcement quarter.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -470,6 +486,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The materials exemption in the anti-magic statute is in different handwriting than the rest.",
+    skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -501,6 +518,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Harlan's second ledger behind the bar holds names and dates he doesn't trust to memory.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -532,6 +550,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The ore assay records declare a grade the foundry output cannot physically produce.",
+    skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -563,6 +582,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The courier runs the cold hold and the foundry dock every morning.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -593,6 +613,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The notice board runs two layers. The public one, and the one posted behind it.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -624,6 +645,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A case file opened, sealed, and never docketed. That sequence is not procedurally possible.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -655,6 +677,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The foundry supervisor tallies ore by weight before it enters the quota system. Not after.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -686,6 +709,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "He filed a query eighteen months ago. Had a new posting within the week.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -717,6 +741,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The reclassified unit occupies a floor of the enforcement quarter not on the building schematic.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -747,6 +772,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The external auditor hasn't set foot here for three consecutive review periods.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -778,6 +804,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The evidence is ready. Roaz or independent disclosure — both paths are open.",
+    skill: 'might',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,
     fn: function() {
@@ -810,6 +837,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The forest compact boundary marker was moved. The archive still shows the old position.",
+    skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -836,6 +864,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The magical licensing register shows approvals issued against applications that were never filed.",
+    skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -863,6 +892,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression knowledge is being withheld systematically. The gaps in the archive confirm it.",
+    skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {

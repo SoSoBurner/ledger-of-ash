@@ -8,6 +8,7 @@ const NOMDARA_STAGE2_CHOICES = [
 
   {
     label: "Lorn's stock: rare items, hard coin or barter.",
+    skill: 'wits',
     tags: ['Trade', 'Nomdara'],
     xpReward: 30,
     fn: function() {
@@ -43,6 +44,7 @@ const NOMDARA_STAGE2_CHOICES = [
 
   {
     label: "Wren's training: esoteric knowledge, paid in time.",
+    skill: 'wits',
     tags: ['Training', 'Nomdara'],
     xpReward: 55,
     fn: function() {
@@ -71,6 +73,7 @@ const NOMDARA_STAGE2_CHOICES = [
 
   {
     label: "Sable's work: wounds and curses. Eighteen coin. She does not explain the route.",
+    skill: 'wits',
     tags: ['Healing', 'Nomdara'],
     xpReward: 40,
     fn: function() {
@@ -106,6 +109,7 @@ const NOMDARA_STAGE2_CHOICES = [
 
   {
     label: "Lorn's caravan sees every road. Information is ten coin.",
+    skill: 'wits',
     tags: ['Information', 'Nomdara'],
     xpReward: 35,
     fn: function() {
@@ -148,6 +152,7 @@ const NOMDARA_STAGE2_CHOICES = [
 
   {
     label: "Leave the Nomdara Caravan — step back onto the road.",
+    skill: 'wits',
     tags: ['Travel', 'Nomdara'],
     xpReward: 0,
     fn: function() {

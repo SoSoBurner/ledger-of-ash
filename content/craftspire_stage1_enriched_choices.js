@@ -11,6 +11,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "An unofficial complaint about chemical anomalies was filed four months ago. He's still here.",
+    skill: 'charm',
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The workshop is running at full pace — a press cycle turning, two apprentices logging tolerance marks, the air sharp with flux. Jorin is at the calibration bench with both hands occupied and a queue of three behind you. He doesn't look up. The break schedule is posted on the door: second bell, sixth bell. The analysis sheets are visible on the back table. Come back when the bench is clear.",
     xpReward: 68,
@@ -35,6 +36,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The manifests say one concentration. The samples test at another. Someone is doing the math.",
+    skill: 'spirit',
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "The records office clerk closes the window at the third bell — midday processing, back at the fourth. The analysis sheets are filed under Jorin's member number and require his signature for outside access. The data exists. The route to it runs through Jorin, who takes his break at the second and sixth bell. Neither window has passed yet.",
     xpReward: 74,
@@ -66,6 +68,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 3. CLUE: WHAT THE EXTRACTED COMPOUND DOES
   {
     label: "Jorin knows the compound class. He hasn't said yet what that volume would build.",
+    skill: 'wits',
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     failResult: "Jorin sets the reference volume back on the shelf without opening it. He hasn't decided yet what a visitor he met this morning is owed. The workshop smells of hot metal and flux, the forge outside steady. His notation is precise. His trust takes longer. The break at the sixth bell is a better moment — the floor empties and the work floor is quiet enough for a longer conversation.",
     xpReward: 76,
@@ -93,6 +96,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The compound leaves at full concentration. It arrives short. Something happens in between.",
+    skill: 'wits',
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     failResult: "The production facility's output records come back clean — full concentration at source, well-documented. The gap sits somewhere in the middle. The waystation intake records are under the supply contractor's internal administration, not publicly filed. Two clean endpoints establish the problem. What sits between them is still closed. The contractor's guild registration has a contact office with a public address.",
     xpReward: 72,
@@ -120,6 +124,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 5. ARCHETYPE-GATED: READING CRAFTSPIRE
   {
     label: "The district runs on a tight production clock. What's happening doesn't match the schedule.",
+    skill: 'wits',
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     failResult: "The district moves on a synchronized clock — shift bells, production rotations, inspection rounds. The posted schedule is accurate as far as it goes. Reading the gaps in it, the unmarked movements and the workshop activity that falls outside the posted timetable, requires more time on the floor than one pass allows. The sixth bell shift change opens a longer observation window.",
     xpReward: 67,
@@ -145,6 +150,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 6. FACTION SEED: WARDEN ORDER INDUSTRIAL COMPLIANCE
   {
     label: "The Warden Order's compliance officer is at the guild registry. This needs to go there.",
+    skill: 'charm',
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The compliance officer takes the written summary, stamps it received, and adds it to a tray with twelve other items. No questions asked. The compound class code is in the documentation — if he read it, the intake category would shift from standard supply fraud to material interference. The tray moves on a weekly review cycle. Naming the compound class explicitly in person, rather than in a filed form, changes who processes the response.",
     xpReward: 70,
@@ -172,6 +178,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 7. SOCIAL: THE WAYSTATION WORKER
   {
     label: "The extraction happens at the waystation. Someone logs the numbers every day and knows it.",
+    skill: 'charm',
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The waystation supervisor stops you before you reach the processing floor. Workers under guild contract administration require a two-day approval form for non-guild inquiries. You can see the processing line from the gate — one handler keeps glancing toward the log form on his bench, its 'transit variance' column visible from here. The form is at the gate office. Jorin's endorsement bypasses the approval requirement entirely.",
     xpReward: 68,
@@ -291,6 +298,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 12. PERSONAL ARC: SECURE JORIN'S RECORDS
   {
     label: "Jorin's six-month analysis needs a secure copy outside the guild.",
+    skill: 'finesse',
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 67,
     fn: function() {
@@ -313,6 +321,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 13. RUMOR LAYER
   {
     label: "The workers know something changed. They haven't said it in front of the wrong person.",
+    skill: 'wits',
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     failResult: "The common area is busy between shifts — workers at the water basin, two apprentices running a manifest to the next workshop, the smell of cooling metal following everyone in. Conversations cut short when someone unfamiliar sits too close. The afternoon break runs longer and looser. Come back when the district has its rhythm back and the faces at the table recognize yours.",
     xpReward: 60,
@@ -337,6 +346,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 14. INVESTIGATION: THE OTHER AFFECTED GUILDS
   {
     label: "Jorin isn't the only master on this chain. The others receive from the same source.",
+    skill: 'charm',
     tags: ['Investigation', 'Networks', 'Stage1', 'Meaningful'],
     failResult: "Two workshop masters listen to the question, both of them with the same flat pause before answering. Internal production data is registered guild information — sharing it with an outside party requires formal authorization or a personal reason to trust. One master says nothing and tilts his head toward Jorin's workshop across the district. His endorsement is what opens this door.",
     xpReward: 70,
@@ -360,6 +370,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 15. SOCIAL: THE ASSISTANT WHO NOTICED
   {
     label: "Jorin tracks the numbers. His assistant tracks the deliveries. Different parts of the same problem.",
+    skill: 'charm',
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "Lev is sorting sample containers at the far end of the workshop, methodical, not looking up. He listens to the first question and looks toward the main bench. 'I don't talk about what goes on in here without Jorin knowing about it.' He turns back to the containers. The hiss of the cooling rack fills the silence. He's not hostile. Jorin's word changes that calculation entirely.",
     xpReward: 64,
@@ -383,6 +394,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 16. ATMOSPHERE: THE GUILD FORGE AT NIGHT
   {
     label: "The forge doesn't stop at closing. Something runs after the bell.",
+    skill: 'wits',
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The guild district winds down in layers after ninth bell — first the small workshops, then the secondary forges, finally the apprentice dormitory lights. The central forge stays lit. Whatever continues tonight does so without an audience. The approach routes to the forge yard are narrow and the smell of hot metal carries far in still air. The north alley stays in shadow until the tenth bell lamp rotation.",
     xpReward: 50,
@@ -399,6 +411,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 17. INVESTIGATION: ACCUMULATION VOLUME ESTIMATE
   {
     label: "Six months of extraction from three workshops. The accumulated volume needs a number behind it.",
+    skill: 'spirit',
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     failResult: "Jorin spreads the data across the bench and works through it in silence — columns of compound codes, batch schedules, concentration differentials. The forge outside runs steady. He shakes his head once without explaining. The calculation takes what it takes, and rushing it produces a wrong number dressed as a reliable one. Come back when he's had time with the figures.",
     xpReward: 73,

@@ -8,6 +8,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Persistent glyph pressure gradient pointing northwest. It points toward the staging location.",
+    skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -39,6 +40,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Patrol Leader has seen the unmapped structure. He's been warned off it.",
+    skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -68,6 +70,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Multiple travelers described the northwestern structure. They called it 'the pressure management work.'",
+    skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -99,6 +102,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Cysur held something back. A second conversation once the shrine clears may draw it out.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 76,
     fn: function() {
@@ -130,6 +134,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "There's a gap in the rotation where the tree line runs close to the wall.",
+    skill: 'finesse',
     tags: ['Stage2', 'Scouting'],
     xpReward: 80,
     fn: function() {
@@ -160,6 +165,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern gate checkpoint demands a stated purpose. The wrong answer is anything vague.",
+    skill: 'charm',
     tags: ['Stage2', 'Social'],
     xpReward: 68,
     fn: function() {
@@ -190,6 +196,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A northern road driver keeps a private log from the construction period.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -218,6 +225,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The outpost manifest has a requisition category that feeds the northern route.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -246,6 +254,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The smith repairs northern crew equipment. He's seen what it does.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -275,6 +284,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The depot clerk flagged a discrepancy. She was told to un-flag it.",
+    skill: 'wits',
     tags: ['Stage2', 'Archive'],
     xpReward: 68,
     fn: function() {
@@ -304,6 +314,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A survey marker in the tree line. The team stopped reporting six weeks ago.",
+    skill: 'vigor',
     tags: ['Stage2', 'Scouting'],
     xpReward: 72,
     fn: function() {
@@ -332,6 +343,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Letha Dawnsilk's instrument housing holds a calibration record that predates her assignment by eight months.",
+    skill: 'spirit',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -360,6 +372,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern route runner knows the structure by its cargo. She's been inside.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -388,6 +401,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The apothecary knows the northern smell. Others have asked her about it.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -417,6 +431,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three days in the patrol log with no entries, no annotation, northern road supposedly clear.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -446,6 +461,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A traveler from the northern hills with symptoms the outpost medic doesn't recognize.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -474,6 +490,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The night-watch keeps his own record of what moves north after gate close.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -502,6 +519,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A waymarker post repositioned on the northern road. The original socket is ten meters back.",
+    skill: 'finesse',
     tags: ['Stage2', 'Scouting'],
     xpReward: 65,
     fn: function() {
@@ -530,6 +548,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern assignment cycles through a single auxiliary. Same name, every week, never rotated.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -559,6 +578,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The trapper stopped working his best northern territory eight months ago. The reason matters.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -587,6 +607,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The woodcutter's delivery records name a northern structure that isn't on any register.",
+    skill: 'spirit',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -615,6 +636,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The location is confirmed. Patrol Leader or Letha's map — two ways in.",
+    skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
     fn: function() {
@@ -646,6 +668,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'Transit records sealed. Not the usual kind',
+    skill: 'wits',
     tags: ['Records', 'Intelligence'],
     xpReward: 15,
     fn: function() {
@@ -660,6 +683,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The warden taps the document twice before handing it back',
+    skill: 'wits',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
     fn: function() {
@@ -675,6 +699,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The traveler ahead was turned back. No reason given',
+    skill: 'wits',
     tags: ['Observation', 'Complication'],
     xpReward: 20,
     fn: function() {
@@ -691,6 +716,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'A log category stopped appearing six months ago',
+    skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     fn: function() {

@@ -10,6 +10,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Relic Wing requisitions under 'northern defense assessment' match suppression compound precursor profiles.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -43,6 +44,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Mordoth approved the distribution contracts. The evidence exists now. He may be willing to negotiate.",
+    skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -76,6 +78,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The staging location used Soreheim military transport passes. Vorgul commands the logistics chain.",
+    skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -107,6 +110,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Cron is privately alarmed. Not part of the conspiracy, but he suspects his council colleagues.",
+    skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -138,6 +142,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Northern Ambition bloc's expansion projects depend on glyph disruption keeping rivals destabilized.",
+    skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -169,6 +174,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The forge manifest allotment numbers don't match the war-production quota ledger.",
+    skill: 'wits',
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -189,6 +195,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The porter moved those crates. He remembers the seal on the transfer order.",
+    skill: 'charm',
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -208,6 +215,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A Relic Wing clerk attended a merit ceremony in a councillor's slot.",
+    skill: 'finesse',
     tags: ['stage2', 'soreheim_proper'],
     xpReward: 30,
     fn: function() {
@@ -227,6 +235,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The tower scribe's permit ledger logs two transit seals for the same night.",
+    skill: 'wits',
     tags: ['stage2', 'soreheim_proper', 'paperwork'],
     xpReward: 32,
     fn: function() {
@@ -248,6 +257,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three consecutive buyer permits voided without cause via override.",
+    skill: 'wits',
     tags: ['stage2', 'soreheim_proper', 'trade_records'],
     xpReward: 34,
     fn: function() {
@@ -268,6 +278,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Two guild authority stamps on the same export manifest.",
+    skill: 'spirit',
     tags: ['stage2', 'soreheim_proper', 'guild_authority'],
     xpReward: 34,
     fn: function() {
@@ -287,6 +298,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A forge dock foreman and a quota clerk arguing about a reassigned crew.",
+    skill: 'charm',
     tags: ['stage2', 'soreheim_proper', 'public_complication'],
     xpReward: 30,
     fn: function() {
@@ -306,6 +318,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Compound shipments moving under a Giant Council exemption code that expired two seasons ago.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -338,6 +351,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A junior Wing clerk wrote down what Decon entered. She kept the note.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -368,6 +382,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A Wing courier leaves the third tower every fourth night. No assignment covers the route.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -399,6 +414,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The forge ring runs cold one night a week. A crew shows up anyway.",
+    skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -429,6 +445,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Residue on the staging sleds matches a compound profile never authorized for export.",
+    skill: 'spirit',
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -459,6 +476,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The wage records for off-books laborers show the same sealed-charter reference Roth's budget used.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -489,6 +507,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Extra routes when Decon is absent. The destinations don't match any posted address.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -519,6 +538,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The blueprint vault floor plan doesn't match the structure visible from the north bridge.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -549,6 +569,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Some passes move through the curfew line without being logged.",
+    skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -579,6 +600,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The forge cavity crate marks don't match any Soreheim stamp.",
+    skill: 'spirit',
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -609,6 +631,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A retired Wing officer designed the override protocols. He left without explanation.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -639,6 +662,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A hidden addendum quietly legalized what the operation needed.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -669,6 +693,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A sealed dispatch rider leaves every third morning on a route that avoids the checkpoints.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -699,6 +724,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The command structure is confirmed. Cron's Arbiter seal for prosecution or expose the expansion budget.",
+    skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
     fn: function() {
@@ -729,6 +755,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Hammer Company extraction quota sheet shows a different ceiling than the Iron Accord copy.",
+    skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -755,6 +782,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Decommodification prohibition records list exactly the goods currently moving under the Wing seal.",
+    skill: 'spirit',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -780,6 +808,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Iron Accord arbitration records show three disputes involving the same shipment reference, all dismissed.",
+    skill: 'charm',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -810,6 +839,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   // BEAT 1 — Hook
   {
     label: "One north-gate banner hangs lower than the others.",
+    skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction'],
     xpReward: 60,
     fn: function() {
@@ -825,6 +855,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   // BEAT 2 — Commitment
   {
     label: "Stand under the low banner at the rotation change. Meet whoever is doing the inviting.",
+    skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -845,6 +876,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   // BEAT 3 — Payoff
   {
     label: "Station 42 log is the piece Ruven needs — and it's still in the archive.",
+    skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
@@ -871,6 +903,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'A union procedural filing with a non-union authority hold on it',
+    skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -886,6 +919,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The merchant factor calls it market variance. He\'s wrong and he knows it',
+    skill: 'wits',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
     fn: function() {
@@ -901,6 +935,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'Pre-Decommodification pressure records follow the same shape as now',
+    skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -916,6 +951,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'An authority representative is watching me pull these records',
+    skill: 'wits',
     tags: ['Complication', 'Observation'],
     xpReward: 20,
     fn: function() {
@@ -934,6 +970,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lyria's allocation tallies for the northern ward run two weeks behind every other district.",
+    skill: 'charm',
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Lyria sets her pen down and turns the allocation ledger face-down without being asked. 'Ward-level reconciliation is administered on a rolling basis. Inquiries should be directed to the Giant Council intake desk.' She picks the pen up again, resettles it in her grip, and returns to the column without looking up. The intake desk will produce a queue ticket and a three-day wait. The ledger stays face-down.",
@@ -966,6 +1003,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Ironroot Crossing manifest records show a crew rotation that never happened.",
+    skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Survival'],
     tag: 'bold',
     failResult: "The crossing foreman at Ironroot is a large man with a very short memory for faces he does not recognize. He takes the manifest from your hand, reads the date, and hands it back. 'Rotation records are internal Crossing documentation. You'll need a labor assignment to pull those.' He turns back to the loading sled without waiting for a response.",
@@ -998,6 +1036,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Eryndor's contribution ranking dropped the same week the forge cavity load was delivered.",
+    skill: 'charm',
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Eryndor Bladewright crosses his arms and does not uncross them. 'Contribution rankings are a council process. Challenging a ranking without a formal disputation form goes nowhere.' He is not hostile. The forge heat coming off the adjacent station is steady and loud. He is a man who has learned that precise procedure is the only defense available to him, and he is using it without apology.",
@@ -1030,6 +1069,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Miners Assembly posted a grievance that vanished from the board within hours.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'bold',
     failResult: "The Assembly clerk at the grievance board desk pulls the register back across the counter before you finish reading the entry. 'Withdrawn postings are not subject to further review. The filing party retracted it.' She closes the register. Withdrawn postings are retracted by the filing party — or retracted for them.",

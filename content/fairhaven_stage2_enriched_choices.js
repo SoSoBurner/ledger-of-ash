@@ -9,6 +9,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A sealed-charter buyer and a northwest staging coordinate circled in red. Thalen's ledger.",
+    skill: 'spirit',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -42,6 +43,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Every creature in Serin's sighting log appeared after a glyph surge. Not before.",
+    skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -73,6 +75,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Maris has eight manifests earmarked. All Panim memorial classification. None with contents Panim uses.",
+    skill: 'wits',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -103,6 +106,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three unnamed guests. Sealed cases. Every ten to twelve days, north to south.",
+    skill: 'charm',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 72,
     fn: function() {
@@ -133,6 +137,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tool marks above head height inside the cave. Flat chisel cuts into the pressure nodes.",
+    skill: 'vigor',
     tags: ['Survival', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -163,6 +168,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Guild records kept separate from the shop ledger. That separation doesn't happen by accident.",
+    skill: 'charm',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -185,6 +191,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The market square fountain drains east. Nobody here can remember it doing that before.",
+    skill: 'wits',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -206,6 +213,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elira brings a Cyfoes oil lamp to a glyph-marked table. The whole room goes quiet.",
+    skill: 'finesse',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -230,6 +238,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Serin has been keeping a second log. The chapel doesn't know it exists.",
+    skill: 'charm',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -252,6 +261,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Fresh cart ruts on the western field road. Nothing ships bulk goods out there.",
+    skill: 'vigor',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -273,6 +283,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A Shelkopolis charter at a Cyfoes shrine marks the bearer as answering to neither.",
+    skill: 'finesse',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
     fn: function() {
@@ -295,6 +306,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Six vessels arrived without signing out — night clearance invoked.",
+    skill: 'wits',
     tags: ['stage2', 'fairhaven', 'dock_records'],
     xpReward: 34,
     fn: function() {
@@ -314,6 +326,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A south pier manifest carries an expired seal predating delivery.",
+    skill: 'spirit',
     tags: ['stage2', 'fairhaven', 'manifest_anomaly'],
     xpReward: 34,
     fn: function() {
@@ -334,6 +347,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The same three-day transit window every twelve days. No cargo declared at the checkpoint.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -366,6 +380,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The harbormistress signs every night clearance herself. She knows what she's waiving.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -398,6 +413,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern approach to Watchers Perch has a secondary path. Someone has used it recently.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
     fn: function() {
@@ -430,6 +446,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Thalen's suppression compound supplier is not in Fairhaven. The delivery address traces back to Shelkopolis.",
+    skill: 'spirit',
     tags: ['Stage2', 'Craft'],
     xpReward: 70,
     fn: function() {
@@ -462,6 +479,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The courier cycle runs on the tide. The next window is the fourth hour tomorrow.",
+    skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 66,
     fn: function() {
@@ -494,6 +512,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The equipment barn has a false floor. The smell through the boards is not grain.",
+    skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -526,6 +545,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The physic keeps treating the same rash. Different patients, same compound, same window.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -557,6 +577,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shrine visitor log goes somewhere Serin doesn't see. That wasn't always the arrangement.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 66,
     fn: function() {
@@ -589,6 +610,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The cartwright built the sealed-compartment crates. He kept the written order.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -620,6 +642,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The deputy wrote 'night clearance' into standing protocol. Nobody authorized that language.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     fn: function() {
@@ -652,6 +675,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The post commander's personal ledger has two entries absent from the posted log.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -684,6 +708,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A factor passed through twice last quarter, signing the same sealed charter each time.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
     fn: function() {
@@ -716,6 +741,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The guild certification inspector stopped coming to Fairhaven eighteen months ago. No reassignment was filed.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 64,
     fn: function() {
@@ -748,6 +774,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tavian's sealed manifest column has a running total. He never stopped keeping it.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Tavian directs the request to the exchange's formal inquiry process — a form, a two-week queue, a response window he describes without looking up. He has the sealed column right beside him. The form is already on the counter before the question finishes.",
@@ -782,6 +809,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elandra's commodity ledger has a line for glyph-suppression grade. She priced it herself.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     tag: 'bold',
     failResult: "Elandra's expression does not change, but her pen cap comes off and goes back on twice before she answers. 'Commodity classification is proprietary to the brokerage.' She does not deny a glyph-suppression grade line. She says the classification is proprietary and means every subsequent question has the same answer.",
@@ -816,6 +844,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Corin's checkpoint notes match the twelve-day window, but predate his awareness of it.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Corin listens past the first sentence and then straightens in his chair. 'Checkpoint logs are district property. Any cross-reference request goes to the post commander in writing.' He sets his hands flat on the desk. His tone is not hostile — it's the register of a man who has been told what to do with questions like this one.",
@@ -850,6 +879,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Aelric's forge work stopped for six weeks. The gap lines up with the cave modifications.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Aelric says he takes time away from the forge when the season turns. He says it plainly, without embellishment, and the plainness is the door closing. He has given the answer before. The forge behind him has a six-week dust line on the top shelf that contradicts the season explanation and he does not acknowledge it.",
@@ -884,6 +914,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern staging location is confirmed. The threads are tight enough to act on.",
+    skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
     fn: function() {

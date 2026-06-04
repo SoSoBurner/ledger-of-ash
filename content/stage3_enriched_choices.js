@@ -9,6 +9,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Oversight Collegium review
 {
   label: 'Seld\'s institutional review moves faster than it should.',
+  skill: 'wits',
   tags: ['stage3', 'collegium', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -31,6 +32,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Shadowhands courier
 {
   label: 'A sealed message delivered by someone who didn\'t wait for a reply.',
+  skill: 'finesse',
   tags: ['stage3', 'shadowhands', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -53,6 +55,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Road Wardens off-record conversation
 {
   label: 'The patrol leader wants this off the manifest and off the route.',
+  skill: 'charm',
   tags: ['stage3', 'wardens', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -75,6 +78,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Red Hood errand
 {
   label: 'The fence won\'t open the back room until the errand is done.',
+  skill: 'finesse',
   tags: ['stage3', 'red_hood', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -97,6 +101,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Collegium vs Shadowhands — same archive document
 {
   label: 'Both of them want the same document and both know the other wants it.',
+  skill: 'wits',
   tags: ['stage3', 'collegium', 'shadowhands', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -119,6 +124,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Warden checkpoint — unknown officer
 {
   label: 'He doesn\'t know who the player is, which makes him more dangerous.',
+  skill: 'charm',
   tags: ['stage3', 'wardens', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -141,6 +147,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Shadowhands handler — prior surveillance
 {
   label: 'They were watching before the player knew there was anything to watch.',
+  skill: 'wits',
   tags: ['stage3', 'shadowhands', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -163,6 +170,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Red Hood — new representative
 {
   label: 'The fence has been replaced by someone who doesn\'t pretend to trust the player.',
+  skill: 'charm',
   tags: ['stage3', 'red_hood', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -185,6 +193,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Unknown faction representative
 {
   label: 'The help is specific enough that someone must have read the player\'s notes.',
+  skill: 'wits',
   tags: ['stage3', 'unknown_faction', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -207,6 +216,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Converging address in Shelkopolis
 {
   label: 'Every thread from every faction ends at the same address.',
+  skill: 'finesse',
   tags: ['stage3', 'convergence', 'faction_pressure'],
   xpReward: 70,
   fn: function() {
@@ -231,6 +241,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Great Registry — pre-dated authorization
 {
   label: 'The authorization was filed before the operation it authorized existed.',
+  skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'registry'],
   xpReward: 70,
   fn: function() {
@@ -253,6 +264,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Compact Hall — ghost subsidiary, three names
 {
   label: 'The same entity filed under three names and none of them match.',
+  skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'compact_hall'],
   xpReward: 70,
   fn: function() {
@@ -275,6 +287,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Soreheim frontier — suppressed route report
 {
   label: 'Filed, confirmed received, and then removed from the index entirely.',
+  skill: 'vigor',
   tags: ['stage3', 'deep_evidence', 'soreheim'],
   xpReward: 70,
   fn: function() {
@@ -297,6 +310,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Shelkopolis docks — unmarked cargo at night
 {
   label: 'The manifest numbers reference importers that have never existed.',
+  skill: 'finesse',
   tags: ['stage3', 'deep_evidence', 'docks'],
   xpReward: 70,
   fn: function() {
@@ -319,6 +333,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Charter exemption — nonexistent route
 {
   label: 'The exemption covers a route that has no registration anywhere.',
+  skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'charter'],
   xpReward: 70,
   fn: function() {
@@ -341,6 +356,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Named intermediary — four threads
 {
   label: 'The same name appears in the archive, the route, the cargo, and the charter.',
+  skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'intermediary'],
   xpReward: 70,
   fn: function() {
@@ -363,6 +379,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Collegium internal suppressed report
 {
   label: 'The Collegium filed a report on itself and then buried it in its own archive.',
+  skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'collegium'],
   xpReward: 70,
   fn: function() {
@@ -385,6 +402,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Route anomaly — waymark tally gap
 {
   label: 'The gap in the tallies is the exact size of a regular shipment, every time.',
+  skill: 'vigor',
   tags: ['stage3', 'deep_evidence', 'route_anomaly'],
   xpReward: 70,
   fn: function() {
@@ -407,6 +425,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Cosmouth harbor log — 11-day gap
 {
   label: 'Every eleven days, someone cleaned the Cosmouth harbor log.',
+  skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'cosmouth'],
   xpReward: 70,
   fn: function() {
@@ -429,6 +448,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // Converging evidence — undated institutional decision
 {
   label: 'Everything points to a decision that was made and never written down.',
+  skill: 'wits',
   tags: ['stage3', 'deep_evidence', 'convergence'],
   xpReward: 70,
   fn: function() {
@@ -455,6 +475,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // C1: Checkpoint watch — Great Registry quarter
 {
   label: 'My description is on that gate post. They know this route.',
+  skill: 'finesse',
   tags: ['stage3', 'surveillance', 'shelkopolis'],
   xpReward: 70,
   fn: function() {
@@ -477,6 +498,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // C2: Assassination attempt — hired, impersonal
 {
   label: 'He wasn\'t angry. He was doing a job. That\'s worse.',
+  skill: 'might',
   tags: ['stage3', 'assassination', 'jeopardy'],
   xpReward: 70,
   fn: function() {
@@ -499,6 +521,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // C3: Stage 2 NPC under institutional review — Jorin
 {
   label: 'Jorin can\'t meet in the open anymore. Someone filed a review.',
+  skill: 'charm',
   tags: ['stage3', 'npc_jorin', 'institutional_pressure', 'craftspire'],
   xpReward: 70,
   fn: function() {
@@ -521,6 +544,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // C4: Lodging searched — professional, nothing taken
 {
   label: 'Everything is exactly where I left it. That\'s the point.',
+  skill: 'wits',
   tags: ['stage3', 'surveillance', 'lodging_search'],
   xpReward: 70,
   fn: function() {
@@ -543,6 +567,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // C5: Route anomaly quietly corrected
 {
   label: 'The anomaly I documented is gone. Someone corrected it overnight.',
+  skill: 'wits',
   tags: ['stage3', 'evidence_suppressed', 'route_anomaly'],
   xpReward: 70,
   fn: function() {
@@ -565,6 +590,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // C6: Rival adventurer working for interested party
 {
   label: 'That rival has new backing. The money didn\'t come from guild work.',
+  skill: 'charm',
   tags: ['stage3', 'rival', 'faction_interference'],
   xpReward: 70,
   fn: function() {
@@ -587,6 +613,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // C7: Warden transit restriction filed
 {
   label: 'Three routes flagged. Someone filed a pattern restriction, not a warrant.',
+  skill: 'wits',
   tags: ['stage3', 'wardens', 'route_restriction', 'jeopardy'],
   xpReward: 70,
   fn: function() {
@@ -855,6 +882,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // D9: Evidence used publicly by a faction — player's methods exposed
 {
   label: 'The Oversight Collegium just published something I gathered. My methods are in it.',
+  skill: 'wits',
   tags: ['stage3', 'oversight_collegium', 'evidence_exposed', 'faction_politics'],
   xpReward: 70,
   fn: function() {
@@ -877,6 +905,7 @@ var STAGE3_ENRICHED_CHOICES = [
 // D10: Final jeopardy — direct threat naming three specific acts
 {
   label: 'This letter names three things I did. Someone has been counting since Stage 2.',
+  skill: 'vigor',
   tags: ['stage3', 'direct_threat', 'jeopardy', 'climax_approach'],
   xpReward: 70,
   fn: function() {

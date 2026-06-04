@@ -8,6 +8,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Six months of 'special mineral assessment' entries. No assay reports back any of them.",
+    skill: 'might',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -37,6 +38,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Workers in the special extraction section show symptoms matching the Unity Square exposure cluster.",
+    skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -65,6 +67,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The special vein is accessible during night shift handover. The raw mineral needs examining.",
+    skill: 'finesse',
     tags: ['Investigation', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -95,6 +98,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The detention record sits between us. He has something he didn't say the first time.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC', 'Escalation'],
     xpReward: 76,
     fn: function() {
@@ -127,6 +131,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The extraction face is visible from the ridge during midday break.",
+    skill: 'vigor',
     tags: ['Stage2', 'Physical', 'Survival'],
     xpReward: 72,
     fn: function() {
@@ -158,6 +163,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Challenge the tally publicly and the whole crew becomes the audience.",
+    skill: 'charm',
     tags: ['Stage2', 'Social', 'Complication'],
     xpReward: 68,
     fn: function() {
@@ -186,6 +192,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The dock crew eat alone and pay in script nobody at Ironhold recognizes.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -214,6 +221,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The night tally supervisor eats alone at the secondary slope. He watches the dock.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -242,6 +250,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "He's back on standard line. The dust on his collar is from the wrong vein.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 72,
     fn: function() {
@@ -271,6 +280,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The weighing station engineer handles the standard ore. The special ore never reaches her scale.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -299,6 +309,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Six months of those coins. The canteen cook knows exactly when the crew changed.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore', 'Observation'],
     xpReward: 68,
     fn: function() {
@@ -327,6 +338,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Velka's fourth safety report is written. She's waiting for someone to make it hold.",
+    skill: 'spirit',
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 76,
     fn: function() {
@@ -358,6 +370,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The schedule board shows two shifts. There are three crews clocking in.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Lore'],
     xpReward: 74,
     fn: function() {
@@ -387,6 +400,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The quarry infirmary keeps a log the safety office never sees.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -415,6 +429,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The gray coat runs the secondary cut on a schedule that doesn't appear anywhere.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 76,
     fn: function() {
@@ -445,6 +460,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The secondary cut is engineered differently from every other extraction face in the quarry.",
+    skill: 'spirit',
     tags: ['Stage2', 'Craft'],
     xpReward: 74,
     fn: function() {
@@ -474,6 +490,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The manifest gets signed just before the dock seals. That's the window.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 70,
     fn: function() {
@@ -502,6 +519,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Kael Drovish has been counting dock departures in a notebook he keeps in his coat.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -531,6 +549,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The intake supervisor has assigned this rotation long enough to know the pattern by heart.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC', 'Survival'],
     xpReward: 70,
     fn: function() {
@@ -559,6 +578,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Every crew's requisition slips go through the same shed. The special crew's are filed separately.",
+    skill: 'spirit',
     tags: ['Stage2', 'Craft', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -587,6 +607,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The quarry survey map on file omits the secondary cut entirely.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Lore'],
     xpReward: 72,
     fn: function() {
@@ -616,6 +637,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The source is confirmed. ORE command or Roadwarden — the evidence needs a route.",
+    skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {
@@ -648,6 +670,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The output tally and the quota sheet do not match by a large number",
+    skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
     fn: function() {
@@ -663,6 +686,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The worker knows something. He adjusts his grip before every sentence",
+    skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 15,
     fn: function() {
@@ -677,6 +701,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The inspection record on the supervisor's board is sealed",
+    skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
     xpReward: 15,
     fn: function() {
@@ -692,6 +717,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A safety check means leaving before I finish",
+    skill: 'wits',
     tags: ['Complication', 'Stage2'],
     xpReward: 20,
     fn: function() {

@@ -10,6 +10,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Panim memorial manifests have been using harvest shipment routing numbers. The records prove it.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -40,6 +41,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A northern shipment six weeks ago. No recognized manifest category. No record of contents.",
+    skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -69,6 +71,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A grievance filed: the anomalous shipment moved through restricted grain storage without permission.",
+    skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -97,6 +100,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A northern supplier claims dealings with Harvest Circle. Elyra's never seen the contract.",
+    skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -128,6 +132,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A sealed cargo handling fee dispute. The irregularity it exposes is more than the dispute.",
+    skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 64,
     fn: function() {
@@ -156,6 +161,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elyra turns the supplier ledger face-down when I approach. She knows I've seen the name.",
+    skill: 'charm',
     tags: ['stage2', 'harvest_circle', 'npc_escalation'],
     xpReward: 30,
     fn: function() {
@@ -185,6 +191,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Chalk marks on the drying rack posts running the wrong direction for moisture tallies.",
+    skill: 'wits',
     tags: ['stage2', 'harvest_circle', 'physical_evidence'],
     xpReward: 30,
     fn: function() {
@@ -212,6 +219,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Wrong convoy line. The stall holder at the front has already noticed.",
+    skill: 'finesse',
     tags: ['stage2', 'harvest_circle', 'social_complication'],
     xpReward: 30,
     fn: function() {
@@ -240,6 +248,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A counting court clerk wants my load declaration clarified.",
+    skill: 'charm',
     tags: ['stage2', 'harvest_circle', 'social_misstep', 'paperwork'],
     xpReward: 32,
     fn: function() {
@@ -266,6 +275,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A panic buyer is shouting about spoilage two stalls down.",
+    skill: 'wits',
     tags: ['stage2', 'harvest_circle', 'public_complication'],
     xpReward: 30,
     fn: function() {
@@ -291,6 +301,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Valen Crestmark's personal logbook sits in a locked drawer he doesn't think anyone noticed.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -324,6 +335,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The silo operator weighs everything. He doesn't open the offering crates. He just weighs them.",
+    skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 66,
     fn: function() {
@@ -355,6 +367,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Compact filed against him and his routes stopped. He's still here, still watching.",
+    skill: 'charm',
     tags: ['Stage2', 'Charm'],
     xpReward: 64,
     fn: function() {
@@ -387,6 +400,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Academic transit orders for compound materials are going to distribution sites, not research facilities.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 70,
     fn: function() {
@@ -419,6 +433,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The cold storage keeper logs every degree drop. The Compact's containers were never logged.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -450,6 +465,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three seed varieties went missing last autumn. No spoilage report was filed.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -481,6 +497,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The pre-dawn courier saw the Compact's handlers up close. No one has asked him.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -511,6 +528,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The irrigation channel maintenance log runs through three seasons of sealed access windows nobody authorized.",
+    skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -541,6 +559,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The ritual herbalist noticed the bundle weight had changed before the route even left.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -572,6 +591,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The offering routes were rescheduled to match the Compact's windows. One office holds that authority.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -602,6 +622,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Denet Alvar moved to the eastern stalls. He still watches his old routes.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -632,6 +653,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Two months of gap entries in the night patrol log near cold storage.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -662,6 +684,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Routing fraud and ghost supplier confirmed. Report to council or intercept the next shipment.",
+    skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
     fn: function() {
@@ -692,6 +715,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The yield records show an allocation not in the commune\'s own ledger',
+    skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     fn: function() {
@@ -707,6 +731,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The elder knows about the diversion. She speaks only in crop terms',
+    skill: 'wits',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
     fn: function() {
@@ -722,6 +747,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'A work period with no yield record attached to it',
+    skill: 'wits',
     tags: ['Records', 'Intelligence'],
     xpReward: 15,
     fn: function() {
@@ -736,6 +762,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'What the diverted yield was used for is implied by what came back',
+    skill: 'wits',
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
     fn: function() {

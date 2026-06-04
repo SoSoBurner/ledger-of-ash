@@ -10,6 +10,7 @@ const NOMDARA_STAGE1_CHOICES = [
   // ——— SERVICE 1: HEALING ———
   {
     label: "Sable: wound or fatigue removal. She finds what ails you.",
+    skill: 'wits',
     tags: ['Nomdara', 'Healing', 'Service'],
     xpReward: 55,
     fn: function() {
@@ -40,6 +41,7 @@ const NOMDARA_STAGE1_CHOICES = [
   // ——— SERVICE 2: WORLD-COLOR RUMOR ———
   {
     label: "Purchase a rumor from Lorn. He does not sell certainty. He sells what the road has heard.",
+    skill: 'wits',
     tags: ['Nomdara', 'Information', 'Service'],
     xpReward: 60,
     fn: function() {
@@ -70,6 +72,7 @@ const NOMDARA_STAGE1_CHOICES = [
   // ——— MEET NOMDARA CORE CAST ———
   {
     label: "Wren reads the road ahead. Ash and distance are the same to her.",
+    skill: 'charm',
     tags: ['Nomdara', 'Social', 'NPC'],
     xpReward: 55,
     fn: function() {
@@ -101,6 +104,7 @@ const NOMDARA_STAGE1_CHOICES = [
   // ——— LEAVE ———
   {
     label: "Leave the Nomdara Caravan. The road continues.",
+    skill: 'wits',
     tags: ['Nomdara', 'Leave'],
     xpReward: 0,
     fn: function() {

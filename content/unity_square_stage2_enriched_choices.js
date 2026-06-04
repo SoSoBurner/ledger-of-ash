@@ -8,6 +8,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Diplomatic transit arrivals not logged in the main registry. Only in a shadow sub-register.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 70,
     fn: function() {
@@ -37,6 +38,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Parties from prior mediations have now appeared in the same network. The records cross-identify them.",
+    skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
     fn: function() {
@@ -63,6 +65,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Patients with low-level exposure symptoms. All Unity Square residents near the coordination meeting points.",
+    skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 66,
     fn: function() {
@@ -93,6 +96,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A second shadow ledger he didn't build. The handwriting isn't his.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -124,6 +128,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Unlogged arrival, consignment weight matching no known cargo class. The staging point is traceable.",
+    skill: 'finesse',
     tags: ['Stage2', 'Registry'],
     xpReward: 68,
     fn: function() {
@@ -154,6 +159,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The mediation spills into the open court. One party thinks I'm here to document them.",
+    skill: 'charm',
     tags: ['Stage2', 'Social'],
     xpReward: 66,
     fn: function() {
@@ -183,6 +189,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "One tally clerk keeps her own count of the sealed-charter arrivals. Unbidden.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -211,6 +218,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The counting house has lamplit windows well before the district's second bell.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -239,6 +247,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The arbitration runner knows every sealed-notice route. He doesn't know what he's been carrying.",
+    skill: 'charm',
     tags: ['Stage2', 'Social'],
     xpReward: 68,
     fn: function() {
@@ -268,6 +277,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The charter series should appear in the Ward tax ledger. Its absence is the record.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 70,
     fn: function() {
@@ -297,6 +307,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tinmarch's patient remembers which days she got worse. Those days have a pattern.",
+    skill: 'vigor',
     tags: ['Stage2', 'Social'],
     xpReward: 67,
     fn: function() {
@@ -324,6 +335,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Without a signature, the diplomatic exemptions expire. One administrator has been signing every renewal.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -352,6 +364,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern laneway gatekeeper post goes unstaffed on a schedule. Someone set that schedule.",
+    skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 67,
     fn: function() {
@@ -380,6 +393,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The hub is confirmed. Expose the shadow register or intercept the final meeting.",
+    skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
     fn: function() {
@@ -410,6 +424,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "One awning dispute covers the same plot from three different filing angles. That doesn't happen.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Archive'],
     xpReward: 68,
     fn: function() {
@@ -442,6 +457,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A standing exemption from the counting cycle. Filed once, never renewed, still active.",
+    skill: 'wits',
     tags: ['Archive', 'Stage2', 'Lore'],
     xpReward: 66,
     fn: function() {
@@ -474,6 +490,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A street physician's supply order rerouted through a bonding house. Same week the cluster began.",
+    skill: 'charm',
     tags: ['NPC', 'Stage2', 'Social'],
     xpReward: 67,
     fn: function() {
@@ -507,6 +524,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The notice board has a gap where something was taken down",
+    skill: 'wits',
     tags: ['Records', 'Observation', 'Stage2'],
     xpReward: 15,
     fn: function() {
@@ -521,6 +539,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A civic official answers a procedural question with the wrong procedure",
+    skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 15,
     fn: function() {
@@ -535,6 +554,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Two guild reps, one square, and they are not speaking",
+    skill: 'charm',
     tags: ['Social', 'Observation', 'Stage2'],
     xpReward: 20,
     fn: function() {
@@ -550,6 +570,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A street crier's route ends earlier than it used to",
+    skill: 'wits',
     tags: ['Rumor', 'Observation', 'Stage2'],
     xpReward: 15,
     fn: function() {
@@ -566,6 +587,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Brokerwell's arrival registry has a secondary notation only transit-flagged entries carry.",
+    skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -596,6 +618,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The holding classification that swallows transit arrivals has no expiry column.",
+    skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -623,6 +646,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Arrivals on the same sealed-charter parties cluster at three-week intervals across six months.",
+    skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 75,
     fn: function() {
@@ -650,6 +674,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The counter-signature line on the central registry directive is blank — no issuing authority recorded.",
+    skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -677,6 +702,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Cargo weight notations in the flagged entries match suppression compound volume ranges.",
+    skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 78,
     fn: function() {
@@ -704,6 +730,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A registry gap last quarter aligns exactly with a three-day ward security review.",
+    skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 65,
     fn: function() {
@@ -733,6 +760,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Ledgermere's bypass forms list a third party that doesn't appear in the ward directory.",
+    skill: 'wits',
     tags: ['Mediation', 'Stage2'],
     xpReward: 73,
     fn: function() {
@@ -760,6 +788,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The mediation bypass approval counter has been moved twice in six months.",
+    skill: 'finesse',
     tags: ['Mediation', 'Stage2'],
     xpReward: 67,
     fn: function() {
@@ -787,6 +816,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Ward mediation bypass filings spike during the same weeks the transit arrivals cluster.",
+    skill: 'wits',
     tags: ['Mediation', 'Registry', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -815,6 +845,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Bypass filings under a sealed administrative exemption never go to the standard review queue.",
+    skill: 'wits',
     tags: ['Mediation', 'Stage2'],
     xpReward: 71,
     fn: function() {
@@ -842,6 +873,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The ward boundary markers at the north gate were moved two months ago.",
+    skill: 'vigor',
     tags: ['Mediation', 'Observation', 'Stage2'],
     xpReward: 66,
     fn: function() {
@@ -871,6 +903,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Brokerwell's personal archive copy doesn't match the registry record on file.",
+    skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -898,6 +931,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Ledgermere's assistant processes bypass forms during hours Ledgermere himself isn't present.",
+    skill: 'finesse',
     tags: ['NPC', 'Mediation', 'Stage2'],
     xpReward: 69,
     fn: function() {
@@ -925,6 +959,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tinmarch's patient log goes cold for a week that matches a registry gap.",
+    skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -952,6 +987,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tinmarch treated three arrivals in the tenement row who were never entered in the registry.",
+    skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 77,
     fn: function() {
@@ -979,6 +1015,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Brokerwell has been logging private notes in the margins of the transit-flagged pages.",
+    skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1006,6 +1043,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tinmarch knows who in the tenement row receives packages before the registry opens each morning.",
+    skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -1035,6 +1073,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The cargo routing codes in the transit ledger match outbound manifests at the Guildheart Hub.",
+    skill: 'wits',
     tags: ['Cargo', 'Stage2'],
     xpReward: 79,
     fn: function() {
@@ -1062,6 +1101,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A cargo handoff point in the eastern alley operates outside ward oversight hours.",
+    skill: 'finesse',
     tags: ['Cargo', 'Observation', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -1087,6 +1127,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The cross-district freight has a staging point that isn't on any map.",
+    skill: 'vigor',
     tags: ['Cargo', 'Stage2'],
     xpReward: 82,
     fn: function() {

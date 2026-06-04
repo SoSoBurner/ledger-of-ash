@@ -9,6 +9,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression compound formula appears in theoretical texts three years before it was commissioned.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2'],
     xpReward: 82,
     fn: function() {
@@ -42,6 +43,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Incoming shipments logged that don't match standard academic supply manifests.",
+    skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -72,6 +74,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three recent acquisitions bypassed tariff entirely. No exemption filed.",
+    skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -103,6 +106,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A late-night conversation about 'pressure management protocols.' The guests aren't on the faculty roster.",
+    skill: 'finesse',
     tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 66,
     fn: function() {
@@ -133,6 +137,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shrine inscriptions include pre-suppression glyph data that was never formally classified.",
+    skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -166,6 +171,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Leth Quillfire has been carrying the same sealed ledger for three days without logging it.",
+    skill: 'charm',
     tags: ['stage2', 'mimolot_academy'],
     xpReward: 64,
     fn: function() {
@@ -199,6 +205,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Restricted Stacks seal is newer than the archive housing it.",
+    skill: 'wits',
     tags: ['stage2', 'mimolot_academy'],
     xpReward: 60,
     fn: function() {
@@ -228,6 +235,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Calia Quillfire asked a question in the wrong register and the lecture hall went quiet.",
+    skill: 'finesse',
     tags: ['stage2', 'mimolot_academy'],
     xpReward: 58,
     fn: function() {
@@ -261,6 +269,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Things moved through the night dock that don't appear in the morning intake log.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -293,6 +302,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The faculty auditor stopped filing anomaly reports six weeks ago. No explanation given.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -324,6 +334,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A regular Fairhaven courier stop at the Academy that doesn't appear in the public schedule.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -356,6 +367,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The archive papers are cited by research that doesn't exist in the Academy's own catalog.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -388,6 +400,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The manifest notation isn't Academy standard. Someone with field training filled this in.",
+    skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -419,6 +432,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The study room access log has entries in the same hand as the charter exemptions.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -451,6 +465,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Student stipend disbursements for glyph resonance candidates stopped without a faculty notice.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -482,6 +497,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A pressure spike on the same night as a Fairhaven delivery not in any manifest.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -514,6 +530,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The credential file holds a Collegium endorsement the Collegium's registry can't confirm.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     fn: function() {
@@ -546,6 +563,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The east tunnel approach serviced three times in one month. No maintenance order filed.",
+    skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -577,6 +595,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The emeritus office was cleared mid-term. Furniture out, key returned, no sabbatical notice posted.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
     fn: function() {
@@ -609,6 +628,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "After certain seminars the same group leaves together. They don't return to the dormitory.",
+    skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
     fn: function() {
@@ -641,6 +661,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The seal is genuine. The paper it's on was made this year.",
+    skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     fn: function() {
@@ -672,6 +693,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Academy's classified research was the theoretical foundation. Expose or contain.",
+    skill: 'wits',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 108,
     fn: function() {
@@ -702,6 +724,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Faculty correspondence in the archive hints at outside interference — no name attached.",
+    skill: 'wits',
     tags: ['Collegium', 'Stage2', 'Evidence'],
     xpReward: 70,
     fn: function() {
@@ -731,6 +754,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Ruveth knows the suppression history cold — until the conversation reaches the Academy itself.",
+    skill: 'charm',
     tags: ['Collegium', 'Stage2', 'Intelligence'],
     xpReward: 74,
     fn: function() {
@@ -761,6 +785,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The thesis defense schedule has a recurring deferral on one research track.",
+    skill: 'wits',
     tags: ['stage2', 'mimolot_academy'],
     xpReward: 36,
     fn: function() {
@@ -783,6 +808,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The library's late-return register has the same reader's initials on every restricted-stack withdrawal.",
+    skill: 'finesse',
     tags: ['stage2', 'mimolot_academy'],
     xpReward: 38,
     fn: function() {
@@ -804,6 +830,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The glyph damping theoretical texts cite a practitioner network the faculty won't name.",
+    skill: 'wits',
     tags: ['Stage2', 'Lore', 'Arcane'],
     xpReward: 74,
     fn: function() {
@@ -833,6 +860,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The lecturer crossed out a name in his own margin before speaking.",
+    skill: 'wits',
     tags: ['stage2', 'mimolot_academy'],
     xpReward: 40,
     fn: function() {
@@ -857,6 +885,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
   // Gated on collegium_contact_2; sets collegium_contact_3 + stage2_faction_contact_made
   {
     label: "Renne's cross-reference code points to a name in the Academy's restricted visitor log.",
+    skill: 'charm',
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion', 'Faction'],
     xpReward: 95,
     fn: function() {
@@ -888,6 +917,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Quillan Quillmark processed the restriction paperwork. He held the pen.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'bold',
     failResult: "Quillan is behind the access desk with two faculty members present. He listens to the question, opens a form drawer, and produces the external inquiry protocol sheet without speaking. The faculty members do not look up. The form has seven fields. The review cycle takes fourteen days.",
@@ -922,6 +952,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Vessa Scriptmere maintains canon compliance. The phantom monograph breaks it.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
     failResult: "Vessa's canon compliance work runs through the faculty review channel, not the public archive. External access to compliance records requires a faculty membership number on file. She writes the reference number for the access form on a slip of paper and slides it across the desk. Her expression is not unkind.",
@@ -956,6 +987,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Archivist Valcrest approved the rotation bypass. That decision left a paper trail.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'bold',
     failResult: "Valcrest's office door is closed and the schedule posted outside shows his next available appointment is in eleven days. The archive attendant offers to add a name to the waiting list. She does not offer a reason for the delay. The waiting list has four names above the one she writes.",
@@ -990,6 +1022,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Crown Research Protocol code has a parent authority file. Someone filed it somewhere.",
+    skill: 'wits',
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
     failResult: "The Book Tariff Office's authority file index is a restricted administrative document — exempt designation codes and their originating authorities are not public record. The clerk at the counter explains this with the practiced patience of someone who has said it many times. The index stays in its locked cabinet behind the desk.",
@@ -1027,6 +1060,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sarith's 'theoretical materials' ledger column has no description and no recipient name.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -1059,6 +1093,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The restricted wing smells of something that isn't in the academy's reagent catalog.",
+    skill: 'spirit',
     tags: ['Academy', 'Stage2'],
     xpReward: 65,
     fn: function() {
@@ -1090,6 +1125,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The glyph resonance text has marginalia in two different hands — neither is faculty.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1121,6 +1157,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three crate labels list Watchers Perch as a transit waypoint, not a destination.",
+    skill: 'spirit',
     tags: ['Academy', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -1151,6 +1188,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Fairhaven courier's seal matches the wax type on the restricted archive gate.",
+    skill: 'spirit',
     tags: ['Academy', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -1182,6 +1220,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shipment weights don't match what glyph damping theory actually requires.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -1215,6 +1254,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Quenra's restricted access list has forty names. Thirty-seven of them are faculty.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 82,
     fn: function() {
@@ -1247,6 +1287,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Ilys knows which students don't come back after certain seminars.",
+    skill: 'charm',
     tags: ['Academy', 'Stage2'],
     xpReward: 68,
     fn: function() {
@@ -1278,6 +1319,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Velis noticed a second set of footprints at the shrine door. Not students, not faculty.",
+    skill: 'charm',
     tags: ['Academy', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -1310,6 +1352,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Myra's cargo log has an entry she crossed out and re-entered three weeks later.",
+    skill: 'charm',
     tags: ['Academy', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1341,6 +1384,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sarith filed a discrepancy notice four months ago. Nobody responded.",
+    skill: 'charm',
     tags: ['Academy', 'Stage2'],
     xpReward: 66,
     fn: function() {
@@ -1373,6 +1417,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Myra logged a delivery signed by a porter who doesn't match any staff record.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -1406,6 +1451,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The formula's pressure tolerance range is ten times what academic damping work would need.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -1437,6 +1483,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression compound has a stabilizer compound only available outside Academy supply channels.",
+    skill: 'spirit',
     tags: ['Academy', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1468,6 +1515,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The earliest version of the formula lacked the deployment mechanism. It was added later.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 78,
     fn: function() {
@@ -1499,6 +1547,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Watchers Perch modification schematics show a conversion, not a construction project.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 75,
     fn: function() {
@@ -1530,6 +1579,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The compound's degradation window rules out everything except population-scale deployment.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 80,
     fn: function() {
@@ -1563,6 +1613,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The three external clearance codes share a common registration block in the admin ledger.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -1594,6 +1645,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "One external agent attended a faculty-only thesis session. No committee record of it.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -1625,6 +1677,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "External agents' key return dates all fall on the same day as Draith Calver's arrivals.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1655,6 +1708,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "One external agent's faculty endorsement is signed by someone who died two years ago.",
+    skill: 'wits',
     tags: ['Academy', 'Stage2'],
     xpReward: 80,
     fn: function() {

@@ -17,6 +17,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== PERSONAL CONNECTION PATHS (Non-investigation) ==========
   {
     label: "Sit at the edge of a market or tavern and listen without asking anything.",
+    skill: 'charm',
     tags: ['Safe', 'Social', 'Observation', 'Passive'],
     xpReward: 30,
     stageProgress: 1,
@@ -35,6 +36,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   {
     label: "Someone nearby needs a hand. Offer it without asking questions.",
+    skill: 'wits',
     tags: ['Good', 'Safe', 'Community', 'Action'],
     xpReward: 30,
     stageProgress: 1,
@@ -55,6 +57,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   {
     label: "Share a meal with someone. Offer to pay. See what builds from that.",
+    skill: 'charm',
     tags: ['Social', 'Safe', 'Relationship', 'Good'],
     xpReward: 30,
     stageProgress: 1,
@@ -76,6 +79,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== SAFE HAVEN ESTABLISHMENT ==========
   {
     label: "Same corner, same hour, same face. Become a fixture before asking anything.",
+    skill: 'wits',
     tags: ['Safe', 'Routine', 'Establishment'],
     xpReward: 30,
     stageProgress: 1,
@@ -94,6 +98,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   {
     label: "The greetings, the taboos, the superstitions. Learn the place before moving through it.",
+    skill: 'wits',
     tags: ['Safe', 'Cultural', 'Observation'],
     xpReward: 30,
     stageProgress: 1,
@@ -112,6 +117,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== SKILL PRACTICE (No risk, pure development) ==========
   {
     label: "Practice your primary skill in a low-stakes setting — sparring, debate, craft work, performance",
+    skill: 'vigor',
     tags: ['Safe', 'Development', 'Practice'],
     xpReward: 30,
     stageProgress: 1,
@@ -131,6 +137,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   {
     label: "Teach someone a skill you know — mentoring builds understanding and local reputation",
+    skill: 'charm',
     tags: ['Good', 'Teaching', 'Community'],
     xpReward: 30,
     stageProgress: 1,
@@ -153,6 +160,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== LOCAL DISCOVERY (Not investigation, just stumbling across things) ==========
   {
     label: "A side street not yet walked. A corner not yet seen. Just wander.",
+    skill: 'vigor',
     tags: ['Safe', 'Exploration', 'Discovery'],
     xpReward: 30,
     stageProgress: 1,
@@ -172,6 +180,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
 
   {
     label: "Watch how people move — the crowd patterns, what gets avoided, what doesn't.",
+    skill: 'wits',
     tags: ['Safe', 'Observation', 'Tactical'],
     xpReward: 30,
     stageProgress: 1,
@@ -191,6 +200,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== PERSONAL RECOVERY ==========
   {
     label: "The case needs distance before the next step becomes clear.",
+    skill: 'wits',
     tags: ['Safe', 'Recovery', 'Personal'],
     xpReward: 30,
     stageProgress: 1,
@@ -210,6 +220,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== RELATIONSHIP NEUTRALITY ==========
   {
     label: "Observe multiple factions without committing to any — understand who's who without taking sides yet",
+    skill: 'wits',
     tags: ['Observation', 'Neutral', 'Intelligence'],
     xpReward: 30,
     stageProgress: 1,
@@ -234,6 +245,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   // ========== QUIET ACTION ==========
   {
     label: "Do something small and unexpected for the place — anonymous kindness, small repair, quiet improvement",
+    skill: 'wits',
     tags: ['Good', 'Quiet', 'Safe'],
     xpReward: 30,
     stageProgress: 1,

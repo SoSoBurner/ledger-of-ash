@@ -11,6 +11,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The chapel intermediary knows the name behind the northern route. She hasn't said it yet.",
+    skill: 'charm',
     tags: ['Investigation', 'Stage2'],
     tag: 'safe',
     plot: 'main',
@@ -47,6 +48,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Every south market glyph surge broke within thirty-six hours of a sealed letter. Eleven times.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     plot: 'main',
@@ -79,6 +81,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shortages are too surgical for a family dispute. The rivalry is scaffolding.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Faction'],
     tag: 'risky',
     plot: 'main',
@@ -113,6 +116,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The picture is close enough to share. Sharing it means sharing the exposure.",
+    skill: 'charm',
     tags: ['Investigation', 'Consequence', 'Stage2'],
     tag: 'risky',
     xpReward: 85,
@@ -145,6 +149,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lady Isabella Shelk knows the disruption doesn't originate in this city. She may say so.",
+    skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2'],
     tag: 'safe',
     plot: 'main',
@@ -180,6 +185,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Windrider has noticed the same pattern. The conditions for sharing it haven't been agreed yet.",
+    skill: 'charm',
     tags: ['NPC', 'Combat', 'Authority', 'Stage2'],
     tag: 'bold',
     xpReward: 82,
@@ -213,6 +219,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lyara Dawnlight filed three formal objections. All stamped received. None answered.",
+    skill: 'wits',
     tags: ['NPC', 'Lore', 'Religion', 'Stage2'],
     tag: 'safe',
     failResult: "The cathedral anteroom is cold and the attendant who receives you is precise: the High Priestess is not available for unsolicited consultations on chapel operational matters. The formal declination goes into the liturgical visitor record. The cathedral door is heavier on the way out.",
@@ -248,6 +255,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A Warden Order representative is waiting at the inn. The assessment has already begun.",
+    skill: 'charm',
     tags: ['Faction', 'Antagonist', 'Stage2'],
     tag: 'bold',
     xpReward: 85,
@@ -282,6 +290,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Same questions, same locations, one day behind. The gap is closing.",
+    skill: 'might',
     tags: ['Rival', 'Stage2', 'Combat'],
     tag: 'bold',
     xpReward: 88,
@@ -320,6 +329,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Roadwarden invitation comes with a records access chit. The uniform opens the archive.",
+    skill: 'might',
     tags: ['Personal', 'Combat', 'Stage2'],
     tag: 'risky',
     xpReward: 88,
@@ -349,6 +359,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Aurora Light Cathedral's restricted archive holds the protocol revision records. The credentials gate is real.",
+    skill: 'wits',
     tags: ['Personal', 'Magic', 'Lore', 'Stage2'],
     tag: 'safe',
     failResult: "The archive attendant denies access before the credentials are fully presented. She writes your name in the access attempt log while you are still standing at the counter. The log is already open. You are not the first this week.",
@@ -381,6 +392,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Verdant Row runs on three handshake protocols. Getting the sequence wrong has a cost.",
+    skill: 'finesse',
     tags: ['Personal', 'Stealth', 'Stage2'],
     tag: 'risky',
     xpReward: 82,
@@ -414,6 +426,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elowen's audit needs a facilitator. The revenue gaps point the same direction.",
+    skill: 'charm',
     tags: ['Personal', 'Support', 'Stage2'],
     tag: 'safe',
     plot: 'main',
@@ -452,6 +465,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Aelra kept a private log in her room ledger margin. Two months. Her own cipher.",
+    skill: 'charm',
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -479,6 +493,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The scorch patterns don't radiate from a center. They lean. The surge was channeled in.",
+    skill: 'wits',
     tags: ['Lore', 'Environment', 'Stage2'],
     xpReward: 74,
     fn: function() {
@@ -504,6 +519,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The patrol leader has sealed records access. The property dispute is leverage on both sides.",
+    skill: 'vigor',
     tags: ['Survival', 'Faction', 'Stage2'],
     xpReward: 78,
     fn: function() {
@@ -531,6 +547,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The operation's shape is clear. The name at the top is one link away.",
+    skill: 'wits',
     tags: ['Investigation', 'Advanced', 'Stage2', 'Consequence'],
     xpReward: 95,
     fn: function() {
@@ -565,6 +582,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elowen Shelk hasn't stopped auditing. She's reached a name she won't say out loud.",
+    skill: 'charm',
     tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
@@ -586,6 +604,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sub-level seal archive dates don't match what was filed above.",
+    skill: 'wits',
     tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
@@ -607,6 +626,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The House Shelk token marks the wrong quarter. The room has already clocked it.",
+    skill: 'finesse',
     tags: ['Stage2'],
     xpReward: 30,
     fn: function() {
@@ -631,6 +651,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Panim mediator's courier arrived three days ago and has not left Shelkopolis.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -661,6 +682,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Forren Dass signs off the south dock rotation thirty minutes early. Every time. Without fail.",
+    skill: 'finesse',
     tags: ['Stage2', 'Investigation', 'Stealth'],
     xpReward: 68,
     fn: function() {
@@ -689,6 +711,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Director of Civic Charter Integrity has a physical office. It appears in no directory.",
+    skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -718,6 +741,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Two names from suppressed docket complaints, still in the city. Both went quiet together.",
+    skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -746,6 +770,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The charter amendment's ratification window closes in five days. The Panim co-sign is the brake.",
+    skill: 'charm',
     tags: ['Stage2', 'Faction', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -776,6 +801,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A maintenance node in the archival quarter. The channel ran through it.",
+    skill: 'spirit',
     tags: ['Stage2', 'Investigation', 'Craft'],
     xpReward: 68,
     fn: function() {
@@ -806,6 +832,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shell subsidiary's founding signatory died eighteen months after filing. The proxy name still draws.",
+    skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -835,6 +862,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The replacement night foreman was transferred in from Panim six weeks ago.",
+    skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -863,6 +891,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The evidence is complete. The choice about how to use it doesn't reverse.",
+    skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent'],
     xpReward: 120,
     fn: function() {
@@ -896,6 +925,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // BEAT 1 — Hook
   {
     label: "The ward mark on the bathhouse door is Roazian.",
+    skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction'],
     xpReward: 60,
     fn: function() {
@@ -911,6 +941,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // BEAT 2 — Commitment
   {
     label: "Whoever wrote this expects a reader. The curl is not dry yet.",
+    skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -931,6 +962,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // BEAT 3 — Payoff
   {
     label: "The night-shift turnover is the only window where the ledger sits unattended.",
+    skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     fn: function() {
@@ -958,6 +990,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Ironspool crates are heavier than the intake slips say. The crane logs are independent.",
+    skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Survival'],
     xpReward: 88,
     fn: function() {
@@ -988,6 +1021,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Collegium arbiter's docket skips three names. The gap is deliberate.",
+    skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -1018,6 +1052,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Inquisitor Orveth conducts his reviews at the same tavern table every third day.",
+    skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 68,
     fn: function() {
@@ -1048,6 +1083,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Ironspool night foreman knows whose crates skip the Collegium intake check.",
+    skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -1076,6 +1112,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three signatures from ratification. One belongs to someone who hasn't signed yet.",
+    skill: 'finesse',
     tags: ['Stage2', 'Investigation', 'Faction'],
     xpReward: 68,
     fn: function() {
@@ -1105,6 +1142,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Orveth's sealed notes on the fourth case were filed separately. The location is inferrable.",
+    skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
     fn: function() {
@@ -1134,6 +1172,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lady Elowen's hand is steady on the cup. The other is not.",
+    skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 84,
     fn: function() {
@@ -1166,6 +1205,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice A — Tollgate records
   {
     label: "The south gate tollbook shows the same names arriving twice monthly. Different goods each time.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     plot: 'main',
@@ -1197,6 +1237,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice B — Sealed letter interception
   {
     label: "The letter is in transit. The relay house is unattended for eighteen minutes.",
+    skill: 'finesse',
     tags: ['Investigation', 'Stage2', 'Stealth'],
     tag: 'bold',
     xpReward: 82,
@@ -1226,6 +1267,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice C — Guild registry cross-reference
   {
     label: "Every suppressed contract flows through the same notary office. The clerk there is overworked.",
+    skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "The cross-reference requires a registry authorization level above standard access. The senior clerk reads the request carefully and declines it under a trade inquiry confidentiality hold. The hold was filed this week. Your name goes into the flagged inquiry log.",
@@ -1257,6 +1299,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice D — Red Hood surveillance
   {
     label: "Four times this week at that table. Red Hood, or a tail on Red Hood.",
+    skill: 'finesse',
     tags: ['Investigation', 'Stage2', 'Stealth', 'Faction'],
     tag: 'risky',
     xpReward: 80,
