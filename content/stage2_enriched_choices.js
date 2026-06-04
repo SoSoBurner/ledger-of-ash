@@ -22,7 +22,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The maps look convincing — ink weight, road names, distance markers. You don't notice the divergence until you're two hours into terrain that ends at a flooded ravine. The figure in the cloak is long gone. The Ridgeway doesn't forgive poor judgment easily — the pressure of two lost hours makes every junction on the remaining route harder to read with confidence.`;
-        addJournal('Misled by false information', 'complication', `false-maps-${G.dayCount}`);
+        addJournal('Misled by false information', 'field_note', `false-maps-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The trader answers questions with questions. What you get is real enough — two confirmed checkpoints, one road closure, and one stretch marked dangerous without explanation. A fold in the map shows a third route, unmarked, which she traces with one finger but does not name. What they're holding back is legible in the pauses. It's enough to move on. The pattern holds even when the documents don't.`;
@@ -55,7 +55,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The terrain is active. A slope that looked solid gives way under weight and you slide forty feet before catching a root cluster. Supplies scatter. One pack goes over the edge entirely. The ankle is wrenched, not broken, but every step for the next two days will cost something. The pressure of a wrenched ankle is harder to carry on unstable terrain than on flat road — the detour already demanded more than it offered.`;
-        addJournal('Terrain damage', 'complication');
+        addJournal('Terrain damage', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The detour adds most of a day. The ground is treacherous in patches but navigable if slow. You arrive intact, slightly behind, rations lighter than planned. The northern route was worse — three wrecked carts visible from the ridge, one with a wheel still spinning when you passed above it. Someone keeps the northern pass closed and the detour unmarked. There is still the matter of who is managing which routes stay open and which don't.`;
@@ -88,11 +88,11 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The captain's jaw tightens at the third counter-offer. He points at the far bank and tells you to find another way across. By the time you reach the next settlement, two ferrymen there have already heard a description of you. The river trade talks to itself — you are tracked by name along every crossing point between here and the confluence.`;
-        addJournal('Reputation damage', 'complication', `rep-${G.dayCount}`);
+        addJournal('Reputation damage', 'field_note', `rep-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `He adds a docking surcharge that wasn't mentioned at the start. You pay it. He doesn't apologize. The crossing is quiet — water dark, oars pulling slow, the crew watching the far bank without interest. You arrive intact, coin lighter than planned, no further complications offered. The river smells of mud and old rope. The Collegium's outer office is not the only layer — neither is any toll structure on a monitored crossing.`;
-        addJournal('Crossing toll paid', 'complication');
+        addJournal('Crossing toll paid', 'field_note');
       }
 
       G.recentOutcomeType = 'travel';
@@ -120,7 +120,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The camp looks empty. It isn't. Three figures step out of the treeline before you're halfway across the clearing — they waited while you walked in. The next hour is loud and costs more than supplies. The darkness works against you just as much as them. The pressure of a sprung ambush is that its owners noticed you approaching before you noticed them — this clearing will be harder to use as cover again.`;
-        addJournal('Ambush encounter', 'complication');
+        addJournal('Ambush encounter', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The camp is cold — abandoned at least a day ago. Someone left a pot half-packed and a bedroll pinned under a rock. You take nothing, sleep light, and leave before first light. The night passes without incident. Seld's name appears in the suppression gap — and whoever used this camp knew the route well enough to leave in a hurry.`;
@@ -153,7 +153,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The riders are faster than you judged and more organized. The messenger goes down in the third pass. One rider wheels toward you, and by the time you've put distance between yourself and the road, they've gotten a clear look at your face. The messenger's name is something you'll hear again in worse circumstances. You are now tracked by whoever commissioned those riders — they have a face to attach to the name.`;
-        addJournal('Wanted status rising', 'complication');
+        addJournal('Wanted status rising', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The messenger breaks left into rough terrain and the riders lose them in the scrub. One of the riders holds at the tree line, looking back. You're still, and the light is bad. They move on. You don't know if they marked you. Probably not. Possibly yes. There is still the matter of what the messenger was carrying and who sent the riders after it.`;
@@ -185,7 +185,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The checkpoint warden separates the group for individual questioning — standard procedure that you didn't account for. The scholar's papers don't hold up to direct comparison. You spend two hours being questioned about how you met. The warden lets you go, but writes your description into the duty log before you leave. The scrutiny of a duty log entry means the next checkpoint on this route will have your description before you arrive.`;
-        addJournal('Authority suspicion', 'complication', `authority-${G.dayCount}`);
+        addJournal('Authority suspicion', 'field_note', `authority-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You walk with him as far as the next waystation and point him toward a route that avoids the main checkpoints. He gives you a name in the next locality — someone who can be asked for help without explanation. No promises on either side. That's enough. The Collegium's outer office is not the only layer — and a researcher whose work was suppressed knows exactly which layer stopped him.`;
@@ -218,7 +218,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The lights pulse in a pattern that looks like a rest signal, and you move toward them. The ground between you and the source is occupied. They had a rope across the path. The next few minutes are ugly. You get clear, but you're down coin and one piece of kit that was worth more than the coin. The pressure of a sprung light-trap is that the people who set it noticed your approach long before the rope — this pattern will be harder to ignore on the next road.`;
-        addJournal('Bandit trap', 'complication');
+        addJournal('Bandit trap', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You hold your ground and watch. The lights pulse irregularly, flare once, and go dark. Nothing moves toward you. You mark the location on your own chart and give it a wide berth. Whatever it was, it's gone now, and the road ahead is ordinary. The pattern holds even when the documents don't — and warden-stone markers don't pulse unless someone is maintaining them.`;
@@ -252,7 +252,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The prohibition markers aren't just legal. Something has been using this trail for longer than the restriction. You hear it before you see it. Getting out costs you an hour of bad terrain, a gashed forearm, and the pack you dropped when you ran. The markers didn't explain what they were warning about, but they weren't wrong. The pressure of a lost pack and a gashed forearm means the standard route will be harder to sustain over the next two days.`;
-        addJournal('Territorial encounter', 'complication');
+        addJournal('Territorial encounter', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The trail holds but barely — loose shale twice, a downed tree across the path that cost thirty minutes to work around. You reach the destination as the last light fades, aching and behind where you wanted to be, but intact. The shortcut was real. It just wasn't clean. There is still the matter of who posted the prohibition markers and what they're protecting on this corridor.`;
@@ -285,7 +285,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `His face goes still when he sees you — not recognition, something else. He nods and walks on. Two hours later you notice you're being followed by someone you don't recognize. The gap between seeing someone from home and trusting them is wider than you remembered. You are now tracked by whoever he reported to — and someone from home told them what to watch for.`;
-        addJournal('Location compromised', 'complication');
+        addJournal('Location compromised', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You share a meal at a roadside post and don't say much that matters. She tells you the road behind is quieter than expected. You tell her the road ahead has one rough checkpoint. You part before dark, traveling in different directions. The conversation stays surface level by unspoken mutual agreement. Seld's name appears in the suppression gap — and people who left for the same reasons you did often crossed the same records on their way out.`;
@@ -318,7 +318,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The crowd draws a patrol within twenty minutes. The wardens want to know who organized the aid distribution and under what authorization. They take your name and the name of anyone you were visibly speaking with. The refugees scatter. The questioning takes the rest of the afternoon. The scrutiny attached to an unauthorized aid distribution means the warden network in this district now has your name alongside the names you were seen speaking with.`;
-        addJournal('Official scrutiny', 'complication', `scrutiny-${G.dayCount}`);
+        addJournal('Official scrutiny', 'field_note', `scrutiny-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You hand out bread and water and keep your ears open. The story is consistent: three days of something, then a fast evacuation order, then the road. Nobody agrees on the cause. One man says flooding, another says a fire, a third won't say anything specific and keeps looking at the road behind him. The region is unstable. That much is clear. There is still the matter of the name that appears in four unconnected offices — and supply collapses don't happen in isolation.`;
@@ -353,7 +353,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You take too long answering the first question. The envoy watches the pause like a tax assessor watching a merchant weigh coin. By the time you've found your answer, he's already decided something about you. He thanks you for your time with the specific courtesy of someone who won't be sending another envoy. The pressure of a concluded assessment travels back to the faction before you've left the room — the door this envoy closes is harder to reopen than it was to approach.`;
-        addJournal('Faction hostility', 'complication');
+        addJournal('Faction hostility', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You agree to nothing specific and commit to nothing in writing. The envoy accepts this more easily than you expected — he's done this before, in other inns, with other cautious people who needed time. He finishes his drink without hurrying. He leaves you a location marker pressed into the side of the table, a fold of wax paper with a mark on it. Says someone will be in touch. The door stays open.`;
@@ -386,7 +386,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `They talk to each other — faster than you expected, through a channel you didn't know they shared. By the time you reach your next meeting, both know you've been running parallel conversations. The first faction's representative doesn't raise her voice. She just slides your proposal back across the table and says she doesn't think this is a productive relationship. You are now tracked by both factions as the person who tried to play both sides — the third faction in this region will hear the same account before you reach them.`;
-        addJournal('Factional suspicion', 'complication', `susp-${G.dayCount}`);
+        addJournal('Factional suspicion', 'field_note', `susp-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The faction offering protection is more reliable than the one offering coin. That calculation isn't obvious to everyone, but it is to you. You say so plainly to the faction representative, who accepts without ceremony and leaves the table without a handshake. The other faction will hear about it before the week is out. That tension will show up later, probably at a bad time, in a place you won't be prepared for it.`;
@@ -415,15 +415,15 @@ const STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.lastResult = `You decline without explaining yourself at length. The representative reads your posture and doesn't press. He leans back, drums two fingers once on the armrest, stops. He says, after a pause, that he appreciates someone who knows their own limits — it makes you predictable in useful ways. The faction doesn't rescind the relationship. They recalibrate what they'll ask for next time, and that recalibration happens in a room you won't be in.`;
-        addJournal('Moral boundary upheld', 'complication');
+        addJournal('Moral boundary upheld', 'field_note');
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You hedge when you should be direct. The representative listens, nods, and asks if you need more time to consider. You say no. He says he'll pass that along. The way he says it makes clear that "passing it along" means something specific within the faction, and it isn't a compliment. The pressure of a negative assessment passed along through faction channels is harder to reverse than a refusal delivered in person.`;
-        addJournal('Faction displeasure', 'complication');
+        addJournal('Faction displeasure', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You propose a different task — same stakes, less irreversible. The faction representative writes it down without enthusiasm, his pen moving in the small careful strokes of someone recording something they expect to revisit. He says someone will confirm whether it's acceptable, which means the decision doesn't belong to him. Neither party is satisfied, but the conversation ends without a broken door. That's a kind of success, and sometimes that's all there is.`;
-        addJournal('Uneasy détente', 'complication');
+        addJournal('Uneasy détente', 'field_note');
       }
 
       G.recentOutcomeType = 'faction';
@@ -452,7 +452,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `Someone is already inside when you push the door. The next few seconds are fast and loud. You get out, but not unseen. By evening, three people in the district have your description and instructions to pass it up the faction's chain. Staying in this area stops being a reasonable option. You are now tracked through the faction's chain with a description accurate enough to reach the next district before you do.`;
-        addJournal('Active faction pursuit', 'complication');
+        addJournal('Active faction pursuit', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You map the building from outside — entry points, window positions, the foot traffic pattern around the door at different hours. Three days of watching from different positions in the surrounding market. You don't go in, but you know the location and enough of the rhythm to work with later. The faction doesn't know you've been watching. That margin is worth keeping, and it takes discipline to keep it.`;
@@ -485,7 +485,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The extraction route was watched. The faction knew she was considering it — they'd been watching her for weeks. They let the exit attempt run far enough to identify who she contacted. The connection between you and the defection attempt is now documented somewhere you can't access. The watchful patience of a faction that let the attempt run means they wanted the intermediary's name more than they wanted to prevent the exit.`;
-        addJournal('Defection traced', 'complication');
+        addJournal('Defection traced', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `She gets clear, but not cleanly. Some of her documents had to be left behind — a locked case she couldn't carry without drawing attention at the corridor checkpoint. What she carries out is partial: enough to confirm the faction's structure and two key personnel, but not the operational calendar she promised. She's alive and out. That's the larger part of what mattered, and she knows it even if she won't say so yet.`;
@@ -518,7 +518,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You call one side's position unreasonable in front of the other. That's the moment it breaks. The insulted group walks out, taking two other members with them. The faction leadership thanks you for your time with the particular flatness of people who will not be repeating this experiment. The internal split is now an open fracture. The pressure of an open fracture attributed to outside mediation means the faction's attention now includes you as a contributing cause.`;
-        addJournal('Mediation failure', 'complication', `med-fail-${G.dayCount}`);
+        addJournal('Mediation failure', 'field_note', `med-fail-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `Both sides agree to a cooling period — thirty days, no new grievances filed, no escalation. They accept it because they're tired, not because you convinced them of anything. The faction leadership notes that you held the room together; the previous mediator hadn't managed that much. No one is happy. No one is leaving either. The thirty days will tell you whether tired and staying is enough, or just the shape that breaking apart takes here.`;
@@ -551,7 +551,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You're still crouched over the body when you hear movement behind you. Whoever left the operative there didn't go far. They see your face and make a calculation. You put distance between yourself and the location fast, but not before they've had enough time to decide what to do with what they saw. You are tracked now by people who left the operative's body as bait — the location was chosen to notice whoever came to look.`;
-        addJournal('Killer attention gained', 'complication');
+        addJournal('Killer attention gained', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The death is clean and recent — within the last six hours. No defensive wounds, no struggle marks on the ground nearby. The operative either trusted whoever did this or had no warning at all. His faction mark is removed, the stitching cut out, but the spot where it sat is still visible in a faint impression on his jacket collar. Rain hasn't reached him yet; the ground under him is dry. This was deliberate and organized, not opportunistic, and whoever did it knew what evidence to remove.`;
@@ -584,7 +584,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `One of the people you approached went directly to the regional authority. By morning, the authority has a description of your activities and a name that's connected to the faction that sent you. The region now holds something you can't take back — and they're deciding what to do with it. The pressure of a regional authority holding a connected name means every market relationship in this district is now harder to establish without that name arriving first.`;
-        addJournal('Espionage discovered', 'complication', `espy-${G.dayCount}`);
+        addJournal('Espionage discovered', 'field_note', `espy-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You make three reliable connections — a market assessor, a road warden, a hostel keeper. Each has a legitimate reason to know what moves through the region, and none of them knows about the others. The information won't be comprehensive and it won't be fast, but it will be consistent. A market assessor notices cargo weight. A warden notices transit timing. A hostel keeper notices faces. Careful work, done at the right pace, builds more than urgency does.`;
@@ -616,7 +616,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The evidence trail bends back toward you — not because you're guilty but because someone structured the theft to leave traces that point at an outsider. The faction leadership listens to your explanation without expression. You can't tell whether they believe you. The questions they ask next suggest they're now trying to determine whether your guilt is practical or merely convenient. The watchful flatness of those questions means you are noticed as a liability until the trail points elsewhere.`;
-        addJournal('Suspicion escalated', 'complication');
+        addJournal('Suspicion escalated', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You find evidence of a third party who had access — not enough to name them, but enough to show the faction that the pool of suspects extends beyond you. The leadership documents it and moves on without clearing you formally. The active pressure drops. The quiet suspicion doesn't go anywhere; it settles into the room like dust after a disturbance, present but no longer urgent. It stops driving decisions, which is the most you can ask for right now.`;
@@ -651,7 +651,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You push harder than the moment warrants. They answer your questions in single sentences, then stop answering. By the evening meal they're physically present but unreachable — their posture closed, their eyes on the middle distance. You've put something between you that wasn't there before, and they're not going to be the one to move it. The pressure of that distance has a weight that makes every shared decision harder to reach from here.`;
-        addJournal('Companion distance', 'complication', `dist-${G.dayCount}`);
+        addJournal('Companion distance', 'field_note', `dist-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You accept the explanation without pressing further. They can tell you're not fully satisfied with it, and they don't pretend otherwise. The relationship doesn't break but it recalibrates — less ease, more care on both sides. Camp is quieter than usual that evening, the fire smaller, the conversation shorter. Whatever the full truth is, it stays where it is for now. That's not forgiveness. It's a temporary arrangement, and both of you know it.`;
@@ -684,7 +684,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You make an argument you believe in but they've already stopped listening. They pack while you're still talking. Before they go, they take the secondary provisions pack — not out of malice, they'd say, but because they need it. The group feels differently sized after they leave, and not just by one person. The pressure of a missing secondary pack makes the next supply stretch harder than the math suggests.`;
-        addJournal('Companion departure', 'complication');
+        addJournal('Companion departure', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `They agree to wait until the current route is finished. After that, no promises. You accept the terms. It's not resolution — it's a delay, and you both know it. They're quieter than usual for the next two days, moving through their tasks without comment, eating without looking up from the bowl. The vendetta sits between you like a third person at every meal. The subject doesn't come up again, which is its own kind of tension.`;
@@ -717,7 +717,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You push the apothecary on price when the companion is still in the chair. The apothecary stops working and looks at you. He finishes the minimum procedure — cleansing, a basic wrap — and tells you the actual treatment requires the full fee. You're outside the shop before you've worked out that you've made this worse. The companion doesn't say anything, but the injury is still there and now it's been sitting untreated for another hour. The pressure of an untreated injury makes every day of travel from here harder than it needs to be.`;
-        addJournal('Negotiation failure', 'complication');
+        addJournal('Negotiation failure', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The apothecary agrees to a payment split — half now, half on your next pass through. He writes the arrangement in his ledger with a clerk's precision, asking your route and estimated return. It's a fair deal reached in good faith. The treatment is thorough if not immediate, and the companion is ambulatory within two days. The recovery is slower than you'd like but steady. They appreciate that you didn't cut corners on what mattered.`;
@@ -750,7 +750,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You call for a decision before both sides are ready to make one. The argument sharpens under the pressure. One companion stands up from the table and walks out of the shelter. They're back by morning, but they don't speak to the other directly for the next day. The tension has a shape now that it didn't have before, and it takes up space in every shared silence. The pressure of a named tension makes the next decision that requires both of them harder to bring to a close.`;
-        addJournal('Companion conflict', 'complication');
+        addJournal('Companion conflict', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `They accept the compromise in the way people accept something that costs them: without warmth, but without refusal. Both give something up and neither is pretending otherwise. The meal that follows is quiet — not hostile, just careful. The group moves forward. The underlying disagreement hasn't been resolved — it's been shelved, pushed down under the immediate needs of the road. That shelf has a weight limit, and neither of them has forgotten the argument.`;
@@ -782,7 +782,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The isolation protocols aren't maintained cleanly — surfaces touched, kit shared in the chaos of camp. By the third day, two others show early symptoms. The companion with the worst exposure doesn't make it past the fourth night. You're standing with a group that is smaller by one and sicker than it was, and the road ahead is the same length it's always been. The pressure of a sicker group makes every choice point on that road harder to meet at full strength.`;
-        addJournal('Companion death, contagion spreads', 'complication');
+        addJournal('Companion death, contagion spreads', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `They survive. The fever breaks on the fourth day but the recovery is slow and incomplete — stamina reduced, appetite poor for another week. They travel lighter and shorter distances, stopping an hour before the rest of the group needs to. Their color is wrong; the skin around their eyes still drawn. They're alive and present and functioning. That counts for more than it sounds. The weakness will pass, probably. It just takes time you don't have much of.`;
@@ -815,7 +815,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The approach is spotted on the second perimeter. The alarm doesn't bring enough response to catch you, but it brings enough to lock the facility and document the attempt. The warden authority now has a description of the operation and the approximate number of people involved. The family member is still inside. Your group is now on a list. You are tracked as an attempted extraction party — the next approach to this facility will be watched for specifically.`;
-        addJournal('Authority pursuit heightened', 'complication');
+        addJournal('Authority pursuit heightened', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You create a distraction at the front gate. In the movement it causes, the family member walks out through the vehicle exit behind a legitimate departing cart. They weren't waiting for a rescue specifically — they'd been watching for any gap. Your distraction gave them one. The companion accepts that their family is free without asking too many questions about how.`;
@@ -848,7 +848,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You read the evidence wrong — what they gave up looks, at first glance, like they diverted resources. You confront them on it before you've checked the full picture. They don't defend themselves with the explanation you don't have yet. They just absorb it, and something in how they carry themselves after that is different. More careful. More distant. The truth comes out later, and the damage by then is already done. The pressure of an absorbed accusation sits harder than a defended one — it doesn't resolve when the truth arrives.`;
-        addJournal('Misunderstood sacrifice', 'complication');
+        addJournal('Misunderstood sacrifice', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You find them after the evening meal, apart from the others, light low. You say simply that you know what they did and you won't forget it. They nod and look away toward the treeline. They don't want to discuss it; that much is clear from the set of their shoulders. The acknowledgment was the thing that mattered — not the elaboration, not the thanks. The conversation lasts about thirty seconds. The weight of it lasts longer, and they know that too.`;
@@ -880,7 +880,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You react before you've thought through what the confession actually means. What you say isn't proportionate and they know it. They pack their kit with the same calm they use for everything else, and by morning they're gone. A week later you hear they're working with a group whose interests run directly counter to yours. They're not pursuing a vendetta. They're just moving on, and they happen to be on the other side now. The pressure of a former companion on the opposite side is harder to navigate than an unknown adversary — they know your methods.`;
-        addJournal('Companion becomes rival', 'complication');
+        addJournal('Companion becomes rival', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You tell them you need time and some distance between you and them for a while. They accept this without argument. They don't apologize again. They give you the space you asked for, work their share of the load without comment, and wait for you to decide what comes next. The boundary is clean and they respect it. That itself tells you something.`;
@@ -916,7 +916,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You push down on the price twice. The scout smiles and takes what you offer. The maps he gives you are technically accurate — for a route that was closed four months ago. You don't discover this until you're standing at a checkpoint that's been decommissioned and replaced by something stricter, three hours in the wrong direction. The pressure of three lost hours at a stricter checkpoint means the remaining daylight is harder to spend than it should have been.`;
-        addJournal('Misinformed', 'complication', `misinf-${G.dayCount}`);
+        addJournal('Misinformed', 'field_note', `misinf-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You pay mid-range and get mid-range. The information covers the main checkpoints and one alternate route without much detail on timing or personnel. The scout lays the relevant pages out on the table briefly, then rolls them back before you're done reading. Enough to move forward with some confidence, not enough to plan around complications you can't see yet. The scout was fair. So were you. That's most of what this kind of transaction asks for.`;
@@ -949,7 +949,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The cipher has a detection thread — a glyph sequence that activates on unauthorized access. You didn't see it in time. The message is now blank in your hands and whoever sent it has a notification that their communication was opened. Your position relative to the message's interception point is traceable. You are tracked now by the people whose cipher you triggered — the detection thread exists because they expected someone to try exactly this.`;
-        addJournal('Interception detected', 'complication');
+        addJournal('Interception detected', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You get through the first layer of the cipher but the second layer holds — a different encoding method, nested inside the first. What you can read confirms that the restrictions are coordinated and timed, not ad hoc decisions made by individual offices. At least two administrative bodies are named in the headers. The specific details of what they're restricting and why remain in the encoded sections, but the structure of the coordination is now visible.`;
@@ -982,7 +982,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The institution tracks them faster than either of you expected — a movement pattern they were already watching for. The location you chose is compromised within the day. The spy gets out but barely, and they leave behind documents that connect the shelter point to your movements over the previous week. The institution has your general profile now. The scrutiny attached to a connected shelter point means every channel you've used this week is now under watchful review.`;
-        addJournal('Accomplice status', 'complication');
+        addJournal('Accomplice status', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You keep exchanges brief and don't ask for everything at once. The spy gives you a structured summary — key personnel, two active operations, one upcoming audit that will expose gaps in the institution's own records. They speak quietly and precisely, the practiced habit of someone used to talking in rooms with thin walls. You don't push for the source documentation. The relationship stays intact and workable for future access. That's the part that matters most.`;
@@ -1015,7 +1015,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `One of the group doubles back through a side lane — a counter-surveillance maneuver that works exactly as intended. You're standing still when they come around the corner behind you. They look at you with the particular attention of someone who is paid to notice people following them. Nobody says anything. They continue on. But the surveillance party now knows their route had a tail. The watchful pause of that professional look means your face is now noticed and catalogued by the people you were following.`;
-        addJournal('Observation discovered', 'complication');
+        addJournal('Observation discovered', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `They go into a building at the district's administrative edge — no signage, shuttered upper windows, a painted mark above the lintel that isn't a guild mark. You note the address and the time. Two hours later they leave the same way they came in, the same walking pace, the same deliberate non-urgency. You have a location, a duration, and the fact that three senior personnel considered whatever happened inside worth the walk. That's the start of something, not the end.`;
@@ -1049,7 +1049,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You agree to more than you can deliver — three safe houses when you have one, protection capacity beyond your actual reach. The lead scout nods and takes the agreement at face value. Two weeks later, when the first test of your commitment comes and you can't fulfill what you promised, the word travels through the circuit faster than you do. The network closes its doors. The pressure of a broken circuit agreement is harder to repair than no agreement at all — every scout on this network has now heard the same account.`;
-        addJournal('Network broken trust', 'complication', `break-${G.dayCount}`);
+        addJournal('Network broken trust', 'field_note', `break-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You negotiate a trial period — sixty days, one safe house, and route updates on a best-effort basis. The lead scout accepts this without enthusiasm but without objection; she writes it in a small log with the ink already open, which means she expected a partial agreement. The information that comes in over the first two weeks is sporadic but generally reliable. The relationship is functional if not strong. It can grow from here, if you keep your side of it consistently.`;
@@ -1082,7 +1082,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `You spend an hour with the documents before you notice the location tag on the messenger's boot — a marking used by courier networks to note where a message was collected. Someone in the network tracks their people that way. By the time you've worked this out, you're back on the road, and by the next morning there's a second figure on your trail who wasn't there before. They don't approach. They just stay at range and watch. The watchful distance of that figure means the network already knows where you collected the message and decided you were worth following rather than confronting.`;
-        addJournal('Killer attention', 'complication');
+        addJournal('Killer attention', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `The first layer decodes to a transit schedule with route codes you don't immediately recognize — a regional designator system, not the standard Compact format. You get through enough to map three delivery dates and two pickup locations before the second cipher layer stops you cold. The routing information is current and specific, not archival. It's half the picture — but the half that tells you where to look next, and when.`;
@@ -1116,7 +1116,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The breach alert triggers faster than the external pattern suggested — someone was watching the reading room specifically. The lockdown seals before you reach the secondary exit. The warden personnel who find you in the stacks take your name before they allow you to leave. You're not detained. But your name and description are now in the incident log, and the institution's security review will include you. The scrutiny of an incident log entry means the archive's secondary stacks are now harder to access by any approach the institution hasn't already considered.`;
-        addJournal('Archive trap discovery', 'complication');
+        addJournal('Archive trap discovery', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You get four documents out before the lockdown closes the secondary stacks. Three are useful — freight authorization records with dates and route codes; one is administrative noise. The exit is rushed and unplanned. You leave through the public reading room just as the wardens begin clearing it, walking at the pace of someone who finished what they came for, and nobody looks twice at a person already moving toward the door. The partial access is real intelligence. It's just not complete.`;
@@ -1149,7 +1149,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.pressure++;
         G.lastResult = `The testimony was supposed to be sealed. It wasn't. By the time you leave the meeting room, the summary of what you said has been routed to a duty officer whose name appears in the documents you were testifying about. Within two days, someone leaves a note at your lodging that says only: "We know what you said." The network's corruption runs deeper than the procedure that was supposed to protect you. The pressure of a note at your lodging means you are tracked by people with enough reach to find where you sleep.`;
-        addJournal('Official retaliation', 'complication');
+        addJournal('Official retaliation', 'field_note');
       } else {
         G.stageProgress[2]++;
         G.lastResult = `You agree to testify in writing, with a one-week window before the document enters active proceedings. The protection is procedural rather than physical — your name is logged but not widely distributed. The testimony goes into the record. Whether it does anything useful depends on whether the process that receives it is cleaner than the one you're describing. You don't know that yet.`;
@@ -1290,7 +1290,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else {
         G.lastResult = 'He produces the fragment and then stops. His thumb finds his index finger and holds there — three, not four. He says there are readers assigned to this section today who are not the usual readers. He puts the fragment back in his coat. Tomorrow, he says, at the east reading room, second hour. He walks away counting on nothing, hands still.';
         G.recentOutcomeType = 'complication';
-        addJournal('Collegium exchange postponed — archive readers reassigned, possible surveillance.', 'complication');
+        addJournal('Collegium exchange postponed — archive readers reassigned, possible surveillance.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -1318,7 +1318,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'He starts the count and doesn\'t finish it. His hand closes flat on the table when he sees who is sitting two tables behind you. He stands, says he left something in the index room, and goes. The figure behind you stays seated. Neither of them looks at the other. Whatever Seld needed to say will wait, and the watchfulness around him is now something you have personally observed.';
         G.recentOutcomeType = 'complication';
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
-        addJournal('Collegium surveillance on Seld confirmed by direct observation. Meeting aborted.', 'complication');
+        addJournal('Collegium surveillance on Seld confirmed by direct observation. Meeting aborted.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -1344,7 +1344,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else {
         G.lastResult = 'Seld\'s count stops at two. He says the Wardens\' position is not a procedural position — it\'s an operational one, and the Collegium doesn\'t work with operational arrangements. He\'s not hostile. He just stops moving. The two factions are pulling on the same piece of information from opposite directions and you are the only thing currently between them. That position does not become easier over time.';
         G.recentOutcomeType = 'complication';
-        addJournal('Collegium-Wardens faction tension unresolved. Both claim authority over routing records.', 'complication');
+        addJournal('Collegium-Wardens faction tension unresolved. Both claim authority over routing records.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -1399,7 +1399,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else {
         G.lastResult = 'She starts rolling the maps out, then stops. A second officer crosses the checkpoint post behind her, close enough to see the table. She rolls them back without comment and tells you the weather has made the northern routes unreliable this week. The second officer moves on. She doesn\'t open the maps again. The information she was about to show you is still somewhere inside her coat.';
         G.recentOutcomeType = 'complication';
-        addJournal('Warden route intelligence exchange interrupted by second officer. Evidence held back.', 'complication');
+        addJournal('Warden route intelligence exchange interrupted by second officer. Evidence held back.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -1427,7 +1427,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'She says there has been a personnel change at the district level. She doesn\'t elaborate. The checkpoint traffic picks up and she goes back to processing transits. The pattern she described last time — nine days, Shelk junction — is still active. Whatever is happening inside the Order, it hasn\'t stopped the movement she\'s been watching. It has just made the people watching it more careful.';
         G.recentOutcomeType = 'complication';
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
-        addJournal('Warden channel closed down. Internal Order personnel shift observed.', 'complication');
+        addJournal('Warden channel closed down. Internal Order personnel shift observed.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -1453,7 +1453,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else {
         G.lastResult = 'She hears you out and goes quiet for longer than is comfortable. What you are describing is a coordination between her chain and a civilian archive body, and Order protocol does not include that kind of lateral arrangement. She is not hostile, but she is no longer moving. She says she will think about it. That is the most she will say.';
         G.recentOutcomeType = 'complication';
-        addJournal('Warden-Collegium coordination blocked by Order protocol. No resolution.', 'complication');
+        addJournal('Warden-Collegium coordination blocked by Order protocol. No resolution.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -1483,7 +1483,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The form requires a category code from the processing clerks, and the processing clerks are not available until the afternoon rotation. The audit request sits in a pending tray. Seld finds you in the corridor and says the pending tray is reviewed by the reading room supervisor, who logs every request that waits more than two hours. You retrieve the form before the two hours pass. The request has not been filed. The window is still open, but narrower than before.');
-        addJournal('Audit request stalled — requires processing clerk category code. Pending tray under supervisor review.', 'complication');
+        addJournal('Audit request stalled — requires processing clerk category code. Pending tray under supervisor review.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1549,7 +1549,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The partition key does not match today. Someone changed the schedule — either routine rotation or a response to the audit request. The vestibule board has been wiped clean. A clerk passes through the partition without acknowledging you. Whatever window existed in the rotation has closed. There will be another cycle, but you do not know when, and the audit request may have shortened the interval.');
-        addJournal('Sealed partition access failed — key rotation changed. Audit request may have triggered schedule change.', 'complication');
+        addJournal('Sealed partition access failed — key rotation changed. Audit request may have triggered schedule change.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1581,7 +1581,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'He listens and does not react with surprise. He has thought about this longer than you have. He asks who sent you, and when you give him an answer he considers adequate, he says: he already told someone else what he knows, and that person has not come back. He does not know if that is because they found what they needed or because they found something else. He will speak again if you can tell him what happened to the first one.');
-        addJournal('Former Collegium administrator: spoke to previous inquirer who did not return. Will share knowledge when prior contact is accounted for.', 'complication');
+        addJournal('Former Collegium administrator: spoke to previous inquirer who did not return. Will share knowledge when prior contact is accounted for.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1646,7 +1646,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The record exists — she brought it. But the Collegium certification on it requires a provenance check before it can be used as evidence, and the provenance office is the same office that processed two of the suppression batches in question. She knows this. She says she has submitted a provenance challenge through a separate channel, but challenges take thirty days. The record is real. The mechanism for using it is currently blocked by the mechanism it documents.');
-        addJournal('Third suppression record in hand but certification blocked by the same office it documents. Provenance challenge filed — thirty-day delay.', 'complication');
+        addJournal('Third suppression record in hand but certification blocked by the same office it documents. Provenance challenge filed — thirty-day delay.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1679,7 +1679,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The Collegium representative listens to the proposal and says: not yet. The evidence trail needs one more confirming element before the faction will commit institutional backing to a confrontation. They are not refusing — they are waiting for a threshold they have not named explicitly. Seld\'s count stops at three. He says he will tell you when the threshold is met.');
-        addJournal('Collegium cover not yet arranged — faction waiting for additional confirming evidence before committing to confrontation backing.', 'complication');
+        addJournal('Collegium cover not yet arranged — faction waiting for additional confirming evidence before committing to confrontation backing.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1712,7 +1712,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The authorization form is behind a locked case in the restricted stacks. The case requires a dual-access process: one key from the reading room supervisor, one from the partition clerk. The partition clerk is on leave until the day after tomorrow. The form is visible through the case glass. One line of typeface is legible from outside the glass — a single word in administrative font that you cannot fully make out at this distance. It begins with G.');
-        addJournal('Authorization form visible in locked case — dual-access required. Partition clerk on leave. Single word legible through glass: begins with G.', 'complication');
+        addJournal('Authorization form visible in locked case — dual-access required. Partition clerk on leave. Single word legible through glass: begins with G.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1747,7 +1747,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'She is cautious in a way that suggests she has been burned before. She gives you the first route — one, not three — and watches how you receive the information before committing to the rest. The single route is real: a loading dock alley that bypasses the secondary checkpoint entirely. She says the other two routes depend on who sent you and why. She needs to verify something first. She will find you. She does not say when.');
-        addJournal('Runner provided one of three unmapped routes. Full route access conditional on verification of referral. Partial route confirmed operational.', 'complication');
+        addJournal('Runner provided one of three unmapped routes. Full route access conditional on verification of referral. Partial route confirmed operational.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1780,7 +1780,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The broker came because the Road Wardens vouched for the meeting, but he arrived already frightened. He sits down, starts to speak, then asks who else has been told about this meeting. When you answer honestly, his hands come off the table. He says he thought this would be a smaller circle. He is not leaving — yet. But the testimony he prepared is back behind his teeth, and getting it out will require rebuilding the trust the answer damaged.');
-        addJournal('Broker arrived frightened — testimony withheld after disclosure question. Circle of knowledge wider than expected. Meeting not lost, but trust damaged.', 'complication');
+        addJournal('Broker arrived frightened — testimony withheld after disclosure question. Circle of knowledge wider than expected. Meeting not lost, but trust damaged.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1844,7 +1844,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'He is wary — not of you specifically but of anyone who asks about the suppression. He has been approached before, twice, by people who said they were pursuing the same thread and who he has not seen since. He asks which faction sent you. When you tell him, he is quiet for a moment. Then he says: the Road Wardens have their own reasons for wanting this exposed, and those reasons are not the same as his. He is not refusing. He wants to understand whose agenda he is serving before he speaks.');
-        addJournal('Displaced operator cautious — previous inquirers did not return. Aware of Road Wardens\' separate agenda. Will speak when motivation is clarified.', 'complication');
+        addJournal('Displaced operator cautious — previous inquirers did not return. Aware of Road Wardens\' separate agenda. Will speak when motivation is clarified.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1876,7 +1876,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'She almost says it. The word is halfway out before she stops, looks at the door, and finishes the sentence differently. The context gives the shape of it: a codename, one syllable, linked to enforcement actions that use transit authority infrastructure. She says she will tell you the rest when she is satisfied that you have a way out of this that does not go through any institution she knows. She is not being difficult. She has watched what happens to people who know the name without knowing what to do with it.');
-        addJournal('Road Wardens senior contact: enforcement codename withheld pending confirmation of exit strategy. One syllable, transit authority linked.', 'complication');
+        addJournal('Road Wardens senior contact: enforcement codename withheld pending confirmation of exit strategy. One syllable, transit authority linked.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1941,7 +1941,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The senior contact is interested but not committed. The distraction requires coordinating two separate Road Wardens cells, and the cells are not currently in contact with each other. She can arrange it, but it will take four days and she needs a specific commitment on the documentation sequence before she begins the coordination. She is not asking for much. She is asking for something that commits you to a sequence you have not yet agreed to. The four-day window is real.');
-        addJournal('Road Wardens distraction possible but requires four-day coordination and pre-commitment on documentation sequence. Window is real — decision required.', 'complication');
+        addJournal('Road Wardens distraction possible but requires four-day coordination and pre-commitment on documentation sequence. Window is real — decision required.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -1974,7 +1974,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The source arrived but not with the document. She says the document is in a secure location and she will not bring it to a meeting she cannot verify. She needs to see the network that will protect her after she produces it — not a promise, but evidence of the network\'s existence. The Road Wardens can provide that evidence. She knows who to ask. She gives you the name of the Road Wardens contact to send. She will meet again once she has spoken to that contact directly.');
-        addJournal('Final source present but document held pending network verification. Road Wardens contact name provided — source will re-engage after verification meeting.', 'complication');
+        addJournal('Final source present but document held pending network verification. Road Wardens contact name provided — source will re-engage after verification meeting.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -2134,7 +2134,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The counter-surveillance formation requires three people in a pattern you are not practiced in. You break the formation at the wrong moment and the third member of the pair you were tracking notices the repositioning. They do not pursue, but they mark your face. The Road Wardens abort the rotation and move to a secondary position. You identified two of the three monitoring individuals before the formation broke. Two names, partial descriptions, and a broken cover.');
-        addJournal('Counter-surveillance formation broken — monitoring individual marked cover. Two of three identifications made before abort. Road Wardens moved to secondary position.', 'complication');
+        addJournal('Counter-surveillance formation broken — monitoring individual marked cover. Two of three identifications made before abort. Road Wardens moved to secondary position.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof updateHUD === 'function') updateHUD();
@@ -2254,7 +2254,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.flags.collegium_archivist_burned = true;
       G.flags.recovery_thread_available = true;
       addNarration('', 'The archivist closes the ledger and calls for a colleague. The archive closes for the day. You will not get another appointment through normal channels — but the junior archive clerk works evenings, and the archivist does not know her.');
-      addJournal('Collegium archivist: direct approach failed. Archive closed. Evening junior clerk access may remain open.', 'complication');
+      addJournal('Collegium archivist: direct approach failed. Archive closed. Evening junior clerk access may remain open.', 'field_note');
       G.recentOutcomeType = 'complication';
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -2282,7 +2282,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The junior clerk is not on the evening rotation tonight. The archive is closed and the main desk is staffed by the duty archivist who already closed your appointment. She works the same shift three evenings a week — tomorrow is one of them.');
-        addJournal('Junior clerk evening access: clerk absent. She works three evenings per week — tomorrow is one of them.', 'complication');
+        addJournal('Junior clerk evening access: clerk absent. She works three evenings per week — tomorrow is one of them.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -2308,7 +2308,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.flags.collegium_wardens_exposed = true;
       G.flags.collegium_alt_source_needed = true;
       addNarration('', 'The Collegium source goes very still when you mention the Road Wardens. She says she needs a moment, then asks how long you have been working with them. Her expression does not change, but she closes the document she had been preparing to show you and puts it back in her coat. She says she will need to reconsider the arrangement. She leaves. The Road Wardens\' name in a Collegium context closed this thread. A different source — one without the Collegium-Wardens tension — may still be reachable.');
-      addJournal('Collegium source withdrew after Road Wardens affiliation disclosed. Institutional tension closed this channel. Alternative source without Collegium-Wardens exposure needed.', 'complication');
+      addJournal('Collegium source withdrew after Road Wardens affiliation disclosed. Institutional tension closed this channel. Alternative source without Collegium-Wardens exposure needed.', 'field_note');
       G.recentOutcomeType = 'complication';
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -2336,7 +2336,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The research tier operates on a different schedule and the researchers are not easy to approach without a research-appropriate pretext. The Collegium is not large enough for the previous interaction to have gone unnoticed in the research community — word moves through small institutions. You find two researchers who might be useful but both of them mention having heard something about a recent archive disruption. The alternative source exists. Getting to them requires a cleaner approach.');
-        addJournal('Alternative Collegium research source not yet reached — archive disruption noted in research community. Cleaner pretext needed for research-tier access.', 'complication');
+        addJournal('Alternative Collegium research source not yet reached — archive disruption noted in research community. Cleaner pretext needed for research-tier access.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -2362,7 +2362,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.flags.wardens_broker_burned = true;
       G.flags.wardens_broker_partner_lead = true;
       addNarration('', 'The broker\'s testimony stops completely. He picks up his cup, looks at it, and sets it back down. He says he told you what he could tell you and you asked for what he cannot tell you. He leaves. He will not come back to another meeting arranged through the Road Wardens. His former business partner handled a different set of the non-manifest movements and they have not spoken in eight months. She may still be reachable through a different channel.');
-      addJournal('Cargo broker burned — pushed past voluntary testimony threshold. Partner handled parallel non-manifest movements and may be reachable independently.', 'complication');
+      addJournal('Cargo broker burned — pushed past voluntary testimony threshold. Partner handled parallel non-manifest movements and may be reachable independently.', 'field_note');
       G.recentOutcomeType = 'complication';
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -2390,7 +2390,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The partner is harder to find than expected — she relocated after the enforcement pressure started and her current address is not in any register the Road Wardens have access to. You find the previous address and someone there tells you she moved three months ago to a different district. The trail is real and she is findable, but it will take another day or two to locate the current address through secondary channels.');
-        addJournal('Broker\'s partner relocated — previous address has lead to new district. Trail confirmed real but requires 1-2 days secondary channel search.', 'complication');
+        addJournal('Broker\'s partner relocated — previous address has lead to new district. Trail confirmed real but requires 1-2 days secondary channel search.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -2416,7 +2416,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.flags.wardens_route_compromised = true;
       G.flags.wardens_backup_courier_needed = true;
       addNarration('', 'The message is intercepted at the secondary checkpoint. The fastest runner uses the most efficient route — which is also the most watched. The Road Wardens\' senior contact says the runner was held for questioning and released without the message, which means someone has read it. The content of the message was operational, not evidential, but whoever intercepted it now has the shape of the current network. A backup courier with a different route is available. She is slower and less known. Those are not separate advantages.');
-      addJournal('Message intercepted — fastest runner\'s primary route monitored. Network shape exposed. Backup courier available: slower, less known, different route.', 'complication');
+      addJournal('Message intercepted — fastest runner\'s primary route monitored. Network shape exposed. Backup courier available: slower, less known, different route.', 'field_note');
       G.recentOutcomeType = 'complication';
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -2444,7 +2444,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'discovery';
       } else {
         addNarration('', 'The backup courier is available but the message needs reformatting — the intercepted runner used a coded format the backup does not recognize, and the backup courier only carries plaintext to avoid having coded materials found on his person during routine dock checks. Reformatting the message in plaintext requires stripping operational detail that makes it actionable. The message can still be sent. It will be less specific than the original.');
-        addJournal('Backup courier available but requires plaintext format — coded message must be stripped of operational detail. Delivery possible with reduced specificity.', 'complication');
+        addJournal('Backup courier available but requires plaintext format — coded message must be stripped of operational detail. Delivery possible with reduced specificity.', 'field_note');
         G.recentOutcomeType = 'complication';
       }
       if (typeof checkStageAdvance === 'function') checkStageAdvance();
@@ -2616,7 +2616,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'You double back, but the figure anticipated it — or they have a partner you didn\'t account for. By the time you\'ve worked through the grain market, the trail is cold. You don\'t see them again that afternoon. They know you noticed, which means the nature of the surveillance has just changed. Whatever they were doing passively, they\'ll do actively now.';
         G.recentOutcomeType = 'complication';
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
-        addJournal('Surveillance counter-attempt failed. Watcher now aware of detection attempt.', 'complication');
+        addJournal('Surveillance counter-attempt failed. Watcher now aware of detection attempt.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -2642,7 +2642,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else {
         G.lastResult = 'The intake clerk accepts the form and then routes it to a senior archivist for review rather than processing it automatically. The senior archivist sends it back with a notation: procedural appeals require a party-of-record designation that matches an active transaction. You are not party of record on the filing number you used. The loophole closes. The clerk files your returned form under "Misdirected Inquiry" and stamps it with today\'s date.';
         G.recentOutcomeType = 'complication';
-        addJournal('Appeal loophole closed by senior archivist review. Access still blocked.', 'complication');
+        addJournal('Appeal loophole closed by senior archivist review. Access still blocked.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -2719,7 +2719,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else {
         G.lastResult = 'The public desk is thorough and unhelpful in equal measure. The staff are trained in exactly what questions to answer and in what register to decline the rest. You leave with a summary of information you already had and a pamphlet about the Collegium\'s role in transit procedure. The building behind the intake desk is not something the intake desk discusses.';
         G.recentOutcomeType = 'complication';
-        addJournal('Collegium public office unproductive. No access to inner proceedings.', 'complication');
+        addJournal('Collegium public office unproductive. No access to inner proceedings.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -2770,7 +2770,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else {
         G.lastResult = 'The night desk is different — quieter, less formal. But the clerk on duty tonight is not the usual one. He processes your transaction code and then holds it while he looks up the category in a cross-reference binder. The binder is the suppression index. He finds the match and tells you, without expression, that this category is restricted to credentialed personnel only. He stamps the transaction "declined" and files it. Tomorrow morning the day staff will see a declined night inquiry on record.';
         G.recentOutcomeType = 'complication';
-        addJournal('Night desk access attempt declined. Suppression index checked by substitute clerk. Declined inquiry now on record.', 'complication');
+        addJournal('Night desk access attempt declined. Suppression index checked by substitute clerk. Declined inquiry now on record.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -2976,7 +2976,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         G.lastResult = 'The service entrance is used by people who are expected there. A delivery clerk who\'s worked the route for years notices you in the corridor immediately — not because you look wrong exactly, but because the building knows its own people and you are not one of them. He doesn\'t call for a warden. He asks your business in a tone that makes it clear the question is a formality. You give a plausible answer and leave. The annex door, visible at the corridor\'s end, stays closed.';
         G.recentOutcomeType = 'complication';
-        addJournal('Service entrance approach identified by delivery clerk. Building staff now aware of unauthorized corridor presence.', 'complication');
+        addJournal('Service entrance approach identified by delivery clerk. Building staff now aware of unauthorized corridor presence.', 'field_note');
       }
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
@@ -3163,7 +3163,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         G.lastResult = 'The position holds for two hours before a patrol sweep changes its rotation and brings a warden past the street level below. He doesn\'t look up. The cart route doesn\'t run tonight — either the schedule changed or the cart already passed before you were in position. The window above the alley stays shuttered. Surveillance requires better timing than this.';
         G.recentOutcomeType = 'complication';
-        addJournal('Surveillance position lost — patrol rotation change, cart route not observed.', 'complication');
+        addJournal('Surveillance position lost — patrol rotation change, cart route not observed.', 'field_note');
       }
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
@@ -3199,7 +3199,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         G.lastResult = 'The corridor stays clear for twenty seconds, then a building runner comes through with a delivery stack. She doesn\'t stop but she looks at your hands. The wax block stays in your pocket. The impression will have to wait for a longer window — the corridor gets two clear stretches per day, and this was one of them.';
         G.recentOutcomeType = 'complication';
-        addJournal('Lock impression attempt interrupted — corridor runner noted hand position, next opportunity requires new window.', 'complication');
+        addJournal('Lock impression attempt interrupted — corridor runner noted hand position, next opportunity requires new window.', 'field_note');
       }
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
@@ -3274,7 +3274,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         G.lastResult = 'The stall owner is cooperative until you mention the parcels. His posture changes in a way he can\'t help — he picks up a jar, puts it down, picks it up again. He says he doesn\'t remember any arrangement. He says it three times. By the third time, someone at the adjacent stall has moved closer. The network, whatever it is, has eyes on this block, and now it knows someone is asking about the courier.';
         G.recentOutcomeType = 'complication';
-        addJournal('Courier network inquiry detected — stall owner deflected, adjacent observer moved in, network aware of inquiry.', 'complication');
+        addJournal('Courier network inquiry detected — stall owner deflected, adjacent observer moved in, network aware of inquiry.', 'field_note');
       }
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     }
@@ -3307,7 +3307,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.recentOutcomeType = 'complication';
         if (G.worldClocks) G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 1);
         if (typeof addHeat === 'function') addHeat('shelk', 1);
-        addJournal('Warden held position under pressure — has instructions and backing. Watchfulness raised.', 'complication');
+        addJournal('Warden held position under pressure — has instructions and backing. Watchfulness raised.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -3338,7 +3338,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'The interception is larger than expected — five people, and two of them have already moved to block the far end of the lane. The courier drops the satchel and runs. You hold the lane long enough for her to clear the block, then disengage. The manifest is gone. The courier made it. One of those things is recoverable.';
         G.recentOutcomeType = 'complication';
         if (G.stageProgress) G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
-        addJournal('Interception larger than anticipated — manifest lost, courier survived. Professional opposition confirmed.', 'complication');
+        addJournal('Interception larger than anticipated — manifest lost, courier survived. Professional opposition confirmed.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -3400,7 +3400,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'He\'s better than the situation suggested — he anticipated the reversal and had already moved to a parallel passage. By the time you circle back, he\'s on a roof line three buildings over, watching. The message is clear: he\'s not afraid of you knowing he\'s there. Whatever he\'s doing, he\'s been authorized to do it openly.';
         G.recentOutcomeType = 'complication';
         if (G.worldClocks) G.worldClocks.pressure = Math.min(10, (G.worldClocks.pressure || 0) + 1);
-        addJournal('Tail evasion failed — professional counter-surveillance confirmed. Operation is openly authorized.', 'complication');
+        addJournal('Tail evasion failed — professional counter-surveillance confirmed. Operation is openly authorized.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -3431,7 +3431,7 @@ const STAGE2_ENRICHED_CHOICES = [
         G.lastResult = 'He drops the satchel and runs — faster than expected, and he takes a route that suggests he\'s used it before. When you retrieve the satchel, it\'s empty. He transferred whatever he was carrying before he left the building; the satchel was cover. The real document moved a different way, and you\'ve now shown your hand.';
         G.recentOutcomeType = 'complication';
         if (G.worldClocks) G.worldClocks.watchfulness = Math.min(10, (G.worldClocks.watchfulness || 0) + 2);
-        addJournal('Document transfer failed — clerk used decoy satchel. Real document moved separately. Cover blown.', 'complication');
+        addJournal('Document transfer failed — clerk used decoy satchel. Real document moved separately. Cover blown.', 'field_note');
       }
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -3459,7 +3459,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The archive clerk notices the page comparison before you do. She doesn't say anything, but her hand goes to the counter bell. You step back and ask about general filing procedures instead. She answers politely and doesn't ring the bell. By the time you leave, the ledger is back under the counter. There are other ways to reach the same answer, but this path is closed.`;
-        addJournal('Archive access flagged — courier ledger review blocked by staff alertness', 'complication', `s2global-courier-ledger-fail-${G.dayCount}`);
+        addJournal('Archive access flagged — courier ledger review blocked by staff alertness', 'field_note', `s2global-courier-ledger-fail-${G.dayCount}`);
       } else {
         G.flags.courier_ledger_gap_found = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3489,7 +3489,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The third intake office has a warden posted at the records desk today — unusual for a clerical station. He asks the purpose of your records review before the clerk can respond. Your explanation holds, but the warden writes your name into the duty log before returning to his post. The intake logs stay on the restricted shelf. The pattern you were tracking will have to be approached from a different direction.`;
-        addJournal('Warden presence at intake office — name search logged, access denied', 'complication', `s2global-name-cross-fail-${G.dayCount}`);
+        addJournal('Warden presence at intake office — name search logged, access denied', 'field_note', `s2global-name-cross-fail-${G.dayCount}`);
       } else {
         G.flags.suppressed_name_crosspolity = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3518,7 +3518,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The liaison has dealt with people asking about report routing before — her posture shifts before you finish the question. She gives you the public Collegium address and a form number for general records inquiries. Both are correct and both are useless. She holds the door. The conversation ends before it started. Some avenues require a different kind of entry.`;
-        addJournal('Collegium liaison deflected reporting structure inquiry — public form provided, no further access', 'complication', `s2global-collegium-liaison-fail-${G.dayCount}`);
+        addJournal('Collegium liaison deflected reporting structure inquiry — public form provided, no further access', 'field_note', `s2global-collegium-liaison-fail-${G.dayCount}`);
       } else {
         G.flags.collegium_liaison_divergence = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3547,7 +3547,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The waystation keeper comes back while you're reading the dust patterns on the supply shelf. He doesn't say anything aggressive, but he plants himself in the doorway and asks what you're looking for. You name a supply item. He points to it — it's in the open section, not the area you were examining. He waits until you take it and leave. The back panel stays unexamined. There are other waystations on this route.`;
-        addJournal('Waystation supply area interrupted — keeper present, back panel section unexamined', 'complication', `s2global-waystation-fail-${G.dayCount}`);
+        addJournal('Waystation supply area interrupted — keeper present, back panel section unexamined', 'field_note', `s2global-waystation-fail-${G.dayCount}`);
       } else {
         G.flags.waystation_unlogged_transit = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3576,7 +3576,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The cargo office clerk asks why you need the secondary loading ledger. Standard manifest access doesn't require it. You give a reason; it's not quite the right reason for this office's protocol and she knows the difference. She provides the public manifest summary and notes that cross-referencing against loading records requires a formal audit request through the Guild Oversight desk. The specific manifests you need are now one administrative layer further away.`;
-        addJournal('Cargo office protocol — loading ledger cross-reference requires formal audit request, access deferred', 'complication', `s2global-manifest-fail-${G.dayCount}`);
+        addJournal('Cargo office protocol — loading ledger cross-reference requires formal audit request, access deferred', 'field_note', `s2global-manifest-fail-${G.dayCount}`);
       } else {
         G.flags.manifest_weight_fraud = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3608,7 +3608,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The dispatch office clerk has the updated route schedule, but it's an internal document — not for public distribution. You ask why the board hasn't been corrected. She looks at you the way people look when a question has a simple answer and the asker is about to get complicated. She offers to take a message for the route supervisor. The supervisor isn't in today. The board remains unchanged when you leave.`;
-        addJournal('Courier route discrepancy — internal schedule not public, route supervisor unavailable', 'complication', `s2global2-courier-fail-${G.dayCount}`);
+        addJournal('Courier route discrepancy — internal schedule not public, route supervisor unavailable', 'field_note', `s2global2-courier-fail-${G.dayCount}`);
       } else {
         G.flags.courier_route_discrepancy = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3638,7 +3638,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The archive registrar notices your attention on the seal dating and asks what you're cross-referencing. Archival access for comparative seal work requires a research designation — a specific one, not a general reading permit. You don't have it. She's not unkind about it, but the documents go back into their folder and the folder goes back to the shelf. The registrar notes the inquiry in the access log.`;
-        addJournal('Seal comparison access denied — requires specific research designation, inquiry logged', 'complication', `s2global2-seals-fail-${G.dayCount}`);
+        addJournal('Seal comparison access denied — requires specific research designation, inquiry logged', 'field_note', `s2global2-seals-fail-${G.dayCount}`);
       } else {
         G.flags.collegium_seal_anachronism = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3668,7 +3668,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The roster ledger is kept at the duty desk, not the reading room. Getting to it required explaining why you needed staff records rather than archive materials. The explanation held long enough for a look, but not long enough to cross-reference the access log — the access log is in a different office, under a different administrative chain. The duty clerk logged your inquiry under a category that will circle back to the archivist eventually.`;
-        addJournal('Roster access interrupted — access log in separate chain, inquiry logged under archivist oversight category', 'complication', `s2global2-archivist-fail-${G.dayCount}`);
+        addJournal('Roster access interrupted — access log in separate chain, inquiry logged under archivist oversight category', 'field_note', `s2global2-archivist-fail-${G.dayCount}`);
       } else {
         G.flags.archivist_offhours_entries = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3696,7 +3696,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The broker closes the ledger before you finish the question. She's been through a licensing review before and knows exactly where this type of inquiry leads. She offers to have her Guild representative present before continuing and asks for your formal identification. The conversation ends there. She's not hostile — but the ledger is already locked and the key is in her coat.`;
-        addJournal('Broker closed ledger on licensing query — requested formal identification, Guild rep required for continuation', 'complication', `s2global2-broker-fail-${G.dayCount}`);
+        addJournal('Broker closed ledger on licensing query — requested formal identification, Guild rep required for continuation', 'field_note', `s2global2-broker-fail-${G.dayCount}`);
       } else {
         G.flags.broker_unlicensed_clients = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3725,7 +3725,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The warden doesn't answer the question about the unopened crates. He answers a different question — the one about whether dry goods require physical inspection under the current transit charter. They don't, he explains, for certified carriers with a clean compliance record. He produces the carrier's compliance certificate. It's current and properly signed. Whatever is in the crates isn't your business under that charter, and he knows the charter better than you do.`;
-        addJournal('Transit warden cited charter exemption — certified carrier dry goods exempt from physical inspection, certificate valid', 'complication', `s2global2-warden-fail-${G.dayCount}`);
+        addJournal('Transit warden cited charter exemption — certified carrier dry goods exempt from physical inspection, certificate valid', 'field_note', `s2global2-warden-fail-${G.dayCount}`);
       } else {
         G.flags.transit_warden_uninspected = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3753,7 +3753,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The supply ledger clerk pulls the category index and shows you the classification reference. The entry exists and is properly cross-referenced. The clerk runs a record integrity check while you wait — it comes back clean. Whatever manipulation occurred is above the level the standard integrity check examines. You've reached the edge of what routine document review can surface without specialist access.`;
-        addJournal('Supply ledger integrity check returned clean — manipulation above standard review level, specialist access required', 'complication', `s2global2-supply-fail-${G.dayCount}`);
+        addJournal('Supply ledger integrity check returned clean — manipulation above standard review level, specialist access required', 'field_note', `s2global2-supply-fail-${G.dayCount}`);
       } else {
         G.flags.supply_retroactive_filing = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3782,7 +3782,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The administrative supervisor you need is the person who would normally handle this type of inquiry — but she's the one who left. Her replacement question gets referred to a deputy who covers three other functions and doesn't have context for clearance processing. He offers to pass along a message and find out who's currently handling the intake. He'll have an answer by end of week. He doesn't look certain of that.`;
-        addJournal('Clearance vacancy inquiry referred to uninformed deputy — no resolution timeline, end-of-week answer uncertain', 'complication', `s2global2-clearance-fail-${G.dayCount}`);
+        addJournal('Clearance vacancy inquiry referred to uninformed deputy — no resolution timeline, end-of-week answer uncertain', 'field_note', `s2global2-clearance-fail-${G.dayCount}`);
       } else {
         G.flags.clearance_role_vacant = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3811,7 +3811,7 @@ const STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The shift supervisor catches you reading the duty roster without checking in at the duty desk first. Protocol requires logging entry intent before accessing staff documents. It's a minor procedural breach, not a serious one, but it gets noted and it colors the rest of the conversation. The supervisor answers shift questions in the narrowest possible terms. The roster goes back to its position behind the desk before you've finished.`;
-        addJournal('Duty roster access procedural breach — supervisor noted entry, shift questions answered minimally', 'complication', `s2global2-roster-fail-${G.dayCount}`);
+        addJournal('Duty roster access procedural breach — supervisor noted entry, shift questions answered minimally', 'field_note', `s2global2-roster-fail-${G.dayCount}`);
       } else {
         G.flags.roster_shift_pattern = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3847,6 +3847,353 @@ const STAGE2_ENRICHED_CHOICES = [
         addNarration('Guild Fence — No Deal', 'She names what she wants and you don\'t have it — or you have it and won\'t give it. Either way her expression doesn\'t change. She picks up a clay jar and turns it in her hands, appraising the glaze with the professional attention of someone who stopped listening to you a sentence ago. The conversation is over. The stall stays busy around you and she doesn\'t look at you again. The jar goes back on the shelf.');
       }
     }
+  },
+
+  // ========== LOCALITY-SPECIFIC CHOICES: Zero-sp2 locality fixes ==========
+  // These 12 choices (2 per locality) ensure mimolot, glasswake_commune, soreheim,
+  // guildheart, aurora, and shirshal each contribute sp2 on successful visits.
+  // No flag conditions — available to all archetypes including magic/inquisitor families.
+
+  // --- Mimolot Academy (knowledge tariffs, magical conduct, scholarly prestige) ---
+  {
+    id: 's2_mimolot_1',
+    label: 'The tutor-magistrate marked that shelf restricted. That\'s recent.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Mimolot', 'Evidence', 'Lore'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('wits');
+      var dc = 12 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.mimolot_archive_accessed = true;
+        addNarration('Mimolot Archive — Restricted Shelf', 'The restriction notice is fresh — the ink on the wax seal is barely set, the parchment corner still curling from the heat. Whatever was on this shelf was cleared in the last two days. The catalog index beside it has a gap where three volume entries should be: numbers running 447 through 449, referenced in the cross-index as tariff exemption records spanning the last four academic cycles. Someone decided those records needed to be elsewhere. The tutor-magistrate is not in the room. The catalog stays open.');
+        addJournal('Mimolot Academy archive: three tariff exemption volumes recently pulled from public access. Numbers 447-449 absent from restricted shelf, present in cross-index.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Mimolot Archive — Turned Away', 'The junior archivist intercepts you three steps from the shelf. Her tone is even and without apology. The restricted section requires a faculty seal for access, and faculty seals are issued by the tutor-magistrate whose schedule is posted at the main gate. She has already turned back to her own work before you reach the door. The catalog index is behind her desk and out of reach.');
+        addJournal('Mimolot restricted archive inaccessible without faculty seal from tutor-magistrate.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The archive requires a faculty seal. The shelf stays closed.'
+  },
+
+  {
+    id: 's2_mimolot_2',
+    label: 'A student paying knowledge tariffs on something she already owns knows more than she\'s saying.',
+    skill: 'charm',
+    tag: 'risky',
+    tags: ['Mimolot', 'Social', 'Intelligence'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('charm');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.mimolot_student_source = true;
+        addNarration('Mimolot Courtyard — Student Exchange', 'She doesn\'t look around before she answers, which either means she isn\'t worried or she\'s very practiced. The tariff she paid covers a restricted methodology text — one she inherited from her mentor, who left the Academy under pressure six months ago. The methodology is standard. The restriction is not. She has been paying the tariff monthly to keep the text from being catalogued as contraband, which would require her to surrender it. She names two other students in the same position. She did not ask why you wanted to know.');
+        addJournal('Mimolot Academy: three students paying ongoing tariffs to retain privately-held texts flagged for restricted catalog. Pattern suggests selective enforcement.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Mimolot Courtyard — Deflection', 'She listens until you finish and then checks something in her satchel with the focused attention of someone who has decided not to be part of this conversation. "Knowledge tariffs are assessed by the magistrate\'s office," she says. "Appeals go through the same office." Her satchel closes. She is already walking.');
+        addJournal('Student declined to discuss Mimolot tariff irregularities.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The student has nothing to say about knowledge tariffs. The courtyard stays quiet.'
+  },
+
+  // --- Glasswake Commune (contamination measurement, quarantine law, Sheresh research) ---
+  {
+    id: 's2_glasswake_1',
+    label: 'The exposure log skips four days. That doesn\'t happen by accident.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Glasswake', 'Evidence', 'Discovery'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('wits');
+      var dc = 12 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.glasswake_log_gap_found = true;
+        addNarration('Glasswake Observation Gallery — Log Gap', 'The exposure log is kept in triplicate under quarantine protocol — one copy for the observer, one for the concord warden, one for deep archive. All three copies skip the same four days. Not a transcription error: the page numbering continues correctly, the binding is undisturbed. Someone removed the entries from all three copies simultaneously, which requires access that only the concord warden holds. The readings for those days are not recoverable from this room. They exist somewhere, or they were destroyed at the source.');
+        addJournal('Glasswake Commune: four-day gap in exposure log across all three copies simultaneously. Requires concord warden access to execute. Readings either relocated or destroyed.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Glasswake Observation Gallery — Access Blocked', 'The observation log is behind a quarantine glass panel — visible, not reachable. The attendant is precise: access requires contamination clearance from the intake scanner, and the intake scanner queue is full until the afternoon cycle. She does not offer an exception. The log sits open at today\'s entry, readable from the other side of the glass, and today\'s entry tells you nothing you did not already know.');
+        addJournal('Glasswake exposure log accessible only after contamination clearance. Queue full until afternoon.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The exposure log is behind quarantine glass. The afternoon queue is the only path.'
+  },
+
+  {
+    id: 's2_glasswake_2',
+    label: 'The containment warden is doing her rounds early. Something changed.',
+    skill: 'finesse',
+    tag: 'risky',
+    tags: ['Glasswake', 'Stealth', 'Intelligence'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('finesse');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.glasswake_warden_observed = true;
+        addNarration('Glasswake Corridor — Warden Round', 'The warden moves through the maintenance gallery at twice the posted interval. She stops at sensor pylon three, checks a reading, writes something on her sleeve rather than the duty board, and continues. Writing on the sleeve means she doesn\'t want the reading in the duty log. The reading is from the eastern exposure trench — the same sector as the four-day gap. She finishes the gallery and heads directly to the communications room rather than the warden\'s station. Someone outside the commune needs to know what pylon three just measured.');
+        addJournal('Glasswake containment warden took off-schedule readings at pylon three, recorded on sleeve, proceeded directly to communications room. Eastern trench sector — same as log gap.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Glasswake Corridor — Spotted', 'The warden clocks you before you clock her. Her route doubles back at the gallery junction and she is standing at the far end of the corridor with her arms at her sides and her eyes on you. "Observation gallery is east wing," she says. "This gallery is maintenance access. Badge or clearance, please." Her voice does not rise. She waits.');
+        addJournal('Containment warden intercepted in maintenance gallery. Access challenge issued.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The warden is already watching. The maintenance corridor closes off.'
+  },
+
+  // --- Soreheim Proper (Titan Towers, war production, tower rank, Giant Council) ---
+  {
+    id: 's2_soreheim_1',
+    label: 'The work assignment board has a tower listed that doesn\'t appear on any public manifest.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Soreheim', 'Evidence', 'Intelligence'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('wits');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.soreheim_tower_discrepancy = true;
+        addNarration('Soreheim Tower Base — Assignment Board', 'Tower designation T-9 is listed three times in today\'s assignment rotation. T-9 does not appear on the public manifest board at the tower base entrance, which lists towers T-1 through T-8 and T-10 through T-14. The assignments are routine: materials transport, forge maintenance, logistics relay. Someone added a ninth unlisted tower to the rotation without updating the public manifest. The workers assigned to T-9 are listed by labor number, not name — which is standard for restricted-access tower assignments in wartime production.');
+        addJournal('Soreheim: tower designation T-9 appears in assignment rotation but absent from public manifest. Three routine assignments. Workers listed by number, not name — restricted-access protocol.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Soreheim Tower Base — Board Crowded', 'The assignment board is three-deep in workers checking their rotations. You get close enough to see the board face but not long enough to read it — someone presses forward and you are pushed to the edge of the crowd before the cycle updates. The foreman\'s station beside the board is staffed and watching. You clear the crowd and come back later when the board has turned over to the next cycle, and what you needed is already gone.');
+        addJournal('Soreheim assignment board unreadable during shift change. Foreman station staffed throughout.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The assignment board clears before you can read it. The foreman is watching.'
+  },
+
+  {
+    id: 's2_soreheim_2',
+    label: 'A logistics artisan carrying sealed manifests doesn\'t unload at this bay.',
+    skill: 'vigor',
+    tag: 'risky',
+    tags: ['Soreheim', 'Stealth', 'Evidence'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('vigor');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.soreheim_sealed_route_tracked = true;
+        addNarration('Soreheim Freight Corridor — Artisan Track', 'You fall into the pace of the loading corridor traffic, which moves fast enough that standing still is conspicuous. The artisan with the sealed manifests goes past two unloading bays and through a maintenance junction that is marked as closed for the afternoon cycle — the closed marker is a sliding plate that has been pushed two inches off-center, enough to pass through if you know to look for it. The corridor beyond is narrower and quieter and ends at a freight elevator marked with a designation that matches the unlisted tower.');
+        addJournal('Soreheim: sealed manifest artisan bypassed standard bays via maintenance junction to freight elevator bearing T-9 designation. Route confirmed operational during closed period.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Soreheim Freight Corridor — Lost in Traffic', 'The corridor is moving fast and you lose the artisan at the first junction split. You take the wrong branch and come out at a loading bay with no sealed cargo in sight. When you backtrack, the junction is staffed by a tower tribune who wants to know your assigned bay number. You give the nearest one you remember from the board. He checks it. He waves you through. The artisan is gone.');
+        addJournal('Lost target in Soreheim freight corridor junction split. Tower tribune present at junction.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The freight corridor is too fast. The artisan disappears at the junction split.'
+  },
+
+  // --- Guildheart Hub (arbitration, tariff mediation, warehouse registration, The Union) ---
+  {
+    id: 's2_guildheart_1',
+    label: 'The hearing chamber closed early and the clerk is still inside.',
+    skill: 'charm',
+    tag: 'risky',
+    tags: ['Guildheart', 'Social', 'Evidence'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('charm');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.guildheart_clerk_source = true;
+        addNarration('Guildheart Hearing Chamber — After Session', 'The clerk does not look like someone who expected company. She is reorganizing the arbitration record stack with the careful efficiency of someone who intends to be finished before the next session opens. You name the filing reference you\'re looking for. She considers for a moment — not whether she knows it, but whether she wants to be the one who tells you. She slides one sheet from the middle of the stack without looking at you. It bears a tariff sanction notice with a crossed-out authorization code. "Sanctions don\'t get crossed out," she says. "They get appealed. This one wasn\'t appealed." She resumes stacking.');
+        addJournal('Guildheart arbitration clerk: tariff sanction notice with crossed-out authorization code — no appeal filed. Crossing out a sanction requires Guild Council authority, not standard arbitration process.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Guildheart Hearing Chamber — Closed', 'The door is locked from the inside and the session board outside lists the chamber as closed until the morning rotation. You knock once. There is a pause in the movement inside and then silence. Whatever the clerk is finishing will be finished without an audience. The corridor empties around you as the day session ends and the evening queue begins forming at the intake desk.');
+        addJournal('Guildheart hearing chamber locked during post-session. No access.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The chamber door is locked. The clerk inside is not answering.'
+  },
+
+  {
+    id: 's2_guildheart_2',
+    label: 'Two bonded warehouses are registered to the same Guild mark with different owner names.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Guildheart', 'Evidence', 'Lore'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('wits');
+      var dc = 12 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.guildheart_duplicate_mark_found = true;
+        addNarration('Guildheart Registry Tower — Warehouse Index', 'The bonded warehouse index is public record, organized by Guild mark and updated quarterly. Mark GH-117 appears twice: once under the name Selenne Farrow, registered six years ago, and once under Veth Doran, registered eight months ago. A Guild mark is issued once and does not transfer — the registration fee is non-refundable and the mark is personal. Both registrations are stamped with the same issuing authority. One of them is forged, and the quarterly update that should have flagged the conflict has been suppressed for three consecutive quarters. The suppression notation is initialed, but the initials don\'t match any listed staff member.');
+        addJournal('Guildheart warehouse index: Guild mark GH-117 holds two active registrations under different names. Three consecutive quarterly conflict checks suppressed. Initials on suppression do not match listed staff.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Guildheart Registry Tower — Index Locked', 'The warehouse index requires a bonded trader registration to access — a standard anti-tampering measure that the clerk at the intake desk enforces with practiced patience. She has heard every version of why someone needs access without registration. Her answer is the same. The public reading copy in the ground-floor alcove is last quarter\'s edition and the entry you need was updated since then.');
+        addJournal('Guildheart warehouse index requires bonded trader registration. Public reading copy is outdated.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The bonded warehouse index requires a trader registration. The public copy is last quarter\'s.'
+  },
+
+  // --- Aurora Crown Commune (dome survival, celestial study, Sheresh stewards) ---
+  {
+    id: 's2_aurora_1',
+    label: 'The dome steward is logging a supply count that doesn\'t match the ration board.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Aurora', 'Evidence', 'Discovery'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('wits');
+      var dc = 12 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.aurora_supply_discrepancy = true;
+        addNarration('Aurora Crown — Ration Court', 'The ration board is posted at dome-center and updated at each distribution cycle. The steward\'s supply log, which you read over his shoulder as he enters today\'s count, shows twelve units of sealed grain marked received this morning. The ration board shows eight. The steward does not look up while he writes. The four-unit gap is not rounding and it is not error — the entries are precise and the units are tracked individually by seal number. He closes the log before you can read the seal numbers. He knows you were looking.');
+        addJournal('Aurora Crown: supply log shows 12 units received against ration board\'s 8. Four-unit gap tracked individually. Steward closed log on observation.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Aurora Crown — Ration Court Crowded', 'Distribution cycle is running and the ration court is packed shoulder to shoulder. You can see the steward\'s station but not reach it and not read anything at that distance in this light. The dome thermal hum is constant and the crowd is loud. When the distribution cycle ends, the steward has already moved to the next station and his log has gone with him.');
+        addJournal('Aurora Crown ration court inaccessible during distribution cycle. Steward moved before approach.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The distribution cycle fills the ration court. The steward is gone before it clears.'
+  },
+
+  {
+    id: 's2_aurora_2',
+    label: 'The aurora study hall has equipment running with the shutters sealed. Someone\'s working off-cycle.',
+    skill: 'finesse',
+    tag: 'risky',
+    tags: ['Aurora', 'Stealth', 'Intelligence'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('finesse');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.aurora_offcycle_research = true;
+        addNarration('Aurora Crown — Study Hall Off-Cycle', 'The shutter lock is a dome-standard three-bar latch, and the third bar is not fully engaged — enough that the shutter seals from outside but opens from inside with a single pull. You enter before the lock clicks home. Inside, two researchers are working at a calibration table with a celestial instrument pointed at the dome\'s inner face rather than the observation aperture. They are measuring something inside the dome, not outside it. One of them looks up. His expression does not change. "Close it behind you," he says, meaning the shutter. "And sit down if you\'re going to stay."');
+        addJournal('Aurora Crown study hall: off-cycle researchers measuring dome interior face rather than sky aperture. Equipment active with shutters sealed. Presence acknowledged, not challenged.', 'intelligence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Aurora Crown — Shutter Locked', 'The study hall shutter is locked from inside and the latch is fully home — no gap, no flex. You press your ear to the join and hear the hum of something running, steady and low. Whatever is running in there is not on the posted schedule. The dome protocol board outside lists the hall as closed until the next clear-sky window. You have been standing here long enough that the corridor monitor has noted your position on his rounds.');
+        addJournal('Aurora study hall sealed from inside, off posted schedule. Corridor monitor noted position.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The study hall shutter is fully locked from inside. The corridor monitor is watching.'
+  },
+
+  // --- Shirshal (Magi Magistratus, magical law, arcane scrutiny, House Shirsh) ---
+  {
+    id: 's2_shirshal_1',
+    label: 'The case filing room has a notice board with names that shouldn\'t be public.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Shirshal', 'Evidence', 'Lore'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('wits');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.shirshal_notice_board_read = true;
+        addNarration('Shirshal Filing Room — Notice Board', 'The Magi Magistratus posts active case notices by case number, not name — standard magical-law practice. But the filing room\'s internal routing board, visible through the half-open partition, lists cases by case number and petitioner name simultaneously. Three entries are from petitioners whose names appear in records you\'ve seen at other localities under different classifications: not suspects, not complainants — witnesses who were marked inactive. Inactive witnesses don\'t file new cases. One of the entries is dated last week.');
+        addJournal('Shirshal Magi Magistratus filing room: three cases filed by petitioners whose names appear as inactive witnesses in cross-locality records. One dated last week.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Shirshal Filing Room — Partition Closed', 'The partition is fully closed by the time you reach the right angle to see the routing board. The clerk at the front intake desk offers a case number lookup for any open petition by appointment — appointments are handled on odd days, today is even. She hands you a paper form and slides the pen tray across the desk. The form takes fifteen minutes and a registered locality address to complete.');
+        addJournal('Shirshal filing room partition closed. Case lookup requires appointment on odd days.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The partition closes before you get the angle. The clerk wants a form and a locality address.'
+  },
+
+  {
+    id: 's2_shirshal_2',
+    label: 'An arcane specialist is reviewing a case file she\'s not listed on.',
+    skill: 'spirit',
+    tag: 'risky',
+    tags: ['Shirshal', 'Magic', 'Evidence'],
+    plot: 'main',
+    fn: function() {
+      if (!G.flags) G.flags = {};
+      var r = rollD20('spirit');
+      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      if (r.total >= dc) {
+        G.stageProgress[2]++;
+        G.flags.shirshal_specialist_observed = true;
+        addNarration('Shirshal Reading Alcove — Specialist', 'She is not hiding, but she is careful — seated sideways to the main corridor, the case file angled toward the alcove wall. The case number on the cover is visible from your position: an active magical-conduct inquiry, not her assigned caseload based on the duty roster posted at the alcove entrance. She is reading exhibits, not documents — the physical evidence described in the file, which is stored separately, not present. She\'s working from memory or prior access. When she turns a page, a second file slides from beneath the first: an older number, marked closed four years ago. Both files have the same red marginal notation, in the same hand.');
+        addJournal('Shirshal: specialist reviewing active inquiry file outside assigned caseload, with access to closed case from four years prior. Both bear identical red marginal notation.', 'evidence');
+        G.recentOutcomeType = 'discovery';
+      } else {
+        addNarration('Shirshal Reading Alcove — Empty', 'The alcove is unoccupied. The duty roster at the entrance lists three specialists on the current rotation, but the reading room attendant says the afternoon session cleared early — a scheduling change from the Magi Magistratus. Whatever was happening here today happened before you arrived. The alcove furniture is arranged with the careful precision of someone who prefers a particular seat.');
+        addJournal('Shirshal reading alcove empty. Afternoon session cleared early by Magi Magistratus.', 'field_note');
+        G.recentOutcomeType = 'complication';
+      }
+      if (typeof updateHUD === 'function') updateHUD();
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: 'The reading alcove is empty. The afternoon session cleared early.'
   }
 ];
 

@@ -39,7 +39,7 @@ var STAGE2_CLIMAX = (function() {
         : 'Inquisitor Orveth does not look up when you enter. She finishes reading a document, sets it squarely at the corner of her desk, then gives you her full attention. She straightens the document she set there — squaring it precisely, though it was already square.';
       G.lastResult = orvethOpener + ' She listens without speaking. When you finish, she says: "You have been thorough. Perhaps too thorough. We will be watching." She rises to indicate the meeting is over. You are not detained. The door closes behind you with the quiet click of something not quite resolved.';
       G.flags.stage2_climax_negotiated = true;
-      if (r.isCrit) { G.lastResult += ' At the door, she stops you: "If you find what I think you will find — bring it to me first. Before anyone else." She does not wait for an answer.'; G.flags.stage2_climax_inquisitor_contact = true; }
+      if (r.isCrit) { G.lastResult = (G.lastResult || '') + ' At the door, she stops you: "If you find what I think you will find — bring it to me first. Before anyone else." She does not wait for an answer.'; G.flags.stage2_climax_inquisitor_contact = true; }
       G.recentOutcomeType = 'success';
     } else {
       G.lastResult = 'Orveth listens. She does not take notes. When you finish, she opens a different folder on her desk — one she was already reading before you arrived. "You have been pursuing matters that touch the Collegium\'s own work. For now, consider yourself a person of interest — not a suspect. Do not leave Shelkopolis." She returns to her reading. You are dismissed, but not free.';
@@ -47,7 +47,7 @@ var STAGE2_CLIMAX = (function() {
       G.flags.stage2_climax_person_of_interest = true;
       G.recentOutcomeType = 'complication';
     }
-    addJournal(G.lastResult, 'intelligence');
+    addJournal(G.lastResult || '', 'intelligence');
     phase2();
   }
 
@@ -63,7 +63,7 @@ var STAGE2_CLIMAX = (function() {
       G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       G.recentOutcomeType = 'complication';
     }
-    addJournal(G.lastResult, 'intelligence');
+    addJournal(G.lastResult || '', 'intelligence');
     phase2();
   }
 
@@ -73,7 +73,7 @@ var STAGE2_CLIMAX = (function() {
     G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
     G.flags.stage2_climax_refused_summons = true;
     G.recentOutcomeType = 'partial';
-    addJournal(G.lastResult, 'intelligence');
+    addJournal(G.lastResult || '', 'intelligence');
     phase2();
   }
 
@@ -84,7 +84,7 @@ var STAGE2_CLIMAX = (function() {
     G.recentOutcomeType = 'discovery';
     G.investigationProgress = Math.max(G.investigationProgress || 0, 10);
     G.flags.stage2_revelation_received = true;
-    addJournal(G.lastResult, 'evidence');
+    addJournal(G.lastResult || '', 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     setTimeout(phase3, 400);
   }
@@ -164,7 +164,7 @@ var STAGE2_CLIMAX = (function() {
     } else if (G.flags.stage2_climax_resolution === 'withdraw') {
       G.lastResult += ' The Collegium\'s reader knows a document was in circulation. They do not know you have it. That will change.';
     }
-    addJournal(G.lastResult, 'evidence');
+    addJournal(G.lastResult || '', 'evidence');
     if (typeof updateHUD === 'function') updateHUD();
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
     if (!G.flags.stage3_blocked) {

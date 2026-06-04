@@ -267,46 +267,41 @@ function _stage1MainBossResolution() {
 }
 
 // Pure boolean check — returns true if the boss sequence SHOULD fire, without firing anything
+// Trigger condition: sp1 >= 10 (no locality-specific gate — ensures all archetypes can trigger)
 function canTriggerStage1Boss() {
   if (!G || !G.flags) return false;
   if (G.stage !== 'Stage I') return false;
-  if (G.location !== 'shelkopolis') return false;
   if (G.flags.stage1_boss_started || G.flags.stage1_narrative_complete) return false;
   var _sp1 = G.stageProgress[1]||0;
-  // Miniboss window: sp1 >= 8 with a seed, or sp1 >= 15
-  if (!(G.flags.stage1_miniboss_complete) &&
-      ((_sp1 >= 8 && (G.flags.stage1_miniboss_seeded_1 || G.flags.stage1_miniboss_seeded_2)) ||
-       _sp1 >= 15)) {
+  if (_sp1 < 10) return false;
+  // Miniboss window: not yet complete
+  if (!(G.flags.stage1_miniboss_complete)) {
     return true;
   }
-  // Main boss window: miniboss done and sp1 >= 15
-  if (!(G.flags.stage1_mainboss_complete) &&
-      G.flags.stage1_miniboss_complete &&
-      _sp1 >= 15) {
+  // Main boss window: miniboss done
+  if (!(G.flags.stage1_mainboss_complete) && G.flags.stage1_miniboss_complete) {
     return true;
   }
   return false;
 }
 
 // Trigger check — call from checkStageAdvance or locality arrival
+// Fires anywhere once sp1 >= 10 (no locality gate — all archetypes can trigger)
 function checkStage1BossTriggered() {
   if (!G || G.stage !== 'Stage I') return;
-  if (G.location !== 'shelkopolis') return;
+  if (!G.flags) G.flags = {};
   var _sp1 = G.stageProgress[1]||0;
+  if (_sp1 < 10) return;
+  if (G.flags.stage1_boss_started || G.flags.stage1_narrative_complete) return;
   // At sp1 >= 18, player has progressed past miniboss window — bypass it so main boss fires
-  if (!(G.flags && G.flags.stage1_miniboss_complete) && _sp1 >= 18) {
-    if (!G.flags) G.flags = {};
+  if (!G.flags.stage1_miniboss_complete && _sp1 >= 18) {
     G.flags.stage1_miniboss_complete = true;
   }
-  if (!(G.flags && G.flags.stage1_miniboss_complete) &&
-      (_sp1 >= 8 && (G.flags && (G.flags.stage1_miniboss_seeded_1 || G.flags.stage1_miniboss_seeded_2)) ||
-       _sp1 >= 15)) {
+  if (!G.flags.stage1_miniboss_complete) {
     triggerStage1MiniBoss();
     return;
   }
-  if (!(G.flags && G.flags.stage1_mainboss_complete) &&
-      (G.flags && G.flags.stage1_miniboss_complete) &&
-      _sp1 >= 15) {
+  if (!G.flags.stage1_mainboss_complete && G.flags.stage1_miniboss_complete) {
     triggerStage1MainBoss();
   }
 }
