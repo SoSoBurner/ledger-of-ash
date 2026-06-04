@@ -324,7 +324,7 @@ var STAGE3_ENRICHED_CHOICES = [
   fn: function() {
     var roll = rollD20('wits', G.skills.lore);
     if (roll.total >= 14) {
-      addNarration('Phantom Route', 'The charter exemption is standard form — correctly stamped, correctly countersigned, correctly indexed. The route number it covers appears nowhere in the Road Wardens\' corridor registry, nowhere in the Compact Hall trade route index, and nowhere in the waymark tally rolls the player has accumulated. The exemption covers a route that does not officially exist. The exemption itself is real. Something is moving on a path that has no record and a legitimate exemption protecting it from inspection.');
+      addNarration('Phantom Route', 'The charter exemption is standard form — correctly stamped, correctly countersigned, correctly indexed. The route number it covers appears nowhere in the Road Wardens\' corridor registry, nowhere in the Compact Hall trade route index, and nowhere in the waymark tally rolls the player has accumulated. The exemption covers a route that exists in no registry. The exemption itself is real. Something is moving on a path that has no record and a legitimate exemption protecting it from inspection.');
       addJournal('Charter exemption document covers a route number absent from all registries — the exemption is formally valid but the route it protects has no registration in any accessible index.', 'evidence');
       G.investigationProgress = (G.investigationProgress || 0) + 1;
       if (G.stageProgress) G.stageProgress[3] = (G.stageProgress[3] || 0) + 1;

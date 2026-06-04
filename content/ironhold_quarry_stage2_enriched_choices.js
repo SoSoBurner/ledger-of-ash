@@ -586,7 +586,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The official quarry survey map omits the secondary cut entirely.",
+    label: "The quarry survey map on file omits the secondary cut entirely.",
     tags: ['Stage2', 'Stealth', 'Lore'],
     xpReward: 72,
     fn: function() {

@@ -82,7 +82,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 1;
         G.lastResult = `Sera pulls the calibration log without being asked. She found the change three weeks ago — not a malfunction, the codes were altered deliberately, using Collegium administrative credentials routed through an external access. She points to the timestamp. The sensor suppression has been running since then. Aurora Crown's reported glyph exposure figures go to the broader settlement network at the suppressed rate. On paper the commune reads safe. Sera sets the log on the desk between you and doesn't pick it up again.`;
-        addJournal('Dome sensors recalibrated by Collegium access — official records suppress exposure data', 'evidence', `aur-sera-${G.dayCount}`);
+        addJournal('Dome sensors recalibrated by Collegium access — filed records suppress exposure data', 'evidence', `aur-sera-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 1;
@@ -112,7 +112,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_theron_sealwater = true;
         G.investigationProgress++;
-        G.lastResult = `Theron has been tracking the quarantine bypasses in his own ledger — separate from the official intake log, columns ruled in pencil. He shows you both. The authorization code belongs to the Collegium's Aurora Crown administrative liaison. The same liaison who appears in the sensor recalibration access record. Theron opens one of the delivery manifests and points at the chemical compound concentrations listed. "Those are consistent with glyph suppression precursors," he says. Not a question. He's looked this up. "They go straight into the filtration intake."`;
+        G.lastResult = `Theron has been tracking the quarantine bypasses in his own ledger — separate from the intake log, columns ruled in pencil. He shows you both. The authorization code belongs to the Collegium's Aurora Crown administrative liaison. The same liaison who appears in the sensor recalibration access record. Theron opens one of the delivery manifests and points at the chemical compound concentrations listed. "Those are consistent with glyph suppression precursors," he says. Not a question. He's looked this up. "They go straight into the filtration intake."`;
 
         addJournal('Filtration supplies contain suppression precursors — Collegium liaison authorizing quarantine bypass', 'evidence', `aur-theron-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -141,7 +141,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_cadrin_sealwater = true;
         G.investigationProgress++;
-        G.lastResult = `Cadrin runs his finger to the single line item where the entire budget increase lives: "specialized filtration compound procurement." He reads the supplier name aloud: Northern Provision Compact. He checks the approved vendor registry while you watch — it isn't there, and it wasn't in the prior year either. The approval came through the Collegium liaison category, bypassing the vendor registry requirement entirely. Aurora Crown's maintenance budget is funding compound purchases from a supplier that doesn't exist in any official record.`;
+        G.lastResult = `Cadrin runs his finger to the single line item where the entire budget increase lives: "specialized filtration compound procurement." He reads the supplier name aloud: Northern Provision Compact. He checks the approved vendor registry while you watch — it isn't there, and it wasn't in the prior year either. The approval came through the Collegium liaison category, bypassing the vendor registry requirement entirely. Aurora Crown's maintenance budget is funding compound purchases from a supplier that doesn't appear in any filed record.`;
         addJournal('Dome budget funding Northern Provision Compact — same ghost supplier as Harvest Circle', 'evidence', `aur-cadrin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;

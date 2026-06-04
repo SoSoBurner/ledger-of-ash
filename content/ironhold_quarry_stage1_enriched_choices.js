@@ -10,7 +10,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
   // 1. FIRST ENCOUNTER: VELKA IRONSPIKE
   {
     plot: 'main',
-    label: "Velka has kept her own logs for fourteen months. The official record is wrong.",
+    label: "Velka has kept her own logs for fourteen months. The quarry record is wrong.",
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
@@ -100,7 +100,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // 4. INVESTIGATION: THE SECONDARY MINERAL
   {
-    label: "The official sheet calls it waste. The color banding says otherwise.",
+    label: "The filed sheet calls it waste. The color banding says otherwise.",
     tags: ['Investigation', 'Craft', 'Stage1', 'Meaningful'],
     xpReward: 74,
     failResult: {
@@ -610,16 +610,16 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: DISCOVERY — BACKGROUND FLAVOR
   {
-    label: "The equipment shed wall chart tracks totals that the official production records don't mention.",
+    label: "The equipment shed wall chart tracks totals that the quarry production records don't mention.",
     tags: ['Discovery', 'Background', 'Stage1'],
     xpReward: 58,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'reading equipment shed wall chart');
       const bg = G.background || '';
-      let result = `The eastern equipment shed has a running total chart on the interior wall — a simple column format, date and figure, running back fourteen months. The figures don't correspond to any production category in the official daily reports. The column header is a symbol, not a word. The chart is updated regularly; the most recent entry is three days old. Someone is tracking a parallel output metric that exists only inside this shed.`;
+      let result = `The eastern equipment shed has a running total chart on the interior wall — a simple column format, date and figure, running back fourteen months. The figures don't correspond to any production category in the daily reports on file. The column header is a symbol, not a word. The chart is updated regularly; the most recent entry is three days old. Someone is tracking a parallel output metric that exists only inside this shed.`;
       if (bg === 'laborer' || bg === 'trades') {
-        result = `The chart format is production-standard — same column structure used in every extraction operation you've worked near. But the category marker at the top is a symbol you don't recognize from standard quarry reporting. That marker belongs to the old Compact extraction classification system, deprecated when the unified reporting codes came in. Whoever built this chart is using pre-reform notation. Old notation, new entries, fourteen months of parallel tracking that the official records don't acknowledge.`;
+        result = `The chart format is production-standard — same column structure used in every extraction operation you've worked near. But the category marker at the top is a symbol you don't recognize from standard quarry reporting. That marker belongs to the old Compact extraction classification system, deprecated when the unified reporting codes came in. Whoever built this chart is using pre-reform notation. Old notation, new entries, fourteen months of parallel tracking that the quarry records don't acknowledge.`;
       }
       G.lastResult = result;
       addJournal('Eastern equipment shed: 14-month wall chart tracking undisclosed output category in non-standard notation', 'evidence', `ironhold-wallchart-${G.dayCount}`);

@@ -610,7 +610,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Elyra's logbook has pages she did not include in her official filings.",
+    label: "Elyra's logbook has pages she did not include in her submitted filings.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {

@@ -56,7 +56,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: 'Varik puts his pen back in his hand before the question finishes — a gesture that means the transaction is already concluded. The price sheets stay in the drawer. Market row stalls stretch out behind him, tally rolls pinned beneath each listing in the same careful hand. The elder council still approves the official festival rates — the authorization stamp is public record. A session notice posted to the market hall entrance would show who signed the preliminary schedule before the council ever saw it.',
+      text: 'Varik puts his pen back in his hand before the question finishes — a gesture that means the transaction is already concluded. The price sheets stay in the drawer. Market row stalls stretch out behind him, tally rolls pinned beneath each listing in the same careful hand. The elder council still approves the posted festival rates — the authorization stamp is public record. A session notice posted to the market hall entrance would show who signed the preliminary schedule before the council ever saw it.',
       xp: 0,
       effects: [],
       next: [{text: 'The market hall entrance posts the official session notices.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -183,7 +183,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: 'The distribution sheet stays face-down on the table between you, its edges flush with the table surface. Festival planning is a community matter and the Coordinator has decided this community matter is closed. The festival preparation crew sets banner poles along the granary steps in the middle distance, morning light catching the canvas. The elder council\'s official ceremony approval record is posted in the reading room — it carries the authorization stamps and shows whose signature approved the final draft.',
+      text: 'The distribution sheet stays face-down on the table between you, its edges flush with the table surface. Festival planning is a community matter and the Coordinator has decided this community matter is closed. The festival preparation crew sets banner poles along the granary steps in the middle distance, morning light catching the canvas. The elder council\'s ceremony approval record is posted in the reading room — it carries the authorization stamps and shows whose signature approved the final draft.',
       xp: 0,
       effects: [],
       next: [{text: 'The reading room holds the council\'s ceremony approval records.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -559,7 +559,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: 'The reading room clerk steps in front of the ceremony script stack with quiet authority. One draft isn\'t enough to confirm the revision was deliberate rather than seasonal drift. But ceremony scripts are officially archived after each festival — the archive holds four seasons and access to the archive is governed by a different clerk on a different authority. An archive request for comparative historical ceremony records, framed as cultural research, does not require festival committee approval.',
+      text: 'The reading room clerk steps in front of the ceremony script stack with quiet authority. One draft isn\'t enough to confirm the revision was deliberate rather than seasonal drift. But ceremony scripts are archived after each festival — the archive holds four seasons and access to the archive is governed by a different clerk on a different authority. An archive request for comparative historical ceremony records, framed as cultural research, does not require festival committee approval.',
       xp: 0,
       effects: [],
       next: [{text: 'The archive holds four seasons of ceremony scripts on a different access authority.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]

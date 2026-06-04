@@ -1156,9 +1156,9 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       var target = 14;
 
       if (result.isCrit) {
-        G.lastResult = 'The bar gives on the second strike and the gate swings before the salt row watchers complete their turn. Inside: the port authority inner dock, which the public manifest map shows as a storage area and which is in fact a working berth. Two vessels moored. Both flying independent pennants. Neither appears in the harbor registry for this week. Their cargo declaration slips are pinned to the dock cleats: both list general provisions, both reference the same authorization mark — the mark of the port authority senior factor, who the public registry shows as currently off-station. An off-station official\'s authorization mark on active vessels is either forgery or the official is not actually off-station.';
+        G.lastResult = 'The bar gives on the second strike and the gate swings before the salt row watchers complete their turn. Inside: the port authority inner dock, which the public manifest map shows as a storage area and which is in fact a working berth. Two vessels moored. Both flying independent pennants. Neither appears in the harbor registry for this week. Their cargo declaration slips are pinned to the dock cleats: both list general provisions, both reference the same authorization mark — the mark of the port authority senior factor, who the public registry shows as currently off-station. A mark from an off-station factor on active vessels is either forgery or the factor is not actually off-station.';
         G.stageProgress[1]++;
-        addJournal('Forced harbor gate — inner dock has 2 unregistered vessels with off-station senior factor\'s authorization mark; official listed as off-station', 'evidence');
+        addJournal('Forced harbor gate — inner dock has 2 unregistered vessels with off-station senior factor\'s authorization mark; factor listed as off-station', 'evidence');
       } else if (result.isFumble) {
         G.lastResult = 'The bar gives but the gate opens into the path of a salt merchant cart being moved along the inner dock road. The cart driver shouts. The watchers in the salt row respond to the shout. You are inside the gate, the gate is open, and a cart driver and two watchers are all looking at the same place at the same time. The gate closes again before the watchers reach it. You are on the right side of the gate but the wrong side of a logged disturbance.';
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
@@ -1226,10 +1226,10 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: {
-      text: 'The archive cabinet is in the restricted section of the port authority records room, which requires a port official\'s access token to enter. The ward is visible from the public section through the grille, but reading it at this distance loses the fine-grain sigil detail needed to distinguish the inscription layers. The public section holds filed copies; the ward on the original archive is inaccessible from here.',
+      text: 'The archive cabinet is in the restricted section of the port authority records room, which requires a port authority access token to enter. The ward is visible from the public section through the grille, but reading it at this distance loses the fine-grain sigil detail needed to distinguish the inscription layers. The public section holds filed copies; the ward on the original archive is inaccessible from here.',
       xp: 0,
       effects: [],
-      next: [{text: 'Find a port official\'s access token or a different approach to the archive.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Find a port authority access token or a different approach to the archive.', skill: 'lore', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1);
@@ -1472,7 +1472,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The harbor master\'s aide redirects the question to the official vessel positioning registry before you finish asking it. The registry is public and posts anchorage authorizations by vessel and date; Cosmouth enforcement vessels will appear there alongside the independent berthing approach coordinates.' }
+    failResult: { text: 'The harbor master\'s aide redirects the question to the harbor positioning registry before you finish asking it. The registry is public and posts anchorage authorizations by vessel and date; Cosmouth enforcement vessels will appear there alongside the independent berthing approach coordinates.' }
   },
 
   {
@@ -1488,7 +1488,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The inspection team captain declines to show credentials to someone who is not a cargo captain under inspection. The harbor master\'s authorization registry lists all persons with official inspection authority; an entity not in that registry is visible by absence.' }
+    failResult: { text: 'The inspection team captain declines to show credentials to someone who is not a cargo captain under inspection. The harbor master\'s authorization registry lists all persons with harbor inspection authority; an entity not in that registry is visible by absence.' }
   },
 
   // MAGIC ×2 — port arcane inspection anomalies
@@ -1549,8 +1549,8 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
     tags: ['Records', 'Ledger', 'Extraction'],
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The harbor weight clerk keeps a personal ledger in addition to the official registry — a smaller book, bound in plain cloth, which she carries into and out of the records room in her bag. The official registry stays in the building. The personal ledger travels. Two-ledger systems in inspection roles indicate either a protection copy — someone afraid the official record will be altered — or a parallel record of the true measurements kept separately from the falsified official version. Either interpretation means the official record cannot be trusted.');
-      addJournal('Harbor weight clerk maintains personal traveling ledger alongside official registry — either protection copy or true-measurement parallel record.', 'evidence');
+      addNarration('', 'The harbor weight clerk keeps a personal ledger in addition to the harbor registry — a smaller book, bound in plain cloth, which she carries into and out of the records room in her bag. The harbor registry stays in the building. The personal ledger travels. Two-ledger systems in inspection roles indicate either a protection copy — someone afraid the registry will be altered — or a parallel record of the true measurements kept separately from the falsified registry version. Either interpretation means the harbor registry cannot be trusted.');
+      addJournal('Harbor weight clerk maintains personal traveling ledger alongside harbor registry — either protection copy or true-measurement parallel record.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },

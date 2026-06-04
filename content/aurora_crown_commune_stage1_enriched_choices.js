@@ -211,7 +211,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Observer revealed intentional contamination field destabilization', 'evidence', `aurora-observer-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Corvus doesn't stop working while you talk. He finishes a notation, caps his pen, and turns to face you with the precise economy of someone who has decided something. "Celestial observation is technical work. You don't have the background for the questions you're asking." He opens a logbook and writes a brief entry — time, visitor, subject of inquiry. He doesn't look up again. The observation room door is behind you. The entry is dated; whatever he noticed about your interest is now part of the official record.`;
+        G.lastResult = `Corvus doesn't stop working while you talk. He finishes a notation, caps his pen, and turns to face you with the precise economy of someone who has decided something. "Celestial observation is technical work. You don't have the background for the questions you're asking." He opens a logbook and writes a brief entry — time, visitor, subject of inquiry. He doesn't look up again. The observation room door is behind you. The entry is dated; whatever he noticed about your interest is now in the logged record.`;
         G.worldClocks.watchfulness++;
         addJournal('Celestial observer reported inquiry to administration', 'complication', `aurora-observer-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
@@ -472,7 +472,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.worldClocks.watchfulness++;
         addJournal('Resource calculation drew administrative scrutiny', 'complication', `aurora-survival-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Consumption is running ahead of the official estimate by eleven percent. Noticeable when you lay the two figures beside each other in the same column. It could be population undercounting. It could be seasonal drift in estimate methodology. The discrepancy is real but not yet large enough to be indefensible as error. You note it, close the ledger, and go back for the month before.`;
+        G.lastResult = `Consumption is running ahead of the stated estimate by eleven percent. Noticeable when you lay the two figures beside each other in the same column. It could be population undercounting. It could be seasonal drift in estimate methodology. The discrepancy is real but not yet large enough to be indefensible as error. You note it, close the ledger, and go back for the month before.`;
         addJournal('Sustainability analysis showed minor consumption variance', 'evidence', `aurora-survival-variance-${G.dayCount}`);
       } else {
         G.lastResult = `The calculation requires reliable population data and the commune's population estimate has three versions in three different documents from the same fiscal year, none of which match. Without a baseline you trust, the sustainability figure you produce could be anywhere in a wide range. The resource allocator's sealed-section distribution lines carry specific volume figures — if those numbers are accurate, they resolve which population count to trust.`;
@@ -664,7 +664,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Spread across the communal table: maintenance policy requires the critical repairs that work order freezes prevent. Contamination protocol specifies barrier integrity that redirected seepage deliberately violates. Emergency protocol guarantees evacuation procedures that have been officially removed from the current binder. Resource allocation states survival-first priorities while the ledger shows systematic diversion. Each document on its own could be explained as administrative error. The four of them together have one common feature: every gap serves the same direction of failure. That doesn't happen by accident.`;
+        G.lastResult = `Spread across the communal table: maintenance policy requires the critical repairs that work order freezes prevent. Contamination protocol specifies barrier integrity that redirected seepage deliberately violates. Emergency protocol guarantees evacuation procedures that have been cut from the current binder. Resource allocation states survival-first priorities while the ledger shows systematic diversion. Each document on its own could be explained as administrative error. The four of them together have one common feature: every gap serves the same direction of failure. That doesn't happen by accident.`;
         G.stageProgress[1]++;
         addJournal('Systemic sabotage documentation compiled', 'evidence', `aurora-proof-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -947,7 +947,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       } else if (arch === 'magic') {
         G.lastResult = `The atmospheric contamination is creating cognitive pressure — conversations lose their thread, people forget what they were doing mid-sentence. The cold coming through the dome's high-latitude panels doesn't help; the mind works slower in it. The pressure sits below thresholds that would trigger formal medical protocol. Whoever designed this wanted degradation, not crisis. They're not trying to kill Aurora Crown. They're trying to make it impossible to think clearly.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `Three commune members circle the commons in irregular patterns. Not guards — their body language is too casual. Information couriers, using movement as cover for message passing. The woodsmoke from the far heating bank gives them cover: stop near the fire, exchange a word, move on. The commune has a parallel communication network operating below its visible structure. They're organizing in the spaces between official sight.`;
+        G.lastResult = `Three commune members circle the commons in irregular patterns. Not guards — their body language is too casual. Information couriers, using movement as cover for message passing. The woodsmoke from the far heating bank gives them cover: stop near the fire, exchange a word, move on. The commune has a parallel communication network operating below its visible structure. They're organizing in the spaces outside the commune's visible oversight.`;
       } else {
         G.lastResult = `The communal meal distribution is off. Portions are slightly smaller in the outer residential blocks than in the central sector. The northern light coming through the dome panels is the same for everyone — but what goes on the plates is not. Not a conscious decision — a symptom of a logistics breakdown that's been ongoing long enough to become normalized. The resource pressure is being absorbed unequally and no one has named it yet.`;
       }
@@ -1025,7 +1025,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.flags.aurora_evidence_secured = true;
         addJournal('Filtration anomaly data secured via commune traveler — offsite copy created', 'evidence', `aurora-evidence-${G.dayCount}`);
       } else {
-        G.lastResult = `Every outgoing package through official transit channels is logged and subject to inspection — the same administrative structure that controls the archive controls the outgoing manifest. A sealed document tube in a standard pack would get opened. The commune traveler who runs the regular supply run between Aurora Crown and the outer settlements doesn't route through the official station. She has her own arrangement with the second waypoint.`;
+        G.lastResult = `Every outgoing package through the transit registry is logged and subject to inspection — the same administrative structure that controls the archive controls the outgoing manifest. A sealed document tube in a standard pack would get opened. The commune traveler who runs the regular supply run between Aurora Crown and the outer settlements doesn't route through the transit station. She has her own arrangement with the second waypoint.`;
       }
       G.recentOutcomeType = 'stealth'; maybeStageAdvance();
     }
@@ -1533,7 +1533,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     tags: ['Surveillance', 'Relay', 'Gap'],
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The relay room\'s observation architecture has a dead zone in the northeast corner — a range not covered by any of the standard monitoring positions. The overnight operator has a habitual working position that places her in that corner during the third watch. Her break schedule is regular. Three times in the past week, the relay log shows a transmission window opening during her break — a window not initiated from the official operator panel. Something is being transmitted through the blind spot on the overnight operator\'s schedule.');
+      addNarration('', 'The relay room\'s observation architecture has a dead zone in the northeast corner — a range not covered by any of the standard monitoring positions. The overnight operator has a habitual working position that places her in that corner during the third watch. Her break schedule is regular. Three times in the past week, the relay log shows a transmission window opening during her break — a window not initiated from the relay operator panel. Something is being transmitted through the blind spot on the overnight operator\'s schedule.');
       addJournal('Relay room: northeast dead zone used during operator breaks, 3 unauthorized transmission windows in past week.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -1671,7 +1671,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
         addJournal('Junction confrontation raised attention — commune suspicion logged', 'complication');
       } else if (result.total >= target) {
-        G.lastResult = 'The workers separate when you step between them — not because you said anything aggressive, but because you moved with the particular deliberateness of someone who has decided the question is settled. The junction opens. You note what\'s posted on the vent board inside before the workers regroup behind you. Three names, one recurring assignment, no dates. Someone is keeping a rotation slot off the official schedule.';
+        G.lastResult = 'The workers separate when you step between them — not because you said anything aggressive, but because you moved with the particular deliberateness of someone who has decided the question is settled. The junction opens. You note what\'s posted on the vent board inside before the workers regroup behind you. Three names, one recurring assignment, no dates. Someone is keeping a rotation slot off the posted schedule.';
         addJournal('Junction cleared — undated recurring assignment noted on vent board', 'evidence');
       } else {
         G.lastResult = 'The workers look at you, then at each other, then continue the argument at a lower volume with their bodies angled to block the junction gap. You have not made this worse, but you haven\'t made it better. The patrol passes at the far end and doesn\'t stop. The junction remains effectively closed — two people and an ongoing dispute fill it as completely as a locked door.';

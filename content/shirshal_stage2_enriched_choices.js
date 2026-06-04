@@ -206,8 +206,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_ravel_coilspire = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Hidden Record', 'Ravel retrieves the second set without preamble — a leather sleeve tucked inside the cover board of a ledger that officially holds supply requisitions. The transcripts are in his own hand, uncorrected, with margin notes in a different ink. Three witnesses named glyph surge origin points that never appeared in the filed versions. "I write what they say. What goes into the record is not always what I write." He doesn\'t look up from straightening the pages.');
-        addJournal('Ravel Coilspire holds unsanctioned witness transcripts naming glyph surge origins not in official record', 'evidence');
+        addNarration('Hidden Record', 'Ravel retrieves the second set without preamble — a leather sleeve tucked inside the cover board of a ledger catalogued as supply requisitions. The transcripts are in his own hand, uncorrected, with margin notes in a different ink. Three witnesses named glyph surge origin points that never appeared in the filed versions. "I write what they say. What goes into the record is not always what I write." He doesn\'t look up from straightening the pages.');
+        addJournal('Ravel Coilspire holds unsanctioned witness transcripts naming glyph surge origins not in the filed record', 'evidence');
         maybeStageAdvance();
       } else {
         addNarration('Closed Door', 'Ravel sets his pen down. "Testimony integrity is protected under Magi Magistratus charter." He recites it without affect, the way a person does when the rule is real and so is the thing it is protecting against. He opens the filed transcript to the first page and lays it on the counter with both hands flat. The conversation ends there.');
@@ -287,12 +287,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('charm', G.skills.persuasion);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Break Room Edge', 'The break room is narrow and over-lit, tea kettle on an iron ring, three investigators working through a tray of honey biscuits. The oldest of them — bald, habit of cracking the knuckle of his left forefinger once before he speaks — says the name "Tazren" through a mouthful of biscuit and stops himself. The other two go still. The rumor moving is this: Tazren\'s case is about to be reopened by someone, and whoever that someone is, they are not going to be allowed to reach the Director. The knuckle cracks again. "Ten days, tops." He sees you in the doorway and the conversation changes register without pausing.');
+        addNarration('Break Room Edge', 'The break room is narrow and over-lit, tea kettle on an iron ring, three case officers working through a tray of honey biscuits. The oldest of them — bald, habit of cracking the knuckle of his left forefinger once before he speaks — says the name "Tazren" through a mouthful of biscuit and stops himself. The other two go still. The rumor moving is this: Tazren\'s case is about to be reopened by someone, and whoever that someone is, they are not going to be allowed to reach the Director. The knuckle cracks again. "Ten days, tops." He sees you in the doorway and the conversation changes register without pausing.');
         addJournal('Bureau internal rumor: someone is moving to reopen Tazren case — interception expected within ten days', 'intelligence');
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addNarration('Break Room Silence', 'The three investigators at the tray watch you step into the doorway and the conversation they were having disappears so completely it might never have happened. The bald one cracks the knuckle of his left forefinger, once, and pours a cup of tea he was not drinking. The other two begin discussing the roster rotation for next week. The honey biscuits sit between them untouched. You have the break room\'s full attention and none of its information.');
+        addNarration('Break Room Silence', 'The three case officers at the tray watch you step into the doorway and the conversation they were having disappears so completely it might never have happened. The bald one cracks the knuckle of his left forefinger, once, and pours a cup of tea he was not drinking. The other two begin discussing the roster rotation for next week. The honey biscuits sit between them untouched. You have the break room\'s full attention and none of its information.');
       }
     }
   },

@@ -162,7 +162,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
   },
 
   {
-    label: "Twelve amendments that officially do not exist. Someone kept the copies.",
+    label: "Twelve amendments missing from every record. Someone kept the copies.",
     tags: ['ArcArrival', 'Social', 'NPC'],
     xpReward: 80,
     fn: function() {
@@ -173,7 +173,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
 
       const result = rollD20('charm', (G.skills.persuasion || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Fen Torr is retired from the registry office and keeps a private record of charter transactions that do not make it into the official log — a practice she began when she noticed the gaps herself. She examines the fragment without speaking for a moment. "Twelve amendments in two years," she says. "None of them recorded." She opens a ledger kept in a locked box under her workbench. Twelve filings, twelve new entities added to the charter's membership, all conducted through amendment procedure that bypassed the official record. The operation constructed its entire legal shell through documents that technically exist and officially do not.`;
+        G.lastResult = `Fen Torr is retired from the registry office and keeps a private record of charter transactions that do not make it into the registry log — a practice she began when she noticed the gaps herself. She examines the fragment without speaking for a moment. "Twelve amendments in two years," she says. "None of them recorded." She opens a ledger kept in a locked box under her workbench. Twelve filings, twelve new entities added to the charter's membership, all conducted through amendment procedure that bypassed the charter record. The operation constructed its entire legal shell through documents that technically exist and are absent from every record.`;
         G.flags.met_fen_torr_registrar = true;
         G.flags.stage2_faction_contact_made = true;
         if (!G.worldClocks) G.worldClocks = {};
@@ -231,7 +231,7 @@ const GUILDHEART_HUB_TO_SHELK_ARC = [
       const arch = G.archetype && G.archetype.group;
       const finalText = arch === 'combat' ? ` The legal shelter was chosen for its age. A forty-year-old charter predates the oversight structures designed to catch exactly this kind of arrangement. Whoever selected it understood those structures well enough to stay outside them.`
         : arch === 'magic' ? ` The charter's construction uses the jurisdictional gap between three oversight bodies as a permanent immunity mechanism. Filing in that gap, a complaint circulates forever without being processed. Someone who understood all three bodies' jurisdictional limits designed this from the inside.`
-        : arch === 'stealth' ? ` Twelve amendments that officially do not exist. A renewal filed for companies that do not appear in any registry. A retired registrar keeping a private ledger because she noticed the gaps. The operation runs on the space between what institutions record and what they actually process.`
+        : arch === 'stealth' ? ` Twelve amendments missing from the record. A renewal filed for companies that do not appear in any registry. A retired registrar keeping a private ledger because she noticed the gaps. The operation runs on the space between what institutions record and what they actually process.`
         : ` The legal shelter for the entire operation was built inside the oversight institution responsible for dismantling it. A Collegium officer's signature on a charter renewal for non-existent entities — that is the link between the regulator and the regulated. It is in the archive.`;
 
       G.lastResult = `Shelkopolis — the guild district visible from the main gate, the central registry building spanning a full block, forty years of charter records inside it and twelve unrecorded amendments in a locked box beneath a retired registrar's workbench.${finalText} Stage 2 begins here.`;

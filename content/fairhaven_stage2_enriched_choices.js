@@ -241,7 +241,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_serin_sunweave = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        addNarration('Serin Sunweave — Private Record', 'Serin pulls the second log from under a stack of hymnals and sets it face-down on the table before turning it over. The entries run in smaller script than his official records — dates, compass headings, estimated altitudes. Every sighting he logged for himself after submitting the chapel copy. The private entries include three observations he left out of the formal record: two with approach vectors from the northwest, one that landed briefly on the cave shelf before lifting again. "The doctrine says to record what is seen," he says. "It does not say to record what it means."');
+        addNarration('Serin Sunweave — Private Record', 'Serin pulls the second log from under a stack of hymnals and sets it face-down on the table before turning it over. The entries run in smaller script than his chapel records — dates, compass headings, estimated altitudes. Every sighting he logged for himself after submitting the chapel copy. The private entries include three observations he left out of the formal record: two with approach vectors from the northwest, one that landed briefly on the cave shelf before lifting again. "The doctrine says to record what is seen," he says. "It does not say to record what it means."');
         addJournal('Serin private log — northwest approach vectors and cave shelf landing omitted from chapel record', 'evidence');
         maybeStageAdvance();
       } else {
@@ -651,7 +651,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The post commander's personal ledger has two entries absent from the official log.",
+    label: "The post commander's personal ledger has two entries absent from the posted log.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     fn: function() {

@@ -2463,7 +2463,7 @@
           action: function() {
             var r = typeof rollD20 === 'function' ? rollD20('spirit') : { total: 10 };
             if (r.total >= 13) {
-              if (typeof addNarration === 'function') addNarration('', 'The movement pattern is not territorial — it is investigative. Something is tracking the stone road surface as a navigation aid, not tracking you. Stopping and letting it pass reveals a large nocturnal grazer moving along its own route. It does not acknowledge you.');
+              if (typeof addNarration === 'function') addNarration('', 'The movement pattern is not territorial — it is methodical, surface-following. Something is tracking the stone road as a navigation aid, not tracking you. Stopping and letting it pass reveals a large nocturnal grazer moving along its own route. It does not acknowledge you.');
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The movement stops when you engage with it directly. The silence is worse than the movement. Whatever it is, the pattern has changed and you cannot read the new one.');

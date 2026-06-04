@@ -1074,7 +1074,7 @@ SHIRSHAL_STAGE1_ENRICHED_CHOICES.push(
     tags: ['Magic', 'Authorization', 'Records'],
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'A suppression ward operates over the eastern evidence archive — a ward designed to reduce arcane signature detection within its radius. The ward carries no registration number in the regional arcane registry. Unregistered suppression wards are prohibited in judicial facilities by House Shirsh law; they prevent independent arcane audit of evidence integrity. Someone installed a ward that specifically makes it harder to detect tampering with magical evidence, and installed it without creating any official record of its existence.');
+      addNarration('', 'A suppression ward operates over the eastern evidence archive — a ward designed to reduce arcane signature detection within its radius. The ward carries no registration number in the regional arcane registry. Unregistered suppression wards are prohibited in judicial facilities by House Shirsh law; they prevent independent arcane audit of evidence integrity. Someone installed a ward that specifically makes it harder to detect tampering with magical evidence, and installed it without creating any filed record of its existence.');
       addJournal('Unregistered suppression ward in evidence archive — reduces arcane audit capability, installed without registry record.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();

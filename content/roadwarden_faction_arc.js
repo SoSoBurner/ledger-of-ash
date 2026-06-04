@@ -218,7 +218,7 @@ var ROADWARDEN_FACTION_MODULE = (function() {
 
     G.lastResult = withheld
       ? 'Orvaine sends a message through the gate post — a date, a time, the secondary office. She does not explain the reason. The date is ten days before her filing deadline. Whatever she has to say, this is the last meeting she is scheduling. She is there when you arrive, the thirty-seven gate logs organized in a different order than before. "I am going to file my report," she says. "What is in it depends, in part, on whether you choose to be a named source or a background reference. The difference matters for what the report can recommend." She waits for your answer.'
-      : 'Orvaine sends a final message: the Transit Division\'s formal inquiry is being opened. Your testimony — or the absence of it — will shape the scope of the investigation\'s recommendations. "I need you on record," she says when you meet again, "not as a suspect. As a source. There is a difference, and the difference is what I can offer you in return." The immunity notice is already prepared. She slides it across before speaking further.';
+      : 'Orvaine sends a final message: the Transit Division\'s formal inquiry is being opened. Your testimony — or the absence of it — will shape the scope of the inquiry\'s recommendations. "I need you on record," she says when you meet again, "not as a suspect. As a source. There is a difference, and the difference is what I can offer you in return." The immunity notice is already prepared. She slides it across before speaking further.';
     G.recentOutcomeType = 'discovery';
     if (typeof updateHUD === 'function') updateHUD();
 

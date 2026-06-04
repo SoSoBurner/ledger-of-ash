@@ -1056,7 +1056,7 @@ PANIM_HAVEN_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The watch captain moves to intercept the moment your gaze lingers on the pier positioning. He is professional and final: the watch deployment is internal safety business. The harbor master\'s duty board on the main quay lists all official watch changes going back six weeks — the absence of this one in the log will be visible.' }
+    failResult: { text: 'The watch captain moves to intercept the moment your gaze lingers on the pier positioning. He is professional and final: the watch deployment is internal safety business. The harbor master\'s duty board on the main quay lists all posted watch changes going back six weeks — the absence of this one in the log will be visible.' }
   },
 
   {
@@ -1067,7 +1067,7 @@ PANIM_HAVEN_STAGE1_ENRICHED_CHOICES.push(
     tags: ['Security', 'Authority', 'Chain'],
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The security personnel at the private pier on the north side carry no harbor master credentials. Their authorization papers bear a different stamp — a commercial charter mark from a trading entity not listed in Panim Haven\'s registered harbor roster. They operate parallel to the official watch, with physical access to the pier network, under authority from an external commercial body. The harbor master cannot order them. Someone arranged this deliberately.');
+      addNarration('', 'The security personnel at the private pier on the north side carry no harbor master credentials. Their authorization papers bear a different stamp — a commercial charter mark from a trading entity not listed in Panim Haven\'s registered harbor roster. They operate parallel to the harbor watch, with physical access to the pier network, under authority from an external commercial body. The harbor master cannot order them. Someone arranged this deliberately.');
       addJournal('Private pier security: chartered under external commercial body, outside harbor master authority entirely.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();

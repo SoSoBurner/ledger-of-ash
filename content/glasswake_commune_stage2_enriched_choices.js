@@ -193,7 +193,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The containment warden's field book has two readings absent from the official log.",
+    label: "The containment warden's field book has two readings absent from the posted log.",
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
     fn: function() {
@@ -1156,8 +1156,8 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       var result = rollD20('charm', {dc: 13, locality: 'glasswake_commune', label: 'Researcher rapport'});
       if (result.isCrit) {
         G.stageProgress[2]++;
-        addJournal('Lead researcher confirmed her original data was altered before publication. The altered figures came back to her as the official record.', 'evidence');
-        G.lastResult = 'She has been waiting for someone to ask the right question — the relief in her posture is involuntary. Her original measurements never matched what she was told to publish. She shows you nothing, but she describes enough: a systematic revision of every figure above a certain threshold, delivered back to her as the official dataset and filed under her name. She still has the working copies, somewhere she cannot access from the commune facility. She gives you a location she trusts to hold them.';
+        addJournal('Lead researcher confirmed her original data was altered before publication. The altered figures came back to her as the filed record.', 'evidence');
+        G.lastResult = 'She has been waiting for someone to ask the right question — the relief in her posture is involuntary. Her original measurements never matched what she was told to publish. She shows you nothing, but she describes enough: a systematic revision of every figure above a certain threshold, delivered back to her as the published dataset and filed under her name. She still has the working copies, somewhere she cannot access from the commune facility. She gives you a location she trusts to hold them.';
       } else if (result.isFumble) {
         G.lastResult = 'She shuts down the moment the conversation reaches anything useful — a practiced stillness, the posture of someone who has been approached this way before and knows exactly when a conversation has shifted from professional to dangerous. She finishes the sentence she was in the middle of, politely, and then finds a reason to end the exchange. You will not get another chance with her through this route. Whatever trust was available here has been spent.';
       } else if (result.isSuccess) {

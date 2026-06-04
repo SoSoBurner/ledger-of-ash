@@ -870,7 +870,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   // ── NPC ENCOUNTERS (6 choices) ────────────────────────────────────────────
 
   {
-    label: "Brokerwell's personal archive copy doesn't match the official record on file.",
+    label: "Brokerwell's personal archive copy doesn't match the registry record on file.",
     tags: ['NPC', 'Registry', 'Stage2'],
     xpReward: 74,
     fn: function() {

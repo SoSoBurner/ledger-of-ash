@@ -242,7 +242,7 @@ const HARVEST_CIRCLE_TO_SHELK_ARC = [
       const arch = G.archetype && G.archetype.group;
       const finalText = arch === 'combat' ? ` Whoever designed the supply chain insertion knew that a city this size operates on trust — that the grain arriving at Granary Steps doesn't need to be inspected because it always has been safe.`
         : arch === 'magic' ? ` The logistics of what you've traced are remarkable in a terrible way. Each link was designed to be invisible and explainable alone. Together they form a mechanism.`
-        : arch === 'stealth' ? ` You've been running a parallel operation to the one you're investigating. Yours was information-gathering. Theirs was delivery. Both terminate here.`
+        : arch === 'stealth' ? ` You've been running a parallel operation to the one you've been tracing. Yours was information-gathering. Theirs was delivery. Both terminate here.`
         : ` The supply chain that started in Harvest Circle ends in a city of several hundred thousand people who don't know it exists.`;
 
       G.lastResult = `Shelkopolis.${finalText} Stage 2 begins here.`;

@@ -3052,7 +3052,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_stealth_shadow_official',
-    label: "The liaison's second meeting is with someone who doesn't appear on any official roster.",
+    label: "The liaison's second meeting is with someone who doesn't appear on any posted roster.",
     tags: ['Stealth', 'Surveillance', 'Evidence'],
     tag: 'risky',
     xpReward: 92,

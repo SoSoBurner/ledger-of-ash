@@ -51,11 +51,11 @@ const NOMDARA_STAGE1_CHOICES = [
       const rumors = [
         "Three travelers from the eastern highlands passed through last week. All three were heading to Shelkopolis. None of them gave the same reason.",
         "The ash fall is heavier north of the mountain line this season. Old settlement records note that similar patterns preceded a significant pressure event sixty years ago. The records don't say what kind.",
-        "A settlement in the Soreheim borderlands abandoned its southern road this spring — rerouted all traffic through the mountain pass, which is twice as long. No one official has explained why the shorter road is now avoided.",
+        "A settlement in the Soreheim borderlands abandoned its southern road this spring — rerouted all traffic through the mountain pass, which is twice as long. No authority has explained why the shorter road is now avoided.",
         "Wren says the route patterns are changing — that caravans are avoiding the outer districts of large cities and camping farther out instead. She reads it as a sign. She always reads things as signs. But sometimes she's right.",
         "Someone is buying old maps of Shelkopolis's underground freight infrastructure. Not new maps — specifically the pre-renovation surveys from forty years ago. A cartographer in Guildheart mentioned it, puzzled.",
         "A herbalist in the Verdant Row told Lorn that three of her regular customers moved out of the district last month. Not relocated — moved away. They all lived within two blocks of a dome access terminal.",
-        "The glasswake formations in the north are larger this year. Travelers who've seen them before say the formations grow when the ambient atmospheric compound concentration increases. Nobody official studies them anymore.",
+        "The glasswake formations in the north are larger this year. Travelers who've seen them before say the formations grow when the ambient atmospheric compound concentration increases. No sanctioned research group studies them anymore.",
         "Lorn trades at the Granary Steps twice a year. This last visit, the humidity intake workers were different. All of them new, all in the past four months. The previous workers couldn't be found for comment.",
         "Wren counted eight new structures within the Shelkopolis outer districts in the past year — all listed as maintenance facilities, all within three hundred meters of a dome access terminal.",
         "A sailor in Cosmoria told Lorn that maritime manifest categories have grown by three in the past fourteen months. New categories are unusual. Three new ones in a year is unprecedented."

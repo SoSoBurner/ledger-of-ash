@@ -361,7 +361,7 @@
       ask_direct_label: 'State the specific need from ORE directly.',
       ask_indirect: 'Read the enforcement pattern without naming what you are looking for.',
       ask_indirect_label: 'Read the enforcement situation indirectly.',
-      offer_help: 'Offer to handle a problem ORE cannot address through official channels.',
+      offer_help: 'Offer to handle a problem ORE cannot address through registered channels.',
       offer_help_label: 'Offer to solve a problem ORE cannot solve openly.',
       success: {
         default: 'He does not give you what you asked for. He gives you something adjacent — specific, operational, with clear limits on how it can be used. He states those limits once. He will not repeat them.',
@@ -574,7 +574,7 @@
         magic: 'She is immediately more specific with you than she would be with a non-arcane party. She names things she cannot put in the report: what the anomaly looks like from the inside, what it would take to replicate it, and why someone in the towers would want to.'
       },
       success_default: 'Anomaly report data and the pattern it implies, shared with someone she has decided can use it.',
-      success_indirect: 'The anomaly report she is reviewing has a handwritten note in the margin that was not there the last time she filed it. Someone added something to the official record after the fact.',
+      success_indirect: 'The anomaly report she is reviewing has a handwritten note in the margin that was not there the last time she filed it. Someone added something to the filed record after the fact.',
       failure: 'The anomaly reports are classified to tower clearance. She can note your inquiry for the oversight record.'
     },
 
@@ -595,7 +595,7 @@
       ask_direct_label: 'Ask which contracts are behind and what is causing it.',
       ask_indirect: 'Read the contract inspection log.',
       ask_indirect_label: 'Scan the contract inspection log while he works.',
-      success_default: 'He names two suppliers cutting material quality to hit quota numbers and one ministry accepting inferior output without flagging it. He has filed three complaints. None have been processed. He is telling you this because he has run out of official options.',
+      success_default: 'He names two suppliers cutting material quality to hit quota numbers and one ministry accepting inferior output without flagging it. He has filed three complaints. None have been processed. He is telling you this because he has run out of channels.',
       success_indirect: 'The inspection log has a test entry marked as passed that shows values below the minimum threshold. The signature on the approval is not his.',
       failure: 'He finishes the test and logs the result. You were not part of that log.'
     },

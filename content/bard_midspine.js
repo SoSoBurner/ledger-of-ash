@@ -36,7 +36,7 @@ window.BARD_MIDSPINE_NODES = [
       // Locality-specific opening text
       const openings = {
         shelkopolis: 'The story brokers along Verdant Row have gone quiet on one subject. Every market channel, every tavern corner — the same silence, shaped around the same absence. Someone paid for this, or threatened for it.',
-        guildheart_hub: 'The trading floor accounts of the eastern manifest are consistent, and consistently wrong. Merchants do not all make the same error. They all tell the same truth — just not the official one.',
+        guildheart_hub: 'The trading floor accounts of the eastern manifest are consistent, and consistently wrong. Merchants do not all make the same error. They all tell the same truth — just not the filed one.',
         panim_haven: 'The memorial singers are adjusting their cadence around certain names from the closure period. Memorial song does not self-edit. Someone asked them to, or someone frightened them into it.'
       };
       const opening = openings[G.location] ||
@@ -170,8 +170,8 @@ window.BARD_MIDSPINE_NODES = [
 
       const recoveries = {
         shelkopolis: 'The story broker gives you the suppressed account. It names a specific cargo on the eastern route — cleared by a Roadwarden administrative seal that has no matching issuance record. The cargo moved. The paperwork was erased after it did.',
-        guildheart_hub: "The merchant's private ledger entry surfaces through a Union archive contact. It names an eastern route manifest discrepancy traced to a Shadowhands transit seal applied to Union-registered freight. The Union does not know the seal was used.",
-        panim_haven: 'The decoded memorial song preserves witness accounts in the voices of the convoy dead. A convoy recorded in the official House Panim ledger as never arriving did arrive — and then was recorded as lost. Something was removed from that convoy before the record was altered.'
+        guildheart_hub: "The merchant's private ledger entry surfaces through a Union archive source. It names an eastern route manifest discrepancy traced to a Shadowhands transit seal applied to Union-registered freight. The Union does not know the seal was used.",
+        panim_haven: 'The decoded memorial song preserves witness accounts in the voices of the convoy dead. A convoy recorded in the House Panim ledger as never arriving did arrive — and then was recorded as lost. Something was removed from that convoy before the record was altered.'
       };
       const recovery = recoveries[G.location] ||
         `The suppressed account surfaces in ${loc.name}. It names an eastern route action that was administratively erased after the fact.`;
@@ -179,7 +179,7 @@ window.BARD_MIDSPINE_NODES = [
       const noticeTexts = {
         shelkopolis: 'Account recovered: Roadwarden clearance with no issuance record. The eastern route pattern now has a named cargo.',
         guildheart_hub: 'Account recovered: Shadowhands seal on Union freight. The eastern route pattern now has a named transit actor.',
-        panim_haven: 'Account recovered: the convoy that officially never arrived did arrive. The eastern route pattern now has a named loss event.'
+        panim_haven: 'Account recovered: the convoy recorded as never arriving did arrive. The eastern route pattern now has a named loss event.'
       };
 
       if (r.isCrit) {

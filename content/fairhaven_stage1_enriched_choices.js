@@ -840,7 +840,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 67,
     failResult: {
-      text: "The gathering disperses before a pattern settles. Families move in the ordinary way of people with work waiting — stalls to open, loads to shift, children to hand off. The compound smell from the shrine burner lingers on clothing as people pass. Whatever shape the morning gathering holds, it requires more time inside it to read. The eight elders who stay after the official ceremony has cleared work from memory, no text in hand. They know what this community looked like before.",
+      text: "The gathering disperses before a pattern settles. Families move in the ordinary way of people with work waiting — stalls to open, loads to shift, children to hand off. The compound smell from the shrine burner lingers on clothing as people pass. Whatever shape the morning gathering holds, it requires more time inside it to read. The eight elders who stay after the public ceremony has cleared work from memory, no text in hand. They know what this community looked like before.",
       xp: 0,
       effects: [],
       next: [{text: 'The elders who stay after the gathering carry the older shape.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -1270,8 +1270,8 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
         G.stageProgress[1]++;
         addJournal('Harbor registry margin script decoded — secondary notation records observed vs declared cargo discrepancies; author stopped 3 weeks ago mid-sentence', 'evidence');
       } else if (result.isFumble) {
-        G.lastResult = 'The secondary script uses a compression technique that requires a reference grammar to decode accurately. You work through it for thirty minutes and produce a partial reading that contains two words you are confident of — \'berth\' and \'authorization\' — and a reference number you cannot place. The archive clerk notices the extended session on the same page and comes over. She does not ask what you are reading. She does offer to pull the \'official explanatory notes\' for that registry section. The offer is not a threat. It is a very careful offer.';
-        addJournal('Harbor registry secondary script partially decoded — two words recovered; archivist offered official explanatory notes', 'complication');
+        G.lastResult = 'The secondary script uses a compression technique that requires a reference grammar to decode accurately. You work through it for thirty minutes and produce a partial reading that contains two words you are confident of — \'berth\' and \'authorization\' — and a reference number you cannot place. The archive clerk notices the extended session on the same page and comes over. She does not ask what you are reading. She does offer to pull the \'registry explanatory notes\' for that section. The offer is not a threat. It is a very careful offer.';
+        addJournal('Harbor registry secondary script partially decoded — two words recovered; archivist offered registry explanatory notes', 'complication');
       } else if (result.total >= target) {
         G.lastResult = 'The marginal script is a dual-register notation: standard registry marks on the surface, compressed shorthand underneath using modified registry symbols. The compression is from a regional maritime tradition — a harbor pilot\'s personal notation system, designed to fit additional information in the registry margin without a separate document. Three entries carry both layers. In the secondary layer, two of the three show discrepancies between the declared cargo and the observed arrival. One entry simply reads: \'authorization not harbor master.\' It is the most recent entry in the section.';
         addJournal('Harbor registry dual-register notation: secondary layer shows cargo discrepancies and one entry reading "authorization not harbor master"', 'evidence');

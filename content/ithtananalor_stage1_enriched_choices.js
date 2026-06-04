@@ -655,7 +655,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       { type: 'rival', amount: 1 }
     ],
     failResult: {
-      text: "The approach doesn't land. Whichever garrison figure is visible at this hour closes the distance between practiced neutrality and a clear end to the conversation in two sentences — not hostile, simply sealed. The garrison's internal culture has taught its participants how to terminate contact without incident. The structure protects itself through manners as much as through authority. Whoever it is will be in the commons at the next rotation end, away from their official post, in the informal overlap where the official register stops applying.",
+      text: "The approach doesn't land. Whichever garrison figure is visible at this hour closes the distance between practiced neutrality and a clear end to the conversation in two sentences — not hostile, simply sealed. The garrison's internal culture has taught its participants how to terminate contact without incident. The structure protects itself through manners as much as through authority. Whoever it is will be in the commons at the next rotation end, away from their garrison post, in the informal overlap where the duty register stops applying.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'survival' }]
     },
     fn: function() {
@@ -1154,13 +1154,13 @@ ITHTANANALOR_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH ×2 — courier dead-drop routes
   {
     id: 'ithtan_arch_stealth_1',
-    label: 'The courier makes a stop that is not on the official route. A window, briefly.',
+    label: 'The courier makes a stop that is not on the posted route. A window, briefly.',
     skill: 'finesse',
     archetypeGroup: 'stealth',
     tags: ['Surveillance', 'Courier', 'Pattern'],
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The garrison courier deviates seven steps off the official route at the third lamp post — a window ledge at the rear of the commissary building, one hand motion, then back to route. The stop takes less than four seconds and is invisible to anyone not tracking the route. A dead drop, running on schedule. The window ledge has been in use long enough that the stone beneath it shows a wear pattern from repeated hand contact.');
+      addNarration('', 'The garrison courier deviates seven steps off the posted route at the third lamp post — a window ledge at the rear of the commissary building, one hand motion, then back to route. The stop takes less than four seconds and is invisible to anyone not tracking the route. A dead drop, running on schedule. The window ledge has been in use long enough that the stone beneath it shows a wear pattern from repeated hand contact.');
       addJournal('Garrison courier dead drop identified at commissary rear window — scheduled, long-running, off-route.', 'intelligence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();

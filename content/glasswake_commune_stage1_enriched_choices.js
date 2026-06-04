@@ -15,7 +15,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
-      text: "The research annex is quiet this time of day, reed-thatch smell drifting in from the waterline. Toman Iceveil's colleagues deflect without meeting your eyes — formal hours, official statements, nothing beyond that. One of them straightens sample jars that were already straight. His name keeps surfacing, then getting pulled back. He works after the committee leaves. The estuary at evening is where the administrative visibility ends; that's where a real conversation becomes possible.",
+      text: "The research annex is quiet this time of day, reed-thatch smell drifting in from the waterline. Toman Iceveil's colleagues deflect without meeting your eyes — formal hours, prepared statements, nothing beyond that. One of them straightens sample jars that were already straight. His name keeps surfacing, then getting pulled back. He works after the committee leaves. The estuary at evening is where the administrative visibility ends; that's where a real conversation becomes possible.",
       xp: 0,
       effects: [],
       next: [{text: 'Find Toman at the estuary after the committee leaves for the day.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -400,7 +400,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
-      text: "Researcher Winn listens to the first sentence, then sets her pen down and straightens papers that were already straight. 'I'm not in a position to speak informally about committee proceedings.' Each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name — that record is in the same classified file as Toman's research, but Winn keeps her own parallel notes outside the official system.",
+      text: "Researcher Winn listens to the first sentence, then sets her pen down and straightens papers that were already straight. 'I'm not in a position to speak informally about committee proceedings.' Each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name — that record is in the same classified file as Toman's research, but Winn keeps her own parallel notes outside the committee's filing system.",
       xp: 0,
       effects: [],
       next: [{text: "Winn's parallel notes sit outside the classified system. She can be approached again.", skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -722,7 +722,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Risky', 'NPC', 'Stage1'],
     xpReward: 65,
     failResult: {
-      text: "Arven and Missa are visible in the committee chamber from the public gallery — two figures at the far end of the long table, notebooks open, pens moving. The session ends in forty minutes. The corridor outside the chamber is where people linger after adjournment, away from the formal record. They carry their own notebooks, not the committee's standard forms. Whatever they document, it lives outside the official minutes. The corridor at session end is the window.",
+      text: "Arven and Missa are visible in the committee chamber from the public gallery — two figures at the far end of the long table, notebooks open, pens moving. The session ends in forty minutes. The corridor outside the chamber is where people linger after adjournment, away from the formal record. They carry their own notebooks, not the committee's standard forms. Whatever they document, it lives outside the committee minutes. The corridor at session end is the window.",
       xp: 0,
       effects: [],
       next: [{text: 'Wait for the session to end. The corridor outside is where they can speak.', skill: 'persuasion', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
@@ -864,7 +864,7 @@ GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The north maintenance entrance is visible from the lane but currently has a fresh wax seal on the lock — someone sealed it in the past day or two, which itself is worth noting. The main archive access log in the reading room will show when the secondary entrance was last officially unsealed.' }
+    failResult: { text: 'The north maintenance entrance is visible from the lane but currently has a fresh wax seal on the lock — someone sealed it in the past day or two, which itself is worth noting. The main archive access log in the reading room will show when the secondary entrance was last recorded unsealed.' }
   },
 
   // SUPPORT ×2 — harvester family allocation stress

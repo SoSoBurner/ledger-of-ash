@@ -367,7 +367,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
         'the northern farming settlements have been having unexplained crop failures for two seasons',
         'a traveler from beyond the northeastern edge said the air there tastes wrong and has for months',
         'an experienced frontier scout refused to complete their northeast patrol route last month and wouldn\'t explain why',
-        'the trade route through the northeast has seen declining traffic — merchants are routing around it without officially closing it'
+        'the trade route through the northeast has seen declining traffic — merchants are routing around it without posting a closure'
       ];
       const selected = rumors[Math.floor(Math.random() * rumors.length)];
 

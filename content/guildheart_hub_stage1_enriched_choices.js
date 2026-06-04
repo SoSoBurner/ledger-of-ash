@@ -134,7 +134,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Noren turns to face the shelving behind him and begins re-counting a row of filed records that doesn't need counting. "Quality control procedures are internal to the department. Unregistered inquiry goes through the arbiter's office." He counts aloud until you leave, his voice flat and even, as deliberate as tally-chalk on a manifest. The department door closes before you reach the walkway. The faint smell of chalk dust and splinter-wood from the inspection bay follows you into the corridor.`;
         addJournal('Quality inspector refuses future inquiry', 'complication', `guildheart-inspector-silent-${G.dayCount}`);
       } else {
-        G.lastResult = `The inspection bay smells of tally-chalk and splinter-wood from broken crate lids. Noren rubs chalk dust off his fingers before speaking, brushing the residue onto the side of his leather apron. "Consistency requires standardized conditions. Not every lot presents the same." He gestures at the stacked crates along the wall — different marks, different hands, different waxes at the seals. "Application is contextual." He doesn't say whose context determines the outcome. The caliper he uses for official measurements sits on his workbench, not in its case. He hasn't closed it between the last two inspections.`;
+        G.lastResult = `The inspection bay smells of tally-chalk and splinter-wood from broken crate lids. Noren rubs chalk dust off his fingers before speaking, brushing the residue onto the side of his leather apron. "Consistency requires standardized conditions. Not every lot presents the same." He gestures at the stacked crates along the wall — different marks, different hands, different waxes at the seals. "Application is contextual." He doesn't say whose context determines the outcome. The caliper he uses for certified measurements sits on his workbench, not in its case. He hasn't closed it between the last two inspections.`;
         addJournal('Inspector confirmed inconsistent quality enforcement', 'evidence', `guildheart-inspector-inconsistent-${G.dayCount}`);
       }
 
@@ -359,7 +359,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Structure', 'Organization', 'Power', 'Meaningful'],
     xpReward: 70,
     failResult: {
-      text: `The charter display in the main hall has a clerk positioned beside it — a new addition since this morning, standing close enough to answer questions. His presence is an answer in itself. He asks for guild registration before permitting document handling. The posted organizational chart on the east wall — a different document, less detailed, officially public — lists department names without naming the individuals who currently fill or vacate them. The department head roster is posted separately in the member registry window during open hours.`,
+      text: `The charter display in the main hall has a clerk positioned beside it — a new addition since this morning, standing close enough to answer questions. His presence is an answer in itself. He asks for guild registration before permitting document handling. The posted organizational chart on the east wall — a different document, less detailed, open to any visitor — lists department names without naming the individuals who currently fill or vacate them. The department head roster is posted separately in the member registry window during open hours.`,
       xp: 0,
       effects: [],
       next: [{ text: 'The member registry window posts the department head roster during open hours.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
@@ -912,7 +912,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 75,
     failResult: {
-      text: `Close of hall comes and the arbiter exits through the east corridor, turns south — and boards a guild transport that carries four other officers toward the residential quarter. A group departure on official transport leaves no readable off-channel thread. The contact, if there is one tonight, happens after the transport drops. The cartwright's workshop on the east side of the residential block is still worth examining in daylight — courier stops don't always require the principal to be present, and the lamp-above-scale mark may appear on other materials stored there.`,
+      text: `Close of hall comes and the arbiter exits through the east corridor, turns south — and boards a guild transport that carries four other officers toward the residential quarter. A group departure on guild transport leaves no readable off-channel thread. Whatever meeting is scheduled, if there is one tonight, happens after the transport drops. The cartwright's workshop on the east side of the residential block is still worth examining in daylight — courier stops don't always require the principal to be present, and the lamp-above-scale mark may appear on other materials stored there.`,
       xp: 0,
       effects: [],
       next: [{ text: 'The cartwright\'s workshop with the courier stop is still worth examining in daylight.', skill: 'survival', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
@@ -1271,7 +1271,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
         addJournal('Courier interception failed — interception attempt logged at relay post; description on security record', 'complication');
       } else if (result.total >= target) {
-        G.lastResult = 'The courier stops and the satchel opens. He hands over one envelope — the top one, which he reads as expendable. Inside: a route confirmation for a caravan that the transit registry shows as not yet registered. The confirmation pre-authorizes the caravan\'s passage through the relay post, signed by the route factor registry. A caravan with pre-authorization that does not appear in the public register is moving through this hub on a track that official record-keeping does not see.';
+        G.lastResult = 'The courier stops and the satchel opens. He hands over one envelope — the top one, which he reads as expendable. Inside: a route confirmation for a caravan that the transit registry shows as not yet registered. The confirmation pre-authorizes the caravan\'s passage through the relay post, signed by the route factor registry. A caravan with pre-authorization that does not appear in the public register is moving through this hub on a track the transit registry does not see.';
         addJournal('Courier yielded envelope — pre-authorization for unregistered caravan through relay post; signed by factor registry', 'evidence');
       } else {
         G.lastResult = 'The courier stops, reads you accurately, and sets the satchel on the ground. Everything inside is routing confirmations — six of them, all standard, all for caravans that appear in the transit registry. He picks up the satchel when you are done and continues to the relay post. The dispatch he was protecting was already inside his jacket, not in the satchel. The satchel was the decoy. Whatever the jacket dispatch contains reached the relay post.';
@@ -1307,7 +1307,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The cipher is a substitution layer in the route code column — every fifth entry, reading across rather than down, which is why the standard audit process misses it. Decoded: a schedule of cargo transfers keyed to specific waypoints, amounts, and receiving party designations. The receiving party designations use a three-letter code that does not appear in the guild\'s registered factor list. Cross-referencing the waypoints with the transit registry: two of the five waypoints in the cipher are not in the official route registry. They are real places — recognizable from the road — but they have no registry designation. The caravan is stopping at ghost stops.';
+        G.lastResult = 'The cipher is a substitution layer in the route code column — every fifth entry, reading across rather than down, which is why the standard audit process misses it. Decoded: a schedule of cargo transfers keyed to specific waypoints, amounts, and receiving party designations. The receiving party designations use a three-letter code that does not appear in the guild\'s registered factor list. Cross-referencing the waypoints with the transit registry: two of the five waypoints in the cipher are not in the transit route registry. They are real places — recognizable from the road — but they have no registry designation. The caravan is stopping at ghost stops.';
         G.stageProgress[1]++;
         addJournal('Caravan manifest cipher decoded — transfers to 2 unregistered waypoints; receiving party codes not in guild factor list; every 5th entry reading horizontally', 'evidence');
       } else if (result.isFumble) {
@@ -1392,7 +1392,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       var target = 15;
 
       if (result.isCrit) {
-        G.lastResult = 'Five blocks, two waymark posts, one side passage that does not appear on the transit district map. The courier goes into the side passage and does not come out for eleven minutes. When he does, his satchel sits differently — less weight on the main side, more on the interior pocket that was empty when he left the relay post. He picked something up. The side passage entrance has no guild mark, no registry posting, and no official designation. It is an access point that exists in the physical layout and not in any record you have seen. Whatever the courier collected in eleven minutes came from somewhere the district map does not acknowledge.';
+        G.lastResult = 'Five blocks, two waymark posts, one side passage that does not appear on the transit district map. The courier goes into the side passage and does not come out for eleven minutes. When he does, his satchel sits differently — less weight on the main side, more on the interior pocket that was empty when he left the relay post. He picked something up. The side passage entrance has no guild mark, no registry posting, and no transit designation. It is an access point that exists in the physical layout and not in any record you have seen. Whatever the courier collected in eleven minutes came from somewhere the district map does not acknowledge.';
         G.stageProgress[1]++;
         addJournal('Courier tailed to unmapped side passage — 11 minutes inside, left with additional weight in interior pocket; passage has no guild mark or registry posting', 'evidence');
       } else if (result.isFumble) {
