@@ -102,6 +102,14 @@ const MAGIC_MIDSPINE_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
 
       G.flags.magic_midspine_node3_complete = true;
+      // Resolve quest: threads converge on a named individual — the pattern has a source
+      if (G && G.questHints) G.questHints['q_s1_converging'] = null;
+      if (G && G.quests) G.quests = G.quests.map(function(q) {
+        if (typeof q === 'object' && q && q.questId === 'q_s1_converging') {
+          return Object.assign({}, q, {resolved: true, resolvedText: 'Dr. Hael Woss left the annotations. The suppression has a name and a location.'});
+        }
+        return q;
+      });
 
       const result = rollD20('wits', (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {

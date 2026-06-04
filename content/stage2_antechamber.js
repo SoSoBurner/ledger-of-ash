@@ -59,6 +59,14 @@ window.STAGE2_ANTECHAMBER = (function() {
   function _resolve() {
 
     G.flags.stage2_antechamber_done = true;
+    // Resolve quest: the antechamber move is made — the accounting is now complete enough to act on
+    if (G && G.questHints) G.questHints['q_s2_antechamber'] = null;
+    if (G && G.quests) G.quests = G.quests.map(function(q) {
+      if (typeof q === 'object' && q && q.questId === 'q_s2_antechamber') {
+        return Object.assign({}, q, {resolved: true, resolvedText: 'The last piece is placed. The antechamber move is complete. The confrontation is next.'});
+      }
+      return q;
+    });
     if (typeof window.advanceTime === 'function') window.advanceTime(1);
     if (typeof checkStageAdvance === 'function') checkStageAdvance();
   }

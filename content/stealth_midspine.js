@@ -105,6 +105,14 @@ const STEALTH_MIDSPINE_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
 
       G.flags.stealth_midspine_node3_complete = true;
+      // Resolve quest: the full picture is now visible — shadow network confirmed and mapped
+      if (G && G.questHints) G.questHints['q_s1_close'] = null;
+      if (G && G.quests) G.quests = G.quests.map(function(q) {
+        if (typeof q === 'object' && q && q.questId === 'q_s1_close') {
+          return Object.assign({}, q, {resolved: true, resolvedText: 'Shadow network mapped — three tiers, center operating from Shelkopolis admin district.'});
+        }
+        return q;
+      });
 
       const result = rollD20('finesse', (G.skills.stealth || 0) + (G.skills.lore || 0) + Math.floor(G.level / 3));
       if (result.total >= 14) {

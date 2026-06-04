@@ -155,6 +155,14 @@ var STAGE2_CLIMAX = (function() {
     G.flags.stage2_climax_complete = true;
     G.flags.maren_oss_resolved = true;
     G.flags.companion_gate_open = true;
+    // Resolve quest: Torveld Mast's authorization confirmed through the Collegium confrontation
+    if (G && G.questHints) G.questHints['q_s2_climax'] = null;
+    if (G && G.quests) G.quests = G.quests.map(function(q) {
+      if (typeof q === 'object' && q && q.questId === 'q_s2_climax') {
+        return Object.assign({}, q, {resolved: true, resolvedText: 'Torveld Mast\'s authorization confirmed. The suppression chain is exposed.'});
+      }
+      return q;
+    });
     if (typeof showToast === 'function') showToast('Camp options unlocked: Post Watches and Talk with companions.');
     // Acknowledge unchosen paths as intelligence, not loss
     if (G.flags.stage2_climax_resolution === 'expose') {

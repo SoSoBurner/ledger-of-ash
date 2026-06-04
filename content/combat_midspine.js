@@ -124,6 +124,14 @@ const COMBAT_MIDSPINE_CHOICES = [
       addJournal('Combat midspine complete: Warden Order relationship established — carries to Stage 2', 'evidence', `combat-midspine-3-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
       if (!G.rivalId && G.archetype) G.rivalId = 'warden_captain';
+      // Resolve quest: the Warden Order encounter confirms the anomaly pattern is a coordinated operation
+      if (G && G.questHints) G.questHints['q_s1_pattern'] = null;
+      if (G && G.quests) G.quests = G.quests.map(function(q) {
+        if (typeof q === 'object' && q && q.questId === 'q_s1_pattern') {
+          return Object.assign({}, q, {resolved: true, resolvedText: 'Warden Order files confirm the anomalies are a coordinated supply-route operation.'});
+        }
+        return q;
+      });
     }
   }
 
