@@ -120,6 +120,7 @@
     sheresh:     { short_extra: 0.5, medium_extra: 1,   long_extra: 1.5  },
     psanan:      { short_extra: 0,   medium_extra: 0.5, long_extra: 1    },
     coastal:     { short_extra: 0,   medium_extra: 0,   long_extra: 0.5  },
+    sea:         { short_extra: 0,   medium_extra: 0.5, long_extra: 1.5  },
     highland:    { short_extra: 0.5, medium_extra: 1,   long_extra: 1.5  },
     forest:      { short_extra: 0,   medium_extra: 0.5, long_extra: 0.75 }
   };
