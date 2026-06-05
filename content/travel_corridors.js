@@ -888,7 +888,7 @@
             if (heal > 0 && typeof modHP === 'function') modHP(heal);
             G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
             if (typeof addNarration === 'function') addNarration('', 'The fire takes on the third strike. The dispatch board is readable from the sleeping roll. You don\'t sleep well, but you sleep. The ankle stiffness is gone by first light.');
-            if (typeof addJournal === 'function') addJournal('Rested at Fairhaven East Waystation.', 'field_note');
+            if (typeof addJournal === 'function') addJournal('Rested at Fairhaven East Waystation.', 'evidence');
             setTimeout(function() {
               if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
               else TRAVEL_CORRIDOR.advanceDayLeg();
@@ -920,7 +920,7 @@
             if (heal > 0 && typeof modHP === 'function') modHP(heal);
             G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
             if (typeof addNarration === 'function') addNarration('', 'The stove warmth is allocation post warmth — dry and even. The canteen on the counter is full. You use it. Twelve names in the transit log. You read them without meaning to.');
-            if (typeof addJournal === 'function') addJournal('Rested at Soreheim Border Allocation Post.', 'field_note');
+            if (typeof addJournal === 'function') addJournal('Rested at Soreheim Border Allocation Post.', 'evidence');
             setTimeout(function() {
               if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
               else TRAVEL_CORRIDOR.advanceDayLeg();
@@ -958,7 +958,7 @@
             if (heal > 0 && typeof modHP === 'function') modHP(heal);
             G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
             if (typeof addNarration === 'function') addNarration('', 'The dome-light does not follow a day cycle — it is steady, not bright. The insulated roll is cold at first. By the second hour it holds its warmth. You sleep through the dome-glow.');
-            if (typeof addJournal === 'function') addJournal('Rested at Dome Perimeter Rest Stop.', 'field_note');
+            if (typeof addJournal === 'function') addJournal('Rested at Dome Perimeter Rest Stop.', 'evidence');
             setTimeout(function() {
               if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
               else TRAVEL_CORRIDOR.advanceDayLeg();
@@ -989,7 +989,7 @@
             if (heal > 0 && typeof modHP === 'function') modHP(heal);
             G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
             if (typeof addNarration === 'function') addNarration('', 'The ventilation keeps the air cleaner than outside by enough to matter. The forge heat from below is steady and sourceless. You sleep warmer than the road has any right to allow.');
-            if (typeof addJournal === 'function') addJournal('Rested at Ash Road Iron Station.', 'field_note');
+            if (typeof addJournal === 'function') addJournal('Rested at Ash Road Iron Station.', 'evidence');
             setTimeout(function() {
               if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
               else TRAVEL_CORRIDOR.advanceDayLeg();
