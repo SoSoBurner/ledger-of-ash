@@ -154,7 +154,6 @@ var STAGE2_CLIMAX = (function() {
     if (!G.lastResult) G.lastResult = '';
     G.flags.stage2_climax_complete = true;
     G.flags.maren_oss_resolved = true;
-    G.flags.companion_gate_open = true;
     // Resolve quest: Torveld Mast's authorization confirmed through the Collegium confrontation
     if (G && G.questHints) G.questHints['q_s2_climax'] = null;
     if (G && G.quests) G.quests = G.quests.map(function(q) {

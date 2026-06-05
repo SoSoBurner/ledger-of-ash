@@ -13454,6 +13454,7 @@ function checkStageAdvance() {
     addNarration('', '<em style="color:var(--gold-bright)">&#x2014; STAGE II UNLOCKED &#x2014; The world widens. You may now travel beyond your origin polity where routes support it.</em>');
     addJournal('Advanced to Stage II: Local Inter-Polity. New regions accessible.');
     G.history.push('Completed Stage I. Entered the wider world at Level 5.');
+    G.flags.companion_gate_open = true;
     updateHUD();
     var _pill = document.getElementById('topbar-stage');
     if (_pill) { _pill.classList.add('stage-flash'); setTimeout(function(){ _pill.classList.remove('stage-flash'); }, 800); }
@@ -17563,8 +17564,8 @@ function showCamp() {
   // Supply display
   var _supplyEl = document.getElementById('camp-supply-display');
   if (_supplyEl) _supplyEl.textContent = 'Supply: ' + (G.supply !== undefined ? G.supply : 10) + ' / 10';
-  // Post Watches: only show when maren_oss_resolved AND companions present
-  const _marenGate = !!(G.flags && G.flags.maren_oss_resolved);
+  // Post Watches: only show when companion_gate_open AND companions present
+  const _marenGate = !!(G.flags && G.flags.companion_gate_open);
   const pw = document.getElementById('btn-post-watches');
   if (pw) pw.style.display = (_marenGate && G.companions && G.companions.length > 0) ? '' : 'none';
   // Sleep: show at night
