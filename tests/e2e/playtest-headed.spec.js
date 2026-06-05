@@ -911,18 +911,6 @@ async function probeCamp(page, tag, g) {
     } else {
       log(`[panel:camp ${tag}] recover: ${recoverVisible ? 'visible but disabled (gated)' : 'not visible'}`);
     }
-    // review_notes — being disabled is NOT a WARN
-    const reviewNotesVisible = await page.locator('button.camp-action[data-camp="review_notes"],[data-camp="review_notes"]').isVisible({ timeout: 600 }).catch(() => false);
-    const reviewNotesEnabled = reviewNotesVisible && await page.locator('button.camp-action[data-camp="review_notes"],[data-camp="review_notes"]').first().isEnabled({ timeout: 400 }).catch(() => false);
-    if (reviewNotesEnabled) {
-      await page.locator('button.camp-action[data-camp="review_notes"],[data-camp="review_notes"]').first().click();
-      await page.waitForTimeout(PACE.short);
-      await screenshot(page, `${tag}_camp_review_notes_result`);
-      const txt = await page.locator('#overlay-camp,.result-text,.narrative-text').first().innerText().catch(() => '');
-      log(`[panel:camp ${tag}] review_notes-result: "${txt.slice(0,100).replace(/\n/g,' ')}"`);
-    } else {
-      log(`[panel:camp ${tag}] review_notes: ${reviewNotesVisible ? 'visible but disabled (gated)' : 'not visible'}`);
-    }
     // talk — being disabled is NOT a WARN
     const talkVisible = await page.locator('button.camp-action[data-camp="talk"],[data-camp="talk"]').isVisible({ timeout: 600 }).catch(() => false);
     const talkEnabled = talkVisible && await page.locator('button.camp-action[data-camp="talk"],[data-camp="talk"]').first().isEnabled({ timeout: 400 }).catch(() => false);

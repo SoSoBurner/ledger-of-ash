@@ -2110,7 +2110,6 @@ input, button, select, textarea { font-family: inherit; }
         <div class="camp-group-label">Active Threads</div>
         <button class="camp-action" id="btn-campout" data-camp="campout"><div class="ca-icon">&#x25CB;</div><div class="ca-title">Camp Outside</div><div class="ca-desc">Sleep outside the settlement. Risk a night encounter; rolls −1 the following day.</div></button>
         <button class="camp-action" id="btn-lay-low" data-camp="lay_low" style="display:none"><div class="ca-icon">&#x25AA;</div><div class="ca-title">Lay Low</div><div class="ca-desc">Go quiet for a day. Reduces Watchfulness and each polity heat by 1. Costs a day.</div></button>
-        <button class="camp-action" id="btn-review-notes" data-camp="review_notes" style="display:none"><div class="ca-icon">&#x2393;</div><div class="ca-title">Review Notes</div><div class="ca-desc">Go back to the beginning. A lost thread may still hold. Costs a day.</div></button>
       </div>
       <div class="camp-footer"><button class="btn btn-ghost btn-sm" data-close="overlay-camp">&#x2192; Break Camp</button></div>
     </div>
@@ -9906,6 +9905,10 @@ function advanceTime(ticks) {
     if (Math.random() < 0.15) {
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.rival = Math.min(10, (G.worldClocks.rival || 0) + 1);
+      var _rc = (G.worldClocks && G.worldClocks.rival) || 0;
+      if (_rc === 3) addJournal('A shadow follows your trail — you sense you are being tracked.', 'complication');
+      if (_rc === 6) addJournal('The pursuit grows closer. Your rival has found your path.', 'complication');
+      if (_rc === 9) addJournal('Danger: your rival is nearly upon you. Resolve this soon.', 'complication');
     }
   }
 }
@@ -10001,8 +10004,8 @@ function getDefaultG() {
     stageProgress:{1:0, 2:0, 3:0, 4:0, 5:0},
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
-    discoveries:{}, contacts:{}, suspects:{},
-    investigationProgress:0, flags:{recovery_thread_available:false, stage2_faction_contact_made:false, combat_intro_shown:false}, rivalId:null,
+    suspects:{},
+    investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
     nomdara_last_visit_locality:null,
@@ -11331,11 +11334,6 @@ function adaptEnrichedChoice(c) {
           G.recentOutcomeType = 'complication';
           addNarration('', _frTxt, 'complication');
           addJournal(_frTxt, 'complication');
-          // Set recovery thread on investigation-type failed choices — enables camp review_notes action
-          var _investTags = ['Investigation','Inquiry','Archive','Records','Lore','Intelligence','Discovery','Observation','Survey'];
-          var _choiceTags = Array.isArray(c.tags) ? c.tags : (c.tag ? [c.tag] : []);
-          var _isInvestFail = _choiceTags.some(function(t){ return _investTags.indexOf(t) !== -1; }) || (c.skill === 'lore');
-          if (_isInvestFail && G.flags && !G.flags.recovery_thread_available) G.flags.recovery_thread_available = true;
           if (typeof updateHUD === 'function') updateHUD();
           if (typeof saveGame === 'function') saveGame();
           setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
@@ -11603,7 +11601,7 @@ function loadStageChoices(locId) {
   if (enriched && enriched.length) {
     const seenKey = '_seen_enriched_' + stageNum;
     const seen = G.flags[seenKey] = G.flags[seenKey] || {};
-    function _checkCond(c) { if (!c.condition) return true; try { return c.condition(); } catch(e) { return false; } }
+    function _checkCond(c) { if (!c.condition) return true; try { return c.condition(); } catch(e) { console.error('[loadStageChoices] condition error:', e); return false; } }
     let pool = enriched.filter(function(c) { return c && !seen[c.label || c.id || c.text] && _checkCond(c); });
     if (pool.length < 2) { G.flags[seenKey] = {}; pool = enriched.filter(Boolean); }
     // Fisher-Yates shuffle
@@ -11743,7 +11741,7 @@ function loadStageChoices(locId) {
       if (_arcEntry && _arcEntry.arc && !(G.flags && G.flags[_arcEntry.flag])) {
         var _arcChoices = _arcEntry.arc.filter(function(c) {
           if (!c.condition) return true;
-          try { return c.condition(); } catch(e) { return false; }
+          try { return c.condition(); } catch(e) { console.error('[loadStageChoices] arc condition error:', e); return false; }
         }).map(adaptEnrichedChoice);
         if (_arcChoices.length) adapted.unshift.apply(adapted, _arcChoices);
       }
@@ -12872,14 +12870,13 @@ function resolveConsequence(cid, success, partial) {
   // renderChoices setTimeout(0) cancelled by a racing call.
   setTimeout(function() {
     if (!document.querySelector('.choice-block,.levelup-block,.move-block') && G && !G.dead) {
-      // Dead-end moment: set recovery thread so camp review_notes becomes available
-      if (G.flags && !G.flags.recovery_thread_available) G.flags.recovery_thread_available = true;
       if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
     }
   }, 800);
 }
 
 function applyEffect(fx) {
+  try {
   switch (fx.type) {
     case 'journal':   addJournal(fx.text || fx.msg || '', fx.category || 'discovery'); break;
     case 'quest':     addQuest(fx.msg, fx.hint, fx.questId); break;
@@ -12929,6 +12926,10 @@ function applyEffect(fx) {
     case 'rival':
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.rival = Math.min(10, (G.worldClocks.rival || 0) + (fx.amount || fx.n || 1));
+      var _rcFx = (G.worldClocks && G.worldClocks.rival) || 0;
+      if (_rcFx === 3) addJournal('A shadow follows your trail — you sense you are being tracked.', 'complication');
+      if (_rcFx === 6) addJournal('The pursuit grows closer. Your rival has found your path.', 'complication');
+      if (_rcFx === 9) addJournal('Danger: your rival is nearly upon you. Resolve this soon.', 'complication');
       break;
     case 'access':
     case 'trade':
@@ -12939,6 +12940,7 @@ function applyEffect(fx) {
       console.warn('[applyEffect] unimplemented effect type:', fx.type);
       break;
   }
+  } catch(e) { console.error('[applyEffect] error:', e); }
 }
 
 function checkWorldClockThresholds() {
@@ -12983,7 +12985,7 @@ function checkWorldClockThresholds() {
     if (typeof addWorldNotice === 'function') addWorldNotice('Pressure critical: the trail is going cold. Stage advance required to recover.');
     var _spn3 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
     G.stageProgress[_spn3] = Math.max(0, (G.stageProgress[_spn3]||0) - 10);
-    if ((G.stageProgress[_spn3]||0) <= 0) { G.flags.recovery_thread_available = true; if (typeof addWorldNotice === 'function') addWorldNotice('The trail has gone cold. Your notes may hold something you missed.'); }
+    if ((G.stageProgress[_spn3]||0) <= 0) { if (typeof addWorldNotice === 'function') addWorldNotice('The trail has gone cold. Your notes may hold something you missed.'); }
   }
 
   // Rival thresholds
@@ -12999,7 +13001,7 @@ function checkWorldClockThresholds() {
     if (typeof addJournal === 'function') addJournal('Warehouse manifest collected by unknown researcher before your arrival.', 'intelligence');
     var _spn4 = G.stage === 'Stage I' ? 1 : G.stage === 'Stage II' ? 2 : 3;
     G.stageProgress[_spn4] = Math.max(0, (G.stageProgress[_spn4]||0) - 5);
-    if ((G.stageProgress[_spn4]||0) <= 0) { G.flags.recovery_thread_available = true; if (typeof addWorldNotice === 'function') addWorldNotice('The trail has gone cold. Your notes may hold something you missed.'); }
+    if ((G.stageProgress[_spn4]||0) <= 0) { if (typeof addWorldNotice === 'function') addWorldNotice('The trail has gone cold. Your notes may hold something you missed.'); }
   }
 }
 
@@ -14246,6 +14248,7 @@ function maybeFireArrivalScene(localityId) {
 // shouldShowArrivalScene and buildArrivalChoice defined in content/locality_arrival_narrations.js
 
 function resolveArrival(locId) {
+  try {
   const loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
   const fromId = G.location;
@@ -14294,6 +14297,7 @@ function resolveArrival(locId) {
       ]);
     }
   }, 400);
+  } catch(e) { console.error('[resolveArrival] error:', e); }
 }
 
 
@@ -14440,7 +14444,7 @@ function consumeHalfMaterials(recipe) {
 }
 
 // ── CAMP ─────────────────────────────────────────────────
-/** @param {'post_watches'|'craft'|'review_notes'} type — post_watches requires >=1 active companion; review_notes requires recovery_thread_available flag. */
+/** @param {'post_watches'|'craft'} type — post_watches requires >=1 active companion. */
 /** Show a temporary camp-result overlay that auto-dismisses after 2500ms then fires callback. */
 function showCampResultModal(heading, body, type, callback) {
   var container = document.getElementById('game') || document.body;
@@ -14627,28 +14631,6 @@ function campAction(type) {
     addJournal('Spent a day off the official channels. Watchfulness reduced.', 'complication');
     updateHUD(); saveGame();
     setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
-  } else if (type === 'review_notes') {
-    if (!(G && G.flags && G.flags.recovery_thread_available)) {
-      addNarration('Camp', 'Nothing in your notes demands another pass. The trail is still warm.', 'failure');
-      setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
-    } else {
-      G.flags.recovery_thread_available = false;
-      G.dayCount = (G.dayCount || 0) + 1;
-      var _rnStageKey = G.stage === 'Stage II' ? 2 : G.stage === 'Stage III' ? 3 : 1;
-      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
-      var _rnRoll = Math.floor(Math.random() * 20) + 1;
-      if (_rnRoll >= 10) {
-        G.stageProgress[_rnStageKey] = (G.stageProgress[_rnStageKey] || 0) + 2;
-        G.lastResult = 'You lay your notes out and go back to the beginning. Something was missed \u2014 and now you see it. The thread is thin but it holds.';
-      } else {
-        G.stageProgress[_rnStageKey] = (G.stageProgress[_rnStageKey] || 0) + 1;
-        G.lastResult = 'You lay your notes out and go back to the beginning. Something was missed. You mark the gap and set it aside. The day is spent.';
-      }
-      addNarration('Review Notes', G.lastResult, _rnRoll >= 10 ? 'success' : 'partial');
-      addJournal('Reviewed notes at camp. Recovered a thread.', 'intelligence');
-      updateHUD(); saveGame();
-      setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
-    }
   } else if (type === 'sleep') {
     if (typeof shiftTension === 'function') shiftTension(-1);
     doSleepScene();
@@ -17587,9 +17569,6 @@ function showCamp() {
     var _anyHeat = G.heat && Object.keys(G.heat).some(function(k){ return G.heat[k] > 0; });
     layLowBtn.style.display = (((G.worldClocks && G.worldClocks.watchfulness) || 0) >= 3 || _anyHeat) ? '' : 'none';
   }
-  // Review Notes: show when thread available
-  const reviewNotesBtn = document.getElementById('btn-review-notes');
-  if (reviewNotesBtn) reviewNotesBtn.style.display = (G.flags && G.flags.recovery_thread_available) ? '' : 'none';
   // Camp Outside: show only outside settlements
   const campoutBtn = document.getElementById('btn-campout');
   if (campoutBtn) campoutBtn.style.display = G.inSettlement ? 'none' : '';
