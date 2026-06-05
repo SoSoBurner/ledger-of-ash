@@ -14089,7 +14089,7 @@ function _showModeSelectInOverlay(locId) {
 
   var _costs = { foot: 0, horse: 8, cart: 12, boat: 15 };
   var _labels = { foot: 'On Foot', horse: 'Horse', cart: 'Cart', boat: 'River Passage' };
-  var _LOC_ALIAS_OVL = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy'};
+  var _LOC_ALIAS_OVL = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy', sunspire:'sunspire_haven'};
   var _fromKey = _LOC_ALIAS_OVL[G.location] || G.location;
   var _toKey   = _LOC_ALIAS_OVL[locId]      || locId;
   var routeData = window.ROUTE_SPATIAL_DATA ? window.ROUTE_SPATIAL_DATA.get(_fromKey, _toKey) : null;
@@ -14872,7 +14872,7 @@ function checkDuskcall() {
 
 // ── JOURNEY START / TRAVEL CORE ──────────────────────────
 function doJourneyStart(destId) {
-  var _LOC_ALIAS = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy'};
+  var _LOC_ALIAS = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy', sunspire:'sunspire_haven'};
   var _fromLoc = _LOC_ALIAS[G.location] || G.location;
   var _toLoc   = _LOC_ALIAS[destId]     || destId;
   var routeKey = _fromLoc + '|' + _toLoc;
@@ -15031,7 +15031,7 @@ function startTravel(destinationKey) {
 
 /** Executes multi-day journey to destId using G.travelMode and G.pace. Applies journey fatigue. @param {string} destId */
 function doTravelJourney(destId) {
-  var _LOC_ALIAS = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy'};
+  var _LOC_ALIAS = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy', sunspire:'sunspire_haven'};
   var _fromLoc = _LOC_ALIAS[G.location] || G.location;
   var _toLoc   = _LOC_ALIAS[destId]     || destId;
   var routeKey = _fromLoc + '|' + _toLoc;
