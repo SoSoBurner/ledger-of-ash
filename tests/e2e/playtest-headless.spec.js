@@ -411,8 +411,8 @@ async function pickChoice(page, pickNum, forcePlotMain) {
     }
   }
 
-  // 2) random every 5th pick
-  if (pickNum % 5 === 0) {
+  // 2) random every 3rd pick
+  if (pickNum % 3 === 0) {
     const idx = Math.floor(Math.random() * count);
     const btn = buttons.nth(idx);
     const m   = await meta(btn);
@@ -1054,6 +1054,18 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
       log(`[pick ${tag}] #${picks + 1} plotMain=${result.isPlotMain} combat=${result.isCombat} "${result.text.slice(0, 60)}"`);
       picks++;
       lastPickTime = Date.now();
+      const _econ = await page.evaluate(function() {
+        try {
+          return { xp: G.xp || 0, gold: G.gold || 0,
+            sp1: (G.stageProgress && G.stageProgress[1]) || 0,
+            sp2: (G.stageProgress && G.stageProgress[2]) || 0,
+            level: G.level || 1, stage: G.stage || 'Stage I' };
+        } catch(e) { return {}; }
+      }).catch(function() { return {}; });
+      if (_econ.xp !== undefined) {
+        console.log('[pick ' + picks + '] xp=' + _econ.xp + ' gold=' + _econ.gold +
+          ' sp1=' + _econ.sp1 + ' sp2=' + _econ.sp2 + ' L' + _econ.level + ' ' + _econ.stage);
+      }
       await page.waitForTimeout(PACE.betweenCombat);
 
       // Same-label loop detection: 3 identical picks in a row = stuck in tension loop
