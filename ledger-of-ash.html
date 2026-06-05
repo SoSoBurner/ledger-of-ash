@@ -12930,6 +12930,14 @@ function applyEffect(fx) {
       G.worldClocks = G.worldClocks || {};
       G.worldClocks.rival = Math.min(10, (G.worldClocks.rival || 0) + (fx.amount || fx.n || 1));
       break;
+    case 'access':
+    case 'trade':
+    case 'harbor':
+    case 'frontier':
+    case 'labor':
+    case 'academic':
+      console.warn('[applyEffect] unimplemented effect type:', fx.type);
+      break;
   }
 }
 
