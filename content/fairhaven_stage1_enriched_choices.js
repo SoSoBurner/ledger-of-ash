@@ -1027,7 +1027,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
-      if (family !== 'Support') {
+      if (family !== 'support') {
         G.lastResult = `The children in Fairhaven look thinner than a seasonal lean would explain. Their energy runs low by midday, faces pale in the afternoon light that comes off the water. The grain-store smell from the upper provisioner's window carries warmth when it should carry cool damp — wrong conditions for stored food. The observation is clear enough; without the training to read nutritional patterns, the cause stays out of reach.`;
         gainXp(30, 'noting Fairhaven child nutrition pattern');
         G.recentOutcomeType = 'observe'; maybeStageAdvance(); return;
@@ -1468,7 +1468,8 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       G.flags.sideplot_mill_displacement_started = true;
       addNarration('', 'Three families reassigned from meadow mills to harbor district in six weeks. The reassignment orders are stamped but unsigned — authorization without accountability, a record that names what happened without naming who decided it.');
       addJournal('Meadow mill: three families displaced. Reassignment orders unsigned — authorization without accountability.', 'evidence');
-      if (window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT && typeof window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.open === 'function') window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.open();
+      if (window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT && typeof window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.rung2Hook === 'function') { var _rung2 = window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.rung2Hook(); }
+      G.lastResult = G.lastResult || 'The work continues.';
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
