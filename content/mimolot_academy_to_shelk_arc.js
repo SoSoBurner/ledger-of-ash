@@ -174,7 +174,7 @@ const MIMOLOT_ACADEMY_TO_SHELK_ARC = [
         addJournal('Doss: full synthesis model complete — lethal at 180+ hours sustained exposure', 'discovery', `mimolot-arc-doss-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Doss's last known address is empty. He moved. Someone in the network knows where but you haven't made that contact yet. You'll find him in Stage 2.`;
+        G.lastResult = `Doss's last known address is empty. He moved. Someone in the network knows where but you haven't reached that connection yet. You'll find him in Stage 2.`;
         G.recentOutcomeType = 'neutral';
       }
     }

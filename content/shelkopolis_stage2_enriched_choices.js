@@ -946,7 +946,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     xpReward: 72,
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_shadowhands_aware)) {
-        G.lastResult = 'The chalk mark is still drying on the wall by the dye-quarter alley. The Ironspool district carries its smell of coal smoke and old tanning vats. Nothing to act on with this contact yet — the mark is a signal, and a signal before its time is just a mark on a wall. Return after the curl sets and the message has had time to find its intended reader. Acting now means arriving before trust is possible.';
+        G.lastResult = 'The chalk mark is still drying on the wall by the dye-quarter alley. The Ironspool district carries its smell of coal smoke and old tanning vats. Nothing to act on with this connection yet — the mark is a signal, and a signal before its time is just a mark on a wall. Return after the curl sets and the message has had time to find its intended reader. Acting now means arriving before trust is possible.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

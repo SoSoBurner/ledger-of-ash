@@ -78,7 +78,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
   // ——— SOFT TRIGGER deepening ———
 
   {
-    label: "Every official who processed one became a participant. That was the design.",
+    label: "Every clerk who processed one became a participant. That was the design.",
     tags: ['ArcDeepening', 'Investigation', 'Lore'],
     xpReward: 80,
     condition: function() { return (G.investigationProgress || 0) >= 5; },
@@ -90,7 +90,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      G.lastResult = `The ghost accounts didn't just fund the operation — they created leverage. Each official who processed a ghost account transaction became, technically, a participant in a fraudulent financial record. They couldn't report the accounts without implicating themselves. The operation built its own suppression mechanism into the financial infrastructure. Whoever designed this understood institutional psychology as well as financial mechanics.`;
+      G.lastResult = `The ghost accounts didn't just fund the operation — they created leverage. Each clerk who processed a ghost account transaction became, technically, a participant in a fraudulent financial record. They couldn't report the accounts without implicating themselves. The operation built its own suppression mechanism into the financial infrastructure. Whoever designed this understood institutional psychology as well as financial mechanics.`;
       G.flags.ithtan_arc_leverage_mapped = true;
       addJournal('Ghost accounts created complicity — officials who processed them couldn\'t report without self-implicating', 'discovery', `ithtan-arc-leverage-${G.dayCount}`);
       G.recentOutcomeType = 'success';
@@ -160,7 +160,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       G.investigationProgress++;
 
-      G.lastResult = `The financial district's archive building is the largest structure in Shelkopolis's administrative quarter. Twenty years of transaction records, cross-locality — every exchange house in the Principalities is required to file quarterly reports here. The ghost account pattern that Maret Voss identified in Ithtananalor will appear in this archive, aggregated. If it's as systematic as you think, it will show up as an anomaly across dozens of registry entries. Maret's contact at the arbitrator's office will know how to find it.`;
+      G.lastResult = `The financial district's archive building is the largest structure in Shelkopolis's administrative quarter. Twenty years of transaction records, cross-locality — every exchange house in the Principalities is required to file quarterly reports here. The ghost account pattern that Maret Voss identified in Ithtananalor will appear in this archive, aggregated. If it's as systematic as you think, it will show up as an anomaly across dozens of registry entries. Maret's ally at the arbitrator's office will know how to find it.`;
       G.flags.ithtan_arc_archive_located = true;
       addJournal('Central archive: cross-locality registry — ghost account pattern will be visible if systematic', 'discovery', `ithtan-arc-archive-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';

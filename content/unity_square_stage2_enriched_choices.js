@@ -414,7 +414,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `The shadow register's entry pattern gives you a date. You're in position at the arrival address before the first party shows. Four parties across ninety minutes, arriving in separate windows, departing the same way. You record each one: physical description, charter mark visible on the case each carries, time of arrival and departure. By the following morning, those descriptions are in the hands of every allied contact across the relevant localities. The next meeting window comes and goes with nobody arriving. The hub goes dark.`;
+        G.lastResult = `The shadow register's entry pattern gives you a date. You're in position at the arrival address before the first party shows. Four parties across ninety minutes, arriving in separate windows, departing the same way. You record each one: physical description, charter mark visible on the case each carries, time of arrival and departure. By the following morning, those descriptions are in the hands of every allied connection across the relevant localities. The next meeting window comes and goes with nobody arriving. The hub goes dark.`;
         addJournal('Unity Square S2 finale: coordination meeting observed, participants identified and distributed', 'evidence', `unity-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
@@ -538,7 +538,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A civic official answers a procedural question with the wrong procedure",
+    label: "A civic functionary answers a procedural question with the wrong procedure",
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 15,

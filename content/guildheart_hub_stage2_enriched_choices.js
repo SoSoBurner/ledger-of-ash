@@ -727,7 +727,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_collegium_contacted)) {
-        G.lastResult = 'The Collegium contact isn\'t ready for the next step yet. Peregrin Vas needs to be approached in the Arbiter alcove before the certified copy can be filed to Oversight intake. The Arbitration Hall moves around this pause at its own pace — the shuffle of a queue at the Sanction Board anteroom, a clerk reciting reference numbers to a second clerk, the faint cold smell of chalk dust from the notice boards. The copy sits unsigned, waiting for the moment Peregrin Vas has named.';
+        G.lastResult = 'The Collegium connection isn\'t ready for the next step yet. Peregrin Vas needs to be approached in the Arbiter alcove before the certified copy can be filed to Oversight intake. The Arbitration Hall moves around this pause at its own pace — the shuffle of a queue at the Sanction Board anteroom, a clerk reciting reference numbers to a second clerk, the faint cold smell of chalk dust from the notice boards. The copy sits unsigned, waiting for the moment Peregrin Vas has named.';
         G.recentOutcomeType = 'locked'; return;
       }
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

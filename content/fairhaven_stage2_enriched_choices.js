@@ -656,7 +656,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
         G.flags.deputy_harbor_confronted = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Sava holds eye contact for three seconds after you lay out what Aldra told you, then looks at the ledger surface to her left. The night clearance language was added at the request of a guild registry contact who approached her privately, not through the harbor authority's standard amendment process. The contact brought a written draft. She copied it into the standing protocol because the guild registry seal on the draft looked legitimate. She did not check the seal against the registry's current issue list. Her hands are very still. She has been waiting for this conversation.`;
+        G.lastResult = `Sava holds eye contact for three seconds after you lay out what Aldra told you, then looks at the ledger surface to her left. The night clearance language was added at the request of a guild registry representative who approached her privately, not through the harbor authority's standard amendment process. The representative brought a written draft. She copied it into the standing protocol because the guild registry seal on the draft looked legitimate. She did not check the seal against the registry's current issue list. Her hands are very still. She has been waiting for this conversation.`;
         addJournal('Deputy Sava — night clearance protocol written by guild registry contact, seal legitimacy not verified', 'evidence', `fair-sava-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;

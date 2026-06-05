@@ -660,7 +660,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `The widow sits at her sister's table, which is not her own table anymore. "My husband's brother contested the will. Northern trader, came here for the case specifically. Every precedent was in my favor." She folds her hands. "The mediation official ruled against me. My home sold to a northern consortium within the month, for half its appraised value." She looks at the window. "I filed complaints. They were dismissed without review. I have the dismissal letters." She stands and retrieves them from a shelf. "The signature on each is the same name. One person closed all three."`;
+        G.lastResult = `The widow sits at her sister's table, which is not her own table anymore. "My husband's brother contested the will. Northern trader, came here for the case specifically. Every precedent was in my favor." She folds her hands. "The mediator ruled against me. My home sold to a northern consortium within the month, for half its appraised value." She looks at the window. "I filed complaints. They were dismissed without review. I have the dismissal letters." She stands and retrieves them from a shelf. "The signature on each is the same name. One person closed all three."`;
         G.stageProgress[1]++;
         addJournal('Victim testimony detailed predetermied mediation manipulation', 'evidence', `panim_haven-victim-${G.dayCount}`);
       } else if (result.isFumble) {
