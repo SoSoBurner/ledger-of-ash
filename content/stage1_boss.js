@@ -191,6 +191,7 @@ function _stage1MainBossCombat(aggressive) {
     maxHp: aggressive ? 22 : 26,
     attack: 5, defense: 7,
     morale: 100,
+    boss: true,
     desc: 'Ironveil fights with the lamp and a short enforcement blade. She uses the desk as terrain and forces you into the narrow intake lane. At half health she calls for the ward lock — the room seals and she fights without retreat pressure.',
     loot: [{name: 'ORE Intake Seal', type: 'tool', effect: {lore: 2}, desc: 'The silver intake-marshal seal. Carries ORE authority in the Iron Ledger Ward.'}],
     noRetreat: true,
@@ -200,16 +201,17 @@ function _stage1MainBossCombat(aggressive) {
       if (typeof CS !== 'undefined' && CS && CS.enemy) {
         CS.enemy.attack = (CS.enemy.attack || 9) + 2;
       }
-    },
-    onDefeat: function() {
-      G.flags.stage1_mainboss_defeated = true;
-      G.flags.stage1_mainboss_complete = true;
-      G.flags.stage1_narrative_complete = true;
-      G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 18);
-      G.renown = (G.renown||0) + 10;
-      addJournal('The pulled file contained records of forged permits traced through three different localities — all routed through ORE intake. Ironveil knew the pattern and was managing it, not stopping it.', 'evidence');
-      setTimeout(function() { _stage1MainBossResolution(); }, 50);
     }
+  };
+  G.pendingVictoryCallback = function() {
+    G.pendingVictoryCallback = null;
+    G.flags.stage1_mainboss_defeated = true;
+    G.flags.stage1_mainboss_complete = true;
+    G.flags.stage1_narrative_complete = true;
+    G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 18);
+    G.renown = (G.renown||0) + 10;
+    addJournal('The pulled file contained records of forged permits traced through three different localities — all routed through ORE intake. Ironveil knew the pattern and was managing it, not stopping it.', 'evidence');
+    setTimeout(function() { _stage1MainBossResolution(); }, 50);
   };
   enterCombat(STAGE1_BOSS_NPC_MAIN, { customEnemy: bossEnemy, noRetreat: true, isBoss: true });
 }
