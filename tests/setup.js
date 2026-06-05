@@ -14,7 +14,7 @@ function defaultG() {
     name: '', archetype: null, background: null,
     level: 1, xp: 0, renown: 0,
     hp: 20, maxHp: 20, gold: 20,
-    skills: { combat:0, survival:0, persuasion:0, lore:0, stealth:0, craft:0 },
+    skills: { might:0, vigor:0, charm:0, wits:0, finesse:0, spirit:0, craft:0 },
     traits: [], location: 'shelkopolis',
     timeIndex: 0, dayCount: 0, axisTick: 0, axisInverted: false,
     stage: 'Stage I', stageLabel: 'Grass Roots',
@@ -54,16 +54,22 @@ function extractInlineScripts(html) {
 
 function buildSandbox(gOverrides) {
   // Minimal DOM stubs so script-level initialisation doesn't throw
-  const fakeEl = () => ({
-    style: {}, className: '', innerHTML: '', textContent: '',
-    dataset: {}, value: '', id: '',
-    appendChild: () => fakeEl(),
-    remove: () => {},
-    addEventListener: () => {},
-    querySelector: () => null,
-    querySelectorAll: () => ({ forEach: () => {}, length: 0 }),
-    classList: { add: () => {}, remove: () => {}, contains: () => false, toggle: () => {} },
-  });
+  const fakeEl = () => {
+    const _children = [];
+    return {
+      style: {}, className: '', innerHTML: '', textContent: '',
+      dataset: {}, value: '', id: '',
+      get childNodes() { return _children; },
+      get firstChild() { return _children[0] || null; },
+      appendChild(c) { _children.push(c || fakeEl()); return c; },
+      removeChild(c) { const i = _children.indexOf(c); if (i >= 0) _children.splice(i, 1); return c; },
+      remove: () => {},
+      addEventListener: () => {},
+      querySelector: () => null,
+      querySelectorAll: () => ({ forEach: () => {}, length: 0 }),
+      classList: { add: () => {}, remove: () => {}, contains: () => false, toggle: () => {} },
+    };
+  };
 
   const fakeDoc = {
     getElementById:     () => fakeEl(),
@@ -212,6 +218,7 @@ function createGameContext(gOverrides) {
     buildCompanionHudHTML:   ctx.buildCompanionHudHTML,
     renderShop:              ctx.renderShop,
     buyShopItem:             ctx.buyShopItem,
+    buyLegacyShopItem:       ctx.buyLegacyShopItem,
     LOCALITY_SHOPS:          ctx.__LOCALITY_SHOPS || ctx.LOCALITY_SHOPS,
   };
 }

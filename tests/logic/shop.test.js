@@ -48,12 +48,12 @@ describe('renderShop', () => {
   });
 });
 
-describe('buyShopItem', () => {
+describe('buyLegacyShopItem', () => {
   test('deducts gold and adds item to inventory', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.gold = 50;
     ctx.G.inventory = [];
-    ctx.buyShopItem('iron_blade');
+    ctx.buyLegacyShopItem('iron_blade');
     expect(ctx.G.gold).toBe(15); // 50 - 35
     expect(ctx.G.inventory.some(i => i.id === 'iron_blade')).toBe(true);
   });
@@ -62,7 +62,7 @@ describe('buyShopItem', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.gold = 10;
     ctx.G.inventory = [];
-    ctx.buyShopItem('iron_blade');
+    ctx.buyLegacyShopItem('iron_blade');
     expect(ctx.G.inventory.length).toBe(0);
     expect(ctx.G.gold).toBe(10);
   });
@@ -71,7 +71,7 @@ describe('buyShopItem', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.gold = 100;
     ctx.G.inventory = [{ id: 'iron_blade' }];
-    ctx.buyShopItem('iron_blade');
+    ctx.buyLegacyShopItem('iron_blade');
     expect(ctx.G.gold).toBe(100); // unchanged
   });
 
@@ -79,7 +79,7 @@ describe('buyShopItem', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.gold = 100;
     ctx.G.inventory = [];
-    ctx.buyShopItem('nonexistent_item');
+    ctx.buyLegacyShopItem('nonexistent_item');
     expect(ctx.G.gold).toBe(100);
   });
 });

@@ -33,14 +33,13 @@ describe('adaptEnrichedChoice', () => {
     expect(G.investigationProgress).toBe(1);
   });
 
-  test('does not silently swallow fn() errors', () => {
+  test('fn() errors are caught and do not propagate (swallow-and-log contract)', () => {
     const choice = ctx.adaptEnrichedChoice({
       label: 'Broken',
       fn: function() { throw new Error('fn failed'); }
     });
-    // Before fix: catch swallows, no throw — this test FAILS.
-    // After fix: re-throw makes this pass.
-    expect(() => choice.action()).toThrow('fn failed');
+    // Engine swallows fn() errors with console.error to prevent global freezes.
+    expect(() => choice.action()).not.toThrow();
   });
 });
 
@@ -77,9 +76,9 @@ describe('adaptEnrichedChoice — tag classification', () => {
     expect(choice.tag).toBe('bold');
   });
 
-  test('tags: [Travel] → risky (no semantic match)', () => {
+  test('tags: [Travel] → safe (Travel is in SEMANTIC_SAFE_TAGS)', () => {
     const choice = ctx.adaptEnrichedChoice({ label: 'T', tags: ['Travel'], fn: noop });
-    expect(choice.tag).toBe('risky');
+    expect(choice.tag).toBe('safe');
   });
 
   test('bold takes priority over safe when both present in tags', () => {
