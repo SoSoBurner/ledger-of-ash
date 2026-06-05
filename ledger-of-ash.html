@@ -11344,8 +11344,12 @@ function adaptEnrichedChoice(c) {
         }
       }
       try {
-        c.fn();
-      } catch(e) { console.error('[enriched]', e); G._rivalDCPenalty = 0; throw e; } finally {
+        if (typeof c.fn !== 'function') {
+          console.error('[enriched] choice missing fn:', c.id || c.cid || '(no id)');
+        } else {
+          c.fn();
+        }
+      } catch(e) { console.error('[enriched]', e); G._rivalDCPenalty = 0; } finally {
         G._rivalDCPenalty = 0;
       }
       if (G._lastRollInfo) {
