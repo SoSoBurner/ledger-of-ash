@@ -24,31 +24,31 @@ describe('startTravel', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.travelMode = 'foot';
     ctx.G.travelPace = 'normal';
-    const daysBefore = ctx.G.day || 0;
+    const daysBefore = ctx.G.dayCount || 0;
     ctx.startTravel('panim_haven');
     expect(ctx.G.location).toBe('panim_haven');
     // foot=1, normal=1x, distance=4 → ceil(4/1) = 4 days
-    expect((ctx.G.day || 0) - daysBefore).toBe(4);
+    expect((ctx.G.dayCount || 0) - daysBefore).toBe(4);
   });
 
   test('horse halves travel time', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.travelMode = 'horse';
     ctx.G.travelPace = 'normal';
-    const daysBefore = ctx.G.day || 0;
+    const daysBefore = ctx.G.dayCount || 0;
     ctx.startTravel('panim_haven');
     // horse=2, normal=1x, distance=4 → ceil(4/2) = 2 days
-    expect((ctx.G.day || 0) - daysBefore).toBe(2);
+    expect((ctx.G.dayCount || 0) - daysBefore).toBe(2);
   });
 
   test('boat is fastest at 3 units/day', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.travelMode = 'boat';
     ctx.G.travelPace = 'normal';
-    const daysBefore = ctx.G.day || 0;
+    const daysBefore = ctx.G.dayCount || 0;
     ctx.startTravel('cosmoria');
     // boat=3, distance=2 → ceil(2/3) = 1 day
-    expect((ctx.G.day || 0) - daysBefore).toBe(1);
+    expect((ctx.G.dayCount || 0) - daysBefore).toBe(1);
   });
 
   test('unknown destination does not change location', () => {
@@ -67,10 +67,10 @@ describe('startTravel', () => {
   test('fast pace reduces travel time', () => {
     ctx.G.location = 'shelkopolis';
     ctx.G.travelMode = 'foot';
-    ctx.G.travelPace = 'fast';
-    const daysBefore = ctx.G.day || 0;
+    ctx.G.pace = 'fast';
+    const daysBefore = ctx.G.dayCount || 0;
     ctx.startTravel('panim_haven');
     // foot=1, fast=1.5x, distance=4 → ceil(4/1.5) = 3 days
-    expect((ctx.G.day || 0) - daysBefore).toBe(3);
+    expect((ctx.G.dayCount || 0) - daysBefore).toBe(3);
   });
 });

@@ -10005,7 +10005,7 @@ function getDefaultG() {
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
     suspects:{},
-    investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false}, rivalId:null,
+    investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false, corridor_encounters_enabled:true}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
     nomdara_last_visit_locality:null,
@@ -15011,7 +15011,7 @@ function startTravel(destinationKey) {
   if (!edge) { addNarration('', 'No known route to that destination.', 'notice'); return; }
 
   var speed   = TRAVEL_MODE_SPEED[G.travelMode || 'foot'] || 1;
-  var paceMod = TRAVEL_PACE_MOD[G.travelPace || 'normal'] || 1;
+  var paceMod = TRAVEL_PACE_MOD[G.pace || 'normal'] || 1;
   var days    = Math.ceil(edge.distance / (speed * paceMod));
 
   addNarration('', 'The road to ' + destinationKey + ' takes ' + days + ' day' + (days > 1 ? 's' : '') + ' by ' + (G.travelMode || 'foot') + '.', 'notice');
@@ -18408,7 +18408,8 @@ document.getElementById('howto-close').addEventListener('click', function() {
 
     // Trigger corridor encounters if available
     if (window.TRAVEL_CORRIDOR && typeof TRAVEL_CORRIDOR.triggerEncounters === 'function') {
-      var _rk = prevLocation + '|' + locId;
+      var _aliasC = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy', sunspire:'sunspire_haven'};
+      var _rk = (_aliasC[prevLocation] || prevLocation) + '|' + (_aliasC[locId] || locId);
       var _rd = window.TRAVEL_ROUTES && window.TRAVEL_ROUTES[_rk];
       const tier = (_rd && _rd.tier) || 'short';
       TRAVEL_CORRIDOR.triggerEncounters(tier, prevLocation, locId);
