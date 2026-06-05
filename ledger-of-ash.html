@@ -11355,6 +11355,21 @@ function adaptEnrichedChoice(c) {
       if (G._lastRollInfo) {
         var _ri = G._lastRollInfo;
         G._lastRollInfo = null;
+        // Assign G.lastResultType from roll outcome so stageProgress gate works
+        if (!G.lastResultType || G.lastResultType === 'neutral') {
+          if (_ri.outcome) {
+            G.lastResultType = _ri.outcome;
+          } else if (_ri.total !== undefined) {
+            var _inferDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
+            if (_ri.roll === 20) { G.lastResultType = 'crit'; }
+            else if (_ri.roll === 1) { G.lastResultType = 'fumble'; }
+            else { G.lastResultType = _ri.total >= _inferDC ? 'success' : 'fail'; }
+          }
+        }
+        // Prefer the skill actually rolled inside c.fn() over the c.skill default
+        var _KEY_NORM_G2 = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
+        var _riSk = (_ri && _ri.skill) ? (_KEY_NORM_G2[_ri.skill] || _ri.skill) : null;
+        if (_riSk && typeof _gSk !== 'undefined') { _gSk = _riSk; }
         if (!_gateShown) {
           var _riDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
           var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
