@@ -1103,6 +1103,85 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'observe';
     },
     failResult: 'The dock gate is closed for an inspection check — the freight coordinator is running numbers against the platform stack before the next barge loads. The processing shed side entrance stays open and the sorted output waiting for the dock is visible from there without needing dock authorization.'
+  },
+
+  {
+    id: 'sore_allocation_hall_tower12',
+    label: "The permit says Tower Twelve, sub-floor nine. Until the third bell.",
+    tags: ['Wits', 'Soreheim'],
+    tag: 'risky · DC 10',
+    effects: [],
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+
+      var result = rollD20('wits');
+
+      if (result.success) {
+        G.lastResult = 'Allocation Hall, sub-floor nine of Tower Twelve: rows of clerks, quota ledgers ceiling-high, the smell of forge heat rising from below. The permit system here is vertically integrated — each floor carries its own quota authority. You note which tower sectors are under-provisioned and which are running surplus. The floor structure makes every quota decision local and unappealable from outside.';
+        gainXp(15, 'tower allocation hall observation');
+        addJournal('Soreheim allocation system: permit-based, tower-vertical, floor-authority structure. Tower Twelve sub-floor nine is a processing hub.', 'intelligence');
+      } else {
+        G.lastResult = 'The clerk processes the permit without explanation and hands it back without looking up. Sub-floor nine is a processing hub run at deliberate opacity — the layout and the staff both designed to redirect rather than inform. You leave the tower knowing the system is there and knowing it does not want to be understood by anyone without a quota stake in it.';
+      }
+
+      G.recentOutcomeType = 'observe';
+    },
+    failResult: 'The allocation desk is running a shift handoff — the outgoing clerk has already left and the incoming one is not yet authorized to stamp transit permits. The Tower Twelve entry schedule is posted at the base platform; the next open permit window will be listed there.'
+  },
+
+  {
+    id: 'sore_freight_bridge_7_9',
+    label: "The inter-tower freight bridge sways under cargo haulers. A foreman waves across.",
+    tags: ['Vigor', 'Soreheim'],
+    tag: 'safe · DC 8',
+    effects: [],
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+
+      var result = rollD20('vigor');
+
+      if (result.success) {
+        G.lastResult = 'The bridge is wide enough for two cargo sleds side by side. Below, the volcanic plain runs to the horizon — extraction zones blasted in horizontal layers, the quarry work legible at this height in a way it is not from the ground. The towers cast long shadows east. You reach the far platform in the freight flow without attracting notice.';
+        gainXp(10, 'tower freight bridge transit');
+      } else {
+        G.lastResult = 'The bridge surface is coated in fine volcanic grit, the kind that accumulates in a single shift of forge-wind from the levels below. You keep pace with the freight traffic but arrive on the far platform winded and conspicuous — two haulers give you the look workers give someone who slowed a moving load.';
+      }
+
+      G.recentOutcomeType = 'observe';
+    },
+    failResult: 'The freight bridge between Tower Seven and Nine is locked during a load sequence — the hauler crew needs clear sight lines across the span. The perimeter path at the base level runs between the anchor towers and gives a read of the bridge infrastructure from below without needing bridge authorization.'
+  },
+
+  {
+    id: 'sore_magma_forge_base3',
+    label: "The tower-base forge is running at full quota. The heat reaches the entry stairs.",
+    tags: ['Wits', 'Soreheim'],
+    tag: 'risky · DC 9',
+    effects: [],
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+
+      var result = rollD20('wits');
+
+      if (result.success) {
+        G.lastResult = 'The forge crew works rotation — ten minutes on, ten off, face shields down. Output crates move on roller conveyors to the staging platform above. You watch long enough to understand the throughput rhythm and the shift handoff protocol: two workers sign the crate count, the outgoing crew does not leave until the count matches the overhead ledger. Every unit accounted for before anyone rests.';
+        gainXp(12, 'magma forge observation');
+        G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+        addJournal('Tower forge, base level three: rotation crew, roller conveyors, staging platform transfer. High-volume, systematized, double-signed handoff.', 'intelligence');
+      } else {
+        G.lastResult = 'The forge overseer spots you on the entry stairs and redirects you to the visitor observation level — behind glass, at a height where the sound is gone and the detail is lost. The conveyor lines are visible but the output volume and the handoff protocol are not readable from the observation level. You leave knowing the forge is running and nothing more specific than that.';
+      }
+
+      G.recentOutcomeType = 'observe';
+      maybeStageAdvance();
+    },
+    failResult: 'The forge base level is restricted during a fuel changeover — the volcanic feed lines are being redirected and the entry stairs are blocked by the changeover crew. The staging platform above the forge level is accessible from the Tower Seven freight bridge and shows the output flow without entering the restricted base zone.'
   }
 ];
 
