@@ -14089,10 +14089,13 @@ function _showModeSelectInOverlay(locId) {
 
   var _costs = { foot: 0, horse: 8, cart: 12, boat: 15 };
   var _labels = { foot: 'On Foot', horse: 'Horse', cart: 'Cart', boat: 'River Passage' };
-  var routeData = window.ROUTE_SPATIAL_DATA ? window.ROUTE_SPATIAL_DATA.get(G.location, locId) : null;
+  var _LOC_ALIAS_OVL = {aurora:'aurora_crown_commune', guildheart:'guildheart_hub', panim:'panim_haven', soreheim:'soreheim_proper', mimolot:'mimolot_academy'};
+  var _fromKey = _LOC_ALIAS_OVL[G.location] || G.location;
+  var _toKey   = _LOC_ALIAS_OVL[locId]      || locId;
+  var routeData = window.ROUTE_SPATIAL_DATA ? window.ROUTE_SPATIAL_DATA.get(_fromKey, _toKey) : null;
   var allowed = routeData ? routeData.allowed_modes : ['foot','horse','cart'];
-  var routeEntry = (window.TRAVEL_ROUTES || {})[G.location + '|' + locId]
-                || (window.TRAVEL_ROUTES || {})[locId + '|' + G.location] || {};
+  var routeEntry = (window.TRAVEL_ROUTES || {})[_fromKey + '|' + _toKey]
+                || (window.TRAVEL_ROUTES || {})[_toKey + '|' + _fromKey] || {};
   var _gold = G.gold || 0;
 
   var btnsHtml = allowed.map(function(m) {
@@ -16683,7 +16686,8 @@ function showShop() {
   }
 
   // Tab row — show only when 2+ item types exist
-  const _typeSet = [...new Set(items.map(function(it){ return it.type || 'other'; }))];
+  // Use it.type; fall back to it.category for forward-compatibility with items authored with category field
+  const _typeSet = [...new Set(items.map(function(it){ return it.type || it.category || 'other'; }))];
   const _tabLabels = {weapon:'Weapons', armor:'Armor', tool:'Tools', consumable:'Consumables', other:'Other'};
   if (_typeSet.length > 1) {
     html += '<div class="shop-tab-row" id="shop-tab-row">';
@@ -16700,10 +16704,10 @@ function showShop() {
     const canAfford = isSorehimShop ? (G.sorePlotCredits || 0) >= effectiveCost : G.gold >= effectiveCost;
     const alreadyOwned = (G.inventory||[]).find(inv => inv.id === item.id);
     const costLabel = boost > 0 ? '<span style="text-decoration:line-through;color:var(--ink-faint)">' + item.cost + _currSymbol + '</span> <span style="color:var(--jade-bright)">' + effectiveCost + _currSymbol + '</span>' : item.cost + _currSymbol;
-    html += '<div class="shop-item" data-shoptype="' + (item.type || 'other') + '">' +
+    html += '<div class="shop-item" data-shoptype="' + (item.type || item.category || 'other') + '">' +
       '<div class="shop-item-info">' +
         '<div class="shop-item-name">' + item.name + '</div>' +
-        '<div class="shop-item-desc">' + item.desc + ' &middot; ' + item.site + '</div>' +
+        '<div class="shop-item-desc">' + item.desc + (item.site ? ' &middot; ' + item.site : '') + '</div>' +
         (item.skillBonus && item.bonus > 0 ? '<div style="font-size:11px;color:var(--gold-dim);margin-top:2px">+' + item.bonus + ' ' + ({combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',craft:'Spirit'}[item.skillBonus] || item.skillBonus) + '</div>' : '') +
       '</div>' +
       '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0">' +
