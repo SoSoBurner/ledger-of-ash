@@ -18047,7 +18047,7 @@ function getCombatAbilityChoices(enemyKey) {
       disabled: spent,
       skill: (_KEY_NORM_GLOBAL[a.skill] || a.skill || 'might'),
       tag: 'combat',
-      cid: '__combat_ability__' + (enemyKey || '') + '__' + _aid,
+      cid: '__combat__ability__' + (enemyKey || '') + '__' + _aid,
       result: a.successEffect || 'The ability fires.',
       failResult: a.failEffect || 'The ability misfires.',
       dc: 12,
