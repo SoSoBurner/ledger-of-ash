@@ -5,9 +5,9 @@ var FAIRHAVEN_MEADOW_MILL_DISPLACEMENT = (function() {
     if (!G || G.flags.sideplot_mill_displacement_started) return null;
     return {
       cid: 'sideplot_mill_displacement_hook',
-      text: 'The property line moved. The workers are still on the wrong side of it.',
+      label: 'The property line moved. The workers are still on the wrong side of it.',
       tags: ['Investigation'], plot: 'side',
-      result: function() {
+      fn: function() {
         G.flags.sideplot_mill_displacement_started = true;
         G.lastResult = 'A group of displaced workers camp at the edge of the mill road — no fire, packs stacked, waiting for something that isn\'t coming. One of them shows you a copy of the rerouting order. The property line moved twelve meters into what used to be common land. The order is stamped valid. The date is four months old. No one was told.';
         G.recentOutcomeType = 'discovery';
