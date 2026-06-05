@@ -376,7 +376,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
     failResult: {
-      text: `The supply traders are between runs — the current circuit doesn't reach Plumes End until the next resupply, and the outpost's last trader contact was four days ago. The notice board has their scheduled return posted in pencil. What they've heard on the northeastern circuit will keep until then. The frontier runs on a schedule and the rumors travel on it.`,
+      text: `The supply traders are between runs — the current circuit doesn't reach Plumes End until the next resupply, and the outpost's last trader visit was four days ago. The notice board has their scheduled return posted in pencil. What they've heard on the northeastern circuit will keep until then. The frontier runs on a schedule and the rumors travel on it.`,
       xp: 0,
       effects: [],
       next: [{text: 'Check the notice board for other current leads', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]

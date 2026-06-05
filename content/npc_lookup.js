@@ -805,7 +805,7 @@
     // Direct encounter: narrate intro and mark accessed in one step
     var path = _accessPath(npc);
     if (npc.tier === T1 && path === null) {
-      _narrate(npc.name, npc.name + ' does not receive unknown parties. Faction standing, investigation progress, or renown could change that.', 'negative');
+      _narrate(npc.name, npc.name + ' does not receive unknown parties. Faction standing, case progress, or renown could change that.', 'negative');
       return;
     }
     var intro = (npc.tier === T1 && npc.intro && npc.intro[path])

@@ -794,7 +794,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       { type: 'rival', amount: 1 }
     ],
     failResult: {
-      text: `The official is in session — the anteroom clerk says it will be two hours, possibly three. The wait bench is narrow and faces the corridor, where everyone who passes can see who is sitting and for how long. Waiting here is its own kind of visibility. The evidence you've gathered is already assembled; the confrontation is a matter of timing. Coming back at close of hall, when the corridors are thinner and the session doors open of their own accord, would find the official alone with the folder still on the table.`,
+      text: `The administrator is in session — the anteroom clerk says it will be two hours, possibly three. The wait bench is narrow and faces the corridor, where everyone who passes can see who is sitting and for how long. Waiting here is its own kind of visibility. The evidence you've gathered is already assembled; the confrontation is a matter of timing. Coming back at close of hall, when the corridors are thinner and the session doors open of their own accord, would find the administrator alone with the folder still on the table.`,
       xp: 0,
       effects: [],
       next: [{ text: 'Close of hall is a better moment — fewer witnesses, the session already concluded.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
@@ -1113,7 +1113,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Suppression', 'Observation', 'Stage1'],
     xpReward: 55,
     failResult: {
-      text: `The freight counter is briefly occupied — a carter presents a routing dispute, the two officials you're watching are pulled into the paper exchange. Whatever was being discussed before the carter arrived is finished; the conversation won't resume with an audience at the counter. The east end of the counter has a pigeonhole rack where filed routing categories are posted by the day's shift. Category D, which the one official named, corresponds to a specific hold classification. The hold register for the current week sits in a tray visible from the public side of the counter.`,
+      text: `The freight counter is briefly occupied — a carter presents a routing dispute, the two clerks you're watching are pulled into the paper exchange. Whatever was being discussed before the carter arrived is finished; the conversation won't resume with an audience at the counter. The east end of the counter has a pigeonhole rack where filed routing categories are posted by the day's shift. Category D, which the one clerk named, corresponds to a specific hold classification. The hold register for the current week sits in a tray visible from the public side of the counter.`,
       xp: 0,
       effects: [],
       next: [{ text: 'The Category D hold register for this week sits in the public tray at the counter\'s east end.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]

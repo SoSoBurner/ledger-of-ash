@@ -818,7 +818,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
-      text: "The Collegium's reception office is locked through midday — the schedule board shows Parro attending a regional compliance review session with no public access until tomorrow's first bell. The Collegium does not receive informal drop-ins; the front procedure exists specifically to manage outside contact on its terms. The case clerk's docket lists Parro's name as a compliance observer on three recent hearing records — those records are publicly accessible and show which proceedings she has already flagged.",
+      text: "The Collegium's reception office is locked through midday — the schedule board shows Parro attending a regional compliance review session with no public access until tomorrow's first bell. The Collegium does not receive informal drop-ins; the front procedure exists specifically to manage outside access on its terms. The case clerk's docket lists Parro's name as a compliance observer on three recent hearing records — those records are publicly accessible and show which proceedings she has already flagged.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
