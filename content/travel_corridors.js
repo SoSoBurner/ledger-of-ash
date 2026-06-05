@@ -92,6 +92,8 @@
     'ashwake_port|ashforge_citadel':       { tier:'short',  biome:'coastal', foot:4.0,  horse:2.4,  cart:5.3,  boat:1.3 },
     'cosmoria|brineland':                  { tier:'medium', biome:'sea',     foot:0,    horse:0,    cart:0,    boat:8.0 },
     'brineland|cosmoria':                  { tier:'medium', biome:'sea',     foot:0,    horse:0,    cart:0,    boat:8.0 },
+    'cosmoria|panim_haven':                { tier:'medium', biome:'coastal', foot:0,    horse:0,    cart:0,    boat:8.0 },
+    'panim_haven|cosmoria':                { tier:'medium', biome:'coastal', foot:0,    horse:0,    cart:0,    boat:8.0 },
     'soreheim_proper|eternal_lands':       { tier:'long',   biome:'sea',     foot:0,    horse:0,    cart:0,    boat:21.0 },
     'eternal_lands|soreheim_proper':       { tier:'long',   biome:'sea',     foot:0,    horse:0,    cart:0,    boat:21.0 },
     // Direct Fairhaven spoke routes (from world graph — previously missing)
@@ -2963,6 +2965,42 @@
         }
       ]
     }
+  };
+
+  // Route: cosmoria|panim_haven (coastal, boat-only)
+  window.ROUTE_COMPLICATIONS['cosmoria|panim_haven'] = {
+    complications: [
+      {
+        id: 'cosmoria_panim_squall',
+        label: 'Coastal Squall',
+        description: 'A squall pushes the vessel off course. The captain holds the shipping lane but loses half a day tacking back.',
+        dc: 11,
+        skill: 'vigor',
+        successResult: 'You help reef the sails. The squall passes without further delay.',
+        failResult: 'The crossing takes an extra day. You arrive weathered and short on sleep.',
+        tags: ['Weather', 'Travel']
+      },
+      {
+        id: 'cosmoria_panim_patrol',
+        label: 'Panim Harbor Patrol',
+        description: 'A Panim Haven customs cutter intercepts the vessel to check manifests before the harbor approach.',
+        dc: 10,
+        skill: 'charm',
+        successResult: 'Your papers pass inspection. The cutter waves you through.',
+        failResult: 'Your papers are held for secondary review. The delay costs you a day in the harbor queue.',
+        tags: ['Social', 'Faction']
+      },
+      {
+        id: 'cosmoria_panim_merchant',
+        label: 'Merchant Gossip',
+        description: 'A merchant aboard shares route intelligence about Panim Haven\'s current trade situation.',
+        dc: 9,
+        skill: 'wits',
+        successResult: 'The merchant\'s information is specific and useful — which factors are buying, which are not.',
+        failResult: 'The merchant\'s information is outdated. You note it but don\'t count on it.',
+        tags: ['Intelligence', 'Travel']
+      }
+    ]
   };
 
   // Route: ashforge_citadel|ashwake_port

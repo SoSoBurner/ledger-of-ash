@@ -136,6 +136,30 @@
         "cart_days": 144.25,
         "fantasy_aircraft_days": 8.65
       }
+    },
+    {
+      "origin": "Cosmoria",
+      "destination": "Panim Haven",
+      "distance_miles_est": 190.0,
+      "travel_times_days_est": {
+        "foot_days": 0,
+        "horse_days": 0,
+        "cart_days": 0,
+        "ship_days": 8.0
+      },
+      "notes": "Boat-only coastal sea route. No overland connection."
+    },
+    {
+      "origin": "Panim Haven",
+      "destination": "Cosmoria",
+      "distance_miles_est": 190.0,
+      "travel_times_days_est": {
+        "foot_days": 0,
+        "horse_days": 0,
+        "cart_days": 0,
+        "ship_days": 8.0
+      },
+      "notes": "Boat-only coastal sea route. No overland connection."
     }
   ]
 }
