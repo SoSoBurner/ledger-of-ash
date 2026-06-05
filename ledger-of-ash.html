@@ -9878,13 +9878,13 @@ function advanceTime(ticks) {
     var _htPolity = WORLD_LOCATIONS[G.location] && WORLD_LOCATIONS[G.location].polity;
     if (_htPolity) {
       var _htKey = _htPolity.toLowerCase().replace(/\s+/g,'_').split('_')[0];
-      // heat → attention bleed
+      // heat → pressure bleed
       if (getHeat(_htKey) > 7) {
         G.worldClocks = G.worldClocks || {};
-        G.worldClocks.attention = Math.min(10, (G.worldClocks.attention || 0) + 0.5);
+        G.worldClocks.pressure = Math.min(10, (G.worldClocks.pressure || 0) + 0.5);
       }
-      // attention → heat bleed
-      if ((G.worldClocks && G.worldClocks.attention || 0) > 7) {
+      // pressure → heat bleed
+      if ((G.worldClocks && G.worldClocks.pressure || 0) > 7) {
         addHeat(_htKey, 0.5);
       }
     }
