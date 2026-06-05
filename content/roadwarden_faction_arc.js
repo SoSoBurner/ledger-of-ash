@@ -24,18 +24,21 @@ var ROADWARDEN_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'roadwarden_beat1_follow',
+          plot: 'main',
           text: 'A warden waiting at the gate without sending a summons. Wants quiet.',
           tag: 'safe',
           action: function() { beat1Follow(); }
         },
         {
           id: 'roadwarden_beat1_cautious',
+          plot: 'main',
           text: 'She knew my name and the timing. This was already arranged.',
           tag: 'risky',
           action: function() { beat1Cautious(); }
         },
         {
           id: 'roadwarden_beat1_decline',
+          plot: 'main',
           text: 'Independent jurisdiction means independent agenda. The five minutes she wants are not free.',
           tag: 'bold',
           action: function() { beat1Decline(); }
@@ -118,18 +121,21 @@ var ROADWARDEN_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'roadwarden_beat2_testify',
+          plot: 'main',
           text: 'What you saw in the sub-registry is testimony. The Collegium cannot reach Warden jurisdiction.',
           tag: 'safe',
           action: function() { beat2Testify(); }
         },
         {
           id: 'roadwarden_beat2_conditions',
+          plot: 'main',
           text: 'Testimony is leverage. The immunity she\'s offering needs to be in writing before it means anything.',
           tag: 'risky',
           action: function() { beat2Conditions(); }
         },
         {
           id: 'roadwarden_beat2_withhold',
+          plot: 'main',
           text: 'Giving testimony closes options. The same information is worth more held than given.',
           tag: 'bold',
           action: function() { beat2Withhold(); }
@@ -226,12 +232,14 @@ var ROADWARDEN_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'roadwarden_beat3_ally',
+          plot: 'main',
           text: 'Orvaine\'s report is going into the charter record either way. Being in it correctly is better than being in it wrong.',
           tag: 'safe',
           action: function() { beat3Ally(); }
         },
         {
           id: 'roadwarden_beat3_refuse',
+          plot: 'main',
           text: 'A Road Warden report shapes what gets heard — and what gets buried — by the authority that receives it.',
           tag: 'bold',
           action: function() { beat3Refuse(); }

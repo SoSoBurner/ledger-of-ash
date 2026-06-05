@@ -10,6 +10,7 @@ const MAGIC_MIDSPINE_CHOICES = [
   // ——— NODE 1: THE DISCOVERY ———
   {
     label: "In a restricted archive section, you find a document that shouldn't exist — an unclassified copy of the Iceveil study with handwritten annotations in the margin. Study it or leave it.",
+    plot: 'main',
     tags: ['Midspine', 'Magic', 'Lore', 'Decision'],
     xpReward: 85,
     condition: function() {
@@ -47,6 +48,7 @@ const MAGIC_MIDSPINE_CHOICES = [
   // ——— NODE 2: THE CHOICE ———
   {
     label: "The forbidden knowledge is now yours. Disclose it through registered channels — or protect it from institutional suppression by keeping it off the formal record.",
+    plot: 'main',
     tags: ['Midspine', 'Magic', 'Decision'],
     xpReward: 90,
     condition: function() {
@@ -85,6 +87,7 @@ const MAGIC_MIDSPINE_CHOICES = [
   // ——— NODE 3: THE ANNOTATOR ———
   {
     label: "Trace the handwriting in the Iceveil study margins. The person who made the annotations is still alive — and still working. Find them.",
+    plot: 'main',
     tags: ['Midspine', 'Magic', 'Lore', 'NPC'],
     xpReward: 95,
     condition: function() {

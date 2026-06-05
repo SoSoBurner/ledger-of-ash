@@ -10,6 +10,7 @@ const STEALTH_MIDSPINE_CHOICES = [
   // ——— NODE 1: THE ENTANGLEMENT ———
   {
     label: "An information broker you've worked with has sold your findings to a third party. Confront them — or quietly redirect the information flow without revealing you know.",
+    plot: 'main',
     tags: ['Midspine', 'Stealth', 'Decision'],
     xpReward: 85,
     condition: function() {
@@ -48,6 +49,7 @@ const STEALTH_MIDSPINE_CHOICES = [
   // ——— NODE 2: THE CHOICE ———
   {
     label: "The third party buyer has made contact — indirectly. They want to purchase what you know. Sell the intelligence, or protect your source network.",
+    plot: 'main',
     tags: ['Midspine', 'Stealth', 'Decision'],
     xpReward: 90,
     condition: function() {
@@ -88,6 +90,7 @@ const STEALTH_MIDSPINE_CHOICES = [
   // ——— NODE 3: THE NETWORK ———
   {
     label: "Use what you learned from the buyer's identity to map the information network monitoring your work. The shadow network is real — find its shape.",
+    plot: 'main',
     tags: ['Midspine', 'Stealth', 'Lore', 'Investigation'],
     xpReward: 95,
     condition: function() {

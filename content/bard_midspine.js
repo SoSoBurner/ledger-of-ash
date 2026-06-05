@@ -15,6 +15,7 @@ window.BARD_MIDSPINE_NODES = [
   // Gate: G.archetype === 'bard' && G.stage === 1 && !G.signals.bardSpine
   {
     label: 'Listen to what the room is not saying — find the shape of the silence',
+    plot: 'main',
     tags: ['Bard', 'Investigate', 'Social', 'Voice'],
     fn: function() {
       advanceTime(1);
@@ -82,6 +83,7 @@ window.BARD_MIDSPINE_NODES = [
   // Gate: G.signals.bardSpine === 'voice_found'
   {
     label: 'Follow the thread you found — trace who went quiet and why',
+    plot: 'main',
     tags: ['Bard', 'Investigate', 'Pressure', 'Voice'],
     fn: function() {
       advanceTime(1);
@@ -150,6 +152,7 @@ window.BARD_MIDSPINE_NODES = [
   // Gate: G.signals.bardSpine === 'thread_pulled'
   {
     label: 'Recover the suppressed account — extract what was erased from the record',
+    plot: 'main',
     tags: ['Bard', 'Investigate', 'Decisive', 'Voice'],
     fn: function() {
       advanceTime(1);

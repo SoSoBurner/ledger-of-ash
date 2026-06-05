@@ -25,6 +25,7 @@ window.STAGE2_ANTECHAMBER = (function() {
     (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'antechamber_accelerate',
+        plot: 'main',
         text: 'They warned me because I\u2019m close. That changes what pressing harder costs.',
         tag: 'risky \u00b7 pressure \u00b7 DC 12',
         action: function() {
@@ -44,6 +45,7 @@ window.STAGE2_ANTECHAMBER = (function() {
       },
       {
         id: 'antechamber_acknowledge',
+        plot: 'main',
         text: 'Being watched and knowing it are two different things.',
         tag: 'safe \u00b7 observation \u00b7 DC 0',
         action: function() {

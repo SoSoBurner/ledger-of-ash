@@ -28,18 +28,21 @@ var SHADOWHANDS_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'shadowhands_beat1_follow',
+          plot: 'main',
           text: 'Route-side data is the half of the ledger I don\'t have.',
           tag: 'safe',
           action: function() { beat1Follow(); }
         },
         {
           id: 'shadowhands_beat1_watch',
+          plot: 'main',
           text: 'Someone placed this within the hour. They are still nearby, watching to see what you do with it.',
           tag: 'risky',
           action: function() { beat1Watch(); }
         },
         {
           id: 'shadowhands_beat1_ignore',
+          plot: 'main',
           text: 'A network that uses chalk marks and wall gaps does not make direct approaches.',
           tag: 'bold',
           action: function() { beat1Ignore(); }
@@ -117,18 +120,21 @@ var SHADOWHANDS_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'shadowhands_beat2_accept',
+          plot: 'main',
           text: 'The dossier is worth more than knowing what\'s in the case. Take the terms.',
           tag: 'risky',
           action: function() { beat2Accept(); }
         },
         {
           id: 'shadowhands_beat2_negotiate',
+          plot: 'main',
           text: 'The case goes to Ironhold either way. The question is whether the dossier arrives first.',
           tag: 'bold',
           action: function() { beat2Negotiate(); }
         },
         {
           id: 'shadowhands_beat2_inspect',
+          plot: 'main',
           text: 'Every courier who doesn\'t know what they\'re carrying gets used twice — once by the sender, once by whoever intercepts.',
           tag: 'safe',
           action: function() { beat2Inspect(); }
@@ -229,18 +235,21 @@ var SHADOWHANDS_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'shadowhands_beat3_trust',
+          plot: 'main',
           text: 'The network moved this once already. They can move it again — through channels that don\'t close.',
           tag: 'risky',
           action: function() { beat3Trust(); }
         },
         {
           id: 'shadowhands_beat3_hold',
+          plot: 'main',
           text: 'What\'s in your hands now is the only copy that hasn\'t been filed and unfiled by someone with the authority to do both.',
           tag: 'safe',
           action: function() { beat3Hold(); }
         },
         {
           id: 'shadowhands_beat3_expose',
+          plot: 'main',
           text: 'A network that operates through wall gaps and turned cups is still a network. It has its own interests.',
           tag: 'bold',
           action: function() { beat3Expose(); }

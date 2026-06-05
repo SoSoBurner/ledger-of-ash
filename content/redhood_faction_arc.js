@@ -24,18 +24,21 @@ var REDHOOD_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'redhood_beat1_mark',
+          plot: 'main',
           text: 'Three instances, three localities. Someone is building a trail for one specific reader.',
           tag: 'safe',
           action: function() { beat1Mark(); }
         },
         {
           id: 'redhood_beat1_search',
+          plot: 'main',
           text: 'The message implies a different entry point. The door itself is worth examining more carefully.',
           tag: 'risky',
           action: function() { beat1Search(); }
         },
         {
           id: 'redhood_beat1_wait',
+          plot: 'main',
           text: 'A network that leaves physical marks in multiple places is watching to see who finds them.',
           tag: 'bold',
           action: function() { beat1Wait(); }
@@ -120,18 +123,21 @@ var REDHOOD_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'redhood_beat2_study',
+          plot: 'main',
           text: 'Twenty-three names across four years is a pattern, not a coincidence. The list was compiled by someone who survived it.',
           tag: 'safe',
           action: function() { beat2Study(); }
         },
         {
           id: 'redhood_beat2_crosscheck',
+          plot: 'main',
           text: 'The stamps and dates can be checked against the access logs. Some of these names may have left traces the records missed.',
           tag: 'risky',
           action: function() { beat2Crosscheck(); }
         },
         {
           id: 'redhood_beat2_signal',
+          plot: 'main',
           text: 'The list was left specifically for you. They know you have it now. The next step is theirs to offer.',
           tag: 'bold',
           action: function() { beat2Signal(); }
@@ -209,18 +215,21 @@ var REDHOOD_FACTION_MODULE = (function() {
       (window._rawRenderChoices || window.renderChoices)([
         {
           id: 'redhood_beat3_pass',
+          plot: 'main',
           text: 'Twenty-three names held in one coat are twenty-three names that can still be lost. The arrow points outward.',
           tag: 'risky',
           action: function() { beat3Pass(); }
         },
         {
           id: 'redhood_beat3_hold',
+          plot: 'main',
           text: 'A list that moves through unknown hands moves toward an unknown destination. Hold it until the destination is clear.',
           tag: 'safe',
           action: function() { beat3Hold(); }
         },
         {
           id: 'redhood_beat3_both',
+          plot: 'main',
           text: 'A copy passes forward. The original stays. Whatever the network does with it, you still have it.',
           tag: 'bold',
           action: function() { beat3Both(); }

@@ -14,16 +14,19 @@ var STAGE2_CLIMAX = (function() {
     (window._rawRenderChoices || window.renderChoices)([
       {
         id: 'climax_p1_negotiate',
+        plot: 'main',
         text: 'They want a version of me I haven\u2019t decided to give them.',
         action: function() { phase1_negotiate(); }
       },
       {
         id: 'climax_p1_deflect',
+        plot: 'main',
         text: 'Play the clerk. Let them see what they expect.',
         action: function() { phase1_deflect(); }
       },
       {
         id: 'climax_p1_refuse',
+        plot: 'main',
         text: 'Answering their summons is already a concession.',
         action: function() { phase1_refuse(); }
       }

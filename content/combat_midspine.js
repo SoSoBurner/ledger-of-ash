@@ -10,6 +10,7 @@ const COMBAT_MIDSPINE_CHOICES = [
   // ——— NODE 1: THE CONFRONTATION ———
   {
     label: "A Warden Order patrol has been tracking the same thread. Their commander wants a formal meeting.",
+    plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 85,
     condition: function() {
@@ -48,6 +49,7 @@ const COMBAT_MIDSPINE_CHOICES = [
   // ——— NODE 2: THE TEST ———
   {
     label: "A Warden Order garrison in your current district is obstructing access to a critical document. Get through them — by whatever means suits you.",
+    plot: 'main',
     tags: ['Midspine', 'Combat', 'Risk'],
     xpReward: 90,
     condition: function() {
@@ -92,6 +94,7 @@ const COMBAT_MIDSPINE_CHOICES = [
   // ——— NODE 3: THE OFFER ———
   {
     label: "Edvar contacts you again with an offer. The Warden Order wants to fold your work into their structure.",
+    plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 95,
     condition: function() {
