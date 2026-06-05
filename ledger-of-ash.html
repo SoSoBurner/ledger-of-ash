@@ -13523,7 +13523,9 @@ function checkStageAdvance() {
           addNarration('', '<em style="color:var(--ink-faint)">The path forward is not yet open. ' + missing.join('; ') + '.</em>');
         }
       }
-      _showStage3BlockedModal();
+      if (!(G.flags && G.flags._stage3_blocked_dismissed)) {
+        _showStage3BlockedModal();
+      }
       return;
     }
     if (!G.flags.stage3_epilogue_shown) {
@@ -13628,11 +13630,18 @@ function _showStage3BlockedModal() {
     'You have reached the end of Ledger of Ash v0.1.<br><br>' +
     'Stage III is in development. The story is not over.' +
     '</div>' +
-    '<button class="btn btn-primary choice-btn" onclick="var m=document.getElementById(\'stage3-blocked-modal\');if(m)m.remove();if(typeof loadStageChoices===\'function\')loadStageChoices();" style="min-width:160px;">Return to Stage II</button>' +
+    '<button class="btn btn-primary choice-btn" onclick="if(typeof dismissStage3BlockedModal===\'function\')dismissStage3BlockedModal();" style="min-width:160px;">Return to Stage II</button>' +
     '</div>';
   document.body.appendChild(d);
 }
 window._showStage3BlockedModal = _showStage3BlockedModal;
+function dismissStage3BlockedModal() {
+  if (typeof G !== 'undefined' && G && G.flags) G.flags._stage3_blocked_dismissed = true;
+  var m = document.getElementById('stage3-blocked-modal');
+  if (m) m.remove();
+  if (typeof loadStageChoices === 'function') loadStageChoices();
+}
+window.dismissStage3BlockedModal = dismissStage3BlockedModal;
 
 function driftNomdara() {
   const n = window.NOMDARA_OVERLAY;
