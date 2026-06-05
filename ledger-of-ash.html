@@ -13397,6 +13397,15 @@ function showTransitionBanner(text) {
 }
 
 /** Stage gate: S1→S2 when stage1_narrative_complete flag set (Sera Ironveil defeated); S2→S3 via canAdvanceToStage3(). Also triggers Maren, antechamber, climax in order. Called by checkLevelUp(). */
+function resolveStage1Quests() {
+  var ids = ['q_s1_pattern', 'q_s1_converging', 'q_s1_close'];
+  ids.forEach(function(qid) {
+    if (G.questHints && G.questHints[qid]) {
+      G.questHints[qid].resolved = true;
+    }
+  });
+}
+
 function checkStageAdvance() {
   if (checkStageAdvance._running) return;
   checkStageAdvance._running = true;
@@ -13455,6 +13464,7 @@ function checkStageAdvance() {
     addJournal('Advanced to Stage II: Local Inter-Polity. New regions accessible.');
     G.history.push('Completed Stage I. Entered the wider world at Level 5.');
     G.flags.companion_gate_open = true;
+    resolveStage1Quests();
     updateHUD();
     var _pill = document.getElementById('topbar-stage');
     if (_pill) { _pill.classList.add('stage-flash'); setTimeout(function(){ _pill.classList.remove('stage-flash'); }, 800); }
@@ -17598,7 +17608,7 @@ function showCamp() {
       if (craftDesc2) craftDesc2.textContent = 'Prepare rations, tools, and materials. Requires Level 2.';
     }
   }
-  // Companions/Talk: hidden until maren_oss_resolved; then level gate applies
+  // Companions/Talk: hidden until companion_gate_open; then level gate applies
   const talkBtn = document.getElementById('btn-talk');
   if (talkBtn) {
     if (!_marenGate) {
