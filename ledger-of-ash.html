@@ -11243,8 +11243,8 @@ function skillDisplay(key) {
 }
 
 // Semantic tag sets for DC tier classification (Stage 1 enriched choices use these tag arrays)
-const SEMANTIC_SAFE_TAGS = new Set(['Investigation','NPC','Social','Lore','Maritime','Archive','Observation','Rumor','Trade','Civic','Rest','Stealth','Craft','Study','Retreat','Gather','Intelligence','Discovery','Survey','Records','Inquiry','Evidence']);
-const SEMANTIC_BOLD_TAGS = new Set(['Confrontation','Accusation','Exposure','Betrayal','Tribunal','Ambush','Boss','Combat','Espionage','CombatEntry','Tactical','Violence','Assault']);
+const SEMANTIC_SAFE_TAGS = new Set(['Investigation','NPC','Social','Lore','Maritime','Archive','Observation','Rumor','Trade','Civic','Rest','Stealth','Craft','Study','Retreat','Gather','Intelligence','Discovery','Survey','Records','Inquiry','Evidence','Information','Support','Gossip','Pattern','Surveillance','Travel','Research','Security','Knowledge','Analysis','History','Insight','Community','Proof','Companion','Commerce','Labor','Atmosphere','District','Ritual','Supply','Resources','Systems','Organization','Infrastructure','Perception','Defense','Protection','Movement','Logistics','Doctrine','Caution','Hidden','Access']);
+const SEMANTIC_BOLD_TAGS = new Set(['Confrontation','Accusation','Exposure','Betrayal','Tribunal','Ambush','Boss','Combat','Espionage','CombatEntry','Tactical','Violence','Assault','Direct','Covert','Infiltration','Deception','Forgery','Suppression','Intimidation','Danger','Threats','Extraction','Control','Escalation','Enforcement','Defection','Displacement','Coercion','Heat','Obstruction']);
 
 /** Resolve safe/risky/bold tier from a choice object. Explicit choice.tag scalar wins; then semantic tag array. */
 function getChoiceTier(choice) {
