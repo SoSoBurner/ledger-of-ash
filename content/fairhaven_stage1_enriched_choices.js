@@ -1111,6 +1111,12 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
   if (_millHook) FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(_millHook);
 })();
 
+// Sideplot injection — fairhaven meadow mill displacement rung 2 (condition evaluated lazily)
+(function() {
+  var _rung2 = (typeof FAIRHAVEN_MEADOW_MILL_DISPLACEMENT !== 'undefined') ? FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.rung2Hook() : null;
+  if (_rung2) FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(_rung2);
+})();
+
 // ── ARCHETYPE-EXCLUSIVE CHOICES ──────────────────────────────
 FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
@@ -1468,7 +1474,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
       G.flags.sideplot_mill_displacement_started = true;
       addNarration('', 'Three families reassigned from meadow mills to harbor district in six weeks. The reassignment orders are stamped but unsigned — authorization without accountability, a record that names what happened without naming who decided it.');
       addJournal('Meadow mill: three families displaced. Reassignment orders unsigned — authorization without accountability.', 'evidence');
-      if (window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT && typeof window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.rung2Hook === 'function') { var _rung2 = window.FAIRHAVEN_MEADOW_MILL_DISPLACEMENT.rung2Hook(); }
+
       G.lastResult = G.lastResult || 'The work continues.';
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();

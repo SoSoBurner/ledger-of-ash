@@ -32,12 +32,14 @@ var FAIRHAVEN_MEADOW_MILL_DISPLACEMENT = (function() {
   }
 
   function rung2Hook() {
-    if (!G || !G.flags.mill_displacement_rung1 || G.flags.mill_displacement_rung2) return null;
     return {
       cid: 'sideplot_mill_displacement_rung2',
-      text: 'The rerouting order has a permit number. Permit numbers have origins.',
+      label: 'The rerouting order has a permit number. Permit numbers have origins.',
       tags: ['Confrontation'], plot: 'side',
-      result: function() {
+      condition: function() {
+        return G && G.flags && G.flags.mill_displacement_rung1 && !G.flags.mill_displacement_rung2;
+      },
+      fn: function() {
         var r = rollD20('wits');
         if (r.total >= 12) {
           G.flags.mill_displacement_rung2 = true;
