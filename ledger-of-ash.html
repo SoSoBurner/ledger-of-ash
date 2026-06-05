@@ -2884,7 +2884,6 @@ const FACTION_CLOCKS = {
 };
 
 function advanceFactionClocks(ticks) {
-  if (!G.factionClocks) G.factionClocks = typeof structuredClone === 'function' ? structuredClone(FACTION_CLOCKS) : JSON.parse(JSON.stringify(FACTION_CLOCKS));
   ticks = ticks || 1;
   Object.entries(G.factionClocks).forEach(([fid, clock]) => {
     if (clock.progress >= clock.goal) return; // already resolved
@@ -10028,7 +10027,7 @@ function getDefaultG() {
     consecutiveSleepless:0, watchPosted:false, _heatDCMod:0,
     _nonCombatPicks:0,
     pendingVictoryCallback:null,
-    factionClocks:null,
+    factionClocks: typeof FACTION_CLOCKS !== 'undefined' ? JSON.parse(JSON.stringify(FACTION_CLOCKS)) : {},
     inSettlement:true,
     _boldSuccessThisSession:0,
     schemaVersion:6
@@ -10587,7 +10586,7 @@ function _beginLegendCore() {
   // Seed rival adventurers
   G.rivalAdventurers = generateRivals();
   if (typeof initWorldNotices === 'function') initWorldNotices();
-  if (typeof initFactionClocks === 'function') G.factionClocks = null;
+  // factionClocks initialized in getDefaultG() — no runtime reset needed
   saveGame();
   showScreen('screen-game');
   updateHUD(); updateEnvironmentPanel();
