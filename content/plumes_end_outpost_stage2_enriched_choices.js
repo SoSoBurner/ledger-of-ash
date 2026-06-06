@@ -11,6 +11,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'analyzing northern hazard readings with Letha Dawnsilk');
@@ -73,6 +77,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing traveler accounts at Shrine of Cysur');
@@ -105,6 +113,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'second conversation with Shrine Keeper Cysur');
@@ -168,6 +180,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'Social'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'navigating Roadwarden checkpoint friction');
@@ -199,6 +215,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'reviewing caravan driver traffic log for construction and supply entries');
@@ -228,6 +248,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing phantom supply requisition category feeding the northern route');
@@ -257,6 +281,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'speaking with outpost smith Brann Veld about northern equipment repairs');
@@ -287,6 +315,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Archive'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing supply depot discrepancy with clerk Pella Orn');
@@ -346,6 +378,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining pre-assignment calibration record in Letha Dawnsilk hazard station');
@@ -375,6 +411,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'speaking with northern supply runner Destin Var about staging structure interior');
@@ -404,6 +444,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'questioning outpost apothecary Wend Sallor about northern chemical odor');
@@ -434,6 +478,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing three-day gap in outpost northern patrol log');
@@ -464,6 +512,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'speaking with infirmary traveler Molk Breyen about northern exposure symptoms');
@@ -493,6 +545,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing night-watch account from guard Ferret Ondal about after-hours northern traffic');
@@ -551,6 +607,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining Roadwarden duty roster for unrotated northern assignment');
@@ -581,6 +641,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'speaking with trapper Aldus Ferch about territorial displacement from northern spruce line');
@@ -610,6 +674,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining woodcutter fuel delivery records for staging structure supply entries');
@@ -639,6 +707,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 112,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(112, "Plume's End Outpost Stage 2 resolution");
@@ -671,6 +743,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'sealed transit records');
@@ -686,6 +762,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'warden pattern observation');
@@ -702,6 +782,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Observation', 'Complication'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'unexplained traveler refusal');
@@ -719,6 +803,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'missing log category');
