@@ -224,6 +224,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     label: "The junior arbiter by the archive door enters Brokerwell's corrections into the public record.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'confronting complicit arbiter');
@@ -330,6 +334,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     label: "The private outcome documents need to reach the Collegium observer without passing through Brokerwell's network.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'compiling and transferring evidence collection');
@@ -622,6 +630,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     label: "The parties who win coordination decisions in Brokerwell's chamber share a single commercial sponsor.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing coordination outcomes and sponsorships');
@@ -683,6 +695,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     label: "The Collegium observer has filed six months of reports. None have been acknowledged.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'speaking with the Collegium observer');
@@ -717,6 +733,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     label: "The founding charter has a recall provision that has never been used or publicized.",
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'locating charter recall provision');
