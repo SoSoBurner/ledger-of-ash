@@ -10,6 +10,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Shard output tracks against external glyph pressure events. The shards respond to engineered surges.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 82,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'reviewing glasswake shard glyph correlation with Toman Iceveil');
@@ -39,6 +43,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A suppression order names four specific research conclusions. Together they describe the full mechanism.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'analyzing suppression order contents with Lenna Bannerhold');
@@ -68,6 +76,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The research and suppression order form a complete package. It needs a protected channel.",
     tags: ['Investigation', 'Craft', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 84,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'routing Toman Iceveil research through protected publication channel');
@@ -103,6 +115,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A second data set: shard resonance across three clear-sky windows. The amplification is timed.",
     tags: ['Stage2', 'Lore'],
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'tracing timed shard resonance pattern with Toman Iceveil');
@@ -197,6 +213,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     plot: 'main',
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'comparing containment warden field book against redacted official pylon logs');
@@ -226,6 +246,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     plot: 'main',
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing suppression authority courier transit receipt return address');
@@ -284,6 +308,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Four years of glyph readings. The last six months don't resemble the earlier record.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining glasswake ambient glyph archive for anomalous spike pattern');
@@ -313,6 +341,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     plot: 'main',
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'navigating Lenna Bannerhold compound formula discovery');
@@ -342,6 +374,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A Mimolot researcher arrived and left abruptly. Four words in the visitor log.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing Mimolot visitor departure at glasswake commune');
@@ -370,6 +406,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The deviation notes are in a second book at the pylon base.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'accessing Pita Sormund off-record pylon route deviation log');
@@ -399,6 +439,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The board restricted glyph research eight months ago. The record names who proposed it.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing glasswake commune governance restriction vote record');
@@ -428,6 +472,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The third-watch disposal partner keeps a private tally. It doesn't agree with the run sheets.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing Fen Ashmark disposal partner private shard tally');
@@ -456,6 +504,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The pylon circuit board is exposed. The timing config isn't from the commune's spec.",
     tags: ['Stage2', 'Craft'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading glyph pylon timing configuration during maintenance cycle');
@@ -513,6 +565,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Six months ago a delivery bypassed the standard weighing station. No record of why.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing off-scale supply intake manifest at glasswake commune');
@@ -541,6 +597,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Orend Cavel keeps office hours in the north wing. His meeting calendar is posted outside.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'observing Orend Cavel office meeting calendar and correspondence patterns');
@@ -597,6 +657,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The full mechanism is confirmed. Publish openly or submit to institutional authority.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 106,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(106, 'Glasswake Commune Stage 2 resolution');
@@ -630,6 +694,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Two monitoring stations read the same formation. Their numbers have never matched.",
     tags: ['Research', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'comparing dual-station contamination monitoring discrepancy at glasswake');
@@ -662,6 +730,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The contamination boundary shrank six months ago. The shards didn't.",
     tags: ['Research', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'cross-referencing contamination boundary reduction against shard field extent');
@@ -694,6 +766,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman's original suppression request listed a secondary reviewer. That name is blank now.",
     tags: ['Research', 'Stage2'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'tracing secondary reviewer erasure on Toman Iceveil suppression request');
@@ -726,6 +802,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The quarterly contamination report omits the northwest cluster entirely.",
     tags: ['Research', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'auditing quarterly contamination report for northwest cluster omission');
@@ -760,6 +840,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman keeps his most recent fieldwork separate. He calls the folder 'personal notes'.",
     tags: ['NPC', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'gaining access to Toman Iceveil personal fieldwork folder');
@@ -792,6 +876,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Lenna pulled the submission logs herself before I arrived. She was already counting.",
     tags: ['NPC', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'learning what Lenna Bannerhold already found in the submission logs');
@@ -824,6 +912,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman filed a formal complaint once. He won't say what happened to it.",
     tags: ['NPC', 'Stage2'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'getting Toman Iceveil to speak about his filed formal complaint');
@@ -856,6 +948,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Lenna's been marking the suppression files with a private notation system.",
     tags: ['NPC', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'decoding Lenna Bannerhold private notation system in suppression files');
@@ -888,6 +984,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman and Lenna met once before I arrived. That meeting left a mark.",
     tags: ['NPC', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'reading Toman Iceveil and Lenna Bannerhold prior meeting dynamic');
@@ -922,6 +1022,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The hold mechanism is automated. No person has to sign off on individual suppressions.",
     tags: ['Research', 'Stage2'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'mapping automated suppression routing mechanism at glasswake commune');
@@ -954,6 +1058,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The secondary review queue has no assigned reviewers. Submissions go in and stop.",
     tags: ['Research', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'auditing the empty secondary review queue at glasswake commune research office');
@@ -988,6 +1096,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The same NGOC routing code appears on a suppression order filed at Cosmouth.",
     tags: ['Research', 'Stage2'],
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'tracing NGOC routing code match between glasswake and cosmouth suppression orders');
@@ -1020,6 +1132,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A Shelkopolis civic register lists NGOC. That address is a postal relay node.",
     tags: ['Research', 'Stage2'],
     xpReward: 82,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'tracing Northern Glyph Oversight Commission address to Shelkopolis relay node');
@@ -1054,6 +1170,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The allocation records show water going somewhere not on the map',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'water allocation diversion');
@@ -1069,6 +1189,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The steward answers carefully. Her job requires outside relationships',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'steward NPC agenda');
@@ -1083,6 +1207,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The allocation anomaly predates the current steward by two seasons',
     tags: ['Records', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'pre-steward anomaly');
@@ -1098,6 +1226,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The commune knows about the upstream supply issue. They haven\'t reported it',
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(25, 'unreported upstream discovery');
@@ -1115,6 +1247,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       var result = rollD20('spirit', {dc: 13, locality: 'glasswake_commune', label: 'Sensor calibration reconstruction'});
       if (result.isCrit) {
@@ -1159,6 +1295,10 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       var result = rollD20('charm', {dc: 13, locality: 'glasswake_commune', label: 'Researcher rapport'});
       if (result.isCrit) {
