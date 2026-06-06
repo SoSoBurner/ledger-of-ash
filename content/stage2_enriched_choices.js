@@ -104,6 +104,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Survival', 'Risk', 'Decision', 'Meaningful'],
     xpReward: 68,
     stageProgress: 2,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -169,6 +173,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Trust', 'Deception', 'Risk', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -635,6 +643,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Trust', 'Deception', 'Loyalty', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -766,6 +778,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Sacrifice', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 74,
     stageProgress: 2,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -864,6 +880,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1251,6 +1271,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Seld counted something on his fingers just now. He stopped at four.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
@@ -1278,6 +1302,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
@@ -1304,6 +1332,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Confrontation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1332,6 +1364,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Confrontation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact; },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.charm || 0);
@@ -1359,6 +1395,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'The checkpoint officer pulled my transit record before she said a word.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
@@ -1386,6 +1426,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.vigor || 0);
@@ -1413,6 +1457,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1441,6 +1489,10 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Social', 'Confrontation'],
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact && G.flags.stage2_collegium_contact; },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.charm || 0);
@@ -2249,6 +2301,10 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return G.flags && G.flags.stage2_collegium_contact && !G.flags.collegium_archivist_burned;
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       G.flags.collegium_archivist_burned = true;
@@ -2302,6 +2358,10 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() {
       return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact && !G.flags.collegium_wardens_exposed;
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       if (!G.flags) G.flags = {};
@@ -2357,6 +2417,10 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return G.flags && G.flags.wardens_broker_testimony && !G.flags.wardens_broker_burned;
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       G.flags.wardens_broker_burned = true;
@@ -2410,6 +2474,10 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() {
       return G.flags && G.flags.wardens_route_known && !G.flags.wardens_route_compromised;
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       if (!G.flags) G.flags = {};
@@ -2602,6 +2670,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Someone has been following my route. I want to know who gave them the itinerary.',
     tags: ['Stealth', 'Investigation'],
     plot: 'side',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -2655,6 +2727,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'He answered every question I didn\'t ask. Not one I did.',
     tags: ['Investigation', 'Social'],
     plot: 'side',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.charm || 0);
@@ -2707,6 +2783,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'The public Collegium office exists to be seen. What\'s behind it does not.',
     tags: ['Investigation', 'Stealth'],
     plot: 'side',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.finesse || 0);
@@ -2732,6 +2812,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'There\'s a gap in the suppression pattern. Someone forgot a subcategory.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
@@ -2783,6 +2867,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Waivers don\'t get signed without a reason. Someone approved these in bulk.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
@@ -2809,6 +2897,10 @@ const STAGE2_ENRICHED_CHOICES = [
     text: 'Reclassified cargo stops being cargo. That\'s the point of reclassifying it.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
@@ -2896,6 +2988,10 @@ const STAGE2_ENRICHED_CHOICES = [
         (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'lore')
       );
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.wits || 0);
@@ -2927,6 +3023,10 @@ const STAGE2_ENRICHED_CHOICES = [
         G.archetype === 'Alchemist' ||
         (typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'craft')
       );
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       if (!G.flags) G.flags = {};
@@ -3291,6 +3391,10 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.might || 0);
@@ -3322,6 +3426,10 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       if (!G.flags) G.flags = {};
@@ -3385,6 +3493,10 @@ const STAGE2_ENRICHED_CHOICES = [
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20(G.skills.might || 0);
@@ -3415,6 +3527,10 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     condition: function() {
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       if (!G.flags) G.flags = {};
@@ -3683,6 +3799,10 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "A broker's ledger lists three clients. Only one appears in the Guild registry as licensed.",
     tags: ['Stage2', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-checking broker ledger against Guild registry');
@@ -3740,6 +3860,10 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The missing quarter's supply allocation reappeared, filed under a category that didn't exist then.",
     tags: ['Stage2', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing retroactively filed supply allocation');
