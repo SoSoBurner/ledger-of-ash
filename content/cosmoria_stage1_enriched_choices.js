@@ -942,6 +942,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     label: "The last name on the tide markers is two years old. The tradition just stopped.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading Cosmoria tide markers');
@@ -957,6 +961,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     label: "The log is on the desk. Just enough written to fill the space.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'obtaining administrator appointment log');
@@ -1038,6 +1046,10 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
+  failResult: function() {
+    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    loadStageChoices(G.location);
+  },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
