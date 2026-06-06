@@ -11,6 +11,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'exposing arrival registry shadow sub-register with Vale Brokerwell');
@@ -41,6 +45,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing mediation participants with Vale Ledgermere');
@@ -68,6 +76,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reviewing suppression exposure symptoms with street physician Vale Tinmarch');
@@ -99,6 +111,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'second shadow ledger discovered via Vale Brokerwell escalation');
@@ -131,6 +147,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Registry'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing unlogged consignment weight back through loading lane manifests');
@@ -162,6 +182,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'Social'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'navigating mistaken-identity friction in ward mediation session');
@@ -192,6 +216,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'cross-referencing tally tower clerk observations with shadow register entries');
@@ -221,6 +249,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'observing the unindexed counting house during off-hours');
@@ -250,6 +282,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'Social'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'extracting route and timing intelligence from the arbitration runner');
@@ -280,6 +316,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing unindexed charter series absence in Ward tax records');
@@ -310,6 +350,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'Social'],
     xpReward: 67,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing consenting patient about symptom timeline');
@@ -338,6 +382,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing diplomatic exemption renewal signatures to institutional enabler');
@@ -367,6 +415,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 67,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'examining gatekeeper post logs for deliberate scheduling gaps');
@@ -396,6 +448,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(102, 'Unity Square Stage 2 resolution');
@@ -427,6 +483,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Archive'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing overlapping awning territory dispute filings in Unity Square registry');
@@ -460,6 +520,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Archive', 'Stage2', 'Lore'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing perpetual tally exemption in Unity Square tally tower night log');
@@ -493,6 +557,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2', 'Social'],
     xpReward: 67,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'tracing street physician supply reroute through Unity Square bonding house');
@@ -527,6 +595,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Observation', 'Stage2'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'notice board gap');
@@ -542,6 +614,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'procedural inconsistency');
@@ -557,6 +633,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Social', 'Observation', 'Stage2'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'faction friction observation');
@@ -573,6 +653,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Rumor', 'Observation', 'Stage2'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'crier route change');
@@ -590,6 +674,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing secondary notations in the arrival registry');
@@ -621,6 +709,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'auditing the holding classification in the arrival registry');
@@ -649,6 +741,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'cross-referencing charter party arrival intervals');
@@ -677,6 +773,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'examining the unsigned central registry directive');
@@ -705,6 +805,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'cross-checking cargo weights against suppression compound volumes');
@@ -733,6 +837,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'cross-referencing the registry gap with ward security review dates');
@@ -763,6 +871,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Mediation', 'Stage2'],
     xpReward: 73,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'tracing the third-party listing on bypass forms');
@@ -791,6 +903,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Mediation', 'Stage2'],
     xpReward: 67,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'tracing mediation bypass counter relocations');
@@ -819,6 +935,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Mediation', 'Registry', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'correlating bypass filing spikes with transit arrival clusters');
@@ -848,6 +968,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Mediation', 'Stage2'],
     xpReward: 71,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(71, 'examining sealed administrative exemption bypass routing');
@@ -876,6 +1000,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Mediation', 'Observation', 'Stage2'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'documenting the north gate ward boundary marker relocation');
@@ -906,6 +1034,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'comparing Brokerwell\'s personal archive against the official record');
@@ -934,6 +1066,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['NPC', 'Mediation', 'Stage2'],
     xpReward: 69,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(69, 'documenting bypass processing during Ledgermere\'s absence');
@@ -962,6 +1098,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'cross-referencing Tinmarch\'s patient log against the registry gap');
@@ -990,6 +1130,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 77,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(77, 'tracing unregistered arrivals through Tinmarch\'s patient records');
@@ -1018,6 +1162,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reading Brokerwell\'s margin notes in the transit ledger');
@@ -1046,6 +1194,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'learning from Tinmarch about pre-registry tenement deliveries');
@@ -1076,6 +1228,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Cargo', 'Stage2'],
     xpReward: 79,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(79, 'matching transit routing codes to Guildheart Hub outbound manifests');
@@ -1104,6 +1260,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Cargo', 'Observation', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'documenting the eastern alley cargo handoff outside oversight hours');
@@ -1130,6 +1290,10 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Cargo', 'Stage2'],
     xpReward: 82,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'locating the unmapped staging point for cross-district freight');
