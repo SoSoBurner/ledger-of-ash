@@ -894,6 +894,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "Decide how to secure the documentation you've gathered before it can be confiscated.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'securing evidence cache');
@@ -985,6 +989,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "A past-season ledger is a routine request. The refusal was not routine.",
     tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
     xpReward: 50,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading institutional refusal pattern');
@@ -1001,6 +1009,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "The clerk's answer came too fast — that refusal has been given before.",
     tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'reading institutional refusal pattern');
@@ -1014,6 +1026,10 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   label: 'A past-season ledger should be easy to pull',
   tags: ['Records', 'Intelligence'],
   xpReward: 15,
+  failResult: function() {
+    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    loadStageChoices(G.location);
+  },
   fn: function() {
     advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
     gainXp(15, 'reading institutional refusal pattern');

@@ -966,6 +966,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "The courthouse lamps burn through the day. A procedural statement, not a practical one.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'observing courthouse lamp tradition');
@@ -980,6 +984,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "The physical evidence in Shirshal's case storage shows signs of systematic environmental manipulation.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
@@ -1003,6 +1011,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "The magistrates' public schedule lists sessions that the court's own interior records show were cancelled.",
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'cross-referencing magistrate schedules');

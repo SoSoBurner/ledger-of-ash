@@ -203,6 +203,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "Jorin's been quiet for four months. He needs to know if that still holds.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     effects: [
       { type: 'heat', polity: 'union', amount: 1 },
       { type: 'rival', amount: 1 }
@@ -300,6 +304,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 67,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'securing Jorin\'s analysis records');
@@ -460,6 +468,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "Every day here is a day the supply chain keeps running. This doesn't wait.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'travel decision point');
@@ -510,6 +522,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "Same guild mark on every door. The ink shade shifts block by block.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 40,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(40, 'observing guild mark variation');
@@ -548,6 +564,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The supply manifest register uses a shorthand nobody on staff can fully decode anymore.",
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'reading supply manifest shorthand');
@@ -626,6 +646,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "The afternoon shift change produces thirty seconds of complete quiet across the whole district.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(35, 'observing guild district shift rhythm');
@@ -661,6 +685,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     label: "New hasp on a locked supply room that doesn't match the building's age.",
     tags: ['Information', 'Bold', 'Stage1'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'examining northern annex storage');
