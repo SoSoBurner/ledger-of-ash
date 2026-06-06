@@ -36,6 +36,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Tazren's case file touches every thread I've followed. He's been at this longer.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
@@ -69,6 +70,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Three glyph case evidence packages marked delivered. None logged at destination.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 76,
@@ -99,6 +101,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Suppression compound precursors flowing through Shirshal under false material classifications.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 72,
@@ -130,6 +133,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "She's watched Bureau patterns for years. She knows who doesn't belong on the roster.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
@@ -161,6 +165,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A cluster of glyph-locality petitions dismissed simultaneously under a single ruling. Three months ago.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 70,
@@ -316,6 +321,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A northern staging courier. Sealed packet to the same unlisted sub-registry Luneth mapped.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
@@ -348,6 +354,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A woman from Panim Haven arrived with testimony. Not seen inside since the first morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -380,6 +387,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The sub-registry code is in the Bureau's own charter. Embedded years before it was used.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
@@ -412,6 +420,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Two of Tazren's supervisors in the building today. One signed the original case closure order.",
     tags: ['Stage2', 'NPC'],
     xpReward: 78,
@@ -445,6 +454,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The transit post kept a field rotation log. The Collegium never asked them to stop.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -477,6 +487,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A retired archivist near the compliance shrine. She left under circumstances the record doesn't describe.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
@@ -509,6 +520,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The north road at the hour Mirae named. The ten-day cycle leaves from here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
@@ -541,6 +553,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The residue on the calibration stone is a compound, not sediment. Specific formulation.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
@@ -573,6 +586,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The surge reports and dismissal dates don't match the filed account.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
@@ -605,6 +619,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Verdant Row network tracks which localities received the suppressed materials.",
     tags: ['Stage2', 'NPC'],
     xpReward: 76,
@@ -637,6 +652,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The override code appeared in a second Bureau branch three months before here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -669,6 +685,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The hidden transcripts name three surge witnesses. One is still in Shirshal.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
@@ -705,6 +722,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   // ARCHIVE RECORDS (~8)
 
   {
+    plot: 'main',
     label: "The archivist's index uses three notation systems. The third one appears nowhere in the key.",
     tags: ['Archive', 'Stage2'],
     xpReward: 78,
@@ -735,6 +753,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Three filing slots in the restricted section show evidence of re-ordering within the past month.",
     tags: ['Archive', 'Stage2'],
     xpReward: 72,
@@ -764,6 +783,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Northern transit depot logs show a standing gap — same three-week window, annually.",
     tags: ['Archive', 'Stage2'],
     xpReward: 74,
@@ -794,6 +814,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Fairhaven staging ledger has a Shirshal bureau notation that Fairhaven never authorized.",
     tags: ['Archive', 'Stage2'],
     xpReward: 76,
@@ -823,6 +844,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The archive's material transfer log skips four entries without an annotation. Ink date matches.",
     tags: ['Archive', 'Stage2'],
     xpReward: 70,
@@ -852,6 +874,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Northern route compliance cert is signed by an officer who retired two years ago.",
     tags: ['Archive', 'Stage2'],
     xpReward: 68,
@@ -882,6 +905,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The sealed-section catalog shows forty-three files. The shelf holds forty.",
     tags: ['Archive', 'Stage2'],
     xpReward: 73,
@@ -911,6 +935,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Water-damage noted on the file box. Inside: pristine files, not a warped edge.",
     tags: ['Archive', 'Stage2'],
     xpReward: 65,
@@ -942,6 +967,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   // NPC ENCOUNTERS (~8)
 
   {
+    plot: 'main',
     label: "Luneth signs for packages he wasn't told the contents of — keeping a private tally.",
     tags: ['NPC', 'Stage2'],
     xpReward: 80,
@@ -974,6 +1000,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Khalis ran the same import category through three classification requests. All three came back identical.",
     tags: ['NPC', 'Stage2'],
     xpReward: 74,
@@ -1006,6 +1033,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Sivren's shrine records a dedication rite that no charter recognizes. Performed on petition dismissal day.",
     tags: ['NPC', 'Stage2'],
     xpReward: 72,
@@ -1038,6 +1066,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Mirae knows which guests never signed the visitors' book. She tracked them separately.",
     tags: ['NPC', 'Stage2'],
     xpReward: 78,
@@ -1070,6 +1099,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Tazren drew a network map before the case closed. It's still in his drawer.",
     tags: ['NPC', 'Stage2'],
     xpReward: 85,
@@ -1103,6 +1133,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The porter rotation excluded Luneth from the restricted wing. He noticed the week it happened.",
     tags: ['NPC', 'Stage2'],
     xpReward: 70,
@@ -1134,6 +1165,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Mirae's spare room is always reserved for the same party. No name. Standing block.",
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
@@ -1168,6 +1200,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   // MATERIAL TRANSIT (~6)
 
   {
+    plot: 'main',
     label: "Resonance compound uses an import sub-tier that hasn't been valid since the charter revision.",
     tags: ['Transit', 'Stage2'],
     xpReward: 74,
@@ -1198,6 +1231,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Compound shipments arrive light — declared weights don't match what the depot receives.",
     tags: ['Transit', 'Stage2'],
     xpReward: 72,
@@ -1227,6 +1261,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The transit manifest lists a handling agent that doesn't appear in any Bureau contractor registry.",
     tags: ['Transit', 'Stage2'],
     xpReward: 70,
@@ -1257,6 +1292,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A second compound type moving through the same route. Different classification. Same handler.",
     tags: ['Transit', 'Stage2'],
     xpReward: 76,
@@ -1286,6 +1322,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Northern transfer receiving signature is initials only — same two initials on every form.",
     tags: ['Transit', 'Stage2'],
     xpReward: 68,
@@ -1315,6 +1352,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The shipment schedule repeats on a 73-day cycle. Axial flip timing. Not coincidence.",
     tags: ['Transit', 'Stage2'],
     xpReward: 80,
@@ -1346,6 +1384,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   // CROSS-REFERENCE WITH OTHER LOCALITIES (~5)
 
   {
+    plot: 'main',
     label: "Guildheart's staging records show a Shirshal administrative notation. Neither bureau authorized it.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 76,
@@ -1376,6 +1415,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A Shelkopolis ward registry entry names Shirshal as co-administering authority. No Shelkopolis record matches.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 74,
@@ -1405,6 +1445,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Panim Haven's compliance clerk queried Shirshal six months ago. The reply wasn't from the Bureau.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 72,
@@ -1434,6 +1475,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Three Fairhaven glyph surge reports list a Shirshal case number. Shirshal denies it exists.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 78,
@@ -1464,6 +1506,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A carrier remembers the last shipment he couldn't ask questions about. He remembers everything.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 70,
@@ -1495,6 +1538,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   // HEAT / AUTHORITY PRESSURE (~3)
 
   {
+    plot: 'main',
     label: "A Bureau oversight auditor has arrived. Her case list includes my name.",
     tags: ['Heat', 'Authority', 'Stage2'],
     xpReward: 82,
@@ -1529,6 +1573,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Bureau's heat on this wing has doubled since the charter amendment came up.",
     tags: ['Heat', 'Stage2'],
     xpReward: 65,
@@ -1560,6 +1605,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A Magistratus man sits in the Bureau lobby since the courier intercept. Not reading.",
     tags: ['Heat', 'Authority', 'Stage2'],
     xpReward: 78,
@@ -1624,6 +1670,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Seal degradation rates don't match the recorded dates — these pages are too new",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
@@ -1645,6 +1692,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
+    plot: 'main',
     label: "The records officer stopped searching. He's waiting for me to leave.",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
@@ -1667,6 +1715,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
+    plot: 'main',
     label: "The auditor has run this review loop three years without resolution.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
