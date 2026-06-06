@@ -199,6 +199,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "A dismissed copyist left a note in the Copy Warden's inbox. Never collected.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
+    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -228,6 +229,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "The dead charter number draws from a Guild Council account someone is keeping alive.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
+    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -257,6 +259,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Three months of unsigned forms. Her stamp is on them. Her eyes weren't.",
     skill: 'wits',
     tags: ['Stage2', 'NPC', 'Investigation'],
+    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -287,6 +290,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "A furnace operator runs a shift that the guild roster says does not exist.",
     skill: 'wits',
     tags: ['Stage2', 'NPC', 'Investigation'],
+    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

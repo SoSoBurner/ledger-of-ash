@@ -1026,6 +1026,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Halv Tidereach has pulled the same Harbor Registry folio three times this week.",
     tags: ['Investigation', 'Stage2', 'Lore'],
+    plot: 'main',
     tag: 'safe',
     failResult: "The Harbor Registry's public reading hours end before the folio circulation log can be found. The duty archivist names no patrons. The log stays closed, and the pattern stays unconfirmed for now.",
     xpReward: 70,
@@ -1061,6 +1062,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Mira Sealedger's Merchant Fleet Office accounts show a dormant column reactivated.",
     tags: ['Investigation', 'Stage2', 'Craft'],
+    plot: 'main',
     tag: 'risky',
     failResult: "The Merchant Fleet Office's secondary accounts are audited quarterly and are not open to non-credentialed review. Mira Sealedger processes the denial correctly, dates it, and files it in the tray that goes to Harbor Authority oversight.",
     xpReward: 75,
@@ -1095,6 +1097,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sena Crestwave watched the night platform loading from the Sea Wall Lookout. She has notes.",
     tags: ['NPC', 'Stage2', 'Stealth'],
+    plot: 'main',
     tag: 'bold',
     failResult: "Sena Crestwave is not at the Sea Wall Lookout at the expected hour. A posted notice says the lookout is under scheduled maintenance for two days. The notice is new — the paint on the clip holding it is still wet.",
     xpReward: 78,
@@ -1129,6 +1132,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Doran Wavecrest filed a Cosmouth Trade Hall complaint. It was reclassified before a hearing.",
     tags: ['NPC', 'Stage2', 'Persuasion'],
+    plot: 'main',
     tag: 'risky',
     failResult: "Doran Wavecrest is not in the Trade Hall today. A clerk at the hall's front desk confirms his complaint was reclassified three weeks ago and does not have a scheduled hearing date. The clerk has already filled in the inquiry form before the question is finished.",
     xpReward: 72,

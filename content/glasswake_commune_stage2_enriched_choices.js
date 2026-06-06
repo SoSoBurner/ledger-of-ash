@@ -195,6 +195,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The containment warden's field book has two readings absent from the posted log.",
     tags: ['Stage2', 'Lore'],
+    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -223,6 +224,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The suppression authority's courier left a receipt. The return address isn't in any public registry.",
     tags: ['Stage2', 'Lore'],
+    plot: 'main',
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -251,6 +253,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The disposal schedule changed. New hours run when no assessor is on shift.",
     tags: ['Stage2', 'Survival'],
+    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -308,6 +311,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Formula notes in an unrecognized hand inside a returned text. Lenna hasn't decided yet.",
     tags: ['Stage2', 'NPC'],
+    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1108,6 +1112,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The sensor array's calibration drift can reconstruct what the readings actually were",
     tags: ['Stage2', 'Investigation'],
+    plot: 'main',
     skill: 'spirit',
     xpReward: 80,
     fn: function() {
@@ -1129,6 +1134,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The monitoring post guard wants documentation — authority and bearing may be enough",
     tags: ['Stage2', 'Confrontation'],
+    plot: 'main',
     skill: 'might',
     xpReward: 72,
     fn: function() {
@@ -1150,6 +1156,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The lead researcher published the circulated findings. Her private doubts are still there.",
     tags: ['Stage2', 'Social'],
+    plot: 'main',
     skill: 'charm',
     xpReward: 76,
     fn: function() {
