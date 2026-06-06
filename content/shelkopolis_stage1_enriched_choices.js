@@ -718,6 +718,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
+    plot: 'main',
     label: "The complicit witness is watching to see what I do with what they said.",
     tags: ['Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
@@ -1153,6 +1154,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 6D-A: Redacted signatory
   {
+    plot: 'main',
     label: "The authorization stamp is there. The name underneath it is not.",
     tags: ['Records', 'Archive', 'Observation'],
     xpReward: 55,
@@ -1173,6 +1175,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 6D-B: Registry denial — procedural, no explanation
   {
+    plot: 'main',
     label: "The registry clerk pulled the form before I finished the request.",
     tags: ['Records', 'NPC', 'Inquiry'],
     xpReward: 50,
@@ -1204,6 +1207,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // COMBAT x2
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: "The counting house clerk is alone. The ledger he won't open is right there.",
     tags: ['Combat', 'Confrontation', 'Direct'],
     xpReward: 65,
@@ -1247,6 +1251,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: "The guild courier is carrying a sealed dispatch. Last alley before the relay post.",
     tags: ['Combat', 'Confrontation', 'Risk'],
     xpReward: 65,
@@ -1291,6 +1296,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // MAGIC x2
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: "The ward marks on the sealed guild documents are layered. Someone added a second inscription.",
     tags: ['Magic', 'Lore', 'Records'],
     xpReward: 65,
@@ -1333,6 +1339,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: "That manifest column has a cipher running through the ordinary figures.",
     tags: ['Magic', 'Lore', 'Records'],
     xpReward: 65,
@@ -1376,6 +1383,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH x2
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: "The guild factor walks the same commercial route every second hour. Nobody following.",
     tags: ['Stealth', 'Covert', 'Observation'],
     xpReward: 65,
@@ -1418,6 +1426,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: "The counting house closes at sixth bell. The clerks leave twenty minutes after.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
@@ -1462,6 +1471,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: "The trade concession the factor wants is something I can arrange.",
     tags: ['Support', 'NPC', 'Negotiation'],
     xpReward: 65,
@@ -1505,6 +1515,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: "The clerk already knows the discrepancy threatens her standing.",
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
@@ -1556,6 +1567,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // COMBAT ×2 — Physical pressure on guild factors or creditors
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: 'The counting house clerk has the sealed ledger. He will not have it for long.',
     tags: ['Combat', 'Direct', 'Risk', 'Confrontation'],
     xpReward: 65,
@@ -1599,6 +1611,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: 'The ambush on the guild courier was set before he left the building.',
     tags: ['Combat', 'Direct', 'Risk', 'CombatEntry'],
     xpReward: 65,
@@ -1642,6 +1655,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // MAGIC ×2 — Ward analysis or cipher work
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: 'The ward marks on these guild documents were not applied by the same hand.',
     tags: ['Knowledge', 'Lore', 'Records', 'Arcane'],
     xpReward: 65,
@@ -1684,6 +1698,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: 'The manifest column totals are right. The cipher in the margin is not.',
     tags: ['Knowledge', 'Lore', 'Records', 'Cipher'],
     xpReward: 65,
@@ -1727,6 +1742,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH ×2 — Tailing or covert entry
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: 'The guild factor takes the same route through the commercial district every morning.',
     tags: ['Stealth', 'Observation', 'Risk'],
     xpReward: 65,
@@ -1769,6 +1785,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: 'The counting house closes at fifth-watch bell. The back entrance locks later.',
     tags: ['Stealth', 'Infiltration', 'Risk'],
     xpReward: 65,
@@ -1812,6 +1829,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT ×2 — Negotiation or information brokering
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: 'The trade concession is worth more to him than the manifest access.',
     tags: ['Social', 'NPC', 'Negotiation', 'Commerce'],
     xpReward: 65,
@@ -1854,6 +1872,7 @@ SHELKOPOLIS_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: 'The clerk knows the ledger discrepancy threatens her standing, not just the merchants\'.',
     tags: ['Social', 'NPC', 'Persuasion', 'Records'],
     xpReward: 65,

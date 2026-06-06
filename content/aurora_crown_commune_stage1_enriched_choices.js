@@ -99,6 +99,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 3. RESOURCE ALLOCATOR: SUPPLY DIVERSION
   {
+    plot: 'main',
     label: "Survival supplies are being redirected. The destination codes don't appear in any public record.",
     tags: ['Investigation', 'NPC', 'Logistics', 'Survival'],
     condition: function() { return (G.investigationProgress||0) < 3; },
@@ -142,6 +143,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 4. REPAIR COORDINATOR: MAINTENANCE DELAYS SYSTEMATIC
   {
+    plot: 'main',
     label: "Critical repairs are sitting in the queue. They have been sitting there for weeks.",
     tags: ['Investigation', 'NPC', 'Maintenance', 'Integrity'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
@@ -186,6 +188,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 5. CELESTIAL OBSERVER: AURORA PATTERNS CORRUPTED
   {
+    plot: 'main',
     label: "The observer's charts ran irregular for three weeks. No notice filed.",
     tags: ['Investigation', 'NPC', 'Celestial', 'Phenomenon'],
     xpReward: 70,
@@ -229,6 +232,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. CONTAMINATION MONITOR: SEEPAGE ALLOWED DELIBERATELY
   {
+    plot: 'main',
     label: "The seepage logs show response times doubling. The monitor knows.",
     tags: ['Investigation', 'NPC', 'Contamination', 'Safety'],
     xpReward: 70,
@@ -272,6 +276,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 7. RELAY KEEPER: COMMUNICATION MONITORING
   {
+    plot: 'main',
     label: "A second relay channel opened six weeks ago. The keeper hasn't asked what it's for.",
     tags: ['Investigation', 'NPC', 'Communications', 'Information'],
     xpReward: 70,
@@ -315,6 +320,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 8. SURVIVAL PLANNER: CONTINGENCY PROTOCOLS ABANDONED
   {
+    plot: 'main',
     label: "The evacuation procedures aren't in the current binder. They were there last year.",
     tags: ['Investigation', 'NPC', 'Emergency', 'Protocol'],
     xpReward: 75,
@@ -360,6 +366,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LORE/INVESTIGATION TIER 1: DOME STRUCTURAL ANALYSIS
   {
+    plot: 'main',
     label: "Three stress points appear fourteen times in the log. None have repair authorizations.",
     tags: ['Investigation', 'Lore', 'Structure', 'Engineering'],
     xpReward: 70,
@@ -402,6 +409,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. CRAFT/INVESTIGATION TIER 2: CONTAMINATION BARRIER MODIFICATION
   {
+    plot: 'main',
     label: "The barrier components look correct. They aren't the same material.",
     tags: ['Investigation', 'Craft', 'Barrier', 'Materials'],
     xpReward: 75,
@@ -444,6 +452,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 11. SURVIVAL TIER 1: RESOURCE SUSTAINABILITY CALCULATIONS
   {
+    plot: 'main',
     label: "The consumption figures don't match the population. Twelve months of supply is moving somewhere else.",
     tags: ['Investigation', 'Survival', 'Economics', 'Resources'],
     xpReward: 70,
@@ -486,6 +495,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSUASION TIER 2: COLLECTIVE CONSENT MANUFACTURED
   {
+    plot: 'main',
     label: "Every conversation stops at the same topic. The line is too consistent to be coincidence.",
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Silence'],
     xpReward: 75,
@@ -528,6 +538,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSIGHT TIER 1: PSYCHOLOGICAL PRESSURE DOCUMENTED
   {
+    plot: 'main',
     label: "The tables empty at hours they should be full. Nobody reads the boards.",
     tags: ['Investigation', 'Insight', 'Psychology', 'Pressure'],
     xpReward: 70,
@@ -570,6 +581,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: ADMINISTRATIVE COORDINATION DISCOVERED
   {
+    plot: 'main',
     label: "Three directives, three timing windows, all matching the relay traffic. Outside coordination.",
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy'],
     xpReward: 75,
@@ -614,6 +626,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: SURVIVAL ANXIETIES
   {
+    plot: 'main',
     label: "The maintenance workers don't talk about the dome readings. Not where anyone can hear.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear'],
     xpReward: 65,
@@ -644,6 +657,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: PROOF OF SYSTEMATIC SABOTAGE
   {
+    plot: 'main',
     label: "Four documents, four contradictions, all pointing the same direction. Someone built that.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Systematic'],
     xpReward: 80,
@@ -686,6 +700,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
+    plot: 'main',
     label: "They didn't design the trap. They're just standing in it with everyone else.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
@@ -774,6 +789,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
+    plot: 'main',
     label: "Barrier, maintenance, resources, protocol. All degrading. All timed to the same relay windows.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Connection'],
     xpReward: 75,
@@ -816,6 +832,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
+    plot: 'main',
     label: "The degradation is calibrated. Too slow to trigger response. Too precise to be natural.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose'],
     xpReward: 80,
@@ -1115,6 +1132,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // COMBAT x2
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: "The sealed corridor has one pressure latch. One good shoulder and it gives.",
     tags: ['Combat', 'Risk', 'Direct'],
     xpReward: 65,

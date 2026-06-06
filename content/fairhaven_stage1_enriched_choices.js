@@ -106,6 +106,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 3. ALCHEMICAL SUPPLIER: INGREDIENT QUALITY DEGRADATION
   {
+    plot: 'main',
     label: "The alchemical supplier's stock smells right. The potency tests would say otherwise.",
     tags: ['Investigation', 'NPC', 'Craft', 'Supply', 'Meaningful'],
     xpReward: 70,
@@ -149,6 +150,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 4. FOOD PROVISIONER: STORAGE MANIPULATION AND SPOILAGE [PROGRESS-GATED: mid-progress]
   {
+    plot: 'main',
     label: "The grain moved upstairs. Gareth knows what that does to grain.",
     tags: ['Investigation', 'NPC', 'Supply', 'Storage', 'Meaningful'],
     xpReward: 70,
@@ -189,6 +191,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 5. TOOL CRAFTSMAN: ENCHANTED TOOL DEGRADATION
   {
+    plot: 'main',
     label: "Halverd has been at this thirty years. He knows when an enchantment hasn't taken.",
     tags: ['Investigation', 'NPC', 'Craft', 'Tools', 'Meaningful'],
     xpReward: 70,
@@ -228,6 +231,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 6. GUARD CAPTAIN: GARRISON COMPLACENCY AND REALLOCATION
   {
+    plot: 'main',
     label: "Forty-two soldiers last month. Twenty-nine today. The captain filed a written objection.",
     tags: ['Investigation', 'NPC', 'Defense', 'Military', 'Meaningful'],
     xpReward: 75,
@@ -270,6 +274,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 7. SHRINE KEEPER: DOCTRINE SHIFTS AND EXTERNAL DIRECTION
   {
+    plot: 'main',
     label: "The Shrine Keeper implemented every directive. She hasn't named what came next.",
     tags: ['Investigation', 'NPC', 'Authority', 'Doctrine', 'Meaningful'],
     xpReward: 75,
@@ -312,6 +317,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 8. INNKEEPER: SUPPLY ROUTING AND VISITOR PATTERNS
   {
+    plot: 'main',
     label: "Shipments go north first now. The men coordinating them weren't from here.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
@@ -353,6 +359,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 9. SURVIVAL TIER 1: GLYPH CAVE ACTIVITY MONITORING
   {
+    plot: 'main',
     label: "The warning posts say stay back. The boot prints say otherwise.",
     tags: ['Investigation', 'Survival', 'Glyph', 'Danger', 'Meaningful'],
     xpReward: 70,
@@ -395,6 +402,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 10. SURVIVAL TIER 2: HIDDEN WAYSTATION DISCOVERY
   {
+    plot: 'main',
     label: "Something stored past the perimeter. The drainage channel was cut on purpose.",
     tags: ['Investigation', 'Survival', 'Supply', 'Hidden', 'Meaningful'],
     xpReward: 75,
@@ -437,6 +445,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 11. CRAFT TIER 1: ENCHANTMENT FORMULA ANALYSIS
   {
+    plot: 'main',
     label: "The archive copy and the current formula are not the same document.",
     tags: ['Investigation', 'Craft', 'Magic', 'Enchantment', 'Meaningful'],
     xpReward: 70,
@@ -479,6 +488,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 12. CRAFT TIER 2: SUPPLY DOCUMENT FORGERY DETECTION
   {
+    plot: 'main',
     label: "The seals pass a clerk's check. The paper stock is from the wrong year.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Documents', 'Meaningful'],
     xpReward: 75,
@@ -521,6 +531,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 13. LORE TIER 1: GLYPH HISTORY AND DOCTRINE
   {
+    plot: 'main',
     label: "The old texts called it a threshold. The new pamphlets call it a wall.",
     tags: ['Investigation', 'Lore', 'History', 'Doctrine', 'Meaningful'],
     xpReward: 70,
@@ -563,6 +574,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 14. LORE TIER 2: FAITH VS NECESSITY PHILOSOPHY
   {
+    plot: 'main',
     label: "The founding texts treated a failed harvest as a logistical problem. The supplements don't.",
     tags: ['Investigation', 'Lore', 'Philosophy', 'Doctrine', 'Meaningful'],
     xpReward: 75,
@@ -607,6 +619,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: SUPPLIES DISAPPEARING AND FAITH FAILING
   {
+    plot: 'main',
     label: "The same complaint at every bench in the Sunflower Market, said below a raised voice.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
@@ -643,6 +656,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 16. PRACTICAL FAILURE: TOOL BREAKS AT CRITICAL MOMENT
   {
+    plot: 'main',
     label: "A plow snaps mid-furrow. Three weeks old. The rune seam was never fully seated.",
     tags: ['Investigation', 'Evidence', 'Failure', 'Personal', 'Meaningful'],
     xpReward: 75,
@@ -685,6 +699,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 17. SUPPLY CRISIS: COMMUNITY APPROACHING SCARCITY
   {
+    plot: 'main',
     label: "Every household carries the same problem. None of them names it the same way.",
     tags: ['Investigation', 'Evidence', 'Crisis', 'Personal', 'Meaningful'],
     xpReward: 75,
@@ -1021,6 +1036,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: PRESSURE — ARCHETYPE GATE (Healer — Support family)
   {
+    plot: 'main',
     label: "The children show a nutritional pattern that takes months of inadequate provision to develop.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
     xpReward: 70,
@@ -1086,6 +1102,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 6D: Posted notice with blank date field
   {
+    plot: 'main',
     label: "The notice is current — the date field was left empty on purpose.",
     tags: ['Records', 'Observation', 'Survey'],
     xpReward: 55,
@@ -1123,6 +1140,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
   // COMBAT x2
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: "The berth locks from this side. One tide window before enforcers reach the dock.",
     tags: ['Combat', 'Risk', 'Direct'],
     xpReward: 65,
@@ -1165,6 +1183,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: "Three harbor enforcers, one dock. They want me off this pier.",
     tags: ['Combat', 'Confrontation', 'Direct'],
     xpReward: 65,
@@ -1209,6 +1228,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
   // MAGIC x2
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: "Tide patterns don\'t repeat like this unless something upstream is holding them.",
     tags: ['Magic', 'Lore', 'Observation'],
     xpReward: 65,
@@ -1251,6 +1271,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: "Harbor registry markings in the margin. Those aren\'t notations — they\'re a secondary script.",
     tags: ['Magic', 'Lore', 'Records'],
     xpReward: 65,
@@ -1294,6 +1315,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH x2
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: "Harbor log checkpoint opens in thirty seconds. Two dockworkers between me and the gate.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
@@ -1337,6 +1359,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: "Guarded vessel, second berth from the end. Watch rotation has a gap at the stern.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
@@ -1380,6 +1403,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: "Dock workers are watching the harbor clerk. They know what a timed distraction costs.",
     tags: ['Support', 'NPC', 'Coordination'],
     xpReward: 65,
@@ -1422,6 +1446,7 @@ FAIRHAVEN_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: "The harbor clerk flagged this discrepancy himself. No one has listened.",
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
