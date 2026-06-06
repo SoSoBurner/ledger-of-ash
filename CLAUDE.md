@@ -140,7 +140,7 @@ Do not author Stage 3+ choices, NPCs, localities, climaxes, or mechanics until S
 
 - Level N→N+1: N×60 XP (Level 1→2 = 120). XP denominator in `updateHUD()` must be `G.level * 60` — not hardcoded 120.
 - `STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20}`. At cap: XP overflow → `G.masteryXP`.
-- `gainXp`/`gainXP` both exist (~lines 11726, 12098). Prefer `gainXp`. `equipItem(idx)` uses `item.type`, not `item.slot`.
+- Only `gainXp` exists (~line 12525). `gainXP` (uppercase P) does NOT exist — calling it silently throws. `equipItem(idx)` uses `item.type`, not `item.slot`.
 
 ## Travel Mode
 
@@ -152,7 +152,7 @@ Do not author Stage 3+ choices, NPCs, localities, climaxes, or mechanics until S
 
 ## Camp System
 
-`campAction(type)` types: `'rest','sleep','train','talk','recover','lay_low','review_notes','campout','craft','post_watches'`. Only `post_watches`/`craft` fully wired. `doSleepScene()` handles rest/healing. Companions gate on `G.flags.maren_oss_resolved`.
+`campAction(type)` types: `'rest','sleep','train','talk','recover','lay_low','campout','craft','post_watches'`. All 9 types implemented at ~line 14691. `doSleepScene()` handles rest/healing. Companions gate on `G.flags.maren_oss_resolved`.
 
 ## Combat Entry
 
@@ -236,14 +236,18 @@ Do not mark a feature DONE based on code existence alone. A feature is DONE only
 
 ## Save / Load System
 
-Persistence is `localStorage` only. Key functions:
+Persistence is `localStorage` only. 3 named slots keyed by `SAVE_SLOT_KEYS = ['loa_slot_1','loa_slot_2','loa_slot_3']` (~line 18008). Key functions:
 
 ```js
-saveGame(slotArg)          // serialize G to localStorage key ledger_save_<slot>
-loadGame(slotArg, legacyCode)  // restore G from slot; legacyCode for pre-session saves
-getSaveList()              // → [{key, name, level, archetype}]
-getSaveListFull()          // → [{key, name, level, archetype, location, stage}]
+saveGame(slotArg)               // ~line 18101. slotArg: 'loa_slot_N' string, 1-3 number, or omitted (uses G.lastUsedSlot). Delegates to saveToSlot.
+loadGame(slotArg, legacyCode)   // ~line 18111. Same slotArg shape. legacyCode: 4-digit code for one-time pre-session migration (name + code → loa_save_<name>_<code>). Delegates to loadFromSlot.
+saveToSlot(slotKey)             // ~line 18046. Serializes G to localStorage[slotKey].
+loadFromSlot(slotKey)           // ~line 18061. Parses + migrateState + Object.assign(G, getDefaultG(), data).
+readSlotMeta(slotKey)           // ~line 18083. → {name, stage, level, savedAt, caseCode, slotLabel} | null. Iterate SAVE_SLOT_KEYS to enumerate all slots.
+exportSave() / importSave(file) // JSON file roundtrip via Blob / FileReader.
 ```
+
+To list all saves, iterate `SAVE_SLOT_KEYS.forEach(k => readSlotMeta(k))` (see `showSaveModal` ~line 18189 for the canonical pattern). `getSaveList()`/`getSaveListFull()` do NOT exist.
 
 `G.schemaVersion` (currently 3) gates migration logic in `loadGame`. Do not change G property names or restructure `G.quests` without bumping schema and writing a migration.
 
@@ -267,7 +271,7 @@ getSaveListFull()          // → [{key, name, level, archetype, location, stage
 }
 ```
 
-`adaptEnrichedChoice(c)` wraps `c.fn()` in try/catch — any missing G default or TypeError is **silently swallowed**. Always initialize G properties in the defaults object before reading them in content.
+`adaptEnrichedChoice(c)` wraps `c.fn()` in try/catch (~line 11520) — swallows errors (try/catch + `console.error('[enriched]', e)`); adds recovery narration `'Something went wrong. Continuing...'` in catch and reloads choices after 800ms. Missing G defaults or TypeErrors surface only in console, never to the player. Always initialize G properties in the defaults object before reading them in content.
 
 ## Key Engine Functions
 
@@ -289,7 +293,7 @@ addQuest(msg, hint, questId)
 ```js
 renderChoices(choices)       // choices → DOM buttons with click handlers
 handleChoice(choice)         // dispatch: combat CIDs → enterCombat, enriched → adaptEnrichedChoice
-adaptEnrichedChoice(c)       // try/catch wrapper; rolls DC; calls c.fn() or c.failResult()
+adaptEnrichedChoice(c)       // try/catch wrapper (swallows errors, logs to console, recovery narration + 800ms reload); rolls DC; calls c.fn() or c.failResult()
 getChoiceTier(choice)        // returns 'safe'|'risky'|'bold' from tag or tags array
 getChoiceDC(choice, rivalMod) // base + stage bonus + rival mod − pendingDcReduce
 ```
