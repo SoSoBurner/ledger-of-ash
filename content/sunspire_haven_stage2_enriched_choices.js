@@ -62,6 +62,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Suppression requests citing a non-existent regulatory authority. The registry keeps receiving them.",
     tags: ['Investigation', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'investigating knowledge suppression requests with Taldan Veyst');
@@ -95,6 +99,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Convoy modification requisitions matching suppression compound transport container descriptions.",
     tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining convoy modification requisitions with Kael Emberthrone');
@@ -123,6 +131,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "A payment dispute over container modification work. The commissioning party's documentation is in it.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining container commission dispute with Orvak Strone');
@@ -152,6 +164,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Glyph surges disrupting wildlife migration in a pattern Elyra has tracked for four months.",
     tags: ['NPC', 'Survival', 'Stage2'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reviewing ecological glyph impact data with Elyra Mossbane');
@@ -184,6 +200,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "A community member filed a report. Convoy handlers receiving payments from an external party.",
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'reviewing convoy handler payment report with Jorva Helmrune');
@@ -333,6 +353,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The charter exemption number she cited was written for diplomatic pouches, not bulk cargo.",
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining sealed container weight exemption with shipping clerk');
@@ -364,6 +388,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The backup archive was last accessed the week the suppression requests started.",
     tags: ['Stage2', 'Stealth'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing Knowledge Registry backup access logs');
@@ -459,6 +487,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Researcher Orvaith left tools in his funded workspace. The tools are still there.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining Lenn Orvaith abandoned research workspace');
@@ -490,6 +522,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Twelve days in the convoy log with no notation where daily entries should be.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'examining north gate convoy exit log gap with road warden');
@@ -521,6 +557,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The communal grain count and the storehouse physical stock are two different numbers.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reconciling communal grain stock discrepancy with Jorva Helmrune');
@@ -553,6 +593,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The handler who took the external payment has avoided the common house for a month.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating and speaking with avoiding convoy handler');
@@ -583,6 +627,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The night watch rotation during the container work ran four handlers instead of two.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'cross-checking night watch rotation against handler payment records');
@@ -613,6 +661,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra's logbook has pages she did not include in her submitted filings.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reviewing Elyra Mossbane unsubmitted ecological field readings');
@@ -646,6 +698,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression requests were drafted somewhere — Taldan's junior assistant remembers the handwriting.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'tracing suppression request authorship through Taldan junior assistant');
@@ -676,6 +732,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The charter subsidiary's local agent signed three documents in Sunspire before the modification work began.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing charter subsidiary local agent signature through Orvak Strone records');
@@ -708,6 +768,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression requests targeted the same countermeasure the Compact developed.",
     tags: ['Stage2', 'Lore', 'Arcane'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'connecting suppression requests to Resonance Compact countermeasure research');
@@ -958,6 +1022,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra's forest patrol routes avoid the northern staging road entirely.",
     tags: ['NPC', 'Stage2'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'observing Elyra Mossbane patrol route pattern');
@@ -987,6 +1055,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Kael's machinery logs have a gap during the last three convoy cycles.",
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'auditing Kael Emberthrone machinery log continuity');
@@ -1016,6 +1088,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Orvak keeps the adjudication docket locked after the second bell. Someone came after second bell.",
     tags: ['NPC', 'Stage2'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'probing Orvak Strone after-hours docket access incident');
@@ -1045,6 +1121,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Jorva keeps the communal ledger locked after the second bell. The lock is new.",
     tags: ['NPC', 'Stage2'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining Jorva Helmrune communal ledger security change');
@@ -1074,6 +1154,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Taldan asked the Patron-Family council for oversight authority two months ago. It was denied.",
     tags: ['NPC', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'documenting Taldan Veyst oversight authority request and denial');
@@ -1104,6 +1188,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra knows the researcher Orvaith. She has not said so until now.",
     tags: ['NPC', 'Stage2'],
     xpReward: 67,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'cross-examining Elyra Mossbane on Lenn Orvaith connection');
@@ -1134,6 +1222,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Kael recognized the container specs — he built similar insulation for Guildheart.",
     tags: ['NPC', 'Stage2'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'tracing Kael Emberthrone prior Guildheart commission connection');
@@ -1560,6 +1652,10 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Sunspire is an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 104,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(104, 'Sunspire Haven Stage 2 resolution');
