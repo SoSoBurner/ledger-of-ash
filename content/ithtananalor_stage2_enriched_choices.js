@@ -916,6 +916,60 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The Iron Accord seal on the foundry gate has been re-cast within the last month.",
+    skill: 'wits',
+    tags: ['Stage2', 'Records', 'Evidence'],
+    plot: 'main',
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'reading the re-cast Iron Accord seal');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('wits', G.skills.wits);
+      if (roll.total >= 13) {
+        G.flags.ith_iron_accord_seal_recast = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('Foundry Gate — Re-cast Seal', 'The Iron Accord seal is supposed to sit on a foundry gate for a generation. This one has bright bronze at its edges where older patina would still hold — re-cast within the last month, not maintained, replaced. The master pattern has a fractional drift in the lower quadrant: a new die was cut, not pulled from the central registry. Someone bypassed the Accord registry to put a fresh seal on this gate, and the registry has no record of authorizing it.');
+        addJournal('Iron Accord foundry seal re-cast off-registry within last month — fresh die cut outside central authorization', 'evidence');
+        G.recentOutcomeType = 'success';
+        maybeStageAdvance();
+      } else {
+        addNarration('Foundry Gate — Watched at the Seal', 'The bronze edge catches light differently than the surrounding stone — enough to draw attention, not enough to read at the distance the gate clerk permits civilians to stand. The clerk does not ask what is being studied. He simply taps a stylus against the duty log twice, and a second officer steps from the guard niche to assume the same sightline. The seal is not approached. The presence at the gate is now a logged item under the clerk\'s hand.');
+        addJournal('Foundry seal observation logged by gate clerk — second officer drawn to sightline', 'complication');
+        G.recentOutcomeType = 'complication';
+        loadStageChoices(G.location);
+      }
+    }
+  },
+
+  {
+    label: "The prison labor manifest has three names with no destination assigned.",
+    skill: 'finesse',
+    tags: ['Stage2', 'Records', 'Stealth'],
+    plot: 'main',
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      gainXp(20, 'reading the prison labor manifest column');
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('finesse', G.skills.finesse);
+      if (roll.total >= 13) {
+        G.flags.ith_prison_labor_unassigned = true;
+        G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
+        addNarration('Labor Manifest — Three Blank Destinations', 'The labor foreman keeps the manifest in a tin box near the muster yard, the column headings ruled in red lead and the destination field carried for every assignment back to the founding of the quota system. Three names this quarter have the destination field left blank — not redacted, not stamped "pending," simply not filled. The same three names also have no end-of-shift sign-off. Bodies were drawn from the prison labor pool and accounted for nowhere downstream of the gate.', 'success');
+        addJournal('Prison labor manifest: three workers drawn from pool with no destination assigned and no end-of-shift sign-off', 'evidence');
+        G.recentOutcomeType = 'success';
+        maybeStageAdvance();
+      } else {
+        addNarration('Labor Manifest — Foreman Closes the Box', 'The muster yard runs a clean choreography during shift rotation, and any pause near the foreman\'s tin box reads as a break in that choreography from twenty paces. The foreman finishes a tally on the slate, walks to the box, and closes the lid without looking at the visitor. The clasp goes down. The manifest is not handed over and the request is not refused — the choreography simply resumes around the closed box, and the box is what the question would have to go through.', 'failure');
+        addJournal('Labor manifest box closed by foreman — manifest channel cold without escalation', 'complication');
+        G.recentOutcomeType = 'complication';
+        loadStageChoices(G.location);
+      }
+    }
+  },
+
 ];
 
 window.ITHTANANALOR_STAGE2_ENRICHED_CHOICES = ITHTANANALOR_STAGE2_ENRICHED_CHOICES;

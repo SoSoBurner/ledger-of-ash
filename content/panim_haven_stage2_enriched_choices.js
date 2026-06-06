@@ -65,6 +65,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The afterlife ledger has irregular entries. The clustering is not administrative error.",
+    plot: 'main',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -130,6 +131,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Processions keep missing the same streets. Three months of the same gap.",
+    plot: 'main',
     tags: ['Investigation', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -160,6 +162,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Saryna's flags have been suppressed six months. She kept her own copies.",
+    plot: 'main',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 78,
     fn: function() {
@@ -190,6 +193,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Something arrives at the third hour. Velune won't name it to a stranger.",
+    plot: 'main',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 80,
     fn: function() {
@@ -221,6 +225,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Ithren Sepulcher has a porter's memory. He noticed which cargo didn't weigh right.",
+    plot: 'main',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -282,6 +287,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppressed inquest files are in the district registry. Night is the only window.",
+    plot: 'main',
     tags: ['Stealth', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
     fn: function() {
@@ -314,6 +320,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Merev Sepulcher hears every conversation in the Memorial Inn. The past month has been unusual.",
+    plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 74,
     fn: function() {
@@ -344,6 +351,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The backlog is managed, not accidental. Someone benefits from a saturated mediation hall.",
+    plot: 'main',
     tags: ['Lore', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 76,
     fn: function() {
@@ -438,6 +446,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sanctuary-claim rolls list names no family has visited.",
+    plot: 'main',
     tags: ['stage2', 'panim_haven'],
     xpReward: 30,
     fn: function() {
@@ -457,6 +466,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Nemeia Sepulcher works the coffin benches — the unsealed shipments passed her.",
+    plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 78,
     fn: function() {
@@ -486,6 +496,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The third-hour visitor leaves by the porter's gate, not the pilgrim arch.",
+    plot: 'main',
     tags: ['Stealth', 'Stage2'],
     xpReward: 82,
     fn: function() {
@@ -514,6 +525,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern charter subsidiary has a registration address. It belongs to something that doesn't exist.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 80,
     fn: function() {
@@ -546,6 +558,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "That building's floor has been cut. The rite marks are cover for something structural.",
+    plot: 'main',
     tags: ['Stage2', 'Craft'],
     xpReward: 76,
     fn: function() {
@@ -578,6 +591,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Caldor takes the same route every day. Not today. He changed it.",
+    plot: 'main',
     tags: ['Stage2', 'Stealth'],
     xpReward: 82,
     fn: function() {
@@ -610,6 +624,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The freight lane moves before the bell. A wrong seal is readable at that hour.",
+    plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 74,
     fn: function() {
@@ -642,6 +657,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The district watch captain filed three reports that went nowhere. He stopped filing after that.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 78,
     fn: function() {
@@ -655,11 +671,11 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_watch_captain = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The captain's name is Orvath Sepulcher. He opens the third report without being asked — it has been kept separate from the bound filing stack, in a plain folio without a cover mark. The report documents a freight irregularity in the porter's gate lane on a specific date six months ago. The response from the oversight tier was a single line: jurisdictional review pending. The same line appears on reports two and one. "When I stopped, no one came to ask why." He pushes the folio across the desk. He does not ask for it back.`;
-        addJournal('Orvath Sepulcher — three suppressed watch reports, folio surrendered', 'evidence', `panim-captain-${G.dayCount}`);
+        G.lastResult = `The captain's name is Orvath. He opens the third report without being asked — it has been kept separate from the bound filing stack, in a plain folio without a cover mark. The report documents a freight irregularity in the porter's gate lane on a specific date six months ago. The response from the oversight tier was a single line: jurisdictional review pending. The same line appears on reports two and one. "When I stopped, no one came to ask why." He pushes the folio across the desk. He does not ask for it back.`;
+        addJournal('Orvath — three suppressed watch reports, folio surrendered', 'evidence', `panim-captain-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Orvath Sepulcher hears the approach and gives it three seconds before his expression settles into the particular flatness of a senior watch officer who has fielded this category of conversation before. "I file reports. I don't discuss them." He is not hostile. He is a man who has learned the precise boundary of what his position permits and has placed himself squarely behind it. Any further approach before his formal filing access is established will add a name to the watch log.`;
+        G.lastResult = `Orvath hears the approach and gives it three seconds before his expression settles into the particular flatness of a senior watch officer who has fielded this category of conversation before. "I file reports. I don't discuss them." He is not hostile. He is a man who has learned the precise boundary of what his position permits and has placed himself squarely behind it. Any further approach before his formal filing access is established will add a name to the watch log.`;
         addJournal('Watch captain declined — approach noted in watch log', 'complication', `panim-captain-fail-${G.dayCount}`);
       } else {
         G.flags.met_watch_captain = true;
@@ -674,6 +690,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Every unsealed memorial shipment carries the same signatory name. One name, every time.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 76,
     fn: function() {
@@ -706,6 +723,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The wrapping cloth on returned memorial containers has a residue. It is not incense.",
+    plot: 'main',
     tags: ['Stage2', 'Craft'],
     xpReward: 74,
     fn: function() {
@@ -738,6 +756,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A family came to collect remains. The files showed no record of the service.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     fn: function() {
@@ -770,6 +789,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The chandler's shop is empty during business hours. The back room is not.",
+    plot: 'main',
     tags: ['Stage2', 'Stealth'],
     xpReward: 82,
     fn: function() {
@@ -802,6 +822,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Four names in the notary chain. Three signed the same month they were appointed.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 78,
     fn: function() {
@@ -835,6 +856,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The annex delivery log is posted at the loading bay. No appointment required.",
+    plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 70,
     fn: function() {
@@ -867,6 +889,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sanctuary list traces to trade rosters. Not one name appears in congregant records.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 76,
     fn: function() {
@@ -898,6 +921,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shrine water runs under two buildings. One is the unregistered storage site.",
+    plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 72,
     fn: function() {
@@ -930,6 +954,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The clustering in the afterlife ledger is geographic, not administrative error.",
+    plot: 'main',
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "The district breakdown map is not posted for public use — Marrowen says this without apology and removes it from its peg before the question is fully formed. A formal records access request routes through the mediation hall intake, which routes to the oversight tier. The path forward exists. It requires more time and a different approach.",
@@ -963,6 +988,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Celis Lanthorn's grief mediation records contain names the registry won't acknowledge.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Persuasion'],
     tag: 'risky',
     xpReward: 74,
@@ -998,6 +1024,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The procession gap covers the same block every time. Toriel Palevow works that block.",
+    plot: 'main',
     tags: ['NPC', 'Investigation', 'Stage2'],
     tag: 'risky',
     xpReward: 70,
@@ -1033,6 +1060,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sealed document annex has a public reading room. Pelor Coffinmarch works the desk.",
+    plot: 'main',
     tags: ['Investigation', 'Stage2', 'Stealth'],
     tag: 'bold',
     xpReward: 78,
@@ -1071,6 +1099,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The second witness column is never filled. Someone decided it shouldn't be.",
+    plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 72,
@@ -1102,6 +1131,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three death-date entries don't match the memorial contract dates filed the same week.",
+    plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 75,
@@ -1133,6 +1163,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sealed addenda are attached to seven ledger entries. They don't belong in the primary ledger.",
+    plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'bold',
     xpReward: 80,
@@ -1166,6 +1197,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The ink formula changes on the same date every quarter. No supply order explains it.",
+    plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 68,
@@ -1197,6 +1229,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The margin annotations stop when the sealed records grew. Someone stopped commenting.",
+    plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'safe',
     xpReward: 65,
@@ -1229,6 +1262,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Same filing clerk initial on a batch of entries. That clerk left two years ago.",
+    plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
     xpReward: 73,
@@ -1262,6 +1296,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elior sealed three mediation records the same week the processional route changed.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'bold',
     xpReward: 82,
@@ -1295,6 +1330,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Merev keeps a second ledger. She doesn't hide it, but she doesn't offer it.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 71,
@@ -1326,6 +1362,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Saryna's receipt archive has a gap. Same week three ledger entries were sealed.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 74,
@@ -1357,6 +1394,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Velune's shrine attendance log shows the same three names absent on every sealed mediation day.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Shrine'],
     tag: 'risky',
     xpReward: 70,
@@ -1388,6 +1426,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Ithren's porter log lists cargo transfers during no-traffic windows. The entries carry no consignee.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 76,
@@ -1419,6 +1458,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elior's hand is in the addenda. He's not listed as co-signatory on any of them.",
+    plot: 'main',
     tags: ['NPC', 'Ledger', 'Stage2'],
     tag: 'bold',
     xpReward: 85,
@@ -1452,6 +1492,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Merev remembers guests who left before dawn. She stopped noting them after the third inquiry.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 69,
@@ -1485,6 +1526,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "No-traffic order on the processional road. Cargo moved through it on the same three mornings.",
+    plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
     xpReward: 75,
@@ -1516,6 +1558,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shrine annex storage bay was listed as empty during the same three no-traffic windows.",
+    plot: 'main',
     tags: ['Processional', 'Stage2', 'Shrine'],
     tag: 'risky',
     xpReward: 72,
@@ -1547,6 +1590,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The warden who signed the no-traffic waivers was transferred two weeks after the last one.",
+    plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
     xpReward: 70,
@@ -1578,6 +1622,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Harbor manifest shows cargo on those three mornings. None of it cleared the dock log.",
+    plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'bold',
     xpReward: 78,
@@ -1614,6 +1659,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The mediation chamber was reserved under an emergency session code on all three sealed dates.",
+    plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
     xpReward: 73,
@@ -1645,6 +1691,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sealed mediation records have a co-signatory line — same clerk number on all three.",
+    plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
     xpReward: 74,
@@ -1676,6 +1723,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three review requests for the sealed records. All three denied the same day they arrived.",
+    plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
     xpReward: 76,
@@ -1733,6 +1781,54 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       }
       G.flags.stage2_faction_contact_made = true;
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "The afterlife registry was amended after the rites. Someone changed the names.",
+    tags: ['Records'],
+    plot: 'main',
+    skill: 'wits',
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1);
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      if (typeof gainXp === 'function') gainXp(20);
+      addNarration('Sanctified Documentation', 'The registry binding is sound, the wax seals unbroken, but four pages near the back carry erased ink under the new entries. A scribe holds the ledger flat to the lamp and the older lettering ghosts through — different names, different wards of origin, written in a steadier hand. The amendments were made after the rites concluded, after the families had paid and dispersed. Someone with access to a sealed book unsealed it long enough to rewrite who had been mediated, then closed it again.', 'success');
+      addJournal('Afterlife registry shows erased entries beneath rewritten names — amended after rites concluded.', 'evidence', 'panim-registry-rewrite-' + (G.dayCount||0));
+      G.recentOutcomeType = 'discover';
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    },
+    failResult: function() {
+      addNarration('Sealed Hand', 'The shrine attendant intercepts you at the lectern before the lamp is lit. The registry is under purification quiet — no readings, no transcriptions, no cross-checks until the morning rites complete. She does not raise her voice. She does not move from the doorway. Her thumb rests on the ward stamp at her belt, the one that marks a record as untouchable for the rest of the cycle. The book stays closed. You step back.', 'failure');
+      G.recentOutcomeType = 'fail';
+      if (typeof gainXp === 'function') gainXp(5);
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+    }
+  },
+
+  {
+    label: "The processional diversion passes a warehouse no funerary cart should need.",
+    tags: ['Ritual'],
+    plot: 'main',
+    skill: 'finesse',
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1);
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      if (typeof gainXp === 'function') gainXp(20);
+      addNarration('Funerary Corridor Diversion', 'You walk the new processional route at the hour the carts run it — incense ahead, mourners trailing, ritual enforcers pacing the flanks with rod and seal. The diversion cuts west past a warehouse with no shrine markers, no offering posts, no reason to draw a funerary cart within a hundred paces of its loading bay. As the procession crosses the alley behind it, the lead cart slows. Two crates leave the warehouse and join the cart under the ritual cloth. No one stops. The enforcers look forward.', 'success');
+      addJournal('Funerary procession diversion conceals cargo transfer at unmarked warehouse — ritual enforcers passive.', 'evidence', 'panim-procession-route-' + (G.dayCount||0));
+      G.recentOutcomeType = 'discover';
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    },
+    failResult: function() {
+      addNarration('Procession Discipline', 'A ritual enforcer breaks from the flank before you reach the diversion point. He does not ask why you are here. He hands you a folded slip of paper — a citation for unsanctified presence at a mediation route — and gestures back toward the main avenue. The procession passes without you. By the time you reach the warehouse, the loading bay doors are closed and a fresh seal has been pressed into the wax. The cycle has moved on. You have not.', 'failure');
+      G.recentOutcomeType = 'fail';
+      if (typeof gainXp === 'function') gainXp(5);
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
     }
   },
 

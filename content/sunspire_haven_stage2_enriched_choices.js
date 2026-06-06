@@ -1493,6 +1493,68 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
+  {
+    label: "The contract table at the grain broker's. Two stamps, one seal, none of them match.",
+    tags: ['stage2', 'sunspire_haven', 'Investigation', 'Stage2'],
+    plot: 'main',
+    skill: 'wits',
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('wits', G.skills.wits);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.flags.sun_broker_table_stamps_read = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        addNarration('Three Marks, One Lie', 'The grain broker keeps her contract table at the front of the counting shed. Dry wind off the high plain moves the lamp flame. The pending sheet carries two syndicate stamps and a wax seal in one column. The Helmrune and Crownmere stamps are legitimate. The wax seal is not. Its impress shows the charter subsidiary mark that has run through every other thread of the file. A grain contract has been routed through the same shell that commissioned the container work. The broker squares the page without raising her eyes.', 'success');
+        addJournal('Grain contract at Sunspire broker stamped with same charter subsidiary mark as container commission', 'evidence', 'sun-broker-stamps-' + (G.dayCount||0));
+        if (typeof gainXp === 'function') gainXp(20);
+      } else {
+        addNarration('The Page Turns', 'The broker turns the contract sheet face-down before the question lands. "Stall-side review is for signatories." Her hand stays flat on the page until you step back from the table. The lamp flame holds steady in the dry altitude air. Behind her, a syndicate clerk takes a half-step nearer the doorway, log in hand. The contract goes into the lower drawer. The drawer key goes into her apron pocket. The next petitioner is already waiting at the counter.', 'failure');
+        if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+      }
+    },
+    failResult: function() {
+      addNarration('The Page Turns', 'The broker turns the contract sheet face-down before the question lands. "Stall-side review is for signatories." Her hand stays flat on the page until you step back from the table. The lamp flame holds steady in the dry altitude air. Behind her, a syndicate clerk takes a half-step nearer the doorway, log in hand. The contract goes into the lower drawer. The drawer key goes into her apron pocket. The next petitioner is already waiting at the counter.', 'failure');
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+    }
+  },
+
+  {
+    label: "Convoy departure rites at the cart yard. The oath-giver skips a line every time.",
+    tags: ['stage2', 'sunspire_haven', 'NPC', 'Stage2'],
+    plot: 'main',
+    skill: 'finesse',
+    xpReward: 20,
+    fn: function() {
+      advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      if (!G.investigationProgress) G.investigationProgress = 0;
+      if (!G.flags) G.flags = {};
+      var roll = rollD20('finesse', G.skills.finesse);
+      if (roll.total >= 13 || roll.isCrit) {
+        G.flags.sun_departure_rite_omission_caught = true;
+        G.investigationProgress = (G.investigationProgress || 0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        addNarration('The Skipped Line', 'The shrine attendant runs the convoy departure rite at the cart yard mouth as he has done for the morning batch, the noon batch, and now this third one. The dry plain wind carries the small chime he uses to mark the verses. On the third convoy, he passes over the verse that asks each oath-giver to declare the convoy\'s cargo by category. The omission is small and consistent. The same hauler crew is loading the third yard each time. The crew chief watches the attendant skip the line without flinching, which means the arrangement is known to him.', 'success');
+        addJournal('Sunspire departure rite skips cargo-declaration verse for one specific hauler crew — known to crew chief', 'evidence', 'sun-rite-skip-' + (G.dayCount||0));
+        if (typeof gainXp === 'function') gainXp(20);
+      } else {
+        addNarration('The Chime Stops', 'The attendant\'s chime stops mid-verse. He looks up from the brazier without turning his head, the way a market clerk looks up when a queue position has been broken. The crew chief in the third yard sets down the strap he is buckling and walks toward the chime, slowly. The dry wind moves through the yard gap. By the time the attendant resumes the rite, the cart you were standing behind has rolled forward, and your sightline to the third yard is gone. The verses finish in proper sequence after that.', 'failure');
+        if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+      }
+    },
+    failResult: function() {
+      addNarration('The Chime Stops', 'The attendant\'s chime stops mid-verse. He looks up from the brazier without turning his head, the way a market clerk looks up when a queue position has been broken. The crew chief in the third yard sets down the strap he is buckling and walks toward the chime, slowly. The dry wind moves through the yard gap. By the time the attendant resumes the rite, the cart you were standing behind has rolled forward, and your sightline to the third yard is gone. The verses finish in proper sequence after that.', 'failure');
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+    }
+  },
+
   // FINALE (unchanged, kept at end)
   {
     label: "Sunspire is an operation infrastructure node. Shut it down formally or neutralize it quietly.",

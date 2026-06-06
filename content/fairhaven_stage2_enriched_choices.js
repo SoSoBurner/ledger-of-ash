@@ -9,6 +9,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A sealed-charter buyer and a northwest staging coordinate circled in red. Thalen's ledger.",
+    plot: 'main',
     skill: 'spirit',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 78,
@@ -43,6 +44,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Every creature in Serin's sighting log appeared after a glyph surge. Not before.",
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 76,
@@ -75,6 +77,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Maris has eight manifests earmarked. All Panim memorial classification. None with contents Panim uses.",
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 74,
@@ -106,6 +109,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three unnamed guests. Sealed cases. Every ten to twelve days, north to south.",
+    plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 72,
@@ -137,6 +141,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tool marks above head height inside the cave. Flat chisel cuts into the pressure nodes.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['Survival', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
@@ -168,6 +173,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Guild records kept separate from the shop ledger. That separation doesn't happen by accident.",
+    plot: 'main',
     skill: 'charm',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
@@ -191,6 +197,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The market square fountain drains east. Nobody here can remember it doing that before.",
+    plot: 'main',
     skill: 'wits',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
@@ -213,6 +220,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elira brings a Cyfoes oil lamp to a glyph-marked table. The whole room goes quiet.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
@@ -238,6 +246,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Serin has been keeping a second log. The chapel doesn't know it exists.",
+    plot: 'main',
     skill: 'charm',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
@@ -261,6 +270,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Fresh cart ruts on the western field road. Nothing ships bulk goods out there.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
@@ -283,6 +293,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A Shelkopolis charter at a Cyfoes shrine marks the bearer as answering to neither.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['stage2', 'fairhaven'],
     xpReward: 30,
@@ -306,6 +317,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Six vessels arrived without signing out — night clearance invoked.",
+    plot: 'main',
     skill: 'wits',
     tags: ['stage2', 'fairhaven', 'dock_records'],
     xpReward: 34,
@@ -326,6 +338,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A south pier manifest carries an expired seal predating delivery.",
+    plot: 'main',
     skill: 'spirit',
     tags: ['stage2', 'fairhaven', 'manifest_anomaly'],
     xpReward: 34,
@@ -347,6 +360,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The same three-day transit window every twelve days. No cargo declared at the checkpoint.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
@@ -380,6 +394,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The harbormistress signs every night clearance herself. She knows what she's waiving.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
@@ -413,6 +428,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern approach to Watchers Perch has a secondary path. Someone has used it recently.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
@@ -446,6 +462,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Thalen's suppression compound supplier is not in Fairhaven. The delivery address traces back to Shelkopolis.",
+    plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
     xpReward: 70,
@@ -479,6 +496,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The courier cycle runs on the tide. The next window is the fourth hour tomorrow.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 66,
@@ -512,6 +530,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The equipment barn has a false floor. The smell through the boards is not grain.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
@@ -545,6 +564,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The physic keeps treating the same rash. Different patients, same compound, same window.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
@@ -577,6 +597,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shrine visitor log goes somewhere Serin doesn't see. That wasn't always the arrangement.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 66,
@@ -610,6 +631,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The cartwright built the sealed-compartment crates. He kept the written order.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
@@ -642,6 +664,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The deputy wrote 'night clearance' into standing protocol. Nobody authorized that language.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
@@ -675,6 +698,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The post commander's personal ledger has two entries absent from the posted log.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
@@ -708,6 +732,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A factor passed through twice last quarter, signing the same sealed charter each time.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
@@ -741,6 +766,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The guild certification inspector stopped coming to Fairhaven eighteen months ago. No reassignment was filed.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 64,
@@ -774,6 +800,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tavian's sealed manifest column has a running total. He never stopped keeping it.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
@@ -809,6 +836,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elandra's commodity ledger has a line for glyph-suppression grade. She priced it herself.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     tag: 'bold',
@@ -844,6 +872,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Corin's checkpoint notes match the twelve-day window, but predate his awareness of it.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
@@ -879,6 +908,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Aelric's forge work stopped for six weeks. The gap lines up with the cave modifications.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
@@ -940,6 +970,50 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       }
       G.flags.stage2_faction_contact_made = true;
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
+    }
+  },
+
+  {
+    label: "Twenty-seven sealed crates this season. The porter's been keeping chalk tally on her apron hem.",
+    skill: 'vigor',
+    tags: ['Investigation'],
+    plot: 'main',
+    xpReward: 20,
+    fn: function() {
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      if (!G.flags) G.flags = {};
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      addNarration('Cart Yard — Porter Tally', 'The porter sets down the loading hook and speaks without straightening. Three crates a week now, north-bound, sealed at origin, never weighed at the yard. The seal pattern is one she does not recognize and she has worked Fairhaven freight for nine years. The handlers come at dusk, sign nothing, leave nothing. She unties her apron and turns it over to show the small chalk tally she keeps on the inside hem. Twenty-seven crates this season.', 'success');
+      addJournal('Fairhaven cart yard — twenty-seven unweighed sealed crates, unrecognized seal pattern, dusk handlers', 'evidence', `fair-porter-${G.dayCount}`);
+      G.recentOutcomeType = 'success';
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    },
+    failResult: function() {
+      addNarration('Cart Yard — Supervisor Watching', 'The porter glances at the cart yard supervisor before answering and the answer is already shaped by the glance. Freight matters are handled at the yard office, not by yard hands. She picks the loading hook back up. The supervisor is watching from the gate scale, hand resting on the manifest clipboard, and the conversation is over before it begins. A note about the inquiry will be at the office by evening shift.', 'failure');
+      addJournal('Fairhaven cart yard — porter deflected to supervisor, inquiry will be reported', 'complication', `fair-porter-fail-${G.dayCount}`);
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
+    }
+  },
+
+  {
+    label: "Three road seals struck from the same die. Charter stamps are not reused.",
+    skill: 'wits',
+    tags: ['Investigation'],
+    plot: 'main',
+    xpReward: 20,
+    fn: function() {
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+      if (!G.flags) G.flags = {};
+      G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+      addNarration('Market Clerk — Seal-Impression Register', 'The market clerk pulls the seal-impression register from a low drawer and turns it without comment to the relevant page. Three road documents from the last two weeks carry the same Shelkopolis charter stamp — the wax cracked at the same angle on each one, struck from the same die in the same press. The clerk taps the matching cracks with the back of a quill. Charter stamps are recut annually. These were not. Someone is reusing a die.', 'success');
+      addJournal('Fairhaven seal-impression register — three Shelkopolis charter stamps struck from same die, recut cycle bypassed', 'evidence', `fair-clerk-die-${G.dayCount}`);
+      G.recentOutcomeType = 'success';
+      if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+    },
+    failResult: function() {
+      addNarration('Market Clerk — Register Closed', 'The market clerk closes the register before the question finishes and sets both hands flat on its cover. Seal-impression archives are restricted under the market audit protocol opened last month. He has been told, in writing, who may view the volumes and who may not. The list is short. He does not name who is on it. He returns the register to the drawer and turns the small brass key in the lock without looking down.', 'failure');
+      addJournal('Fairhaven seal-impression register — access restricted under market audit, viewer list withheld', 'complication', `fair-clerk-die-fail-${G.dayCount}`);
+      if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
     }
   },
 
