@@ -443,7 +443,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 12. COERCION SYSTEM TIER 2: THREAT MAPPING
   {
-    label: "Push back and get cut. Comply and get a waiver. That's not variance.",
+    label: "That's not variance — it's a forced choice. Say so directly.",
     tags: ['Investigation', 'Coercion', 'Threats', 'Fear'],
     xpReward: 75,
     stageProgress: 1,

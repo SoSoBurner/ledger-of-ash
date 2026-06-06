@@ -203,7 +203,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Watch how people move — the crowd patterns, what gets avoided, what doesn't.",
+    label: "The crowd patterns show what gets avoided. Read them.",
     skill: 'wits',
     tags: ['Safe', 'Observation', 'Tactical'],
     xpReward: 30,

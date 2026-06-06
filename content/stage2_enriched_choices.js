@@ -2294,7 +2294,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_collegium_deadend_1',
-    label: 'Push the Collegium archivist directly for the suppressed records.',
+    label: 'The Collegium archivist has the suppressed records. Apply pressure directly.',
     skill: 'charm',
     tags: ['Social', 'Bold'],
     plot: 'main',
@@ -2410,7 +2410,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_wardens_deadend_1',
-    label: 'Push the coerced cargo broker past what he offered to give.',
+    label: 'The cargo broker offered less than he has. Press for more.',
     skill: 'charm',
     tags: ['Social', 'Bold'],
     plot: 'main',
