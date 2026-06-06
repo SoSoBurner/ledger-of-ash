@@ -357,8 +357,10 @@ function checkRuleA7(choice) {
   const isSafeArray = !isSafeScalar && !explicitNonSafe && Array.isArray(choice.tags) &&
     choice.tags.some(function(t) { return SEMANTIC_SAFE_TAGS_A7.has(t); });
   if (!isSafeScalar && !isSafeArray) return null;
-  if (!choice.failResult || (typeof choice.failResult !== 'function' && typeof choice.failResult !== 'string') ||
-      (typeof choice.failResult === 'string' && choice.failResult.trim().length === 0)) {
+  // Accept function, non-empty string, or object form {text,next} — any truthy value suffices
+  const fr = choice.failResult;
+  const frMissing = !fr || (typeof fr === 'string' && fr.trim().length === 0);
+  if (frMissing) {
     return 'A7: safe-tier choice missing failResult (tag: ' + (choice.tag || JSON.stringify(choice.tags)) + ')';
   }
   return null;
