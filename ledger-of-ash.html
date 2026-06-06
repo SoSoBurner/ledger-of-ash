@@ -1949,7 +1949,7 @@ input, button, select, textarea { font-family: inherit; }
           <span class="l-prog-key" id="hud-xp-label">XP</span>
           <span class="l-prog-val" id="hud-xp">0 / 120</span>
         </div>
-        <div class="l-renown" id="hud-renown">0 &#x2014; Unknown</div>
+        <div class="l-renown" id="hud-renown">0 &#x2014; Wanderer</div>
       </div>
       <div class="l-divider"></div>
       <div class="l-vitals">
@@ -2633,23 +2633,31 @@ function startRerecruitQuest(id) {
 
 // ── CAMP TALK ──────────────────────────────────────────
 function showCampTalk() {
-  const active = getActiveCompanions();
-  if (!active.length) {
-    addNarration('Camp', 'You are traveling alone. No companions to talk to.');
-    renderChoices([{ text: 'Break camp.', skill: 'lore', tag: 'safe', align: 'neutral', cid: 'passive_intel' }]);
+  if (!G || !G.flags || !G.flags.maren_oss_resolved) {
+    addNarration('Camp', 'No companion present. Travel alone for now.');
+    renderChoices([{ text: 'Break camp.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'passive_intel' }]);
     return;
   }
+  const active = getActiveCompanions();
+  if (!active.length) {
+    addNarration('Camp', 'No companion present.');
+    renderChoices([{ text: 'Break camp.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'passive_intel' }]);
+    return;
+  }
+
+  if (G.flags.campLineIdx === undefined) G.flags.campLineIdx = 0;
 
   const lines = [];
   active.forEach(comp => {
     const def = COMPANION_DEFS[comp.id];
     if (!def) return;
     if (comp.injured) {
-      lines.push({ name: comp.name, text: def.injuredText, injured: true });
+      lines.push({ name: comp.name, text: def.injuredText || (comp.name + ' is injured and resting quietly.'), injured: true });
     } else {
-      const idx = comp.campLineIdx % def.campLines.length;
-      lines.push({ name: comp.name, text: def.campLines[idx], injured: false });
-      comp.campLineIdx++;
+      var _campLines = def.campLines && def.campLines.length ? def.campLines : [(comp.name || 'Your companion') + ' sits in silence, watching the fire.'];
+      var _idx = G.flags.campLineIdx % _campLines.length;
+      lines.push({ name: comp.name, text: _campLines[_idx], injured: false });
+      G.flags.campLineIdx++;
     }
   });
 
@@ -2800,6 +2808,7 @@ function initWorldNotices() {
 
 function addWorldNotice(text) {
   if (!G.worldNotices) G.worldNotices = [];
+  if (G.worldNotices.some(function(n) { return n.text === text; })) return;
   G.worldNotices.unshift({ id:'dyn_'+Date.now(), text, seen:false, day:G.dayCount||0 });
   if (G.worldNotices.length > 20) G.worldNotices.pop();
   G.newNoticeCount = (G.newNoticeCount || 0) + 1;
@@ -3504,6 +3513,124 @@ const ENEMY_TEMPLATES = {
     loot:{gold:0, item:'Warrant Copy (evidence)', materials:[{id:'stamped_paper',qty:1,chance:0.8},{id:'patrol_insignia',qty:1,chance:0.5}]},
     fleeThreshold:0.2,
     abilities:[{name:'Named Warrant', effect:'cannot be deflected with Charm alone; Talk DC+3'}]
+  },
+  // ── WILDERNESS / NON-HUMANOID CREATURES ─────────────────
+  plains_dust_hound:{
+    name:'Plains Dust Hound', hp:14, maxHp:14, attack:4, defense:2, morale:7,
+    desc:'Pack hunter native to open flatlands. Fast and low to the ground.',
+    loot:{gold:0, item:'Dust Hound Hide', materials:[{id:'beast_hide',qty:1,chance:0.7},{id:'hide_scrap',qty:2,chance:0.8}]},
+    fleeThreshold:0.4,
+    abilities:[{name:'Pack Rush', effect:'if two or more dust hounds present, both gain +1 attack'}]
+  },
+  plains_grazer_bull:{
+    name:'Grazer Bull', hp:20, maxHp:20, attack:5, defense:3, morale:10,
+    desc:'Large horned herbivore. Docile until cornered or panicked.',
+    loot:{gold:0, item:'Thick Bull Hide', materials:[{id:'thick_hide',qty:1,chance:0.8},{id:'beast_bone',qty:1,chance:0.6}]},
+    fleeThreshold:0.3,
+    abilities:[{name:'Charge', effect:'first attack this combat +3 if target is in open ground'}]
+  },
+  highland_rockjaw:{
+    name:'Highland Rockjaw', hp:18, maxHp:18, attack:6, defense:4, morale:11,
+    desc:'Armored predator that hunts the boulder fields. Slow but relentless.',
+    loot:{gold:0, item:'Stone Chitin Plate', materials:[{id:'stone_chitin',qty:1,chance:0.7},{id:'beast_bone',qty:1,chance:0.5}]},
+    fleeThreshold:0.2,
+    abilities:[{name:'Rocky Hide', effect:'defense+2 in highland or mountain terrain'}]
+  },
+  mountain_ironwing:{
+    name:'Mountain Ironwing', hp:20, maxHp:20, attack:6, defense:3, morale:9,
+    desc:'Large raptor with iron-hard beak. Nests on cliffsides, hunts the passes.',
+    loot:{gold:0, item:'Ironwing Feather', materials:[{id:'ironwing_feather',qty:1,chance:0.6},{id:'beast_hide',qty:1,chance:0.4}]},
+    fleeThreshold:0.35,
+    abilities:[{name:'Dive Strike', effect:'first attack +2 and ignores defense bonus from armor'}]
+  },
+  coastal_shorecat:{
+    name:'Shorecat', hp:15, maxHp:15, attack:5, defense:2, morale:8,
+    desc:'Amphibious predator with barbed claws adapted for rocky shorelines.',
+    loot:{gold:0, item:'Barbed Claw', materials:[{id:'barbed_claw',qty:2,chance:0.7},{id:'beast_hide',qty:1,chance:0.5}]},
+    fleeThreshold:0.4,
+    abilities:[{name:'Coastal Agility', effect:'may retreat one round without taking a counter attack'}]
+  },
+  coastal_tide_crawler:{
+    name:'Tide Crawler', hp:22, maxHp:22, attack:4, defense:5, morale:10,
+    desc:'Armored crustacean. Attacks when disturbed from tidal pools.',
+    loot:{gold:0, item:'Shell Plate', materials:[{id:'shell_plate',qty:1,chance:0.8},{id:'ash_compound',qty:1,chance:0.4}]},
+    fleeThreshold:0.25,
+    abilities:[{name:'Shell Lock', effect:'defense+3 when defending or retreating'}]
+  },
+  forest_shadowmaw:{
+    name:'Shadowmaw', hp:17, maxHp:17, attack:6, defense:3, morale:9,
+    desc:'Ambush predator that freezes in place between moves. Hard to track.',
+    loot:{gold:0, item:'Dark Pelt', materials:[{id:'dark_pelt',qty:1,chance:0.7},{id:'beast_hide',qty:1,chance:0.5}]},
+    fleeThreshold:0.3,
+    abilities:[{name:'Ambush', effect:'first strike from concealment deals +3 damage'}]
+  },
+  forest_vine_horror:{
+    name:'Vine Horror', hp:25, maxHp:25, attack:4, defense:4, morale:13,
+    desc:'Fungal entity that uses vine-like tendrils to immobilize prey.',
+    loot:{gold:0, item:'Fungal Core', materials:[{id:'fungal_core',qty:1,chance:0.8},{id:'ash_compound',qty:2,chance:0.6}]},
+    fleeThreshold:0.15,
+    abilities:[{name:'Tendril Grab', effect:'on hit, target rolls Vigor DC 12 or cannot retreat next round'}]
+  },
+  ash_zone_cinder_rat:{
+    name:'Cinder Rat', hp:12, maxHp:12, attack:4, defense:1, morale:5,
+    desc:'Heat-adapted rodent with scorch-resistant hide. Gnaws through gear left on the ground.',
+    loot:{gold:0, item:'Scorch Hide Scrap', materials:[{id:'scorch_hide',qty:1,chance:0.7},{id:'ash_compound',qty:1,chance:0.8}]},
+    fleeThreshold:0.5,
+    abilities:[{name:'Heat Gnaw', effect:'on critical failure, target loses use of one carried item for the encounter'}]
+  },
+  ash_zone_ember_hound:{
+    name:'Ember Hound', hp:18, maxHp:18, attack:6, defense:2, morale:8,
+    desc:'Pack predator adapted to volcanic terrain. Runs hot to the touch.',
+    loot:{gold:0, item:'Ember Pelt', materials:[{id:'ember_pelt',qty:1,chance:0.7},{id:'ash_compound',qty:2,chance:0.7}]},
+    fleeThreshold:0.35,
+    abilities:[{name:'Thermal Rush', effect:'attack+2 in ash-zone terrain; contact costs target 1 HP next round'}]
+  },
+  road_predator:{
+    name:'Road Predator', hp:16, maxHp:16, attack:5, defense:3, morale:8,
+    desc:'Opportunistic large predator that follows trade routes for easy prey.',
+    loot:{gold:0, item:'Predator Pelt', materials:[{id:'beast_hide',qty:1,chance:0.7},{id:'beast_bone',qty:1,chance:0.5}]},
+    fleeThreshold:0.4,
+    abilities:[{name:'Road Sense', effect:'initiative+1; harder to surprise on open routes'}]
+  },
+  pack_raider:{
+    name:'Pack Raider', hp:12, maxHp:12, attack:4, defense:2, morale:7,
+    desc:'Mid-sized scavenger that hunts in loose packs. Emboldens with numbers.',
+    loot:{gold:0, item:'Raider Pelt Scrap', materials:[{id:'hide_scrap',qty:2,chance:0.8},{id:'beast_bone',qty:1,chance:0.4}]},
+    fleeThreshold:0.45,
+    abilities:[{name:'Mob Courage', effect:'attack+1 for each additional pack raider in the encounter'}]
+  },
+  ore_hound:{
+    name:'Ore Hound', hp:20, maxHp:20, attack:5, defense:4, morale:10,
+    desc:'Cave-dwelling predator with mineral-dense bone structure. Territory-bound and dangerous when cornered.',
+    loot:{gold:0, item:'Dense Bone Fragment', materials:[{id:'beast_bone',qty:2,chance:0.8},{id:'iron_shard',qty:1,chance:0.5}]},
+    fleeThreshold:0.25,
+    abilities:[{name:'Cave Echo', effect:'in enclosed terrain, first attack disorients — enemy rolls -1 for one round'}]
+  },
+
+  // ── CANONICAL AUTHORITY TYPES ─────────────────────────────
+  ritual_enforcer:{
+    name:'Ritual Enforcer',
+    hp:10, maxHp:10, attack:3, defense:2, morale:8,
+    desc:'House Panim temple authority. Robed, carrying a sealing staff and the full weight of funerary law. Does not draw first — but will.',
+    loot:{gold:4, item:'Panim Ritual Seal (evidence)', materials:[{id:'carved_seal',qty:1,chance:0.6},{id:'parchment_roll',qty:1,chance:0.7}]},
+    fleeThreshold:0.3,
+    abilities:[{name:'Ritual Pronouncement', effect:'target must pass DC 11 composure or lose first action — binding authority invoked'}]
+  },
+  giant_enforcer:{
+    name:'Giant Enforcer',
+    hp:28, maxHp:28, attack:8, defense:5, morale:14,
+    desc:'Soreheim tower marshal under Giant Council authority. Broad, deliberate, built for this. Operating procedure is final warning followed by resolution.',
+    loot:{gold:6, item:'Giant Council Writ (authority)', materials:[{id:'cold_iron',qty:2,chance:0.6},{id:'allocation_chit',qty:1,chance:0.5}]},
+    fleeThreshold:0.15,
+    abilities:[{name:'Council Authority', effect:'enemy morale check at round start; on fail, player loses 1 to next roll'}]
+  },
+  magi_investigator:{
+    name:'Magi Investigator',
+    hp:11, maxHp:11, attack:5, defense:3, morale:9,
+    desc:'Magi Magistratus field officer. Magical detection active. Already knows more than you want them to. Fights precisely and without wasted motion.',
+    loot:{gold:8, item:'Magistratus Case File (intelligence)', materials:[{id:'shadow_residue',qty:1,chance:0.5},{id:'stamped_paper',qty:1,chance:0.7}]},
+    fleeThreshold:0.4,
+    abilities:[{name:'Arcane Read', effect:'on hit, reveals player\'s highest skill to opponent; next attack targets that skill\'s defense'}]
   }
 };
 
@@ -4274,7 +4401,8 @@ function startCombat(enemyTemplateId, context) {
   const scaledTpl = getEnemyStats(enemyTemplateId, G ? (G.level || 1) : 1);
   if (!scaledTpl) {
     console.error('[startCombat] unknown enemy key:', enemyTemplateId);
-    setTimeout(function(){ if (typeof loadStageChoices === 'function') loadStageChoices(G.location); }, 300);
+    if (typeof addNarration === 'function') addNarration('', 'The confrontation dissolved before it could begin.', 'neutral');
+    setTimeout(function(){ if (typeof loadStageChoices === 'function') loadStageChoices(G.location); }, 500);
     return;
   }
   const entryBonus = (context && context.entryBonus) ? context.entryBonus : 0;
@@ -4313,6 +4441,7 @@ function startCombat(enemyTemplateId, context) {
   };
   CS.enemy.maxHp = CS.enemy.maxHp || CS.enemy.hp;
   document.querySelectorAll('.choice-block,.move-block,.levelup-block').forEach(b => b.remove());
+  addNarration('Combat begins', 'You face the <strong>' + scaledTpl.name + '</strong>. HP: ' + CS.enemy.hp + ' &nbsp;&middot;&nbsp; DEF: ' + (CS.enemy.defense || 0) + '. Choose your action.', 'neutral');
   renderCombatRound();
 }
 
@@ -4417,7 +4546,7 @@ function renderCombatRound() {
   // Archetype abilities
   usableAbilities.slice(0,2).forEach(ab => {
     html += '<button class="choice-btn combat-btn" data-action="ability" data-ability="' + ab.id + '">' +
-      '<span class="choice-text">' + ab.name + ' — ' + ab.effect + '</span>' +
+      '<span class="choice-text">' + (ab.name || 'Unknown Ability') + ' — ' + (ab.effect || 'No description') + '</span>' +
       '<span class="choice-meta"><span class="choice-skill">' + ab.skillReq + '</span><span class="choice-tag risky">ability</span></span>' +
       '</button>';
   });
@@ -4867,7 +4996,7 @@ function resolveCombatAction(action, abilityId) {
 
 function applyWound(damage, source) {
   if (damage <= 0) return;
-  var armorBonus = (G.equipped && G.equipped.armor && G.equipped.armor.effect && G.equipped.armor.effect.defBonus) || 0;
+  var armorBonus = (G.equipped && G.equipped.armor && G.equipped.armor.def_bonus) || 0;
   var finalDamage = Math.max(0, damage - armorBonus);
   G.hp = Math.max(0, G.hp - finalDamage);
   damage = finalDamage;
@@ -4881,6 +5010,13 @@ function applyWound(damage, source) {
     }
   }
   if (G.hp <= 0) {
+    if (CS && CS.deathPrevented) {
+      G.hp = 1;
+      CS.deathPrevented = false;
+      addNarration('Barely alive', 'Your companion\'s intervention kept you standing. One hit point. No more.', 'neutral');
+      updateHUD();
+      return;
+    }
     G.hp = 0;
     G.dead = true;
     if (CS) CS.playerFell = true;
@@ -4908,7 +5044,7 @@ function endCombat(victory) {
     if (goldGain) victText += '+' + goldGain + ' gold.';
     if (enemy.loot && enemy.loot.item) {
       if (!G.inventory) G.inventory = [];
-      G.inventory.push({ name: enemy.loot.item, type: 'evidence', equipped: false });
+      G.inventory.push({ name: enemy.loot.item, type: enemy.loot.itemType || 'evidence', cost: enemy.loot.itemCost || 0, equipped: false });
       victText += ' Found: ' + enemy.loot.item + '.';
     }
     if (enemy.loot && enemy.loot.materials && typeof addMaterial === 'function') {
@@ -9502,7 +9638,7 @@ let G = {
   name:'', archetype:null, background:null,
   level:1, xp:0, renown:0,
   hp:20, maxHp:20, gold:20,
-  skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0,craft:0},
+  skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
   traits:[], location:'shelkopolis',
   timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
   stage:'Stage I', stageLabel:'Grass Roots',
@@ -9636,8 +9772,24 @@ function enterAuthorityConfrontation(authorityKey, ctx) {
   }
   var sceneText = _heatLine + 'The ' + authorityLabel + ' step into your path. Their attention is specific — they know what they are looking for. The offense: ' + offense + '. They have not drawn weapons yet. You have a moment to decide how this goes.';
 
+  var _polityFlavor = {
+    shelk:    "A Roadwarden in House Shelk colors steps from the checkpoint post. Her hand rests near her citation board, not her weapon. 'Your manifest. Now.'",
+    roaz:     "An Iron Accord officer approaches with the deliberate pace of someone who has already decided the outcome. ORE insignia on the shoulder plate.",
+    shirsh:   "A Magi Magistratus investigator moves toward you. The ward-mark on their collar is active — a faint blue pulse that means the detection field is live.",
+    mimolot:  "A Guild Sanction Board enforcer steps forward with a compliance manifest. The guild seal is fresh-stamped. 'License and charter. Immediately.'",
+    union:    "A Guild Sanction Board enforcer steps forward with a compliance manifest. The guild seal is fresh-stamped. 'License and charter. Immediately.'",
+    panim:    "A ritual enforcer in House Panim funerary colors steps from the shrine approach. The ceremonial staff is functional. 'You are in a consecrated approach lane. State your rites.'",
+    soreheim: "A Giant Council marshal blocks the corridor — tower jurisdiction, Giant Council seal on the chest plate. The marshal's height makes the ceiling look closer. 'Floor signature. Token receipt. Now.'",
+    cosmouth: "A Customs House officer with a Collegium clipboard steps from the dock authority post. 'Cargo manifest and trader certificate. The inspector is noting your delay.'",
+    nomdara:  "A Route Warden Compact officer steps from the camp boundary. Mobile law — their jurisdiction is the road itself, not any fixed structure.",
+    sheresh:  "A Dome Steward in Sheresh Commune colors steps from the monitoring station. 'Environmental clearance and entry purpose. The dome log requires both.'",
+    zootia:   "A local order officer approaches — Zootia border authority. 'Entry permit and stated destination.'"
+  };
+  var _flavorText = _polityFlavor[polity] || "An authority officer steps forward. 'Papers and purpose.'";
+
   document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
-  addNarration(authorityLabel, sceneText);
+  addNarration(authorityLabel, _flavorText);
+  addNarration('', sceneText);
 
   _authorityRenderPhase1(authorityKey, polity, heatLevel);
 }
@@ -9768,16 +9920,33 @@ function _authorityResolvePhase2(authorityKey, polity, heatLevel, outcome, roll,
   }
   var AUTHORITY_ENEMY_MAP = {
     road_wardens:           'warden_lieutenant',
-    roazian_enforcement:    'iron_accord_enforcer',
-    magi_magistratus:       'red_hood_operative',
-    book_tariff_office:     'private_security',
-    afterlife_registry:     'guild_enforcer',
-    cosmouth_archives:      'private_security',
-    harvest_measures_board: 'frontier_militia',
+    roazian_enforcement:    'iron_accord_soldier',
+    magi_magistratus:       'magi_investigator',
+    book_tariff_office:     'guild_enforcer',
+    afterlife_registry:     'ritual_enforcer',
+    cosmouth_archives:      'patrol_guard',
+    harvest_measures_board: 'patrol_guard',
     trade_arbitration_guild:'guild_enforcer',
-    route_warden_compacts:  'patrol_guard',
-    giant_council:          'frontier_militia',
-    bond_registry_ring:     'guild_enforcer'
+    route_warden_compacts:  'warden_lieutenant',
+    giant_council:          'giant_enforcer',
+    bond_registry_ring:     'guild_enforcer',
+    shelk_patrol:           'house_shelk_operative',
+    roaz_patrol:            'iron_accord_soldier',
+    shirsh_patrol:          'magi_investigator',
+    mimolot_patrol:         'guild_enforcer',
+    panim_patrol:           'ritual_enforcer',
+    cosmouth_patrol:        'patrol_guard',
+    zootia_patrol:          'patrol_guard',
+    union_patrol:           'guild_enforcer',
+    sheresh_patrol:         'patrol_guard',
+    soreheim_patrol:        'giant_enforcer',
+    nomdara_patrol:         'patrol_guard',
+    shelk_roadwarden:       'warden_lieutenant',
+    roaz_roadwarden:        'iron_accord_soldier',
+    soreheim_roadwarden:    'giant_enforcer',
+    panim_roadwarden:       'ritual_enforcer',
+    mimolot_roadwarden:     'guild_enforcer',
+    mimolot:                'guild_enforcer'
   };
   if (outcome === 'fight') {
     // Combat victory result wired via post-combat hook — here we just enter combat
@@ -9836,7 +10005,7 @@ const TIME_FLAVORS = [
 ];
 // ── RENOWNED TITLES ─────────────────────────────────────
 const RENOWNED_TITLES = [
-  {min:0,   max:2,  label:'Unknown'},
+  {min:0,   max:2,  label:'Wanderer'},
   {min:3,   max:5,  label:'Noticed'},
   {min:6,   max:9,  label:'Recognized'},
   {min:10,  max:14, label:'Known'},
@@ -9996,7 +10165,7 @@ function getAllLegends() {
 function getDefaultG() {
   return {
     name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
-    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0,craft:0},
+    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
     traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
     stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
     factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
@@ -10010,7 +10179,7 @@ function getDefaultG() {
     marenRenown:0, marenRevealed:false,
     stageProgress:{1:0, 2:0, 3:0, 4:0, 5:0},
     telemetry:{turns:0, actions:0},
-    worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0, reverence:0, isolation:0},
+    worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0},
     suspects:{},
     investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false, corridor_encounters_enabled:true}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
@@ -10685,7 +10854,7 @@ function advanceRivals() {
       r.layLow = false;
     } else if (roll >= 8) {
       r.renown++;
-      if (r.renown === 3) { G._rivalNoticeCount = (G._rivalNoticeCount || 0) + 1; if (typeof addWorldNotice === 'function') addWorldNotice(r.name + ' is gaining a reputation in ' + (r.lastSeen || 'the region') + '.'); }
+      if (r.renown === 3) { G._rivalNoticeCount = (G._rivalNoticeCount || 0) + 1; var _rloc = (r.lastSeen && r.lastSeen !== 'Not encountered') ? r.lastSeen : 'the region'; if (typeof addWorldNotice === 'function') addWorldNotice(r.name + ' is gaining a reputation in ' + _rloc + '.'); }
       if (r.renown === 6) { G._rivalNoticeCount = (G._rivalNoticeCount || 0) + 1; if (typeof addWorldNotice === 'function') addWorldNotice(r.name + ' has become a significant force. Their influence is being felt.'); }
       if (r.renown === 9) { G._rivalNoticeCount = (G._rivalNoticeCount || 0) + 1; if (typeof addWorldNotice === 'function') addWorldNotice(r.name + ' is now a dominant presence. They are beyond easy opposition.'); }
       if (r.renown >= 10) { r.active = false; r.lastSeen = 'Completed their work and moved on.'; }
@@ -11206,13 +11375,14 @@ function addNarration(label, html, resultType) {
   const el = document.getElementById('narrative-content');
   const block = document.createElement('div');
   block.className = 'scene-block';
+  var _safeHtml = (html == null || html === undefined) ? '' : String(html);
   let inner = '';
   if (label) inner += '<div class="scene-location">' + label + '</div>';
   if (resultType) {
     const icon = resultType === 'crit' ? '&#x2605; Critical Success' : resultType === 'fumble' ? '&#x2620; Fumble' : resultType === 'success' ? '&#x2713; Success' : resultType === 'failure' ? '&#x2717; Failure' : '~ Partial';
-    inner += '<div class="result-block ' + resultType + '"><div class="result-tag ' + resultType + '">' + icon + '</div><div class="result-text">' + html + '</div></div>';
+    inner += '<div class="result-block ' + resultType + '"><div class="result-tag ' + resultType + '">' + icon + '</div><div class="result-text">' + _safeHtml + '</div></div>';
   } else {
-    inner += '<div class="narrative-text">' + html + '</div>';
+    inner += '<div class="narrative-text">' + _safeHtml + '</div>';
   }
   block.innerHTML = inner;
   el.appendChild(block);
@@ -11351,9 +11521,15 @@ function adaptEnrichedChoice(c) {
         if (typeof c.fn !== 'function') {
           console.error('[enriched] choice missing fn:', c.id || c.cid || '(no id)');
         } else {
+          if (c.xpReward && typeof c.xpReward === 'number') { gainXp(c.xpReward, 'choice'); }
           c.fn();
         }
-      } catch(e) { console.error('[enriched]', e); G._rivalDCPenalty = 0; } finally {
+      } catch(e) {
+        console.error('[enriched]', e);
+        G._rivalDCPenalty = 0;
+        addNarration('', 'Something went wrong. Continuing...', 'neutral');
+        setTimeout(function(){ loadStageChoices(G.location); }, 800);
+      } finally {
         G._rivalDCPenalty = 0;
       }
       if (G._lastRollInfo) {
@@ -12385,7 +12561,13 @@ function handleChoice(choice) {
     const parts = choice.cid.split('__');
     // parts: ['', 'combat', mode, enemyKey, (abilityId)?]
     const mode = parts[2];
-    const enemyKey = parts[3] || 'patrol_guard';
+    const enemyKey = parts[3];
+    if (!enemyKey) {
+      console.error('[combat] CID malformed, missing enemyKey:', choice.cid);
+      addNarration('', 'The encounter couldn\'t be resolved. Continuing...', 'neutral');
+      loadStageChoices(G.location);
+      return;
+    }
     const abilityId = parts[4] || null;
     document.querySelectorAll('.choice-block,.move-block').forEach(b=>b.remove());
     resolveCombatEntry(mode, enemyKey, abilityId);
@@ -12453,7 +12635,13 @@ function handleChoice(choice) {
     addNarration(enc.title, enc.text);
     // Set corridor state so nextEncounter can call resolveArrival(dest) correctly
     // _corridor_from/_to are needed by _makeCombatChoice() to resolve biome for enemy pool
-    if (G.flags) { G.flags._corridor_dest = destId; G.flags._corridor_from = G.location; G.flags._corridor_to = destId; G.flags._corridor_encounters_remaining = 0; G.flags._corridor_encounters_queue = []; }
+    if (G.flags) {
+      G.flags._corridor_dest = destId; G.flags._corridor_from = G.location; G.flags._corridor_to = destId; G.flags._corridor_encounters_remaining = 0; G.flags._corridor_encounters_queue = [];
+      var _cwl = (typeof WORLD_LOCATIONS !== 'undefined' && WORLD_LOCATIONS[destId]) || {};
+      var _cpol = (_cwl.polity || '').toLowerCase();
+      var _cpkeys = ['shelk','roaz','shirsh','mimolot','panim','cosmouth','zootia','union','sheresh','soreheim','nomdara'];
+      G.flags._corridor_polity = _cpkeys.reduce(function(f,k){ return f || (_cpol.indexOf(k) >= 0 ? k : ''); }, '');
+    }
     const _cEnc = typeof window._wrapEncounterChoices === 'function' ? window._wrapEncounterChoices(enc.choices, destId) : enc.choices;
     setTimeout(() => renderChoices(_cEnc), 300);
     return;
@@ -12885,7 +13073,7 @@ function resolveConsequence(cid, success, partial) {
 function applyEffect(fx) {
   try {
   switch (fx.type) {
-    case 'journal':   addJournal(fx.text || fx.msg || '', fx.category || 'discovery'); break;
+    case 'journal':   { var _validCats = {evidence:1,intelligence:1,rumor:1,discovery:1,contact_made:1,complication:1,field_note:1}; var _catMap = {fact:'evidence',investigation:'evidence',quest:'discovery',faction:'intelligence',rival:'intelligence',companion:'discovery'}; var _rawCat = fx.category || 'discovery'; var _normCat = _validCats[_rawCat] ? _rawCat : (_catMap[_rawCat] || 'discovery'); addJournal(fx.text || fx.msg || '', _normCat); break; }
     case 'quest':     addQuest(fx.msg, fx.hint, fx.questId); break;
     case 'gold':      modGold(fx.n); break;
     case 'faction':   modFaction(fx.id, fx.n); break;
@@ -13613,6 +13801,7 @@ function checkNeutralArcScene() {
     if (typeof addJournal === 'function') addJournal('An anonymous contact has noticed your neutrality. A meeting is offered at Soreheim transit post — ask for the Unmarked Ledger.', 'intelligence');
     if (typeof addWorldNotice === 'function') addWorldNotice('An unknown faction has made contact. Your neutrality appears to be worth something.');
     G.worldClocks.omens = (G.worldClocks.omens || 0) + 1;
+    if (typeof updateHUD === 'function') updateHUD();
   }
 }
 window.checkNeutralArcScene = checkNeutralArcScene;
@@ -13786,9 +13975,9 @@ function showLevelUpScreen() {
   }
 
   function renderAbilityStep(chosenStat, chosenTrait) {
-    var archId = G.archetype ? G.archetype.id : '_default';
-    var pool = (ARCHETYPE_TRAIT_POOLS[archId] || ARCHETYPE_TRAIT_POOLS._default || []);
-    var alreadyUnlocked = (G.unlockedTraits || []);
+    var archId = G.archetype ? G.archetype.id : 'warrior';
+    var pool = (ARCHETYPE_ABILITY_TREES[archId] || []);
+    var alreadyUnlocked = (G.abilities || []);
 
     function isUnlocked(ab) {
       return alreadyUnlocked.some(function(u) {
@@ -13797,7 +13986,7 @@ function showLevelUpScreen() {
     }
 
     function isEligible(ab) {
-      var lvMin = ab.levelMin || ab.minLevel || 1;
+      var lvMin = ab.unlockLevel || ab.levelMin || ab.minLevel || 1;
       return lvMin <= G.level && !isUnlocked(ab);
     }
 
@@ -13844,20 +14033,16 @@ function showLevelUpScreen() {
     block.querySelectorAll('.lu-option-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var ab = options[parseInt(this.dataset.luAbility, 10)];
-        if (!G.unlockedTraits) G.unlockedTraits = [];
-        // Push full object so character sheet can render it as active/passive
-        G.unlockedTraits.push({
+        if (!G.abilities) G.abilities = [];
+        G.abilities.push({
           id: ab.id,
           name: ab.name || ab.id,
           description: ab.desc || '',
-          type: ab.type || ab.traitType || 'active',
-          traitType: ab.traitType || ab.type || 'active',
-          passive: (ab.type === 'passive' || ab.traitType === 'passive'),
-          levelMin: ab.levelMin || ab.minLevel || 1,
-          desc: ab.desc || '',
-          activeSkillType: ab.activeSkillType || null,
-          skill: ab.skill || ab.bonusSkill || null,
-          bonus: ab.bonus || 0,
+          gameEffect: ab.gameEffect || '',
+          type: ab.type || 'passive',
+          passive: (ab.type !== 'active'),
+          unlockLevel: ab.unlockLevel || ab.levelMin || 1,
+          skillReq: ab.skillReq || null,
           source: 'levelup_ability'
         });
         block.remove();
@@ -14286,6 +14471,22 @@ function resolveArrival(locId) {
   if (typeof _checkSideplots === 'function') _checkSideplots();
   updateHUD(); updateEnvironmentPanel(); buildLivingDesc(G.location, G); saveGame();
   addNarration(loc.name, '<strong>' + loc.name + '</strong>. ' + loc.desc);
+  // Weather prose: inject when severity >= 3, once per location visit
+  if (G.worldClocks && G.worldClocks.weather >= 3 && G.flags && G.flags._lastWeatherLoc !== locId) {
+    G.flags._lastWeatherLoc = locId;
+    var _wPolity = (loc.polity || '').toLowerCase();
+    var _wProse;
+    if (_wPolity.indexOf('sheresh') >= 0 || _wPolity.indexOf('commune') >= 0) {
+      _wProse = 'Dome instruments show elevated atmospheric pressure — a blizzard pattern developing beyond the outer sensor line.';
+    } else if (_wPolity.indexOf('soreheim') >= 0) {
+      _wProse = 'Ash particulate in the air thickens. The upper freight bridges have posted reduced-visibility notices.';
+    } else if (_wPolity.indexOf('cosmouth') >= 0 || _wPolity.indexOf('panim') >= 0) {
+      _wProse = 'Storm advisories are posted at the harbor entrance. Boat departure windows have contracted.';
+    } else {
+      _wProse = 'Rough conditions have settled over the region. Travel rolls carry elevated risk.';
+    }
+    addNarration('', _wProse, 'complication');
+  }
   maybeFireArrivalScene(locId);
   showStage2BridgeScene();
   _maybePublicComplication(locId);
@@ -15410,7 +15611,7 @@ function showMap() {
 
 
 // ── PLACES OVERLAY (shops + taverns) ─────────────────────
-function showPlaces() {
+function showPlaces(initialTab) {
   var _loc = G.location || '';
   var _data = (window.PLACES_DATA && window.PLACES_DATA[_loc]) || null;
   var _body = document.getElementById('places-overlay-body');
@@ -15420,56 +15621,102 @@ function showPlaces() {
     showOverlay('overlay-places');
     return;
   }
-  var html = '';
-  // Shops section
+  var _tab = initialTab || 'buy';
+  var _KEY_DISP = {might:'Might',vigor:'Vigor',wits:'Wits',charm:'Charm',finesse:'Finesse',spirit:'Spirit',craft:'Craft',combat:'Might',survival:'Vigor',lore:'Wits',persuasion:'Charm',stealth:'Finesse'};
+
+  // Tab bar
+  var html = '<div style="display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:10px">';
+  html += '<button id="ptab-buy" onclick="showPlacesTab(\'buy\')" style="flex:1;padding:6px;background:none;border:1px solid var(--border);color:var(--ink-mid);cursor:pointer;font-family:var(--font-display);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-radius:2px">Buy</button>';
+  html += '<button id="ptab-sell" onclick="showPlacesTab(\'sell\')" style="flex:1;padding:6px;background:none;border:1px solid var(--border);color:var(--ink-mid);cursor:pointer;font-family:var(--font-display);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-radius:2px">Sell</button>';
+  if (_data.tavern) {
+    html += '<button id="ptab-tavern" onclick="showPlacesTab(\'tavern\')" style="flex:1;padding:6px;background:none;border:1px solid var(--border);color:var(--ink-mid);cursor:pointer;font-family:var(--font-display);font-size:10px;letter-spacing:1px;text-transform:uppercase;border-radius:2px">Tavern</button>';
+  }
+  html += '</div>';
+
+  // BUY TAB
+  html += '<div id="places-tab-buy" style="display:none">';
   if (_data.shops && _data.shops.length) {
-    html += '<div style="margin-bottom:16px">';
-    html += '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:10px">Shops</div>';
     _data.shops.forEach(function(shop) {
       html += '<div style="margin-bottom:14px">';
       html += '<div style="font-family:var(--font-display);font-size:13px;color:var(--gold-bright);margin-bottom:2px">' + shop.name + '</div>';
       html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:8px;font-style:italic">' + shop.desc + '</div>';
-      if (shop.items && shop.items.length) {
-        shop.items.forEach(function(item) {
-          var _alreadyBought = G.shopSeen && G.shopSeen[item.id];
-          html += '<div class="shop-item' + (_alreadyBought ? ' shop-item--sold' : '') + '">';
-          html += '<div class="shop-item-info">';
-          html += '<div class="shop-item-name">' + item.name + '</div>';
-          html += '<div class="shop-item-desc">' + item.desc + '</div>';
-          html += '</div>';
-          html += '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px">';
-          html += '<div class="shop-item-cost">' + item.cost + 'g</div>';
-          if (!_alreadyBought) {
-            html += '<button class="shop-buy-btn" onclick="buyShopItem(\'' + shop.id + '\',\'' + item.id + '\')" '
-              + 'data-cost="' + item.cost + '">'
-              + (G.gold >= item.cost ? 'Buy' : 'Need ' + item.cost + 'g')
-              + '</button>';
-          } else {
-            html += '<span style="font-size:10px;color:var(--ink-faint)">Purchased</span>';
-          }
-          html += '</div></div>';
-        });
-      }
+      (shop.items || []).forEach(function(item) {
+        var _alreadyBought = item.type !== 'consumable' && G.shopSeen && G.shopSeen[item.id];
+        var _bonusLabel = '';
+        if (item.skillBonus && item.bonus) {
+          _bonusLabel = ' <span style="font-size:10px;color:var(--gold-dim)">+' + item.bonus + '\u00a0' + (_KEY_DISP[item.skillBonus] || item.skillBonus) + '</span>';
+        } else if (item.healAmount) {
+          _bonusLabel = ' <span style="font-size:10px;color:#4a9b6f">+' + item.healAmount + '\u00a0HP</span>';
+        } else if (item.def_bonus) {
+          _bonusLabel = ' <span style="font-size:10px;color:var(--storm-hi)">+' + item.def_bonus + '\u00a0Def</span>';
+        }
+        html += '<div class="shop-item' + (_alreadyBought ? ' shop-item--sold' : '') + '">';
+        html += '<div class="shop-item-info"><div class="shop-item-name">' + item.name + _bonusLabel + '</div><div class="shop-item-desc">' + item.desc + '</div></div>';
+        html += '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><div class="shop-item-cost">' + item.cost + 'g</div>';
+        if (!_alreadyBought) {
+          html += '<button class="shop-buy-btn" onclick="buyShopItem(\'' + shop.id + '\',\'' + item.id + '\')" data-cost="' + item.cost + '">' + (G.gold >= item.cost ? 'Buy' : 'Need\u00a0' + item.cost + 'g') + '</button>';
+        } else {
+          html += '<span style="font-size:10px;color:var(--ink-faint)">Purchased</span>';
+        }
+        html += '</div></div>';
+      });
       html += '</div>';
     });
-    html += '</div>';
+  } else {
+    html += '<div style="color:var(--ink-faint);font-style:italic;font-size:13px">No goods available here.</div>';
   }
-  // Tavern section
+  html += '</div>';
+
+  // SELL TAB
+  html += '<div id="places-tab-sell" style="display:none">';
+  var _msp = (typeof MATERIAL_SELL_PRICES !== 'undefined') ? MATERIAL_SELL_PRICES : {};
+  var _sellMats = G.materials ? Object.keys(G.materials).filter(function(k) { return (G.materials[k] || 0) > 0 && _msp[k]; }) : [];
+  var _hasFence = G.traits && G.traits.some(function(t) { return t.id === 'fence_network' || t.traitId === 'fence_network'; });
+  var _sellInv = (G.inventory || []).map(function(item, idx) { return {item: item, idx: idx}; })
+    .filter(function(e) { return !e.item.equipped && e.item.type !== 'evidence' && e.item.type !== 'background_bonus' && (e.item.cost || 0) > 0; });
+  if (_sellMats.length === 0 && _sellInv.length === 0) {
+    html += '<div style="color:var(--ink-faint);font-style:italic;font-size:13px">Nothing to sell here.</div>';
+  }
+  if (_sellMats.length > 0) {
+    html += '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:10px">Materials</div>';
+    _sellMats.forEach(function(matId) {
+      var qty = G.materials[matId] || 0;
+      var price = _msp[matId];
+      var matName = (typeof MATERIAL_DEFS !== 'undefined' && MATERIAL_DEFS[matId]) ? MATERIAL_DEFS[matId].name : matId.replace(/_/g, ' ');
+      html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding:6px 0;border-bottom:1px solid var(--border)">';
+      html += '<span style="font-size:13px;color:var(--ink-mid)">' + matName + ' <span style="color:var(--ink-faint)">\u00d7' + qty + '</span></span>';
+      html += '<div style="display:flex;align-items:center;gap:8px"><span style="font-size:12px;color:var(--gold-bright)">' + price + 'g ea</span>';
+      html += '<button class="sell-item-btn" onclick="sellPlacesMaterial(\'' + matId + '\')">Sell\u00a01</button></div></div>';
+    });
+  }
+  if (_sellInv.length > 0) {
+    html += '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:10px' + (_sellMats.length ? ';margin-top:14px' : '') + '">Items</div>';
+    _sellInv.forEach(function(e) {
+      var price = _hasFence ? (e.item.cost || 0) : Math.floor((e.item.cost || 0) * 0.5);
+      html += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding:6px 0;border-bottom:1px solid var(--border)">';
+      html += '<span style="font-size:13px;color:var(--ink-mid)">' + e.item.name + '</span>';
+      html += '<div style="display:flex;align-items:center;gap:8px"><span style="font-size:12px;color:var(--gold-bright)">' + price + 'g</span>';
+      html += '<button class="sell-item-btn" onclick="sellPlacesItem(' + e.idx + ')">Sell</button></div></div>';
+    });
+    if (!_hasFence) html += '<div style="font-size:11px;color:var(--ink-faint);font-style:italic;margin-top:4px">Items sell at 50% value. Fence Network trait gives full value.</div>';
+  }
+  html += '</div>';
+
+  // TAVERN TAB
   if (_data.tavern) {
     var _tav = _data.tavern;
-    html += '<div style="border-top:1px solid var(--border);padding-top:14px">';
-    html += '<div style="font-family:var(--font-display);font-size:11px;letter-spacing:2px;color:var(--gold-dim);text-transform:uppercase;margin-bottom:10px">Tavern</div>';
+    html += '<div id="places-tab-tavern" style="display:none">';
     html += '<div style="font-family:var(--font-display);font-size:13px;color:var(--gold-bright);margin-bottom:2px">' + _tav.name + '</div>';
     html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:10px;font-style:italic">' + _tav.desc + '</div>';
-    var _inv = (G.investigationProgress || 0);
-    var _eligible = (_tav.rumors || []).filter(function(r) { return (r.minProgress || 0) <= _inv && !(G.tavernRumorsSeen && G.tavernRumorsSeen[r.id]); });
+    var _inv2 = (G.investigationProgress || 0);
+    var _eligible = (_tav.rumors || []).filter(function(r) { return (r.minProgress || 0) <= _inv2 && !(G.tavernRumorsSeen && G.tavernRumorsSeen[r.id]); });
     if (_eligible.length) {
       var _shuffled = _eligible.slice().sort(function() { return Math.random() - 0.5; });
       var _shown = _shuffled.slice(0, 2);
-      html += '<div style="margin-bottom:10px">';
-      html += '<div style="font-size:11px;color:var(--gold-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Overheard</div>';
+      html += '<div style="margin-bottom:10px"><div style="font-size:11px;color:var(--gold-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Overheard</div>';
       _shown.forEach(function(r) {
-        if (G.tavernRumorsSeen) G.tavernRumorsSeen[r.id] = true;
+        if (!G.tavernRumorsSeen) G.tavernRumorsSeen = {};
+        G.tavernRumorsSeen[r.id] = true;
         html += '<div style="font-size:13px;color:var(--ink-mid);font-style:italic;border-left:2px solid var(--border);padding-left:10px;margin-bottom:8px">"' + r.text + '"</div>';
       });
       html += '</div>';
@@ -15486,8 +15733,47 @@ function showPlaces() {
     }
     html += '</div>';
   }
+
   _body.innerHTML = html;
   showOverlay('overlay-places');
+  showPlacesTab(_tab);
+}
+
+function showPlacesTab(tab) {
+  ['buy', 'sell', 'tavern'].forEach(function(t) {
+    var el = document.getElementById('places-tab-' + t);
+    if (el) el.style.display = (t === tab) ? '' : 'none';
+    var btn = document.getElementById('ptab-' + t);
+    if (btn) {
+      btn.style.borderColor = (t === tab) ? 'var(--ember-lo)' : 'var(--border)';
+      btn.style.color = (t === tab) ? 'var(--gold-bright)' : 'var(--ink-mid)';
+    }
+  });
+}
+
+function sellPlacesMaterial(matId) {
+  if (!G.materials || (G.materials[matId] || 0) <= 0) { if (typeof showToast === 'function') showToast('None to sell.'); return; }
+  var _msp = (typeof MATERIAL_SELL_PRICES !== 'undefined') ? MATERIAL_SELL_PRICES : {};
+  var price = _msp[matId];
+  if (!price) { if (typeof showToast === 'function') showToast('No buyer here.'); return; }
+  G.materials[matId] = Math.max(0, (G.materials[matId] || 0) - 1);
+  if (typeof modGold === 'function') modGold(price); else G.gold = (G.gold || 0) + price;
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof saveGame === 'function') saveGame();
+  showPlaces('sell');
+}
+
+function sellPlacesItem(idx) {
+  if (!G.inventory || !G.inventory[idx]) { if (typeof showToast === 'function') showToast('Item not found.'); return; }
+  var item = G.inventory[idx];
+  var _hasFence = G.traits && G.traits.some(function(t) { return t.id === 'fence_network' || t.traitId === 'fence_network'; });
+  var price = _hasFence ? (item.cost || 0) : Math.floor((item.cost || 0) * 0.5);
+  G.inventory.splice(idx, 1);
+  if (typeof modGold === 'function') modGold(price); else G.gold = (G.gold || 0) + price;
+  if (typeof showToast === 'function') showToast('Sold ' + item.name + ' for ' + price + 'g');
+  if (typeof updateHUD === 'function') updateHUD();
+  if (typeof saveGame === 'function') saveGame();
+  showPlaces('sell');
 }
 
 function buyShopItem(shopId, itemId) {
@@ -15503,11 +15789,16 @@ function buyShopItem(shopId, itemId) {
     return;
   }
   G.gold -= _item.cost;
-  if (!G.shopSeen) G.shopSeen = {};
-  G.shopSeen[_item.id] = true;
-  if (_item.effect && _item.effect.type === 'item') {
+  // Consumables are re-purchasable; unique items (weapons, armor, access, tools) are one-purchase
+  if (_item.type !== 'consumable') {
+    if (!G.shopSeen) G.shopSeen = {};
+    G.shopSeen[_item.id] = true;
+  }
+  if (typeof addToInventory === 'function') {
+    addToInventory(Object.assign({}, _item, { equipped: false }));
+  } else {
     if (!Array.isArray(G.inventory)) G.inventory = [];
-    G.inventory.push({ id: _item.effect.id, name: _item.effect.name });
+    G.inventory.push(Object.assign({}, _item, { equipped: false }));
   }
   if (typeof addJournal === 'function') addJournal('Purchased: ' + _item.name + ' (' + _item.cost + 'g)', 'discovery');
   if (typeof updateHUD === 'function') updateHUD();
@@ -15551,7 +15842,7 @@ function showNPCMenu() {
 
   visible.forEach(npc => {
     const t = trust(npc);
-    const tLabel = t >= 10 ? 'Trusted' : t >= 3 ? 'Acquainted' : t < -3 ? 'Hostile' : 'Unknown';
+    const tLabel = t >= 10 ? 'Trusted' : t >= 3 ? 'Acquainted' : t < -3 ? 'Hostile' : 'Stranger';
     const tColor = t >= 10 ? 'var(--jade-bright)' : t < -3 ? 'var(--blood-bright)' : 'var(--ink-faint)';
     const seen = G.npcMemory && G.npcMemory[npc.name] ? G.npcMemory[npc.name].seen : 0;
 
@@ -15866,12 +16157,16 @@ function buildTraitsSectionHTML() {
     });
   }
 
-  // Unlocked traits
-  (G.unlockedTraits || []).forEach(function(t){
+  // Unlocked traits — G.unlockedTraits is an array of string IDs; look up full object from G.traits
+  (G.unlockedTraits || []).forEach(function(traitId){
+    var t = typeof traitId === 'string'
+      ? (G.traits || []).find(function(x){ return x.id === traitId; })
+      : traitId;
+    if (!t) return;
     if (t.traitType === 'active' || t.type === 'active') {
-      actives.push({ id: t.id, name: t.name || t.id, desc: t.desc || '', levelMin: t.levelMin || 1, spent: !!(G.spentAbilities && G.spentAbilities[t.id]) });
+      actives.push({ id: t.id, name: t.name || t.id, desc: t.desc || t.description || '', levelMin: t.levelMin || 1, spent: !!(G.spentAbilities && G.spentAbilities[t.id]) });
     } else {
-      passives.push({ name: t.name || t.id, desc: t.desc || t.effect || '' });
+      passives.push({ name: t.name || t.id, desc: t.desc || t.description || t.effect || '' });
     }
   });
 
@@ -16921,9 +17216,7 @@ function migrateState(loaded) {
       loaded.skills.charm   = loaded.skills.persuasion|| 0; delete loaded.skills.persuasion;
       loaded.skills.spirit  = loaded.skills.craft     || 0; delete loaded.skills.craft;
     }
-    // Ensure craft (crafting DC stat, separate from spirit) exists
     if (!loaded.skills) loaded.skills = {};
-    if (loaded.skills.craft === undefined) loaded.skills.craft = 0;
   }
   if (!loaded.seenChoices) loaded.seenChoices = {};
   if (!loaded.startingLocality) loaded.startingLocality = loaded.location || 'shelkopolis';
@@ -16969,7 +17262,6 @@ const TUTORIAL_FLAGS = {
   first_map: false,
   first_watchfulness: false,
   first_pressure: false,
-  first_reverence: false,
 };
 
 function showTutorial(flag, message) {
@@ -17001,7 +17293,6 @@ function maybeShowTutorial(event) {
     first_shop: '<strong>Shopping:</strong> Each location has goods available from local sites. Gold is limited — spend it on what your archetype actually uses.',
     first_watchfulness: '<strong>Watchfulness increased.</strong> This marks how visible your movements have become. High watchfulness raises DCs and draws attention from local authorities.',
     first_pressure: '<strong>Attention is building.</strong> As it rises, encounters become harder and authority takes notice of your work.',
-    first_reverence: 'A thread of fate winds tighter. Reverence rises with significant acts — at its peak, the world takes notice of your legend.',
     first_rival: '<strong>A rival has gained ground.</strong> Rivals advance independently and impose DC penalties when their renown is high. Keep moving.',
   };
   if (msgs[event] && !G.tutorialFlags[event]) {
@@ -17014,9 +17305,6 @@ function maybeShowTutorial(event) {
     }
     if ((G.worldClocks.pressure || 0) > 0 && !G.tutorialFlags['first_pressure']) {
       showTutorial('first_pressure', msgs['first_pressure']);
-    }
-    if ((G.worldClocks.reverence || 0) > 0 && !G.tutorialFlags['first_reverence']) {
-      showTutorial('first_reverence', msgs['first_reverence']);
     }
   }
   // Auto-check rival renown first-increment trigger
@@ -17445,8 +17733,8 @@ window.showSandboxPanel = showSandboxPanel;
 function updateWorldTab() {
   var el = document.getElementById('tab-world');
   if (!el || !G || !G.worldClocks) return;
-  var clocks = ['pressure','watchfulness','rival','reverence','omens','isolation'];
-  var labels = {pressure:'Pressure',watchfulness:'Watchfulness',rival:'RIVAL PRESSURE',reverence:'Reverence',omens:'Omens',isolation:'Isolation'};
+  var clocks = ['pressure','watchfulness','rival','omens'];
+  var labels = {pressure:'Pressure',watchfulness:'Watchfulness',rival:'RIVAL PRESSURE',omens:'Omens'};
   var html = clocks.map(function(c) {
     var _raw = G.worldClocks[c];
     if (typeof _raw !== 'number') _raw = 0;
@@ -17524,7 +17812,7 @@ function updateAlignmentHUD() {
 
 function updateFactionHUD() {
   const el = document.getElementById('faction-list'); if (!el) return;
-  const sorted = [...(G.factions||[])].sort((a,b)=>Math.abs(b.rep-50)-Math.abs(a.rep-50)).slice(0,5);
+  const sorted = [...(G.factions||[])].filter(f=>f.rep!==50).sort((a,b)=>Math.abs(b.rep-50)-Math.abs(a.rep-50)).slice(0,5);
   el.innerHTML = sorted.map(f =>
     '<div class="faction-item"><div class="faction-name">'+f.name+'</div>' +
     '<div class="faction-rep"><div class="faction-fill '+(f.rep>60?'positive':f.rep<35?'negative':'neutral')+'" style="width:'+f.rep+'%"></div></div></div>'
@@ -17581,7 +17869,7 @@ function showCamp() {
   // Post Watches: only show when companion_gate_open AND companions present
   const _marenGate = !!(G.flags && G.flags.companion_gate_open);
   const pw = document.getElementById('btn-post-watches');
-  if (pw) pw.style.display = (_marenGate && G.companions && G.companions.length > 0) ? '' : 'none';
+  if (pw) pw.style.display = (_marenGate && G.companions && Object.keys(G.companions).length > 0) ? '' : 'none';
   // Sleep: show at night
   const sleepBtn = document.querySelector('[data-camp="sleep"]');
   if (sleepBtn) sleepBtn.style.display = (G.timeIndex || 0) >= 2 ? '' : 'none';
@@ -17667,6 +17955,7 @@ function doSurvive() {
   G.lastResult       = _survivalText;
   G.recentOutcomeType = 'neutral';
   closeOverlay('overlay-death');
+  addNarration('You Survived', _survivalText, 'neutral');
   if (typeof loadStageChoices === 'function') loadStageChoices();
 }
 
@@ -18050,7 +18339,7 @@ function getCombatAbilityChoices(enemyKey) {
     if ((G.level || 1) < (a.levelMin || 1)) return;
     var spent = !!(G.spentAbilities && G.spentAbilities[abilityId]);
     (function(_aid){ choices.push({
-      text: a.name + (spent ? ' [spent]' : ''),
+      text: (a.name || 'Unknown') + (spent ? ' [spent]' : ''),
       disabled: spent,
       skill: (_KEY_NORM_GLOBAL[a.skill] || a.skill || 'might'),
       tag: 'combat',
@@ -18078,15 +18367,23 @@ function enterCombat(enemyKey, context) {
   }
   const enemy = (context && context.customEnemy) ? context.customEnemy : (ENEMY_TEMPLATES[enemyKey] || null);
   if (!enemy) { startCombat(enemyKey, context); return; }
+  window._activeCombatantId = enemyKey;
 
   const intentPool = {
     patrol_guard: ['The guard draws their weapon and takes a defensive stance. They are waiting for you to decide.','Standard patrol posture. They have backup nearby and they know it.'],
     depot_worker: ['Not trained for this. They are more afraid than aggressive.','Cornered. That makes them unpredictable.'],
     shadowhand_op: ['This person knows what they are doing. They are assessing you the same way you are assessing them.','Operational. No wasted movement.'],
     iron_accord_soldier: ['Disciplined and patient. They have institutional backing and they know it.','Following orders. They believe in what they are doing.'],
+    iron_accord_enforcer: ['Office of Roazian Enforcement. They have documentation authority and the force to back it.','ORE field officer. Trained to escalate in stages. You are already on stage two.'],
     house_shelk_operative: ['Well-resourced and professional. This is not improvised.','They are protecting something specific.'],
     roadwarden_officer: ['This is a Roadwarden officer. Make this non-hostile if possible.','Official capacity. Going violent here has significant consequences.'],
-    hired_muscle: ['Hired. Which means this is about money, not principle.','They will take an exit if you give them one.']
+    warden_lieutenant: ['Senior Roadwarden. They have seen this before and have protocols for it.','They are not going to be moved by argument. They are going to be moved by documentation.'],
+    hired_muscle: ['Hired. Which means this is about money, not principle.','They will take an exit if you give them one.'],
+    ritual_enforcer: ['House Panim temple authority. They invoked the sealing clause before drawing. That is a formal step.','Funerary law officer. The staff is ceremonial and the authority behind it is not.'],
+    giant_enforcer: ['Giant Council tower marshal. The pause before movement is deliberate — they are assessing the situation, not hesitating.','Soreheim tower authority. They have ended confrontations before. They will not hurry this one.'],
+    magi_investigator: ['Magi Magistratus. Detection already active. They know more about you than you have said.','Magical-law officer. They are not here by accident. Someone filed a complaint or placed a flag.'],
+    guild_enforcer: ['Union enforcement. Carries the Guild Sanction Board\'s authority and the documentation to prove it.','They will give you a chance to comply. One chance.'],
+    shadowhands_operative: ['Shadowhands. They decided to make this visible, which means you are already past the point where silence was an option.','Covert operation. They are here because someone decided surveillance wasn\'t enough.']
   };
   const pool = intentPool[enemyKey] || ['They have decided this is a confrontation.'];
   const intent = pool[Math.floor(Math.random() * pool.length)];
