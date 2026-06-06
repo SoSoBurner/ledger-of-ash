@@ -191,6 +191,10 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
     label: "Everyone in the Ironspool Ward knows where the exchange point is. Nobody says it directly.",
     tags: ['District', 'Stealth', 'Combat'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -838,6 +842,10 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     label: "Low Ward dock workers move freight the manifests don't fully describe.",
     tags: ['District', 'Combat', 'Persuasion'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -892,6 +900,10 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
       { type: 'heat', polity: 'shelk', amount: 1 }
     ],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;

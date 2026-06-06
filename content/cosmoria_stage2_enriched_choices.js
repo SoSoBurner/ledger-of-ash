@@ -826,6 +826,10 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: 'The administrator checks the same folder before answering anything',
     tags: ['Stage2', 'NPC', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'collegium administrator pattern');
@@ -840,6 +844,10 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: 'The hold stamp is dated three weeks after the document was filed',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'retroactive hold anomaly');

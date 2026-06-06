@@ -935,6 +935,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The memorial hall offering smoke drifts the same direction every morning regardless of the wind.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'observing memorial hall offering smoke');
@@ -948,6 +952,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The blessings here have been weakened. The doctrine used to explain it is recent.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
@@ -971,6 +979,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The shrine's donation ledger has entries that describe transactions the shrine's charter doesn't permit.",
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'reviewing shrine donation ledger');

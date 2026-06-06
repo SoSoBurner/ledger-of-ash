@@ -966,6 +966,10 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     label: "The numbers only match if no one counts twice.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'running independent harvest count');

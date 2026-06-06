@@ -598,6 +598,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Eastern face workers come off rotation showing fatigue that isn't from physical labor.",
     tags: ['Discovery', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
@@ -621,6 +625,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The equipment shed wall chart tracks totals that the quarry production records don't mention.",
     tags: ['Discovery', 'Background', 'Stage1'],
     xpReward: 58,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'reading equipment shed wall chart');
@@ -640,6 +648,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The eastern face drainage channel runs a different color after heavy rain.",
     tags: ['Discovery', 'Risky', 'Physical', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'sampling eastern drainage channel');
