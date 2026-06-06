@@ -12,6 +12,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing specialty chemical input discrepancies with Jorin Ledgermere');
@@ -45,6 +49,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reviewing after-hours workshop observations with Tess Ledgermere');
@@ -74,6 +82,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing falsified formula copy citations with the Copy Warden');
@@ -106,6 +118,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC', 'Escalation'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'tracing Collegium credit offset with Jorin Ledgermere');
@@ -138,6 +154,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Environmental'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'tracking ghost workshop crate transfer through service corridor');
@@ -169,6 +189,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'Social', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'navigating copy queue dispute at the Copy Bureau');
@@ -201,6 +225,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     plot: 'main',
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'speaking with the dismissed copyist outside the ghost workshop corridor');
@@ -231,6 +259,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     plot: 'main',
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing the dormant guild account sustaining the dead charter reference');
@@ -261,6 +293,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Investigation'],
     plot: 'main',
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining unsigned certification forms with the materials inspector');
@@ -292,6 +328,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Investigation'],
     plot: 'main',
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the ghost-shift furnace operator and his unlisted wages');
@@ -322,6 +362,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining the amended transit manifest for the redirected precision tools');
@@ -351,6 +395,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing the quality auditor\'s impossible defect report against historical records');
@@ -380,6 +428,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'accessing the sealed pre-charter guild correspondence archive');
@@ -409,6 +461,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 102,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(102, 'Craftspire Stage 2 resolution');
@@ -440,6 +496,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining workshop quota targets against registered capacity');
@@ -473,6 +533,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Archive', 'Stage2', 'Observation'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'cross-checking copy tower materials intake log against registered process categories');
@@ -506,6 +570,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2', 'Observation'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing withdrawn supply chain complaint in Craftspire guild registry');
@@ -539,6 +607,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'dual certification stamp');
@@ -555,6 +627,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'master craftsperson supply chain');
@@ -571,6 +647,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'quality mark origin trace');
@@ -587,6 +667,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'appeals archive pattern');
@@ -605,6 +689,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Workshop', 'Records', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'cross-checking unit system discrepancy in Craftspire material ledger');
@@ -636,6 +724,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'tracing reclassification timing against inspection schedule changes');
@@ -666,6 +758,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing anonymous column in stockyard intake manifest');
@@ -694,6 +790,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Stage2'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'auditing ledger volume completeness for winter batch period');
@@ -722,6 +822,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reading Jorin Ledgermere for what he avoids in the ledger');
@@ -754,6 +858,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing stockyard measurement records against ledger totals');
@@ -815,6 +923,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'comparing duplicate trade certificate authentication against origin seal');
@@ -846,6 +958,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Evidence', 'Stage2'],
     xpReward: 73,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'comparing copy warden validation mark weight across certificate batches');
@@ -876,6 +992,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'tracing obsolete material classification on active trade certificate');
@@ -904,6 +1024,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Evidence', 'Stage2'],
     xpReward: 82,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'documenting pre-stamped blank trade certificates at Craftspire authentication desk');
@@ -937,6 +1061,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'examining inspection log resolution gaps with Night-Lantern Inspector Tess');
@@ -968,6 +1096,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 69,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(69, 'learning what prompted Tess Ledgermere to request night-window assignment');
@@ -1000,6 +1132,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['NPC', 'Evidence', 'Stage2'],
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'observing Copy Warden carrying unauthorized second authentication stamp');
@@ -1031,6 +1167,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reading the dynamic between Jorin and Tess Ledgermere in the ledger house');
@@ -1062,6 +1202,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'placing Copy Warden tenure against authentication system history');
@@ -1093,6 +1237,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing Jorin Ledgermere transfer request denial and its aftermath');
@@ -1127,6 +1275,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'threading Craftspire ledger entries to suppression compound material supply chain');
@@ -1158,6 +1310,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing consortium name between Craftspire records and prior locality documents');
@@ -1189,6 +1345,10 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'cross-referencing Craftspire forge output reports against stockyard physical holdings');
