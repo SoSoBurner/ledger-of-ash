@@ -53,6 +53,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 2. HONOR GUARD: OATH-BINDING COMPROMISED
   {
+    plot: 'main',
     label: "Soldiers follow commands they know are wrong. The oath mechanism is turned against them.",
     tags: ['Investigation', 'NPC', 'Oaths', 'Binding', 'Meaningful'],
     xpReward: 75,
@@ -135,6 +136,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 4. TRAINING MASTER: DISCIPLINE BECOMING BRUTALITY
   {
+    plot: 'main',
     label: "Training has gone past martial standard. The master knows the difference.",
     tags: ['Investigation', 'NPC', 'Training', 'Discipline', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
@@ -176,6 +178,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 5. GARRISON CLERK: ROSTER DISCREPANCIES
   {
+    plot: 'main',
     label: "Soldiers are disappearing from the garrison roster. The assignments lead nowhere documented.",
     tags: ['Investigation', 'NPC', 'Records', 'Personnel', 'Meaningful'],
     xpReward: 70,
@@ -215,6 +218,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 6. SUPPLY QUARTERMASTER: WEAPONRY REDISTRIBUTION
   {
+    plot: 'main',
     label: "Supply movements don't match declared deployment. Military capability is leaving the map.",
     tags: ['Investigation', 'NPC', 'Supply', 'Weaponry', 'Meaningful'],
     xpReward: 70,
@@ -255,6 +259,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 7. RITUAL KEEPER: RITUAL CORRUPTED
   {
+    plot: 'main',
     label: "The binding ritual formulas have been altered. Sacred practice is being rewritten.",
     tags: ['Investigation', 'NPC', 'Ritual', 'Sacred', 'Meaningful'],
     xpReward: 70,
@@ -295,6 +300,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 8. RITUAL AUTHORITY: COMMAND LEGITIMACY COMPROMISED
   {
+    plot: 'main',
     label: "The ritual chain is validating commands that have no legitimate source.",
     tags: ['Investigation', 'NPC', 'Authority', 'Legitimacy', 'Meaningful'],
     xpReward: 75,
@@ -337,6 +343,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 9. COMBAT TIER 1: DEFENSIVE POSITION ANALYSIS
   {
+    plot: 'main',
     label: "The defensive positions have been modified to open angles the original fortifications closed.",
     tags: ['Investigation', 'Combat', 'Fortification', 'Defense', 'Meaningful'],
     xpReward: 70,
@@ -377,6 +384,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 10. COMBAT TIER 2: HIDDEN MILITARY FORCE MAPPED
   {
+    plot: 'main',
     label: "The disappeared soldiers are under a command structure that appears in no garrison record.",
     tags: ['Investigation', 'Combat', 'Hidden-Force', 'Command', 'Meaningful'],
     xpReward: 75,
@@ -417,6 +425,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 11. LORE TIER 1: OATH BINDING LEGAL ANALYSIS
   {
+    plot: 'main',
     label: "Historical precedent as cover. The loophole was found before the trap was built.",
     tags: ['Investigation', 'Lore', 'Law', 'Precedent', 'Meaningful'],
     xpReward: 70,
@@ -457,6 +466,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSUASION TIER 2: COERCION THROUGH OATH
   {
+    plot: 'main',
     label: "Oaths they can't refuse. Breaking them is documented and punished.",
     tags: ['Investigation', 'Persuasion', 'Coercion', 'Oath-Breaking', 'Meaningful'],
     xpReward: 75,
@@ -497,6 +507,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSIGHT TIER 1: MILITARY MORALE COLLAPSE
   {
+    plot: 'main',
     label: "Soldiers still show up. They've stopped believing the orders mean what they say.",
     tags: ['Investigation', 'Insight', 'Morale', 'Trust', 'Meaningful'],
     xpReward: 70,
@@ -537,6 +548,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: COMMAND CONSPIRACY REVEALED
   {
+    plot: 'main',
     label: "Someone is directing the oath corruption from outside. The command chain terminates elsewhere.",
     tags: ['Investigation', 'Perception', 'Conspiracy', 'Hierarchy', 'Meaningful'],
     xpReward: 75,
@@ -579,6 +591,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: MILITARY ANXIETIES
   {
+    plot: 'main',
     label: "The garrison commons goes quiet when the wrong people walk through.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear', 'Meaningful'],
     xpReward: 65,
@@ -607,6 +620,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: PROOF OF MILITARY OVERTHROW
   {
+    plot: 'main',
     label: "Every institution here bent the same direction in the same window. Someone built this.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
@@ -646,6 +660,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
+    plot: 'main',
     label: "One of them is in this knowingly. The question is whether they can be turned.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
@@ -730,6 +745,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
+    plot: 'main',
     label: "Oath corruption, missing soldiers, rewritten rituals, weakened fortifications — all pointing the same direction.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Command', 'Meaningful'],
     xpReward: 75,
@@ -770,6 +786,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
+    plot: 'main',
     label: "Conquest announces itself. Whatever is happening here is designed to be invisible until it's done.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Occupation', 'Meaningful'],
     xpReward: 80,

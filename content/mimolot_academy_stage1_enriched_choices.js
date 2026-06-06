@@ -97,6 +97,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 3. ARCHIVE GUARDIAN: SEALED SECTIONS EXPANDED
   {
+    plot: 'main',
     label: "The sealed sections keep expanding. Behind them is what senior scholars once read freely.",
     tags: ['Investigation', 'NPC', 'Archives', 'Secrets'],
     condition: function() { return (G.investigationProgress||0) < 3; },
@@ -137,6 +138,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 4. KNOWLEDGE ARCHIVIST: DOCUMENTATION BEING ALTERED
   {
+    plot: 'main',
     label: "The archivist has both editions and has been logging the differences for months.",
     tags: ['Investigation', 'NPC', 'History', 'Records'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
@@ -180,6 +182,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 5. STUDENT ADMINISTRATOR: ENROLLMENT RESTRICTIONS
   {
+    plot: 'main',
     label: "The strongest critical methodology students aren't getting advanced research placements. The gap has direction.",
     tags: ['Investigation', 'NPC', 'Students', 'Access'],
     xpReward: 70,
@@ -220,6 +223,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 6. RESTRICTION KEEPER: FORBIDDEN KNOWLEDGE CATALOGED
   {
+    plot: 'main',
     label: "Everything classified in eighteen months has one thing in common. The restriction keeper has noticed.",
     tags: ['Investigation', 'NPC', 'Classification', 'Forbidden'],
     xpReward: 70,
@@ -260,6 +264,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 7. CURATION MASTER: COLLECTION BIAS SYSTEMATIC
   {
+    plot: 'main',
     label: "Eighteen months of silence in whole subject areas. He knows exactly when it started.",
     tags: ['Investigation', 'NPC', 'Curation', 'Bias'],
     xpReward: 70,
@@ -300,6 +305,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 8. VERIFICATION SCRIBE: TRUTH VERIFICATION COMPROMISED
   {
+    plot: 'main',
     label: "Three scribes reassigned. All three had refused to certify documents they flagged as inaccurate.",
     tags: ['Investigation', 'NPC', 'Verification', 'Truth'],
     xpReward: 75,
@@ -342,6 +348,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LORE TIER 1: ACADEMIC PRECEDENT ANALYSIS
   {
+    plot: 'main',
     label: "The framework was revised. The burden of proof was inverted. Someone knew where to push.",
     tags: ['Investigation', 'Lore', 'Precedent', 'Framework'],
     xpReward: 70,
@@ -382,6 +389,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 10. ARCANA TIER 2: MAGICAL KNOWLEDGE SUPPRESSION
   {
+    plot: 'main',
     label: "The restricted arcane texts are the ones describing how to work without Academy-authorized equipment.",
     tags: ['Investigation', 'Arcana', 'Magical', 'Power'],
     xpReward: 75,
@@ -422,6 +430,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INVESTIGATION TIER 1: INQUIRY PATTERNS MONITORED
   {
+    plot: 'main',
     label: "Request documents on institutional history and get a review entry within twenty-four hours.",
     tags: ['Investigation', 'Investigation', 'Monitoring', 'Control'],
     xpReward: 70,
@@ -462,6 +471,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 12. INSIGHT TIER 2: INTELLECTUAL AUTONOMY ERODED
   {
+    plot: 'main',
     label: "Twenty years ago scholars argued across the refectory. The silence now is not contentment.",
     tags: ['Investigation', 'Insight', 'Autonomy', 'Freedom'],
     xpReward: 75,
@@ -502,6 +512,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 13. PERCEPTION TIER 1: ADMINISTRATIVE HIERARCHY MAPPED
   {
+    plot: 'main',
     label: "The charter says the scholarly council governs. The reassignment orders carry signatures from outside faculty.",
     tags: ['Investigation', 'Perception', 'Administration', 'Hierarchy'],
     xpReward: 70,
@@ -542,6 +553,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 14. PERCEPTION TIER 2: EXTERNAL CONTROL COORDINATION
   {
+    plot: 'main',
     label: "Restriction directives arrive through a sealed external channel. Nobody has asked who sends them.",
     tags: ['Investigation', 'Perception', 'Control', 'External'],
     xpReward: 75,
@@ -584,6 +596,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: SCHOLARLY ANXIETIES
   {
+    plot: 'main',
     label: "The study halls go quiet in a specific way when the wrong people walk through.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear'],
     xpReward: 65,
@@ -612,6 +625,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 16. INSTITUTIONAL CRACK: PROOF OF KNOWLEDGE CONSPIRACY
   {
+    plot: 'main',
     label: "Each piece has an innocent explanation. Together they don't.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Exposure'],
     xpReward: 80,
@@ -654,6 +668,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
   {
+    plot: 'main',
     label: "One of them is complicit and knows it. Can they be turned.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
@@ -735,6 +750,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
   {
+    plot: 'main',
     label: "Research suppression, historical revision, verification corruption, enrollment steering — all pointing the same direction.",
     tags: ['Investigation', 'Pattern', 'Analysis', 'Knowledge'],
     xpReward: 75,
@@ -775,6 +791,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
   {
+    plot: 'main',
     label: "This isn't institutional drift. The systems were rebuilt to prevent a specific conclusion.",
     tags: ['Investigation', 'Synthesis', 'Understanding', 'Purpose'],
     xpReward: 80,

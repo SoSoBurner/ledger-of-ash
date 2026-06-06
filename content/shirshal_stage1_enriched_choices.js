@@ -92,6 +92,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 3. MAGISTRATE'S ASSISTANT: CASE ASSIGNMENTS MANIPULATED
   {
+    plot: 'main',
     label: "Case assignments stopped rotating four weeks ago. Someone above the clerk is choosing now.",
     tags: ['Investigation', 'NPC', 'Process', 'Justice', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) < 3; },
@@ -130,6 +131,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 4. RECORD KEEPER: INVESTIGATION CLOSURE PATTERNS
   {
+    plot: 'main',
     label: "Cases are being closed, not resolved. The witness follow-up fields are blank.",
     tags: ['Investigation', 'NPC', 'Records', 'Procedure', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
@@ -171,6 +173,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 5. INVESTIGATOR: CASE BRIEFINGS WITHHELD OR ALTERED
   {
+    plot: 'main',
     label: "The case officers are being given briefings with sections already missing.",
     tags: ['Investigation', 'NPC', 'Information', 'Obstruction', 'Meaningful'],
     xpReward: 70,
@@ -208,6 +211,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 6. WITNESS COORDINATOR: TESTIMONY CONTROL AND INTIMIDATION
   {
+    plot: 'main',
     label: "Three witnesses left Shirshal last month. The magistrates accepted every absence without a query.",
     tags: ['Investigation', 'NPC', 'Witness', 'Intimidation', 'Meaningful'],
     xpReward: 75,
@@ -248,6 +252,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 7. INNKEEPER: MESSAGE TRAFFIC AND SEALED COURIERS
   {
+    plot: 'main',
     label: "Different couriers, same back room. She tracks what she's not supposed to notice.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
@@ -285,6 +290,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 8. MAGISTRATE (RELUCTANT): AUTHORITY PRESSURE FROM ABOVE
   {
+    plot: 'main',
     label: "One magistrate checks his rulings against the morning packet. He knows whose law it is.",
     tags: ['Investigation', 'NPC', 'Authority', 'Pressure', 'Meaningful'],
     xpReward: 75,
@@ -327,6 +333,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 9. STEALTH TIER 1: HIDDEN MEETING SURVEILLANCE
   {
+    plot: 'main',
     label: "The magistrates are meeting outside visitors in rooms that aren't on any schedule.",
     tags: ['Investigation', 'Stealth', 'Surveillance', 'Hidden', 'Meaningful'],
     xpReward: 70,
@@ -367,6 +374,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 10. STEALTH TIER 2: SEALED DOCUMENT CONTENT DISCOVERY
   {
+    plot: 'main',
     label: "Those sealed packets name case numbers beside outcomes that were decided before the cases opened.",
     tags: ['Investigation', 'Stealth', 'Documents', 'Secrets', 'Meaningful'],
     xpReward: 75,
@@ -407,6 +415,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 11. LORE TIER 1: INVESTIGATIVE LAW AND PROCEDURE CORRUPTION
   {
+    plot: 'main',
     label: "Shirshal's evidence standards were rewritten. All three revisions in the same six-week window.",
     tags: ['Investigation', 'Lore', 'Law', 'Procedure', 'Meaningful'],
     xpReward: 70,
@@ -447,6 +456,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 12. LORE TIER 2: TRUTH AND JUSTICE DOCTRINE REFRAMED
   {
+    plot: 'main',
     label: "The founding doctrine says truth is the foundation. The current teaching document says order is.",
     tags: ['Investigation', 'Lore', 'Philosophy', 'Justice', 'Meaningful'],
     xpReward: 75,
@@ -487,6 +497,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 13. CRAFT TIER 1: EVIDENCE DOCUMENT FORGERY DETECTION
   {
+    plot: 'main',
     label: "The closure signatures are reproductions. Someone built a forgery apparatus for Shirshal's document standard.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
     xpReward: 70,
@@ -527,6 +538,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 14. CRAFT TIER 2: SEALED CORRESPONDENCE FORGERY
   {
+    plot: 'main',
     label: "The magistrates are executing directives from an authority that doesn't exist as claimed.",
     tags: ['Investigation', 'Craft', 'Forgery', 'Authority', 'Meaningful'],
     xpReward: 75,
@@ -569,6 +581,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 15. STREET RUMOR: CASES DISAPPEARING AND JUSTICE FAILING
   {
+    plot: 'main',
     label: "People stopped repeating what they know. No one acted on it the first time.",
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
@@ -603,6 +616,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 16. VICTIM TESTIMONY: CASE ABANDONED WITHOUT RESOLUTION
   {
+    plot: 'main',
     label: "Three weeks on his own case. He's not permitted to know what they found.",
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
@@ -643,6 +657,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 17. INSTITUTIONAL BREAKDOWN: INVESTIGATOR DEFECTION
   {
+    plot: 'main',
     label: "One case officer has been keeping personal notes. She's leaving Shirshal at dawn.",
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal', 'Meaningful'],
     xpReward: 75,
@@ -953,6 +968,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // TYPE: INFORMATION — ARCHETYPE GATE (Artificer — Craft-heavy)
   {
+    plot: 'main',
     label: "The physical evidence in Shirshal's case storage shows signs of systematic environmental manipulation.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,

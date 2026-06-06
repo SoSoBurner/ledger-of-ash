@@ -86,6 +86,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 3. MACHINERY SPECIALIST: EQUIPMENT SABOTAGE
   {
+    plot: 'main',
     label: "The parts are on the shelf. The approval to use them isn't.",
     tags: ['Investigation', 'NPC', 'Craft', 'Equipment', 'Meaningful'],
     xpReward: 70,
@@ -120,6 +121,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 4. REPAIR WORKER: WORKPLACE ACCIDENTS [PROGRESS-GATED: reveals physical harm documentation pattern at mid-progress]
   {
+    plot: 'main',
     label: "Three accidents this month. Nobody is filing complaints. That's the point.",
     tags: ['Investigation', 'NPC', 'Safety', 'Labor', 'Meaningful'],
     xpReward: 75,
@@ -158,6 +160,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 5. SHRINE HELPER: FAITH UNDER PRESSURE
   {
+    plot: 'main',
     label: "They used to pray for harvest and travel. Now they pray to keep their position.",
     tags: ['Investigation', 'NPC', 'Faith', 'Community', 'Meaningful'],
     xpReward: 70,
@@ -192,6 +195,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 6. BROKER/MERCHANT: DISPLACEMENT PIPELINE
   {
+    plot: 'main',
     label: "Displaced workers are scattered — Sunspire, northern routes, agricultural circuits. Scattered workers don't organize.",
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
     xpReward: 70,
@@ -226,6 +230,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 7. RECORD KEEPER: DOCUMENTATION FALSIFICATION
   {
+    plot: 'main',
     label: "Workers are being removed from the record. Not from the city — from the record.",
     tags: ['Investigation', 'NPC', 'Records', 'Documentation', 'Meaningful'],
     xpReward: 75,
@@ -263,6 +268,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 8. ARTISAN/CRAFTSPERSON: SKILL DEGRADATION
   {
+    plot: 'main',
     label: "Work that failed three months ago now ships. The workers who caught it are gone.",
     tags: ['Investigation', 'NPC', 'Craft', 'Integrity', 'Meaningful'],
     xpReward: 75,
@@ -304,6 +310,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 9. LABOR ANALYSIS TIER 1: WORKFORCE RESTRUCTURING
   {
+    plot: 'main',
     label: "The skills that made Soreheim independent have been cut out post by post.",
     tags: ['Investigation', 'Labor', 'Analysis', 'Pattern', 'Meaningful'],
     xpReward: 70,
@@ -338,6 +345,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 10. PRODUCTION ANALYSIS TIER 2: QUOTA SYSTEM MECHANICS
   {
+    plot: 'main',
     label: "Safety stops count against output. Preventing an accident means failing quota.",
     tags: ['Investigation', 'Systems', 'Economics', 'Control', 'Meaningful'],
     xpReward: 75,
@@ -375,6 +383,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 11. INDUSTRIAL ANALYSIS TIER 1: SUPPLY CHAIN DISRUPTION
   {
+    plot: 'main',
     label: "Outbound carts outnumber inbound three to one. The stamps on those manifests face inward.",
     tags: ['Investigation', 'Industrial', 'Supply', 'Flow', 'Meaningful'],
     xpReward: 70,
@@ -409,6 +418,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 12. AUTHORITY STRUCTURE TIER 2: DECISION ISOLATION
   {
+    plot: 'main',
     label: "The administrator runs the briefing. Every directive carries a northern stamp.",
     tags: ['Investigation', 'Authority', 'Structure', 'Power', 'Meaningful'],
     xpReward: 75,
@@ -446,6 +456,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 13. COMMUNICATION NETWORK TIER 1: MESSAGE MONITORING
   {
+    plot: 'main',
     label: "Labor petitions come back stamped but never forwarded. The city is talking to itself.",
     tags: ['Investigation', 'Communication', 'Networks', 'Control', 'Meaningful'],
     xpReward: 70,
@@ -480,6 +491,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 14. RESISTANCE TIER 2: SUPPRESSION MECHANISMS
   {
+    plot: 'main',
     label: "No formal warnings — just reassignments, always timed precisely.",
     tags: ['Investigation', 'Resistance', 'Suppression', 'Fear', 'Meaningful'],
     xpReward: 75,
@@ -517,6 +529,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SURVIVAL ANALYSIS TIER 1: WORKER VULNERABILITY
   {
+    plot: 'main',
     label: "This isn't an economy under pressure. Someone drew the pressure map first.",
     tags: ['Investigation', 'Survival', 'Vulnerability', 'Pressure', 'Meaningful'],
     xpReward: 70,
@@ -554,6 +567,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 16. NARRATIVE CONTROL TIER 2: OFFICIAL JUSTIFICATION STRUCTURE
   {
+    plot: 'main',
     label: "The posted notices recycle three phrases. Those exact phrases appeared in a northern Compact bulletin.",
     tags: ['Investigation', 'Narrative', 'Control', 'Justification', 'Meaningful'],
     xpReward: 75,
@@ -593,6 +607,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 17. STREET RUMOR: LABOR WHISPERS
   {
+    plot: 'main',
     label: "The story moves down the meal hall bench in pieces. Too consistent for coincidence.",
     tags: ['Investigation', 'Rumor', 'Labor', 'Gossip', 'Meaningful'],
     xpReward: 65,
@@ -618,6 +633,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INSTITUTIONAL CRACK: QUOTA SYSTEM FAILURE PROOF
   {
+    plot: 'main',
     label: "They hit ninety-two percent of sustainable output every day. They fail quota every day.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Systems', 'Exposure', 'Meaningful'],
     xpReward: 80,
@@ -657,6 +673,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: COMPLICITY AND PARTICIPATION CHOICE
   {
+    plot: 'main',
     label: "They're waiting to learn what this conversation costs them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
@@ -1026,6 +1043,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 6D-A: Official cites procedure to avoid answering
   {
+    plot: 'main',
     label: "The district coordinator quoted the procedure before I asked a question.",
     tags: ['NPC', 'Records', 'Inquiry'],
     xpReward: 55,
@@ -1046,6 +1064,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
 
   // 6D-B: Missing ledger entries 441-463
   {
+    plot: 'main',
     label: "The allocation ledger skips from 440 to 464. Nothing marks the gap.",
     tags: ['Records', 'Archive', 'Observation'],
     xpReward: 60,
