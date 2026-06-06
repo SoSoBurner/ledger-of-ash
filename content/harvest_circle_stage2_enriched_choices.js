@@ -13,6 +13,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-referencing quota records with Panim memorial manifests');
@@ -44,6 +48,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'investigating anomalous northern shipment with Valen Crestmark');
@@ -74,6 +82,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reviewing commune grievance with Jorva Helmrune');
@@ -103,6 +115,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing supplier relationships with Elyra Mossbane');
@@ -135,6 +151,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'reviewing guild dispute accounting irregularity with Velrik Durnshade');
@@ -304,6 +324,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing Valen Crestmark personal logbook tonnage discrepancies');
@@ -403,6 +427,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing Mimolot Academy transit orders through Farlan Inkshade records');
@@ -436,6 +464,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing cold storage access gap with the Harvest Circle keeper');
@@ -468,6 +500,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing missing seed varieties with the Harvest Circle seed-keeper');
@@ -500,6 +536,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'debriefing the pre-dawn offerings courier on Compact handler observations');
@@ -531,6 +571,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing unauthorized irrigation channel access windows');
@@ -562,6 +606,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'consulting commune ritual herbalist on offering bundle weight anomalies');
@@ -594,6 +642,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing offering route rescheduling authority through seasonal timing records');
@@ -625,6 +677,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'debriefing suppressed trader Denet Alvar on independent route observations');
@@ -656,6 +712,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reviewing night patrol gap entries near cold storage corridor');
@@ -687,6 +747,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(104, 'Harvest Circle Stage 2 resolution');
@@ -718,6 +782,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'diverted yield allocation');
@@ -734,6 +802,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'elder crop language');
@@ -750,6 +822,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Records', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'unattributed work period');
@@ -765,6 +841,10 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(25, 'return shipment implication');
