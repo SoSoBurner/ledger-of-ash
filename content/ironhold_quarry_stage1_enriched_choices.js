@@ -224,6 +224,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     effects: [
       { type: 'heat', polity: 'soreheim', amount: 1 }
     ],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'Velka evidence decision');
@@ -328,6 +332,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "Velka's log is the only accurate eastern face record. It can't stay at Ironhold.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'securing Velka\'s log offsite');
@@ -653,6 +661,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "A container batch in last month's manifest doesn't appear in intake or dispatch records.",
     tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'tracking ghost container batch');
@@ -693,6 +705,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The contractor who supplies the eastern face only visits at night and leaves before dawn.",
     tags: ['Discovery', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'intercepting the night delivery contractor');
@@ -732,6 +748,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     label: "The geological survey was last updated eight years ago. A section was redacted before filing.",
     tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reading geological survey with redaction');
