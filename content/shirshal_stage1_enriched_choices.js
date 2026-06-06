@@ -862,6 +862,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "The harbor holds what the justice hall took. Former owners watch their vessels at night.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'observing harbor night activity');
@@ -877,6 +881,10 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     label: "One magistrate refused a re-adjudication and was transferred three days later.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'finding transferred magistrate');
