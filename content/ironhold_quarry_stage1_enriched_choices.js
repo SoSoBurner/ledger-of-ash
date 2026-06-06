@@ -118,7 +118,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
       if (result.total >= 13) {
-        G.lastResult = `A fragment from the eastern face's discard pile — the material the official sheet calls geological waste. The color banding is distinctive: a reactive compound precursor, same material category Jorin flagged in Craftspire's supply chain. At Craftspire it was extracted from processed compounds. Here it comes out of the rock directly. Raw source, same destination. Both operations are moving toward the same accumulation point.`;
+        G.lastResult = `A fragment from the eastern face's discard pile — the material the extraction sheet calls geological waste. The color banding is distinctive: a reactive compound precursor, the same category appearing in the Craftspire supply chain records. At Craftspire it was extracted from processed compounds. Here it comes out of the rock directly. Raw source, same destination. Both operations are moving toward the same accumulation point.`;
         if (!G.flags) G.flags = {};
         G.flags.identified_ironhold_mineral = true;
         addJournal('Secondary mineral identified: reactive compound precursor — same category as Craftspire extraction, both feeding the same accumulation', 'discovery', `ironhold-mineral-${G.dayCount}`);
@@ -513,9 +513,9 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: {
-      text: `The deployment logic turns on a compound stability window — how long from final collection before the material degrades below useful concentration. Without that figure, the extraction timeline marks an end point but not what follows it. That number is specialist knowledge. Jorin worked with this material category at Craftspire and had access to synthesis studies before they were suppressed. The studies exist somewhere outside the quarry. The answer to the question is not at Ironhold.`,
+      text: `The deployment logic turns on a compound stability window — how long from final collection before the material degrades below useful concentration. Without that figure, the extraction timeline marks an end point but not what follows it. That number is specialist knowledge. Craftspire's material ledger contained synthesis studies on this compound class before they were suppressed. The studies exist somewhere outside the quarry. The answer to the question is not at Ironhold.`,
       xp: 0, effects: [],
-      next: [{text: 'Track down the synthesis studies through Jorin', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: 'Suppressed synthesis studies are not destroyed. They are relocated.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;

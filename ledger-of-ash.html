@@ -16049,7 +16049,7 @@ function showCharSheet() {
       });
       if (!passiveAbs.length) return '';
       return '<div style="margin-top:16px"><div class="char-section-title">Unlocked Abilities</div>' +
-        passiveAbs.map(a => '<div class="ability-card"><div class="ability-card-name">'+a.name+'</div><div class="ability-card-type">'+a.type+'</div><div class="ability-card-effect">'+a.gameEffect+'</div></div>').join('') + '</div>';
+        passiveAbs.map(a => '<div class="ability-card"><div class="ability-card-name">'+(a.name||'Ability')+'</div><div class="ability-card-type">'+(a.type||'active')+'</div><div class="ability-card-effect">'+(a.gameEffect||'')+'</div></div>').join('') + '</div>';
     })() +
 
     '<div style="margin-top:20px"><div class="char-section-title">Alignment</div>' +

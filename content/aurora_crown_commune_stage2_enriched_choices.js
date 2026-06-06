@@ -1869,7 +1869,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glyph-trace skin marks observed on two intake corridor workers — matches technician\'s own markers, foreman clean due to rotation, workers not informed', 'evidence', 'aur-skin-trace-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'You get close enough to the intake corridor workers to see their hands, but not their wrists — the crew is working in close quarters at the manifold end and the foreman is standing between the work and the corridor. He does not speak to you. He watches you from that position for long enough that you understand the observation is over. A labor scribe at the far end of the corridor writes something in the work log. You do not know what.';
+        G.lastResult = 'You get close enough to the intake corridor workers to see their hands, but not their wrists — the crew is working in close quarters at the manifold end and the foreman is standing between the work and the corridor. He does not speak to you. He watches you from that position until you move. The window has closed. A labor scribe at the far end of the corridor writes something in the work log. You do not know what.';
         addJournal('Worker observation blocked — foreman positioned between you and manifold crew, labor scribe noted presence', 'complication', 'aur-skin-trace-fail-' + G.dayCount);
       } else {
         G.flags.aurora_skin_trace_observed = true;

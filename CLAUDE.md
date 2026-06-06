@@ -1,15 +1,60 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 # Ledger of Ash — Project Context
 
 ## Quick Reference
 
 | Need | Go to |
 |------|-------|
+| Commands (test, build, run) | [Commands](#0-commands) |
 | File paths, branches, play command | [Dev Setup](#1-dev-setup) |
 | Stage gates, G object, XP, combat | [Engine Rules](#2-engine-rules) |
+| Key function signatures | [Engine Functions](#key-engine-functions) |
 | Session startup, skills, plugins | [Process](#3-process) |
 | Writing style, canon, choice labels | `content/CLAUDE.md` |
 | Playwright, validators, playtest | `tests/CLAUDE.md` |
 | World graph, NPC profiles, locality packets | `data/reference/V33_2_extracted/` |
+
+---
+
+# 0. Commands
+
+## Play
+
+```
+play.bat          # opens ledger-of-ash.html in Chrome app mode (file:// protocol)
+```
+
+## Tests
+
+```
+npm test                  # Jest unit tests: tests/logic/**/*.test.js + tests/content/**/*.test.js
+npm run test:content      # 3-step content validation: choice standards, flag rules, HTML wiring
+npm run test:e2e          # Playwright specs in tests/e2e/*.spec.js (auto-launches http-server on :8080)
+npm run test:continuity   # Plot continuity: NPC sequence, canon fence, world clock transparency
+npm run test:all          # All four suites sequentially
+npm run review:content    # Advisory tone/balance audit — warnings only, no enforced failures
+```
+
+Run a single Jest test file:
+```
+npx jest tests/logic/combat.test.js
+```
+
+No lint or format scripts are wired. `.prettierrc` exists (120 char width, 2-space, single quotes) but must be run manually.
+
+## Test Harness
+
+`tests/setup.js` extracts all inline `<script>` blocks from `ledger-of-ash.html`, patches scoping for Node, and runs in a VM sandbox with a fake DOM/localStorage. Tests import it via:
+
+```js
+const { createGameContext } = require('../setup');
+const { G, addJournal, checkLevelUp, narrations } = createGameContext({ level: 3 });
+```
+
+`createGameContext(gOverrides)` accepts partial G overrides and returns the live G object plus all exported engine functions and captured `narrations`/`toasts` arrays.
 
 ---
 
@@ -19,7 +64,7 @@
 
 - **Source file**: `C:\Users\CEO\ledger-of-ash\ledger-of-ash.html` — this is what `play.bat` opens. Never edit `dist/`.
 - **Play**: Run `play.bat` to open in Chrome app mode (`file://` protocol).
-- **Content scripts**: All JS files in `content/` must be referenced as `content/filename.js` in HTML script tags.
+- **Content scripts**: All JS files in `content/` must be referenced as `content/filename.js` in HTML script tags. There is no auto-loading — add `<script src="content/yourfile.js"></script>` in the appropriate block near lines 18220–18322 of `ledger-of-ash.html` or the file will silently be ignored.
 - **Google Fonts**: Do NOT add Google Fonts `<link>` tags — they fail over `file://`. Use `var(--font-body)` or `var(--font-display)` CSS variables directly.
 - **Debug**: Use `console.log` / `console.error` only. Never `alert()` — it appears as an error dialog to the user.
 - **Font changes**: Always grep the TARGET element's class directly before editing. ID-selector font rules beat parent class rules. Fix the direct rule, not the parent.
@@ -188,6 +233,91 @@ Skills render in `updateHUD()` (~line 10862) AND `renderCharacterSheet()` (~line
 ## BACKLOG Verification Rule
 
 Do not mark a feature DONE based on code existence alone. A feature is DONE only when verified to produce correct player-facing output. Silent failures routinely pass code-existence checks.
+
+## Save / Load System
+
+Persistence is `localStorage` only. Key functions:
+
+```js
+saveGame(slotArg)          // serialize G to localStorage key ledger_save_<slot>
+loadGame(slotArg, legacyCode)  // restore G from slot; legacyCode for pre-session saves
+getSaveList()              // → [{key, name, level, archetype}]
+getSaveListFull()          // → [{key, name, level, archetype, location, stage}]
+```
+
+`G.schemaVersion` (currently 3) gates migration logic in `loadGame`. Do not change G property names or restructure `G.quests` without bumping schema and writing a migration.
+
+## Enriched Choice Object Schema
+
+```js
+{
+  label: 'Inner-voice phrasing, ≤15 words, no question marks',
+  fn: function() { /* executes on success */ },
+  failResult: function() { /* executes on failure; required for safe-tier choices */ },
+  tag: 'safe' | 'risky' | 'bold',   // explicit scalar overrides tag-array lookup
+  tags: ['tag1', 'tag2'],            // semantic tags; checked against SEMANTIC_BOLD/SAFE_TAGS
+  skill: 'might' | 'wits' | ...,    // which G.skills key to roll
+  roll: { dc: 13 },                  // override base DC
+  dc: 13,                            // alternate DC shorthand
+  xpReward: 15,                      // number; added on success
+  align: { type: 'morality', n: 1 }, // alignment effect
+  plot: 'main',                      // blue border; required on stage-advancement choices
+  cid: '__combat__enemyKey',         // routes to enterCombat via handleChoice
+  id: 'unique_choice_id',
+}
+```
+
+`adaptEnrichedChoice(c)` wraps `c.fn()` in try/catch — any missing G default or TypeError is **silently swallowed**. Always initialize G properties in the defaults object before reading them in content.
+
+## Key Engine Functions
+
+### Narrative output
+```js
+addNarration(label, html, resultType)
+// label: string header ('' for none); html: trusted HTML body; resultType: 'success'|'failure'|'neutral'|'complication'
+
+addJournal(text, category, dedupeKey)
+// ⚠ arg order: text FIRST, category SECOND. Reversed args silently log nothing.
+// Valid categories: 'evidence','intelligence','rumor','discovery','contact_made','complication','field_note'
+// NOT valid: 'investigation','fact','faction','quest' (those are DOM section IDs)
+
+addQuest(msg, hint, questId)
+// Pushes to G.quests array and G.questHints[questId]. Never restructure G.quests (breaks saves).
+```
+
+### Choice pipeline
+```js
+renderChoices(choices)       // choices → DOM buttons with click handlers
+handleChoice(choice)         // dispatch: combat CIDs → enterCombat, enriched → adaptEnrichedChoice
+adaptEnrichedChoice(c)       // try/catch wrapper; rolls DC; calls c.fn() or c.failResult()
+getChoiceTier(choice)        // returns 'safe'|'risky'|'bold' from tag or tags array
+getChoiceDC(choice, rivalMod) // base + stage bonus + rival mod − pendingDcReduce
+```
+
+### Rolls
+```js
+rollD20(skill, bonus)
+// Returns {roll, total, isCrit, isFumble}. Normalizes old skill keys via _KEY_NORM.
+// Stores metadata in G._lastRollInfo. Applies rival penalty, sleepless, campout, travel fatigue.
+
+getRivalDCMod(locId)  // → 0–3 DC penalty based on active rivals
+```
+
+### Arrival / stage flow
+```js
+resolveArrival(locId)
+// Entry point on location change. Loads narration, renders choices, calls checkStageAdvance().
+// Guard: if (G.dead) { confirmDeath(); return; }
+
+loadStageChoices(locId)  // re-render choices for current stage; gates companions, injects travel
+maybeStageAdvance()      // syncs G.investigationProgress → G.stageProgress[2], calls checkStageAdvance
+```
+
+### Content validators (run via npm run test:content)
+- **Choice label**: ≤15 words, no `?`, no infinitive verbs (`To `/ `Ask `/ `Check ` etc.)
+- **Result text**: 60–90 words (warn), ≤120 max (fail for non-high-stakes)
+- **Forbidden words in result text**: `investigation`, `meaningful`, `you feel`, `you realize`, `you sense`, `official`, `contact` (as person noun)
+- **Structure**: every `content/*.js` (except `REFERENCE_ONLY` whitelist) must have a `<script src>` tag in HTML; no `window.G` usage
 
 ---
 

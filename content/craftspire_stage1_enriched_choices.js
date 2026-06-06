@@ -26,7 +26,6 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         addJournal('Workshop master Jorin met: chemical input modifications documented — deliberate concentration changes across supply chain', 'contact_made', `craftspire-jorin-${G.dayCount}`);
       } else {
         G.lastResult = `Jorin is mid-run on a precision fabrication when you arrive — he holds up one finger without looking up from the calibration gauge. The workshop is loud with controlled heat and the metallic bite of flux. When the gauge settles he sets it down carefully and says break periods are at the second and sixth bell. "Come back then." He goes back to the bench. He noticed you come in, checked your hands, checked your boots, and went back to work. The analysis sheets on the bench behind him go back six months — they're in plain sight.`;
-        G.flags.located_jorin = true;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
