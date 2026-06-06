@@ -352,7 +352,9 @@ const SEMANTIC_SAFE_TAGS_A7 = new Set(['Investigation','NPC','Social','Lore','Ma
 
 function checkRuleA7(choice) {
   const isSafeScalar = choice.tag === 'safe';
-  const isSafeArray = !isSafeScalar && Array.isArray(choice.tags) &&
+  // Explicit risky/bold scalar overrides tag-array lookup — skip A7 entirely
+  const explicitNonSafe = choice.tag === 'risky' || choice.tag === 'bold';
+  const isSafeArray = !isSafeScalar && !explicitNonSafe && Array.isArray(choice.tags) &&
     choice.tags.some(function(t) { return SEMANTIC_SAFE_TAGS_A7.has(t); });
   if (!isSafeScalar && !isSafeArray) return null;
   if (!choice.failResult || (typeof choice.failResult !== 'function' && typeof choice.failResult !== 'string') ||
