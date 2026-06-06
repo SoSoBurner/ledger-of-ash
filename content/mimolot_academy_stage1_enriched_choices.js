@@ -47,10 +47,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The senior librarian straightens at your approach, pen still in hand. "Research inquiries require a formal access request submitted to the registry desk before the morning bell." He doesn't raise his voice. The archive hush does the work for him. His ledger closes. A desk clerk near the entrance has already noted your direction. The reading rooms on the upper floor are open to credentialed scholars — that endorsement is available through the faculty registry, one corridor over and one authorization form away.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 2. RESEARCH SCHOLAR: RESEARCH SUPPRESSION
@@ -89,10 +89,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The upper reading room requires a current research permit, and yours doesn't cover the materials relevant to institutional history. A clerk behind the desk says this without apology — the permit tiers are clearly posted, she adds, gesturing to a board beside the door. The scholars visible through the glass door keep working, unbothered. The research permit for restricted subject areas is issued by the scholarly council on the first and third day of each week. That queue starts before the morning bell.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 3. ARCHIVE GUARDIAN: SEALED SECTIONS EXPANDED
@@ -130,10 +130,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `Sevik stops you at the eastern stack boundary. The sealed section begins here, and visitor access to the sealed section requires a written petition to the chief archivist, reviewed on a five-day cycle. He points to a notice fixed to the end-cap of the last open shelf. The petition form is at the registry desk — two floors up, left off the main stair. The petition requires a faculty sponsor. Dalmir in the upper reading room has been here long enough to know which faculty would consider signing one.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 4. KNOWLEDGE ARCHIVIST: DOCUMENTATION BEING ALTERED
@@ -174,10 +174,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `Kensa returns the documents to their case before you finish. "Manuscript access is restricted to scholars with active collection review credentials." She doesn't look up from the latch. The current-edition records are available to any registered visitor in the open reading room — those are two floors below. The manuscript originals require a separate authorization form and a faculty endorsement. Maris in the student administration office handles the endorsement registry. She processes requests on alternating mornings.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 5. STUDENT ADMINISTRATOR: ENROLLMENT RESTRICTIONS
@@ -215,10 +215,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `Maris closes the ledger and folds her hands on top of it. "Student guidance records are not available to external visitors under the Academy's confidentiality charter." The summary registers — distribution by track and year — are publicly posted in the main hallway. Individual placement data is not. Enrollment guidance appointments are logged separately and require a formal data access request, which the faculty council reviews quarterly. The aggregate board is a start. The individual records come through a different door.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 6. RESTRICTION KEEPER: FORBIDDEN KNOWLEDGE CATALOGED
@@ -256,10 +256,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `Vorin puts his pen down without capping it — a deliberate pause. "Classification records are administrative documents. Visitor access requires standing authorization from a senior faculty member." The public-facing catalogue is available at the reference desk in the main reading room; it lists current material availability but not classification rationale. The classification criteria and assignment logs are held in the administrative registry. That registry is one floor up and requires a faculty endorsement to enter. The senior librarian Theron processes endorsement requests in the morning hours.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 7. CURATION MASTER: COLLECTION BIAS SYSTEMATIC
@@ -297,10 +297,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `Aldis retrieves the acquisition ledgers from the table in a single movement and returns them to the cabinet. "Acquisition policy is reviewed internally on a faculty council cycle. The public-facing summary registers are posted in the main reference hall." The summary registers show totals and track distribution — not the criteria that shaped them. The acquisition criteria documents, which would show who ordered what stopped, are held by the faculty council and aren't available without a formal research credential. The reference hall is two corridors back and open until the evening bell.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 8. VERIFICATION SCRIBE: TRUTH VERIFICATION COMPROMISED
@@ -338,10 +338,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The senior scribe sets her quill down and turns from the desk. "The verification process and the documents produced under it are internal records. External parties do not have access to certified document histories." Her voice carries the particular flatness of someone stating a policy they've stated many times. The scriptorium floor continues without pause behind her. The scribes who have been reassigned out of the verification hall are no longer bound by the same confidentiality structure — and they're not hard to find.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // ========== ARCHETYPE DEEP DIVES (8 CHOICES) ==========
@@ -381,10 +381,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The methodology section is available to registered visitors, but the standards appendix and revision history documents require a current scholarly research credential. The desk clerk explains this without looking up. Foundational charter documents and annual faculty council minutes are in the open reading room — available to anyone, organized by year. The revision history that would show what changed and when is one authorization tier up. A faculty endorsement from a sitting council member clears that threshold.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 10. ARCANA TIER 2: MAGICAL KNOWLEDGE SUPPRESSION
@@ -422,10 +422,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The arcane research section requires a current practitioner credential or a sponsored visitor permit for the materials classified beyond the general tier. The reading room clerk indicates the permit window — second floor, administrative hall, open on alternate mornings. The general catalogue is available without credentials and lists current holdings by subject area. The catalogue gaps are readable from there even if the restricted contents are not. That is a place to start.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 11. INVESTIGATION TIER 1: INQUIRY PATTERNS MONITORED
@@ -463,10 +463,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The administrative access logs are held by the registrar's office and are not available to external visitors without a faculty standing request on file. The desk clerk in the registrar's anteroom explains the procedure: the request form takes three days to process, and it requires a faculty sponsor. The public-facing reading room logs — which show document request totals by subject area but not individual names — are available without restriction in the main library hall. That aggregate view doesn't name anyone. It maps the pattern.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 12. INSIGHT TIER 2: INTELLECTUAL AUTONOMY ERODED
@@ -504,10 +504,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `An afternoon in the reading halls doesn't open anything that was shut. The scholars are working, the lamp oil is being used, the chalk boards are marked. None of it is legible from outside the relationships that give it meaning. What's present and what's been removed look identical to an unacquainted observer. The older scholars who've been here through curriculum changes have the comparative baseline — they know what used to be discussed that isn't now. One of them takes lunch alone at the far end of the refectory, most days, near the east window.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 13. PERCEPTION TIER 1: ADMINISTRATIVE HIERARCHY MAPPED
@@ -545,10 +545,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The administrative decision registry is not accessible through the general reading room. A clerk in the main hall confirms that administrative records — including any personnel decisions and access change orders — are held in the registry office and require a faculty endorsement to review. The founding charter and annual council minutes are in the public collection. Charter documents name the formal governance structure. What the structure has actually been doing requires the registry. The charter is a start, and it's available without credentials.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 14. PERCEPTION TIER 2: EXTERNAL CONTROL COORDINATION
@@ -586,10 +586,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The sealed correspondence wing is locked, and the register visible through the window is not one available to external visitors. The administrative duty clerk explains that sealed correspondence records require a senior faculty authorization to access and are reviewed only through formal petition. The public-facing external correspondence log — showing institutional exchanges but not their content — is available in the main reading room. That log names the channels and their categories. What's in the sealed channel is a different question, and it has a different door.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // ========== GOSSIP & TENSION LAYERS (4 CHOICES) ==========
@@ -617,10 +617,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The lower reading room is nearly empty and nobody is inclined to speak. The scholars who remain after hours have chosen the specific privacy of late work, and an unfamiliar presence circling their tables doesn't invite conversation. Fragments travel through the Academy in the spaces between formal hours — the queue outside the registry desk in the morning, the corridor between the refectory and the side stairs at midday. Different time, different approach. The talk moves when the right people are moving with it.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 16. INSTITUTIONAL CRACK: PROOF OF KNOWLEDGE CONSPIRACY
@@ -660,10 +660,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The documents spread across the table are each individually sourced from public-accessible records, and each individually inconclusive. Without the connective documents — implementation dates, authorization signatures, cross-system correspondence — the pattern stays ambiguous enough to be dismissed. The evidence exists. The structure needed to make it indisputable is in the administrative vault and the sealed correspondence wing. Those are open problems, not closed ones. The pieces already gathered will hold.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 17. MORAL PRESSURE: COMPLICITY OR RESISTANCE CHOICE
@@ -700,10 +700,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The confrontation lands wrong — the NPC withdraws before anything is established. Institutional complicity doesn't open under direct pressure; it requires time and the specific kind of trust built through smaller exchanges first. The name is noted. The willingness to talk is not gone, only deferred. A different approach — starting with what they know rather than what they've done — leaves the door open. They're still here, and the administration hasn't moved them yet.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 18. DISCOVERY MOMENT: WRONGNESS CONFIRMED AND ORIGIN REVEALED
@@ -742,10 +742,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The administrative vault is not accessible today. The corridor leading to it has two people in it who were not there this morning and who watch the approach without moving. The evidence already gathered remains intact. The vault is one location, not the only one. The Memory Hall's off-catalogue section holds formal council requests to reclassify research — implementation dates and authorization names, organized by year. That section requires a senior faculty endorsement, not a confrontation. That is still an open path.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 19. SECOND-ORDER EVIDENCE: PATTERN RECOGNITION ACROSS SYSTEMS
@@ -783,10 +783,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The threads are present but the connections between them aren't closing. Each system failure is documented but independent — the pattern is visible in shape, not in cause. What's missing is the implementation record: when the external authorization began arriving, which administrator received it first, what the initial directive said. The Memory Hall's off-catalogue section holds formal reclassification requests with dates and signatories. That is the connective tissue, and it has a door that can still be opened.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 20. FINAL CONFRONTATION: UNDERSTANDING THE WRONGNESS
@@ -824,10 +824,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       maybeStageAdvance();
     },
-    failResult: {
-      text: `The evidence threads don't yet converge into a single coherent account. Restriction, revision, verification pressure, enrollment steering — each documented, none yet linked to a common authorization source. The shape of the operation is visible. Its full architecture requires one more layer: the implementation dates and authorization signatures that place all four systems under the same directing hand. The administrative vault and the Memory Hall off-catalogue section both hold that layer. Neither is closed permanently.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // ========== EXPANSION CHOICES ==========
@@ -858,10 +858,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
-    failResult: {
-      text: `The Restricted Holdings alcove requires a current research credential for materials under classification review. The desk clerk confirms this while pointing to the posted access tiers near the entrance. The movement log for the alcove is visible from the desk: recent transfers are documented by call number and receiving office. That log is public-facing. The documents themselves are gone, but the paper trail of where they went is still open to any visitor. A call number cross-referenced against the administrative transfer registry shows which office is holding them.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 22. CLUE: MEMORY HALL SUPPRESSED DOCUMENTS
@@ -892,10 +892,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
-    failResult: {
-      text: `The Memory Hall corridor requires a senior faculty endorsement before the door opens, and the endorsement isn't in place. A faculty member intercepts the approach before the reading room comes into view and escorts the way back toward the main library floor with practiced courtesy. The off-catalogue section's location is confirmed: two left turns from the main hall. The endorsement is the obstacle. Warden Order liaison Brevard Ashe has been present at the Academy long enough to know which faculty members would consider signing one.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 23. ARCHETYPE-GATED: READING THE ACADEMY
@@ -920,10 +920,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       addJournal('Academy lecture: knowledge suppression active — auditors present, curriculum has structural gaps, instructors self-censoring', 'evidence', `mimolot-lecture-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
-    failResult: {
-      text: `The open lecture fills its scheduled hour without yielding anything not already in the posted syllabus. The room is present, attentive, unrevealing. Lectures are performances of the permitted curriculum — the gaps aren't visible until there's a prior version to compare against. Student Tavin has a pre-revision edition from a used book stall outside the Academy walls. That comparison is available outside the institution's walls, without its walls listening. He goes to the stall regularly.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 24. FACTION SEED: WARDEN ORDER ACADEMIC LIASON
@@ -950,10 +950,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
-    failResult: {
-      text: `Brevard Ashe closes his volume and directs the conversation toward the formal appointment procedure before anything substantive is reached. He keeps one finger between the pages the entire time — a man intending to return. The Warden Order's liaison function is not available without paperwork on file. His presence at the annexe is established. The administrative registry desk handles appointment submissions between the first and second bells of the morning. A known name attached to the request — Archivist Doss's, for instance — would shorten the procedural distance considerably.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 25. ATMOSPHERE: THE SCRIPTORIUM STEPS AT NIGHT
@@ -961,6 +961,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     label: "The Scriptorium Steps at dusk. Worth watching who comes and goes when the Academy closes.",
     tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'observing Academy after hours');
@@ -976,6 +980,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     label: "Three faculty members are on academic leave. None of them left willingly.",
     tags: ['PersonalArc', 'NPC', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'meeting suppressed faculty member');
@@ -1013,10 +1021,10 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     },
-    failResult: {
-      text: `Tavin doesn't stop walking. The current academic climate has trained students to close down unfamiliar conversations quickly, and he's had enough practice that the closing happens before a sentence is finished. He still goes to the used book stall outside the Academy walls — the one where he found his pre-revision edition. That's a different setting, without the Academy's corridors and its particular quality of being watched. The stall is open in the morning hours, before the first lecture bell.`,
-      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
-    }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // 28. SHADOW RIVAL INTRO
@@ -1089,7 +1097,10 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The guard reads your approach and positions himself in front of the sealed section entrance before you reach it. He is polite and absolute. The access authorization request procedure is posted beside the entrance; the backlog of pending requests visible in the window will show how many others have been trying.' }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   {
@@ -1105,7 +1116,10 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The escort is currently in progress — mid-morning is when the reassignment walk happens. The scholars being escorted will be at their cataloging stations in twenty minutes and will be accessible for conversation once the escort has left.' }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // MAGIC ×2 — sealed section arcane locks
@@ -1138,7 +1152,10 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The reading room is occupied and the ward\'s signature is faint enough that detecting it requires sustained attention that would be noticed by the scholars present. The late evening session, after most scholars have left, will have fewer observers and more time for the kind of focused arcane examination that would confirm the ward\'s presence.' }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // STEALTH ×2 — reading room surveillance gaps
@@ -1155,7 +1172,10 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The librarian is still in the anteroom — the lunch interval starts at the mid-bell, which is twelve minutes away. The refectory schedule is posted in the main hall; the interval will be precisely as long as the schedule indicates.' }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   {
@@ -1171,7 +1191,10 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The scholar is at her cataloging station now and cannot discuss her after-hours access without risking the administrative oversight being corrected. The after-hours reading room log — maintained separately from the standard access log — records entry by card number without name; her card number will appear in the after-hours entries.' }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   // SUPPORT ×2 — scholar reassignment social pressure
@@ -1188,7 +1211,10 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The scholars currently in the reading room are managing their visibility carefully and a direct question about citation practices reads as an administrative probe. The research publication board in the main hall posts all current submitted papers with their citation counts; the comparison between recent and earlier papers will show the collapse numerically.' }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   },
 
   {
@@ -1204,7 +1230,10 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'Daves Oril is at his usual solo table and will give the administration line clearly if asked directly about his statement. His former cohort members are accessible elsewhere in the reading room and have more complex accounts of what his endorsement meant for the research network.' }
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
   }
 
 );
