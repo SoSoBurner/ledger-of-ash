@@ -9,6 +9,7 @@
 var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   {
+    plot: 'main',
     label: "Relic Wing requisitions under 'northern defense assessment' match suppression compound precursor profiles.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
@@ -43,6 +44,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Mordoth approved the distribution contracts. The evidence exists now. He may be willing to negotiate.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Consequence', 'Meaningful'],
@@ -77,6 +79,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The staging location used Soreheim military transport passes. Vorgul commands the logistics chain.",
     skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
@@ -109,6 +112,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Cron is privately alarmed. Not part of the conspiracy, but he suspects his council colleagues.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
@@ -141,6 +145,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Northern Ambition bloc's expansion projects depend on glyph disruption keeping rivals destabilized.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
@@ -173,6 +178,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The forge manifest allotment numbers don't match the war-production quota ledger.",
     skill: 'wits',
     tags: ['stage2', 'soreheim_proper'],
@@ -194,6 +200,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The porter moved those crates. He remembers the seal on the transfer order.",
     skill: 'charm',
     tags: ['stage2', 'soreheim_proper'],
@@ -214,6 +221,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A Relic Wing clerk attended a merit ceremony in a councillor's slot.",
     skill: 'finesse',
     tags: ['stage2', 'soreheim_proper'],
@@ -234,6 +242,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The tower scribe's permit ledger logs two transit seals for the same night.",
     skill: 'wits',
     tags: ['stage2', 'soreheim_proper', 'paperwork'],
@@ -256,6 +265,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Three consecutive buyer permits voided without cause via override.",
     skill: 'wits',
     tags: ['stage2', 'soreheim_proper', 'trade_records'],
@@ -277,6 +287,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Two guild authority stamps on the same export manifest.",
     skill: 'spirit',
     tags: ['stage2', 'soreheim_proper', 'guild_authority'],
@@ -317,6 +328,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Compound shipments moving under a Giant Council exemption code that expired two seasons ago.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
@@ -350,6 +362,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A junior Wing clerk wrote down what Decon entered. She kept the note.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
@@ -381,6 +394,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A Wing courier leaves the third tower every fourth night. No assignment covers the route.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
@@ -413,6 +427,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The forge ring runs cold one night a week. A crew shows up anyway.",
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
@@ -444,6 +459,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Residue on the staging sleds matches a compound profile never authorized for export.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
@@ -475,6 +491,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The wage records for off-books laborers show the same sealed-charter reference Roth's budget used.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
@@ -506,6 +523,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Extra routes when Decon is absent. The destinations don't match any posted address.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
@@ -537,6 +555,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The blueprint vault floor plan doesn't match the structure visible from the north bridge.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
@@ -568,6 +587,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Some passes move through the curfew line without being logged.",
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
@@ -599,6 +619,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The forge cavity crate marks don't match any Soreheim stamp.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
@@ -630,6 +651,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A retired Wing officer designed the override protocols. He left without explanation.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
@@ -661,6 +683,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A hidden addendum quietly legalized what the operation needed.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
@@ -692,6 +715,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A sealed dispatch rider leaves every third morning on a route that avoids the checkpoints.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
@@ -754,6 +778,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   // ── NEW SP2 CHOICES — direct stageProgress increment ──
 
   {
+    plot: 'main',
     label: "The Hammer Company extraction quota sheet shows a different ceiling than the Iron Accord copy.",
     skill: 'wits',
     tags: ['Stage2', 'Records', 'Evidence'],
@@ -781,6 +806,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Decommodification prohibition records list exactly the goods currently moving under the Wing seal.",
     skill: 'spirit',
     tags: ['Stage2', 'Records', 'Evidence'],
@@ -807,6 +833,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Iron Accord arbitration records show three disputes involving the same shipment reference, all dismissed.",
     skill: 'charm',
     tags: ['Stage2', 'Records', 'Evidence'],
@@ -875,6 +902,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
   // BEAT 3 — Payoff
   {
+    plot: 'main',
     label: "Station 42 log is the piece Ruven needs — and it's still in the archive.",
     skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
@@ -902,6 +930,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
 
 
   {
+    plot: 'main',
     label: 'A union procedural filing with a non-union authority hold on it',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
@@ -918,6 +947,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: 'The merchant factor calls it market variance. He\'s wrong and he knows it',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
@@ -934,6 +964,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: 'Pre-Decommodification pressure records follow the same shape as now',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
@@ -969,6 +1000,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   // ── NEW SP2-ADVANCING CHOICES ──────────────────────────────────────
 
   {
+    plot: 'main',
     label: "Lyria's allocation tallies for the northern ward run two weeks behind every other district.",
     skill: 'charm',
     tags: ['Investigation', 'Stage2', 'NPC'],
@@ -1002,6 +1034,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Ironroot Crossing manifest records show a crew rotation that never happened.",
     skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Survival'],
@@ -1035,6 +1068,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Eryndor's contribution ranking dropped the same week the forge cavity load was delivered.",
     skill: 'charm',
     tags: ['Investigation', 'Stage2', 'NPC'],
@@ -1068,6 +1102,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Miners Assembly posted a grievance that vanished from the board within hours.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
