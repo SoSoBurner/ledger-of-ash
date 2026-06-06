@@ -22,6 +22,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Check the repair coordinator\'s work order queue instead.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -67,6 +71,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Check the registry hall public index for the observation records.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -110,6 +118,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Read the weekly supply summary posted in the commons.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -155,6 +167,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Read the open work order summary in the corridor.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -198,6 +214,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Review the publicly posted celestial readings in the archive index.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -243,6 +263,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Review the contamination event logs in the outer reading area.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -287,6 +311,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Read the relay routing summary posted in the corridor.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -330,6 +358,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Read the publicly posted emergency protocol revision on the registry board.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -377,6 +409,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Review the open maintenance log summary in the registry hall.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -419,6 +455,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Find the filtration installation records in the open archive.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -463,6 +503,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Read the posted supply figures at the grain stores.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -505,6 +549,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Read the recent directives posted on the commons decision board.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -549,6 +597,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Find a quieter vantage point to observe the commune\'s social fabric.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -591,6 +643,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Review the administrative decision log in the registry hall.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -637,6 +693,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Wait for the midday commons gathering to listen for what moves.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -667,6 +727,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Access the documents through the registry hall public index.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -715,6 +779,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Find someone in the maintenance division who works alongside the source.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -756,6 +824,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Find the external correspondence log in the registry hall.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -800,6 +872,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Review the system status timeline on the registry hall board.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -842,6 +918,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Walk the dome perimeter and let the pattern settle before returning to the records.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -886,6 +966,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Review the filtration specification in the open reference section while waiting.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'reading filtration system documentation');
@@ -919,6 +1003,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Walk the outer perimeter to observe the northeast quadrant face.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -954,6 +1042,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Observe the commons from the outer corridor windows instead.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading commune social fabric');
@@ -983,6 +1075,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Find the complaint reference in the registry hall external liaison log.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1016,6 +1112,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       effects: [],
       next: [{text: 'Find the founding marks in the commons tile while waiting for the anchor corridor to clear.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading founding memorial');
@@ -1031,6 +1131,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The filtration data needs to leave this archive before it disappears too.",
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'securing filtration evidence offsite');
@@ -1058,6 +1162,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       xp: 0,
       effects: [],
       next: [{text: 'Find the NE quadrant inspection report in the public registry hall.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1229,6 +1337,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       effects: [],
       next: [{text: 'Note the panel installation date from the lower stamp instead.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1270,6 +1382,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       xp: 0,
       effects: [],
       next: [{text: 'Record the interference boundary before the archive closes.', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1314,6 +1430,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       effects: [],
       next: [{text: 'Remap the patrol rotation before the next attempt.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1355,6 +1475,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       xp: 0,
       effects: [],
       next: [{text: 'Wait for the next shift rotation before trying again.', skill: 'finesse', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1399,6 +1523,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       effects: [],
       next: [{text: 'Wait for the shift handoff to create a natural opening.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1440,6 +1568,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       xp: 0,
       effects: [],
       next: [{text: 'File a scheduling inquiry through the coordinator\'s office instead.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1483,6 +1615,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     skill: 'might',
     archetypeGroup: 'combat',
     tags: ['Security', 'Perimeter', 'Observation'],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
       addNarration('', 'A second, inner patrol ring has been added to the commune\'s defense rotation — a perimeter that runs between the residential quarters and the dome maintenance access points. Inner perimeters are not designed against external threats. This one watches the maintenance corridors, the research annexes, and the relay room approaches. The commune is now defended against its own residents moving toward the dome\'s operational infrastructure. The inner ring was added quietly, without announcement, after the new appointments.');
@@ -1490,7 +1626,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The inner patrol is thorough and has been briefed on unscheduled visitors — the patrol leader redirects questions to the commune administrator. The maintenance rotation schedule posted outside the coordinator\'s office shows the patrol addition date against historical entries.' }
   },
 
   {
@@ -1499,6 +1634,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     skill: 'might',
     archetypeGroup: 'combat',
     tags: ['Security', 'Authority', 'Intrusion'],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
       addNarration('', 'Two of the recently appointed dome administration officers arrived with personal security personnel — guards not affiliated with the commune defense rotation and not authorized through the commune council. The commune security captain knows they are present and has no authority to remove them. Their presence normalizes a parallel security structure inside the commune that is not accountable to commune governance. The dome\'s internal security is now partially outside the commune\'s control.');
@@ -1506,7 +1645,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The unauthorized security personnel are professional and clear about their role: they are personal staff, not open to questions from commune residents or visitors. The commune security captain has filed a formal objection with the council; that filing is a public document.' }
   },
 
   // MAGIC ×2 — ceremonial energy shifts
@@ -1523,7 +1661,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The calibration panel is inside the restricted maintenance corridor. The dome\'s public-facing operational notice board in the main hall carries the current operational parameters alongside the safety standard; the gap will be visible there without entering the maintenance zone.' }
   },
 
   {
@@ -1539,7 +1676,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The ward connection panel is behind the relay room door, which is staffed. The registry feed status — connected or disconnected — is visible in the public operational summary posted in the corridor outside the relay room, updated daily per commune transparency protocol.' }
   },
 
   // STEALTH ×2 — observer blind spots
@@ -1549,6 +1685,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     skill: 'finesse',
     archetypeGroup: 'stealth',
     tags: ['Surveillance', 'Relay', 'Gap'],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
       addNarration('', 'The relay room\'s observation architecture has a dead zone in the northeast corner — a range not covered by any of the standard monitoring positions. The overnight operator has a habitual working position that places her in that corner during the third watch. Her break schedule is regular. Three times in the past week, the relay log shows a transmission window opening during her break — a window not initiated from the relay operator panel. Something is being transmitted through the blind spot on the overnight operator\'s schedule.');
@@ -1556,7 +1696,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The overnight operator is on shift and the relay room is staffed at normal capacity — the dead zone is occupied and the break pattern will not appear today. The relay log for the previous week is archived in the corridor log cabinet, which is accessible during daytime hours.' }
   },
 
   {
@@ -1565,6 +1704,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     skill: 'finesse',
     archetypeGroup: 'stealth',
     tags: ['Maintenance', 'Pattern', 'Bypass'],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
       addNarration('', 'The dome maintenance rotation skips Panel 7 in the northeastern maintenance corridor on every cycle — the inspection log shows the panel number present in adjacent entries but absent from the checklist record for seven consecutive cycles. Panel 7 covers the secondary channel junction. The skip is not random and it is not clerical; it is a systematic omission of the one panel that monitors the secondary transmission channel. Something at Panel 7 is not being checked because someone does not want it checked.');
@@ -1572,7 +1715,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The maintenance crew is mid-cycle and the northeast corridor is restricted during active maintenance. The public inspection log in the coordinator\'s office posts each completed checklist — the Panel 7 gap will appear in the record going back to the beginning of the omission pattern.' }
   },
 
   // SUPPORT ×2 — elder trust erosion
@@ -1582,6 +1724,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     skill: 'charm',
     archetypeGroup: 'support',
     tags: ['Social', 'Authority', 'Displacement'],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
       addNarration('', 'The elder council at Aurora Crown Commune has a formal consultative role in dome operational decisions — any change to calibration, relay function, or maintenance protocol requires a council advisory. In the past three months, the new administrative appointments have made four operational changes without advisory consultation. The council has filed objections; the objections are logged and unanswered. The consultative structure still exists on paper. It has been made inert in practice.');
@@ -1589,7 +1735,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The elder council meets in the morning at the community hall — the session is formal and the agenda is full, making a side conversation difficult. The objection filings are public documents held in the commune registry; the dates and subjects of the unanswered advisory requests are there in full.' }
   },
 
   {
@@ -1598,6 +1743,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     skill: 'charm',
     archetypeGroup: 'support',
     tags: ['Social', 'Retaliation', 'Pattern'],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
       addNarration('', 'Three dome technicians filed internal safety concerns about the calibration changes in the past two months. All three have been reassigned to external maintenance work — the perimeter grounds, the water management systems, any posting that removes them from dome access. The reassignments were framed as routine rotation. They were not. The pattern — concern filed, access removed — has been consistent enough that the remaining technicians inside the dome have stopped filing. Institutional silence was purchased with reassignment.');
@@ -1605,7 +1754,6 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
-    failResult: { text: 'The reassigned technicians are now outside the dome perimeter and available to speak, but two of the three have been advised by commune mediation staff not to discuss their reassignment with visitors. The third, Kess, filed her safety concern and her reassignment objection through the formal commune process — both documents are public record.' }
   }
 
 );
@@ -1627,6 +1775,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       xp: 0,
       effects: [],
       next: [{text: 'Find another approach before the patrol logs the seal.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1714,6 +1866,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       effects: [],
       next: [{text: 'The archive reading room has the notation reference.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1755,6 +1911,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       xp: 0,
       effects: [],
       next: [{text: 'The registry hall public index carries the same date range.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1799,6 +1959,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       effects: [],
       next: [{text: 'Find a different approach before the patrol logs the anomaly.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1841,6 +2005,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       xp: 0,
       effects: [],
       next: [{text: 'Withdraw before she decides the encounter needs to be logged.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1885,6 +2053,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       effects: [],
       next: [{text: 'Try the medical station — the route through there may yield more.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1926,6 +2098,10 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       xp: 0,
       effects: [],
       next: [{text: 'Leave the crews to it and find another approach.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    },
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);

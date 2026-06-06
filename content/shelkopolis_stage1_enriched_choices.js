@@ -503,6 +503,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Routes', 'Surveillance'],
     xpReward: 70,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -537,6 +541,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Intelligence', 'Networks'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -684,6 +692,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Evidence', 'Proof', 'Systematic', 'Exposure'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -796,6 +808,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "Letters, then supply shifts — two days apart, every time.",
     tags: ['Evidence', 'Stage1'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'cross-referencing coordination evidence');
@@ -1023,6 +1039,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "The sealed letter frequency has changed since you started asking questions.",
     tags: ['Stealth', 'Stage1'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'monitoring surveillance response');
@@ -1047,6 +1067,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "The second signature line is blank. Stamp and date are there. The name is not.",
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
     xpReward: 50,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading missing signatory on transit document');
@@ -1063,6 +1087,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "The authorization column is blank — not struck through, not initialed. Blank.",
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
     xpReward: 45,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(45, 'reading institutional gap in signatory column');
@@ -1078,6 +1106,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
+  failResult: function() {
+    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    loadStageChoices(G.location);
+  },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
@@ -1121,6 +1153,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "There's a room upstairs and a reason to stay another night.",
     tags: ['Inn', 'Rest', 'Social'],
     xpReward: 40,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1137,6 +1173,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     label: "The registry log runs clean for eight months, then skips three weeks without explanation.",
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
     xpReward: 50,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
