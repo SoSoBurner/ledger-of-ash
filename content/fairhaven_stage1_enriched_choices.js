@@ -1026,6 +1026,10 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Boats still come at the same hour. The dock records don't reflect it.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'observing Fairhaven dock rhythms');
