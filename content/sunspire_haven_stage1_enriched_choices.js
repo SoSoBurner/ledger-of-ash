@@ -646,6 +646,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Family', 'Gossip'],
     xpReward: 65,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -749,6 +753,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -786,6 +794,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The sealed container is heavier than its size. The interior lining isn't trade-grade.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'analyzing signal-damping container');
@@ -812,6 +824,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Filed route and actual route don't match. The detour avoided the only Warden checkpoint.",
     tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'mapping convoy route deviation');
@@ -833,6 +849,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The formal report describes a raid. The site tells a different story.",
     tags: ['Investigation', 'Archetype', 'Stage1'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reading disruption site');
@@ -857,6 +877,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The Warden post at the north gate. Either they know already, or they need to.",
     tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'making Warden Order contact');
@@ -883,6 +907,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Between the second and third signal light, a half-beat pause that isn't in the protocol.",
     tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 53,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(53, 'reading signal tower light pattern');
@@ -898,6 +926,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "The container gets catalogued and locked today. The craftmark needs recording before that happens.",
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 62,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(62, 'documenting container specifications');
@@ -921,6 +953,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "One guard survived the disruption. He's at the waystation infirmary, still lucid.",
     tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'interviewing convoy survivor');
