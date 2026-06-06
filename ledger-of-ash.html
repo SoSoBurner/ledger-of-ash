@@ -11507,8 +11507,14 @@ function adaptEnrichedChoice(c) {
         addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSkLabel + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
         _gateShown = true;
         if (_gFailed) {
-          var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : (c.failResult ? String(c.failResult) : ''));
           G.recentOutcomeType = 'complication';
+          if (typeof c.failResult === 'function') {
+            c.failResult();
+            if (typeof updateHUD === 'function') updateHUD();
+            if (typeof saveGame === 'function') saveGame();
+            return;
+          }
+          var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : '');
           addNarration('', _frTxt, 'complication');
           addJournal(_frTxt, 'complication');
           if (typeof updateHUD === 'function') updateHUD();
