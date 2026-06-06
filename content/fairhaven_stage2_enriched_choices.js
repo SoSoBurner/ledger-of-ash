@@ -13,6 +13,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'investigating glyph suppression contracts');
@@ -48,6 +52,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'reviewing celestial creature sighting records');
@@ -81,6 +89,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'examining Fairhaven market manifests');
@@ -113,6 +125,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'questioning Vaelis Sunweave innkeeper');
@@ -145,6 +161,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Survival', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'examining Watchers Perch glyph cave');
@@ -364,6 +384,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing Roadwarden checkpoint transit logs');
@@ -398,6 +422,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'confronting harbormistress Aldra Wennis on night clearance authorizations');
@@ -432,6 +460,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracking secondary approach to Watchers Perch cave');
@@ -466,6 +498,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing suppression compound supply chain to Shelkopolis origin');
@@ -568,6 +604,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'consulting Fairhaven physic on compound exposure cases');
@@ -601,6 +641,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'examining Cyfoes shrine visitor log held by attendant Brael');
@@ -635,6 +679,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing sealed-compartment crate commission with local cartwright Pell Orvast');
@@ -668,6 +716,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'pressing deputy harbormistress Sava on night clearance protocol authorship');
@@ -702,6 +754,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing Roadwarden commander Veth Olan personal notation ledger');
@@ -736,6 +792,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracking traveling factor Deen Ashwick across two Fairhaven charter stops');
@@ -770,6 +830,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'tracing lapsed guild certification inspector route for Fairhaven district');
@@ -947,6 +1011,10 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Fairhaven Stage 2 resolution');
