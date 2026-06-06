@@ -13,6 +13,10 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     label: "Sealed charter-period correspondence sits in Aurora Heights archive. The noble registry controls access.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'accessing Aurora Heights formal archive');
@@ -37,6 +41,10 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     label: "The high-society network holds off-record knowledge about the charter parties.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'working Aurora Heights social circuit for charter intelligence');
@@ -60,6 +68,10 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
     label: "The registrar's counter-mark is on a low ward eviction — wrong jurisdiction, same hand.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'tracing Aurora Heights registrar signature into low ward filings');
@@ -87,6 +99,10 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Workers who touched the container modifications end their shifts at the ward taverns.",
     tags: ['Investigation', 'Stealth', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'locating Ironspool Ward workers who handled container modifications');
@@ -111,6 +127,10 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "A ward fence has been moving suppression compound that leaked from the main supply chain.",
     tags: ['Stealth', 'Craft', 'Stage2'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing suppression compound street leakage in Ironspool Ward');
@@ -138,6 +158,10 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The pawn window tag has been rewritten four days running.",
     tags: ['RedHood', 'Stage2', 'Faction'],
     xpReward: 60,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'reading the pawn-window tag pattern');
@@ -153,6 +177,10 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Quote the listing code back at the counter and ask what the lamp actually costs.",
     tags: ['RedHood', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_red_hood_aware)) {
         G.lastResult = 'The pawn window is open, lamp oil and cobblestone damp carrying up from the lane outside, but there is nothing to act on with the broker yet. The cracked lamp sits in its place, its tag face-down. The listing code in the window changes by the day — acting on one you have not decoded yet would burn the approach entirely. Come back when the pattern has been read and the current code confirmed.';
@@ -173,6 +201,10 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The satchel on the confiscation shelf hasn't been signed out properly.",
     tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_red_hood_contacted)) {
         G.lastResult = 'Anneth Torv outlined a specific task at the last meeting — her register was Kerroun market, short sentences, numbers always in multiples of three. Until that task is complete, the next step in the arrangement is not open. The pawn window stays closed, the cracked lamp unsold, the tag rewritten daily for an audience that has not yet earned the meeting. The confiscation shelf will still be there. The question is whether it will still hold what Torv needs by the time the approach is ready.';
@@ -200,6 +232,10 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     label: "Botanical healers have been quietly documenting suppression compound exposure cases.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing Verdant Row healer exposure documentation');
@@ -225,6 +261,10 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     label: "Every allied healer and recorder here is connected. Waiting for something worth routing.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'building the Verdant Row network');
@@ -249,6 +289,10 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
     label: "A Reckoning Quarter magistrate has been taking depositions inside the healer's collective without local notice.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracking Reckoning Quarter magistrate into Verdant Row');
@@ -276,6 +320,10 @@ var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
     label: "The routing number theft is in the manifests right now. Catch it before it clears.",
     tags: ['Investigation', 'Craft', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'intercepting live manifest routing number theft at Granary Steps');
@@ -299,6 +347,10 @@ var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
     label: "The ward boundary markers here carry more than paint — something was written over.",
     tags: ['stage2', 'districts'],
     xpReward: 30,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'examining Granary Steps ward boundary markers');
@@ -321,6 +373,10 @@ var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound payments are filed as routine asset transfers in the financial records.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing suppression compound payments in Iron Ledger Ward records');
@@ -346,6 +402,10 @@ var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The Guild Arbiter processed that filing — she knows which claim date came first.",
     tags: ['stage2', 'districts'],
     xpReward: 30,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'pressing Guild Arbiter on Iron Ledger Ward claim dates');
@@ -368,6 +428,10 @@ var RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
     label: "A memorial service provider filed a fraud complaint, then withdrew it. Pressure was applied.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'pursuing withdrawn memorial fraud complaint in Reckoning Quarter');
@@ -392,6 +456,10 @@ var RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
     label: "The permit inspector patrols that corridor. One wrong word closes every door in the quarter.",
     tags: ['stage2', 'districts'],
     xpReward: 30,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(30, 'navigating Reckoning Quarter permit inspector social check');
@@ -415,6 +483,10 @@ var SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
     label: "Scriptorium Steps has a back-channel that bypasses Academy mail. The evidence needs that route.",
     tags: ['Craft', 'Lore', 'Stage2'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'routing findings through Scriptorium Steps back-channel');
@@ -439,6 +511,10 @@ var SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
     label: "Scriptorium correspondence to Glasswake scholars is being routed through the Iron Ledger Ward franking office.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining misrouted Scriptorium correspondence through Iron Ledger franking');
@@ -468,6 +544,10 @@ var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
     label: "Charter and contract files in the high quarter hall. The credentials may open the gate.",
     tags: ['Investigation', 'Lore', 'Stage2'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'requesting high quarter charter record access');
@@ -492,6 +572,10 @@ var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
     label: "The high quarter social circuit keeps its own record of charter activity.",
     tags: ['Persuasion', 'Stage2'],
     xpReward: 62,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(62, 'working high quarter social circuit for charter intelligence');
@@ -518,6 +602,10 @@ var COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
     label: "Market stall traders track every unusual shipment. They share freely.",
     tags: ['Survival', 'Stage2'],
     xpReward: 58,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'gathering market intelligence in common quarter');
@@ -541,6 +629,10 @@ var COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
     label: "Ward workers know which employers are running outside guild contracts.",
     tags: ['Persuasion', 'Craft', 'Stage2'],
     xpReward: 56,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(56, 'gathering off-contract employer intelligence from common quarter labor');
@@ -567,6 +659,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The low ward tracks contraband movement. Someone here knows the suppression compound edge.",
     tags: ['Stealth', 'Stage2'],
     xpReward: 60,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'tapping low ward informant network for compound distribution intel');
@@ -593,6 +689,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The patrol log skips three nights. The gap lines up with the container transfers.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing constable patrol log gaps with container transfer dates');
@@ -622,6 +722,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The bonded yard keeper's private ledger has a back column. Every irregular load. Unnamed.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'pressing the bonded yard keeper for off-books intake records');
@@ -651,6 +755,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The weight-check station keeps a shadow manifest for loads that bypass the standard inspector.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'locating shadow manifests at the eastern transit road weight station');
@@ -679,6 +787,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The evicted tenant kept her notice papers. She knows who served them.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'tracing dome terminal eviction to the displaced tenant');
@@ -707,6 +819,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The stamping tool was ordered from a copy house. The order slip survives.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing charter subsidiary stamp manufacture through Scriptorium bindery log');
@@ -735,6 +851,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Three entries in the intake ledger list the same routing code twice.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-checking dome terminal intake ledger for duplicate routing codes');
@@ -764,6 +884,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Junior Warden officers resent the patrol re-routing orders. No reason was ever given.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'working a rift in the Warden junior officer cohort over unexplained patrol orders');
@@ -794,6 +918,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The night archivist works alone. She has seen what gets filed and pulled before morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'approaching the civic hall night archivist for off-hours filing intelligence');
@@ -822,6 +950,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The ghost entity is accepting commodity receipts. It has no warehouse to hold them.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing ghost entity commodity receipts in Ithtananalor trading post ledger');
@@ -849,6 +981,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The apothecary delivery records and the treatment logs don't tell the same story.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'cross-referencing apothecary supply volumes against Verdant Row treatment logs');
@@ -877,6 +1013,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The route supervisor was removed after filing a discrepancy report. He kept a copy.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating the disgraced courier supervisor and his discrepancy report copy');
@@ -905,6 +1045,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The estate solicitor mentioned the charter holder family once. She didn't finish the sentence.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'pressing the Aurora Heights estate solicitor on her incomplete statement about the charter holder family');
@@ -932,6 +1076,10 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Workers who handled off-books cargo for extra pay know more than they told their handlers.",
     tags: ['Combat', 'Stealth', 'Stage2'],
     xpReward: 58,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'pressing low ward off-books cargo workers');
