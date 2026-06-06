@@ -12,6 +12,10 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     label: "The Aurora Heights notice board carries formal announcements. Worth reading.",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -84,6 +88,10 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     label: "A sealed letter, carried out quickly. The posture says the contents matter.",
     tags: ['District', 'Stealth', 'Investigation'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -106,6 +114,10 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     label: "Dome sector 4 connects to sectors 2, 5, and 7 through shared vents.",
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 60,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -289,6 +301,10 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
     label: "The Verdant Row garden is where the district's real conversations happen.",
     tags: ['District', 'Survival', 'Atmosphere'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -307,6 +323,10 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
     label: "The Granary Steps distribution floor at morning intake. Where Harvest Circle's chain ends.",
     tags: ['District', 'Survival', 'Investigation'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -359,6 +379,10 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
     label: "Study the charter mark on the supplement containers in the Granary Steps storage bay.",
     tags: ['District', 'Lore', 'Craft'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -533,6 +557,10 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
     label: "The administrative review office is where frozen cases go. Collegium credentials walk out regularly.",
     tags: ['District', 'Stealth', 'Investigation'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -787,6 +815,10 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
     label: "The Common Quarter community board has warnings posted between the ordinary notices.",
     tags: ['District', 'Survival', 'Atmosphere'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -830,6 +862,10 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     label: "The enforcement contractor's patrol schedule has a gap. Find it before someone else does.",
     tags: ['District', 'Stealth', 'Survival'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -888,6 +924,10 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
+  failResult: function() {
+    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    loadStageChoices(G.location);
+  },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
