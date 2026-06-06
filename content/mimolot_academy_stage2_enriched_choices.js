@@ -13,6 +13,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Stage2'],
     xpReward: 82,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'accessing restricted Academy curriculum');
@@ -48,6 +52,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reviewing Archive Loading Bay delivery records');
@@ -80,6 +88,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining Academy knowledge tariff bypass records');
@@ -113,6 +125,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'questioning Academy innkeeper about scholar guests');
@@ -145,6 +161,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reviewing Memory Hall Shrine historical inscriptions');
@@ -281,6 +301,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'pressing Hoven Draske on night-dock off-manifest transfers');
@@ -315,6 +339,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'drawing out Pellin Ost on suspended anomaly reporting');
@@ -348,6 +376,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing Draith Calver Fairhaven courier off-schedule Academy stop');
@@ -382,6 +414,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing phantom citation network in glyph resonance theory archive');
@@ -416,6 +452,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'decoding non-standard reagent weighing notation in storage manifest');
@@ -449,6 +489,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing study room access log against charter exemption handwriting');
@@ -483,6 +527,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing glyph resonance student stipend disbursement halt');
@@ -516,6 +564,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'correlating observatory glyph sensor spike with off-manifest Fairhaven delivery');
@@ -550,6 +602,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'verifying visiting lecturer Collegium credential against registry');
@@ -584,6 +640,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'questioning grounds crew lead Torva Seld about unlogged east tunnel maintenance');
@@ -617,6 +677,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'tracing sudden mid-term emeritus office vacancy');
@@ -651,6 +715,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tailing student group departing seminars to off-dormitory destination');
@@ -685,6 +753,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'conducting materials analysis on external charter document authenticity');
@@ -717,6 +789,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 108,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Mimolot Academy Stage 2 resolution');
@@ -749,6 +825,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Collegium', 'Stage2', 'Evidence'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'Mimolot Collegium academic correspondence');
@@ -780,6 +860,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Collegium', 'Stage2', 'Intelligence'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'Mimolot Collegium scholar evasion');
@@ -859,6 +943,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Arcane'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'tracing practitioner network cited in Academy glyph damping theory');
@@ -916,6 +1004,10 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion', 'Faction'],
     xpReward: 95,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};

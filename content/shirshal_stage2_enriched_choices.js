@@ -40,6 +40,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Tazren's case file touches every thread I've followed. He's been at this longer.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 84,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'cross-referencing with Bureau investigator Tazren Coilspire');
@@ -74,6 +78,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Three glyph case evidence packages marked delivered. None logged at destination.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'tracing missing evidence transfers with Luneth Coilspire');
@@ -105,6 +113,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Suppression compound precursors flowing through Shirshal under false material classifications.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining arcane material import classifications');
@@ -137,6 +149,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "She's watched Bureau patterns for years. She knows who doesn't belong on the roster.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'questioning Mirae Coilspire about Bureau personnel patterns');
@@ -169,6 +185,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "A cluster of glyph-locality petitions dismissed simultaneously under a single ruling. Three months ago.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reviewing Compliance Shrine petition dismissal records');
@@ -325,6 +345,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "A northern staging courier. Sealed packet to the same unlisted sub-registry Luneth mapped.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'intercepting northern courier packet');
@@ -358,6 +382,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "A woman from Panim Haven arrived with testimony. Not seen inside since the first morning.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating Panim Haven witness');
@@ -391,6 +419,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The sub-registry code is in the Bureau's own charter. Embedded years before it was used.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'tracing Collegium sub-registry in Bureau charter amendments');
@@ -424,6 +456,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Two of Tazren's supervisors in the building today. One signed the original case closure order.",
     tags: ['Stage2', 'NPC'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'confronting Bureau supervisors who closed Tazren case');
@@ -458,6 +494,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The transit post kept a field rotation log. The Collegium never asked them to stop.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing Collegium field rotation log at transit post');
@@ -491,6 +531,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "A retired archivist near the compliance shrine. She left under circumstances the record doesn't describe.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'speaking with retired Bureau archivist');
@@ -524,6 +568,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The north road at the hour Mirae named. The ten-day cycle leaves from here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'surveillance on north road departure — ten-day cycle contact');
@@ -557,6 +605,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The residue on the calibration stone is a compound, not sediment. Specific formulation.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'analyzing residue on misaligned warding stone');
@@ -590,6 +642,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The surge reports and dismissal dates don't match the filed account.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-referencing glyph surge incident dates against petition dismissals');
@@ -623,6 +679,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The Verdant Row network tracks which localities received the suppressed materials.",
     tags: ['Stage2', 'NPC'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'contacting Verdant Row network on material distribution');
@@ -656,6 +716,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The override code appeared in a second Bureau branch three months before here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing override code appearance in a second Bureau branch');
@@ -689,6 +753,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The hidden transcripts name three surge witnesses. One is still in Shirshal.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'locating glyph surge witness named in Ravel hidden transcripts');
@@ -726,6 +794,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The archivist's index uses three notation systems. The third one appears nowhere in the key.",
     tags: ['Archive', 'Stage2'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'tracing notation discrepancies in archive index');
@@ -757,6 +829,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Three filing slots in the restricted section show evidence of re-ordering within the past month.",
     tags: ['Archive', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining recent re-ordering of restricted archive section');
@@ -787,6 +863,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Northern transit depot logs show a standing gap — same three-week window, annually.",
     tags: ['Archive', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'auditing northern transit depot receipt logs for annual gap pattern');
@@ -818,6 +898,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The Fairhaven staging ledger has a Shirshal bureau notation that Fairhaven never authorized.",
     tags: ['Archive', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing Fairhaven staging ledger against Shirshal bureau records');
@@ -848,6 +932,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The archive's material transfer log skips four entries without an annotation. Ink date matches.",
     tags: ['Archive', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'examining material transfer log for skipped entries');
@@ -878,6 +966,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Northern route compliance cert is signed by an officer who retired two years ago.",
     tags: ['Archive', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'verifying certification signatory against personnel records');
@@ -909,6 +1001,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The sealed-section catalog shows forty-three files. The shelf holds forty.",
     tags: ['Archive', 'Stage2'],
     xpReward: 73,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'counting sealed archive section against catalog');
@@ -939,6 +1035,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Water-damage noted on the file box. Inside: pristine files, not a warped edge.",
     tags: ['Archive', 'Stage2'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining water-damage misfiled box in archive wing');
@@ -971,6 +1071,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Luneth signs for packages he wasn't told the contents of — keeping a private tally.",
     tags: ['NPC', 'Stage2'],
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'reviewing Luneth Coilspire private package tally');
@@ -1004,6 +1108,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Khalis ran the same import category through three classification requests. All three came back identical.",
     tags: ['NPC', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'reviewing Khalis Coilspire duplicate classification requests');
@@ -1037,6 +1145,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Sivren's shrine records a dedication rite that no charter recognizes. Performed on petition dismissal day.",
     tags: ['NPC', 'Stage2'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining Sivren Coilspire shrine rite record against petition calendar');
@@ -1070,6 +1182,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Mirae knows which guests never signed the visitors' book. She tracked them separately.",
     tags: ['NPC', 'Stage2'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'reviewing Mirae Coilspire private guest record');
@@ -1103,6 +1219,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Tazren drew a network map before the case closed. It's still in his drawer.",
     tags: ['NPC', 'Stage2'],
     xpReward: 85,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'accessing Tazren Coilspire suppression network map');
@@ -1137,6 +1257,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The porter rotation excluded Luneth from the restricted wing. He noticed the week it happened.",
     tags: ['NPC', 'Stage2'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'speaking with Luneth about restricted wing rotation change');
@@ -1169,6 +1293,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Mirae's spare room is always reserved for the same party. No name. Standing block.",
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining Mirae Coilspire standing reservation block');
@@ -1643,6 +1771,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Coordinated evidence management confirmed. Bureau director or route around it — both paths are open.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 110,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(110, 'Shirshal Stage 2 resolution');
@@ -1675,6 +1807,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       var result = rollD20('spirit', {dc: 13, locality: 'shirshal', label: 'Document dating analysis'});
       if (result.isCrit) {
@@ -1720,6 +1856,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     skill: 'charm',
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       var result = rollD20('charm', {dc: 13, locality: 'shirshal', label: 'Auditor rapport'});
       if (result.isCrit) {

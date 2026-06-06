@@ -471,6 +471,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'accessing innkeeper log');
@@ -499,6 +503,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Lore', 'Environment', 'Stage2'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'analyzing glyph surge residue');
@@ -553,6 +561,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Investigation', 'Advanced', 'Stage2', 'Consequence'],
     xpReward: 95,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(95, 'tracing to operation authorization');
@@ -658,6 +670,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracking the Panim mediator courier');
@@ -689,6 +705,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Investigation', 'Stealth'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'surveilling Roadwarden aide Forren Dass at the south dock');
@@ -719,6 +739,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating the unpublished Director of Civic Charter Integrity office');
@@ -749,6 +773,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating suppressed docket complainants still in Shelkopolis');
@@ -778,6 +806,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'Faction', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'assessing the charter amendment ratification deadline');
@@ -810,6 +842,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     tags: ['Stage2', 'Investigation', 'Craft'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the glyph surge channel through the maintenance node');
@@ -841,6 +877,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the dead-proxy shell subsidiary authorization chain');
@@ -871,6 +911,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the Ironspool factor Panim transfer record');
@@ -900,6 +944,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent'],
     xpReward: 120,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(120, 'Stage 2 investigation resolution');
@@ -950,6 +998,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_shadowhands_aware)) {
         G.lastResult = 'The chalk mark is still drying on the wall by the dye-quarter alley. The Ironspool district carries its smell of coal smoke and old tanning vats. Nothing to act on with this connection yet — the mark is a signal, and a signal before its time is just a mark on a wall. Return after the curl sets and the message has had time to find its intended reader. Acting now means arriving before trust is possible.';
@@ -1000,6 +1052,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Survival'],
     xpReward: 88,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'reading crane load logs at Titan Tower south dock against Ironspool intake weight slips');
@@ -1032,6 +1088,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading the Oversight Collegium arbiter docket');
@@ -1064,6 +1124,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'approaching Inquisitor Orveth at the Stoat and Wax');
@@ -1095,6 +1159,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'pressing the Ironspool night foreman for intake bypass detail');
@@ -1124,6 +1192,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Stage2', 'Investigation', 'Faction'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the Collegium charter amendment signature chain');
@@ -1154,6 +1226,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating Inquisitor Orveth\'s sealed fourth-case notes');
@@ -1184,6 +1260,10 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 84,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'Elowen pressure reveal');
