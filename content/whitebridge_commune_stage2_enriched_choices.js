@@ -11,6 +11,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A twelve-day crossing pattern matching the northern courier schedule Vaelis identified in Fairhaven.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-referencing bridge crossing patterns with Cadrin Crownmere');
@@ -41,6 +45,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Cargo transfers on the bridge after midnight. Not logged in any crossing record.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'gathering night-transfer witness account from Aster Starice');
@@ -70,6 +78,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A farmer's cargo claim includes a description of an unusual container found on the bridge.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing unusual container claim with Arbiter Nyra Thawmark');
@@ -98,6 +110,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Sealed non-agricultural containers using grain convoy exemptions to cross without inspection.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'examining grain exemption misuse with Thora Snowveil');
@@ -254,6 +270,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The shelter hall's evening story circle named an expedition that never returned",
     tags: ['stage2', 'whitebridge_commune', 'NPC', 'Persuasion', 'Meaningful'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing the missing expedition through story circle');
@@ -280,6 +300,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The arbitration docket skipped a seat — an arbiter chair sits empty undeclared",
     tags: ['stage2', 'whitebridge_commune', 'Lore', 'Meaningful'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'reading the skipped arbiter seat');
@@ -333,6 +357,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The founding charter exemptions look nothing like what they have become.",
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reading the founding transit charter exemption clauses');
@@ -364,6 +392,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Thora filed discrepancy reports. Someone told her to stop. That person has a name.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'pressing Thora Snowveil on who suppressed the discrepancy filings');
@@ -394,6 +426,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The twelve-day courier never varies his route. He varies his company at the midspan.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tailing the recurring courier on the 12-day transit pattern');
@@ -424,6 +460,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Cold enough no one expects a watcher at the twelve-day window.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(2); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'overnight stakeout on the bridge in winter cold');
@@ -453,6 +493,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The apothecary examined Nyra's vials. His notes went somewhere they weren't supposed to go.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the apothecary compound analysis through commune records');
@@ -483,6 +527,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The diplomatic exemptions left a gap in the tithe ledger. No one filled it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing diplomatic exemption credit gap in commune tithe ledger');
@@ -514,6 +562,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The brazier keeper doesn't sleep through the nights Aster avoids.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'interviewing the east-pier brazier keeper about overnight bridge activity');
@@ -544,6 +596,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A surveyor back from the ice shelf crossed during one of the flagged windows.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'speaking with the returning ice-shelf surveyor about her bridge crossing');
@@ -574,6 +630,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The shelter-hall bath-house is where haulers talk when the Compacts is not listening.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'gathering hauler intelligence from bath-house conversations');
@@ -604,6 +664,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "One warden signed every priority crossing clearance in the gate-book.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reading the pattern of priority crossing signatures in the gate-book');
@@ -635,6 +699,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The shelter keeper pulled a council notice within hours — she remembers what it said.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the rapidly removed council notice through the shelter keeper');
@@ -664,6 +732,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The newest relief crates are heavier than the manifest allows and sealed differently.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'examining the winter relief supply storeroom for compound containers');
@@ -695,6 +767,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The mending circle knows the midspan load pattern better than anyone.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'speaking with the bridge mending circle about load anomalies in rope gear');
@@ -725,6 +801,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Nyra's samples and Aster's log are enough. The crossing can be closed or documented.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 104,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(104, 'Whitebridge Commune Stage 2 resolution');
@@ -755,6 +835,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'A toll category stopped appearing in the records',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'toll category disappearance');
@@ -770,6 +854,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The bridge keeper answers carefully. She keeps the commune connected',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'bridge keeper agenda');
@@ -784,6 +872,10 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The flood log does not match the weather records for that period',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'flood log mismatch');
