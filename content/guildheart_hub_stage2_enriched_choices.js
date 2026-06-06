@@ -12,6 +12,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The sealed charter pattern appears in three filed freight exemptions. Not once by accident.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'reviewing union freight charter exemptions');
@@ -43,6 +47,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Three charter-exempt batches loaded at unusual hours without standard inspection.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'questioning freight porter Luthen Ledgermere');
@@ -71,6 +79,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "An import category has been zero-rated at the tariff counter for eight consecutive months.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining systematically zero-rated imports with Derris Ledgermere');
@@ -99,6 +111,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "A regular arbiter guest, working on something for months. She won't name it.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'questioning innkeeper Cala Ledgermere about trade arbiter guests');
@@ -129,6 +145,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Two conversations at the shrine alcove between parties who should not know each other.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'speaking with shrine attendant Nyra Ledgermere');
@@ -235,6 +255,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The mystery broker's registration renews monthly. The clerks don't read the attached rider.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing monthly provisional registration renewal at Guildheart Hub');
@@ -265,6 +289,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The notary cipher on the renewal rider should match an active seal. It doesn't.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'cross-referencing Shelk notary cipher against active seal registry');
@@ -295,6 +323,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The manifest waypoint isn't in the Union registry. It's in a private Shelk charter annex.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'locating northeast waypoint in Shelk charter annex');
@@ -324,6 +356,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The arbiter filed the tariff exemption review as complete. He never did it.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'confronting Guild Arbiter over fraudulent review completion');
@@ -353,6 +389,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The import stamp belongs to a cultural attaché not stationed here for three years.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'tracing Panim cultural attaché stamp on memorial import classification');
@@ -382,6 +422,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Three charter-exempt loads never insured. The broker signed a waiver he can't explain.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing uninsured charter-exempt loads at Union bonding house');
@@ -413,6 +457,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Coverage gaps during all three off-hours loading windows. Same shift supervisor signed off each time.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'examining Guild Watchers duty roster for coverage gaps');
@@ -442,6 +490,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The volume assigned to that transit node exceeds declared capacity by a factor of four.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'cross-referencing Ithtananalor transit node capacity against assigned volume');
@@ -470,6 +522,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The ink-seal press has residue from a non-standard compound. It printed more than charter marks.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining Union ink-seal press for non-standard compound residue');
@@ -498,6 +554,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The fire report was reclassified as maintenance. The original described smoke damage to exemption files.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'locating reclassified archive fire report for the charter exemption subroom');
@@ -526,6 +586,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The labor guild grievance about the off-hours crews was withdrawn. No resolution.",
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing withdrawn labor guild grievance about off-hours loading crews');
@@ -555,6 +619,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The Sanction Board record lists her as a hearing witness. She was never called.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating uncontacted witness named in Sanction Board charter hearing record');
@@ -585,6 +653,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "A standing amendment to the exemption category. Nobody signed it. Filed as a clerical correction.",
     tags: ['Stage2', 'NPC'],
     xpReward: 64,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'examining unsigned standing amendment in charter exemption category registry');
@@ -613,6 +685,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The charter, the imports, the shrine exchange — a complete financing chain.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Guildheart Hub Stage 2 resolution');
@@ -641,6 +717,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Toven at the routing desk has seen Collegium manifests — the numbering is wrong.",
     tags: ['Collegium', 'Stage2', 'Intelligence'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'Guildheart Collegium factor');
@@ -669,6 +749,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "A Collegium order sits in the transit records with no freight category assigned.",
     tags: ['Collegium', 'Stage2', 'Evidence'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'Guildheart Collegium sealed order');
@@ -713,6 +797,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Whoever sits that chair wants something filed.",
     tags: ['Collegium', 'Stage2', 'Faction', 'NPC'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_collegium_aware)) {
         G.lastResult = 'The third chair in the Arbiter alcove is placed at an angle not visible from the registry floor. Nothing to act on with the Collegium yet — the alcove is empty, or the occupant has not made contact. The charter hall continues its usual pace around the vacancy: pens moving, clerks passing, the muted tap of a stamp on parchment from somewhere deeper in the corridor. The chair waits with the patience of placed furniture. Whoever put it there will return at their own timing.';
@@ -825,6 +913,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: 'The factor saw the same pattern weeks before I did',
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
@@ -844,6 +936,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: 'The amendment registry carries stamps from two different offices',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'amendment registry anomaly');
@@ -859,6 +955,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: 'The freight manifest for that route is sealed at the bottom',
     tags: ['Records', 'Intelligence'],
     xpReward: 15,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(15, 'sealed manifest section');
@@ -876,6 +976,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The routing clerk filed the same deviation note seven times. No response ever came.",
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
@@ -904,6 +1008,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "Marchant's inquiry about the charter exemption was marked received. Never answered.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'Guildmaster Marchant unanswered inquiry');
@@ -932,6 +1040,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The trade record for that charter category runs double the registered capacity for six months.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'charter category capacity overage');
@@ -958,6 +1070,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     label: "The Guild Council meeting minutes from the exemption week have a page removed.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'Guild Council minutes missing page');
@@ -1129,6 +1245,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
     xpReward: 82,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       var result = rollD20('spirit', {dc: 13, locality: 'guildheart_hub', label: 'Document forgery analysis'});
       if (result.isCrit) {
@@ -1176,6 +1296,10 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     skill: 'charm',
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       var result = rollD20('charm', {dc: 12, locality: 'guildheart_hub', label: 'Registrar rapport'});
       if (result.isCrit) {
