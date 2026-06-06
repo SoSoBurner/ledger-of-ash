@@ -77,6 +77,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'obtaining shard amplification data');
@@ -224,6 +228,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Three committee members receive sealed letters from the north before each suppression decision.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'tracing committee external correspondence');
@@ -258,6 +266,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       { type: 'heat', polity: 'sheresh', amount: 1 },
       { type: 'rival', amount: 1 }
     ],
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'making evidence decision');
@@ -325,6 +337,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The amplification data needs to leave Glasswake through a secure route.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'securing data offsite');
@@ -375,6 +391,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The Consortium holds licensing rights to what Toman's study would implicate. Not coincidence.",
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 74,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'mapping consortium benefit from suppression');
@@ -505,6 +525,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The Consortium has a registered address here. It looks like a mineral trading office.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'documenting consortium presence');
@@ -531,6 +555,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Naming Toman strengthens the case. It also gives the committee grounds to move against him.",
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'protecting source decision');
