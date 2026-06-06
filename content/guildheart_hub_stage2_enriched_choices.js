@@ -8,6 +8,7 @@
 var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
   {
+    plot: 'main',
     label: "The sealed charter pattern appears in three filed freight exemptions. Not once by accident.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 80,
@@ -38,6 +39,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Three charter-exempt batches loaded at unusual hours without standard inspection.",
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 72,
@@ -93,6 +95,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "A regular arbiter guest, working on something for months. She won't name it.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 66,
@@ -228,6 +231,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The mystery broker's registration renews monthly. The clerks don't read the attached rider.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -257,6 +261,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The notary cipher on the renewal rider should match an active seal. It doesn't.",
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
@@ -373,6 +378,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Three charter-exempt loads never insured. The broker signed a waiver he can't explain.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -403,6 +409,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Coverage gaps during all three off-hours loading windows. Same shift supervisor signed off each time.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
@@ -544,6 +551,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Sanction Board record lists her as a hearing witness. She was never called.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -722,6 +730,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
   // BEAT 3 — Payoff: intel revealed
   {
+    plot: 'main',
     label: "The certified copy needs to reach the auditor before rotation closes.",
     tags: ['Collegium', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
@@ -812,6 +821,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   // ── COLLEGIUM FACTION THREAD — Cadlen / amendment registry / sealed manifest ──
 
   {
+    plot: 'main',
     label: 'The factor saw the same pattern weeks before I did',
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
@@ -830,6 +840,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: 'The amendment registry carries stamps from two different offices',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
@@ -861,6 +872,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   // === COLLEGIUM INVESTIGATION PATH — Chain Link 1 ===
   // Persuasion-based route; parallels arcane faction arc for warriors/rogues
   {
+    plot: 'main',
     label: "The routing clerk filed the same deviation note seven times. No response ever came.",
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
     xpReward: 70,
@@ -888,6 +900,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   // ── NEW SP2 CHOICES — direct stageProgress increment ──
 
   {
+    plot: 'main',
     label: "Marchant's inquiry about the charter exemption was marked received. Never answered.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
@@ -915,6 +928,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The trade record for that charter category runs double the registered capacity for six months.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
@@ -940,6 +954,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "The Guild Council meeting minutes from the exemption week have a page removed.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
@@ -969,6 +984,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   // ── NEW SP2-ADVANCING CHOICES ────────────────────────────────────────
 
   {
+    plot: 'main',
     label: "Porter Ledgermere's Counting House ledger carries two columns that never reconcile.",
     tags: ['Stage2', 'NPC', 'Craft'],
     tag: 'risky',
@@ -1003,6 +1019,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Sena Ledgermere mediated the charter dispute that should have voided this exemption.",
     tags: ['Stage2', 'NPC', 'Persuasion'],
     tag: 'bold',
@@ -1037,6 +1054,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Hearthmark at the Freight Exchange has a manifest he won't queue.",
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
@@ -1071,6 +1089,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Renn Tinmarch posted a retraction notice on the Union board. No original posting preceded it.",
     tags: ['Stage2', 'NPC', 'Stealth'],
     tag: 'safe',
@@ -1105,6 +1124,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
+    plot: 'main',
     label: "Three different notary stamps, identical signatures — too consistent to be authentic",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
@@ -1127,6 +1147,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
+    plot: 'main',
     label: "The archivist's deflection is rehearsed. Authority might break the script.",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
@@ -1150,6 +1171,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     }
   },
   {
+    plot: 'main',
     label: "The senior registrar is exhausted. Someone willing to listen might reach what she knows.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
