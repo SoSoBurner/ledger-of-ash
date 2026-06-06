@@ -1318,6 +1318,90 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: { text: 'The isolated senior workers are at stations too far from the accessible section of the yard to approach without floor authorization. The shift assignment board at the yard entrance posts all worker station assignments by name; the senior workers\' current station locations compared against their historical positions will show the movement.' }
+  },
+
+  // ── ALLOCATION HALL (always-present anchor scene) ─────────────────────────
+  {
+    id: 'soreheim_allocation_hall',
+    label: "Token 47. The window shows 29. This queue has architecture worth reading.",
+    tags: ['Location', 'System', 'Bureaucracy'],
+    xpReward: 45,
+    failResult: 'The Allocation Hall processes requests by token order only — arriving before the morning shift bell means joining the queue before it reaches double digits. The outer token dispenser is to the left of the main corridor entrance. Officer-tier windows operate on a separate counter but the same logbook.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(45, 'reading the Allocation Hall system');
+
+      var _result = rollD20('wits', G.skills ? (G.skills.wits || 0) : 0);
+
+      if (_result.total >= 14) {
+        G.lastResult = 'The token system applies regardless of rank — the Allocation Hall\'s one visible equity. You are 47; the window advances to 31 in the time it takes to reach a conversational distance from the queue\'s front. A worker with quarry dust worked into her knuckle creases explains without being asked: morning request, collect by evening, no substitutions after the stamp. A second window operates on a shorter queue. The requests filed there are identical in category to the main window. The wait is forty minutes shorter. This is not faster access. It is a different signal — that someone knows to use it.';
+        addJournal('Allocation Hall: officer-tier window is a social signal, not a faster route.', 'discovery', 'soreheim-allocation-' + (G.dayCount||0));
+      } else {
+        G.lastResult = 'Token 47, window at 29. The process moves in the rhythm of institutional procedure: form presented, clerk records, stamp applied, next. No argument lands here. The process is the point. A worker behind you holds the same number. She reads yours, holds up her token. "Double-issue on shift change." She takes her place two positions further back without elaboration. The queue closes forward. Token 47 will resolve eventually. Everything here resolves eventually.';
+      }
+
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // ── CREW GRIME MARKING (flavor + Soreheim-background mechanic) ────────────
+  {
+    id: 'soreheim_crew_grime',
+    label: "You carry road dust. Every crew here reads that in under three seconds.",
+    tags: ['Social', 'Observation', 'Infiltration'],
+    xpReward: 40,
+    failResult: 'The mid-level access gate requires floor assignment grime that matches your stated purpose. Foundry workers carry black soot in the finger creases; quarry crew carry pale stone dust; stonecutters carry grey slurry. The transit junction supervisor reads these passively, not actively — he is not looking for it. He is just reading it.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(40, 'understanding crew floor-marking system');
+
+      var _hasSorBg = G.background && G.background.region === 'Soreheim Proper';
+      var _result = rollD20('finesse', G.skills ? (G.skills.finesse || 0) : 0);
+
+      if (_hasSorBg) {
+        G.lastResult = 'The grime on your hands is the right kind. Forge-base dust worked into the finger creases — the kind that only comes from actual floor time. The shift supervisor at the mid-level junction glances at your hands when you pass, then looks away. You are credentialed by your own history. The access corridor opens on your floor badge without question. You already know what the number above that window means and how long to expect to wait.';
+        addJournal('Soreheim background recognized at mid-level junction — floor grime read as crew-credentialed.', 'field_note', 'soreheim-grime-bg-' + (G.dayCount||0));
+      } else if (_result.total >= 14) {
+        G.lastResult = 'Three minutes at the transit junction teaches the system. Every worker moving into the restricted forge-base levels carries a floor signature: pale stone dust for quarry crew, black soot for foundry line, grey slurry for stonecutters. The Allocation clerk reads this automatically — not looking for it, just reading it. You carry none of these. You carry road dust and whatever was on the cart before you. You know this now. You know what it will cost at the gate. That is more than you knew before.';
+      } else {
+        G.lastResult = 'The transit junction supervisor stops you at the mid-level access gate. Not because you did anything wrong. Because you are identifiably not from any floor. "Your work assignment?" You name one. He looks at your hands. Looks at your coat. "That\'s quarry assignment." He gestures at your boots. "Those are road boots." He steps back from the gate and waits. He does not open it.';
+        addHeat('soreheim', 1);
+        addJournal('Flagged at mid-level gate — crew grime mismatch.', 'complication', 'soreheim-grime-caught-' + (G.dayCount||0));
+      }
+
+      G.recentOutcomeType = 'investigate';
+    }
+  },
+
+  // ── OATH-CYCLE RITUAL (fires periodically on G.dayCount % 28) ────────────
+  {
+    id: 'soreheim_oath_cycle',
+    label: "The tower oath-cycle. Every crew participates. Being uncounted here is visible.",
+    tags: ['Ritual', 'Social', 'Location'],
+    xpReward: 55,
+    failResult: 'The oath-cycle is conducted floor by floor, starting at the forge-base and moving upward in relay. Individual access to a cycle already in progress requires a floor supervisor\'s counter-stamp — the oath officer at the junction records every entry and exit against the production log.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(55, 'witnessing Soreheim oath-cycle ritual');
+
+      var _isOathDay = ((G.dayCount || 0) % 28 === 0);
+      var _seen = G.flags && G.flags._oath_cycle_witnessed;
+
+      if (_isOathDay && !_seen) {
+        if (!G.flags) G.flags = {};
+        G.flags._oath_cycle_witnessed = true;
+        G.lastResult = 'The cycle runs floor by floor, starting at the forge-base. Each crew lines up by station assignment, not rank, and recites the quarterly production commitment in the prescribed form — quota target, maintenance pledge, reporting obligation. The Giant floor supervisor records every name against the shift log. Participation is not optional. The crew to your left moves through the line with the efficiency of people who have done this dozens of times. One new worker is prompted on the third clause. After the ceremony, the production boards on every visible floor are updated to show the new cycle\'s targets. The numbers are higher than last quarter. They always are.';
+        addJournal('Witnessed quarterly oath-cycle — quota targets raised, participation mandatory, new workers prompted on oath text.', 'evidence', 'soreheim-oath-' + (G.dayCount||0));
+      } else {
+        G.lastResult = 'Between oath-cycles, the commitment is present in different form: production boards posting current progress against quarterly pledge, floor supervisors referencing the oath obligations when escalating quota disputes, new workers asking experienced ones what the third clause means. The oath is not ceremony. It is infrastructure. It runs continuously in the background of everything that happens in this building.';
+        addJournal('Soreheim oath-cycle infrastructure: production boards, floor supervisor references, continuous presence.', 'field_note', 'soreheim-oath-ambient-' + (G.dayCount||0));
+      }
+
+      G.recentOutcomeType = 'investigate';
+    }
   }
 
 );

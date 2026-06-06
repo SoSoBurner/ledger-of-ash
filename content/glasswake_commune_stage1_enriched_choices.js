@@ -453,7 +453,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 17. ATMOSPHERE: TOMAN'S LAB AT NIGHT
   {
-    label: "Visit Toman's research space after the administrative committee has left for the day.",
+    label: "Toman's lab is different after the administrative committee leaves for the day.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     failResult: {

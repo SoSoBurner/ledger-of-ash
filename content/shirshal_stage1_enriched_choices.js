@@ -253,7 +253,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: "The inn's common room is packed with the midday catch crowd — dock workers and net-menders filling every bench, Noss moving fast between the counter and the back passage without pausing. This isn't the hour she talks. The east channel walkway empties after the late-afternoon bell when the boats are tied and the workers have gone home; the innkeeper sometimes sits outside then, watching the water. That's the hour for a quieter conversation.",
+      text: "The inn's common room is packed with the midday catch crowd — dock workers and net-menders filling every bench, Mirae moving fast between the counter and the back passage without pausing. This isn't the hour for a conversation. The east channel walkway empties after the late-afternoon bell when the boats are tied and the workers have gone home; the innkeeper sometimes sits outside then, watching the water. That's the hour for a quieter exchange.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -266,15 +266,15 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Keeper Noss refills your cup before answering. "Couriers come in regularly. Sealed packets, different faces each time, but they all know to ask for the back room near the east passage." She wipes the counter. "They meet with magistrates or their visitors, leave more sealed packets, gone within the hour. One told me they traveled from 'places that take interest in how Shirshal serves law.' Before I could ask what that meant, a man at the corner table told the courier that was enough." She glances at the corner. "That table books by the week now."`;
+        G.lastResult = `Mirae refills your cup before answering. "Couriers come in regularly. Sealed packets, different faces each time, but they all know to ask for the back room near the east passage." The counter gets wiped. "They meet with magistrates or their visitors, leave more sealed packets, gone within the hour. One told me they traveled from 'places that take interest in how Shirshal serves law.' Before I could ask what that meant, a man at the corner table told the courier that was enough." A glance at the corner. "That table books by the week now."`;
         G.stageProgress[1]++;
         addJournal('Innkeeper mapped external courier network', 'evidence', `shirshal-couriers-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Noss sets the cloth down. "I don't discuss guests or their business. Twenty years running this place, that's how it stays open." She's polite about it but the warmth has gone out of the room. Next time you come in, she'll be busy with something at the other end of the counter. The watchful distance she keeps from here on is the kind that spreads — the room will take its cue from her.`;
+        G.lastResult = `Mirae sets the cloth down. "I don't discuss guests or their business. Twenty years running this place, that's how it stays open." Polite about it, but the warmth has gone out of the room. Next time you come in, there will be something that needs doing at the other end of the counter. The watchful distance from here on is the kind that spreads — the room takes its cue from the innkeeper.`;
         G.worldClocks.watchfulness++;
         addJournal('Innkeeper now distrustful of your questions', 'complication', `shirshal-innkeeper-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `"Sealed messages come through. Normal enough for a hall town," Noss says, but she says it toward the counter rather than at you, cloth moving over the same spot she already wiped. Reed-damp wood smell comes through the open side window from the channel below. The east passage door swings shut on its own while she speaks — the draft doing it, probably. She doesn't look at it. Neither does anyone else in the room, which is something.`;
+        G.lastResult = `"Sealed messages come through. Normal enough for a hall town," Mirae says, but says it toward the counter rather than at you, cloth moving over the same spot already wiped. Reed-damp wood smell comes through the open side window from the channel below. The east passage door swings shut on its own while the words are spoken — the draft doing it, probably. No look at it. Neither does anyone else in the room, which is something.`;
         addJournal('Innkeeper acknowledged message traffic', 'evidence', `shirshal-innkeeper-traffic-${G.dayCount}`);
       }
 

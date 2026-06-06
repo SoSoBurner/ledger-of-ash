@@ -93,6 +93,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 3. TAILOR: PATTERN DESIGNS DISAPPEARING
   {
+    plot: 'main',
     label: "Three commissions on Verdant Row — paid in full, then abandoned before the first fitting.",
     tags: ['NPC', 'Craft', 'Trade'],
     xpReward: 70,
@@ -127,6 +128,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 4. CLERK/RECORD KEEPER: LEDGER DISCREPANCIES [PROGRESS-GATED: mid-progress reveals deeper record manipulation]
   {
+    plot: 'main',
     label: "Autumn entries stop mid-column. The ink around the gap is clean.",
     tags: ['NPC', 'Records', 'Bureaucracy'],
     xpReward: 75,
@@ -185,6 +187,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 5. SHRINE HELPER: BLESSING EFFECTS DEGRADING
   {
+    plot: 'main',
     label: "The shrine wards need relaying more often. The formulas haven't changed.",
     tags: ['NPC', 'Divine', 'Ritual'],
     xpReward: 70,
@@ -224,6 +227,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 6. MARKET BROKER: TRADE FLOW CHANGES
   {
+    plot: 'main',
     label: "Northern silkwood stopped arriving three weeks ago. Not delayed — stopped.",
     tags: ['NPC', 'Commerce', 'Economics'],
     xpReward: 70,
@@ -265,6 +269,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 7. PATROL CAPTAIN: ENFORCEMENT PATTERN SHIFTS
   {
+    plot: 'main',
     label: "Ironspool district — patrols pull back at nightfall now. No declared reason.",
     tags: ['NPC', 'Enforcement', 'Authority'],
     xpReward: 70,
@@ -293,7 +298,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.lastResult = `Thorne goes still. Not angry — still, the way a gate goes still when it locks. "Garrison operations aren't a topic for this conversation." He sets his cup down and straightens his collar. Two soldiers at the next table look up. You're not threatened, exactly. But the room has shifted, and the coal-smoke smell of the street outside suddenly seems worth walking toward. The pressure of those two soldiers' attention will follow this line of questioning — they have faces now to match to the inquiry.`;
         G.worldClocks.pressure++;
-        addJournal('City guard now viewing you as potential threat', 'complication', `shelkopolis-patrol-hostile-${G.dayCount}`);
+        addJournal('Roadwardens now viewing you as potential threat', 'complication', `shelkopolis-patrol-hostile-${G.dayCount}`);
       } else {
         G.lastResult = `Thorne grants you "operational priorities" and nothing else. He says it like a door closing — polite, final, framed in procedure. The coal-smoke smell of the garrison hangs in the room. The patrol rotation board behind him shows three crossings-out in the Ironspool column, the ink still dark. He doesn't turn to look at it while he talks, which means he doesn't need to. Whatever the crossings-out say, he knows, and he's decided the operational summary is as far as this conversation goes.`;
         addJournal('Patrol captain confirmed shift in garrison priorities', 'evidence', `shelkopolis-patrol-shift-${G.dayCount}`);
@@ -306,6 +311,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 8. CHAPEL WORKER: FAITH AND COERCION
   {
+    plot: 'main',
     label: "The confessions have changed. People aren't confessing wrongs anymore — they're confessing fear.",
     tags: ['NPC', 'Faith', 'Psychology'],
     xpReward: 75,
@@ -347,6 +353,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 9. COMBAT TIER 1: GARRISON STRUCTURE ANOMALIES
   {
+    plot: 'main',
     label: "The garrison rearranged to control movement inside the city, not guard against threats outside.",
     tags: ['Combat', 'Military', 'Anomaly'],
     xpReward: 70,
@@ -365,9 +372,9 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Combat analysis revealed deliberate garrison restructuring', 'evidence', `shelkopolis-garrison-struct-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `A guard intercepts you near the second watch post. He doesn't raise his voice. He asks your business, writes something in his pocket ledger, and tells you the perimeter is restricted to authorized personnel. By the time you've backed away, two more guards have repositioned. You're logged, dated, and noted. The garrison doesn't need to detain you to make the point. The watchful new post means this section of the perimeter is specifically monitored — it will be harder to approach without being identified first.`;
+        G.lastResult = `A Roadwarden intercepts you near the second watch post. He doesn't raise his voice. He asks your business, writes something in his pocket ledger, and tells you the perimeter is restricted to authorized personnel. By the time you've backed away, two more Roadwardens have repositioned. You're logged, dated, and noted. The garrison doesn't need to detain you to make the point. The watchful new post means this section of the perimeter is specifically monitored — it will be harder to approach without being identified first.`;
         G.worldClocks.watchfulness++;
-        addJournal('Garrison guards alerted to reconnaissance attempt', 'complication', `shelkopolis-garrison-alert-${G.dayCount}`);
+        addJournal('Roadwardens alerted to reconnaissance attempt', 'complication', `shelkopolis-garrison-alert-${G.dayCount}`);
       } else {
         G.lastResult = `The fortifications near the trade district show fresh mortar on old stonework — reinforcement, or the deliberate plugging of known passage points. The sight lines don't match a standard defensive rotation: the open angles face inward, toward the market, not out toward the road. Coal smoke from Ironspool drifts over the wall's inner face. Something has been adjusted in the last few weeks, and whoever did it worked at night when the new mortar seams wouldn't draw an audience. The full pattern stays just out of reach from street level, but the seams are there.`;
         addJournal('Combat analysis noted unexplained recent fortification changes', 'evidence', `shelkopolis-garrison-changes-${G.dayCount}`);
@@ -380,6 +387,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 10. COMBAT TIER 2: SUPPLY LOG DISCREPANCIES
   {
+    plot: 'main',
     label: "Someone signed off on weapons transfers to an unmarked warehouse. The garrison commander didn't.",
     tags: ['Combat', 'Supply', 'Logistics'],
     xpReward: 75,
@@ -416,6 +424,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 11. MAGIC TIER 1: WARD PLACEMENTS ALTERED
   {
+    plot: 'main',
     label: "The old trade-route wards are thin. Not decayed — pulled deliberately inward.",
     tags: ['Magic', 'Wards', 'Arcane'],
     xpReward: 70,
@@ -452,6 +461,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 12. MAGIC TIER 2: RITUAL FORMULA CORRUPTION
   {
+    plot: 'main',
     label: "The ritual formulas are unchanged. The results are getting worse.",
     tags: ['Magic', 'Ritual', 'Corruption'],
     xpReward: 75,
@@ -488,6 +498,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 13. STEALTH TIER 1: UNGUARDED PASSAGES CLOSING
   {
+    plot: 'main',
     label: "Three passages through the central district are blocked. Not collapsed — filled with care.",
     tags: ['Stealth', 'Routes', 'Surveillance'],
     xpReward: 70,
@@ -521,6 +532,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 14. STEALTH TIER 2: INFORMATION NETWORKS TIGHTENING
   {
+    plot: 'main',
     label: "The street network is still running. It just doesn't move certain topics anymore.",
     tags: ['Stealth', 'Intelligence', 'Networks'],
     xpReward: 75,
@@ -557,6 +569,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 15. SUPPORT TIER 1: SOCIAL FABRIC DEGRADING
   {
+    plot: 'main',
     label: "People are ending their conversations earlier than they used to. Nobody can name why.",
     tags: ['Support', 'Community', 'Social'],
     xpReward: 70,
@@ -596,6 +609,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 16. SUPPORT TIER 2: TRUST EROSION AND FEAR MAPPING
   {
+    plot: 'main',
     label: "Old partnerships dissolving quietly. Nobody made a dramatic move. Nobody needed to.",
     tags: ['Support', 'Fear', 'Trust'],
     xpReward: 75,
@@ -634,6 +648,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 17. STREET RUMOR: SURFACE SOCIAL TENSION
   {
+    plot: 'main',
     label: "The same rumor at both ends of the market, in a lowered voice.",
     tags: ['Rumor', 'Social', 'Gossip'],
     xpReward: 65,
@@ -664,6 +679,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INSTITUTIONAL CRACK: PROOF OF INTENTIONAL MISALIGNMENT
   {
+    plot: 'main',
     label: "Garrison orders, chapel ledger, trade registry. Same eight-week window. Same hand.",
     tags: ['Evidence', 'Proof', 'Systematic', 'Exposure'],
     xpReward: 80,

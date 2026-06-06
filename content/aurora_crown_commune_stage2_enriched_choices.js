@@ -342,6 +342,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The supplier authorization came from a committee that has not met in six months.",
     tags: ['Stage2', 'NPC', 'Lore'],
+    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -375,6 +376,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The residents nearest the filtration intake have been attending the shrine the most.",
     tags: ['Stage2', 'NPC', 'Survival'],
+    plot: 'main',
     xpReward: 68,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1983,6 +1985,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The filtration manifold readings are off — a trained hand could recalibrate undetected",
     tags: ['Stage2', 'Investigation'],
+    plot: 'main',
     skill: 'spirit',
     xpReward: 80,
     fn: function() {
@@ -2005,6 +2008,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The maintenance supervisor is blocking the corridor — strength is the fastest way through",
     tags: ['Stage2', 'Confrontation'],
+    plot: 'main',
     skill: 'might',
     xpReward: 70,
     fn: function() {
@@ -2027,6 +2031,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The equipment bay's staff entrance is watched — the ventilation shaft is not",
     tags: ['Stage2', 'Infiltration'],
+    plot: 'main',
     skill: 'finesse',
     xpReward: 80,
     fn: function() {

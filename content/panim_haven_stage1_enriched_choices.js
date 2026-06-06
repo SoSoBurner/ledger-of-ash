@@ -8,7 +8,7 @@
 var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
-  // 1. SHRINE HELPER: OFFERING PATTERNS CORRUPTED
+  // 1. SHRINE ATTENDANT: OFFERING PATTERNS CORRUPTED
   {
     plot: 'main',
     questId: 'q_s1_pattern',
@@ -17,7 +17,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: "Soria is already occupied with a delegation from the northern quarter, and the offering preparation window has closed for the morning — the custodian marks the rack sealed and turns the key before you reach the threshold. The shrine attendants move through the hall with the focused purpose of people who have no time for side conversations until the mid-afternoon interval. The main shrine entry stays open; the preparation hall sign reads appointments only until the third bell.",
+      text: "Velune Sepulcher is already occupied with a delegation from the northern quarter, and the offering preparation window has closed for the morning — the custodian marks the rack sealed and turns the key before you reach the threshold. The shrine attendants move through the hall with the focused purpose of people who have no time for side conversations until the mid-afternoon interval. The main shrine entry stays open; the preparation hall sign reads appointments only until the third bell.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -31,17 +31,17 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Soria sorts candles at the side table while she talks, not looking up. "Copper mixed with iron. Cloth that's been bleached wrong — it photographs white but it isn't. Those used to be sent back. Now they're accepted." She sets a candle down crooked. "I asked the ritual authority why the standards changed. They told me standards adapt with faith. That's not an answer." She finally looks at you. "If the offering is wrong, what does that do to the blessing it's supposed to carry?"`;
+        G.lastResult = `Velune Sepulcher sorts candles at the side table while she talks, not looking up. "Copper mixed with iron. Cloth that's been bleached wrong — it photographs white but it isn't. Those used to be sent back. Now they're accepted." She sets a candle down crooked. "I asked the ritual authority why the standards changed. They told me standards adapt with faith. That's not an answer." She finally looks at you. "If the offering is wrong, what does that do to the blessing it's supposed to carry?"`;
 
         G.stageProgress[1]++;
-        addJournal('Shrine helper flagged offering acceptance corruption', 'evidence', `panim_haven-offerings-${G.dayCount}`);
+        addJournal('Shrine attendant flagged offering acceptance corruption', 'evidence', `panim_haven-offerings-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Soria straightens when you ask about the offering standards. Her hands go still on the candles. "That's shrine business." She doesn't say anything else. She doesn't go back to sorting either. You've been categorized as someone who asks the kind of questions that get reported. The pressure of that category follows you — the shrine network here is small, and what you asked will arrive before you do at the next candle station.`;
+        G.lastResult = `Velune Sepulcher straightens when you ask about the offering standards. Her hands go still on the candles. "That's shrine business." She doesn't say anything else. She doesn't go back to sorting either. You've been categorized as someone who asks the kind of questions that get reported. The pressure of that category follows you — the shrine network here is small, and what you asked will arrive before you do at the next candle station.`;
         G.worldClocks.pressure++;
-        addJournal('Shrine helper now distrustful of inquiry', 'complication', `panim_haven-shrine-hostile-${G.dayCount}`);
+        addJournal('Shrine attendant now distrustful of inquiry', 'complication', `panim_haven-shrine-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Soria admits the offering standards have loosened. "The ritual authority said we need to be more practical about what people can bring." She says it in a flat register that doesn't match the words. Her eyes stay on the table. A beeswax candle gutters at the end of the rack — she doesn't straighten it. The reasoning she's repeating is not her own, and the space where her own reasoning would go has gone quiet.`;
-        addJournal('Shrine helper noted offering standard relaxation', 'evidence', `panim_haven-offerings-relaxed-${G.dayCount}`);
+        G.lastResult = `Velune Sepulcher admits the offering standards have loosened. "The ritual authority said we need to be more practical about what people can bring." She says it in a flat register that doesn't match the words. Her eyes stay on the table. A beeswax candle gutters at the end of the rack — she doesn't straighten it. The reasoning she's repeating is not her own, and the space where her own reasoning would go has gone quiet.`;
+        addJournal('Shrine attendant noted offering standard relaxation', 'evidence', `panim_haven-offerings-relaxed-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -49,7 +49,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   },
 
-  // 2. LEDGER KEEPER: MEDIATION RECORDS TAMPERED
+  // 2. SCRIBE: MEDIATION RECORDS TAMPERED
   {
     plot: 'main',
     questId: 'q_s1_converging',
@@ -58,7 +58,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: "The archive anteroom is locked — Brother Thenim has taken the key to the ritual authority's morning review and won't return until well after midday. A handwritten notice on the door gives the authorization procedure: written request, two-day processing window, signature from the shrine master. The mediation court's public case summary board in the main corridor is open now without authorization and carries date stamps going back eighteen months.",
+      text: "The archive anteroom is locked — Caldor Sepulcher has taken the key to the ritual authority's morning review and won't return until well after midday. A handwritten notice on the door gives the authorization procedure: written request, two-day processing window, signature from the shrine master. The mediation court's public case summary board in the main corridor is open now without authorization and carries date stamps going back eighteen months.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -71,18 +71,18 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Brother Thenim holds the ledger for a moment before handing it across. The entries from six weeks ago have been rewritten — the ink is newer than the dates claim, and the letterforms shift between older and recent hands partway through a page. More specific: the outcome language has changed. Old entries read "balance achieved." New ones use "appropriate resolution" or "necessary outcome." The substitution reframes mediation from finding a truth to executing a decision. Someone has been revising how the record says grief gets handled in Panim Haven.`;
+        G.lastResult = `Caldor Sepulcher holds the ledger for a moment before handing it across. The entries from six weeks ago have been rewritten — the ink is newer than the dates claim, and the letterforms shift between older and recent hands partway through a page. More specific: the outcome language has changed. Old entries read "balance achieved." New ones use "appropriate resolution" or "necessary outcome." The substitution reframes mediation from finding a truth to executing a decision. Someone has been revising how the record says grief gets handled in Panim Haven.`;
         G.stageProgress[1]++;
-        addJournal('Ledger keeper revealed backdated ledger tampering', 'evidence', `panim_haven-ledger-${G.dayCount}`);
+        addJournal('Scribe revealed backdated ledger tampering', 'evidence', `panim_haven-ledger-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Brother Thenim closes the ledger cabinet before you finish the request. "These records are protected. You need permission from the ritual authority — in writing." He doesn't wait for a response before walking to the shrine master's office. The door closes. Your presence at the ledger cabinet is now a matter on record. The pressure of that record will precede every future ledger inquiry — the shrine master already knows what you were looking for.`;
+        G.lastResult = `Caldor Sepulcher closes the ledger cabinet before you finish the request. "These records are protected. You need permission from the ritual authority — in writing." He doesn't wait for a response before walking to the shrine master's office. The door closes. Your presence at the ledger cabinet is now a matter on record. The pressure of that record will precede every future ledger request — the shrine master already knows what you were looking for.`;
         G.worldClocks.pressure++;
-        addJournal('Shrine master alerted to ledger inquiry attempt', 'complication', `panim_haven-ledger-alert-${G.dayCount}`);
+        addJournal('Shrine master alerted to ledger access attempt', 'complication', `panim_haven-ledger-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Partial access: Thenim supervises and selects which volumes you can handle. Pages have been removed and replaced — the binding thread is new at the spine on several sections, the fiber texture different from surrounding pages. Recent entries carry a handwriting pattern that diverges from the historical hand in the same volume. Someone with regular archive access has been editing the record from inside. The craft analysis of fiber composition would confirm whether the replacement pages were made from the same stock — there is still the matter of matching the thread gauge.`;
+        G.lastResult = `Partial access: Caldor Sepulcher supervises and selects which volumes you can handle. Pages have been removed and replaced — the binding thread is new at the spine on several sections, the fiber texture different from surrounding pages. Recent entries carry a handwriting pattern that diverges from the historical hand in the same volume. Someone with regular archive access has been editing the record from inside. The craft analysis of fiber composition would confirm whether the replacement pages were made from the same stock — there is still the matter of matching the thread gauge.`;
         addJournal('Ledger records show evidence of careful alteration', 'evidence', `panim_haven-ledger-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `Thenim recites the authorization requirement without inflection — written permission, ritual authority signature, forty-eight hour processing window. The salt-air coming through the high louvers shifts the candle flame on his desk; he doesn't glance at it. He's given this answer so many times that nothing about it costs him anything. The cabinet stays locked. The rope-and-peg latch hasn't moved since you sat down, and it won't. Nothing about his posture suggests the conversation is still open.`;
+        G.lastResult = `Caldor Sepulcher recites the authorization requirement without inflection — written permission, ritual authority signature, forty-eight hour processing window. The salt-air coming through the high louvers shifts the candle flame on his desk; he doesn't glance at it. He's given this answer so many times that nothing about it costs him anything. The cabinet stays locked. The rope-and-peg latch hasn't moved since you sat down, and it won't. Nothing about his posture suggests the conversation is still open.`;
         addJournal('Ledger records blocked without formal authorization', 'evidence', `panim_haven-ledger-blocked-${G.dayCount}`);
       }
 
@@ -251,7 +251,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: "The inn common room is empty at this hour — Joseline runs the morning shift alone and the breakfast service has the full attention of everyone on staff. The guest register sits open on the counter, facing outward the way it always does at transit inns; names, departure dates, and stated origin by region are standard entries. The northern arrivals from the past two weeks are there in plain ink.",
+      text: "The inn common room is empty at this hour — Merev Sepulcher runs the morning shift alone and the breakfast service has the full attention of everyone on staff. The guest register sits open on the counter, facing outward the way it always does at transit inns; names, departure dates, and stated origin by region are standard entries. The northern arrivals from the past two weeks are there in plain ink.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -264,15 +264,15 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Joseline leans over the bar. "Every seven days, northern courier. Always meets with the ritual authority. Always leaves sealed documents with shrine staff. Different courier each time — same route, same timing, same unmarked coin payment." She glances at the door. "One of them mentioned, offhand, that they come from a place interested in how Panim Haven serves faith. That was all. Then the shrine told me not to speak with couriers directly." She straightens. "Someone from outside is running something through this village, and the shrine is the entry point."`;
+        G.lastResult = `Merev Sepulcher leans over the bar. "Every seven days, northern courier. Always meets with the ritual authority. Always leaves sealed documents with shrine staff. Different courier each time — same route, same timing, same unmarked coin payment." She glances at the door. "One of them mentioned, offhand, that they come from a place interested in how Panim Haven serves faith. That was all. Then the shrine told me not to speak with couriers directly." She straightens. "Someone from outside is running something through this village, and the shrine is the entry point."`;
         G.stageProgress[1]++;
         addJournal('Innkeeper mapped external courier network to shrine', 'evidence', `panim_haven-couriers-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Joseline sets down the cup she was drying. "I don't discuss guests. That's not a principle I bend." She's not hostile — she's done with the conversation. The next time you come through that door she'll remember what you asked and measure everything else against it. She will be watchful for exactly this angle of inquiry — anything that sounds like guest traffic questions will close faster than this one did.`;
+        G.lastResult = `Merev Sepulcher sets down the cup she was drying. "I don't discuss guests. That's not a principle I bend." She's not hostile — she's done with the conversation. The next time you come through that door she'll remember what you asked and measure everything else against it. She will be watchful for exactly this line of questions — anything that sounds like guest traffic will close faster than this one did.`;
         G.worldClocks.watchfulness++;
         addJournal('Innkeeper now distrustful of your questions', 'complication', `panim_haven-innkeeper-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `Joseline says northern visitors have been regular lately, and says it with slightly more certainty than the question required. "Business traffic." She doesn't elaborate. She refills a cup at the far end of the bar without being asked, putting distance between herself and the answer. The word "regular" carries weight she isn't explaining. The pattern is there. She's not ready to describe its edges to a stranger, not today.`;
+        G.lastResult = `Merev Sepulcher says northern visitors have been regular lately, and says it with slightly more certainty than the question required. "Business traffic." She doesn't elaborate. She refills a cup at the far end of the bar without being asked, putting distance between herself and the answer. The word "regular" carries weight she isn't explaining. The pattern is there. She's not ready to describe its edges to a stranger, not today.`;
         addJournal('Innkeeper acknowledged increased external visitor traffic', 'evidence', `panim_haven-innkeeper-traffic-${G.dayCount}`);
       }
 
@@ -281,14 +281,14 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     }
   },
 
-  // 8. MEDIATION OFFICIAL: CASE OUTCOMES RIGGED
+  // 8. MEDIATOR CLERIC: CASE OUTCOMES RIGGED
   {
     label: "Northern traders win every merchant dispute. The pattern is forty cases deep.",
     tags: ['Investigation', 'NPC', 'Justice', 'Corruption', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: "The mediation office is formally closed — a scheduled training period that runs until tomorrow, the notice says, signed by the ritual authority. Veth is not in. The public outcome summary board in the main corridor posts case type and outcome category without party names; it's updated each week and the last six months of entries are still pinned. Pattern analysis across those entries doesn't require Veth's cooperation.",
+      text: "The mediation office is formally closed — a scheduled training period that runs until tomorrow, the notice says, signed by the ritual authority. Elior Sepulcher is not in. The public outcome summary board in the main corridor posts case type and outcome category without party names; it's updated each week and the last six months of entries are still pinned. Pattern analysis across those entries doesn't require Elior's cooperation.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -301,18 +301,18 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Veth pulls the case register and puts his finger on a column without speaking first. "Merchant disputes: northern trader wins, every time, past two months. Inheritance cases: property transfers to outside buyers. Family mediations where reconciliation was the likely outcome — they end in separation." He closes the register. "I can't prove a directive exists. But the pattern across forty cases doesn't happen by accident. The mediation system is producing someone else's preferred outcomes."`;
+        G.lastResult = `Elior Sepulcher pulls the case register and puts his finger on a column without speaking first. "Merchant disputes: northern trader wins, every time, past two months. Inheritance cases: property transfers to outside buyers. Family mediations where reconciliation was the likely outcome — they end in separation." He closes the register. "I can't prove a directive exists. But the pattern across forty cases doesn't happen by accident. The mediation system is producing someone else's preferred outcomes."`;
         G.stageProgress[1]++;
-        addJournal('Mediator Veth revealed systematic outcome-bias pattern across 40 cases', 'evidence', `panim_haven-mediation-${G.dayCount}`);
+        addJournal('Mediator cleric revealed systematic outcome-bias pattern across 40 cases', 'evidence', `panim_haven-mediation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Veth's posture changes before you finish the question. "Mediation records are sealed. You have no standing to review them." He writes the date at the top of a notation form. "This inquiry will be reported to the ritual authority." He doesn't look up while he writes. The formal note is already being drafted while you're still in the room. The pressure of that report is structural — it ties your name to this inquiry in a record that will be read by everyone above Veth in the chain.`;
+        G.lastResult = `Elior Sepulcher's posture changes before you finish the question. "Mediation records are sealed. You have no standing to review them." He writes the date at the top of a notation form. "This matter will be reported to the ritual authority." He doesn't look up while he writes. The formal note is already being drafted while you're still in the room. The pressure of that report is structural — it ties your name to this matter in a record that will be read by everyone above Elior in the chain.`;
         G.worldClocks.pressure++;
-        addJournal('Mediation official reported inquiry breach to authority', 'complication', `panim_haven-mediation-alert-${G.dayCount}`);
+        addJournal('Mediation hall reported access attempt to authority', 'complication', `panim_haven-mediation-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `You review a selection Veth permits and track outcome by party type. The decisions carry valid mediation reasoning in each case — the written rationale is clean, the precedent citations correct. But across the set, the same party types win at a rate that the individual case records don't explain. Someone with access to the scheduling system is touching something upstream of the decisions themselves, before the mediators even enter the room.`;
+        G.lastResult = `You review a selection Elior Sepulcher permits and track outcome by party type. The decisions carry valid mediation reasoning in each case — the written rationale is clean, the precedent citations correct. But across the set, the same party types win at a rate that the individual case records don't explain. Someone with access to the scheduling system is touching something upstream of the decisions themselves, before the mediators even enter the room.`;
         addJournal('Case review revealed possible systematic outcome bias', 'evidence', `panim_haven-mediation-bias-${G.dayCount}`);
       } else {
-        G.lastResult = `The case folders stay on the shelf — close enough to read the spine labels, not close enough to open without standing Veth doesn't appear ready to grant. "Formal authorization, in writing, from the ritual authority." He's already back at his desk by the time the sentence ends. Cedar smoke drifts in from the processional corridor. The authorization requirement isn't a hurdle he's inviting you to clear. It's a door he's closed from the inside, and the silence of this office is the sound of it staying closed.`;
+        G.lastResult = `The case folders stay on the shelf — close enough to read the spine labels, not close enough to open without standing Elior Sepulcher doesn't appear ready to grant. "Formal authorization, in writing, from the ritual authority." He's already back at his desk by the time the sentence ends. Cedar smoke drifts in from the processional corridor. The authorization requirement isn't a hurdle he's inviting you to clear. It's a door he's closed from the inside, and the silence of this office is the sound of it staying closed.`;
         addJournal('Mediation case records blocked without authorization', 'evidence', `panim_haven-mediation-blocked-${G.dayCount}`);
       }
 
@@ -547,9 +547,9 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Survival analysis revealed waystation stockpile network', 'evidence', `panim_haven-survival-stockpile-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The shrine guards are waiting at the waystation exit. Someone inside reported the inspection before you finished it. "Sacred spaces aren't open for inspection without authorization." They don't touch you. They don't need to — the confrontation itself is the consequence, formal and visible, already logged by the time you reach the main road. The pressure of that log runs forward: every waystation on this route will now have your description posted before you arrive.`;
+        G.lastResult = `Ritual enforcers are waiting at the waystation exit. Someone inside reported the inspection before you finished it. "Sacred spaces aren't open for inspection without authorization." They don't touch you. They don't need to — the confrontation itself is the consequence, formal and visible, already logged by the time you reach the main road. The pressure of that log runs forward: every waystation on this route will now have your description posted before you arrive.`;
         G.worldClocks.pressure++;
-        addJournal('Shrine guards intercept you for waystation inspection', 'complication', `panim_haven-survival-caught-${G.dayCount}`);
+        addJournal('Ritual enforcers intercepted waystation inspection', 'complication', `panim_haven-survival-caught-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The waystations carry more than processional rest supplies. Additional storage space has been created in the back rooms — built in, not improvised, the shelving fixed into the stone with mortared brackets. The extra stores don't match a rest facility's needs: too many document supplies, currency in wrapped bundles, not enough food and water. The function these rooms are serving is not the function they're labeled with.`;
         addJournal('Survival analysis found unauthorized waystation storage', 'evidence', `panim_haven-survival-storage-${G.dayCount}`);
@@ -793,11 +793,11 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The Bureau guards position themselves for coverage, not for assistance — near the entrances, angled toward the approaches. They're not hostile. They're watching. Their eyes track complainants entering the building the way you'd track someone whose intentions you haven't established. Their boots are worn in on the outside edge: long hours on stone floors, not patrol routes. Whatever role they were originally assigned, they've been redirected to a different one.`;
+        G.lastResult = `The Bureau wardens position themselves for coverage, not for assistance — near the entrances, angled toward the approaches. They're not hostile. They're watching. Their eyes track complainants entering the building the way you'd track someone whose intentions you haven't established. Their boots are worn in on the outside edge: long hours on stone floors, not patrol routes. Whatever role they were originally assigned, they've been redirected to a different one.`;
       } else if (arch === 'magic') {
         G.lastResult = `The quarter's architecture channels sound toward the Bureau's upper windows — designed for public transparency, so proceedings could carry to the street. The windows are shuttered today, thick cedar panels drawn flush against the stone. The acoustic geometry still works; there's simply nothing coming through it. The building was built to be heard. Someone decided it shouldn't be anymore and closed it from within, one shutter at a time.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not Bureau guards. The pattern is a patrol. Civilian watchers running surveillance coverage outside the sanctioned perimeter, on a rotation that someone scheduled. They both wear the same style of worn-heel sandal, the kind sold at a specific stall in the eastern market. The informal layer and the formal layer are being run separately.`;
+        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not Bureau wardens. The pattern is a patrol. Civilian watchers running surveillance coverage outside the sanctioned perimeter, on a rotation that someone scheduled. They both wear the same style of worn-heel sandal, the kind sold at a specific stall in the eastern market. The informal layer and the formal layer are being run separately.`;
       } else {
         G.lastResult = `The queue outside the Bureau hasn't moved in three hours. People sit on the steps or stand against the wall with the posture of people who have stopped expecting to be called. No one exits. No clerk appears. The wait is the answer — not a delay, a mechanism. People who come here enough times without result eventually stop coming. The Bureau's accessibility is managed through attrition.`;
       }

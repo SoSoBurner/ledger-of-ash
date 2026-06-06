@@ -1162,6 +1162,42 @@ SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: { text: 'The Aldren family is currently in active dispute with the syndicate over the merger decision — they are not available for side conversations while the appeal is open. The family registry\'s merger application file is a public document; the rejection notices will show the absence of stated grounds.' }
+  },
+
+  // SP2-BRIDGE: Kael Emberthrone — unusual workshop requisition
+  {
+    id: 'sun_kael_requisition_sp2',
+    plot: 'main',
+    label: 'Kael Emberthrone builds what he is told. Someone told him to build the wrong thing.',
+    tags: ['NPC', 'Craft', 'Stage1', 'Bridge'],
+    skill: 'wits',
+    xpReward: 72,
+    fn: function() {
+      advanceTime(1);
+      G.telemetry.turns++;
+      G.telemetry.actions++;
+      gainXp(72, 'examining workshop requisition with Kael Emberthrone');
+      if (!G.flags) G.flags = {};
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
+
+      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      if (result.isCrit || result.total >= 13) {
+        G.flags.met_kael_emberthrone_s1 = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
+        G.lastResult = 'Kael sets the requisition on the bench without being asked. The spec is insulation — not for heat, he says, tapping the material column. The tolerances are altitude-specific: the work could only be tested and calibrated at this elevation. He built it because the commission came through the proper syndicate channel with a sealed charter mark. He built it without knowing what it was for. He has kept the spec because something about the tolerances did not sit right with him. They still do not.';
+        addJournal('Kael Emberthrone: altitude-specific insulation requisition, sealed charter commission — spec retained, tolerances still unexplained', 'evidence', 'sun-kael-s1-' + (G.dayCount||0));
+        if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
+        if (typeof gainXp === 'function') gainXp(0);
+      } else {
+        G.lastResult = 'Kael wipes his hands on a rag and turns back to the bench before you finish. Workshop requisitions are syndicate property under convoy commercial confidentiality — he says this before you have framed the question, the phrasing ready. Without a formal override order from the adjudicator\'s office he cannot open the logs to an outside party. He is not apologetic about it. The caliper is already in his hand before he reaches the worktop.';
+        addJournal('Kael Emberthrone — workshop logs blocked, commercial confidentiality cited', 'complication', 'sun-kael-s1-fail-' + (G.dayCount||0));
+      }
+      G.recentOutcomeType = result.total >= 13 ? 'success' : 'complication';
+    },
+    failResult: {
+      text: 'The workshop door is closed for a syndicate inspection — the handlers have the floor and Kael is not taking outside visitors until the count is done. The workshop log board near the entrance posts the current commission queue by syndicate reference number; the altitude-rated spec series will be listed there if the commission was filed through the standard channel.',
+      next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
+    }
   }
 
 );

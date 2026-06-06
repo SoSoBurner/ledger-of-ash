@@ -2,7 +2,7 @@
  * CRAFTSPIRE STAGE 1 ENRICHED MEANINGFUL CHOICES
  * 20 investigation paths grounded in guild workshop secrets and chemical input irregularities
  * Craftspire: a guild manufacturing hub where the inputs for something dangerous are being quietly assembled
- * Named NPC: Jorin (the guild workshop master who first noticed the chemical input anomalies)
+ * Named NPC: Jorin Ledgermere (the guild workshop master who first noticed the chemical input anomalies)
  */
 
 var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
@@ -23,7 +23,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
         G.lastResult = `Jorin runs his thumb along a component on the work bench before he answers — habit, checking tolerance. "Four months of receiving inputs that test at sixty to seventy percent of declared concentration. I've checked my instruments. I've checked my analysis process." He sets the component down. The workshop smells of hot metal and flux, the kind of smell that settles into clothing. "Same base compounds. Correct labeling. Wrong amounts. Someone upstream is removing material before delivery and it's happening every batch, on a schedule." He already knows it's deliberate. He needed someone to tell him what to do with that knowledge.`;        G.flags.met_jorin = true;
-        addJournal('Workshop master Jorin met: chemical input modifications documented — deliberate concentration changes across supply chain', 'contact_made', `craftspire-jorin-${G.dayCount}`);
+        addJournal('Workshop master Jorin Ledgermere met: chemical input modifications documented — deliberate concentration changes across supply chain', 'contact_made', `craftspire-jorin-${G.dayCount}`);
       } else {
         G.lastResult = `Jorin is mid-run on a precision fabrication when you arrive — he holds up one finger without looking up from the calibration gauge. The workshop is loud with controlled heat and the metallic bite of flux. When the gauge settles he sets it down carefully and says break periods are at the second and sixth bell. "Come back then." He goes back to the bench. He noticed you come in, checked your hands, checked your boots, and went back to work. The analysis sheets on the bench behind him go back six months — they're in plain sight.`;
       }
@@ -214,7 +214,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
       G.lastResult = `Jorin sets his notebook on the bench and asks the question flatly, like a technical specification. "Formal complaint: my documentation enters the guild record. The guild record runs through the same administration that created the transit variance category. Quiet continuation: I keep logging, the extraction continues, no institutional response." He picks up a component, turns it, sets it down. "Four months I've been doing the quiet version. I need to know if that's still the right call." He's not asking for reassurance. He's asking for a decision framework from someone who can see the whole picture.`;
       G.flags.stage1_evidence_decision = 'pending';
-      G.flags.stage1_moral_npc = 'Jorin';
+      G.flags.stage1_moral_npc = 'Jorin Ledgermere';
       addJournal('Jorin formal complaint decision pending — guild system may absorb or suppress his records', 'complication', `craftspire-jorin-decision-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -249,7 +249,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 10. ATMOSPHERE: THE GUILD HALL
   {
-    label: "Attend the guild's weekly master briefing — observe how the guild discusses production standards.",
+    label: "The guild's weekly master briefing is where production standards get discussed. Or don't.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     failResult: "The briefing hall fills quickly — masters take their seats by seniority, apprentices stand along the back wall, the air carrying the familiar sawdust-and-flux smell that follows every workshop in the district. The session runs long on delivery quotas. The chemical standards item on the agenda is marked deferred before you can hear it discussed. Fourth consecutive deferral, according to the master next to you. The posted agenda for next week is already up.",
     xpReward: 50,

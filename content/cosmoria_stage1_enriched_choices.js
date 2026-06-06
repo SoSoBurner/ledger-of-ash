@@ -73,7 +73,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Coralyn Foamglass pulls a ledger from the lower stack — not the one on top. She opens it to a page where three lines have been crossed out. "Sailcloth, forty bolts, crew maintenance." She covers the original entry with her thumb, then lifts it. "Twenty bolts. Listed for independent merchants." She covers the correction, lifts it. "Forty. Listed for Cosmouth brig crews." Same handwriting across five more pages. "I didn't write those corrections," she says. She keeps her thumb on the line she's practiced not speaking aloud.`;
+        G.lastResult = `Coralyn Tideglass pulls a ledger from the lower stack — not the one on top. She opens it to a page where three lines have been crossed out. "Sailcloth, forty bolts, crew maintenance." She covers the original entry with her thumb, then lifts it. "Twenty bolts. Listed for independent merchants." She covers the correction, lifts it. "Forty. Listed for Cosmouth brig crews." Same handwriting across five more pages. "I didn't write those corrections," she says. She keeps her thumb on the line she's practiced not speaking aloud.`;
         G.stageProgress[1]++;
         addJournal('Quartermaster revealed supply chain diversion conspiracy', 'evidence', `cosmoria-supplies-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -147,6 +147,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 4. CLERK OF ARRIVALS: RECORD TAMPERING
   {
+    plot: 'main',
     label: "Three vessels, identical manifests word for word. Different ships, different dates.",
     tags: ['Investigation', 'NPC', 'Archives', 'Records', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
@@ -190,6 +191,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 5. WARD MEDIATOR: CONFLICT RESOLUTION FAILURES
   {
+    plot: 'main',
     label: "The ruling arrived before the hearing. She ruled differently. Her credentials were reviewed.",
     tags: ['Investigation', 'NPC', 'Mediation', 'Districts', 'Meaningful'],
     xpReward: 75,
@@ -204,18 +206,18 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Nerissa sets a sealed document on the table between you and doesn't open it. "This arrived before my last hearing. It outlined the preferred ruling." The seal is a Cosmouth administrative mark — not a judicial one. "I ruled differently. The following week I received a review notice questioning my professional credentials." She taps the document. "I kept it. In case someone came asking." She slides it across the table. The salt smell drifts up from the lower harbor. She waits.`;
+        G.lastResult = `Vethis sets a sealed document on the table between you and doesn't open it. "This arrived before my last hearing. It outlined the preferred ruling." The seal is a Cosmouth administrative mark — not a judicial one. "I ruled differently. The following week I received a review notice questioning my professional credentials." She taps the document. "I kept it. In case someone came asking." She slides it across the table. The salt smell drifts up from the lower harbor. She waits.`;
         G.stageProgress[1]++;
         addJournal('Ward Mediator revealed corrupted district mediation system', 'evidence', `cosmoria-mediation-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Nerissa stands, not quickly — carefully. "Mediation proceedings are protected under ward confidentiality. You'll need to file a formal observation request with the harbor district council." She holds the door open before you've said you're leaving. The district council chamber is two streets away; when you pass it an hour later, there's a warden outside who wasn't there before. The pressure of their notice is specific — someone in that building reported where you went after leaving Nerissa's office.`;
+        G.lastResult = `Vethis stands, not quickly — carefully. "Mediation proceedings are protected under ward confidentiality. You'll need to file a formal observation request with the harbor district council." She holds the door open before you've said you're leaving. The district council chamber is two streets away; when you pass it an hour later, there's a warden outside who wasn't there before. The pressure of their notice is specific — someone in that building reported where you went after leaving Vethis's office.`;
         G.worldClocks.pressure++;
         addJournal('Ward Mediator prohibited further mediation questions', 'complication', `cosmoria-mediation-hostile-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Nerissa says ward disputes have been "unusually contentious this cycle." She describes one case — a mooring rights dispute between an independent fisher and a Cosmouth brig captain — and the way she tells it, the reasoning she applied, doesn't match the ruling she issued. She notices you noticing. "I applied the standard framework," she says. She doesn't repeat it. The ruling she issued is in the public case summary index — the reasoning she filed is on record.`;
+        G.lastResult = `Vethis says ward disputes have been "unusually contentious this cycle." She describes one case — a mooring rights dispute between an independent fisher and a Cosmouth brig captain — and the way she tells it, the reasoning she applied, doesn't match the ruling she issued. She notices you noticing. "I applied the standard framework," she says. She doesn't repeat it. The ruling she issued is in the public case summary index — the reasoning she filed is on record.`;
         addJournal('Ward Mediator confirmed recent mediation bias patterns', 'evidence', `cosmoria-mediation-biased-${G.dayCount}`);
       } else {
-        G.lastResult = `Nerissa explains that case records are sealed for sixty days per ward protocol. Summaries are available through the district clerk's office with a party-of-interest certification. You are not a party of interest. She writes down the clerk's address on a slip of paper and hands it over. Her handwriting is precise. One independent merchant who held the mooring rights in the dispute she described would qualify as a party of interest — and the case summary index is public.`;
+        G.lastResult = `Vethis explains that case records are sealed for sixty days per ward protocol. Summaries are available through the district clerk's office with a party-of-interest certification. You are not a party of interest. She writes down the clerk's address on a slip of paper and hands it over. Her handwriting is precise. One independent merchant who held the mooring rights in the dispute she described would qualify as a party of interest — and the case summary index is public.`;
         addJournal('District mediation blocked without ward authorization', 'evidence', `cosmoria-mediation-blocked-${G.dayCount}`);
       }
 
@@ -223,13 +225,14 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: {
-      text: "The district clerk's office has already closed for the afternoon session — the party-of-interest certification Nerissa described requires in-person filing before the second bell. She wrote down the address in precise handwriting; the office opens at first light. One independent merchant who held mooring rights in the dispute she described would qualify as a party of interest, and the case summary index is public. The harbour front runs with working merchants from dawn.",
+      text: "The district clerk's office has already closed for the afternoon session — the party-of-interest certification Vethis described requires in-person filing before the second bell. She wrote down the address in precise handwriting; the office opens at first light. One independent merchant who held mooring rights in the dispute she described would qualify as a party of interest, and the case summary index is public. The harbour front runs with working merchants from dawn.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },
 
   // 6. STREET PHYSICIAN: HEALTH RECORDS FALSIFICATION
   {
+    plot: 'main',
     label: "His record says acute. The health roll says seasonal minor. Different date, different severity.",
     tags: ['Investigation', 'NPC', 'Health', 'Records', 'Meaningful'],
     xpReward: 70,
@@ -270,6 +273,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 7. ARCHIVIST: DOCUMENT DESTRUCTION
   {
+    plot: 'main',
     label: "A gap on the archive shelf — dust-free at the edges. That level is new.",
     tags: ['Investigation', 'NPC', 'Archives', 'History', 'Meaningful'],
     xpReward: 75,
@@ -310,6 +314,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 8. SHIPWRIGHT FOREMAN: QUALITY STANDARDS CORRUPTION
   {
+    plot: 'main',
     label: "Cosmouth joins: approved. Identical independent joins: eleven days under review.",
     tags: ['Investigation', 'NPC', 'Craft', 'Quality', 'Meaningful'],
     xpReward: 75,
@@ -352,6 +357,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 9. MARITIME HIERARCHY: FLOATING DISTRICT REORGANIZATION
   {
+    plot: 'main',
     label: "Five amendments in eight months. Each one adds a Cosmouth clause.",
     tags: ['Investigation', 'Structure', 'Organization', 'Maritime', 'Meaningful'],
     xpReward: 70,
@@ -389,6 +395,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 10. MARITIME NETWORKS: MERCHANT DISPLACEMENT
   {
+    plot: 'main',
     label: "Sixty-four independent merchants three years ago. Forty-one now. It was selectively cleared.",
     tags: ['Investigation', 'Networks', 'Maritime', 'Displacement', 'Meaningful'],
     xpReward: 75,
@@ -429,6 +436,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 11. ARCHIVE INTEGRITY: DOCUMENTATION SYSTEM ANALYSIS
   {
+    plot: 'main',
     label: "Three pages of public access last year. One page now. The gap covers everything before.",
     tags: ['Investigation', 'Archives', 'System', 'Information', 'Meaningful'],
     xpReward: 70,
@@ -466,6 +474,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 12. PERSONAL AMBITION TRACKING: WHO'S RISING
   {
+    plot: 'main',
     label: "Three new positions, same administrative cycle, all filled by the same harbor authority office.",
     tags: ['Investigation', 'Ambition', 'Power', 'Tracking', 'Meaningful'],
     xpReward: 75,
@@ -506,6 +515,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 13. INSTITUTIONAL LEVERAGE: DEPENDENCY SYSTEM
   {
+    plot: 'main',
     label: "Process, delay, paperwork — until the person at the center understands what it wants.",
     tags: ['Investigation', 'Institutions', 'Dependency', 'Power', 'Meaningful'],
     xpReward: 75,
@@ -546,6 +556,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 14. SUPPLY MANIPULATION: RESOURCE SCARCITY CREATION
   {
+    plot: 'main',
     label: "Full deliveries arrive. Independents get sixty percent. The rest is reserved, nothing scheduled.",
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control', 'Meaningful'],
     xpReward: 70,
@@ -586,6 +597,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 15. FAITH WEAPONIZATION: RITUAL AS CONTROL
   {
+    plot: 'main',
     label: "Cosmouth crews get the full rite. Independent crews are turned away — again.",
     tags: ['Investigation', 'Faith', 'Ritual', 'Control', 'Meaningful'],
     xpReward: 75,
@@ -628,6 +640,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 16. HARBOR RUMOR: DOCKWORKER WHISPERS
   {
+    plot: 'main',
     label: "Three people in an hour, all treating it the same way — quietly.",
     tags: ['Investigation', 'Rumor', 'Maritime', 'Gossip', 'Meaningful'],
     xpReward: 65,
@@ -656,6 +669,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 17. ARCHIVE RUMOR: SCHOLAR WHISPERS
   {
+    plot: 'main',
     label: "The reading room has its own current. Scholars share things quietly — already accepted.",
     tags: ['Investigation', 'Rumor', 'Archives', 'Gossip', 'Meaningful'],
     xpReward: 65,
@@ -684,6 +698,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 18. INSTITUTIONAL CRACK: CORRUPTION PROOF COMPILATION
   {
+    plot: 'main',
     label: "Nine documents from nine institutions. None point at each other. All point the same direction.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
@@ -698,7 +713,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Laid flat on a counting-house table you've borrowed for the afternoon: nine carbon arrival copies with corrected primaries, Coralyn's corrected supply ledger, Nerissa's pre-issued ruling document, the access tier list signed in one week, the warehouse allocation records against the fleet maintenance logs that don't match. Each document is a different institution. Each has the same quality — a deliberate alteration that absorbs its own evidence. They don't point at each other. They all point the same direction. That's the paper trail.`;
+        G.lastResult = `Laid flat on a counting-house table you've borrowed for the afternoon: nine carbon arrival copies with corrected primaries, Coralyn's corrected supply ledger, Vethis's pre-issued ruling document, the access tier list signed in one week, the warehouse allocation records against the fleet maintenance logs that don't match. Each document is a different institution. Each has the same quality — a deliberate alteration that absorbs its own evidence. They don't point at each other. They all point the same direction. That's the paper trail.`;
         G.stageProgress[1]++;
         addJournal('Institutional corruption conspiracy documented with proof', 'evidence', `cosmoria-proof-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -724,6 +739,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 19. MORAL PRESSURE: INSTITUTION LOYALTY COMPROMISE
   {
+    plot: 'main',
     label: "They've been waiting for someone to ask. They don't know if it helps.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
@@ -740,9 +756,9 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       G.stageProgress[1]++;
 
       const npcOptions = [
-        { name: 'Quartermaster Coralyn Foamglass', role: 'resource keeper', fear: 'They threatened to have me reassigned to merchant crew service if I spoke out. My family depends on my position.' },
+        { name: 'Quartermaster Coralyn Tideglass', role: 'resource keeper', fear: 'They threatened to have me reassigned to merchant crew service if I spoke out. My family depends on my position.' },
         { name: 'Joss Pell', role: 'salt archive clerk', fear: 'They made it clear that exposing document destruction would result in my dismissal and blacklisting from all scholarly work in Cosmouth.' },
-        { name: 'Clerk Tideon Anchorlight', role: 'record keeper', fear: 'I wanted to resist but they said if I exposed falsified records, they\'d accuse me of the falsification itself.' }
+        { name: 'Clerk Tideon', role: 'record keeper', fear: 'I wanted to resist but they said if I exposed falsified records, they\'d accuse me of the falsification itself.' }
       ];
 
       const npc = npcOptions[Math.floor(Math.random() * npcOptions.length)];
@@ -1061,6 +1077,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
 
   // 6D: Clerk answers a different question than the one asked
   {
+    plot: 'main',
     label: "The harbor clerk answered something. Not what I asked.",
     tags: ['NPC', 'Records', 'Inquiry'],
     xpReward: 55,
@@ -1092,6 +1109,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
   // COMBAT x2
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: "Two watchers, blocking line of sight to the harbor gate. Signal the moment they split.",
     tags: ['Combat', 'Confrontation', 'Direct'],
     xpReward: 65,
@@ -1135,6 +1153,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'combat',
+    plot: 'main',
     label: "Harbor gate is blocked. The bar on the other side hasn\'t been properly seated.",
     tags: ['Combat', 'Risk', 'Direct'],
     xpReward: 65,
@@ -1179,6 +1198,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
   // MAGIC x2
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: "Coastal marker stones carry inscriptions. That one has a second layer underneath the Roazian marks.",
     tags: ['Magic', 'Lore', 'Observation'],
     xpReward: 65,
@@ -1221,6 +1241,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'magic',
+    plot: 'main',
     label: "Port authority record room. The ward on the archive cabinet is newer than the cabinet.",
     tags: ['Magic', 'Lore', 'Records'],
     xpReward: 65,
@@ -1264,6 +1285,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
   // STEALTH x2
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: "The watched building, second floor east window. Someone inside who shouldn\'t be visible at all.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
@@ -1290,13 +1312,13 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
         addJournal('Extracted records clerk Dalve from watched building — has 11 months of secondary inner dock records; senior factor name on authorizations listed as off-station', 'evidence');
       } else if (result.isFumble) {
         G.lastResult = 'The loft approach works until a ceiling board gives under your weight — old wood, salt-swollen. The sound carries into the building below. The watcher at the harbor walk corner responds to the sound and is at the alley gate before you reach the exit. You are on the building side of the gate with a watcher on the other side listening. You hold still for six minutes. The watcher moves on. The person in the east window does not open the window when you knock. They heard the board too.';
-        addJournal('Building infiltration near-miss — ceiling board collapsed; watcher responded; contact in east room spooked, would not open window', 'complication');
+        addJournal('Building infiltration near-miss — ceiling board collapsed; watcher responded; records keeper in east room spooked, would not open window', 'complication');
       } else if (result.total >= target) {
         G.lastResult = 'Through the loading bay and into the east room. The person inside is a dock records keeper — she does not give her name but she shows you what she has: a handwritten list of inner dock berth allocations for the past two months, each one carrying an authorization code rather than a named signatory. She has been in the building for five days. "The codes map to one person," she says. She does not say the name. She writes it on a separate piece of paper and hands it to you with the list, then tears both edges of the paper to mark it as a copy. "Get me out through the back gate. I know the watcher schedule."';
         addJournal('Extracted dock records keeper from watched building — list of inner dock berth authorizations; codes map to single person (name on separate paper)', 'evidence');
       } else {
         G.lastResult = 'Inside and to the east room. The person there is a young records keeper who went quiet three days ago after seeing something in the inner dock manifest he was not supposed to see. He does not know you are coming. He opens the door because you knocked three times the way a dock worker knocks. "Is it time?" he asks, looking past you for someone else. He is waiting for a specific person who has not come. He will talk, but he will not move until the specific person arrives or you explain why they did not.';
-        addJournal('Reached records keeper in watched building — waiting for a specific contact who has not arrived; has information but will not move without contact or explanation', 'discovery');
+        addJournal('Reached records keeper in watched building — waiting for a specific person who has not arrived; has information but will not move without them or explanation', 'discovery');
       }
 
       G.recentOutcomeType = 'action';
@@ -1306,6 +1328,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'stealth',
+    plot: 'main',
     label: "Port authority checkpoint at night. One clerk, one log, and twenty seconds between entries.",
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
@@ -1350,6 +1373,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: "The watcher has been in the salt row for four hours. Not watching the harbor.",
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
@@ -1373,7 +1397,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
       if (result.isCrit) {
         G.lastResult = 'The watcher\'s name is Fen. He has been in the salt row for six weeks — not watching the harbor, watching the port authority records room window. "Someone is supposed to come out of that window with a document case," he says. "I don\'t know who sends me. The pay comes through the salt merchant at the end of the row. I was told to watch for a records clerk who would leave by the window rather than the door." He looks at the records room window. "She hasn\'t come yet." He tells you the pay schedule, the signal system, and the salt merchant\'s name without being asked for any of it.';
         G.stageProgress[1]++;
-        addJournal('Watcher Fen: watching port authority records room window for records clerk leaving by window with document case; paid through salt merchant row; 6 weeks, no contact yet', 'evidence');
+        addJournal('Watcher Fen: watching port authority records room window for records clerk leaving by window with document case; paid through salt merchant row; 6 weeks, no clerk seen yet', 'evidence');
       } else if (result.isFumble) {
         G.lastResult = 'The watcher hears enough of the conversation to decide you are the thing he was told to watch for. Not the document case, not the records clerk — you. His posture changes. He touches his collar twice, which is a signal. The salt merchant three stalls down stops arranging his display and starts watching the approach to the harbor gate. You have been identified as a concern and the salt merchant row has just extended its coverage. Whatever you were going to do at the harbor gate has an additional complication now.';
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -1393,6 +1417,7 @@ COSMORIA_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
+    plot: 'main',
     label: "The salt merchant controls port access. He knows it. He\'s waiting for acknowledgment.",
     tags: ['Support', 'NPC', 'Negotiation'],
     xpReward: 65,

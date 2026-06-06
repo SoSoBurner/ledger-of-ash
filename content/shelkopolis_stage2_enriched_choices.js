@@ -35,12 +35,12 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The face at the chapel is wrong. The original intermediary is gone — this one has a fresh guild mark and the careful stillness of someone recently briefed. She listens to your first question, sets down the prayer cloth she's folding, and walks to the shrine desk. You are out the door before the notice is filed, but not before she marks your coat.`;
-        addJournal('Investigation noticed at chapel', 'complication', `shelk-chapel-burn-${G.dayCount}`);
+        addJournal('Chapel approach noted by ritual staff', 'complication', `shelk-chapel-burn-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.investigationProgress++;
         G.lastResult = `The intermediary confirms a northern connection and stops there. When you press for a name, her hands go still on the prayer cloth. She says: "Not today." The wax smell of the chapel alcove sits heavy in the space between you. She says it like someone who said yes last week and has been paying for it since. The refusal has shape — a name she knows, a reason she won't share it here. That shape is more useful than a name given reluctantly to the wrong audience.`;
-        addJournal('Chapel contact confirms northern link', 'evidence', `shelk-chapel-partial-${G.dayCount}`);
+        addJournal('Chapel intermediary confirms northern link', 'evidence', `shelk-chapel-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -219,6 +219,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lyara Dawnlight filed three formal objections. All stamped received. None answered.",
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Religion', 'Stage2'],
     tag: 'safe',
@@ -359,6 +360,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Aurora Light Cathedral's restricted archive holds the protocol revision records. The credentials gate is real.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Personal', 'Magic', 'Lore', 'Stage2'],
     tag: 'safe',
@@ -376,7 +378,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.lastResult = arch === 'magic'
           ? `The archive attendant puts your credentials through the full doctrinal verification sequence, which takes twelve minutes. You pass. Inside, the restricted texts include records of a ritual coordination protocol that was repurposed from its sanctioned use — with three names attached to the authorization. One you recognize from the chapel letter records. Two are new. All three need to be placed.`
-          : `Your credentials earn a supervised hour in the reading room with pre-selected materials. One document stands out: a formal objection filed against a specific protocol change and then sealed six months ago under a notation that cites no governing authority. The name of the sealing official is legible in the upper margin.`;
+          : `Your credentials earn a supervised hour in the reading room with pre-selected materials. One document stands out: a formal objection filed against a specific protocol change and then sealed six months ago under a notation that cites no governing authority. The name of the clerk who sealed it is legible in the upper margin.`;
         addJournal('Cathedral archive accessed — key documents found', 'evidence', `shelk-archive-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -392,6 +394,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Verdant Row runs on three handshake protocols. Getting the sequence wrong has a cost.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Personal', 'Stealth', 'Stage2'],
     tag: 'risky',
@@ -651,6 +654,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Panim mediator's courier arrived three days ago and has not left Shelkopolis.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 68,
@@ -711,6 +715,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Director of Civic Charter Integrity has a physical office. It appears in no directory.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
@@ -801,6 +806,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A maintenance node in the archival quarter. The channel ran through it.",
+    plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Investigation', 'Craft'],
     xpReward: 68,
@@ -962,6 +968,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // BEAT 3 — Payoff
   {
     label: "The night-shift turnover is the only window where the ledger sits unattended.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
@@ -1021,6 +1028,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Collegium arbiter's docket skips three names. The gap is deliberate.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 68,
@@ -1052,6 +1060,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Inquisitor Orveth conducts his reviews at the same tavern table every third day.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 68,
@@ -1237,6 +1246,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice B — Sealed letter interception
   {
     label: "The letter is in transit. The relay house is unattended for eighteen minutes.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Investigation', 'Stage2', 'Stealth'],
     tag: 'bold',
@@ -1267,6 +1277,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice C — Guild registry cross-reference
   {
     label: "Every suppressed contract flows through the same notary office. The clerk there is overworked.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
@@ -1299,6 +1310,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice D — Red Hood surveillance
   {
     label: "Four times this week at that table. Red Hood, or a tail on Red Hood.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Investigation', 'Stage2', 'Stealth', 'Faction'],
     tag: 'risky',
@@ -1330,6 +1342,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice E — Innkeeper's second cipher
   {
     label: "Aelra left a second margin notation. Later dates. Smaller hand.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "Aelra shows the second notation and closes the ledger in the same motion. The ledger goes under the counter. The inn smells of old wood and coal smoke. That door is closed until trust is rebuilt.",
@@ -1360,6 +1373,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice F — Warden Order second contact
   {
     label: "The Warden Order sent a second representative. Different face, same questions.",
+    plot: 'main',
     tags: ['Faction', 'Antagonist', 'Stage2'],
     tag: 'risky',
     xpReward: 82,
@@ -1392,6 +1406,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // Choice G — Charter amendment archive
   {
     label: "The chapel oversight amendment runs three paragraphs. The third one came later.",
+    plot: 'main',
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "The amendment is held under a sealed access classification one level above standard registry credentials. Your name goes into the request log. The log is reviewed by the Director of Civic Charter Integrity — precisely the office that most needs to not know you are looking.",
