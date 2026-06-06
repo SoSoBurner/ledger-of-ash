@@ -3497,6 +3497,13 @@ const ENEMY_TEMPLATES = {
     desc:'Hunts warm-blooded prey by heat signature. First strike in cold terrain.',
     loot:{gold:0, item:'Polar Asp Scale', materials:[{id:'ash_compound',qty:1,chance:0.6},{id:'beast_hide',qty:1,chance:0.4}]},
     fleeThreshold:0.2, abilities:[{name:'Heat Sense', effect:'attack+2 in ice-locked terrain'}]
+  },
+  warrant_patrol:{
+    name:'Warrant Patrol', hp:20, maxHp:20, attack:5, defense:5, morale:12,
+    desc:'Shelk enforcement officers acting on a named warrant. They have your description and legal authority to detain.',
+    loot:{gold:0, item:'Warrant Copy (evidence)', materials:[{id:'stamped_paper',qty:1,chance:0.8},{id:'patrol_insignia',qty:1,chance:0.5}]},
+    fleeThreshold:0.2,
+    abilities:[{name:'Named Warrant', effect:'cannot be deflected with Charm alone; Talk DC+3'}]
   }
 };
 
@@ -13523,7 +13530,7 @@ function checkStageAdvance() {
           addNarration('', '<em style="color:var(--ink-faint)">The path forward is not yet open. ' + missing.join('; ') + '.</em>');
         }
       }
-      if (!(G.flags && G.flags._stage3_blocked_dismissed)) {
+      if (G.flags.stage2_climax_complete && !(G.flags && G.flags._stage3_blocked_dismissed)) {
         _showStage3BlockedModal();
       }
       return;
