@@ -837,6 +837,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "Tazren's name is in every pre-reform archive. He's absent from every current Bureau document.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(52, 'asking about Tazren');
@@ -985,6 +989,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
+  failResult: function() {
+    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    loadStageChoices(G.location);
+  },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
