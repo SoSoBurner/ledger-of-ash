@@ -21,6 +21,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Safe', 'Social', 'Observation', 'Passive'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -40,6 +44,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Good', 'Safe', 'Community', 'Action'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -61,6 +69,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Social', 'Safe', 'Relationship', 'Good'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -102,6 +114,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Safe', 'Cultural', 'Observation'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -141,6 +157,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Good', 'Teaching', 'Community'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -164,6 +184,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Safe', 'Exploration', 'Discovery'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -184,6 +208,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Safe', 'Observation', 'Tactical'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -224,6 +252,10 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     tags: ['Observation', 'Neutral', 'Intelligence'],
     xpReward: 30,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;

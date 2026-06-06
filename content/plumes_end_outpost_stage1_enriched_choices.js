@@ -233,6 +233,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     label: "The formal channels are compromised. Letha knows it. She's waiting to see if I do.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'Letha escalation decision');
@@ -336,6 +340,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     label: "Letha's six months of records can't stay here. The suppression knows where to look.",
     tags: ['PersonalArc', 'Evidence', 'Exposure', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'securing Letha\'s reports offsite');
@@ -581,6 +589,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     label: "The patrol calls the northeast wind by a name that's not on any map.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'learning the frontier wind name');
@@ -637,6 +649,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     label: "Two weeks of outpost dispatches with no acknowledged receipt from coordination.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing outpost communications log');
@@ -658,6 +674,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     label: "Letha's suppression order is missing a clause every other outpost received.",
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'comparing suppression order versions');
@@ -702,6 +722,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     label: "The Compact review officer hasn't visited in eight months. No explanation sent.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'inquiring about Compact oversight absence');
@@ -723,6 +747,10 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     label: "The overnight watch keeps the supply station hearth burning even in summer.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(35, 'observing the outpost overnight hearth');

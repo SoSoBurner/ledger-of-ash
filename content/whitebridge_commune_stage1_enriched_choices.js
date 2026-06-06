@@ -242,6 +242,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Cadrin needs to know what this becomes before he talks.",
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'Cadrin evidence decision');
@@ -339,6 +343,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Cadrin's records can't stay here. Someone will notice he kept them.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'securing Cadrin\'s log offsite');
@@ -512,6 +520,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Someone asked Terris the same questions last week. More specific than mine.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(57, 'receiving rival warning');
@@ -543,6 +555,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The river beneath the bridge carries sound differently at dawn than at any other hour.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'observing bridge river acoustics at dawn');
@@ -556,6 +572,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Crossing workers read trust differently from authority. Worth seeing which I read as.",
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
     xpReward: 70,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
@@ -579,6 +599,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Three cargo classes pay from a second rate document. No posting date.",
     tags: ['Pressure', 'Background', 'Stage1'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'comparing crossing fee schedules');
@@ -598,6 +622,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "'Authorized under operational continuity.' The commune's charter contains no such phrase.",
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing bridge director administrative log');
@@ -619,6 +647,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The midnight crossing manifests are filed where no one looks by default.",
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'locating midnight crossing manifests');
@@ -658,6 +690,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Sali has been keeping her own count. Separately from the sanctioned log.",
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'finding night-shift crossing counter');
@@ -679,6 +715,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The inn's traveler book goes back forty years. The last eight months are sparse.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(35, 'reading bridge-side inn traveler book');
@@ -692,6 +732,10 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The founding compact gives Cadrin authority to halt crossings. He doesn't know.",
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
     xpReward: 75,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reading crossing authority founding compact');
