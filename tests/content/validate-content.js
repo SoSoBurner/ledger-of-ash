@@ -14,7 +14,7 @@ const FORBIDDEN    = ['investigation', 'meaningful', 'you feel', 'you realize', 
 // "contact" as noun-for-person: catch "a contact" / "my contact" / "their contact" etc.
 const FORBIDDEN_RE = /\b(a|my|their|your|his|her|our)\s+contact\b/i;
 
-const LABEL_VERB_RE = /^(To |Ask |Check |Go |Find |Look |Talk |Tell |Take |Give |Buy |Sell |Use )/;
+const LABEL_VERB_RE = /^(To |Ask |Check |Go |Find |Look |Talk |Tell |Take |Give |Buy |Sell |Use |Watch |Read |Enter |Follow |Return |Move |Press |Cross |Open |Search |Leave |Get |Run |Try |Push |Pull |Show |Send )/;
 
 let errors = 0;
 let warns = 0;
@@ -348,10 +348,16 @@ function checkNpcFlagTiming(fnSrc) {
 
 // ─── A7 — Safe choices must have failResult ──────────────────────────────────
 
+const SEMANTIC_SAFE_TAGS_A7 = new Set(['Investigation','NPC','Social','Lore','Maritime','Archive','Observation','Rumor','Trade','Civic','Rest','Stealth','Craft','Study','Retreat','Gather','Intelligence','Discovery','Survey','Records','Inquiry','Evidence','Information','Support','Gossip','Pattern','Surveillance','Travel','Research','Security','Knowledge','Analysis','History','Insight','Community','Proof','Companion','Commerce','Labor','Atmosphere','District','Ritual','Supply','Resources','Systems','Organization','Infrastructure','Perception','Defense','Protection','Movement','Logistics','Doctrine','Caution','Hidden','Access']);
+
 function checkRuleA7(choice) {
-  if (choice.tag !== 'safe') return null;
-  if (!choice.failResult || typeof choice.failResult !== 'string' || choice.failResult.trim().length === 0) {
-    return 'safe choice missing failResult field (required for DC 7 auto-roll failure path)';
+  const isSafeScalar = choice.tag === 'safe';
+  const isSafeArray = !isSafeScalar && Array.isArray(choice.tags) &&
+    choice.tags.some(function(t) { return SEMANTIC_SAFE_TAGS_A7.has(t); });
+  if (!isSafeScalar && !isSafeArray) return null;
+  if (!choice.failResult || (typeof choice.failResult !== 'function' && typeof choice.failResult !== 'string') ||
+      (typeof choice.failResult === 'string' && choice.failResult.trim().length === 0)) {
+    return 'A7: safe-tier choice missing failResult (tag: ' + (choice.tag || JSON.stringify(choice.tags)) + ')';
   }
   return null;
 }
