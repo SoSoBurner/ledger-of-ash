@@ -631,6 +631,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The sluice channels were built to move water and light simultaneously.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'observing Glasswake sluice design');
@@ -645,6 +649,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "Toman's shard samples show a reaction profile that shouldn't be possible under known material science.",
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       const family = typeof getArchetypeFamily === 'function' ? getArchetypeFamily(G.archetype) : '';
@@ -668,6 +676,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The committee's composition changed three years ago. A majority arrived in the same cycle.",
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'reviewing committee appointment history');
@@ -687,6 +699,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The archive holds founding-generation shard records. They contradict the suppression rationale.",
     tags: ['Information', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading founding generation shard records');
@@ -708,6 +724,10 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     label: "The committee's correspondence names a specific study outcome they needed prevented.",
     tags: ['Information', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'reading committee-authority correspondence');

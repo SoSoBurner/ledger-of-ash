@@ -392,6 +392,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Combat', 'Supply', 'Logistics'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -466,6 +470,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Magic', 'Ritual', 'Corruption'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -622,6 +630,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Support', 'Fear', 'Trust'],
     xpReward: 75,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -772,6 +784,10 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     stageProgress: 1,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;

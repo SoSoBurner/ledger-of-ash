@@ -47,6 +47,10 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 76,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'questioning Patrol Leader about unmapped northern structure');

@@ -575,6 +575,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     label: "The waiting hall has a numbered queue system. Everyone ignores it.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(38, 'observing Unity Square queue dynamics');
@@ -720,6 +724,10 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     label: "The coordination seal is worn past readability. Nobody has requested a replacement.",
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(35, 'observing coordination seal degradation');
