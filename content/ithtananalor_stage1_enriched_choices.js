@@ -945,6 +945,10 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "The ward doesn't stop when the market closes. The unposted accounts move after dark.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(52, 'observing ward after hours');
@@ -960,6 +964,10 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     label: "Maret Voss specializes in disputed account resolution. Three displaced garrison officers have disputed accounts.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    failResult: function() {
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      loadStageChoices(G.location);
+    },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'meeting Maret Voss');
