@@ -12668,7 +12668,7 @@ function handleChoice(choice) {
     // parts: ['', 'combat', mode, enemyKey, (abilityId)?]
     const mode = parts[2];
     const enemyKey = parts[3];
-    if (!enemyKey) {
+    if (!enemyKey && mode !== 'retreat') {
       console.error('[combat] CID malformed, missing enemyKey:', choice.cid);
       addNarration('', 'The encounter couldn\'t be resolved. Continuing...', 'neutral');
       loadStageChoices(G.location);
@@ -18425,10 +18425,10 @@ function enterCombat(enemyKey, context) {
   }
 
   const choices = [
-    {text:'Press forward. Take the initiative.', skill:'combat', tag:'bold', align:'chaotic', cid:'__combat_press__'+enemyKey},
-    {text:'Defend and read them. Let them come to you.', skill:'combat', tag:'safe', align:'neutral', cid:'__combat_defend__'+enemyKey},
-    {text:'This does not have to be a fight. That calculation is still open.', skill:'persuasion', tag:'risky', align:'lawful', cid:'__combat_talk__'+enemyKey},
-    {text:'Retreat now. This fight is not worth the cost.', skill:'stealth', tag:'safe', align:'chaotic', cid:'__combat_retreat__'}
+    {text:'Press forward. Take the initiative.', skill:'combat', tag:'bold', align:'chaotic', cid:'__combat__press__'+enemyKey},
+    {text:'Defend and read them. Let them come to you.', skill:'combat', tag:'safe', align:'neutral', cid:'__combat__defend__'+enemyKey},
+    {text:'This does not have to be a fight. That calculation is still open.', skill:'persuasion', tag:'risky', align:'lawful', cid:'__combat__talk__'+enemyKey},
+    {text:'Retreat now. This fight is not worth the cost.', skill:'stealth', tag:'safe', align:'chaotic', cid:'__combat__retreat__'}
   ].concat(getCombatAbilityChoices(enemyKey));
   setTimeout(() => renderChoices(choices), 300);
 }
