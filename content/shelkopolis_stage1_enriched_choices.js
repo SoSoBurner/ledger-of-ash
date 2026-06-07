@@ -78,8 +78,8 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
         addJournal('Chapel clerk logged your inquiry — visit formally noted', 'complication', `shelkopolis-chapel-alert-${G.dayCount}`);
       } else {
         if (G && G.flags && G.flags.met_warden_order_contact) {
-          G.lastResult = `Brother Aldwin's hands stop folding when he sees your face. He says nothing for a moment. Then: "The person you spoke to about the warden order — they pass letters here too." He turns to the alcove without being asked and removes a single slip from the bottom of the stack. The wax seal has been broken and re-pressed. "I've watched the correspondence change. The questions in the early letters were operational. The recent ones are about names." He sets the slip face-down and slides it across. "This came three days ago. I don't know whose."`;
-          addJournal('Chapel letter network: recent correspondence shifted to naming individuals — warden order aware', 'evidence', `shelkopolis-letters-wardenseen-${G.dayCount}`);
+          G.lastResult = `Brother Aldwin's hands stop folding when he sees your face. He says nothing for a moment. Then: "The person you spoke to about the Roadwardens Order — they pass letters here too." He turns to the alcove without being asked and removes a single slip from the bottom of the stack. The wax seal has been broken and re-pressed. "I've watched the correspondence change. The questions in the early letters were operational. The recent ones are about names." He sets the slip face-down and slides it across. "This came three days ago. I don't know whose."`;
+          addJournal('Chapel letter network: recent correspondence shifted to naming individuals — Roadwardens Order aware', 'evidence', `shelkopolis-letters-wardenseen-${G.dayCount}`);
         } else {
           G.lastResult = `Brother Aldwin confirms letters pass through the chapel — private correspondence for traveling merchants, he says, a service the chapel has offered for generations. His hands stay folded when he says it. He doesn't look at the alcove. He doesn't need to. The wax-and-stone smell of the chapel sits heavy in the air between you. A novice at the far writing desk pauses, then resumes. Whatever the full arrangement is, he's decided the public version is the only one you'll hear today, and he has had this conversation enough times to make that decision feel like generosity.`;
           addJournal('Chapel involved in letter routing but details refused', 'evidence', `shelkopolis-letters-blocked-${G.dayCount}`);
@@ -896,14 +896,14 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Warden Order officer is working the same evidence trail. They let you know it.",
+    label: "A Roadwardens Order officer is working the same evidence trail. They let you know it.",
     tags: ['NPC', 'Faction', 'Stage1'],
     xpReward: 60,
     failResult: {
-      text: "Verdant Row is crowded this hour — cloth buyers from the harbor estates, two guild stewards with a dispute about a commission deadline. The officer you were told to look for is not on the Row today, or not visible. The coal-smoke smell from Ironspool drifts over. Warden Order officers in a working city rarely stand still. The garrison precinct notice board posts visiting authority credentials by district. That board is public.",
+      text: "Verdant Row is crowded this hour — cloth buyers from the harbor estates, two guild stewards with a dispute about a commission deadline. The officer you were told to look for is not on the Row today, or not visible. The coal-smoke smell from Ironspool drifts over. Roadwardens Order officers in a working city rarely stand still. The garrison precinct notice board posts visiting authority credentials by district. That board is public.",
       xp: 0,
       effects: [],
-      next: [{text: "Check the garrison precinct notice board for Warden Order credentials.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+      next: [{text: "Check the garrison precinct notice board for Roadwardens Order credentials.", skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -913,12 +913,12 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       G.flags.met_warden_order_contact = true;
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `The Warden Order officer steps into your path on Verdant Row and thumbs open the clasp of his case-book without looking down — the same half-second motion each time a name goes into it. "We're working the same ground." Same evidence trail, same chapel correspondence pattern. He doesn't offer cooperation; he announces overlap. The book closes with his thumb still on the clasp. Your name is in it now. The coal-smoke smell of the street stays behind him.`;
+        G.lastResult = `The Roadwardens Order officer steps into your path on Verdant Row and thumbs open the clasp of his case-book without looking down — the same half-second motion each time a name goes into it. "We're working the same ground." Same evidence trail, same chapel correspondence pattern. He doesn't offer cooperation; he announces overlap. The book closes with his thumb still on the clasp. Your name is in it now. The coal-smoke smell of the street stays behind him.`;
         G.factionHostility.warden_order = Math.max(0, G.factionHostility.warden_order - 1);
       } else {
-        G.lastResult = `A Warden Order officer stops beside you at the chapel steps and speaks without turning — her left hand keeps a folded slip of paper pinched between two knuckles, a margin note she wrote before she saw you. "The same anomalies. We noticed." The slip goes back into her cuff as she walks on. The Principalities' enforcement arm has been here longer than you have, and they chose to let you know it.`;
+        G.lastResult = `A Roadwardens Order officer stops beside you at the chapel steps and speaks without turning — her left hand keeps a folded slip of paper pinched between two knuckles, a margin note she wrote before she saw you. "The same anomalies. We noticed." The slip goes back into her cuff as she walks on. The Principalities' enforcement arm has been here longer than you have, and they chose to let you know it.`;
       }
-      addJournal('Warden Order acknowledged overlap — same evidence trail', 'intelligence', `shelk-warden-${G.dayCount}`);
+      addJournal('Roadwardens Order acknowledged overlap — same evidence trail', 'intelligence', `shelk-warden-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -939,7 +939,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       const arch = G.archetype && G.archetype.group;
-      G.lastResult = `The merchant keeps his voice low and his eyes on the stall beside him. "Thorough. They didn't react when they heard the answers — wrote things down, thanked people, left. Like they already knew and were filling in the last columns." The description fits a ${arch === 'combat' ? 'Warden Order field operative' : arch === 'magic' ? 'Collegium-affiliated archivist' : arch === 'stealth' ? 'private intelligence contractor' : 'institutional compliance officer'}. Someone else is working this ground, and they started before you did.`;
+      G.lastResult = `The merchant keeps his voice low and his eyes on the stall beside him. "Thorough. They didn't react when they heard the answers — wrote things down, thanked people, left. Like they already knew and were filling in the last columns." The description fits a ${arch === 'combat' ? 'Roadwardens Order field operative' : arch === 'magic' ? 'Collegium-affiliated archivist' : arch === 'stealth' ? 'private intelligence contractor' : 'institutional compliance officer'}. Someone else is working this ground, and they started before you did.`;
       if (!G.rivalId) {
         if (arch === 'combat') G.rivalId = 'warden_captain';
         else if (arch === 'magic') G.rivalId = 'archivist_veld';

@@ -96,7 +96,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = arch === 'support'
-          ? `Elowen's guild purchase records show a pattern you recognize from Bureau audit work: the disruptions divert trade away from established guild contracts and into a parallel market with no registered registry stamp. Elowen either has seen this and held it — or she is carrying a liability she hasn't named to anyone.`
+          ? `Elowen's guild purchase records show a pattern you recognize from guild registry audit work: the disruptions divert trade away from established guild contracts and into a parallel market with no registered registry stamp. Elowen either has seen this and held it — or she is carrying a liability she hasn't named to anyone.`
           : `The shortages cluster in exactly the product lines controlled by the faction opposing Lady Isabella's direct holdings. The rivalry between the houses is real, but the damage here is too surgical for a family dispute. Someone mapped the rivalry and is using it as scaffolding for something that operates at a different scale entirely.`;
         addJournal('Noble rivalry instrumentalized — deeper layer found', 'evidence', `shelk-noble-layer-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -255,14 +255,14 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
   // ── WORLD PRESSURE ARC ─────────────────────────────────────────────────
 
   {
-    label: "A Warden Order representative is waiting at the inn. The assessment has already begun.",
+    label: "A Roadwardens Order representative is waiting at the inn. The assessment has already begun.",
     skill: 'charm',
     tags: ['Faction', 'Antagonist', 'Stage2'],
     tag: 'bold',
     xpReward: 85,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(85, 'first Warden Order contact');
+      gainXp(85, 'first Roadwardens Order contact');
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       const arch = G.archetype && G.archetype.group;
       // Set rival on first encounter
@@ -273,17 +273,17 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = arch === 'stealth'
           ? `The representative's questions have a sequence — they're probing for what you have, not sharing what they know. You give them a partial truth and watch it move. Within an hour it's been passed to a superior without editing. The chain of command has a visible shape now, and you're somewhere on its map.`
           : `You give the representative enough to establish that you're operating with purpose, and hold enough back that the purpose stays yours. They leave without pressing further. The rival clock advances regardless. That was always going to happen.`;
-        addJournal('Warden Order contact — productive first meeting', 'contact_made', `shelk-warden-contact-${G.dayCount}`);
+        addJournal('Roadwardens Order contact — productive first meeting', 'contact_made', `shelk-warden-contact-${G.dayCount}`);
       } else if (result.isFumble) {
         addHeat('shelk', 1);
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
         G.factionHostility.warden_order = (G.factionHostility.warden_order||0) + 2;
-        G.lastResult = `The meeting breaks down at the third question. Something you say — the phrasing, the hesitation — reads to the representative as concealment. They straighten in their chair and stop asking questions. The inn common room continues its evening noise behind the silence. They leave with a formal note already half-written, not turned toward you. The Warden Order's posture toward you has shifted: not unaffiliated, not neutral. A risk to be managed, and they have the tools for it.`;
-        addJournal('Warden Order now treating player as risk', 'complication', `shelk-warden-hostile-${G.dayCount}`);
+        G.lastResult = `The meeting breaks down at the third question. Something you say — the phrasing, the hesitation — reads to the representative as concealment. They straighten in their chair and stop asking questions. The inn common room continues its evening noise behind the silence. They leave with a formal note already half-written, not turned toward you. The Roadwardens Order's posture toward you has shifted: not unaffiliated, not neutral. A risk to be managed, and they have the tools for it.`;
+        addJournal('Roadwardens Order now treating player as risk', 'complication', `shelk-warden-hostile-${G.dayCount}`);
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.lastResult = `The meeting ends without commitment from either side. The representative thanks you for your time in the register tone of someone completing an administrative task — formal, correct, and empty of anything that might be held against either party later. The inn common room goes back to its evening noise behind them. You've been assessed. What the assessment produced stays on their side of the table, filed where you can't read it.`;
-        addJournal('Warden Order assessment — neutral', 'contact_made', `shelk-warden-neutral-${G.dayCount}`);
+        addJournal('Roadwardens Order assessment — neutral', 'contact_made', `shelk-warden-neutral-${G.dayCount}`);
       }
       G.recentOutcomeType = 'faction'; maybeStageAdvance();
     }
@@ -1450,34 +1450,34 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     }
   },
 
-  // Choice F — Warden Order second contact
+  // Choice F — Roadwardens Order second contact
   {
-    label: "The Warden Order sent a second representative. Different face, same questions.",
+    label: "The Roadwardens Order sent a second representative. Different face, same questions.",
     plot: 'main',
     tags: ['Faction', 'Antagonist', 'Stage2'],
     tag: 'risky',
     xpReward: 82,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'meeting the Warden Order second representative');
+      gainXp(82, 'meeting the Roadwardens Order second representative');
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.isCrit) {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.lastResult = `The second representative asks the same questions in a different sequence. The variation is the tell — she's checking whether your answers change with a new face asking them. They don't. When you give her the same responses in the same order, she leans back and stops writing. "The first one wasn't authorized to share this. You've seen the Panim co-sign documentation." It is a statement, not a question. You have just confirmed something she already knew. She gives you, in exchange, the name of the party who holds the Panim authorization block — a name you haven't reached through any other channel.`;
-        addJournal('Warden Order second rep — Panim authorization holder named in exchange for confirmation of existing intel', 'evidence', `shelk-warden2-${G.dayCount}`);
+        addJournal('Roadwardens Order second rep — Panim authorization holder named in exchange for confirmation of existing intel', 'evidence', `shelk-warden2-${G.dayCount}`);
       } else if (result.isFumble) {
         addHeat('shelk', 1);
         G.worldClocks.rival = (G.worldClocks.rival||0) + 2;
-        G.lastResult = `The second representative's note-taking is faster than the first one's. By the third question something in your framing contradicts the previous session's record — a detail that has changed between the two encounters. She underlines something without comment. The meeting ends with her standing before you finish your last answer. The Warden Order now has a documented inconsistency attached to your name in their inquiry record. The rival clock advances by two.`;
-        addJournal('Warden Order second rep — documented inconsistency recorded, rival+2', 'complication', `shelk-warden2-fail-${G.dayCount}`);
+        G.lastResult = `The second representative's note-taking is faster than the first one's. By the third question something in your framing contradicts the previous session's record — a detail that has changed between the two encounters. She underlines something without comment. The meeting ends with her standing before you finish your last answer. The Roadwardens Order now has a documented inconsistency attached to your name in their inquiry record. The rival clock advances by two.`;
+        addJournal('Roadwardens Order second rep — documented inconsistency recorded, rival+2', 'complication', `shelk-warden2-fail-${G.dayCount}`);
       } else {
         G.stageProgress[2]++;
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
-        G.lastResult = `The second representative confirms, by her questions alone, that the Warden Order is actively tracking the same operation you are. Neither party states this. The confirmation comes from the specificity of what she asks about — the tollgate, the relay house, the charter amendment deadline. Each question names something you've found. She is establishing that the Order's record matches yours, without sharing what their record contains. Both sides have confirmed the other is active. The rival clock advances.`;
-        addJournal('Warden Order second contact — mutual confirmation of parallel inquiries, no intelligence exchanged', 'intelligence', `shelk-warden2-partial-${G.dayCount}`);
+        G.lastResult = `The second representative confirms, by her questions alone, that the Roadwardens Order is actively tracking the same operation you are. Neither party states this. The confirmation comes from the specificity of what she asks about — the tollgate, the relay house, the charter amendment deadline. Each question names something you've found. She is establishing that the Order's record matches yours, without sharing what their record contains. Both sides have confirmed the other is active. The rival clock advances.`;
+        addJournal('Roadwardens Order second contact — mutual confirmation of parallel inquiries, no intelligence exchanged', 'intelligence', `shelk-warden2-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
