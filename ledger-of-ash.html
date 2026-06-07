@@ -11493,8 +11493,9 @@ function adaptEnrichedChoice(c) {
         }
       })();
       // failResult gate: pre-roll before fn executes, keeping one consistent roll display
+      // Only fires for safe-tier choices — risky/bold with failResult still succeed (DC gate skipped)
       var _gateShown = false;
-      if (c.failResult) {
+      if (c.failResult && (typeof getChoiceTier === 'function' ? getChoiceTier(c) === 'safe' : true)) {
         var _KEY_NORM_G = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
         var _gSk = _KEY_NORM_G[c.skill||''] || c.skill || 'wits';
         var _gDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
