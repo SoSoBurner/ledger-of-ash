@@ -3100,6 +3100,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     id: 's2_arch_craft_forged_seal',
+    skill: 'craft',
     label: 'The seal impression is slightly off-center. I know what a correct stamp looks like.',
     xpReward: 20,
     text: 'The seal impression is slightly off-center. I know what a correct stamp looks like.',

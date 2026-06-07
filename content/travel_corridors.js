@@ -4376,11 +4376,27 @@
       var noteHtml     = note ? '<div class="journey-route-note">' + note + '</div>' : '';
       var choicesHtml  = '<div class="journey-choices" id="journey-choice-area"></div>';
 
+      var _tabStrip =
+        '<div class="journey-tab-strip">' +
+        '<button class="journey-tab active" data-tab="journey" onclick="switchJourneyTab(\'journey\')">JOURNEY</button>' +
+        '<button class="journey-tab" data-tab="camp" onclick="switchJourneyTab(\'camp\')">CAMP</button>' +
+        '</div>';
+      var _journeyPane =
+        '<div class="journey-tab-pane active" data-pane="journey">' +
+        headerHtml + narrationHtml + noteHtml + choicesHtml +
+        '</div>';
+      var _campPane =
+        '<div class="journey-tab-pane" data-pane="camp">' +
+        '<div style="display:flex;flex-direction:column;gap:8px;padding:8px 0">' +
+        '<button class="choice-btn" onclick="campActionInJourney(\'rest\')">Rest for a few hours. +HP, refresh traits. (2 time units)</button>' +
+        '<button class="choice-btn" onclick="campActionInJourney(\'sleep\')">Make camp for the night. Full rest. (Advances to next day)</button>' +
+        '</div></div>';
+
       var _smc = window._setMapOverlayContent || (typeof _setMapOverlayContent === 'function' ? _setMapOverlayContent : null);
       if (_smc) {
         _smc(
           'Day ' + current + ' of ' + totalDays + ' \u2014 ' + destName,
-          headerHtml + narrationHtml + noteHtml + choicesHtml,
+          _tabStrip + _journeyPane + _campPane,
           false
         );
       }
@@ -4404,6 +4420,7 @@
       }
     },
     _completeJourney: function(toId) {
+      var _totalDays = (G && G.flags && G.flags._jrn_total) || 1;
       var _keys = ['_jrn_from','_jrn_to','_jrn_mode','_jrn_total','_jrn_current',
                    '_jrn_sched','_jrn_sched_idx','_jrn_biomes','_jrn_note',
                    '_jrn_anchor_day','_jrn_anchor_id'];
@@ -4412,6 +4429,9 @@
       }
       if (G) G.travelMode = null;
       window._travelNextEncounter = null;
+      if (typeof tickAxis === 'function' && _totalDays > 1) {
+        tickAxis(_totalDays - 1);
+      }
       if (typeof closeOverlay === 'function') closeOverlay('overlay-map');
       var _JRN_ENG3 = {aurora_crown_commune:'aurora',guildheart_hub:'guildheart',panim_haven:'panim',soreheim_proper:'soreheim',mimolot_academy:'mimolot',sunspire_haven:'sunspire'};
       var _engDestId = _JRN_ENG3[toId] || toId;
@@ -4421,6 +4441,52 @@
       }, 200);
     },
     _renderEncounterInOverlay: function(biome, tier, choiceArea) {
+      // Biome creature encounter branch — fires before standard humanoid selection
+      var _creatureChance = (tier === 'short') ? 0.10 : 0.35;
+      if (typeof BIOME_CREATURE_ENCOUNTERS !== 'undefined' && BIOME_CREATURE_ENCOUNTERS[biome] &&
+          Math.random() < _creatureChance) {
+        var _cPool = BIOME_CREATURE_ENCOUNTERS[biome];
+        var _cFiltered = _cPool.filter(function(e) { return !e.tier || e.tier === tier; });
+        var _cArr = _cFiltered.length ? _cFiltered : _cPool;
+        var _cEnc = _cArr[Math.floor(Math.random() * _cArr.length)];
+        if (_cEnc) {
+          var _narr = document.createElement('div');
+          _narr.className = 'journey-narration';
+          _narr.innerHTML = _cEnc.narration;
+          choiceArea.parentNode.insertBefore(_narr, choiceArea);
+          (_cEnc.choices || []).forEach(function(choice) {
+            var btn = document.createElement('button');
+            btn.className = 'choice-btn';
+            btn.textContent = choice.text;
+            choiceArea.appendChild(btn);
+            btn.addEventListener('click', function() {
+              choiceArea.querySelectorAll('button').forEach(function(b) { b.disabled = true; });
+              if (choice.id === 'enc_fight') {
+                if (typeof closeOverlay === 'function') closeOverlay('overlay-map');
+                G.pendingVictoryCallback = function() {
+                  if (typeof showOverlay === 'function') showOverlay('overlay-map');
+                  TRAVEL_CORRIDOR.advanceDayLeg();
+                };
+                if (typeof choice.action === 'function') choice.action();
+                return;
+              }
+              var r = typeof rollD20 === 'function' ? rollD20(choice.skill || 'wits') : { total: 10 };
+              var dc = choice.tag === 'bold' ? 16 : choice.tag === 'safe' ? 7 : 13;
+              var resultText = r.total >= dc
+                ? (choice.successResult || 'You proceed without incident.')
+                : (choice.failResult || 'The road resists.');
+              var _rd = document.createElement('div');
+              _rd.className = 'journey-narration';
+              _rd.style.cssText = 'border-top:1px solid var(--char);padding-top:10px;margin-top:8px;';
+              _rd.innerHTML = resultText;
+              choiceArea.parentNode.insertBefore(_rd, choiceArea);
+              choiceArea.remove();
+              setTimeout(function() { TRAVEL_CORRIDOR.advanceDayLeg(); }, 1400);
+            });
+          });
+          return;
+        }
+      }
       var fromId    = G.flags._jrn_from || '';
       var toId      = G.flags._jrn_to   || '';
       var dayNum    = G.flags._jrn_current || 1;
@@ -4664,8 +4730,90 @@
     mountain:     ['mountain_ironwing', 'mountain_stoneback', 'mountain_crevice_asp'],
     forest:       ['forest_shadowmaw', 'forest_vine_horror', 'forest_needle_crow'],
     'ash-zone':   ['ash_zone_cinder_rat', 'ash_zone_ember_hound'],
-    'ice-locked': ['ice_locked_frostgrip', 'ice_locked_polar_asp']
+    'ice-locked': ['ice_locked_frostgrip', 'ice_locked_polar_asp'],
+    sea: ['coastal_shorecat', 'coastal_tide_crawler'],
   };
+
+  var BIOME_CREATURE_ENCOUNTERS = {
+    plains: [
+      { id: 'bce_plains_pack', tier: 'medium',
+        narration: 'Three dust-hounds have been tracking the cart since the last waymark. They are not testing \u2014 they are waiting for the moment to commit.',
+        choices: [
+          { id: 'enc_fight', text: 'Stand your ground. Drive them off.', action: function() { if (typeof startCombat === 'function') startCombat('plains_dust_hound'); } },
+          { id: 'bce_scare', text: 'Make noise. Most pack hunters read threat better than courage.', skill: 'might', tag: 'risky',
+            successResult: 'The animals scatter at the first real resistance. They wanted easy prey, not a fight.',
+            failResult: 'The hounds don\'t scare. They fan out instead.' }
+        ]
+      }
+    ],
+    highland: [
+      { id: 'bce_highland_ambush', tier: 'long',
+        narration: 'Something large shifted in the rocks above the trail. The displacement of stone was deliberate \u2014 not falling, not sliding. Watching.',
+        choices: [
+          { id: 'enc_fight', text: 'Move first. Don\'t give it the angle.', action: function() { if (typeof startCombat === 'function') startCombat('highland_rockjaw'); } },
+          { id: 'bce_wait', text: 'Hold position. Let it commit or move on.', skill: 'wits', tag: 'risky',
+            successResult: 'You read the moment correctly. After two minutes it retreats upslope \u2014 you were not worth the effort.',
+            failResult: 'Waiting was the wrong choice. It had already committed.' }
+        ]
+      }
+    ],
+    forest: [
+      { id: 'bce_forest_canopy', tier: 'medium',
+        narration: 'The forest goes quiet in the wrong way. Not the quiet of absence \u2014 the quiet of something that stopped moving because you moved.',
+        choices: [
+          { id: 'enc_fight', text: 'Draw weapon. Whatever it is, make the first move matter.', action: function() { if (typeof startCombat === 'function') startCombat('forest_shadowmaw'); } },
+          { id: 'bce_retreat', text: 'Back away slowly. Don\'t make eye contact.', skill: 'finesse', tag: 'risky',
+            successResult: 'You back out of its territory cleanly. It watches from the treeline but does not follow.',
+            failResult: 'The retreat reads as prey behavior. It comes faster.' }
+        ]
+      }
+    ],
+    mountain: [
+      { id: 'bce_mountain_raptor', tier: 'long',
+        narration: 'The ironwing has been riding the thermals above the pass for the last hour. It has not moved on. It is waiting for someone to fall behind.',
+        choices: [
+          { id: 'enc_fight', text: 'Bring it down before it picks the moment.', action: function() { if (typeof startCombat === 'function') startCombat('mountain_ironwing'); } },
+          { id: 'bce_cover', text: 'Find overhead cover. Deny it the angle.', skill: 'wits', tag: 'safe',
+            successResult: 'A rock shelf thirty meters ahead provides enough cover. The ironwing abandons the thermal and moves on.',
+            failResult: 'The cover is less complete than it looked. The ironwing adjusts.' }
+        ]
+      }
+    ],
+    coastal: [
+      { id: 'bce_coastal_crawler', tier: 'medium',
+        narration: 'Something armored has hauled itself up from the tideline and is moving along the base of the sea wall. It is not lost. It is following the smell of the pack.',
+        choices: [
+          { id: 'enc_fight', text: 'Intercept it before it reaches the road.', action: function() { if (typeof startCombat === 'function') startCombat('coastal_tide_crawler'); } },
+          { id: 'bce_noise', text: 'Drive it back toward the water with fire and noise.', skill: 'spirit', tag: 'risky',
+            successResult: 'The crawler responds to the fire. It turns and drops back into the surf.',
+            failResult: 'Fire doesn\'t register the way you expected. It turns toward you instead.' }
+        ]
+      }
+    ],
+    sea: [
+      { id: 'bce_sea_boarding', tier: 'long',
+        narration: 'Something large is pacing the hull below the waterline. The crew has seen it before \u2014 they stop talking when they see it and focus on the rigging.',
+        choices: [
+          { id: 'enc_fight', text: 'Prepare for it to breach. Better ready than caught.', action: function() { if (typeof startCombat === 'function') startCombat('coastal_tide_crawler'); } },
+          { id: 'bce_depth', text: 'Watch the water. Learn what it wants before acting.', skill: 'wits', tag: 'risky',
+            successResult: 'It surfaces once, surveys the hull, and dives. Whatever it was checking for, you weren\'t it.',
+            failResult: 'It breaches faster than anyone expected.' }
+        ]
+      }
+    ],
+    soreheim: [
+      { id: 'bce_ember_hound', tier: 'medium',
+        narration: 'Two ember hounds have been tracking from downwind. The volcanic dust here masks smell in both directions \u2014 they are closer than the silence suggests.',
+        choices: [
+          { id: 'enc_fight', text: 'Face them now while you still have the angle.', action: function() { if (typeof startCombat === 'function') startCombat('ash_zone_ember_hound'); } },
+          { id: 'bce_elevation', text: 'Get to higher ground. They don\'t climb well.', skill: 'vigor', tag: 'risky',
+            successResult: 'The elevation breaks their tracking approach. They circle once and disengage.',
+            failResult: 'The terrain doesn\'t favor you the way you expected.' }
+        ]
+      }
+    ]
+  };
+  window.BIOME_CREATURE_ENCOUNTERS = BIOME_CREATURE_ENCOUNTERS;
 
   // ---------------------------------------------------------------------------
   // getBiomeForRoute — look up TRAVEL_ROUTES for the matching route pair

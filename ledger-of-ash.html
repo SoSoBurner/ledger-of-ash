@@ -1806,6 +1806,11 @@ input, button, select, textarea { font-family: inherit; }
 #howto-box p, #howto-box li { line-height: 1.65; font-size: .95rem; }
 #howto-box ul { padding-left: 1.2rem; margin-bottom: .5rem; }
 #howto-close { float: right; background: transparent; border: 1px solid var(--ember-glow,#c84b10); color: var(--gold-bright,#e8b84b); padding: .3rem .9rem; border-radius: 3px; cursor: pointer; font-family: var(--font-display); font-size: .75rem; }
+.journey-tab-strip { display:flex; border-bottom:1px solid var(--border); margin-bottom:10px; }
+.journey-tab { background:none; border:none; border-bottom:2px solid transparent; color:var(--ink-faint); font-family:var(--font-display); font-size:10px; letter-spacing:1px; text-transform:uppercase; padding:6px 14px; cursor:pointer; }
+.journey-tab.active { color:var(--accent-gold); border-bottom-color:var(--accent-gold); }
+.journey-tab-pane { display:none; }
+.journey-tab-pane.active { display:block; }
 </style>
 </head>
 <body>
@@ -2315,6 +2320,7 @@ const COMPANION_DEFS = {
     id: 'kaevrin_sorel',
     name: 'Kaevrin Sorel',
     role: 'Information Broker & Former Collegium Notary',
+    labelHint: 'A former Collegium notary in the corner seat. He has been watching the door longer than you have.',
     locality: 'shelkopolis',
     npcId: 'Kaevrin Sorel',
     stageMin: 'Stage II',
@@ -2348,6 +2354,7 @@ const COMPANION_DEFS = {
     id: 'vorath_gelden',
     name: 'Vorath Gelden',
     role: 'Former Garrison Commander & Labor Advocate',
+    labelHint: 'A former garrison commander at the labor registry desk. He has been watching.',
     locality: null,
     npcId: 'Vorath Gelden',
     stageMin: 'Stage I',
@@ -2382,6 +2389,7 @@ const COMPANION_DEFS = {
     id: 'mira_calden',
     name: 'Mira Calden',
     role: 'Merchant Assembly Liaison & Collegium Watchdog',
+    labelHint: 'An Assembly liaison with a two-year file on route manipulation. She is waiting to share it.',
     locality: null,
     npcId: 'Mira Calden',
     stageMin: 'Stage I',
@@ -4520,7 +4528,6 @@ function renderCombatRound() {
   }
   html += '<div class="combat-header">' +
     '<div class="combat-title">&#x2694; COMBAT &#x2014; Round ' + CS.round + '</div>' +
-    '<div class="combat-player-hp" style="font-size:11px;opacity:0.8;">Your HP: ' + G.hp + ' / ' + G.maxHp + '</div>' +
     '<div class="combat-enemy">' +
       '<div class="enemy-name">' + CS.enemy.name + '</div>' +
       '<div class="enemy-desc">' + CS.enemy.desc + '</div>' +
@@ -5100,11 +5107,25 @@ function endCombat(victory) {
     G.pendingVictoryCallback = null;
     addNarration('', 'You are out of the fight. Rest and recover before pressing further.', 'failure');
     saveGame();
-    setTimeout(function() { renderChoices([
-      { text:'Make camp immediately.', skill:'vigor', tag:'safe', align:'neutral', action:function(){ advanceTime(1); loadStageChoices(); } },
-      { text:'Find a healer in the settlement.', skill:'charm', tag:'safe', align:'neutral', action:function(){ advanceTime(1); loadStageChoices(); } },
-      { text:'Push forward despite the wounds.', skill:'vigor', tag:'bold', align:'chaotic', action:function(){ advanceTime(1); loadStageChoices(); } }
-    ]); }, 400);
+    setTimeout(function() {
+      var defeatChoices = [
+        { text:'Make camp immediately.',          skill:'vigor', tag:'safe',  align:'neutral', action:function(){ advanceTime(1); loadStageChoices(); } },
+        { text:'Find a healer in the settlement.', skill:'charm', tag:'safe', align:'neutral', action:function(){ advanceTime(1); loadStageChoices(); } },
+        { text:'Push forward despite the wounds.', skill:'vigor', tag:'bold', align:'chaotic', action:function(){ advanceTime(1); loadStageChoices(); } }
+      ];
+      if (G.flags && G.flags._jrn_to && (G.flags._jrn_current || 0) < (G.flags._jrn_total || 1)) {
+        defeatChoices.unshift({
+          text: 'Bind the wounds and continue the journey.',
+          skill: 'vigor', tag: 'bold', align: 'chaotic',
+          action: function() {
+            advanceTime(1);
+            if (typeof showOverlay === 'function') showOverlay('overlay-map');
+            if (window.TRAVEL_CORRIDOR) window.TRAVEL_CORRIDOR.advanceDayLeg();
+          }
+        });
+      }
+      renderChoices(defeatChoices);
+    }, 400);
   }
 }
 
@@ -10212,7 +10233,7 @@ function getDefaultG() {
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0},
     suspects:{},
-    investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false, corridor_encounters_enabled:true, _stage3_modal_dismissed:false}, rivalId:null,
+    investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false, corridor_encounters_enabled:true, _stage3_modal_dismissed:false, _rival_encounter_pending:false}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
     nomdara_last_visit_locality:null,
@@ -10903,13 +10924,17 @@ function advanceRivals() {
     // Trigger one-shot encounter when rival is at player's location
     if (!G.flags['rival_met_' + i] && (r.renown || 0) >= 2) {
       if (r.location === G.location && Math.random() < 0.30) {
-        setTimeout(() => triggerRivalEncounter(i), 800);
+        if (!G.flags._rival_encounter_pending) {
+          G.flags._rival_encounter_pending = true;
+          setTimeout(() => triggerRivalEncounter(i), 1500);
+        }
       }
     }
   });
 }
 
 function triggerRivalEncounter(idx) {
+  if (G.flags) G.flags._rival_encounter_pending = false;
   const r = G.rivalAdventurers[idx];
   if (!r) return;
   if (G.flags['rival_met_' + idx]) return;
@@ -10921,7 +10946,12 @@ function triggerRivalEncounter(idx) {
     { title: 'Tavian Silkgate',
       text: 'He is waiting outside the guild hall, back to the wall, arms crossed — the posture of someone who was told to stand there and who has been standing there a while. When you approach he straightens without urgency. He has a House Shelk seal on his belt buckle, worn down from use. "I have been asked to deliver a message," he says. "You are getting in the way of something that will resolve itself without you."' },
     { title: 'Rhodra Boltmere',
-      text: 'She is annotating something in the corridor outside the records room — standing, not sitting, a board propped against the wall. She speaks without looking up. "The Sanction Board has a formal interest in the same dossier you have been pulling." She marks a line. "I am not here to compete. I am here to tell you the Board\'s version of events will be the official one. What you do with that is your concern."' }
+      text: 'She is annotating something in the corridor outside the records room — standing, not sitting, a board propped against the wall. She speaks without looking up. "The Sanction Board has a formal interest in the same dossier you have been pulling." She marks a line. "I am not here to compete. I am here to tell you the Board\'s version of events will be the official one. What you do with that is your concern."' },
+    { title: 'Corin Bloomcrest', text: 'He stands at the edge of the market square with his arms folded, watching nothing in particular. When he sees you he does not move. "You have been noticed," he says. "Not just by me."' },
+    { title: 'Veyra Boltmere',   text: 'She is sitting on a crate outside the weighing house, turning a sealed route authorization over in her hands. "Someone filed a notice of competing interest against your case number this morning," she says. "I am not supposed to know that. Neither are you."' },
+    { title: 'Elandra Velvetmere', text: 'She is at the far end of the corridor, reading something pinned to the board. When she hears you she turns. "You are further along than I expected," she says. "That changes my timeline."' },
+    { title: 'Jorva Helmrune',   text: 'He is at the toll gate, counting transit documents one at a time with practiced slowness. "The record you\'re looking for has been flagged for secondary review," he says. "Timing is interesting, though."' },
+    { title: 'Nira Veilthorn',   text: 'She steps out of a doorway just ahead of you — not blocking, just present. "You keep turning up in the same places I turn up," she says. "That either means we\'re very good at the same thing, or someone is moving both of us."' },
   ];
   const scene = scenes[idx] || scenes[0];
   addNarration(scene.title, scene.text);
@@ -11819,7 +11849,7 @@ function loadStageChoices(locId) {
   const stageNum = stage === 'Stage II' ? '2' : stage === 'Stage III' ? '3' : '1';
   // Normalize locality aliases so dynamic table-key lookup hits the canonical export.
   // 'panim_haven' resolves to PANIM_STAGE2_ENRICHED_CHOICES (file exports under PANIM_).
-  var _STAGE_TABLE_ALIAS = { panim_haven: 'panim' };
+  var _STAGE_TABLE_ALIAS = { panim_haven: 'panim', mimolot_academy: 'mimolot' };
   var _keyLoc = _STAGE_TABLE_ALIAS[loc] || loc;
   const tableKey = _keyLoc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
     + '_STAGE' + stageNum + '_ENRICHED_CHOICES';
@@ -11844,7 +11874,7 @@ function loadStageChoices(locId) {
     const seen = G.flags[seenKey] = G.flags[seenKey] || {};
     function _checkCond(c) { if (!c.condition) return true; try { return c.condition(); } catch(e) { console.error('[loadStageChoices] condition error:', e); return false; } }
     let pool = enriched.filter(function(c) { return c && !seen[c.label || c.id || c.text] && _checkCond(c); });
-    if (pool.length < 2) { G.flags[seenKey] = {}; pool = enriched.filter(Boolean); }
+    if (pool.length === 0) { G.flags[seenKey] = {}; pool = enriched.filter(Boolean); }
     // Fisher-Yates shuffle
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -11995,7 +12025,7 @@ function loadStageChoices(locId) {
         var _recruitDef = COMPANION_DEFS[defId];
         if (!_recruitDef) return;
         (function(id, def) {
-          var _label = def.name + ' has been waiting for the right question.';
+          var _label = def.labelHint || (def.name + ' — ' + (def.role || 'a potential ally') + '.');
           adapted.push({
             id: 'recruit_' + id,
             text: _label,
@@ -12005,6 +12035,18 @@ function loadStageChoices(locId) {
             action: function() { showRecruitScene(def.npcId); }
           });
         })(defId, _recruitDef);
+      });
+    }
+    if (G.flags && G.flags._jrn_to && (G.flags._jrn_current || 0) < (G.flags._jrn_total || 1)) {
+      adapted.unshift({
+        id: 'resume_journey',
+        label: 'The road is not finished. Return to the journey.',
+        tag: 'safe',
+        plot: 'main',
+        fn: function() {
+          if (typeof showOverlay === 'function') showOverlay('overlay-map');
+          if (window.TRAVEL_CORRIDOR) window.TRAVEL_CORRIDOR.advanceDayLeg();
+        }
       });
     }
     const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8).filter(function(c){ return passesAlignGate(c); });
@@ -14986,6 +15028,35 @@ function campAction(type) {
   }
 }
 
+function switchJourneyTab(name) {
+  var mapBody = document.getElementById('map-body');
+  if (!mapBody) return;
+  mapBody.querySelectorAll('.journey-tab').forEach(function(t) {
+    t.classList.toggle('active', t.dataset.tab === name);
+  });
+  mapBody.querySelectorAll('.journey-tab-pane').forEach(function(p) {
+    p.classList.toggle('active', p.dataset.pane === name);
+  });
+}
+window.switchJourneyTab = switchJourneyTab;
+
+function campActionInJourney(type) {
+  if (type === 'rest') {
+    var _heal = Math.floor((G.maxHp || 10) * 0.45);
+    G.hp = Math.min(G.maxHp || 10, (G.hp || 0) + _heal);
+    G.restCount = (G.restCount || 0) + 1;
+    if (G.traits) G.traits.forEach(function(t) { if (t && t.passive !== true) t.used = false; });
+    tickAxis(1); advanceTime(2); updateHUD();
+    if (window.TRAVEL_CORRIDOR) window.TRAVEL_CORRIDOR.advanceDayLeg();
+  } else if (type === 'sleep') {
+    G.hp = Math.min(G.maxHp || 10, (G.hp || 0) + Math.floor((G.maxHp || 10) * 0.75));
+    G.restCount = 0;
+    tickAxis(1); advanceTime(4); updateHUD(); saveGame();
+    if (window.TRAVEL_CORRIDOR) window.TRAVEL_CORRIDOR.advanceDayLeg();
+  }
+}
+window.campActionInJourney = campActionInJourney;
+
 // ── SLEEP / INN SYSTEM ───────────────────────────────────
 const INN_NAMES = {
   shelkopolis: { cheap: 'The Amber Fountain (common room)', comfortable: 'The Amber Fountain (private room)' },
@@ -16410,7 +16481,7 @@ function showCharSheet() {
           var _useBtn = '';
           if ((t.traitType === 'active' || t.type === 'active') && t.activeSkillType === 'utility' && !t.used) {
             var _tid = t.id || '';
-            var _traitOnclick = _tid ? 'useUtilitySkill(\'' + _tid + '\')' : '';
+            var _traitOnclick = _tid ? 'useUtilitySkill(\'' + _tid + '\');showCharSheet()' : '';
             if (_traitOnclick) _useBtn = '<button class="btn btn-ghost btn-xs" onclick="' + _traitOnclick + '" style="margin-top:4px;font-size:11px;padding:2px 8px">Use</button>';
           }
           _html += '<div class="trait-row">';
@@ -16603,10 +16674,9 @@ function showCharSheet() {
           }
         } else if (isReady) {
           var traitId = t.id || '';
-          var onclickStr = traitId
-            ? 'useUtilitySkill(\'' + traitId + '\');showSheetTab(\'traits\')'
-            : 'showSheetTab(\'traits\')';
-          html += '<button class="btn btn-ghost btn-xs" style="margin-left:auto" onclick="' + onclickStr + '">Use</button>';
+          if (traitId) {
+            html += '<button class="btn btn-ghost btn-xs" style="margin-left:auto" onclick="useUtilitySkill(\'' + traitId + '\');showCharSheet()">Use</button>';
+          }
         } else if (isUsed) {
           html += '<span style="font-size:9px;color:var(--ink-faint);margin-left:auto">USED</span>';
         }
