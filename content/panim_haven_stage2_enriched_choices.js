@@ -104,6 +104,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Elior Sepulcher holds the sealed backlog. He's been waiting for someone with outside standing.",
+    plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 82,
     failResult: function() {
@@ -115,11 +116,13 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(82, 'approaching Elior Sepulcher');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.flags.met_elior_sepulcher = true;
         G.flags.stage2_faction_contact_made = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Elior closes the office door before speaking. The sealed backlog contains thirty-one cases — all involving the same offering market stall, all flagged by Saryna over six months for unusual transactional patterns, all suppressed before reaching formal review. Elior sets the summary on the table and doesn't pick it up again. "I've been waiting for someone with outside standing to ask about this." He means: someone who can act on it where he cannot.`;
         addJournal('Elior Sepulcher — sealed backlog confirmed with stall pattern', 'evidence', `panim-elior-${G.dayCount}`);
@@ -130,6 +133,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Mediation Hall formally aware — access restricted', 'complication', `panim-elior-fail-${G.dayCount}`);
       } else {
         G.flags.met_elior_sepulcher = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The office door stays open when Elior speaks, which keeps the exchange on the record. The backlog exists and is sealed — he confirms this without hesitation. Formal authorization is required before it opens. The suppression pattern is real, long-standing, and documented. He is telling you as much as he can within the boundaries of what his position permits him to say.`;
         addJournal('Elior confirms suppressed backlog — access refused without authorization', 'evidence', `panim-elior-partial-${G.dayCount}`);
       }
@@ -280,6 +284,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Collegium observer is running a parallel inquiry. They don't know I've noticed yet.",
+    plot: 'main',
     tags: ['Faction', 'Antagonist', 'Stage2', 'Meaningful'],
     xpReward: 86,
     fn: function() {
@@ -288,11 +293,13 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.factionHostility) G.factionHostility = {};
       if (!G.flags) G.flags = {};
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       if (!G.rivalId) G.rivalId = 'archivist_veld';
       const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
       if (result.isCrit) {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
         G.flags.stage2_faction_contact_made = true;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The Collegium observer presents as a theological scholar working from a desk in the mediation hall's public reading alcove. Your training reads the cover correctly. You match their doctrinal citations with precision that establishes mutual recognition — the specific fluency that signals shared institutional background. The lamplight between you steadies and the conversation shifts: they confirm the Collegium is aware of the Panim operations and is conducting a parallel inquiry. They offer to share specific findings in exchange for what you have gathered so far.`;
         addJournal('Oversight Collegium contact — parallel inquiry confirmed', 'intelligence', `panim-collegium-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -302,6 +309,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
         addJournal('Collegium treating your approach as a competing operation', 'complication', `panim-collegium-fail-${G.dayCount}`);
       } else {
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The observer's doctrinal citations are precise and the conversation stays on that surface — two scholars discussing archival practice in a memorial hall, the lamplight steady on the stone table between you. The harbor gulls are audible even here, through the thick walls of the mediation building. No names exchanged. No intent declared. When it ends, there is a beat of shared understanding that the exchange was not about archives. The Collegium has taken a note. The note carries no category yet. That window is still open.`;
         addJournal('Oversight Collegium — neutral first assessment', 'intelligence', `panim-collegium-neutral-${G.dayCount}`);
       }

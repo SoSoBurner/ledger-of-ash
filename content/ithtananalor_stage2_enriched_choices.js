@@ -9,6 +9,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Iron Ledger Ward has three ghost accounts that were flagged and then left alone.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 82,
@@ -48,6 +49,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "She processes every transaction. She has seen the ghost account activity and said nothing.",
+    plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 78,
@@ -84,6 +86,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Velden commands the Shadowhands. The accounts point there. A meeting is one option.",
+    plot: 'main',
     skill: 'might',
     tags: ['NPC', 'Combat', 'Authority', 'Stage2', 'Meaningful'],
     xpReward: 90,
@@ -228,6 +231,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Roaz commands ORE. Either he's been bypassed or his record is cover.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Combat', 'Investigation', 'Personal', 'Stage2', 'Meaningful'],
     xpReward: 88,
@@ -908,6 +912,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The evidence is ready. Roaz or independent disclosure — both paths are open.",
+    plot: 'main',
     skill: 'might',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 115,
@@ -918,6 +923,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(115, 'Ithtananalor Stage 2 resolution');
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The evidence map on the table has empty columns where the critical links should be — gaps that an enforcement apparatus practiced at self-protection will exploit the moment the package is presented. The ghost account chain requires full documentation across every step: origin authorization, routing, endpoint activity, and the chain of oversight that permitted it to run without intervention. A presentation now gives the apparatus room to discredit each piece individually, detaching them from the chain they form together until none of them carry enough weight alone. The chain needs closing before it goes anywhere.`;
         G.recentOutcomeType = 'partial'; return;
@@ -928,11 +934,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The presentation to Captain Roaz takes place across a desk cleared of everything except the documentation. He reads without speaking, each page turned deliberately, the particular quiet of a garrison building where the chain of command has become uncertain holding around the room. When the last page goes face-down he holds it there for a moment with one hand flat. A formal internal affairs review opens under his command authority within the hour — broad enough to bypass the Shadowhands administrative layer entirely. Stage III opens with Roazian enforcement backing and the Shadowhands fully aware that they are being watched.`;
         addJournal('Ithtananalor S2 finale: Roaz enforcement path', 'evidence', `ith-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The evidence packet moves through Ivena's network and the guild enforcement channels simultaneously — not through Roaz command, not through any route the Shadowhands monitor. By the time the apparatus recognizes that the disclosure is in motion, the information is already across three separate distribution points. The ghost accounts become public knowledge before any containment procedure can be organized. The cost is that the formal chain of authority carries none of it. Stage III opens with the accounts exposed but the institutional apparatus hostile.`;
         addJournal('Ithtananalor S2 finale: independent disclosure path', 'evidence', `ith-finale-uw-${G.dayCount}`);
       }

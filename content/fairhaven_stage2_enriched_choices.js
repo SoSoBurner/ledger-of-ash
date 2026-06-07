@@ -1008,6 +1008,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern staging location is confirmed. The threads are tight enough to act on.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 108,
@@ -1018,6 +1019,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Fairhaven Stage 2 resolution');
+      if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
       if (!G.investigationProgress || G.investigationProgress < 8) {
         G.lastResult = `The northwest coordinates sit in Thalen's margin note and the glyph cave tool marks point the same direction, but the connection between them isn't documented yet. A Roadwarden post won't act on a circled map coordinate and a cleric's sighting log. The courier pattern from the inn, the dock clearance procedure — one of those needs to close before the staging location holds as a formal claim.`;
         G.recentOutcomeType = 'partial'; return;
@@ -1028,11 +1030,13 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The report goes to the Roadwarden post with the northwest coordinates, the charter references, and Thalen's commission record as supporting material — the sealed wax on the commission page still legible. The post commander reads it twice without speaking, then sends a rider north to Shelkopolis command for authorization to proceed. The staging location is now on the formal record. Whatever moves next happens in daylight, with the Roadwarden seal behind it, and the operation knows it's been found.`;
         addJournal('Fairhaven S2 finale: Roadwarden formal report filed', 'evidence', `fair-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
+        G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `The staging location goes to Verdant Row before it goes anywhere through formal channels. The network moves fast — people at every checkpoint on the northern route by the following morning, positioned before the next tide window. The next shipment under the sealed charter reference is intercepted on the field road, documented at the equipment barn, and dispersed before the Roadwardens have finished drafting their authorization request. The formal record will catch up to what has already happened.`;
         addJournal('Fairhaven S2 finale: informal network first-mover', 'evidence', `fair-finale-uw-${G.dayCount}`);
       }
