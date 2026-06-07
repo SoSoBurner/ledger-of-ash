@@ -1,8 +1,11 @@
 /**
  * SHIRSHAL STAGE 2 ENRICHED CHOICES
- * Investigation arc: compliance investigation bureau / cross-locality evidence suppression
- * NPCs: Tazren Coilspire (Senior Investigator), Mirae Coilspire (Innkeeper),
- *       Khalis Coilspire (Market Clerk), Sivren Coilspire (Shrine Attendant), Luneth Coilspire (Porter)
+ * Magi Magistratus inquiry arc: cross-locality evidence suppression and arcane misconduct cases.
+ * Canon: Shirshal is governed by the Magi Magistratus under the Shirsh Compact.
+ * NPCs: Tazren Coilspire (Investigator), Mirae Coilspire (Innkeeper),
+ *       Khalis Coilspire (Market Clerk), Sivren Coilspire (Shrine Attendant),
+ *       Luneth Coilspire (Porter), Ravel Coilspire (Scribe), Eris Coilspire (Labor Foreman),
+ *       Examiner Prelate Sira Doveshade (Inquisitor).
  */
 
 var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
@@ -14,7 +17,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     stageProgress: 1,
     xpReward: 40,
-    failResult: 'The accord registry requires a Collegium certification to access expired clause records.',
+    failResult: 'The accord registry requires a Magistratus certification to access expired clause records.',
     fn: function() {
       advanceTime(1);
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
@@ -28,7 +31,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         if (typeof gainXp === 'function') gainXp(40);
       } else {
         G.recentOutcomeType = 'fail';
-        G.lastResult = 'The accord registry index lists clause 14-C as expired, but the supporting documentation sits in a Collegium-certified archive partition. Access requires a certification you do not currently hold. The registry clerk produces the certification request form without being asked. The form has a twelve-week processing window printed at the bottom. Someone has added a handwritten note: "Expedited review available — see Annex C." Annex C is not attached.';
+        G.lastResult = 'The accord registry index lists clause 14-C as expired, but the supporting documentation sits in a Magistratus-certified archive partition. Access requires a certification you do not currently hold. The registry clerk produces the certification request form without being asked. The form has a twelve-week processing window printed at the bottom. Someone has added a handwritten note: "Expedited review available — see Annex C." Annex C is not attached.';
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
         if (typeof gainXp === 'function') gainXp(15);
       }
@@ -38,7 +41,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Tazren's case file touches every thread I've followed. He's been at this longer.",
-    tags: ['Investigation', 'Stage2', 'Meaningful'],
+    tags: ['Investigation', 'Stage2'],
     xpReward: 84,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -46,7 +49,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(84, 'cross-referencing with Bureau investigator Tazren Coilspire');
+      gainXp(84, 'cross-referencing with Magi Magistratus investigator Tazren Coilspire');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -60,14 +63,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Tazren — 8-month parallel case file shared, case was suppressed before he finished', 'evidence', `shir-tazren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `Tazren listens to your first two sentences and reaches for his visitor log without looking up. "Knowing the specifics of a Bureau case thread without credentials is a concern I'm required to document." He copies your name in a neat hand and asks for origin papers with the flat efficiency of someone who has run this procedure before and does not enjoy it. A summary of the visit is on its way to his supervisory chain before the conversation has properly ended. Whatever goodwill this interview might have built has been spent on a protocol note.`;
-        addJournal('Bureau visit logged — origin documentation requested', 'complication', `shir-tazren-fail-${G.dayCount}`);
+        G.lastResult = `Tazren listens to your first two sentences and reaches for his visitor log without looking up. "Knowing the specifics of a magistracy case thread without credentials is a concern I'm required to document." He copies your name in a neat hand and asks for origin papers with the flat efficiency of someone who has run this procedure before and does not enjoy it. A summary of the visit is on its way to his supervisory chain before the conversation has properly ended. Whatever goodwill this interview might have built has been spent on a protocol note.`;
+        addJournal('magistracy visit logged — origin documentation requested', 'complication', `shir-tazren-fail-${G.dayCount}`);
       } else {
         G.flags.met_tazren_coilspire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Tazren confirms the case and stops there. "I can't share an archived file without a reinstatement order." He pauses. "The charter pattern you described is in it. I'll confirm that much." He straightens the papers on his desk — the dry air of the records hall keeps them flat, no warping, the ink precise after eight months. "An archived case doesn't mean the subject stopped moving. It means the oversight stopped."`;
-        addJournal('Bureau archived case confirmed — moved off-record while subject was still active', 'evidence', `shir-tazren-partial-${G.dayCount}`);
+        addJournal('Magi Magistratus archived case confirmed — moved off-record while subject was still active', 'evidence', `shir-tazren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -76,7 +79,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Three glyph case evidence packages marked delivered. None logged at destination.",
-    tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 76,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -92,7 +95,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_luneth_coilspire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Luneth traces the three packages through his transfer log with practiced speed. All marked "received — archive." The receiving address is a sub-registry notation that doesn't appear in the Bureau's official branch directory — he's checked twice. He maps the address against a regional index and holds the result up without speaking. The notation places it in the same northern staging district that came up in the Fairhaven thread.`;
+        G.lastResult = `Luneth traces the three packages through his transfer log with practiced speed. All marked "received — archive." The receiving address is a sub-registry notation that doesn't appear in the magistracy's official branch directory — he's checked twice. He maps the address against a regional index and holds the result up without speaking. The notation places it in the same northern staging district that came up in the Fairhaven thread.`;
         addJournal('Evidence transfers to unlisted sub-registry — maps to northern staging district', 'evidence', `shir-luneth-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Luneth pulls the request form and stops. The transfer records are under retention audit this week — standard cycle, nothing unusual on paper. Except your request triggers a hold on the specific packages in question, freezing access for thirty days. Luneth looks at the hold notice with the particular expression of someone who has just understood something they didn't want to. The audit timing selected for these packages. The destination registry for the physical transfers is a separate filing system — the hold doesn't reach it.`;
@@ -111,7 +114,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Suppression compound precursors flowing through Shirshal under false material classifications.",
-    tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 72,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -127,11 +130,11 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_khalis_coilspire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Khalis shows you the flag stack — months of inconsistency reports, each one cleared by the same Bureau override code. The material profiles read as resonance damping precursors; they're logged in the system as ceremonial incense components. "I know what incense weighs. I know what it smells like at the border of a ward boundary." He taps the override column. "That code clears every flag I file. I've never been able to trace it to a name or a position."`;
-        addJournal('Arcane precursors misclassified as ceremonial — Bureau override clears all flags', 'evidence', `shir-khalis-${G.dayCount}`);
+        G.lastResult = `Khalis shows you the flag stack — months of inconsistency reports, each one cleared by the same magistracy override code. The material profiles read as resonance damping precursors; they're logged in the system as ceremonial incense components. "I know what incense weighs. I know what it smells like at the border of a ward boundary." He taps the override column. "That code clears every flag I file. I've never been able to trace it to a name or a position."`;
+        addJournal('Arcane precursors misclassified as ceremonial — magistracy override clears all flags', 'evidence', `shir-khalis-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Khalis runs a finger down the tariff review authorization list without looking up. "You're not on the list." The log entry is already being written — date, description, access level noted — before you can add anything further. He is not hostile about it. The procedure was written by someone else and he follows it the way it was written, carefully and completely. The log has a memory even if he does not, and the entry will still be there the next time anyone from the Bureau looks at the counter records.`;
+        G.lastResult = `Khalis runs a finger down the tariff review authorization list without looking up. "You're not on the list." The log entry is already being written — date, description, access level noted — before you can add anything further. He is not hostile about it. The procedure was written by someone else and he follows it the way it was written, carefully and completely. The log has a memory even if he does not, and the entry will still be there the next time anyone from the magistracy looks at the counter records.`;
         addJournal('Unauthorized tariff review logged — credentials checked', 'complication', `shir-khalis-fail-${G.dayCount}`);
       } else {
         G.flags.met_khalis_coilspire = true;
@@ -146,8 +149,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "She's watched Bureau patterns for years. She knows who doesn't belong on the roster.",
-    tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
+    label: "She's watched magistracy patterns for years. She knows who doesn't belong on the roster.",
+    tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -155,7 +158,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'questioning Mirae Coilspire about Bureau personnel patterns');
+      gainXp(68, 'questioning Mirae Coilspire about magistracy personnel patterns');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
@@ -163,18 +166,18 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_mirae_coilspire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Mirae sets down her cloth and names two visitors from memory — she has a good one, and she keeps it private for situations like this. Monthly for the past year, never on the roster board, always received promptly. "That one" — she describes the first — "has the look of someone whose job it is to appear unremarkable." The description matches the Oversight Collegium's known field coordination profile. The second matches the intermediary description from Vaelis Sunweave's account at Shelkopolis.`;
-        addJournal('Shirshal inn: Bureau ghost-visitors match Collegium field agent + Shelkopolis intermediary', 'evidence', `shir-mirae-${G.dayCount}`);
+        G.lastResult = `Mirae sets down her cloth and names two visitors from memory — she has a good one, and she keeps it private for situations like this. Monthly for the past year, never on the roster board, always received promptly. "That one" — she describes the first — "has the look of someone whose job it is to appear unremarkable." The description matches the external Magistratus envoy profile. The second matches the intermediary description from Vaelis Sunweave's account at Shelkopolis.`;
+        addJournal('Shirshal inn: magistracy ghost-visitors match external Magistratus envoy + Shelkopolis intermediary', 'evidence', `shir-mirae-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `Mirae sets a cup down without being asked. "Bureau guests are not a subject I discuss." She says it before you have finished the question — the refusal is well-worn, positioned early to keep things pleasant. "That policy is twenty-three years old and it is why this inn is still open." She is not cold about it. The conversation moves to road conditions north, and she means every word of it. No angle, no hesitation, no opening left ajar. The door has been closed and the handle has been turned.`;
-        addJournal('Bureau inn confidentiality — policy refusal, no information', 'complication', `shir-mirae-fail-${G.dayCount}`);
+        G.lastResult = `Mirae sets a cup down without being asked. "Magi Magistratus guests are not a subject I discuss." She says it before you have finished the question — the refusal is well-worn, positioned early to keep things pleasant. "That policy is twenty-three years old and it is why this inn is still open." She is not cold about it. The conversation moves to road conditions north, and she means every word of it. No angle, no hesitation, no opening left ajar. The door has been closed and the handle has been turned.`;
+        addJournal('Magistracy inn confidentiality — policy refusal, no information', 'complication', `shir-mirae-fail-${G.dayCount}`);
       } else {
         G.flags.met_mirae_coilspire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Mirae won't give names — she doesn't have them — but she has the rest: height, build, the particular way each one carries themselves when they think they're not being watched. Third day of the ten-day cycle, always before noon, north road departure. The inn is quiet in the morning heat, the desert air holding the smell of old wood and cold tea. "I notice patterns. It's the work." She refills your cup and doesn't comment further.`;
-        addJournal('Bureau off-roster visitors on fixed 10-day cycle — north road departures', 'evidence', `shir-mirae-partial-${G.dayCount}`);
+        addJournal('Magistracy off-roster visitors on fixed 10-day cycle — north road departures', 'evidence', `shir-mirae-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -183,7 +186,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "A cluster of glyph-locality petitions dismissed simultaneously under a single ruling. Three months ago.",
-    tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
+    tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 70,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -191,7 +194,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'reviewing Compliance Shrine petition dismissal records');
+      gainXp(70, 'reviewing registry shrine petition dismissal records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -201,18 +204,18 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Sivren opens the petition archive and finds the cluster without searching — she's already bookmarked it. Seven petitions: Shelkopolis, Panim Haven, Fairhaven. Dismissed simultaneously under a single Collegium override, no standard review period. She points to the dismissal date, then to the commissioning date Thalen Sunweave identified. The dismissal came first — two weeks before the compound was officially commissioned. "The petitions were closed before the thing they were petitioning about was authorized." The sequence the official record suggests doesn't match the order things actually happened.`;
-        addJournal('Collegium override dismissed 7 glyph petitions before commission — inverts official timeline', 'evidence', `shir-sivren-${G.dayCount}`);
+        G.lastResult = `Sivren opens the petition archive and finds the cluster without searching — she's already bookmarked it. Seven petitions: Shelkopolis, Panim Haven, Fairhaven. Dismissed simultaneously under a single Magistratus override, no standard review period. She points to the dismissal date, then to the commissioning date Thalen Sunweave identified. The dismissal came first — two weeks before the compound was officially commissioned. "The petitions were closed before the thing they were petitioning about was authorized." The sequence the official record suggests doesn't match the order things actually happened.`;
+        addJournal('Magistratus override dismissed 7 glyph petitions before commission — inverts official timeline', 'evidence', `shir-sivren-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The petition archive is sealed — Collegium ruling, cited on the cover page. Sivren explains this before you can frame the request fully: accessing sealed petition records without Collegium authorization is a compliance violation. The shrine hall is quiet, the dry desert air keeping the stacked record boards straight and still. A formal notice goes out before the hour is up. Whatever standing you have in this jurisdiction now carries a notation, and it will remain in the compliance log long after you leave Shirshal.`;
+        G.lastResult = `The petition archive is sealed — Magistratus ruling, cited on the cover page. Sivren explains this before you can frame the request fully: accessing sealed petition records without Magistratus authorization is a compliance violation. The shrine hall is quiet, the dry desert air keeping the stacked record boards straight and still. A formal notice goes out before the hour is up. Whatever standing you have in this jurisdiction now carries a notation, and it will remain in the compliance log long after you leave Shirshal.`;
         addJournal('Petition records sealed — compliance violation notice issued', 'complication', `shir-sivren-fail-${G.dayCount}`);
       } else {
         G.flags.met_sivren_coilspire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Sivren confirms the facts without elaborating on their implications. Seven petitions, one ruling, no standard review period. She pulls the ruling reference number and pauses on it — her hand resting flat on the record board, the old ink of the compliance shrine's ledgers carrying the particular dry smell of Shirshal's desert air baked into every page. "This administrative category code — I've processed shrine records for six years. I've never seen this code applied to petitions." She writes it down and slides the paper across without further comment.`;
-        addJournal('Mass petition dismissal via unusual Collegium category — no standard review', 'evidence', `shir-sivren-partial-${G.dayCount}`);
+        G.lastResult = `Sivren confirms the facts without elaborating on their implications. Seven petitions, one ruling, no standard review period. She pulls the ruling reference number and pauses on it — her hand resting flat on the record board, the old ink of the registry shrine's ledgers carrying the particular dry smell of Shirshal's desert air baked into every page. "This administrative category code — I've processed shrine records for six years. I've never seen this code applied to petitions." She writes it down and slides the paper across without further comment.`;
+        addJournal('Mass petition dismissal via unusual Magistratus category — no standard review', 'evidence', `shir-sivren-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -252,8 +255,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('vigor', G.skills.vigor);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Calibration Stone', 'The stone at the north corridor junction sits three finger-widths off its seat, rotated clockwise past its mount notch. The notch exists precisely to prevent this rotation. The ward it anchors covers the archive wing entrance — not suppressed, but redirected: pulses that should register on the Bureau\'s monitoring array are being shed sideways, absorbed into the wall cavity instead of logged. Someone repositioned this with the patience to understand what repositioning it would do.');
-        addJournal('Bureau warding stone deliberately misaligned — archive wing monitoring pulses shed without logging', 'discovery');
+        addNarration('Calibration Stone', 'The stone at the north corridor junction sits three finger-widths off its seat, rotated clockwise past its mount notch. The notch exists precisely to prevent this rotation. The ward it anchors covers the archive wing entrance — not suppressed, but redirected: pulses that should register on the magistracy\'s monitoring array are being shed sideways, absorbed into the wall cavity instead of logged. Someone repositioned this with the patience to understand what repositioning it would do.');
+        addJournal('Magistracy warding stone deliberately misaligned — archive wing monitoring pulses shed without logging', 'discovery');
         maybeStageAdvance();
       } else {
         addNarration('Routine Inspection', 'The maintenance notation on the stone reads current. The calibration marks are worn but present. The corridor is quiet, the stone holding the dry warmth of the desert air that settles into Shirshal\u2019s administrative wing by midmorning, the smell of rock dust faint along the baseboard. Whatever the stones are doing, it reads as standard operation to anyone without a reason to look closer \u2014 and closer requires knowing what the mount notch is for in the first place.');
@@ -285,7 +288,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A clerk in the Bureau corridor has mistaken me for a Magistratus runner.",
+    label: "A clerk in the magistracy corridor has mistaken me for a Magistratus runner.",
     tags: ['stage2', 'shirshal'],
     xpReward: 32,
     fn: function() {
@@ -293,18 +296,18 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Mistaken for a Runner', 'The clerk — thin, ink smudge across her right cuff she has stopped trying to wipe off, tongue pressed into her cheek while she reads — pushes a sealed dispatch toward you without looking up. "For Magistratus review. Director\'s office, not Archive." The dispatch cover bears the override routing code Khalis flagged at the market counter. You carry it three paces before she notices the error and calls out — long enough to read the sender line and the route notation on the back. Same Collegium sub-registry Luneth mapped to the northern staging district. You hand it back. She does not meet your eyes when she takes it.');
-        addJournal('Sealed dispatch cover confirms Collegium override code routes through northern staging sub-registry', 'evidence');
+        addNarration('Mistaken for a Runner', 'The clerk — thin, ink smudge across her right cuff she has stopped trying to wipe off, tongue pressed into her cheek while she reads — pushes a sealed dispatch toward you without looking up. "For Magistratus review. Director\'s office, not Archive." The dispatch cover bears the override routing code Khalis flagged at the market counter. You carry it three paces before she notices the error and calls out — long enough to read the sender line and the route notation on the back. Same Magistratus sub-registry Luneth mapped to the northern staging district. You hand it back. She does not meet your eyes when she takes it.');
+        addJournal('Sealed dispatch cover confirms Magistratus override code routes through northern staging sub-registry', 'evidence');
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
-        addNarration('Runner Verification', 'The clerk presses her tongue into her cheek and looks up properly this time — properly enough to see your face is not the face she expected. Her hand retracts the dispatch before you can read the cover and her other hand is already on the corridor duty bell. "Runner verification required. Name, origin, credentials." The Magistratus floor steward arrives within thirty seconds. Your presence in the Bureau corridor is now a matter of formal inquiry. You are not detained, but you are not free either.');
+        addNarration('Runner Verification', 'The clerk presses her tongue into her cheek and looks up properly this time — properly enough to see your face is not the face she expected. Her hand retracts the dispatch before you can read the cover and her other hand is already on the corridor duty bell. "Runner verification required. Name, origin, credentials." The Magistratus floor steward arrives within thirty seconds. Your presence in the magistracy corridor is now a matter of formal inquiry. You are not detained, but you are not free either.');
       }
     }
   },
 
   {
-    label: "A rumor about the suppressed case is circulating in the Bureau break room.",
+    label: "A rumor about the suppressed case is circulating in the magistracy break room.",
     tags: ['stage2', 'shirshal'],
     xpReward: 30,
     fn: function() {
@@ -313,7 +316,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Break Room Edge', 'The break room is narrow and over-lit, tea kettle on an iron ring, three case officers working through a tray of honey biscuits. The oldest of them — bald, habit of cracking the knuckle of his left forefinger once before he speaks — says the name "Tazren" through a mouthful of biscuit and stops himself. The other two go still. The rumor moving is this: Tazren\'s case is about to be reopened by someone, and whoever that someone is, they are not going to be allowed to reach the Director. The knuckle cracks again. "Ten days, tops." He sees you in the doorway and the conversation changes register without pausing.');
-        addJournal('Bureau internal rumor: someone is moving to reopen Tazren case — interception expected within ten days', 'intelligence');
+        addJournal('Magistracy internal rumor: someone is moving to reopen Tazren case — interception expected within ten days', 'intelligence');
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -331,7 +334,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13 || roll.isCrit) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Shift-Change Gap', 'The archive wing gate closes for four minutes at shift change — procedure, not security. The outgoing warden hands her ring of keys to the incoming warden, both of them counting the ring aloud by touch. During the count, the access hallway is unattended. The first three stack aisles are visible from the gate. The third aisle holds the sealed-petition section; the cover boards of the top row show a consistent red Collegium stamp — except for three that do not. Those three carry a small geometric mark Mariel drew at the Dome Rest Inn. The count ends. You step back before either warden looks up.');
+        addNarration('Shift-Change Gap', 'The archive wing gate closes for four minutes at shift change — procedure, not security. The outgoing warden hands her ring of keys to the incoming warden, both of them counting the ring aloud by touch. During the count, the access hallway is unattended. The first three stack aisles are visible from the gate. The third aisle holds the sealed-petition section; the cover boards of the top row show a consistent red Magistratus stamp — except for three that do not. Those three carry a small geometric mark Mariel drew at the Dome Rest Inn. The count ends. You step back before either warden looks up.');
         addJournal('Archive sealed-petition section: three files carry same geometric mark as Aurora Crown dome inn seal swap', 'evidence');
         maybeStageAdvance();
       } else {
@@ -360,7 +363,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.courier_intercept_done = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The courier stops at the staging post water trough to let the horse drink. The packet sits in an open saddlebag, flap unclipped from the road heat. The cover reads no recipient name — only the sub-registry notation and a date-of-action stamp that falls five days from now. Inside the outer wrapper: a transfer authorization bearing the same Collegium override code Khalis identified at the market counter, and a consignment list in handwriting you recognize from the margin notes in Ravel's hidden transcripts. The courier remounts. You have what you came for.`;
+        G.lastResult = `The courier stops at the staging post water trough to let the horse drink. The packet sits in an open saddlebag, flap unclipped from the road heat. The cover reads no recipient name — only the sub-registry notation and a date-of-action stamp that falls five days from now. Inside the outer wrapper: a transfer authorization bearing the same Magistratus override code Khalis identified at the market counter, and a consignment list in handwriting you recognize from the margin notes in Ravel's hidden transcripts. The courier remounts. You have what you came for.`;
         addJournal('Northern courier packet: override code + Ravel handwriting on consignment list — action dated 5 days out', 'evidence', `shir-courier-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
@@ -397,12 +400,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.panim_witness_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `She is in the staging corridor of the transit hostel, still in road clothes, case beside her chair. Naret Osse, formerly a compliance archivist in Panim Haven — she says this quietly, the way people name things they no longer expect to mean anything. The Bureau intake officer told her the petition the glyph-affected ward sent was already adjudicated. She has the original petition in her bag. The adjudication date on the Bureau's copy predates the petition by eleven days. "Someone filed a resolution to something that hadn't been submitted yet." She already knew what this meant. She came anyway.`;
-        addJournal('Panim witness Naret Osse: Bureau adjudication predates petition by 11 days — pre-emptive closure', 'evidence', `shir-naret-${G.dayCount}`);
+        G.lastResult = `She is in the staging corridor of the transit hostel, still in road clothes, case beside her chair. Naret Osse, formerly a compliance archivist in Panim Haven — she says this quietly, the way people name things they no longer expect to mean anything. The magistracy intake officer told her the petition the glyph-affected ward sent was already adjudicated. She has the original petition in her bag. The adjudication date on the magistracy's copy predates the petition by eleven days. "Someone filed a resolution to something that hadn't been submitted yet." She already knew what this meant. She came anyway.`;
+        addJournal('Panim witness Naret Osse: Magistracy adjudication predates petition by 11 days — pre-emptive closure', 'evidence', `shir-naret-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `The transit hostel clerk directs you to the corridor and the corridor is empty — not cleared, just empty. Her case is gone, the chair is back against the wall, and the clerk on the next shift doesn't have a record of her name. Either she left voluntarily or someone moved her between shift changes. The Bureau's intake log for the day shows one external visitor admitted to the petition counter. No name. No outcome noted.`;
-        addJournal('Panim witness gone from transit hostel — Bureau log shows unnamed visitor, no outcome', 'complication', `shir-naret-fail-${G.dayCount}`);
+        G.lastResult = `The transit hostel clerk directs you to the corridor and the corridor is empty — not cleared, just empty. Her case is gone, the chair is back against the wall, and the clerk on the next shift doesn't have a record of her name. Either she left voluntarily or someone moved her between shift changes. The magistracy's intake log for the day shows one external visitor admitted to the petition counter. No name. No outcome noted.`;
+        addJournal('Panim witness gone from transit hostel — magistracy log shows unnamed visitor, no outcome', 'complication', `shir-naret-fail-${G.dayCount}`);
       } else {
         G.flags.panim_witness_found = true;
         G.investigationProgress++;
@@ -416,7 +419,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The sub-registry code is in the Bureau's own charter. Embedded years before it was used.",
+    label: "The sub-registry code is in the magistracy's own charter. Embedded years before it was used.",
     tags: ['Stage2', 'NPC'],
     xpReward: 74,
     failResult: function() {
@@ -425,7 +428,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(74, 'tracing Collegium sub-registry in Bureau charter amendments');
+      gainXp(74, 'tracing Magistratus sub-registry in Magi Magistratus charter amendments');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -434,8 +437,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.charter_amendment_traced = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The charter amendment is in the Bureau's own public register — administrative language, the kind that passes without comment in annual filings. Section 14(c), amendment cycle seven years back: authority to route compliance-flagged cases to sub-registry for "expedited specialized review." The sub-registry address is specified verbatim. The amendment was filed under a Collegium administrative authority notation that predates the Bureau's current director by two administrations. Someone built the mechanism into the charter before they needed to use it. The suppression protocol is not improvised — it has a legal foundation no one has touched since the amendment was approved.`;
-        addJournal('Bureau charter amendment: sub-registry routing authority embedded 7 years ago under prior administration', 'evidence', `shir-charter-${G.dayCount}`);
+        G.lastResult = `The charter amendment is in the magistracy's own public register — administrative language, the kind that passes without comment in annual filings. Section 14(c), amendment cycle seven years back: authority to route compliance-flagged cases to sub-registry for "expedited specialized review." The sub-registry address is specified verbatim. The amendment was filed under a Magistratus administrative authority notation that predates the magistracy's current director by two administrations. Someone built the mechanism into the charter before they needed to use it. The suppression protocol is not improvised — it has a legal foundation no one has touched since the amendment was approved.`;
+        addJournal('Magi Magistratus charter amendment: sub-registry routing authority embedded 7 years ago under prior administration', 'evidence', `shir-charter-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The charter amendment index requires staff-assisted access for records older than five years — procedure, not a block, except the staff assistant who handles the request notes the specific amendment cycle you named and excuses himself before pulling anything. He returns with a supervisor. The supervisor is polite and asks for credentials with the particular patience of someone who was briefed before arriving. The charter amendment is available upon formal request, which requires two business days and an originating authority signature. You will not be here in two business days.`;
@@ -462,7 +465,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'confronting Bureau supervisors who closed Tazren case');
+      gainXp(78, 'confronting magistracy supervisors who closed Tazren case');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -471,13 +474,13 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.supervisors_confronted = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The one who signed the closure order — Vel Orath, name printed on the office placard — does not reach for anything when you set the charter amendment on his desk. He reads it without picking it up. Thirty seconds. "What you have there is a legal instrument." He says it like a man confirming the weather. Then: "The sub-registry is under Collegium authority. I cannot discuss it." He doesn't deny the case was closed on instruction. He doesn't confirm it either. He folds his hands and the interview ends. His second — younger, still learning the procedure — has left the room before he folded his hands.`;
-        addJournal('Supervisor Vel Orath confirms sub-registry is Collegium authority — did not deny closure on instruction', 'evidence', `shir-supervisors-${G.dayCount}`);
+        G.lastResult = `The one who signed the closure order — Vel Orath, name printed on the office placard — does not reach for anything when you set the charter amendment on his desk. He reads it without picking it up. Thirty seconds. "What you have there is a legal instrument." He says it like a man confirming the weather. Then: "The sub-registry is under Magistratus authority. I cannot discuss it." He doesn't deny the case was closed on instruction. He doesn't confirm it either. He folds his hands and the interview ends. His second — younger, still learning the procedure — has left the room before he folded his hands.`;
+        addJournal('Supervisor Vel Orath confirms sub-registry is Magistratus authority — did not deny closure on instruction', 'evidence', `shir-supervisors-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Vel Orath has you escorted out of the building by a duty officer before you finish the first question. The duty officer is professional about it — walking pace, no contact, door held open. Outside, the officer notes your name on a clipboard entry and asks you to confirm your current address. The question is not hostile. The entry is already written before you answer it. The Bureau now has a formal record of your attempt to access a supervisor regarding a closed case, and the supervisors know you have the charter amendment.`;
-        addJournal('Escorted from Bureau — formal record made of supervisor contact attempt', 'complication', `shir-supervisors-fail-${G.dayCount}`);
+        G.lastResult = `Vel Orath has you escorted out of the building by a duty officer before you finish the first question. The duty officer is professional about it — walking pace, no contact, door held open. Outside, the officer notes your name on a clipboard entry and asks you to confirm your current address. The question is not hostile. The entry is already written before you answer it. The magistracy now has a formal record of your attempt to access a supervisor regarding a closed case, and the supervisors know you have the charter amendment.`;
+        addJournal('Escorted from magistracy — formal record made of supervisor contact attempt', 'complication', `shir-supervisors-fail-${G.dayCount}`);
       } else {
         G.flags.supervisors_confronted = true;
         G.investigationProgress++;
@@ -491,7 +494,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The transit post kept a field rotation log. The Collegium never asked them to stop.",
+    label: "The transit post kept a field rotation log. The magistracy never asked them to stop.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     failResult: function() {
@@ -500,7 +503,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing Collegium field rotation log at transit post');
+      gainXp(68, 'tracing external Magistratus rotation log at transit post');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -509,18 +512,18 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.transit_rotation_log_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The post office field rotation log is a hand-kept ledger the clerk maintains out of professional habit — never mandated, never collected. Seventeen months of courier registration entries, including six that carry a Collegium field coordination stamp matching the Oversight profile Mirae described. The registration dates correspond exactly to the three months preceding each of the seven petition dismissals Sivren found. The Collegium field agent arrived, the petitions closed, and the agent departed — every time. The clerk has never been asked about it. He does not understand what he has been recording.`;
-        addJournal('Transit post rotation log: Collegium field agent arrivals precede every petition dismissal — 7 for 7', 'evidence', `shir-transit-${G.dayCount}`);
+        G.lastResult = `The post office field rotation log is a hand-kept ledger the clerk maintains out of professional habit — never mandated, never collected. Seventeen months of courier registration entries, including six that carry a external Magistratus coordination stamp matching the Oversight profile Mirae described. The registration dates correspond exactly to the three months preceding each of the seven petition dismissals Sivren found. The external Magistratus envoy arrived, the petitions closed, and the agent departed — every time. The clerk has never been asked about it. He does not understand what he has been recording.`;
+        addJournal('Transit post rotation log: external Magistratus envoy arrivals precede every petition dismissal — 7 for 7', 'evidence', `shir-transit-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The clerk pulls the rotation log and starts paging backward to help with the date range. Halfway through, a Bureau compliance officer stops to collect the day's outbound mail and lingers — the log is visible on the counter, the date range visible, your interest visible. The clerk slides the log off the counter before anything is said. His expression when he looks at you is the expression of someone who has made a calculation and reached a result he doesn't like. He's still holding the log when you leave.`;
+        G.lastResult = `The clerk pulls the rotation log and starts paging backward to help with the date range. Halfway through, a magistracy compliance officer stops to collect the day's outbound mail and lingers — the log is visible on the counter, the date range visible, your interest visible. The clerk slides the log off the counter before anything is said. His expression when he looks at you is the expression of someone who has made a calculation and reached a result he doesn't like. He's still holding the log when you leave.`;
         addJournal('Transit post rotation log — third-party observation interrupted access', 'complication', `shir-transit-fail-${G.dayCount}`);
       } else {
         G.flags.transit_rotation_log_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The clerk finds the Collegium field coordination stamps in his log without difficulty — he notices patterns, he says, it is the work. Six entries over seventeen months. He cannot say what those couriers were doing in Shirshal, only that they registered at the post and departed north, same as the visitors Mirae described. He writes the entry dates on a slip of paper before you ask him to.`;
-        addJournal('Transit post log: 6 Collegium field coordination entries over 17 months — north departure pattern confirmed', 'intelligence', `shir-transit-partial-${G.dayCount}`);
+        G.lastResult = `The clerk finds the external Magistratus coordination stamps in his log without difficulty — he notices patterns, he says, it is the work. Six entries over seventeen months. He cannot say what those couriers were doing in Shirshal, only that they registered at the post and departed north, same as the visitors Mirae described. He writes the entry dates on a slip of paper before you ask him to.`;
+        addJournal('Transit post log: 6 external Magistratus coordination entries over 17 months — north departure pattern confirmed', 'intelligence', `shir-transit-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -528,7 +531,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "A retired archivist near the compliance shrine. She left under circumstances the record doesn't describe.",
+    label: "A retired archivist near the registry shrine. She left under circumstances the record doesn't describe.",
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     failResult: function() {
@@ -537,7 +540,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'speaking with retired Bureau archivist');
+      gainXp(70, 'speaking with retired magistracy archivist');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -550,14 +553,14 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Retired archivist Orel Vasht: wrote memo on sub-registry format before charter amendment passed — kept copy', 'evidence', `shir-orel-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `Orel Vasht answers the door and reads the situation in the first five seconds — the question before the question, the approach that belongs to a particular kind of visitor. She says she left the Bureau for personal reasons and the record reflects that, and then she closes the door with the precise quietness of someone who has been practicing that answer for a long time. The tea on the shelf behind her is still steeping. She was not expecting to be home.`;
+        G.lastResult = `Orel Vasht answers the door and reads the situation in the first five seconds — the question before the question, the approach that belongs to a particular kind of visitor. She says she left the magistracy for personal reasons and the record reflects that, and then she closes the door with the precise quietness of someone who has been practicing that answer for a long time. The tea on the shelf behind her is still steeping. She was not expecting to be home.`;
         addJournal('Retired archivist Orel Vasht — refused to speak, door closed', 'complication', `shir-orel-fail-${G.dayCount}`);
       } else {
         G.flags.retired_archivist_spoken = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Orel Vasht acknowledges the sub-registry notation when you name it — a small acknowledgment, a stillness in her hands over her cup. She says only that the notation format is not standard Bureau administrative language. "It belongs to a different drafting tradition." She will not say more than that, not today, not without more time to think it over. But she does not deny knowing what it means.`;
-        addJournal('Retired archivist confirms sub-registry notation is non-standard Bureau language — different drafting tradition', 'intelligence', `shir-orel-partial-${G.dayCount}`);
+        G.lastResult = `Orel Vasht acknowledges the sub-registry notation when you name it — a small acknowledgment, a stillness in her hands over her cup. She says only that the notation format is not standard magistracy administrative language. "It belongs to a different drafting tradition." She will not say more than that, not today, not without more time to think it over. But she does not deny knowing what it means.`;
+        addJournal('Retired archivist confirms sub-registry notation is non-standard magistracy language — different drafting tradition', 'intelligence', `shir-orel-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -583,12 +586,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.north_road_departure_witnessed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The departure happens at the hour Mirae described — third day of the ten-day cycle, before noon, north road. Two figures, not one. The second carries a sealed document tube marked with the sub-registry notation — visible only for the three seconds it takes him to slide it into a saddlebag and close the flap. They do not speak at the fork. The route they take north does not go to the Bureau's nearest provincial branch. It goes to the area the transit post rotation log places the northern staging district. The pattern is not incidental. This is a courier run with institutional cover.`;
+        G.lastResult = `The departure happens at the hour Mirae described — third day of the ten-day cycle, before noon, north road. Two figures, not one. The second carries a sealed document tube marked with the sub-registry notation — visible only for the three seconds it takes him to slide it into a saddlebag and close the flap. They do not speak at the fork. The route they take north does not go to the magistracy's nearest provincial branch. It goes to the area the transit post rotation log places the northern staging district. The pattern is not incidental. This is a courier run with institutional cover.`;
         addJournal('North road departure: two figures, sub-registry document tube, route confirms northern staging district', 'evidence', `shir-northwatch-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The figure at the fork turns before you expect. The look is brief and professional — the assessment of someone trained to notice surveillance and trained not to react to it visibly. He continues north without changing pace. When you return to the road twenty minutes later, a Bureau duty officer is asking the stable keeper at the north gate if anyone unusual had been waiting near the road at the hour of the departure. Your description is close enough.`;
-        addJournal('Surveillance burned — Bureau duty officer canvassing north gate stable', 'complication', `shir-northwatch-fail-${G.dayCount}`);
+        G.lastResult = `The figure at the fork turns before you expect. The look is brief and professional — the assessment of someone trained to notice surveillance and trained not to react to it visibly. He continues north without changing pace. When you return to the road twenty minutes later, a magistracy duty officer is asking the stable keeper at the north gate if anyone unusual had been waiting near the road at the hour of the departure. Your description is close enough.`;
+        addJournal('Surveillance burned — magistracy duty officer canvassing north gate stable', 'complication', `shir-northwatch-fail-${G.dayCount}`);
       } else {
         G.flags.north_road_departure_witnessed = true;
         G.investigationProgress++;
@@ -624,7 +627,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Ward stone residue matches Khalis market counter precursor — same supply chain, physical application confirmed', 'evidence', `shir-residue-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The maintenance notation on the stone is current, and a Bureau warden rounds the corridor before the sample can be collected cleanly. The warden examines your position near the stone with the particular attention of someone who was briefed to watch for unauthorized contact with calibration equipment. A formal notation goes in the inspection log. The residue remains unsampled and your access to the corridor is now subject to a prior-notice requirement.`;
+        G.lastResult = `The maintenance notation on the stone is current, and a magistracy warden rounds the corridor before the sample can be collected cleanly. The warden examines your position near the stone with the particular attention of someone who was briefed to watch for unauthorized contact with calibration equipment. A formal notation goes in the inspection log. The residue remains unsampled and your access to the corridor is now subject to a prior-notice requirement.`;
         addJournal('Ward stone sample collection blocked — corridor access now restricted', 'complication', `shir-residue-fail-${G.dayCount}`);
       } else {
         G.flags.ward_stone_residue_analyzed = true;
@@ -657,11 +660,11 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.surge_petition_timeline_cross_checked = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Incident report dates from three localities, petition filing dates from Sivren's archive, dismissal dates from the Collegium override. Laid side by side: the glyph surge incidents preceded the petitions, and the petitions were dismissed before the affected wards had submitted secondary evidence packages. The official account holds that petitions were assessed and found without merit. The dates show the merits were never examined — dismissal happened before the evidence cycle completed. Every locality affected by the surge was closed out on the same schedule, regardless of what their evidence showed.`;
+        G.lastResult = `Incident report dates from three localities, petition filing dates from Sivren's archive, dismissal dates from the Magistratus override. Laid side by side: the glyph surge incidents preceded the petitions, and the petitions were dismissed before the affected wards had submitted secondary evidence packages. The official account holds that petitions were assessed and found without merit. The dates show the merits were never examined — dismissal happened before the evidence cycle completed. Every locality affected by the surge was closed out on the same schedule, regardless of what their evidence showed.`;
         addJournal('Surge incident → petition → dismissal timeline: dismissals precede full evidence submission in every case', 'evidence', `shir-timeline-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The incident reports sit in the Bureau's public records section, but the retrieval procedure requires a staff-facilitated pull for anything older than two months. The staff archivist pulls your request card and pauses before setting it in the queue — a pause of the sort that precedes a supervisor consultation. The queue position you are given is for end of day. When end of day arrives, the request has been reclassified as requiring credentials review. The incident reports will not be accessible today.`;
+        G.lastResult = `The incident reports sit in the magistracy's public records section, but the retrieval procedure requires a staff-facilitated pull for anything older than two months. The staff archivist pulls your request card and pauses before setting it in the queue — a pause of the sort that precedes a supervisor consultation. The queue position you are given is for end of day. When end of day arrives, the request has been reclassified as requiring credentials review. The incident reports will not be accessible today.`;
         addJournal('Incident report access reclassified — credentials review required, day lost', 'complication', `shir-timeline-fail-${G.dayCount}`);
       } else {
         G.flags.surge_petition_timeline_cross_checked = true;
@@ -698,8 +701,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Verdant Row map: suppression compound distributed to 11 localities — 4 pre-emptive placements in petition-pending areas', 'evidence', `shir-verdant-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = `The Verdant Row contact point is a message drop, not a person — a chalk mark on a specific post that indicates a willingness to meet. The mark is gone when you reach it: wiped, not expired. Either the timing was wrong or the network saw the Bureau duty officer who logged your corridor visit and decided not to surface. The distribution map exists. You have no path to it today.`;
-        addJournal('Verdant Row contact point pulled — network standing down after Bureau logging', 'complication', `shir-verdant-fail-${G.dayCount}`);
+        G.lastResult = `The Verdant Row contact point is a message drop, not a person — a chalk mark on a specific post that indicates a willingness to meet. The mark is gone when you reach it: wiped, not expired. Either the timing was wrong or the network saw the magistracy duty officer who logged your corridor visit and decided not to surface. The distribution map exists. You have no path to it today.`;
+        addJournal('Verdant Row contact point pulled — network standing down after magistracy logging', 'complication', `shir-verdant-fail-${G.dayCount}`);
       } else {
         G.flags.verdant_row_map_obtained = true;
         G.investigationProgress++;
@@ -713,7 +716,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The override code appeared in a second Bureau branch three months before here.",
+    label: "The override code appeared in a second magistracy branch three months before here.",
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     failResult: function() {
@@ -722,7 +725,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing override code appearance in a second Bureau branch');
+      gainXp(68, 'tracing override code appearance in a second magistracy branch');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -735,8 +738,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Override code appears in Panim Haven branch 3 months earlier — Shirshal was not the first deployment', 'evidence', `shir-override2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The transit registry clerk cross-checks the code format against the branch's filing index before pulling records — standard practice. The format triggers a Collegium administrative hold query, which requires confirmation from the originating authority. The originating authority is the sub-registry. The sub-registry does not respond to public inquiries. The transit registry clerk closes the index with genuine regret. The hold is automatic; he had no choice about it.`;
-        addJournal('Override code format triggered Collegium hold — registry access blocked', 'complication', `shir-override2-fail-${G.dayCount}`);
+        G.lastResult = `The transit registry clerk cross-checks the code format against the branch's filing index before pulling records — standard practice. The format triggers a Magistratus administrative hold query, which requires confirmation from the originating authority. The originating authority is the sub-registry. The sub-registry does not respond to public inquiries. The transit registry clerk closes the index with genuine regret. The hold is automatic; he had no choice about it.`;
+        addJournal('Override code format triggered Magistratus hold — registry access blocked', 'complication', `shir-override2-fail-${G.dayCount}`);
       } else {
         G.flags.override_code_second_branch_traced = true;
         G.investigationProgress++;
@@ -778,7 +781,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.surge_witness_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Davan Mirest confirms he spoke to Ravel — he doesn't deny it and doesn't elaborate. He will say the surge event in the west ward was not consistent with equipment failure. "Equipment failures are ragged. This was clean." He does not want to say more in the loading dock. He names a time and a location — the public garden bench near the compliance shrine, evening bell — and goes back to work before the conversation can be observed as unusual.`;
+        G.lastResult = `Davan Mirest confirms he spoke to Ravel — he doesn't deny it and doesn't elaborate. He will say the surge event in the west ward was not consistent with equipment failure. "Equipment failures are ragged. This was clean." He does not want to say more in the loading dock. He names a time and a location — the public garden bench near the registry shrine, evening bell — and goes back to work before the conversation can be observed as unusual.`;
         addJournal('Surge witness Davan Mirest: west ward surge "clean, not ragged" — meeting arranged for evening', 'intelligence', `shir-witness-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -877,11 +880,11 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Three years of receipt logs, same calendar gap: weeks fourteen through sixteen of each cycle, the northern transit depot logs show no inbound receipts. Not reduced — none. The depot did not close; its outbound log for those weeks is uninterrupted. Goods moved out but nothing was logged in. The gap spans the same window as the Collegium field rotation entries the transit post clerk recorded. The depot was receiving something during those three weeks that no one wrote down.`;
-        addJournal('Northern depot receipt gap matches Collegium field rotation window — 3 consecutive years, inbound only', 'evidence', `shir-depot-${G.dayCount}`);
+        G.lastResult = `Three years of receipt logs, same calendar gap: weeks fourteen through sixteen of each cycle, the northern transit depot logs show no inbound receipts. Not reduced — none. The depot did not close; its outbound log for those weeks is uninterrupted. Goods moved out but nothing was logged in. The gap spans the same window as the external Magistratus rotation entries the transit post clerk recorded. The depot was receiving something during those three weeks that no one wrote down.`;
+        addJournal('Northern depot receipt gap matches external Magistratus rotation window — 3 consecutive years, inbound only', 'evidence', `shir-depot-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The receipt log archive requires a cross-reference request from two departments — depot operations and customs compliance. The customs compliance clerk notes the date range of your query before submitting it and adds a flag for the department head. By the hour, the request has been elevated to a procedural review for "scope clarification." The logs are not denied; they are simply unavailable until the scope review completes. Scope reviews in the Bureau take between five and twenty-three days.`;
+        G.lastResult = `The receipt log archive requires a cross-reference request from two departments — depot operations and customs compliance. The customs compliance clerk notes the date range of your query before submitting it and adds a flag for the department head. By the hour, the request has been elevated to a procedural review for "scope clarification." The logs are not denied; they are simply unavailable until the scope review completes. Scope reviews in the magistracy take between five and twenty-three days.`;
         addJournal('Depot receipt log request flagged — customs compliance scope review initiated', 'complication', `shir-depot-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -895,7 +898,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The Fairhaven staging ledger has a Shirshal bureau notation that Fairhaven never authorized.",
+    label: "The Fairhaven staging ledger has a Shirshal magistracy notation that Fairhaven never authorized.",
     tags: ['Archive', 'Stage2'],
     xpReward: 76,
     failResult: function() {
@@ -904,7 +907,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing Fairhaven staging ledger against Shirshal bureau records');
+      gainXp(76, 'cross-referencing Fairhaven staging ledger against Shirshal magistracy records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -912,10 +915,10 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The Fairhaven ledger copy held in Shirshal's archive carries a Bureau notation on its cover page — an administrative cross-reference stamp indicating joint oversight authority. The Fairhaven original does not carry this stamp; the transit copy made here added it. The stamp grants Shirshal administrative access to Fairhaven staging records for the same period as the petition dismissals. Oversight authority was extended unilaterally. Fairhaven was not consulted. The stamp's signatory line is the sub-registry override code, not a named officer.`;
+        G.lastResult = `The Fairhaven ledger copy held in Shirshal's archive carries a magistracy notation on its cover page — an administrative cross-reference stamp indicating joint oversight authority. The Fairhaven original does not carry this stamp; the transit copy made here added it. The stamp grants Shirshal administrative access to Fairhaven staging records for the same period as the petition dismissals. Oversight authority was extended unilaterally. Fairhaven was not consulted. The stamp's signatory line is the sub-registry override code, not a named officer.`;
         addJournal('Fairhaven staging ledger: Shirshal added joint oversight stamp unilaterally — signatory is override code, not a person', 'evidence', `shir-fairhaven-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The Fairhaven staging ledger is a cross-jurisdiction record held under a shared custodianship notation. Accessing it without the originating authority's clearance triggers an automatic hold — the archive system stamps the request with a denial pending Fairhaven bureau confirmation. The confirmation process routes through the sub-registry. Sub-registry responses to public inquiry are not guaranteed within any stated timeframe. The ledger will not be accessible through standard channels today or tomorrow.`;
+        G.lastResult = `The Fairhaven staging ledger is a cross-jurisdiction record held under a shared custodianship notation. Accessing it without the originating authority's clearance triggers an automatic hold — the archive system stamps the request with a denial pending Fairhaven authority confirmation. The confirmation process routes through the sub-registry. Sub-registry responses to public inquiry are not guaranteed within any stated timeframe. The ledger will not be accessible through standard channels today or tomorrow.`;
         addJournal('Fairhaven staging ledger: cross-jurisdiction hold — sub-registry routes all confirmations', 'complication', `shir-fairhaven-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -949,8 +952,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The material transfer log numbering runs 2841 through 2845 without entries for 2842, 2843, 2844. The ink date on entry 2841 and 2845 is the same — the same day, the same hand. The four gaps fall in sequence, not scattered across weeks. The log's ink saturation is uniform across the surrounding entries, meaning the skips were not erased or overwritten. Numbers were allocated, the transfer was logged in a separate system, and the sequence placeholder was left blank to maintain consecutive numbering. The four transfers happened. They were deliberately not recorded here.`;
         addJournal('Transfer log entries 2842-2844 skipped — same-day ink confirms deliberate omission, not error', 'evidence', `shir-loggap-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The material transfer log is checked out to a Bureau auditor — the sign-out card is still in the sleeve on the counter. The auditor's name on the card is a department notation, not a personal name. The log will be returned when the audit is complete; the desk clerk does not know when that will be, and the audit's scope is not listed on the sign-out form. The log is unavailable. The audit timing relative to your inquiry is logged in the desk clerk's daily report.`;
-        addJournal('Material transfer log signed out to unnamed Bureau auditor — return date unknown', 'complication', `shir-loggap-fail-${G.dayCount}`);
+        G.lastResult = `The material transfer log is checked out to a magistracy auditor — the sign-out card is still in the sleeve on the counter. The auditor's name on the card is a department notation, not a personal name. The log will be returned when the audit is complete; the desk clerk does not know when that will be, and the audit's scope is not listed on the sign-out form. The log is unavailable. The audit timing relative to your inquiry is logged in the desk clerk's daily report.`;
+        addJournal('Material transfer log signed out to unnamed magistracy auditor — return date unknown', 'complication', `shir-loggap-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -980,7 +983,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The personnel record is public — Bureau officers' service records are maintained in the compliance index. Senior Compliance Officer Verath Isol retired two years and four months ago. The northern route certification bearing his signature is dated eight months ago. The handwriting matches the prior-year samples in the compliance index perfectly. Either someone kept his signature block active in the authorization system after his retirement, or someone forged it with enough access to his prior documentation to match it exactly. Neither explanation requires him to still work here. Both require someone who does.`;
+        G.lastResult = `The personnel record is public — magistracy officers' service records are maintained in the compliance index. Senior Compliance Officer Verath Isol retired two years and four months ago. The northern route certification bearing his signature is dated eight months ago. The handwriting matches the prior-year samples in the compliance index perfectly. Either someone kept his signature block active in the authorization system after his retirement, or someone forged it with enough access to his prior documentation to match it exactly. Neither explanation requires him to still work here. Both require someone who does.`;
         addJournal('Northern route certification signed by retired officer Verath Isol — 8 months post-retirement, signature verified authentic', 'evidence', `shir-signat-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1015,7 +1018,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The catalog count comes from a photocopy posted at the section entry for fire-emergency inventory purposes — public by protocol, consulted by nobody. Forty-three. The physical shelf during shift-change gap: forty, counted twice. The three missing files bear the same Collegium stamp Sivren found on the petition dismissals. Their catalog entries name them as "amended petition supplementals" for Panim Haven, Fairhaven, and a third locality whose name has been redacted from the photocopy with a correction strip that wasn't quite long enough to cover the descenders.`;
+        G.lastResult = `The catalog count comes from a photocopy posted at the section entry for fire-emergency inventory purposes — public by protocol, consulted by nobody. Forty-three. The physical shelf during shift-change gap: forty, counted twice. The three missing files bear the same Magistratus stamp Sivren found on the petition dismissals. Their catalog entries name them as "amended petition supplementals" for Panim Haven, Fairhaven, and a third locality whose name has been redacted from the photocopy with a correction strip that wasn't quite long enough to cover the descenders.`;
         addJournal('Sealed section: 3 files missing vs catalog — petition supplementals for Panim Haven, Fairhaven, and redacted third locality', 'evidence', `shir-count-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The catalog is not a public document — the emergency inventory card posted at the section entry is a summary only, and the archivist who manages the sealed section corrects this misunderstanding before you have finished reading it. She removes the card from the post with both hands and carries it to her desk. The removal is not hostile. "Public access to catalog records requires a sealed-section authorization form." She sets the card face-down and picks up the correct form to hand to you. The form takes four business days to process.`;
@@ -1023,8 +1026,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The emergency inventory summary at the section entry lists forty-three files. The visible shelf during the shift-change gap holds forty — a count confirmed twice, quickly, before the angle closes. Three files short of the stated total. The missing gap falls in the middle of the Collegium-stamped range, not at the ends. If they were removed, they were removed selectively, not by pulling the front or back of the stack.`;
-        addJournal('Sealed section shelf count: 40 vs catalog total 43 — 3 missing from Collegium-stamped range', 'intelligence', `shir-count-partial-${G.dayCount}`);
+        G.lastResult = `The emergency inventory summary at the section entry lists forty-three files. The visible shelf during the shift-change gap holds forty — a count confirmed twice, quickly, before the angle closes. Three files short of the stated total. The missing gap falls in the middle of the Magistratus-stamped range, not at the ends. If they were removed, they were removed selectively, not by pulling the front or back of the stack.`;
+        addJournal('Sealed section shelf count: 40 vs catalog total 43 — 3 missing from Magistratus-stamped range', 'intelligence', `shir-count-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -1090,7 +1093,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Luneth private tally: 19 undeclared packages — sender notation consistent, weight logged, delivery party described', 'evidence', `shir-luneth2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Luneth straightens at the counter the way someone does when they have decided not to do something they were considering. Whatever he had been keeping to himself remains there. "Package logs are Bureau property. Personal records are personal." He says it without hostility and without elaboration, and goes back to the manifest on his desk. The decision happened in a second and the conversation was over at the same speed.`;
+        G.lastResult = `Luneth straightens at the counter the way someone does when they have decided not to do something they were considering. Whatever he had been keeping to himself remains there. "Package logs are magistracy property. Personal records are personal." He says it without hostility and without elaboration, and goes back to the manifest on his desk. The decision happened in a second and the conversation was over at the same speed.`;
         addJournal('Luneth Coilspire — declined to share personal package records', 'complication', `shir-luneth2-fail-${G.dayCount}`);
       } else {
         G.flags.luneth_tally_reviewed = true;
@@ -1160,12 +1163,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.sivren_rite_crosschecked = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The shrine log on the day of each dismissal shows a registered rite — "administrative alignment ceremony," a designation Sivren has never processed before or since across six years of records. The rite is performed by a registrant whose name appears nowhere in the Compliance Shrine's standing practitioner roll. The registration number is valid in format but traces to a charter section that has been administratively suspended. The rite provided a procedural cover: any contested dismissal could be answered with "active shrine review in progress." The cover expired automatically seven days after each dismissal. By then, the appeals window had also closed.`;
+        G.lastResult = `The shrine log on the day of each dismissal shows a registered rite — "administrative alignment ceremony," a designation Sivren has never processed before or since across six years of records. The rite is performed by a registrant whose name appears nowhere in the registry shrine's standing practitioner roll. The registration number is valid in format but traces to a charter section that has been administratively suspended. The rite provided a procedural cover: any contested dismissal could be answered with "active shrine review in progress." The cover expired automatically seven days after each dismissal. By then, the appeals window had also closed.`;
         addJournal('Shrine rite: "administrative alignment ceremony" on each dismissal day — non-roster performer, appeals window closed within rite duration', 'evidence', `shir-sivren2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Sivren sets both record boards on her desk and examines the registration cross-reference before handing anything over. The "administrative alignment ceremony" entry has a Collegium advisory notation she has seen before — it marks records that require a verification request before secondary disclosure. She shows you the notation without opening the record. "I'm required to file a verification request before I share this one. That takes a week." She is apologetic about it. The notation was added after the original entry was made. She confirms this without being asked.`;
-        addJournal('Shrine rite record: Collegium advisory notation requires 1-week verification before disclosure — added post-entry', 'complication', `shir-sivren2-fail-${G.dayCount}`);
+        G.lastResult = `Sivren sets both record boards on her desk and examines the registration cross-reference before handing anything over. The "administrative alignment ceremony" entry has a Magistratus advisory notation she has seen before — it marks records that require a verification request before secondary disclosure. She shows you the notation without opening the record. "I'm required to file a verification request before I share this one. That takes a week." She is apologetic about it. The notation was added after the original entry was made. She confirms this without being asked.`;
+        addJournal('Shrine rite record: Magistratus advisory notation requires 1-week verification before disclosure — added post-entry', 'complication', `shir-sivren2-fail-${G.dayCount}`);
       } else {
         G.flags.sivren_rite_crosschecked = true;
         G.investigationProgress++;
@@ -1197,8 +1200,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.mirae_private_log_reviewed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Mirae produces a thin ledger from the shelf below the counter — separate from the guests' book, written in a different hand register than the inn's formal records. Eight entries. Each one is dated, each describes a guest who arrived without signing, was settled promptly, and departed before the morning bell. She never required the signature because the request not to sign came from the Bureau's standard accommodation waiver for official visitors. She kept the entries because she decided this mattered. "The waiver says I don't have to ask. It doesn't say I can't observe." Two of the descriptions match Mirae's oral account from the first interview. The other six are new.`;
-        addJournal('Mirae private ledger: 8 unsigned-guest entries — Bureau accommodation waiver used, 6 new descriptions not in earlier account', 'evidence', `shir-mirae2-${G.dayCount}`);
+        G.lastResult = `Mirae produces a thin ledger from the shelf below the counter — separate from the guests' book, written in a different hand register than the inn's formal records. Eight entries. Each one is dated, each describes a guest who arrived without signing, was settled promptly, and departed before the morning bell. She never required the signature because the request not to sign came from the magistracy's standard accommodation waiver for official visitors. She kept the entries because she decided this mattered. "The waiver says I don't have to ask. It doesn't say I can't observe." Two of the descriptions match Mirae's oral account from the first interview. The other six are new.`;
+        addJournal('Mirae private ledger: 8 unsigned-guest entries — magistracy accommodation waiver used, 6 new descriptions not in earlier account', 'evidence', `shir-mirae2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
         G.lastResult = `Mirae fills a cup that doesn't need filling and sets it between you on the counter — the particular spacing that turns a surface into a boundary. "I said what I can say." She says it without apology. "What I keep for myself is for myself." The inn is quiet in the midday heat, the smell of old wood and the steppe dust that filters under the door all morning. The private ledger, if it exists, stays where it is.`;
@@ -1235,11 +1238,11 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress >= 6) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `The map is on a single folded sheet — Bureau standard paper, drawn in a clean precise hand, the hand of someone trained in archival documentation. Twelve nodes connected by solid and dashed lines. Solid lines are confirmed transfers; dashed are inferred. The northern staging district is the central node. Three localities feed into it, and two others receive from it. One of the receiving nodes is annotated "pre-emptive" in a margin barely wide enough for the word. The Verdant Row distribution map and Tazren's map name the same localities in the same network positions. They were built independently.`;
+        G.lastResult = `The map is on a single folded sheet — magistracy standard paper, drawn in a clean precise hand, the hand of someone trained in archival documentation. Twelve nodes connected by solid and dashed lines. Solid lines are confirmed transfers; dashed are inferred. The northern staging district is the central node. Three localities feed into it, and two others receive from it. One of the receiving nodes is annotated "pre-emptive" in a margin barely wide enough for the word. The Verdant Row distribution map and Tazren's map name the same localities in the same network positions. They were built independently.`;
         addJournal('Tazren suppression map: 12 nodes, 3 feeder localities, 2 receivers — matches Verdant Row map, built independently', 'evidence', `shir-tazren2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Tazren shuts the drawer before it is open an inch. "That's personal working notes from a closed case. It's my property, not Bureau property, and I haven't decided who sees it." He says this quietly, without moving from his chair. The case file he shared before is still available; the map is not. He does not explain the difference, and you do not ask him to, because the map is still in the drawer.`;
+        G.lastResult = `Tazren shuts the drawer before it is open an inch. "That's personal working notes from a closed case. It's my property, not magistracy property, and I haven't decided who sees it." He says this quietly, without moving from his chair. The case file he shared before is still available; the map is not. He does not explain the difference, and you do not ask him to, because the map is still in the drawer.`;
         addJournal('Tazren suppression map — access declined, personal working notes not shared', 'complication', `shir-tazren2-fail-${G.dayCount}`);
       } else {
         G.flags.tazren_map_obtained = true;
@@ -1308,7 +1311,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.mirae_standing_reservation_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The reservation ledger is visible from the counter when Mirae leans across to refill the tea shelf. The spare room entry reads not a name but a symbol — a two-character notation that corresponds to nothing in the standard Bureau accommodation waiver codes. The block runs month after month, never cancelled. In months when the room is occupied by the standing party, the dates match the ten-day cycle Mirae described and the transit post rotation log entries the clerk recorded. The symbol is the same two-character notation on the transit post's sealed dispatch cover. The spare room is a standing waystation.`;
+        G.lastResult = `The reservation ledger is visible from the counter when Mirae leans across to refill the tea shelf. The spare room entry reads not a name but a symbol — a two-character notation that corresponds to nothing in the standard magistracy accommodation waiver codes. The block runs month after month, never cancelled. In months when the room is occupied by the standing party, the dates match the ten-day cycle Mirae described and the transit post rotation log entries the clerk recorded. The symbol is the same two-character notation on the transit post's sealed dispatch cover. The spare room is a standing waystation.`;
         addJournal('Mirae standing reservation: 2-character notation matches transit post sealed dispatch symbol — standing waystation confirmed', 'evidence', `shir-mirae3-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
@@ -1318,8 +1321,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.mirae_standing_reservation_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Mirae confirms a standing block on the spare room without specifying who holds it. "It's been running for eighteen months. The arrangement was made through the Bureau's standard accommodation protocol." She does not confirm that the party uses it on the ten-day cycle — she doesn't need to, because the Bureau accommodation waiver doesn't cover civilian reservations, only operational ones. She pours more tea and does not expand on the implication.`;
-        addJournal('Mirae: spare room on standing Bureau accommodation block for 18 months — operational protocol, not civilian', 'intelligence', `shir-mirae3-partial-${G.dayCount}`);
+        G.lastResult = `Mirae confirms a standing block on the spare room without specifying who holds it. "It's been running for eighteen months. The arrangement was made through the magistracy's standard accommodation protocol." She does not confirm that the party uses it on the ten-day cycle — she doesn't need to, because the magistracy accommodation waiver doesn't cover civilian reservations, only operational ones. She pours more tea and does not expand on the implication.`;
+        addJournal('Mirae: spare room on standing magistracy accommodation block for 18 months — operational protocol, not civilian', 'intelligence', `shir-mirae3-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -1390,7 +1393,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The transit manifest lists a handling agent that doesn't appear in any Bureau contractor registry.",
+    label: "The transit manifest lists a handling agent that doesn't appear in any magistracy contractor registry.",
     tags: ['Transit', 'Stage2'],
     xpReward: 70,
     fn: function() {
@@ -1403,12 +1406,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The handling agent name on six of the compound manifests is "Kestal Logistics — Sub-registry authorized." The Bureau contractor registry, publicly searchable at the compliance desk, has no entry for Kestal Logistics under any variant spelling. The sub-registry authorization notation bypasses the contractor registry requirement entirely — it is a parallel authorization path that doesn't connect to the standard registry. Kestal Logistics exists only inside the sub-registry's authorization system. No external record confirms the entity is real.`;
+        G.lastResult = `The handling agent name on six of the compound manifests is "Kestal Logistics — Sub-registry authorized." The magistracy contractor registry, publicly searchable at the compliance desk, has no entry for Kestal Logistics under any variant spelling. The sub-registry authorization notation bypasses the contractor registry requirement entirely — it is a parallel authorization path that doesn't connect to the standard registry. Kestal Logistics exists only inside the sub-registry's authorization system. No external record confirms the entity is real.`;
         addJournal('Handling agent "Kestal Logistics" unlisted in contractor registry — exists only within sub-registry authorization, no external confirmation', 'evidence', `shir-agent-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The contractor registry desk requires a search-request form for non-standard entities — the name format on the manifest indicates a sub-registry notation that the desk cannot cross-reference without a Collegium clearance level the public terminal doesn't carry. The desk clerk logs the search attempt with the entity name before explaining this. The log feeds into the daily Collegium advisory report. Your query is now attached to the name you were trying to trace.`;
-        addJournal('Contractor registry search logged with entity name — feeds Collegium advisory report', 'complication', `shir-agent-fail-${G.dayCount}`);
+        G.lastResult = `The contractor registry desk requires a search-request form for non-standard entities — the name format on the manifest indicates a sub-registry notation that the desk cannot cross-reference without a Magistratus clearance level the public terminal doesn't carry. The desk clerk logs the search attempt with the entity name before explaining this. The log feeds into the daily Magistratus advisory report. Your query is now attached to the name you were trying to trace.`;
+        addJournal('Contractor registry search logged with entity name — feeds Magistratus advisory report', 'complication', `shir-agent-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1464,7 +1467,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Seventeen transfer forms, seventeen instances of the same two-initial receiving signature. The hand is identical across all seventeen — not similar, identical, the way signatures are when they are copied by one person onto multiple documents rather than written by different people over time. A genuine receiving signature varies with date, fatigue, and pen. These don't. All seventeen were processed at the northern staging depot, received by someone using initials that trace to no named officer in the Shirshal bureau's personnel index. The receiving party doesn't exist in any record except these forms.`;
+        G.lastResult = `Seventeen transfer forms, seventeen instances of the same two-initial receiving signature. The hand is identical across all seventeen — not similar, identical, the way signatures are when they are copied by one person onto multiple documents rather than written by different people over time. A genuine receiving signature varies with date, fatigue, and pen. These don't. All seventeen were processed at the northern staging depot, received by someone using initials that trace to no named officer in the Shirshal magistracy's personnel index. The receiving party doesn't exist in any record except these forms.`;
         addJournal('17 transfer forms: identical two-initial signature — hand analysis confirms same source, no personnel record match', 'evidence', `shir-initials-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The northern transfer forms are in the restricted archives — cross-referenced with the sealed-petition section hold that was triggered by the earlier query. The archive hold covers both categories now. The desk clerk explains this without satisfaction; the cross-reference is automatic and she cannot override it. Both avenues of access are closed by the same hold, which has itself generated a notification to the file's originating authority. The notification routes through the sub-registry.`;
@@ -1497,7 +1500,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The shipment dates laid against the 73-day axial flip calendar confirm it: every major delivery coincides with a route disruption window — the three-to-seven day period during axial flip when monitoring traffic on the northern routes drops because patrol personnel are reassigned to weather-response and emergency logistics. The suppression compound is shipped precisely when the routes that carry it are least observed. Someone planned this against the seasonal calendar. The shipment schedule was not built around supply demand; it was built around surveillance gaps.`;
         addJournal('Shipment dates correlate to axial flip route disruption windows — scheduled against surveillance gaps, not supply demand', 'evidence', `shir-cycle-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The axial flip calendar is a specialist administrative document — route disruption schedules are held by the Bureau's logistics division rather than the archive. Logistics is in the northern wing, which is under the same supervisor who escorted you out of the building during the Vel Orath interview. Your name on the access log for that wing now generates an automatic secondary approval requirement. The secondary approval requires one business day. You do not have one business day before the current shipment window closes.`;
+        G.lastResult = `The axial flip calendar is a specialist administrative document — route disruption schedules are held by the magistracy's logistics division rather than the archive. Logistics is in the northern wing, which is under the same supervisor who escorted you out of the building during the Vel Orath interview. Your name on the access log for that wing now generates an automatic secondary approval requirement. The secondary approval requires one business day. You do not have one business day before the current shipment window closes.`;
         addJournal('Axial flip calendar access blocked — northern wing supervisor secondary approval required, timing window closing', 'complication', `shir-cycle-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -1513,12 +1516,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "Guildheart's staging records show a Shirshal administrative notation. Neither bureau authorized it.",
+    label: "Guildheart's staging records carry a Shirshal notation. Neither authority signed off.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 76,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing Guildheart staging records against Shirshal bureau authorizations');
+      gainXp(76, 'cross-referencing Guildheart staging records against Shirshal magistracy authorizations');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1557,7 +1560,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The Shelkopolis ward registry transit copy in Shirshal's archive is the third locality record to carry the same co-administration notation. The Shelkopolis registry governs all ward compliance petitions filed within Shelkopolis — the same petition system the Collegium override dismissed seven cases from. Shirshal's administrative notation on the Shelkopolis registry would grant the sub-registry access to the petition filing system itself. Not just the outcomes — the pipeline. Petitions could be visible to the sub-registry from the moment they were filed.`;
+        G.lastResult = `The Shelkopolis ward registry transit copy in Shirshal's archive is the third locality record to carry the same co-administration notation. The Shelkopolis registry governs all ward compliance petitions filed within Shelkopolis — the same petition system the Magistratus override dismissed seven cases from. Shirshal's administrative notation on the Shelkopolis registry would grant the sub-registry access to the petition filing system itself. Not just the outcomes — the pipeline. Petitions could be visible to the sub-registry from the moment they were filed.`;
         addJournal('Shelkopolis ward registry: Shirshal co-administration notation grants sub-registry access to petition pipeline — petitions visible at filing, not just outcome', 'evidence', `shir-shelkop-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The Shelkopolis ward registry is a cross-jurisdiction record under a memorandum of understanding that requires both localities to authorize third-party access. The MOU is administered through the sub-registry. Access requires sub-registry clearance. The clearance request routes to the sub-registry. The sub-registry does not respond to public access requests for MOU-governed records. The door is locked by the same institution that holds the key.`;
@@ -1574,7 +1577,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "Panim Haven's compliance clerk queried Shirshal six months ago. The reply wasn't from the Bureau.",
+    label: "Panim Haven's compliance clerk queried Shirshal six months ago. The reply wasn't from the magistracy.",
     tags: ['CrossLocality', 'Stage2'],
     xpReward: 72,
     fn: function() {
@@ -1587,16 +1590,16 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The Panim Haven clerk's query is in the shared compliance correspondence log — a record of inter-bureau communications accessible at the public desk. Her query asked for clarification on the co-administration notation she found on her own records. The response came back on Bureau letterhead with the correct stamp format, answered her question fully, and told her the notation was standard administrative procedure under the charter amendment. The reply was sent from the sub-registry address, not from any named Shirshal Bureau officer. Bureau letterhead, sub-registry origin. The response was designed to close the inquiry without leaving a traceable officer responsible for the answer.`;
-        addJournal('Panim compliance query: response on Bureau letterhead sent from sub-registry address — designed to close inquiry with no accountable officer', 'evidence', `shir-panim-${G.dayCount}`);
+        G.lastResult = `The Panim Haven clerk's query is in the shared compliance correspondence log — a record of inter-jurisdiction communications accessible at the public desk. Her query asked for clarification on the co-administration notation she found on her own records. The response came back on magistracy letterhead with the correct stamp format, answered her question fully, and told her the notation was standard administrative procedure under the charter amendment. The reply was sent from the sub-registry address, not from any named Shirshal magistracy officer. magistracy letterhead, sub-registry origin. The response was designed to close the inquiry without leaving a traceable officer responsible for the answer.`;
+        addJournal('Panim compliance query: response on magistracy letterhead sent from sub-registry address — designed to close inquiry with no accountable officer', 'evidence', `shir-panim-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The compliance correspondence log requires a cross-bureau authorization to access entries originating from other localities — standard privacy procedure. The authorization form is available at the desk; processing takes three business days. In three business days you will not be in Shirshal. The Panim Haven clerk's query and its response are in the log, but the log's cover sheet is visible enough to confirm the query exists. You know there was a query. You cannot read the reply without authorization you don't have time to obtain.`;
-        addJournal('Compliance correspondence log: Panim query confirmed but reply requires 3-day cross-bureau authorization', 'complication', `shir-panim-fail-${G.dayCount}`);
+        G.lastResult = `The compliance correspondence log requires a cross-jurisdiction authorization to access entries originating from other localities — standard privacy procedure. The authorization form is available at the desk; processing takes three business days. In three business days you will not be in Shirshal. The Panim Haven clerk's query and its response are in the log, but the log's cover sheet is visible enough to confirm the query exists. You know there was a query. You cannot read the reply without authorization you don't have time to obtain.`;
+        addJournal('Compliance correspondence log: Panim query confirmed but reply requires 3-day cross-jurisdiction authorization', 'complication', `shir-panim-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The correspondence log shows a Panim Haven query about the co-administration notation and a response sent back within three days. The response origin address is in the routing header — the Shirshal Bureau's address is listed in the "sent on behalf of" field, but the originating address in the technical header is a sub-registry notation. The response closed the Panim query. The Panim clerk apparently accepted it. The routing header would not be obvious to someone reading the letter rather than the technical record.`;
-        addJournal('Panim compliance response: "sent on behalf of" Bureau but originated from sub-registry — routing header reveals substitution', 'intelligence', `shir-panim-partial-${G.dayCount}`);
+        G.lastResult = `The correspondence log shows a Panim Haven query about the co-administration notation and a response sent back within three days. The response origin address is in the routing header — the Shirshal magistracy's address is listed in the "sent on behalf of" field, but the originating address in the technical header is a sub-registry notation. The response closed the Panim query. The Panim clerk apparently accepted it. The routing header would not be obvious to someone reading the letter rather than the technical record.`;
+        addJournal('Panim compliance response: "sent on behalf of" magistracy but originated from sub-registry — routing header reveals substitution', 'intelligence', `shir-panim-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -1609,7 +1612,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'cross-checking Fairhaven glyph surge case numbers against Shirshal bureau records');
+      gainXp(78, 'cross-checking Fairhaven glyph surge case numbers against Shirshal magistracy records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1617,17 +1620,17 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The Fairhaven surge reports reference Shirshal case number 4471-S — a case number in the format used for inter-bureau compliance investigations. Shirshal's public case registry has no entry for 4471-S. The case number format for that series would place it between two numbered cases that are in the registry and share nothing in common with glyph surge events. The number was issued and assigned to the Fairhaven reports, then stripped from the Shirshal registry. A case existed, was assigned this number, and was then removed from the record while the Fairhaven reports that referenced it were left intact. The removal was not complete.`;
+        G.lastResult = `The Fairhaven surge reports reference Shirshal case number 4471-S — a case number in the format used for inter-jurisdiction compliance investigations. Shirshal's public case registry has no entry for 4471-S. The case number format for that series would place it between two numbered cases that are in the registry and share nothing in common with glyph surge events. The number was issued and assigned to the Fairhaven reports, then stripped from the Shirshal registry. A case existed, was assigned this number, and was then removed from the record while the Fairhaven reports that referenced it were left intact. The removal was not complete.`;
         addJournal('Fairhaven surge reports cite Shirshal case 4471-S — case stripped from Shirshal registry but Fairhaven cross-references survive', 'evidence', `shir-casenumber-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The Shirshal case registry query triggers an automated cross-check against the Collegium's case management system when the number you entered doesn't return a match. The cross-check generates a "missing case number" alert in the administrative monitoring queue — an anti-fraud measure designed to flag tampered registries. The alert will be reviewed by the Bureau's internal compliance team. Your name is attached to the query that triggered it. The alert is also visible to whoever monitors the administrative queue, which routes through the sub-registry oversight function.`;
+        G.lastResult = `The Shirshal case registry query triggers an automated cross-check against the Magistratus case management system when the number you entered doesn't return a match. The cross-check generates a "missing case number" alert in the administrative monitoring queue — an anti-fraud measure designed to flag tampered registries. The alert will be reviewed by the magistracy's internal compliance team. Your name is attached to the query that triggered it. The alert is also visible to whoever monitors the administrative queue, which routes through the sub-registry oversight function.`;
         addJournal('Case registry query triggered missing-number alert — name attached, alert visible to sub-registry oversight function', 'complication', `shir-casenumber-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Fairhaven surge reports cite Shirshal case 4471-S. The Shirshal registry has no 4471-S — the surrounding case numbers exist on either side of the gap. Either the case was never properly filed, or it was filed and removed. The case number format for that series is specifically for inter-bureau compliance reviews. Fairhaven was told a compliance case existed. Whatever that case contained is no longer accessible from the registry end.`;
-        addJournal('Case 4471-S cited in Fairhaven reports but absent from Shirshal registry — inter-bureau compliance format, apparent removal', 'intelligence', `shir-casenumber-partial-${G.dayCount}`);
+        G.lastResult = `Fairhaven surge reports cite Shirshal case 4471-S. The Shirshal registry has no 4471-S — the surrounding case numbers exist on either side of the gap. Either the case was never properly filed, or it was filed and removed. The case number format for that series is specifically for inter-jurisdiction compliance reviews. Fairhaven was told a compliance case existed. Whatever that case contained is no longer accessible from the registry end.`;
+        addJournal('Case 4471-S cited in Fairhaven reports but absent from Shirshal registry — inter-jurisdiction compliance format, apparent removal', 'intelligence', `shir-casenumber-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -1667,12 +1670,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "A Bureau oversight auditor has arrived. Her case list includes my name.",
+    label: "A magistracy oversight auditor has arrived. Her case list includes my name.",
     tags: ['Heat', 'Authority', 'Stage2'],
     xpReward: 82,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(82, 'managing Bureau oversight auditor inquiry');
+      gainXp(82, 'managing magistracy oversight auditor inquiry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1686,7 +1689,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `Auditor Varast requests your travel documents before the interview begins and retains them for the duration while a secondary auditor copies the entry and exit stamps. The interview covers every access log entry in order. At its close, your documents are returned with a temporary restriction notation — you are required to present yourself to the Bureau's duty desk within forty-eight hours for a follow-up compliance confirmation. The restriction is not an arrest. It is a leash, and the leash is tied to the Bureau's duty desk schedule, which the sub-registry can view.`;
+        G.lastResult = `Auditor Varast requests your travel documents before the interview begins and retains them for the duration while a secondary auditor copies the entry and exit stamps. The interview covers every access log entry in order. At its close, your documents are returned with a temporary restriction notation — you are required to present yourself to the magistracy's duty desk within forty-eight hours for a follow-up compliance confirmation. The restriction is not an arrest. It is a leash, and the leash is tied to the magistracy's duty desk schedule, which the sub-registry can view.`;
         addJournal('Auditor interview: travel documents copied, 48-hour compliance confirmation required — restriction notification routed to sub-registry', 'complication', `shir-auditor-fail-${G.dayCount}`);
       } else {
         G.flags.oversight_auditor_managed = true;
@@ -1702,12 +1705,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The Bureau's heat on this wing has doubled since the charter amendment came up.",
+    label: "The magistracy's heat on this wing has doubled since the charter amendment came up.",
     tags: ['Heat', 'Stage2'],
     xpReward: 65,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(65, 'assessing heightened Bureau surveillance of archive wing');
+      gainXp(65, 'assessing heightened magistracy surveillance of archive wing');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1719,7 +1722,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         addJournal('Archive wing patrol doubled after charter amendment query — warden resources directed by access log monitor', 'evidence', `shir-heat-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = `The second warden is watching the watching — a function the Bureau uses when someone is suspected of mapping patrol patterns. The warden's position shifts each time you find a good angle on the restricted wing, not in a random rotation but in response to your movement. You have been observed observing. The report that goes up will describe exactly which angles you tested and the approximate timing. Your patrol-mapping attempt is now part of someone else's pattern analysis.`;
+        G.lastResult = `The second warden is watching the watching — a function the magistracy uses when someone is suspected of mapping patrol patterns. The warden's position shifts each time you find a good angle on the restricted wing, not in a random rotation but in response to your movement. You have been observed observing. The report that goes up will describe exactly which angles you tested and the approximate timing. Your patrol-mapping attempt is now part of someone else's pattern analysis.`;
         addJournal('Warden observed surveillance attempt — counter-surveillance in effect, angles and timing logged', 'complication', `shir-heat-fail-${G.dayCount}`);
       } else {
         G.investigationProgress++;
@@ -1734,12 +1737,12 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "A Magistratus man sits in the Bureau lobby since the courier intercept. Not reading.",
+    label: "A Magistratus man sits in the magistracy lobby since the courier intercept. Not reading.",
     tags: ['Heat', 'Authority', 'Stage2'],
     xpReward: 78,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'evading Magistratus surveillance in Bureau lobby');
+      gainXp(78, 'evading Magistratus surveillance in magistracy lobby');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1748,13 +1751,13 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
         G.flags.magistratus_observer_evaded = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `He is positioned to observe both the archive wing entrance and the main corridor from the same seat — the only chair in the lobby that accomplishes both angles. His report materials are open on his lap and unread: the same page has been face-up for ninety minutes. The exit to the courier staging area is behind him and requires passing within three feet of his right side. There is a secondary exit through the compliance shrine annex that connects the Bureau building to the shrine's public corridor — the connection is structural, not administrative, and his sight line doesn't reach it. You use it. He is still watching the main corridor when the shrine bell marks the hour.`;
+        G.lastResult = `He is positioned to observe both the archive wing entrance and the main corridor from the same seat — the only chair in the lobby that accomplishes both angles. His report materials are open on his lap and unread: the same page has been face-up for ninety minutes. The exit to the courier staging area is behind him and requires passing within three feet of his right side. There is a secondary exit through the registry shrine annex that connects the magistracy building to the shrine's public corridor — the connection is structural, not administrative, and his sight line doesn't reach it. You use it. He is still watching the main corridor when the shrine bell marks the hour.`;
         addJournal('Magistratus lobby observer evaded via shrine annex — secondary exit not in his sight line', 'evidence', `shir-magistratus-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
-        G.lastResult = `He stands when you pass his chair, not abruptly — unhurried, the way someone does when they have been waiting for a specific moment and it has arrived. "Magistratus duty inquiry." He produces a credential and your name from two separate pockets with the same practiced calm. The inquiry is brief. You are not detained. But his counterpart is waiting at the building exit and has a second copy of the same credential. The inquiry is in the Magistratus daily record before you reach the street. The record is shared with the Bureau duty desk at end of day.`;
-        addJournal('Magistratus observer initiated duty inquiry — exit monitored, record shared with Bureau duty desk', 'complication', `shir-magistratus-fail-${G.dayCount}`);
+        G.lastResult = `He stands when you pass his chair, not abruptly — unhurried, the way someone does when they have been waiting for a specific moment and it has arrived. "Magistratus duty inquiry." He produces a credential and your name from two separate pockets with the same practiced calm. The inquiry is brief. You are not detained. But his counterpart is waiting at the building exit and has a second copy of the same credential. The inquiry is in the Magistratus daily record before you reach the street. The record is shared with the magistracy duty desk at end of day.`;
+        addJournal('Magistratus observer initiated duty inquiry — exit monitored, record shared with magistracy duty desk', 'complication', `shir-magistratus-fail-${G.dayCount}`);
       } else {
         G.flags.magistratus_observer_evaded = true;
         G.investigationProgress++;
@@ -1768,8 +1771,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Coordinated evidence management confirmed. Bureau director or route around it — both paths are open.",
-    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
+    label: "Coordinated evidence management confirmed. magistracy director or route around it — both paths are open.",
+    tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 110,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -1779,7 +1782,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(110, 'Shirshal Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The threads are there but the evidence chain has gaps. Acting now would produce a record, not a result. The Bureau director would ask questions you don't yet have answers for, and the gaps would be used to file the matter rather than pursue it. The Shirshal administrative wing will not be moved by an incomplete picture — this polity runs on documentation, and the documentation is not yet complete enough to force a response.`;
+        G.lastResult = `The threads are there but the evidence chain has gaps. Acting now would produce a record, not a result. The magistracy director would ask questions you don't yet have answers for, and the gaps would be used to file the matter rather than pursue it. The Shirshal administrative wing will not be moved by an incomplete picture — this polity runs on documentation, and the documentation is not yet complete enough to force a response.`;
         G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -1788,8 +1791,8 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You go directly to the Director's office with the full chain laid out in sequence: Tazren's suppressed file, Luneth's delivery gap, Khalis's override-cleared flags, Sivren's inverted timeline, Mirae's off-roster visitor schedule. The Director reads for eleven minutes without speaking. Then: "Priority review. Tazren's case is reinstated as of this morning." The suppression operation now has a formal Bureau record. What comes next begins with institutional backing behind it.`;
-        addJournal('Shirshal S2 finale: Bureau Director reinstates suppressed case', 'evidence', `shir-finale-inst-${G.dayCount}`);
+        G.lastResult = `You go directly to the Director's office with the full chain laid out in sequence: Tazren's suppressed file, Luneth's delivery gap, Khalis's override-cleared flags, Sivren's inverted timeline, Mirae's off-roster visitor schedule. The Director reads for eleven minutes without speaking. Then: "Priority review. Tazren's case is reinstated as of this morning." The suppression operation now has a formal magistracy record. What comes next begins with institutional backing behind it.`;
+        addJournal('Shirshal S2 finale: magistracy Director reinstates suppressed case', 'evidence', `shir-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;

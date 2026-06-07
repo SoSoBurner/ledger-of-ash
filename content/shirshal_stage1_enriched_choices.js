@@ -1,8 +1,11 @@
 /**
- * SHIRSHAL STAGE 1 ENRICHED MEANINGFUL CHOICES
- * 20 deeply grounded investigation paths tied to investigative work and magical law
- * Generated for: Truth versus convenience, safety versus secrecy, jurisdiction versus private power
- * Each choice: 65-80 XP, grounded in specific NPC perspective, layered wrongness reveal
+ * SHIRSHAL STAGE 1 ENRICHED CHOICES
+ * 20 deeply grounded paths tied to magistracy procedure and arcane law.
+ * Canon: Shirshal is governed by the Magi Magistratus under the Shirsh Compact.
+ * Named NPCs are drawn from the V33_2 Coilspire roster: Tazren, Mirae, Khalis,
+ * Sivren, Luneth, Ravel, Eris — plus Examiner Prelate Sira Doveshade.
+ * Themes: Truth versus convenience, safety versus secrecy, jurisdiction versus private power.
+ * Each choice: 65-80 XP, grounded in specific NPC perspective, layered wrongness reveal.
  */
 
 var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
@@ -13,11 +16,11 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     questId: 'q_s1_pattern',
     label: "Eight years of filing statements. He knows when one goes missing.",
-    tags: ['Investigation', 'NPC', 'Evidence', 'Records', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Evidence', 'Records'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: "Sorren's window shutter is pulled halfway down — the clerk's sign for closed business. The hall's outer corridor smells of morning fish oil and wet rope from the channel below. A notice on the glass reads 'Records access: hall hours only, magistrate sponsorship required for active files.' The path through Sorren is closed until the hall's rhythm opens him again. The harbor market runs until dusk — word moves there before it reaches any ledger.",
+      text: "Ravel Coilspire's window shutter is pulled halfway down — the clerk's sign for closed business. The hall's outer corridor smells of morning fish oil and wet rope from the channel below. A notice on the glass reads 'Records access: hall hours only, magistrate sponsorship required for active files.' The path through Ravel Coilspire is closed until the hall's rhythm opens him again. The harbor market runs until dusk — word moves there before it reaches any ledger.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -31,15 +34,15 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Sorren sets down his pen and keeps his voice low. "Eight years I've been filing statements. I know when one goes missing. Lately the magistrates tell me a witness recanted privately, or the case resolved off formal record. But I took the statement myself. The witness didn't recant. The cases are being pulled from the docket into some other system, and when I ask where, I'm told to leave it." He picks the pen back up. "Parts of this hall are going dark. I don't know who's reading the dark parts."`;
+        G.lastResult = `Ravel Coilspire sets down his pen and keeps his voice low. "Eight years I've been filing statements. I know when one goes missing. Lately the magistrates tell me a witness recanted privately, or the case resolved off formal record. But I took the statement myself. The witness didn't recant. The cases are being pulled from the docket into some other system, and when I ask where, I'm told to leave it." He picks the pen back up. "Parts of this hall are going dark. I don't know who's reading the dark parts."`;
         G.stageProgress[1]++;
         addJournal('Case clerk flagged systematic witness statement removal', 'evidence', `shirshal-witness-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Sorren's expression closes like a shutter. "Case procedures aren't for outside discussion. That's sensitive to active proceedings." He turns back to his ledger and does not look up again. He writes something in the margin before you've reached the door. Word travels fast in a hall built for record-keeping. The pressure of that margin note will reach someone before the morning session ends.`;
+        G.lastResult = `Ravel Coilspire's expression closes like a shutter. "Case procedures aren't for outside discussion. That's sensitive to active proceedings." He turns back to his ledger and does not look up again. He writes something in the margin before you've reached the door. Word travels fast in a hall built for record-keeping. The pressure of that margin note will reach someone before the morning session ends.`;
         G.worldClocks.pressure++;
         addJournal('Case clerk reported your inquiry to magistrates', 'complication', `shirshal-clerk-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Sorren pauses before answering — the pause of someone deciding how much of the truth counts as answering. "Procedures have been variable lately. Certain cases the magistrates handle differently." He doesn't name which magistrates or which cases. His pen keeps moving through the entry he was making when you arrived, a line that should have been finished before the pause. He's answered you and is already working to forget he did, the way a person seals a letter they've reconsidered sending.`;
+        G.lastResult = `Ravel Coilspire pauses before answering — the pause of someone deciding how much of the truth counts as answering. "Procedures have been variable lately. Certain cases the magistrates handle differently." He doesn't name which magistrates or which cases. His pen keeps moving through the entry he was making when you arrived, a line that should have been finished before the pause. He's answered you and is already working to forget he did, the way a person seals a letter they've reconsidered sending.`;
         addJournal('Case clerk acknowledged procedure variability', 'evidence', `shirshal-clerk-procedure-${G.dayCount}`);
       }
 
@@ -53,11 +56,11 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     questId: 'q_s1_converging',
     label: "He filed what he observed. What's in the log now is not what he filed.",
-    tags: ['Investigation', 'NPC', 'Magic', 'Evidence', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Magic', 'Evidence'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: "The evidence archive shutter is locked mid-morning — a schedule change posted three days ago limits outside access to two designated windows per week. The announcement is handwritten, recent enough that the ink hasn't fully set on the damp salt air. Thyn is visible through the glass, working. He does not look up. The procedural path through the evidence room is closed for now; the record keeper in the main hall keeps cross-referenced closure logs that are still publicly accessible.",
+      text: "The evidence archive shutter is locked mid-morning — a schedule change posted three days ago limits outside access to two designated windows per week. The announcement is handwritten, recent enough that the ink hasn't fully set on the damp salt air. Khalis is visible through the glass, working. He does not look up. The procedural path through the evidence room is closed for now; the record keeper in the main hall keeps cross-referenced closure logs that are still publicly accessible.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -70,18 +73,18 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Master Thyn spreads two ledgers side by side without speaking. The difference is visible from a step away. Four weeks back, entries read "arcane signature suggesting external origin." The same incidents now read "minor fluctuation within acceptable parameters." Three anomalies are stamped resolved before a single follow-up visit was logged. Thyn taps one entry with a finger and pulls his hand back. "I filed what I observed. What's here now is not what I filed."`;
+        G.lastResult = `Khalis Coilspire spreads two ledgers side by side without speaking. The difference is visible from a step away. Four weeks back, entries read "arcane signature suggesting external origin." The same incidents now read "minor fluctuation within acceptable parameters." Three anomalies are stamped resolved before a single follow-up visit was logged. Khalis taps one entry with a finger and pulls his hand back. "I filed what I observed. What's here now is not what I filed."`;
         G.stageProgress[1]++;
         addJournal('Evidence handler revealed anomaly record falsification', 'evidence', `shirshal-evidence-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Thyn steps in front of the ledger shelf before you can reach it. "Anomaly records require magistrate authorization in writing. No exceptions." He keeps his hand on the shelf edge while he sends a runner. By the time you reach the hall's outer corridor, a magistrate's aide is already waiting with a short, unfriendly list of questions about your purpose in Shirshal. The aide's questions are harder to deflect than Thyn's door — they already know more than you said.`;
+        G.lastResult = `Khalis steps in front of the ledger shelf before you can reach it. "Anomaly records require magistrate authorization in writing. No exceptions." He keeps his hand on the shelf edge while he sends a runner. By the time you reach the hall's outer corridor, a magistrate's aide is already waiting with a short, unfriendly list of questions about your purpose in Shirshal. The aide's questions are harder to deflect than Khalis's door — they already know more than you said.`;
         G.worldClocks.pressure++;
         addJournal('Magistrate alerted to evidence inquiry attempt', 'complication', `shirshal-evidence-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Thyn grants access to the current logs but not the archived originals. What's here has been edited — incident descriptions revised toward clinical neutrality, three entries stamped resolved with no supporting documentation. He keeps his hands near the shelf edge as you read, ready to close the cabinet. The edits are careful enough to survive a clerk's casual review. A systematic comparison against original field notes would catch them — and the field notes are in the restricted section.`;
+        G.lastResult = `Khalis grants access to the current logs but not the archived originals. What's here has been edited — incident descriptions revised toward clinical neutrality, three entries stamped resolved with no supporting documentation. He keeps his hands near the shelf edge as you read, ready to close the cabinet. The edits are careful enough to survive a clerk's casual review. A systematic comparison against original field notes would catch them — and the field notes are in the restricted section.`;
         addJournal('Evidence logs show signs of careful alteration', 'evidence', `shirshal-evidence-altered-${G.dayCount}`);
       } else {
-        G.lastResult = `Thyn shakes his head before you finish the request, a small motion, preemptive. "Anomaly records aren't open access. Bring magistrate authorization and I'll set aside time." He's not hostile — just practiced. The refusal has been rehearsed recently; the phrasing is too complete, too unbothered. He's had this conversation before, probably more than once in the past few weeks, and the answer came back the same each time.`;
+        G.lastResult = `Khalis shakes his head before you finish the request, a small motion, preemptive. "Anomaly records aren't open access. Bring magistrate authorization and I'll set aside time." He's not hostile — just practiced. The refusal has been rehearsed recently; the phrasing is too complete, too unbothered. He's had this conversation before, probably more than once in the past few weeks, and the answer came back the same each time.`;
         addJournal('Evidence logs blocked without magistrate authorization', 'evidence', `shirshal-evidence-blocked-${G.dayCount}`);
       }
 
@@ -94,12 +97,12 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Case assignments stopped rotating four weeks ago. Someone above the clerk is choosing now.",
-    tags: ['Investigation', 'NPC', 'Process', 'Justice', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Process', 'Justice'],
     condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     stageProgress: 1,
     failResult: {
-      text: "The assignment window is staffed by a substitute today — Kess is on hall duty until late afternoon, not available for outside queries. The substitute knows nothing useful and says so plainly. Shirshal's outer posting board lists the weekly public docket; magistrate assignment patterns are visible there for anyone patient enough to compare names across successive weeks. The channel smells of low tide. The day's second session starts after the midday bell.",
+      text: "The assignment window is staffed by a substitute today — Eris Coilspire is on hall duty until late afternoon, not available for outside queries. The substitute knows nothing useful and says so plainly. Shirshal's outer posting board lists the weekly public docket; magistrate assignment patterns are visible there for anyone patient enough to compare names across successive weeks. The channel smells of low tide. The day's second session starts after the midday bell.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -112,15 +115,15 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Kess checks the corridor before answering. "Four weeks ago the rotation stopped. Now assignments come from above me, and they aren't random — complex cases with political weight go to Magistrate Verek, cases touching Shelkopolis merchants go to Magistrate Illys. Every time." She smooths the edge of the assignment ledger with one thumb. "I used to understand why a case went where it went. Now I just copy the names down."`;
+        G.lastResult = `Eris Coilspire checks the corridor before answering. "Four weeks ago the rotation stopped. Now assignments come from above me, and they aren't random — complex cases with political weight go to one senior member of the magistracy, cases touching Shelkopolis merchants go to another. Every time the same pairing." She smooths the edge of the assignment ledger with one thumb. "I used to understand why a case went where it went. Now I just copy the names down."`;
         G.stageProgress[1]++;
         addJournal('Assistant revealed case routing manipulation', 'evidence', `shirshal-routing-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kess goes still. "Case assignment is internal procedure. That's for the magistrates to manage." Her hands drop below the counter without a sound — no shuffling of papers, no reaching for a pen, just gone. She doesn't answer the follow-up or acknowledge it. When you leave, she is writing something at the small desk behind the rotation board. Not in the assignment ledger. Somewhere else. The pen angle says it's personal, not administrative — and the pressure of that private notation will track you somewhere you won't see.`;
+        G.lastResult = `Eris Coilspire goes still. "Case assignment is internal procedure. That's for the magistrates to manage." Her hands drop below the counter without a sound — no shuffling of papers, no reaching for a pen, just gone. She doesn't answer the follow-up or acknowledge it. When you leave, she is writing something at the small desk behind the rotation board. Not in the assignment ledger. Somewhere else. The pen angle says it's personal, not administrative — and the pressure of that private notation will track you somewhere you won't see.`;
         G.worldClocks.pressure++;
         addJournal('Assistant will report case assignment inquiry', 'complication', `shirshal-routing-alert-${G.dayCount}`);
       } else {
-        G.lastResult = `Kess gives you a half-answer, the kind built to satisfy the minimum obligation of the question. "Assignments are more centralized than they were." She doesn't say by whom, through what authority, or when the change happened. The rotation board behind her is blank where the magistrate names used to be chalked in — clean slate, chalk dust still faintly visible in the grooves of the board frame. Someone erased it recently enough that the smell of chalk still carries.`;
+        G.lastResult = `Eris Coilspire gives you a half-answer, the kind built to satisfy the minimum obligation of the question. "Assignments are more centralized than they were." She doesn't say by whom, through what authority, or when the change happened. The rotation board behind her is blank where the magistrate names used to be chalked in — clean slate, chalk dust still faintly visible in the grooves of the board frame. Someone erased it recently enough that the smell of chalk still carries.`;
         addJournal('Assistant confirmed case assignment changes', 'evidence', `shirshal-routing-changed-${G.dayCount}`);
       }
 
@@ -133,12 +136,12 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Cases are being closed, not resolved. The witness follow-up fields are blank.",
-    tags: ['Investigation', 'NPC', 'Records', 'Procedure', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Records', 'Procedure'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: "Brother Tam's post is empty — the inner hall schedule shows him assigned to an inventory review through midday. The resolved case stack sits behind the counter, visible but unreachable without his authorization. A notice in the clerk's window lists the procedural index guide as publicly available at the reading bench near the south entrance. The guide cross-references case status categories and is as close as you can get to the closure records without a keeper present.",
+      text: "Sivren Coilspire's post is empty — the inner hall schedule shows him assigned to an inventory review through midday. The resolved case stack sits behind the counter, visible but unreachable without his authorization. A notice in the clerk's window lists the procedural index guide as publicly available at the reading bench near the south entrance. The guide cross-references case status categories and is as close as you can get to the closure records without a keeper present.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -151,18 +154,18 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Brother Tam pulls a file from the resolved stack and opens it on the counter. "Witness follow-up: blank. Final evidence summary: blank. Notified families: no entries." The magistrate's closure signature is dated three days after the case was filed. "I track the docket by hand. I watch these cases. This one wasn't resolved — it was ended." He closes the file and slides it back. "They're stopping proceedings, not completing them. Families haven't been told."  `;
+        G.lastResult = `Sivren Coilspire pulls a file from the resolved stack and opens it on the counter. "Witness follow-up: blank. Final evidence summary: blank. Notified families: no entries." The magistrate's closure signature is dated three days after the case was filed. "I track the docket by hand. I watch these cases. This one wasn't resolved — it was ended." He closes the file and slides it back. "They're stopping proceedings, not completing them. Families haven't been told."  `;
         G.stageProgress[1]++;
         addJournal('Record keeper revealed case-termination pattern', 'evidence', `shirshal-closure-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Brother Tam straightens and sets down his pen. "Outside inquiry into closure proceedings isn't appropriate. I need to speak to a magistrate before this goes further." He walks toward the inner passage before you've finished your sentence. A door closes. The hall stays empty for longer than it should. The watchful quiet after it means the conversation has already moved to somewhere you are not welcome.`;
+        G.lastResult = `Sivren Coilspire straightens and sets down his pen. "Outside inquiry into closure proceedings isn't appropriate. I need to speak to a magistrate before this goes further." He walks toward the inner passage before you've finished your sentence. A door closes. The hall stays empty for longer than it should. The watchful quiet after it means the conversation has already moved to somewhere you are not welcome.`;
         G.worldClocks.pressure++;
         addJournal('Record keeper immediately alerts magistrate to inquiry', 'complication', `shirshal-closure-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
         G.lastResult = `The resolved stack runs twice the usual depth for this quarter. Cases that should carry months of documentation close in a week, two weeks. The verification steps — witness confirmation, final evidence log, family notification — appear on the form template but the boxes beneath them are empty. The signature at the bottom is always there. Everything above it is missing.`;
         addJournal('Record review confirmed case-closure acceleration', 'evidence', `shirshal-closure-accelerated-${G.dayCount}`);
       } else {
-        G.lastResult = `The closure records are dense with cross-references you'd need the procedural code index to parse. Patterns are in there — you can see the acceleration in the dates, cases folding closed in days where months of process used to run — but matching specific entries to procedural violations requires a reference guide Brother Tam keeps locked in the inner office. The lamp oil smell in the records room is strong; someone works late in here. The dust on the restricted shelf has been disturbed recently.`;
+        G.lastResult = `The closure records are dense with cross-references you'd need the procedural code index to parse. Patterns are in there — you can see the acceleration in the dates, cases folding closed in days where months of process used to run — but matching specific entries to procedural violations requires a reference guide Sivren Coilspire keeps locked in the inner office. The lamp oil smell in the records room is strong; someone works late in here. The dust on the restricted shelf has been disturbed recently.`;
         addJournal('Closure pattern analysis inconclusive', 'evidence', `shirshal-closure-unclear-${G.dayCount}`);
       }
 
@@ -175,7 +178,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The case officers are being given briefings with sections already missing.",
-    tags: ['Investigation', 'NPC', 'Information', 'Obstruction', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Information', 'Obstruction'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -192,16 +195,16 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Kess speaks with a flat, controlled anger. "Briefings arrive with sections missing — 'under review,' 'reserved for magistrate eyes.' We proceed with whatever we're given, request the missing sections, get told the case is already resolved at a higher level." She sets a file on the table. "Three weeks of work. Marked closed yesterday. I found out from the docket board, not from anyone above me. Whatever we're doing out there, it's procedural cover. Someone else is making the actual determinations."`;
+        G.lastResult = `Eris Coilspire speaks with a flat, controlled anger. "Briefings arrive with sections missing — 'under review,' 'reserved for magistrate eyes.' We proceed with whatever we're given, request the missing sections, get told the case is already resolved at a higher level." She sets a file on the table. "Three weeks of work. Marked closed yesterday. I found out from the docket board, not from anyone above me. Whatever we're doing out there, it's procedural cover. Someone else is making the actual determinations."`;
         G.stageProgress[1]++;
-        addJournal('Kess revealed information compartmentalization — briefings arrive with sections removed', 'evidence', `shirshal-investigator-${G.dayCount}`);
+        addJournal('Eris Coilspire revealed information compartmentalization — briefings arrive with sections removed', 'evidence', `shirshal-investigator-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kess stops mid-sentence and recalibrates. "Case detail discussions with outsiders can compromise proceedings. You understand that." She's not hostile — she's been trained recently. Whatever prompted that training is more recent than the paint on the hall's east corridor, which still smells of fresh lime. The training also means she is already noticed this conversation and will be expected to report it.`;
+        G.lastResult = `Eris Coilspire stops mid-sentence and recalibrates. "Case detail discussions with outsiders can compromise proceedings. You understand that." She's not hostile — she's been trained recently. Whatever prompted that training is more recent than the paint on the hall's east corridor, which still smells of fresh lime. The training also means she is already noticed this conversation and will be expected to report it.`;
         G.worldClocks.pressure++;
-        addJournal('Kess now distrustful of your questions — was recently briefed to report this', 'complication', `shirshal-investigator-hostile-${G.dayCount}`);
+        addJournal('Eris Coilspire now distrustful of your questions — was recently briefed to report this', 'complication', `shirshal-investigator-hostile-${G.dayCount}`);
       } else {
-        G.lastResult = `"Need-to-know is the operating standard now," Kess says. She doesn't look happy about it — not angry either, something flatter than anger, more like a person who has stopped expecting the answer to change. Across the room, a case officer reads what's clearly an abbreviated brief — one sheet where there should be six, edges visible where the document was cut down. Neither of them mentions it. The hall's east corridor smells of fresh lime. The paint is still damp.`;
-        addJournal('Kess confirmed information restriction — briefings cut down before distribution', 'evidence', `shirshal-investigator-restricted-${G.dayCount}`);
+        G.lastResult = `"Need-to-know is the operating standard now," Eris Coilspire says. She doesn't look happy about it — not angry either, something flatter than anger, more like a person who has stopped expecting the answer to change. Across the room, a case officer reads what's clearly an abbreviated brief — one sheet where there should be six, edges visible where the document was cut down. Neither of them mentions it. The hall's east corridor smells of fresh lime. The paint is still damp.`;
+        addJournal('Eris Coilspire confirmed information restriction — briefings cut down before distribution', 'evidence', `shirshal-investigator-restricted-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -213,11 +216,11 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Three witnesses left Shirshal last month. The magistrates accepted every absence without a query.",
-    tags: ['Investigation', 'NPC', 'Witness', 'Intimidation', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Witness', 'Intimidation'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: "Marsh's coordination office is marked closed for a witness scheduling session — closed to outside visitors, the notation says, for the duration of active pre-hearing preparation. The harbor-side community knows which families have cases pending; the fish-smoking sheds where workers take their morning break carry word of absent neighbors more freely than any hall office. That's where the thread continues.",
+      text: "Luneth's coordination office is marked closed for a witness scheduling session — closed to outside visitors, the notation says, for the duration of active pre-hearing preparation. The harbor-side community knows which families have cases pending; the fish-smoking sheds where workers take their morning break carry word of absent neighbors more freely than any hall office. That's where the thread continues.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -230,18 +233,18 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Elder Marsh keeps his back to the window when he speaks. "Someone is reaching witnesses before their scheduled appearances. Not threatening — advising. 'Friendly advisors' who explain that testimony could become complicated, that absence might be safer.' Three witnesses left Shirshal entirely last month. Two more claim travel. The magistrates accept every absence without a single follow-up query." He folds his hands. "Without witnesses the proceedings are hollow. We're producing the form of justice without any of its weight."`;
+        G.lastResult = `Luneth Coilspire keeps his back to the window when he speaks. "Someone is reaching witnesses before their scheduled appearances. Not threatening — advising. 'Friendly advisors' who explain that testimony could become complicated, that absence might be safer.' Three witnesses left Shirshal entirely last month. Two more claim travel. The magistrates accept every absence without a single follow-up query." He folds his hands. "Without witnesses the proceedings are hollow. We're producing the form of justice without any of its weight."`;
         G.stageProgress[1]++;
         addJournal('Coordinator revealed systematic witness removal', 'evidence', `shirshal-witness-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Marsh's posture changes the moment you frame the question. "Witness management is sensitive to active proceedings. Questions like that from outside the process could compromise testimony chains." He closes the register on his desk. He won't say another word. By evening, the inquiry will have been noted somewhere — the pressure of that notation is the kind that compounds, each entry making the next approach harder.`;
+        G.lastResult = `Luneth's posture changes the moment you frame the question. "Witness management is sensitive to active proceedings. Questions like that from outside the process could compromise testimony chains." He closes the register on his desk. He won't say another word. By evening, the inquiry will have been noted somewhere — the pressure of that notation is the kind that compounds, each entry making the next approach harder.`;
         G.worldClocks.pressure++;
         addJournal('Coordinator reported witness inquiry to magistrates', 'complication', `shirshal-witness-alert-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Marsh grants you that much, voice low, eyes on the register open in front of him rather than on you. "Availability has been difficult. Some witnesses are reluctant." He doesn't say why they're reluctant, what the reluctance looks like in practice, or what happens to proceedings that can't produce a witness. The absence column in the open register behind him has more entries this quarter than the previous three combined — the ink is denser there, the column crowded with dates.`;
+        G.lastResult = `Luneth grants you that much, voice low, eyes on the register open in front of him rather than on you. "Availability has been difficult. Some witnesses are reluctant." He doesn't say why they're reluctant, what the reluctance looks like in practice, or what happens to proceedings that can't produce a witness. The absence column in the open register behind him has more entries this quarter than the previous three combined — the ink is denser there, the column crowded with dates.`;
         addJournal('Coordinator confirmed witness availability issues', 'evidence', `shirshal-witness-issues-${G.dayCount}`);
       } else {
-        G.lastResult = `"Witness management requires confidentiality," Marsh says, with the patience of someone who's said it dozens of times this season. He doesn't discuss specifics — not the names, not the cases, not the particular shape of reluctance that has emptied so much of the attendance column. The door to the records room is locked. He doesn't reach for a key or suggest one exists for this situation. The channel reeds smell of standing water through the corridor window, and somewhere on the harbor a boat is being unloaded.`;
+        G.lastResult = `"Witness management requires confidentiality," Luneth says, with the patience of someone who's said it dozens of times this season. He doesn't discuss specifics — not the names, not the cases, not the particular shape of reluctance that has emptied so much of the attendance column. The door to the records room is locked. He doesn't reach for a key or suggest one exists for this situation. The channel reeds smell of standing water through the corridor window, and somewhere on the harbor a boat is being unloaded.`;
         addJournal('Witness coordinator blocked further inquiry', 'evidence', `shirshal-witness-blocked-${G.dayCount}`);
       }
 
@@ -254,7 +257,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Different couriers, same back room. She tracks what she's not supposed to notice.",
-    tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
+    tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -291,12 +294,12 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 8. MAGISTRATE (RELUCTANT): AUTHORITY PRESSURE FROM ABOVE
   {
     plot: 'main',
-    label: "One magistrate checks his rulings against the morning packet. He knows whose law it is.",
-    tags: ['Investigation', 'NPC', 'Authority', 'Pressure', 'Meaningful'],
+    label: "The Prelate checks her rulings against the morning packet. Not her law anymore.",
+    tags: ['NPC', 'Authority', 'Pressure'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
-      text: "Verek's antechamber is locked — his schedule board shows him assigned to closed session for the remainder of the day. The hall's public schedule window lists session types but never participants. In a town this small, the people who supply the hall — salt merchants, the lamp-oil keeper, the woman who delivers the morning rolls — know more about which magistrate keeps what hours than any posted schedule does. Their stalls open at dawn.",
+      text: "Examiner Prelate Sira Doveshade's antechamber is locked — the schedule board shows her assigned to closed session for the remainder of the day. The hall's public schedule window lists session types but never participants. In a town this small, the people who supply the hall — salt merchants, the lamp-oil keeper, the woman who delivers the morning rolls — know more about which magistrate keeps what hours than any posted schedule does. Their stalls open at dawn.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -309,19 +312,19 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Verek waits until the antechamber door is latched before he speaks. "There is pressure. Not from within Shirshal — from outside. Instructions arrive through channels I'm told not to trace. They specify how to handle certain cases, which witnesses to accommodate and which to find unavailable, which proceedings to accelerate." He sits with his hands flat on the table. "We're told it's system optimization. Investigative efficiency." A pause. "My rulings used to be mine. Now I check them against what arrived in the morning packet. I don't know whose law I'm enforcing."`;
+        G.lastResult = `Examiner Prelate Sira Doveshade waits until the antechamber door is latched before she speaks. "There is pressure. Not from within the Magi Magistratus — from outside. Instructions arrive through channels I'm told not to trace. They specify how to handle certain cases, which witnesses to accommodate and which to find unavailable, which proceedings to accelerate." She sits with her hands flat on the table. "We're told it's procedural refinement. Examination efficiency." A pause. "My rulings used to be mine. Now I check them against what arrived in the morning packet. I don't know whose law I'm enforcing."`;
         G.stageProgress[1]++;
-        addJournal('Magistrate revealed external authority control', 'evidence', `shirshal-magistrate-${G.dayCount}`);
+        addJournal('Examiner Prelate Doveshade revealed external authority control', 'evidence', `shirshal-magistrate-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `The magistrate stands. "These questions are inappropriate directed at the magistracy without formal petition." He moves to the writing desk and begins a record of the conversation while you watch. "This inquiry is now documented. Any further approach to magistrate personnel requires a written request through the clerk's registry." The session is over. The document exists. The pressure it carries into the clerk's registry means your name will arrive there before you do.`;
+        G.lastResult = `Doveshade stands. "These questions are inappropriate directed at a Prelate without formal petition." She moves to the writing desk and begins a record of the exchange while you watch. "This approach is now documented. Any further contact with Magi Magistratus personnel requires a written request through the clerk's registry." The session is over. The document exists. The pressure it carries into the clerk's registry means your name will arrive there before you do.`;
         G.worldClocks.pressure++;
-        addJournal('Magistrate formally prohibits further inquiry', 'complication', `shirshal-magistrate-warning-${G.dayCount}`);
+        addJournal('Examiner Prelate Doveshade formally prohibits further approach', 'complication', `shirshal-magistrate-warning-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `The magistrate chooses words with visible care. "Shirshal serves within a broader system. Decisions at that level involve considerations I'm not positioned to detail." He offers nothing further. But his posture — shoulders drawn in, eyes tracking toward the passage door — says something he didn't. The lamp on his desk is unlit despite the dim stone corridor; the morning packet sits at the corner of his writing table, unfolded and already read. He knows what the day holds before it arrives.`;
-        addJournal('Magistrate hinted at external authority influence', 'evidence', `shirshal-magistrate-hint-${G.dayCount}`);
+        G.lastResult = `Doveshade chooses words with visible care. "Shirshal serves within a broader system. Decisions at that level involve considerations I'm not positioned to detail." She offers nothing further. But her posture — shoulders drawn in, eyes tracking toward the passage door — says something she didn't. The lamp on her desk is unlit despite the dim stone corridor; the morning packet sits at the corner of her writing table, unfolded and already read. She knows what the day holds before it arrives.`;
+        addJournal('Examiner Prelate Doveshade hinted at external authority influence', 'evidence', `shirshal-magistrate-hint-${G.dayCount}`);
       } else {
-        G.lastResult = `"Magistrate operations are internal to this hierarchy." He's civil, professionally so — the kind of civil that has been practiced until it produces no friction and no opening. The conversation ends without ceremony: he turns to the writing desk, and the session closes itself. On the way out, you pass three other magistrates in the corridor. None of them meet your eyes. Someone told them you'd be coming, or told them enough that your arrival required no introduction.`;
-        addJournal('Magistrate blocked further inquiry', 'evidence', `shirshal-magistrate-blocked-${G.dayCount}`);
+        G.lastResult = `"Prelate operations are internal to this hierarchy." She's civil, professionally so — the kind of civil that has been practiced until it produces no friction and no opening. The conversation ends without ceremony: she turns to the writing desk, and the session closes itself. On the way out, you pass three other magistrates in the corridor. None of them meet your eyes. Someone told them you'd be coming, or told them enough that your arrival required no introduction.`;
+        addJournal('Examiner Prelate Doveshade blocked further approach', 'evidence', `shirshal-magistrate-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -335,7 +338,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The magistrates are meeting outside visitors in rooms that aren't on any schedule.",
-    tags: ['Investigation', 'Stealth', 'Surveillance', 'Hidden', 'Meaningful'],
+    tags: ['Investigation', 'Stealth', 'Surveillance', 'Hidden'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -376,7 +379,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Those sealed packets name case numbers beside outcomes that were decided before the cases opened.",
-    tags: ['Investigation', 'Stealth', 'Documents', 'Secrets', 'Meaningful'],
+    tags: ['Investigation', 'Stealth', 'Documents', 'Secrets'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -417,7 +420,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Shirshal's evidence standards were rewritten. All three revisions in the same six-week window.",
-    tags: ['Investigation', 'Lore', 'Law', 'Procedure', 'Meaningful'],
+    tags: ['Investigation', 'Lore', 'Law', 'Procedure'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -458,7 +461,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The founding doctrine says truth is the foundation. The current teaching document says order is.",
-    tags: ['Investigation', 'Lore', 'Philosophy', 'Justice', 'Meaningful'],
+    tags: ['Investigation', 'Lore', 'Philosophy', 'Justice'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -499,7 +502,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The closure signatures are reproductions. Someone built a forgery apparatus for Shirshal's document standard.",
-    tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
+    tags: ['Investigation', 'Craft', 'Forgery', 'Evidence'],
     xpReward: 70,
     stageProgress: 1,
     failResult: {
@@ -540,7 +543,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "The magistrates are executing directives from an authority that doesn't exist as claimed.",
-    tags: ['Investigation', 'Craft', 'Forgery', 'Authority', 'Meaningful'],
+    tags: ['Investigation', 'Craft', 'Forgery', 'Authority'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -583,7 +586,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "People stopped repeating what they know. No one acted on it the first time.",
-    tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
+    tags: ['Investigation', 'Rumor', 'Social', 'Gossip'],
     xpReward: 65,
     stageProgress: 1,
     failResult: {
@@ -618,7 +621,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "Three weeks on his own case. He's not permitted to know what they found.",
-    tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Victim', 'Personal'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -659,7 +662,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   {
     plot: 'main',
     label: "One case officer has been keeping personal notes. She's leaving Shirshal at dawn.",
-    tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal'],
     xpReward: 75,
     stageProgress: 1,
     failResult: {
@@ -676,9 +679,9 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Past the tenth bell, the eastern walkway near the archive is empty. Kess has a leather satchel under her arm. "I've been compiling this for two months." She opens it briefly — case files, witness logs, a comparison of pre- and post-closure record entries. "Cases I worked that were closed without my knowledge. Statements I filed that aren't in the current record. Magistrate rulings that contradict the evidence I submitted." She closes the satchel. "I'm leaving Shirshal at dawn. I need someone outside this system to hold what I've documented. Someone they can't reach through the hall's procedures." She waits.`;
+        G.lastResult = `Past the tenth bell, the eastern walkway near the archive is empty. Eris Coilspire has a leather satchel under her arm. "I've been compiling this for two months." She opens it briefly — case files, witness logs, a comparison of pre- and post-closure record entries. "Cases I worked that were closed without my knowledge. Statements I filed that aren't in the current record. Magistrate rulings that contradict the evidence I submitted." She closes the satchel. "I'm leaving Shirshal at dawn. I need someone outside this system to hold what I've documented. Someone they can't reach through the hall's procedures." She waits.`;
         G.stageProgress[1]++;
-        addJournal('Kess defected with system documentation — cases closed without her knowledge, filed statements missing from the record', 'evidence', `shirshal-defection-${G.dayCount}`);
+        addJournal('Eris Coilspire defected with system documentation — cases closed without her knowledge, filed statements missing from the record', 'evidence', `shirshal-defection-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `The case officer listens, nods once, and reports the conversation before you've left the building. The message reaches the magistracy as a formal notation: "outside party encouraging case officers to breach institutional loyalty." The language is precise and pre-existing — someone wrote that category in advance. The case officer won't meet your eyes in the corridor the next morning. The pressure of that formal notation means the next case officer you approach will already know your name.`;
         G.worldClocks.pressure++;
@@ -702,7 +705,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     plot: 'main',
     questId: 'q_s1_close',
     label: "The thread runs clean from external directive to forged authorization to falsified outcome.",
-    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure', 'Meaningful'],
+    tags: ['Investigation', 'Proof', 'Systematic', 'Conspiracy', 'Exposure'],
     xpReward: 80,
     stageProgress: 1,
     failResult: {
@@ -719,7 +722,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Laid out on the table in sequence: Sorren's account of missing statements. Thyn's altered anomaly logs. The accelerated closure records. The procedural revisions. The doctrine inversion document. Three sets of forged seals. The directive packet with the Coordinator and The House initials. Elder Marsh's witness suppression account. Kess's collected case files. The thread runs clean from external directive to forged authorization to magistrate execution to falsified outcome. Shirshal's justice system hasn't been corrupted — it's been replaced with a mechanism wearing the same name, built to ensure specific cases never resolve.`;
+        G.lastResult = `Laid out on the table in sequence: Ravel Coilspire's account of missing statements. Khalis's altered anomaly logs. The accelerated closure records. The procedural revisions. The doctrine inversion document. Three sets of forged seals. The directive packet with the Coordinator and The House initials. Luneth Coilspire's witness suppression account. Eris Coilspire's collected case files. The thread runs clean from external directive to forged authorization to magistrate execution to falsified outcome. Shirshal's justice system hasn't been corrupted — it's been replaced with a mechanism wearing the same name, built to ensure specific cases never resolve.`;
         G.stageProgress[1]++;
         addJournal('Justice weaponization conspiracy documented', 'evidence', `shirshal-conspiracy-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -746,7 +749,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 19. CLUE: SUPPRESSED TAZREN CASE EVIDENCE
   {
     label: "Fourteen cases cite the Tazren precedent. Six have been re-adjudicated. All six reversed.",
-    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 73,
     failResult: {
       text: "The archive citation index is being audited today — a scheduled review that has closed the Tazren-era case shelf to outside access until end of week. The public docket board in the main hall still lists the re-adjudicated cases by number and closing date; the dates cluster in a pattern visible to anyone who looks at three months of entries in sequence. That board is accessible right now, no authorization required.",
@@ -776,7 +779,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 20. CLUE: BUREAU GHOST VISITOR RECORDS
   {
     label: "Eight visitors signed the log with no corresponding case. Three visited on Tazren erasure days.",
-    tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 70,
     failResult: {
       text: "The visitor log is kept at the front desk — and the front desk is staffed by a substitute today who has been told not to allow log access without a written request form submitted in advance. The form processing takes two working days. The harbor master's office maintains its own arrival ledger for institutional visitors entering through the waterway gate; it's a duplicate of part of the hall's log, kept for harbor customs reasons, and it's publicly accessible.",
@@ -802,7 +805,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 21. ARCHETYPE-GATED: READING THE JUSTICE HALL
   {
     label: "Sit in the public gallery and read what the proceeding is actually doing.",
-    tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
+    tags: ['Investigation', 'Archetype', 'Stage1'],
     xpReward: 68,
     failResult: {
       text: "The public gallery is closed today — all scheduled hearings moved to closed session without advance notice, a door notice in fresh ink reading 'restricted proceedings, authorized parties only.' The hall's exterior lamp burns at midday as always, signaling open access while the interior runs sealed. The case clerk's public window is still open; the closure decision itself will be logged in the session-type column of the weekly docket, visible to anyone who knows to look for it.",
@@ -830,7 +833,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 22. FACTION SEED: OVERSIGHT COLLEGIUM LIAISON
   {
     label: "The Collegium's observer is ready to escalate if the data is there.",
-    tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 70,
     failResult: {
       text: "The Collegium's reception office is locked through midday — the schedule board shows Parro attending a regional compliance review session with no public access until tomorrow's first bell. The Collegium does not receive informal drop-ins; the front procedure exists specifically to manage outside access on its terms. The case clerk's docket lists Parro's name as a compliance observer on three recent hearing records — those records are publicly accessible and show which proceedings she has already flagged.",
@@ -860,7 +863,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 23. ATMOSPHERE: THE HARBOR AT NIGHT
   {
     label: "The harbor holds what the justice hall took. Former owners watch their vessels at night.",
-    tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
+    tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -879,7 +882,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 24. PERSONAL ARC: THE MAGISTRATE WHO REFUSED
   {
     label: "One magistrate refused a re-adjudication and was transferred three days later.",
-    tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['PersonalArc', 'NPC', 'Stage1'],
     xpReward: 70,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
@@ -892,9 +895,9 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Magistrate Corin lives in a coastal village three hours from Shirshal. She was transferred eight months ago. "I refused one re-adjudication," she says. "I told them the doctrine revision didn't grant authority to override settled property rights retroactively. They thanked me for my service and assigned me to here." She has the case files from the refused re-adjudication — she kept copies, which was technically improper. "I thought I might need them someday." Today is that day.`;
+        G.lastResult = `Magistrate Corin Coilspire lives in a coastal village three hours from Shirshal. She was transferred eight months ago. "I refused one re-adjudication," she says. "I told them the doctrine revision didn't grant authority to override settled property rights retroactively. They thanked me for my service and assigned me to here." She has the case files from the refused re-adjudication — she kept copies, which was technically improper. "I thought I might need them someday." Today is that day.`;
         G.flags.met_corin_magistrate = true;
-        addJournal('Magistrate Corin: refused re-adjudication, transferred, has original case files with her unauthorized copies', 'contact_made', `shirshal-corin-${G.dayCount}`);
+        addJournal('Magistrate Corin Coilspire: refused re-adjudication, transferred, has original case files with her unauthorized copies', 'contact_made', `shirshal-corin-${G.dayCount}`);
       } else {
         G.lastResult = `The village knows who she is. Two people point toward the same cottage at the coastal edge without needing to ask for clarification — a fisherwoman at the net-drying posts, a boy carrying a rope coil along the beach path. But neither will walk you to the door, and both step back after pointing. "She doesn't receive strangers," the fisherwoman says. "Not since the reassignment." The cottage shutters are half-closed in midday. She'll need to be approached by someone she already trusts, which you are not yet.`;
       }
@@ -905,7 +908,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
   // 25. SOCIAL: THE DISPOSSESSED SHIPOWNER
   {
     label: "The law changed after he registered the vessel. They applied it retroactively.",
-    tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
+    tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 65,
     failResult: {
       text: "Wend isn't at the pier today — the impoundment notice moved him to the harbor master's dispute queue, where he spends mornings waiting for a clerk who doesn't come. In a working harbor this size, the other vessel owners know his situation. The net-menders working the south dock have watched every impoundment proceeding from fifty feet away and have opinions about all of them. They talk more freely than someone whose livelihood is still at stake.",
@@ -930,8 +933,8 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
 
   // 26. SHADOW RIVAL INTRO
   {
-    label: "Someone else visited Magistrate Corin two weeks ago. They knew she had kept copies.",
-    tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
+    label: "Someone else visited Magistrate Corin Coilspire two weeks ago. They knew she had kept copies.",
+    tags: ['Rival', 'Warning', 'Stage1'],
     xpReward: 57,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -957,7 +960,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('Rival-adjacent operative interviewed Magistrate Corin two weeks before you — further along the Shirshal trail', 'complication', `shirshal-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative interviewed Magistrate Corin Coilspire two weeks before you — further along the Shirshal trail', 'complication', `shirshal-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },

@@ -741,15 +741,15 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // ========== EXPANSION CHOICES ==========
 
-  // 19. CLUE: BUREAU CASE FRAGMENTS
+  // 19. CLUE: MEDIATION HALL CASE FRAGMENTS
   {
     label: "Forty-three cases closed in seventy-two hours with no transcripts, no outcomes, no parties named.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 73,
-    failResult: 'This path is closed here, but the cluster of fast closures is documentable by timing pattern alone — the harbor logs showing Bureau-escorted vessel departures during those same windows are publicly filed.',
+    failResult: 'This path is closed here, but the cluster of fast closures is documentable by timing pattern alone — the harbor logs showing registry-escorted vessel departures during those same windows are publicly filed.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'reading Bureau case register');
+      gainXp(73, 'reading Mediation Hall case register');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -759,8 +759,9 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       if (result.total >= 13) {
         G.lastResult = `Forty-three cases in the past year: opened, assigned to senior mediators, closed within seventy-two hours. Status in each: "resolved per supplementary doctrine." No transcripts. No outcome records. No parties named. The supplementary doctrine citation traces to a doctrine revision that cites another doctrine revision — a circular reference that terminates at itself. These cases didn't reach resolution. They were removed from visibility using the appearance of resolution.`;
         if (!G.flags) G.flags = {};
+        G.flags.found_mediation_hall_ghost_cases = true;
         G.flags.found_bureau_ghost_cases = true;
-        addJournal('Bureau register: 43 cases closed via circular doctrine citation — no records, no parties', 'evidence', `panim-bureau-${G.dayCount}`);
+        addJournal('Mediation Hall register: 43 cases closed via circular doctrine citation — no records, no parties', 'evidence', `panim-mediation-${G.dayCount}`);
       } else {
         G.lastResult = `The register shows a cluster of cases with resolution codes you can't fully interpret without doctrine reference access. The closures are fast — significantly faster than the surrounding case set — and they cluster by time period rather than by case type. The archive room smells of old leather and cedar oil, familiar and indifferent. The pattern of fast closures is documentable even without knowing what the codes mean; the shape of it is visible in the dates alone.`;
       }
@@ -770,11 +771,11 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 20. CLUE: COASTAL ROUTE PASSAGE RECORDS
   {
-    label: "Three vessels left under Bureau escort during the ghost case windows. The cargo is gone.",
+    label: "Three vessels left under registry escort during the ghost case windows. The cargo is gone.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: {
-      text: "The harbor master's office is locked — the morning vessel departures happened before dawn and the office won't reopen until after midday. The public docking manifest is posted on the harbor notice board by regulation; it lists vessel names, escort classifications, and cargo categories by departure date. Bureau-classified escort designations appear as a distinct stamp in the manifest column, and the dates are searchable against the ghost case windows without needing the harbor master at all.",
+      text: "The harbor master's office is locked — the morning vessel departures happened before dawn and the office won't reopen until after midday. The public docking manifest is posted on the harbor notice board by regulation; it lists vessel names, escort classifications, and cargo categories by departure date. Registry-classified escort designations appear as a distinct stamp in the manifest column, and the dates are searchable against the ghost case windows without needing the harbor master at all.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
@@ -785,38 +786,38 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      G.lastResult = `Three vessels in six months departed under Bureau escort classification — the designation reserved for transporting material evidence under active mediation. The case numbers assigned to those vessels are among the forty-three ghost cases: no records, no resolution, no parties named. The vessels left Panim Haven carrying something under formal Bureau protection. Whatever it was has moved beyond this jurisdiction and outside any recoverable evidence chain.`;
+      G.lastResult = `Three vessels in six months departed under Mediation Hall escort classification — the designation reserved for transporting material evidence under active mediation. The case numbers assigned to those vessels are among the forty-three ghost cases: no records, no resolution, no parties named. The vessels left Panim Haven carrying something under formal registry protection. Whatever it was has moved beyond this jurisdiction and outside any recoverable evidence chain.`;
       if (!G.flags) G.flags = {};
       G.flags.found_coastal_passage_records = true;
-      addJournal('Harbor logs: three Bureau-escorted vessels departed during ghost case windows — cargo unknown, jurisdiction transferred', 'evidence', `panim-harbor-${G.dayCount}`);
+      addJournal('Harbor logs: three registry-escorted vessels departed during ghost case windows — cargo unknown, jurisdiction transferred', 'evidence', `panim-harbor-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
 
-  // 21. ARCHETYPE-GATED: READING THE RECKONING QUARTER
+  // 21. ARCHETYPE-GATED: READING THE MEDIATION QUARTER
   {
-    label: "The queue outside the Bureau hasn't moved in three hours. The wait is a mechanism.",
+    label: "The Hall's queue hasn't moved in three hours. The wait is the mechanism.",
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: {
-      text: "The Reckoning Quarter is closed off this morning — a scheduled maintenance closure of the main corridor has redirected foot traffic around the Bureau block entirely. The alternate approach runs past the rear entrance and the waystation annex, both of which see the same Bureau-adjacent traffic. The people waiting on the south steps are still visible from the annex corner, and the wait length from that angle tells the same story the main entrance would.",
+      text: "The mediation quarter is closed off this morning — a scheduled maintenance closure of the main corridor has redirected foot traffic around the Mediation Hall block entirely. The alternate approach runs past the rear entrance and the waystation annex, both of which see the same registry-adjacent traffic. The people waiting on the south steps are still visible from the annex corner, and the wait length from that angle tells the same story the main entrance would.",
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'reading Reckoning Quarter');
+      gainXp(68, 'reading mediation quarter');
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The Bureau wardens position themselves for coverage, not for assistance — near the entrances, angled toward the approaches. They're not hostile. They're watching. Their eyes track complainants entering the building the way you'd track someone whose intentions you haven't established. Their boots are worn in on the outside edge: long hours on stone floors, not patrol routes. Whatever role they were originally assigned, they've been redirected to a different one.`;
+        G.lastResult = `The ritual enforcers position themselves for coverage, not for assistance — near the entrances, angled toward the approaches. They're not hostile. They're watching. Their eyes track complainants entering the Mediation Hall the way you'd track someone whose intentions you haven't established. Their boots are worn in on the outside edge: long hours on stone floors, not patrol routes. Whatever role they were originally assigned, they've been redirected to a different one.`;
       } else if (arch === 'magic') {
-        G.lastResult = `The quarter's architecture channels sound toward the Bureau's upper windows — designed for public transparency, so proceedings could carry to the street. The windows are shuttered today, thick cedar panels drawn flush against the stone. The acoustic geometry still works; there's simply nothing coming through it. The building was built to be heard. Someone decided it shouldn't be anymore and closed it from within, one shutter at a time.`;
+        G.lastResult = `The quarter's architecture channels sound toward the Mediation Hall's upper windows — designed for public transparency, so proceedings could carry to the street. The windows are shuttered today, thick cedar panels drawn flush against the stone. The acoustic geometry still works; there's simply nothing coming through it. The building was built to be heard. Someone decided it shouldn't be anymore and closed it from within, one shutter at a time.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not Bureau wardens. The pattern is a patrol. Civilian watchers running surveillance coverage outside the sanctioned perimeter, on a rotation that someone scheduled. They both wear the same style of worn-heel sandal, the kind sold at a specific stall in the eastern market. The informal layer and the formal layer are being run separately.`;
+        G.lastResult = `Two men walk the same irregular route through the quarter, twelve minutes apart, never crossing paths. No marks on their clothing — not ritual enforcers. The pattern is a patrol. Civilian watchers running surveillance coverage outside the sanctioned perimeter, on a rotation that someone scheduled. They both wear the same style of worn-heel sandal, the kind sold at a specific stall in the eastern market. The informal layer and the formal layer are being run separately.`;
       } else {
-        G.lastResult = `The queue outside the Bureau hasn't moved in three hours. People sit on the steps or stand against the wall with the posture of people who have stopped expecting to be called. No one exits. No clerk appears. The wait is the answer — not a delay, a mechanism. People who come here enough times without result eventually stop coming. The Bureau's accessibility is managed through attrition.`;
+        G.lastResult = `The queue outside the Mediation Hall hasn't moved in three hours. People sit on the steps or stand against the wall with the posture of people who have stopped expecting to be called. No one exits. No clerk appears. The wait is the answer — not a delay, a mechanism. People who come here enough times without result eventually stop coming. The hall's accessibility is managed through attrition.`;
       }
-      addJournal('Reckoning Quarter: Bureau functioning as deterrent rather than service, unsanctioned surveillance active', 'evidence', `panim-quarter-read-${G.dayCount}`);
+      addJournal('Mediation quarter: Hall functioning as deterrent rather than service, unsanctioned surveillance active', 'evidence', `panim-quarter-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -834,10 +835,10 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Callow has been at the Panim Haven posting for four months. He speaks without preamble. "The Collegium received a formal complaint about Bureau case handling fourteen weeks ago. Received, logged, acknowledged, assigned to a review panel." He pauses. "That panel hasn't convened." He doesn't editorialize further — the arithmetic does it for him. He asks whether you've accessed the case register. When you describe the ghost closure pattern, he writes it down. "That will support the existing complaint file." His pen keeps moving.`;        if (!G.flags) G.flags = {};
+        G.lastResult = `Callow has been at the Panim Haven posting for four months. He speaks without preamble. "The Collegium received a formal complaint about Mediation Hall case handling fourteen weeks ago. Received, logged, acknowledged, assigned to a review panel." He pauses. "That panel hasn't convened." He doesn't editorialize further — the arithmetic does it for him. He asks whether you've accessed the case register. When you describe the ghost closure pattern, he writes it down. "That will support the existing complaint file." His pen keeps moving.`;        if (!G.flags) G.flags = {};
         G.flags.met_oversight_collegium_panim = true;
         G.factionHostility.oversight_collegium += 1;
-        addJournal('Oversight Collegium observer Tren Callow: Bureau complaint review deliberately delayed, collecting supporting evidence', 'intelligence', `panim-collegium-${G.dayCount}`);
+        addJournal('Oversight Collegium observer Tren Callow: Mediation Hall complaint review deliberately delayed, collecting supporting evidence', 'intelligence', `panim-collegium-${G.dayCount}`);
       } else {
         G.lastResult = `Callow is professionally correct in every sentence. He can receive written complaints and issue receipt confirmations. He cannot discuss the status of ongoing review processes. He produces the complaint form without being asked, sliding it across the table with the practiced motion of someone who does this several times a day. The Collegium process exists and is accessible. It is not currently producing anything, and the gap between those two facts is wider than it should be.`;
         if (!G.flags) G.flags = {};
@@ -849,7 +850,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 23. ATMOSPHERE: TAZREN'S SHADOW
   {
-    label: "Tazren's name is in every pre-reform archive. He's absent from every current Bureau document.",
+    label: "Tazren's name is in every pre-revision archive. He's absent from every current Mediation Hall record.",
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     failResult: function() {
@@ -860,18 +861,18 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(52, 'asking about Tazren');
 
-      G.lastResult = `The clerk stops filing. "Tazren ran the Bureau for twenty-two years. When the doctrine revision came through, he retired. No argument, no public statement — just left." She taps the edge of the folder against the cabinet. "He used to say: Panim Haven doesn't need justice. It needs to believe justice is possible." She goes back to filing. His name is absent from every current Bureau document on these shelves. That absence required effort.`;
-      addJournal('Tazren: former Bureau head, left at doctrine revision, name removed from current materials', 'discovery', `panim-tazren-${G.dayCount}`);
+      G.lastResult = `The clerk stops filing. "Tazren held the senior warden's seat at the Mediation Hall for twenty-two years. When the doctrine revision came through, he retired. No argument, no public statement — just left." She taps the edge of the folder against the cabinet. "He used to say: Panim Haven doesn't need justice. It needs to believe justice is possible." She goes back to filing. His name is absent from every current Mediation Hall record on these shelves. That absence required effort.`;
+      addJournal('Tazren: former Mediation Hall warden, left at doctrine revision, name removed from current materials', 'discovery', `panim-tazren-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
 
   // 24. PERSONAL ARC: FIND TAZREN
   {
-    label: "The retired Bureau head lives two streets away. Removed from every current record.",
+    label: "The retired Mediation Hall warden lives two streets away. Removed from every current record.",
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
-    failResult: 'This path is closed here, but someone from the Bureau era who can introduce you as trustworthy is the specific key Tazren\'s neighbors named — the archive clerk who still dusts the plaque knows which names survived the revision.',
+    failResult: 'This path is closed here, but someone from the pre-revision Mediation Hall who can introduce you as trustworthy is the specific key Tazren\'s neighbors named — the archive clerk who still dusts the plaque knows which names survived the revision.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'finding Tazren');
@@ -879,11 +880,11 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Tazren answers the door before you knock twice. He lives two streets from the Bureau and doesn't ask who you are or how you found him. He steps back to let you in. "The doctrine revision wasn't a reform. It was a transfer of ownership. I don't know to whom." He sets a cup down in front of you. "I left when I stopped recognizing the system I'd built." He keeps a copy of the pre-reform doctrine text on the shelf behind him — he touches the spine when he mentions it. He'll help. On his own terms. With his own limits, which he'll name when he reaches them.`;
+        G.lastResult = `Tazren answers the door before you knock twice. He lives two streets from the Mediation Hall and doesn't ask who you are or how you found him. He steps back to let you in. "The doctrine revision wasn't a reform. It was a transfer of ownership. I don't know to whom." He sets a cup down in front of you. "I left when I stopped recognizing the system I'd built." He keeps a copy of the pre-revision doctrine text on the shelf behind him — he touches the spine when he mentions it. He'll help. On his own terms. With his own limits, which he'll name when he reaches them.`;
         G.flags.met_tazren = true;
-        addJournal('Tazren found: former Bureau head, has pre-reform doctrine, willing to assist conditionally', 'contact_made', `panim-tazren-found-${G.dayCount}`);
+        addJournal('Tazren found: former Mediation Hall warden, has pre-revision doctrine, willing to assist conditionally', 'contact_made', `panim-tazren-found-${G.dayCount}`);
       } else {
-        G.lastResult = `Tazren's neighbors confirm he's in the quarter but say he doesn't receive strangers. One of them says it the way people say things they've been asked to say — the phrasing smooth from repetition, the eye contact steady in the way of someone holding a line. He's there. He's not accessible without an introduction — someone from the Bureau era who can place you as trustworthy. That introduction needs to be found first.`;
+        G.lastResult = `Tazren's neighbors confirm he's in the quarter but say he doesn't receive strangers. One of them says it the way people say things they've been asked to say — the phrasing smooth from repetition, the eye contact steady in the way of someone holding a line. He's there. He's not accessible without an introduction — someone from the pre-revision Mediation Hall who can place you as trustworthy. That introduction needs to be found first.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -894,19 +895,19 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     label: "A case closed under the ghost code yesterday. The complainant hasn't left yet.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
-    failResult: 'This path is closed here, but the Bureau closure process moved faster than expected — the forged release-of-claim signature is still something the harbor master may have a copy of if the property transfer required a maritime stamp.',
+    failResult: 'This path is closed here, but the Mediation Hall closure process moved faster than expected — the forged release-of-claim signature is still something the harbor master may have a copy of if the property transfer required a maritime stamp.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing recent ghost case complainant');
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 10) {
-        G.lastResult = `Sera is still at the guesthouse — she hasn't processed what happened yet. She describes it in short sentences: land dispute, six weeks in the Bureau queue, yesterday she received a sealed letter and a small payment. "Resolved per supplementary doctrine. The case is closed." She holds the letter without opening it. When you ask, she hands it across. Release of claim form, signed in her name. She watches you read it. "I didn't sign that." Her handwriting is close but not hers — the loop on the final letter of her surname goes the wrong direction.`;
+        G.lastResult = `Sera is still at the guesthouse — she hasn't processed what happened yet. She describes it in short sentences: land dispute, six weeks in the Mediation Hall queue, yesterday she received a sealed letter and a small payment. "Resolved per supplementary doctrine. The case is closed." She holds the letter without opening it. When you ask, she hands it across. Release of claim form, signed in her name. She watches you read it. "I didn't sign that." Her handwriting is close but not hers — the loop on the final letter of her surname goes the wrong direction.`;
         if (!G.flags) G.flags = {};
         G.flags.met_sera_complainant = true;
-        addJournal('Complainant Sera: Bureau forged her signature on a release of claim form, case closed without her consent', 'contact_made', `panim-sera-${G.dayCount}`);
+        addJournal('Complainant Sera: Mediation Hall forged her signature on a release of claim form, case closed without her consent', 'contact_made', `panim-sera-${G.dayCount}`);
       } else {
-        G.lastResult = `The address takes time to locate, and the time matters. By the time you reach it, Sera is gone — she left Panim Haven the same morning the letter was delivered, her few things cleared from the guesthouse room before the midday bell. The Bureau's closure process was fast enough to close the window before you or anyone else could reach her. She's outside the jurisdiction now. So is her testimony.`;
+        G.lastResult = `The address takes time to locate, and the time matters. By the time you reach it, Sera is gone — she left Panim Haven the same morning the letter was delivered, her few things cleared from the guesthouse room before the midday bell. The Mediation Hall's closure process was fast enough to close the window before you or anyone else could reach her. She's outside the jurisdiction now. So is her testimony.`;
       }
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     }
@@ -914,7 +915,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 26. SHADOW RIVAL INTRO
   {
-    label: "Tazren mentions a visitor last month claiming to research Bureau reform history.",
+    label: "Tazren mentions a visitor last month claiming to research Mediation Hall revision history.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     fn: function() {
@@ -924,13 +925,13 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `"They asked which senior mediators left voluntarily versus were pushed out," Tazren says. "Specifically who kept their retirement packages and who walked away with nothing. They were building a list of people with legitimate grievances." He looks at the Bureau building through the window. "A recruitment map. They were mapping the people who might be willing to work against the current structure."`;
+        G.lastResult = `"They asked which senior mediators left voluntarily versus were pushed out," Tazren says. "Specifically who kept their retirement packages and who walked away with nothing. They were building a list of people with legitimate grievances." He looks at the Mediation Hall through the window. "A recruitment map. They were mapping the people who might be willing to work against the current structure."`;
       } else if (arch === 'magic') {
-        G.lastResult = `"They asked about the pre-reform doctrine text," Tazren says. "How many copies. Whether any were held outside institutional archives." He taps the volume on the shelf — his hand rests there a moment before he pulls it back. "They weren't studying the doctrine. They were counting how many copies of the evidence exist and where they're held. A document inventory. Not a research visit. Someone sent them to map what could be used against them."`;
+        G.lastResult = `"They asked about the pre-revision doctrine text," Tazren says. "How many copies. Whether any were held outside institutional archives." He taps the volume on the shelf — his hand rests there a moment before he pulls it back. "They weren't studying the doctrine. They were counting how many copies of the evidence exist and where they're held. A document inventory. Not a research visit. Someone sent them to map what could be used against them."`;
       } else if (arch === 'stealth') {
         G.lastResult = `"They asked almost nothing," Tazren says. "Mostly listened. Let silences sit until I filled them. By the end I'd told them everything I know without being asked directly." He doesn't look embarrassed — he looks like a man who has had time to analyze what happened. "That's a practiced technique. Not improvised. Someone trained them to harvest information without leaving a record of what they were after."`;
       } else {
-        G.lastResult = `"They offered to help," Tazren says. "Restoration of my name in Bureau records. Formal recognition of my service." He turns his cup on the table, one full rotation. "Two years ago that would have been enough to close the conversation." He pauses. The pre-reform doctrine text sits on the shelf behind him. "I said no. It felt like the kind of gift that becomes a debt the moment you take it." Someone identified exactly what he wanted most and offered it. He recognized the shape of the offer for what it was.`;
+        G.lastResult = `"They offered to help," Tazren says. "Restoration of my name in Mediation Hall records. Formal recognition of my service." He turns his cup on the table, one full rotation. "Two years ago that would have been enough to close the conversation." He pauses. The pre-revision doctrine text sits on the shelf behind him. "I said no. It felt like the kind of gift that becomes a debt the moment you take it." Someone identified exactly what he wanted most and offered it. He recognized the shape of the offer for what it was.`;
       }
 
       G.lastResult += ` They were here before you. They got what you came for.`;
