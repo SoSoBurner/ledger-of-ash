@@ -13734,7 +13734,7 @@ function checkStageAdvance() {
       window.STAGE2_BOSS_MODULE.checkTrigger();
       if (G.flags.stage2_miniboss_started) return;
     }
-    if (window.MAREN_ENCOUNTER && window.MAREN_ENCOUNTER.shouldTrigger()) { window.MAREN_ENCOUNTER.trigger(); return; }
+    if (window.MAREN_OSS_ENCOUNTER && window.MAREN_OSS_ENCOUNTER.shouldTrigger()) { window.MAREN_OSS_ENCOUNTER.trigger(); return; }
     // Stage 2 faction arcs — only run while no arc has completed (faction_contact_made gates antechamber)
     if (!G.flags.stage2_faction_contact_made) {
       if (typeof COLLEGIUM_FACTION_MODULE !== 'undefined' && COLLEGIUM_FACTION_MODULE.shouldTrigger && COLLEGIUM_FACTION_MODULE.shouldTrigger()) { COLLEGIUM_FACTION_MODULE.trigger(); return; }
@@ -17738,8 +17738,8 @@ function updateCaseFileHUD() {
   const inv = (G && G.investigationProgress) ? G.investigationProgress : 0;
   if (inv > 0) {
     container.style.display = 'block';
-    fill.style.width = Math.min(100, Math.round((inv / 10) * 100)) + '%';
-    count.textContent = inv + ' / 10';
+    fill.style.width = Math.min(100, Math.round((inv / 15) * 100)) + '%';
+    count.textContent = inv + ' / 15';
   } else {
     container.style.display = 'none';
   }
@@ -17803,7 +17803,7 @@ function updatePartyTab() {
   var el = document.getElementById('tab-party');
   if (!el || !G) return;
   var companions = G.companions ? (Array.isArray(G.companions) ? G.companions : Object.values(G.companions)) : [];
-  var active = companions.filter(function(c){ return c.active; });
+  var active = companions.filter(function(c){ return c.status === 'active'; });
   if (!active.length) { el.innerHTML = '<p style="color:var(--ink-dim);font-size:0.85em">No companions.</p>'; return; }
   var html = active.map(function(c) {
     var def = (window.COMPANION_DEFS || {})[c.id] || {};
