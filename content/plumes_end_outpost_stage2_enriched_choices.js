@@ -35,7 +35,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_letha_dawnsilk = true;
         G.investigationProgress++;
-        G.lastResult = `Letha confirms the persistent northwest pressure gradient, tracing its bearing on the instrument scale with a finger she keeps just short of touching the glass. She has been filing hazard elevation reports for four months — each one logged, each one acknowledged by the Warden Order referral desk, none answered. The cold that comes off the northern window makes the instruments creak in their housings. "The gradient is not natural. Natural gradients don't hold position for four months." She writes the day's reading in her log and doesn't look up again.`;
+        G.lastResult = `Letha confirms the persistent northwest pressure gradient, tracing its bearing on the instrument scale with a finger she keeps just short of touching the glass. She has been filing hazard elevation reports for four months — each one logged, each one acknowledged by the Roadwardens Order referral desk, none answered. The cold that comes off the northern window makes the instruments creak in their housings. "The gradient is not natural. Natural gradients don't hold position for four months." She writes the day's reading in her log and doesn't look up again.`;
         addJournal('Persistent northwest pressure gradient — non-natural duration, reports unacted upon', 'evidence', `plumes-letha-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -60,8 +60,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_patrol_leader = true;
         G.investigationProgress++;
-        G.lastResult = `The Patrol Leader has been to the structure twice. It is a fortified supply depot with active guard rotation — Soreheim military insignia on the perimeter posts, not local Outpost authority. He was warned off on the second visit by a patrol with Warden Order badges riding under Soreheim authorization. The structure is jointly held by two factions pursuing the same leads.`;
-        addJournal('Staging structure confirmed: Soreheim military + Warden Order joint control — Patrol Leader warned off', 'evidence', `plumes-patrol-${G.dayCount}`);
+        G.lastResult = `The Patrol Leader has been to the structure twice. It is a fortified supply depot with active guard rotation — Soreheim military insignia on the perimeter posts, not local Outpost authority. He was warned off on the second visit by a patrol with Roadwardens Order badges riding under Soreheim authorization. The structure is jointly held by two factions pursuing the same leads.`;
+        addJournal('Staging structure confirmed: Soreheim military + Roadwardens Order joint control — Patrol Leader warned off', 'evidence', `plumes-patrol-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `The Patrol Leader's expression shifts the moment the structure's location comes up. He filed a formal incident report three weeks ago — unauthorized facility, northern road, overriding local patrol access. Your questions track the same geography. He has you wait at the patrol desk while he sends a runner to his superior. Twenty minutes in a side room with no windows. The superior asks the same questions twice and releases you with a notation in the patrol incident file. Your name is now attached to the original report.`;
@@ -131,8 +131,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.cysur_second_meeting = true;
         G.investigationProgress++;
-        G.lastResult = `Cysur waits until the last caravan hand leaves the shrine, then closes the door. She pulls a folded paper from behind the offering ledger — a transit receipt, signed with a Warden Order seal, for a cargo load described as "pressure stabilization components." Delivered four months ago to a northern waypoint that doesn't appear on any public route list. She found it tucked inside a pilgrim's donation pouch. "I kept it because I didn't know who was safe to give it to."`;
-        addJournal('Cysur: Warden Order transit receipt for pressure stabilization components — delivered to unlisted northern waypoint', 'evidence', `plumes-cysur2-${G.dayCount}`);
+        G.lastResult = `Cysur waits until the last caravan hand leaves the shrine, then closes the door. She pulls a folded paper from behind the offering ledger — a transit receipt, signed with a Roadwardens Order seal, for a cargo load described as "pressure stabilization components." Delivered four months ago to a northern waypoint that doesn't appear on any public route list. She found it tucked inside a pilgrim's donation pouch. "I kept it because I didn't know who was safe to give it to."`;
+        addJournal('Cysur: Roadwardens Order transit receipt for pressure stabilization components — delivered to unlisted northern waypoint', 'evidence', `plumes-cysur2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -163,8 +163,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.staging_structure_scouted = true;
         G.investigationProgress++;
-        G.lastResult = `The rotation gap is eleven minutes, not the eight you estimated. You get close enough to read the perimeter posts: standard Soreheim military marking on the east face, a second mark below it — a Warden Order brand, newer, applied over the original paint. Through the northern embrasure you count three guards on the upper level and hear the sound of mechanical cycling below the floor — a pump or compressor running at intervals. The lower chamber is real.`;
-        addJournal('Staging structure: dual-branded perimeter, Warden Order over Soreheim military — sub-floor mechanical equipment confirmed audible', 'evidence', `plumes-scout-${G.dayCount}`);
+        G.lastResult = `The rotation gap is eleven minutes, not the eight you estimated. You get close enough to read the perimeter posts: standard Soreheim military marking on the east face, a second mark below it — a Roadwardens Order brand, newer, applied over the original paint. Through the northern embrasure you count three guards on the upper level and hear the sound of mechanical cycling below the floor — a pump or compressor running at intervals. The lower chamber is real.`;
+        addJournal('Staging structure: dual-branded perimeter, Roadwardens Order over Soreheim military — sub-floor mechanical equipment confirmed audible', 'evidence', `plumes-scout-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
         G.lastResult = `You close to within fifty meters before a guard dog picks up the scent from the wrong angle. You pull back into the tree line without being seen, but the dog's alert prompts a full rotation check — the gap closes, and a fourth guard is added to the northern leg for the rest of the day. The rotation is now tighter.`;
@@ -232,8 +232,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_caravan_driver_osset = true;
         G.investigationProgress++;
         G.stageProgress[2]++;
-        G.lastResult = `The driver — Osset Halvarn, who unlatches the bench compartment with a single knuckle-tap before he lifts the lid, as if announcing himself to what's inside — opens his oilskin log to a section flagged with red leather. The first entry describing the structure is fourteen months old: a construction crew of twenty-two, moving in on a road that hadn't existed the previous season. Four entries across the following three months document supply wagons arriving under Soreheim military tarp with Warden Order outriders. The first chemical delivery is described by smell — "sharp, like copper left in rain." The entry is underlined twice.`;
-        addJournal('Driver Osset Halvarn log: structure construction 14 months ago, chemical delivery described by smell — Warden Order outriders', 'evidence', `plumes-osset-${G.dayCount}`);
+        G.lastResult = `The driver — Osset Halvarn, who unlatches the bench compartment with a single knuckle-tap before he lifts the lid, as if announcing himself to what's inside — opens his oilskin log to a section flagged with red leather. The first entry describing the structure is fourteen months old: a construction crew of twenty-two, moving in on a road that hadn't existed the previous season. Four entries across the following three months document supply wagons arriving under Soreheim military tarp with Roadwardens Order outriders. The first chemical delivery is described by smell — "sharp, like copper left in rain." The entry is underlined twice.`;
+        addJournal('Driver Osset Halvarn log: structure construction 14 months ago, chemical delivery described by smell — Roadwardens Order outriders', 'evidence', `plumes-osset-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Halvarn's expression closes before you finish the first sentence about the northern road. "I don't keep written notes about other people's cargo. That's how drivers stay employed." He turns to check the rear harness without looking back. When he settles into his seat again, his knuckle taps the bench compartment lid once — muscle memory — but his hand stays flat on top. The conversation is over before it started.`;
@@ -266,8 +266,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         G.flags.phantom_requisition_traced = true;
         G.investigationProgress++;
         G.stageProgress[2]++;
-        G.lastResult = `The manifest category is labelled "remote station support" — a Roadwarden administrative designation that exists but is normally used for auxiliary supply caches, not active facilities. Eighteen months of entries. Every delivery routed under that category moves out of the outpost within forty-eight hours on a northern heading, under the same transport authorization: a Warden Order standing requisition countersigned by a Shelkopolis command line. The outpost is a pass-through point, not the destination. It has been functioning as a logistics node for the staging structure since before the structure was finished.`;
-        addJournal('Outpost remote-station requisitions: Warden Order standing auth, Shelkopolis countersign, 18-month northern routing', 'evidence', `plumes-manifest-${G.dayCount}`);
+        G.lastResult = `The manifest category is labelled "remote station support" — a Roadwarden administrative designation that exists but is normally used for auxiliary supply caches, not active facilities. Eighteen months of entries. Every delivery routed under that category moves out of the outpost within forty-eight hours on a northern heading, under the same transport authorization: a Roadwardens Order standing requisition countersigned by a Shelkopolis command line. The outpost is a pass-through point, not the destination. It has been functioning as a logistics node for the staging structure since before the structure was finished.`;
+        addJournal('Outpost remote-station requisitions: Roadwardens Order standing auth, Shelkopolis countersign, 18-month northern routing', 'evidence', `plumes-manifest-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `The manifest is a Roadwarden operational document — access requires a Roadwarden administrative credential or a formal audit request through Fairhaven post command. The duty officer at the intake desk is polite about it in the manner of someone who has had this conversation before and found that politeness ends it faster. "That's not a public register." The manifest cover is worn at the corners from handling, its binding reinforced with riveted leather tape that suggests it has been repaired rather than replaced. Your name goes into the inquiry log as standard procedure, written in a clear hand. The manifest stays behind the desk.`;
@@ -336,8 +336,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_clerk_pella_orn = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Pella Orn pulls the original flag from a personal ledger she keeps separate from the official intake record — a habit, she says, from six years of watching corrections arrive after the fact. The discrepancy: eleven months ago, a consignment of sixty sealed canisters passed through under a Roadwarden transit pass that listed their contents as "atmospheric calibration equipment." The weight on the weigh ticket was wrong for the declared contents by a factor of three. She flagged it. A senior Roadwarden countersigned a correction the next day and told her the weight difference was permitted under a Warden Order charter clause she had never heard of. She wrote it down verbatim.`;
-        addJournal('Clerk Pella Orn: canister consignment weight falsified — Warden Order charter clause invoked to override flag', 'evidence', `plumes-clerk-${G.dayCount}`);
+        G.lastResult = `Pella Orn pulls the original flag from a personal ledger she keeps separate from the official intake record — a habit, she says, from six years of watching corrections arrive after the fact. The discrepancy: eleven months ago, a consignment of sixty sealed canisters passed through under a Roadwarden transit pass that listed their contents as "atmospheric calibration equipment." The weight on the weigh ticket was wrong for the declared contents by a factor of three. She flagged it. A senior Roadwarden countersigned a correction the next day and told her the weight difference was permitted under a Roadwardens Order charter clause she had never heard of. She wrote it down verbatim.`;
+        addJournal('Clerk Pella Orn: canister consignment weight falsified — Roadwardens Order charter clause invoked to override flag', 'evidence', `plumes-clerk-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `Pella Orn is at the intake window when you arrive and the queue behind you makes a private conversation impossible. When you ask about discrepancies on northern transit passes, her expression stays neutral with the practiced stillness of someone who has learned not to react at the wrong moment. She hands you a standard intake form. "Fill that out if you have a formal goods query." The window slides closed.`;
@@ -398,7 +398,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.letha_early_record_found = true;
         G.investigationProgress++;
-        G.lastResult = `The calibration record is in a different hand than Letha's — her predecessor, a hazard reader named Aldec Sorn, posted here before her. Sorn's records show normal baseline pressure for the region until a specific date: eighteen months ago, the baseline shifts upward by a measurable increment and holds at the new level permanently. Sorn flagged it, labeled it "anthropogenic source — awaiting Warden Order assessment," and was transferred out of the post three weeks later. There is no assessment in the file. Letha never knew the baseline had changed.`;
+        G.lastResult = `The calibration record is in a different hand than Letha's — her predecessor, a hazard reader named Aldec Sorn, posted here before her. Sorn's records show normal baseline pressure for the region until a specific date: eighteen months ago, the baseline shifts upward by a measurable increment and holds at the new level permanently. Sorn flagged it, labeled it "anthropogenic source — awaiting Roadwardens Order assessment," and was transferred out of the post three weeks later. There is no assessment in the file. Letha never knew the baseline had changed.`;
         addJournal('Letha station: predecessor Aldec Sorn flagged pressure baseline shift 18 months ago — transferred 3 weeks later, no assessment on record', 'evidence', `plumes-letha2-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -407,8 +407,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.letha_early_record_found = true;
         G.investigationProgress++;
-        G.lastResult = `Letha opens the calibration record herself when you describe what you are looking for — she has been curious about the same question. Her predecessor's entries end abruptly. The final entry is dated eighteen months ago: a pressure baseline notation marked "review required," with a Warden Order referral number that corresponds to no document she has ever received. The referral line stops there.`;
-        addJournal('Letha station: predecessor baseline review and Warden Order referral number — no corresponding document received', 'intelligence', `plumes-letha2-partial-${G.dayCount}`);
+        G.lastResult = `Letha opens the calibration record herself when you describe what you are looking for — she has been curious about the same question. Her predecessor's entries end abruptly. The final entry is dated eighteen months ago: a pressure baseline notation marked "review required," with a Roadwardens Order referral number that corresponds to no document she has ever received. The referral line stops there.`;
+        addJournal('Letha station: predecessor baseline review and Roadwardens Order referral number — no corresponding document received', 'intelligence', `plumes-letha2-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -431,8 +431,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.met_runner_destin_var = true;
         G.investigationProgress++;
-        G.lastResult = `Destin Var agrees to talk only after you find her outside the main waystation, checking her pack straps alone. She has been inside the structure's loading bay three times. The loading bay connects to a lower level via a grated floor hatch she passed over during the second delivery — the grate was open, and she looked down. Below: a chamber with two large copper tanks connected by a piping manifold, both tanks marked with a symbol she describes precisely: a circle with a horizontal bar, the bar crossed at the center. She does not know what the tanks hold. The symbol is a Warden Order materials classification mark for pressurized chemical compound.`;
-        addJournal('Runner Destin Var: sub-floor copper tanks with Warden Order pressurized-compound mark — loading bay grate access confirmed', 'evidence', `plumes-runner-${G.dayCount}`);
+        G.lastResult = `Destin Var agrees to talk only after you find her outside the main waystation, checking her pack straps alone. She has been inside the structure's loading bay three times. The loading bay connects to a lower level via a grated floor hatch she passed over during the second delivery — the grate was open, and she looked down. Below: a chamber with two large copper tanks connected by a piping manifold, both tanks marked with a symbol she describes precisely: a circle with a horizontal bar, the bar crossed at the center. She does not know what the tanks hold. The symbol is a Roadwardens Order materials classification mark for pressurized chemical compound.`;
+        addJournal('Runner Destin Var: sub-floor copper tanks with Roadwardens Order pressurized-compound mark — loading bay grate access confirmed', 'evidence', `plumes-runner-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.lastResult = `You approach Destin Var at the waystation bench while two other runners are within clear earshot. She reads the situation immediately and looks away. When you persist, she picks up her pack and walks to the posting board, takes her next assignment slip, and leaves the waystation without further eye contact. She is gone before you reach the door. The runners at the bench watched all of it.`;
@@ -440,8 +440,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.met_runner_destin_var = true;
         G.investigationProgress++;
-        G.lastResult = `Destin Var keeps her voice at a level that carries maybe a meter. She has been inside the loading bay twice for standard cargo drops. The bay is larger than necessary for the declared supply function — the floor space is clear except for racking along the far wall, and the racking holds sealed containers with Warden Order markings. She saw the grated hatch in the floor on the second visit but the guard positioned near it made clear it was not for runners. "You deliver and you go. That's the arrangement."`;
-        addJournal('Runner: loading bay holds Warden Order sealed containers, sub-floor hatch guarded during deliveries', 'intelligence', `plumes-runner-partial-${G.dayCount}`);
+        G.lastResult = `Destin Var keeps her voice at a level that carries maybe a meter. She has been inside the loading bay twice for standard cargo drops. The bay is larger than necessary for the declared supply function — the floor space is clear except for racking along the far wall, and the racking holds sealed containers with Roadwardens Order markings. She saw the grated hatch in the floor on the second visit but the guard positioned near it made clear it was not for runners. "You deliver and you go. That's the arrangement."`;
+        addJournal('Runner: loading bay holds Roadwardens Order sealed containers, sub-floor hatch guarded during deliveries', 'intelligence', `plumes-runner-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -697,8 +697,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.woodcutter_records_found = true;
         G.investigationProgress++;
-        G.lastResult = `The woodcutter, a compact woman named Doss Halvart, keeps delivery records in a ledger hung on a nail by the splitting block. Sixteen fuel deliveries to a northern destination recorded over the past year — each delivery twice the volume of a normal residential order. The destination name on every receipt is "Northern Atmospheric Station, Warden Order Charter Account." The fuel loads include a category she marks as "kiln-grade hardwood" — fuel for sustained high-temperature burning, not heating. Compressor operation, or chemical processing at temperature, would require exactly this grade.`;
-        addJournal('Woodcutter Doss Halvart: 16 kiln-grade fuel deliveries to Warden Order atmospheric station — sustained-temperature processing implied', 'evidence', `plumes-wood-${G.dayCount}`);
+        G.lastResult = `The woodcutter, a compact woman named Doss Halvart, keeps delivery records in a ledger hung on a nail by the splitting block. Sixteen fuel deliveries to a northern destination recorded over the past year — each delivery twice the volume of a normal residential order. The destination name on every receipt is "Northern Atmospheric Station, Roadwardens Order Charter Account." The fuel loads include a category she marks as "kiln-grade hardwood" — fuel for sustained high-temperature burning, not heating. Compressor operation, or chemical processing at temperature, would require exactly this grade.`;
+        addJournal('Woodcutter Doss Halvart: 16 kiln-grade fuel deliveries to Roadwardens Order atmospheric station — sustained-temperature processing implied', 'evidence', `plumes-wood-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Doss Halvart is mid-split on a large birch round when you arrive and doesn't stop, doesn't slow, doesn't look up. The yard smells of fresh sawdust and pine resin and the cold that follows the elevation. "Delivery records are between me and the buyer." She flips the round and sets it on the block for the next strike. "Same as any other trade." The axe comes down with the flat authority of a decision already made. The conversation is finished before it starts, and she has three more rounds to go through before the daylight runs out.`;
@@ -706,8 +706,8 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.woodcutter_records_found = true;
         G.investigationProgress++;
-        G.lastResult = `Doss Halvart mentions the northern deliveries without prompting when you ask about volume patterns — they stand out because the order size is large and the haul is long, past the outpost boundary on a road she'd rather not run in deep cold. The splitting block behind her has a day's work stacked beside it, birch rounds in the particular bright white of recently cut wood. She won't show the ledger, but she confirms the recipient name from memory: "Atmospheric station, something northern, Warden Order account." The kiln-grade specification has stuck with her because she doesn't usually stock that grade for outpost customers — it's fuel for sustained heat, not warmth.`;
-        addJournal('Woodcutter confirms kiln-grade northern delivery to Warden Order atmospheric station — unusual grade for outpost customers', 'intelligence', `plumes-wood-partial-${G.dayCount}`);
+        G.lastResult = `Doss Halvart mentions the northern deliveries without prompting when you ask about volume patterns — they stand out because the order size is large and the haul is long, past the outpost boundary on a road she'd rather not run in deep cold. The splitting block behind her has a day's work stacked beside it, birch rounds in the particular bright white of recently cut wood. She won't show the ledger, but she confirms the recipient name from memory: "Atmospheric station, something northern, Roadwardens Order account." The kiln-grade specification has stuck with her because she doesn't usually stock that grade for outpost customers — it's fuel for sustained heat, not warmth.`;
+        addJournal('Woodcutter confirms kiln-grade northern delivery to Roadwardens Order atmospheric station — unusual grade for outpost customers', 'intelligence', `plumes-wood-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -740,7 +740,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `Letha's map is precise enough to navigate by starlight. You approach the staging structure alone, staying to the tree line until the guard rotation opens the gap the survey camp notes described. Inside the perimeter, the woodsmoke from the interior vents mixes with something sharper — the chemical smell the trapper noticed, the one the apothecary named. You document what is there: structure layout, compound cache, the Warden Order markings on the lower-level tanks. From a position outside the guard perimeter you transmit everything to the Verdant Row network. The structure's existence and contents are distributed and public before dawn.`;
+        G.lastResult = `Letha's map is precise enough to navigate by starlight. You approach the staging structure alone, staying to the tree line until the guard rotation opens the gap the survey camp notes described. Inside the perimeter, the woodsmoke from the interior vents mixes with something sharper — the chemical smell the trapper noticed, the one the apothecary named. You document what is there: structure layout, compound cache, the Roadwardens Order markings on the lower-level tanks. From a position outside the guard perimeter you transmit everything to the Verdant Row network. The structure's existence and contents are distributed and public before dawn.`;
         addJournal("Plumes End S2 finale: solo infiltration, staging structure documented and distributed", 'evidence', `plumes-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;

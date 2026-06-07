@@ -148,14 +148,14 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: WARDEN ORDER INDUSTRIAL COMPLIANCE
   {
-    label: "The Warden Order's compliance officer is at the guild registry. This needs to go there.",
+    label: "The Union's materials compliance officer is at the guild registry. This needs to go there.",
     skill: 'charm',
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     failResult: "The compliance officer takes the written summary, stamps it received, and adds it to a tray with twelve other items. No questions asked. The compound class code is in the documentation — if he read it, the intake category would shift from standard supply fraud to material interference. The tray moves on a weekly review cycle. Naming the compound class explicitly in person, rather than in a filed form, changes who processes the response.",
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Warden Order contact');
+      gainXp(70, 'making Union compliance contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
@@ -164,7 +164,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_craftspire = true;
         G.factionHostility.warden_order += 1;
-        addJournal('Warden Order compliance officer Bren: compound class triggers elevated response, case opened — Warden Order knows the implications', 'intelligence', `craftspire-warden-${G.dayCount}`);
+        addJournal('Union compliance officer Bren: compound class triggers elevated response, case opened — Union authority knows the implications', 'intelligence', `craftspire-warden-${G.dayCount}`);
       } else {
         G.lastResult = `The compliance officer takes the written summary, initials the intake log, and stamps it received. "Standard supply chain discrepancies are reviewed in the order received." He adds it to a tray. The tray has twelve items in it already. He doesn't ask any questions, which means either the summary didn't contain enough to prompt them or nobody in that office knows what the compound class implies. Jorin's documentation includes the compound class code — with that specific code named, the intake category changes from supply fraud to material interference.`;
         if (!G.flags) G.flags = {};

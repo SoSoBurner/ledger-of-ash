@@ -31,7 +31,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
       const loc = getLocality(G.location);
       const venues = ['market', 'tavern', 'public square', 'plaza', 'square'];
       const venue = pick(venues, G.dayCount);
-      G.lastResult = `The ${venue} of ${loc.name} has its own tempo. You stop trying to track every thread and let the room come to you. By the third hour you know three faces by their habits. One woman orders the same thing twice with the same hand gesture; another always checks the door. A merchant at the near table goes quiet mid-sentence when someone across the room names the Warden Order. His conversation partner doesn't miss a beat. Neither does the merchant. They've both practiced that recovery.`;
+      G.lastResult = `The ${venue} of ${loc.name} has its own tempo. You stop trying to track every thread and let the room come to you. By the third hour you know three faces by their habits. One woman orders the same thing twice with the same hand gesture; another always checks the door. A merchant at the near table goes quiet mid-sentence when someone across the room names the Roadwardens Order. His conversation partner doesn't miss a beat. Neither does the merchant. They've both practiced that recovery.`;
       gainXp(30, 'community presence');
       G.recentOutcomeType = 'social';
       maybeStageAdvance();

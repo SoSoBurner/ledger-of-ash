@@ -677,7 +677,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `The research package reaches the Mimolot Academy Regent Council under Quenra Quillfire's authority — hand-delivered to the Council secretary's intake desk, signed and logged. The Council convenes a formal academic review within two days. The Northern Glyph Oversight Commission suppression order is declared procedurally void under Academy academic freedom doctrine: the body that issued it has no standing in the Academy's jurisdiction. Stage III begins with institutional backing already in place.`;
+        G.lastResult = `The research package reaches the Mimolot Academy faculty council under Quenra Quillfire's authority — hand-delivered to the council secretary's intake desk, signed and logged. The faculty council convenes a formal academic review within two days. The Northern Glyph Oversight Commission suppression order is declared procedurally void under Academy academic freedom doctrine: the body that issued it has no standing in the Academy's jurisdiction. Stage III begins with institutional backing already in place.`;
         addJournal('Glasswake S2 finale: Academy formal review convened, suppression order voided', 'evidence', `glass-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;

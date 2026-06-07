@@ -170,30 +170,30 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
 
   // 6. FACTION SEED: WARDEN ORDER PATROL COORDINATION
   {
-    label: "The Warden Order's coordinator doesn't know what Letha has been measuring.",
+    label: "The Roadwardens Order's coordinator doesn't know what Letha has been measuring.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Warden Order contact');
+      gainXp(70, 'making Roadwardens Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Patrol coordinator Sera Vance receives the summary of Letha's reports with visible concern. "We've had two other outposts report communication disruptions from the same regional coordination source — the one that told Commander Dawnsilk to suppress her readings." She pauses. "If the same ghost authority is suppressing data at multiple outposts simultaneously, there's a systematic information blackout in the field." The Warden Order has been operating with deliberately incomplete atmospheric data across the region. They're operating blind in a zone that's actively changing.`;
+        G.lastResult = `Patrol coordinator Sera Vance receives the summary of Letha's reports with visible concern. "We've had two other outposts report communication disruptions from the same regional coordination source — the one that told Commander Dawnsilk to suppress her readings." She pauses. "If the same ghost authority is suppressing data at multiple outposts simultaneously, there's a systematic information blackout in the field." The Roadwardens Order has been operating with deliberately incomplete atmospheric data across the region. They're operating blind in a zone that's actively changing.`;
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_plumes = true;
         G.factionHostility.warden_order += 1;
-        addJournal('Warden Order coordinator Sera Vance: ghost authority suppressed reports at multiple outposts — systematic regional information blackout confirmed', 'intelligence', `plumes-warden-${G.dayCount}`);
+        addJournal('Roadwardens Order coordinator Sera Vance: ghost authority suppressed reports at multiple outposts — systematic regional information blackout confirmed', 'intelligence', `plumes-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `The Warden Order's regional coordinator is courteous and unhelpful in equal measure. An inquiry requires documentation submitted through the standard regional channel — the same channel the suppression order closed. Letha's reports would need to be formally re-filed as new submissions, which requires a patrol dispatch authorization she'd have to request from the same coordination body that suppressed the originals. The process folds back on itself.`;
+        G.lastResult = `The Roadwardens Order's regional coordinator is courteous and unhelpful in equal measure. An inquiry requires documentation submitted through the standard regional channel — the same channel the suppression order closed. Letha's reports would need to be formally re-filed as new submissions, which requires a patrol dispatch authorization she'd have to request from the same coordination body that suppressed the originals. The process folds back on itself.`;
         if (!G.flags) G.flags = {};
         G.flags.located_warden_order_plumes = true;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
     failResult: {
-      text: `The Warden Order's inquiry process loops back through the regional coordination channel — the same one the suppression order closed. The coordinator is polite about it. The supply station is quiet at this hour, the oilcloth over the window lifting in the draft from the northeast. An inquiry requires documentation the suppression made unavailable. The path is blocked at the source.`,
+      text: `The Roadwardens Order's inquiry process loops back through the regional coordination channel — the same one the suppression order closed. The coordinator is polite about it. The supply station is quiet at this hour, the oilcloth over the window lifting in the draft from the northeast. An inquiry requires documentation the suppression made unavailable. The path is blocked at the source.`,
       xp: 0,
       effects: [],
       next: [{text: 'Find a way around the compromised channel', skill: 'wits', tag: 'safe', align: 'neutral', cid: '__arrive__'}]

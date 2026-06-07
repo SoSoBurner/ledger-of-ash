@@ -9,7 +9,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 1: THE CONFRONTATION ———
   {
-    label: "A Warden Order patrol has been tracking the same thread. Their commander wants a formal meeting.",
+    label: "A Roadwardens Order patrol has been tracking the same thread. Their commander wants a formal meeting.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 85,
@@ -22,7 +22,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(85, 'confronting the Warden Order commander');
+      gainXp(85, 'confronting the Roadwardens Order commander');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -30,25 +30,25 @@ const COMBAT_MIDSPINE_CHOICES = [
       const target = 12;
 
       if (result.total >= target) {
-        G.lastResult = `Captain Edvar sits with his hands flat on the table and his back straight — the posture of a man who considers slouching a form of dishonesty. He names what he knows about your movements in the northern supply district. It's accurate. You match his directness: purpose, method, what you're not willing to share. He listens without interrupting. "We've had eyes on the same shipment ledgers," he says. He stands to leave. No handshake — Warden Order protocol. "The Order doesn't need allies. But it notes who isn't an obstacle."`;
+        G.lastResult = `Captain Edvar sits with his hands flat on the table and his back straight — the posture of a man who considers slouching a form of dishonesty. He names what he knows about your movements in the northern supply district. It's accurate. You match his directness: purpose, method, what you're not willing to share. He listens without interrupting. "We've had eyes on the same shipment ledgers," he says. He stands to leave. No handshake — Roadwardens Order protocol. "The Order doesn't need allies. But it notes who isn't an obstacle."`;
         G.flags.combat_midspine_warden_respected = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
       } else {
-        G.lastResult = `Edvar listens to your account and says nothing for a long moment. He picks up a pen, writes something in his field log, and caps it. "Your movements in the northern supply district are noted." He closes the log. "If the Order's work overlaps yours, we will not be asking permission to proceed." He doesn't raise his voice. The two Warden officers at the door haven't moved, but they've stopped pretending to look elsewhere.`;
+        G.lastResult = `Edvar listens to your account and says nothing for a long moment. He picks up a pen, writes something in his field log, and caps it. "Your movements in the northern supply district are noted." He closes the log. "If the Order's work overlaps yours, we will not be asking permission to proceed." He doesn't raise his voice. The two Roadwarden officers at the door haven't moved, but they've stopped pretending to look elsewhere.`;
         G.flags.combat_midspine_warden_hostile = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
         if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
         G.factionHostility.warden_order = (G.factionHostility.warden_order || 0) + 1;
       }
       G.flags.combat_midspine_node1_complete = true;
-      addJournal('Combat midspine node 1: Warden Order confrontation — personal arc established', 'evidence', `combat-midspine-1-${G.dayCount}`);
+      addJournal('Combat midspine node 1: Roadwardens Order confrontation — personal arc established', 'evidence', `combat-midspine-1-${G.dayCount}`);
       G.recentOutcomeType = result.total >= target ? 'success' : 'complication';
     }
   },
 
   // ——— NODE 2: THE TEST ———
   {
-    label: "A Warden Order garrison in your current district is obstructing access to a critical document. Get through them — by whatever means suits you.",
+    label: "A Roadwardens Order garrison in your current district is obstructing access to a critical document. Get through them — by whatever means suits you.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Risk'],
     xpReward: 90,
@@ -62,7 +62,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(90, 'getting past the Warden Order garrison');
+      gainXp(90, 'getting past the Roadwardens Order garrison');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -93,7 +93,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 3: THE OFFER ———
   {
-    label: "Edvar contacts you again with an offer. The Warden Order wants to fold your work into their structure.",
+    label: "Edvar contacts you again with an offer. The Roadwardens Order wants to fold your work into their structure.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 95,
@@ -107,7 +107,7 @@ const COMBAT_MIDSPINE_CHOICES = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(95, 'deciding on the Warden Order\'s offer');
+      gainXp(95, 'deciding on the Roadwardens Order\'s offer');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
 
@@ -118,20 +118,20 @@ const COMBAT_MIDSPINE_CHOICES = [
         G.flags.combat_midspine_warden_allied = true;
         G.worldClocks.reverence = (G.worldClocks.reverence || 0) + 1;
       } else {
-        G.lastResult = `The offer arrives through a courier, not Edvar himself — which tells you something. The terms require mandatory reporting and a freeze on independent action anywhere the Order has an active file. That covers most of the districts you need to move through. You send back a single-line refusal. Three days later, a Warden officer begins appearing at regular intervals near the locations you're working from. Not following — positioning. The Order has its own way of noting a refusal.`;
+        G.lastResult = `The offer arrives through a courier, not Edvar himself — which tells you something. The terms require mandatory reporting and a freeze on independent action anywhere the Order has an active file. That covers most of the districts you need to move through. You send back a single-line refusal. Three days later, a Roadwarden officer begins appearing at regular intervals near the locations you're working from. Not following — positioning. The Order has its own way of noting a refusal.`;
         G.flags.combat_midspine_warden_refused = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
         if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
         G.factionHostility.warden_order = (G.factionHostility.warden_order || 0) + 1;
       }
-      addJournal('Combat midspine complete: Warden Order relationship established — carries to Stage 2', 'evidence', `combat-midspine-3-${G.dayCount}`);
+      addJournal('Combat midspine complete: Roadwardens Order relationship established — carries to Stage 2', 'evidence', `combat-midspine-3-${G.dayCount}`);
       G.recentOutcomeType = 'neutral';
       if (!G.rivalId && G.archetype) G.rivalId = 'warden_captain';
       // Resolve quest: the Warden Order encounter confirms the anomaly pattern is a coordinated operation
       if (G && G.questHints) G.questHints['q_s1_pattern'] = null;
       if (G && G.quests) G.quests = G.quests.map(function(q) {
         if (typeof q === 'object' && q && q.questId === 'q_s1_pattern') {
-          return Object.assign({}, q, {resolved: true, resolvedText: 'Warden Order files confirm the anomalies are a coordinated supply-route operation.'});
+          return Object.assign({}, q, {resolved: true, resolvedText: 'Roadwardens Order files confirm the anomalies are a coordinated supply-route operation.'});
         }
         return q;
       });
