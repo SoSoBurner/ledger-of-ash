@@ -11817,9 +11817,25 @@ function loadStageChoices(locId) {
   }
   const stage = G.stage || '';
   const stageNum = stage === 'Stage II' ? '2' : stage === 'Stage III' ? '3' : '1';
-  const tableKey = loc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
+  // Normalize locality aliases so dynamic table-key lookup hits the canonical export.
+  // 'panim_haven' resolves to PANIM_STAGE2_ENRICHED_CHOICES (file exports under PANIM_).
+  var _STAGE_TABLE_ALIAS = { panim_haven: 'panim' };
+  var _keyLoc = _STAGE_TABLE_ALIAS[loc] || loc;
+  const tableKey = _keyLoc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
     + '_STAGE' + stageNum + '_ENRICHED_CHOICES';
-  const enriched = window[tableKey]
+  var enriched = window[tableKey];
+  // Explicit fallback ladder for sp2-wired localities — guarantees the choice pool is found
+  // even if dynamic lookup drifts. Falls back to generic stage pool only as last resort.
+  if (!enriched && stageNum === '2') {
+    if (_keyLoc === 'fairhaven' && window.FAIRHAVEN_STAGE2_ENRICHED_CHOICES) {
+      enriched = window.FAIRHAVEN_STAGE2_ENRICHED_CHOICES;
+    } else if (_keyLoc === 'ithtananalor' && window.ITHTANANALOR_STAGE2_ENRICHED_CHOICES) {
+      enriched = window.ITHTANANALOR_STAGE2_ENRICHED_CHOICES;
+    } else if ((_keyLoc === 'panim' || loc === 'panim_haven') && window.PANIM_STAGE2_ENRICHED_CHOICES) {
+      enriched = window.PANIM_STAGE2_ENRICHED_CHOICES;
+    }
+  }
+  enriched = enriched
     || (stageNum === '2' ? window.STAGE2_ENRICHED_CHOICES : null)
     || (stageNum === '3' ? window.STAGE3_ENRICHED_CHOICES : null);
 
