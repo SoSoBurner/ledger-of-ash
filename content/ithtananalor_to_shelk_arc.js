@@ -63,7 +63,7 @@ const ITHTANANALOR_TO_SHELK_ARC = [
 
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Lysel's garrison reduction corresponded with a Warden Order efficiency review — the review itself was requested by the same Iron Compact attaché who was accessing the ghost accounts. The financial operation and the physical security reduction were coordinated. Someone used the financial infrastructure to buy the security clearance to make the operation possible.`;
+        G.lastResult = `Lysel's garrison reduction corresponded with a Roadwardens Order efficiency review — the review itself was requested by the same Iron Compact attaché who was accessing the ghost accounts. The financial operation and the physical security reduction were coordinated. Someone used the financial infrastructure to buy the security clearance to make the operation possible.`;
         if (!G.investigationProgress) G.investigationProgress = 0;
         G.investigationProgress++;
         addJournal('Ghost accounts funded the efficiency review that reduced Lysel\'s garrison — financial and physical operation coordinated', 'discovery', `ithtan-arc-lysel-${G.dayCount}`);
@@ -128,19 +128,19 @@ const ITHTANANALOR_TO_SHELK_ARC = [
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(75, 'tracing Calver\'s Warden Order posting history');
+      gainXp(75, 'tracing Calver\'s Roadwardens Order posting history');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Calver has been posted to financial review assignments in four localities over the past eighteen months — always just before significant ghost account activity begins and transferred out just after it ends. He's a mobile asset. His current posting is listed as "central administration reassignment" — which, cross-referenced with the Warden Order's Shelkopolis office, places him in the city right now.`;
+        G.lastResult = `Calver has been posted to financial review assignments in four localities over the past eighteen months — always just before significant ghost account activity begins and transferred out just after it ends. He's a mobile asset. His current posting is listed as "central administration reassignment" — which, cross-referenced with the Roadwardens Order's Shelkopolis office, places him in the city right now.`;
         G.flags.calver_in_shelkopolis = true;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
         addJournal('Calver: mobile asset posted before/after ghost account cycles — currently in Shelkopolis', 'discovery', `ithtan-arc-calver-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `Calver's posting history is partially accessible. You can see the Ithtananalor assignment and one prior. The full pattern requires the central Warden Order registry, which is in Shelkopolis.`;
+        G.lastResult = `Calver's posting history is partially accessible. You can see the Ithtananalor assignment and one prior. The full pattern requires the central Roadwardens Order registry, which is in Shelkopolis.`;
         G.recentOutcomeType = 'neutral';
       }
     }

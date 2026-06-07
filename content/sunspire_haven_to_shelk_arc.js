@@ -42,7 +42,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
         G.flags.sunspire_arc_clean_departure = true;
         G.recentOutcomeType = 'success';
       } else {
-        G.lastResult = `A Warden Order transit officer catches you at the southern gate and asks your destination and purpose — standard procedure, nothing targeted. You're logged as "research transit." The name goes in a ledger.`;
+        G.lastResult = `A Roadwardens Order transit officer catches you at the southern gate and asks your destination and purpose — standard procedure, nothing targeted. You're logged as "research transit." The name goes in a ledger.`;
         if (!G.worldClocks) G.worldClocks = {};
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
         G.recentOutcomeType = 'complication';
@@ -131,7 +131,7 @@ const SUNSPIRE_HAVEN_TO_SHELK_ARC = [
       gainXp(75, 'tracing Sera\'s transfer to Shelkopolis region');
       if (!G.flags) G.flags = {};
 
-      G.lastResult = `The transfer paperwork would have gone through three desks. Someone authorized it. In the Warden Order's internal structure, a Captain-Adjutant transferring to a regional hub at this moment, with this timing, is either being brought in to manage something or being removed from somewhere she was becoming inconvenient. Either way, she's in Shelkopolis. That's useful or dangerous depending on which of those two reasons is true.`;
+      G.lastResult = `The transfer paperwork would have gone through three desks. Someone authorized it. In the Roadwardens Order's internal structure, a Captain-Adjutant transferring to a regional hub at this moment, with this timing, is either being brought in to manage something or being removed from somewhere she was becoming inconvenient. Either way, she's in Shelkopolis. That's useful or dangerous depending on which of those two reasons is true.`;
       G.flags.sunspire_arc_sera_in_shelk = true;
       G.recentOutcomeType = 'neutral';
     }
