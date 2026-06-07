@@ -66,7 +66,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Myra pulls her personal log from under the counter without being asked — she's been keeping it specifically because the standard manifest counter doesn't cover everything. Six deliveries over four months, all arriving on the Fairhaven scholar route. Signed off by an Academy regent code she checked against the official registry and couldn't match. She points at two entries. Both precede documented glyph surge events in Shelkopolis by forty-eight hours. She circled the dates when she noticed.`;
+        G.lastResult = `Myra pulls her personal log from under the counter without being asked — she's been keeping it specifically because the standard manifest counter doesn't cover everything. Six deliveries over four months, all arriving on the Fairhaven scholar route. Signed off by an Academy regent code she checked against the Academy's exemption registry and couldn't match. She points at two entries. Both precede documented glyph surge events in Shelkopolis by forty-eight hours. She circled the dates when she noticed.`;
         addJournal('Academy off-manifest deliveries via Fairhaven path — 48hr pre-surge correlation', 'evidence', `mim-myra-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Myra's supervisor is two meters away when you approach. Myra listens to your question, says "I can't help you with that" in a flat voice, and hands you a standard inquiry-refusal form. Her eyes move to the supervisor and back. She fills out the refusal with her pen held loosely, like someone doing something they don't mean. Come back without the supervisor present.`;
@@ -102,7 +102,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Sarith's tariff records are organized by exemption category, and the "Crown Research Protocol" designation appears in three entries and nowhere else in the registry — not in the formal exemption categories, not in supplementary guidance, not in the Academy charter's fee schedule. All three exemptions were applied to glyph resonance theory acquisitions. All three list Fairhaven as point of origin. Sarith checked the designation against every reference she has. It doesn't exist officially. It was used anyway, and the exemptions held.`;
+        G.lastResult = `Sarith's tariff records are organized by exemption category, and the "Crown Research Protocol" designation appears in three entries and nowhere else in the registry — not in the formal exemption categories, not in supplementary guidance, not in the Academy charter's fee schedule. All three exemptions were applied to glyph resonance theory acquisitions. All three list Fairhaven as point of origin. Sarith checked the designation against every reference she has. It appears in no Academy record. It was used anyway, and the exemptions held.`;
         addJournal('Crown Research Protocol exemptions — glyph theory, Fairhaven origin', 'evidence', `mim-sarith-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -326,7 +326,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_hoven_draske = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Hoven confirms the night-dock receives transfers that do not go through the morning intake process — a separate authorization channel, he explains, for materials under faculty regent codes. He has logged everything in his own shift register, which is not the same document the day supervisor reviews. He can show the shift register. The regent codes on the night-dock entries are the same ones Sarith could not match against the official exemption registry.`;
+        G.lastResult = `Hoven confirms the night-dock receives transfers that do not go through the morning intake process — a separate authorization channel, he explains, for materials under faculty regent codes. He has logged everything in his own shift register, which is not the same document the day supervisor reviews. He can show the shift register. The regent codes on the night-dock entries are the same ones Sarith could not match against the Academy's exemption registry.`;
         addJournal('Night-dock shift register: regent codes match Sarith tariff anomalies — separate auth channel', 'intelligence', `mim-hoven-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -730,7 +730,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.flags.mim_student_debrief_route_mapped = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Four students, all on the glyph resonance track, exit through the library garden gate after the visiting lecturer's off-calendar sessions and walk to a provisioning house on the east side of the settlement — not a faculty building, not on Academy maps. The route goes past the east gate without stopping. Inside the provisioning house, through the window, a lamp is already burning at a table with three chairs and documents laid flat. The students are met by a figure in a plain coat who is not the visiting lecturer. The session in there runs longer than the seminar did. Whatever is being taught officially, this is the actual curriculum.`;
+        G.lastResult = `Four students, all on the glyph resonance track, exit through the library garden gate after the visiting lecturer's off-calendar sessions and walk to a provisioning house on the east side of the settlement — not a faculty building, not on Academy maps. The route goes past the east gate without stopping. Inside the provisioning house, through the window, a lamp is already burning at a table with three chairs and documents laid flat. The students are met by a figure in a plain coat who is not the visiting lecturer. The session in there runs longer than the seminar did. Whatever is being taught in the sanctioned curriculum, this is the actual one.`;
         addJournal('Glyph resonance students debrief at off-Academy provisioning house — third-party instructor, documents on table', 'evidence', `mim-debrief-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -797,7 +797,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Mimolot Academy Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The reading room map on the rotunda wall shows nine points of evidence, but three connections between them are still broken lines. The Regent Council requires a complete chain before it will convene on an institutional complaint — a single unlinked fragment gives them room to dissolve the whole inquiry. The gaps need closing before this can move forward. The smell of old vellum and chalk dust fills the corridor outside. Scholars work in silence at the reference tables beneath the tall clerestory windows. The sealed external directive sits in its folder, waiting for the rest of the record to meet it.`;
+        G.lastResult = `The reading room map on the rotunda wall shows nine points of evidence, but three connections between them are still broken lines. The the faculty council requires a complete chain before it will convene on an institutional complaint — a single unlinked fragment gives them room to dissolve the whole inquiry. The gaps need closing before this can move forward. The smell of old vellum and chalk dust fills the corridor outside. Scholars work in silence at the reference tables beneath the tall clerestory windows. The sealed external directive sits in its folder, waiting for the rest of the record to meet it.`;
         G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -806,12 +806,12 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You lay the full chain in front of the Regent Council: theoretical formula predating the commission, classification directive from outside the faculty, Fairhaven delivery logs, Memory Hall inscription confirming the safety system reversal. The Council convenes in closed session the same afternoon. A formal inquiry is opened. The operation's theoretical foundation is now in the institutional record, attached to named signatories on both sides of the charter violation.`;
-        addJournal('Mimolot Academy S2 finale: Regent Council formal inquiry opened', 'evidence', `mim-finale-inst-${G.dayCount}`);
+        G.lastResult = `You lay the full chain in front of the the faculty council: theoretical formula predating the commission, classification directive from outside the faculty, Fairhaven delivery logs, Memory Hall inscription confirming the safety system reversal. The Council convenes in closed session the same afternoon. A formal inquiry is opened. The operation's theoretical foundation is now in the institutional record, attached to named signatories on both sides of the charter violation.`;
+        addJournal('Mimolot Academy S2 finale: the faculty council formal inquiry opened', 'evidence', `mim-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
-        G.lastResult = `The classified research goes to the Verdant Row network before the Academy's containment procedures can close around it. Copies move through three separate channels simultaneously. The network has the theoretical basis for the suppression compounds now, and the knowledge of how the Watchers Perch system was reversed. The Academy's ability to contain this ends before it starts. The cost is that the network knows it before the Regent Council does.`;
+        G.lastResult = `The classified research goes to the Verdant Row network before the Academy's containment procedures can close around it. Copies move through three separate channels simultaneously. The network has the theoretical basis for the suppression compounds now, and the knowledge of how the Watchers Perch system was reversed. The Academy's ability to contain this ends before it starts. The cost is that the network knows it before the the faculty council does.`;
         addJournal('Mimolot Academy S2 finale: classified research leaked to Verdant Row', 'evidence', `mim-finale-uw-${G.dayCount}`);
       }
       G.flags.stage2_faction_contact_made = true;
@@ -1399,7 +1399,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_quenra_quillfire = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `Quenra shows the three non-faculty names on the restricted access list without being asked — she has already circled them in pencil, the circles faint but deliberate. All three received their clearance codes through a Mimolot administrative channel that does not route through faculty authorization at all. The clearance code format matches the one used in the northern convoy staging documentation she cannot officially share. She taps the margin beside the circled names. "These three were given faculty-equivalent access by someone who is not on this list."`;
+        G.lastResult = `Quenra shows the three non-faculty names on the restricted access list without being asked — she has already circled them in pencil, the circles faint but deliberate. All three received their clearance codes through a Mimolot administrative channel that does not route through faculty authorization at all. The clearance code format matches the one used in the northern convoy staging documentation she is not cleared to share. She taps the margin beside the circled names. "These three were given faculty-equivalent access by someone who is not on this list."`;
         addJournal('Restricted access: 3 non-faculty names hold faculty-equivalent clearance via non-standard admin channel', 'evidence', 'mim-quenra-rlist-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;

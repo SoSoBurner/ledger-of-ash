@@ -926,25 +926,25 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     },
   },
 
-  // 24. FACTION SEED: WARDEN ORDER ACADEMIC LIASON
+  // 24. FACTION SEED: HOUSE MIMOLOT COMPLIANCE OBSERVER
   {
-    label: "The Warden liaison watched the suppression unfold from the Archive annexe. No report filed.",
+    label: "The compliance observer watched the suppression unfold from the Archive annexe. No report filed.",
     tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 70,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'making Warden Order contact');
+      gainXp(70, 'reaching House Mimolot compliance observer');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Brevard Ashe is at a corner desk with a volume of administrative law, and his posture when you approach is the posture of someone who anticipated a visitor. His presence here is "ongoing materials coordination." He's careful with each phrase, but he's clearly been watching the suppression unfold. "The Warden Order takes an institutional interest in conditions that affect scholarly access," he says — a sentence that points carefully away from its subject. Before you leave he writes a name on a scrap of paper: a scholar who departed the Academy last year, described only as "willing to discuss the prior academic climate." Not a recommendation. A door.`;
+        G.lastResult = `Brevard Ashe is at a corner desk with a volume of administrative law, and his posture when you approach is the posture of someone who anticipated a visitor. His presence here is "ongoing materials coordination" — House Mimolot's compliance function at the Academy. He's careful with each phrase, but he's clearly been watching the suppression unfold. "House Mimolot takes an institutional interest in conditions that affect scholarly access," he says — a sentence that points carefully away from its subject. Before you leave he writes a name on a scrap of paper: a scholar who departed the Academy last year, described only as "willing to discuss the prior academic climate." Not a recommendation. A door.`;
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_mimolot = true;
         G.factionHostility.warden_order += 1;
-        addJournal('Warden Order liaison Brevard Ashe: institutional interest in suppression, provided secondary scholar source', 'intelligence', `mimolot-warden-${G.dayCount}`);
+        addJournal('House Mimolot compliance observer Brevard Ashe: institutional interest in suppression, provided secondary scholar source', 'intelligence', `mimolot-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `Brevard Ashe closes his volume when you approach and explains, with complete courtesy, that substantive engagement with the Warden Order's liaison function requires a formal appointment submitted through the Academy's administrative registry. He keeps one finger between the pages while he speaks, intending to return. He's not unfriendly — he's procedural, which is more durable. Nothing will be said without paperwork in place first. His presence here is established. Getting past the procedure requires a different approach and probably a known name as introduction. A named introduction from Archivist Doss would clear that threshold.`;
+        G.lastResult = `Brevard Ashe closes his volume when you approach and explains, with complete courtesy, that substantive engagement with the House Mimolot compliance function requires a formal appointment submitted through the Academy's administrative registry. He keeps one finger between the pages while he speaks, intending to return. He's not unfriendly — he's procedural, which is more durable. Nothing will be said without paperwork in place first. His presence here is established. Getting past the procedure requires a different approach and probably a known name as introduction. A named introduction from Archivist Doss would clear that threshold.`;
         if (!G.flags) G.flags = {};
         G.flags.located_warden_order_mimolot = true;
       }
