@@ -10196,7 +10196,7 @@ function getAllLegends() {
 function getDefaultG() {
   return {
     name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
-    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0,craft:0},
+    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
     traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
     stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
     factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
@@ -16379,7 +16379,7 @@ function showCharSheet() {
 
     '<div style="margin-top:20px"><div class="char-section-title">Skills</div>' +
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">' +
-    Object.entries(G.skills||{}).map(([k,v]) => {
+    Object.entries(G.skills||{}).filter(([k]) => k !== 'craft').map(([k,v]) => {
       const pct=Math.round((v/20)*100);
       return '<div class="char-skill-row"><span class="char-skill-name">'+skillDisplay(k)+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
     }).join('') + '</div></div>' +
@@ -17623,6 +17623,7 @@ function updateHUD() {
     sk.innerHTML = '';
     var _SKILL_LABELS = { might:'Might', finesse:'Finesse', vigor:'Vigor', wits:'Wits', charm:'Charm', spirit:'Spirit', craft:'Craft', combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm' };
     Object.entries(G.skills||{}).forEach(([k,v]) => {
+      if (k === 'craft') return;
       const r = document.createElement('div'); r.className='skill-item';
       const pct=Math.round((v/20)*100);
       r.innerHTML='<span class="skill-name">'+(_SKILL_LABELS[k] || (k.charAt(0).toUpperCase()+k.slice(1)))+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div>';
