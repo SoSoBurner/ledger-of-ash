@@ -14449,7 +14449,8 @@ function travelTo(locId) {
 }
 
 function _showPackChoicesInOverlay(fromId, toId, mode) {
-  var loc = WORLD_LOCATIONS[toId];
+  var _LOC_DE_ALIAS = {aurora_crown_commune:'aurora',guildheart_hub:'guildheart',panim_haven:'panim',soreheim_proper:'soreheim',mimolot_academy:'mimolot',sunspire_haven:'sunspire'};
+  var loc = WORLD_LOCATIONS[toId] || WORLD_LOCATIONS[_LOC_DE_ALIAS[toId] || toId];
   var destName = loc ? loc.name : toId;
   var macro = (window.LOCALITY_MACROREGION || {})[fromId] || 'principalities';
   var narrs = (window.MACROREGION_NARRATIONS || {})[macro] || [];

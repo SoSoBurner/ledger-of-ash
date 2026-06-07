@@ -4328,7 +4328,8 @@
       G.flags._jrn_anchor_day = anchorDay;
       G.flags._jrn_anchor_id  = anchorId;
       window._travelNextEncounter = function() { TRAVEL_CORRIDOR.advanceDayLeg(); };
-      if (G) G.location = toId;
+      var _JRN_ENG = {aurora_crown_commune:'aurora',guildheart_hub:'guildheart',panim_haven:'panim',soreheim_proper:'soreheim',mimolot_academy:'mimolot',sunspire_haven:'sunspire'};
+      if (G) G.location = _JRN_ENG[toId] || toId;
       if (typeof updateHUD === 'function') updateHUD();
       TRAVEL_CORRIDOR.advanceDayLeg();
     },
@@ -4344,7 +4345,8 @@
       var note      = G.flags._jrn_note || '';
       var anchorDay = G.flags._jrn_anchor_day;
       var anchorId  = G.flags._jrn_anchor_id;
-      var destLoc   = window.WORLD_LOCATIONS ? window.WORLD_LOCATIONS[toId] : null;
+      var _JRN_ENG2 = {aurora_crown_commune:'aurora',guildheart_hub:'guildheart',panim_haven:'panim',soreheim_proper:'soreheim',mimolot_academy:'mimolot',sunspire_haven:'sunspire'};
+      var destLoc   = window.WORLD_LOCATIONS ? (window.WORLD_LOCATIONS[toId] || window.WORLD_LOCATIONS[_JRN_ENG2[toId] || toId]) : null;
       var destName  = destLoc ? destLoc.name : toId;
       var routeTierObj = (window.TRAVEL_ROUTES || {})[fromId+'|'+toId]
                       || (window.TRAVEL_ROUTES || {})[toId+'|'+fromId] || {};
@@ -4410,9 +4412,11 @@
       if (G) G.travelMode = null;
       window._travelNextEncounter = null;
       if (typeof closeOverlay === 'function') closeOverlay('overlay-map');
+      var _JRN_ENG3 = {aurora_crown_commune:'aurora',guildheart_hub:'guildheart',panim_haven:'panim',soreheim_proper:'soreheim',mimolot_academy:'mimolot',sunspire_haven:'sunspire'};
+      var _engDestId = _JRN_ENG3[toId] || toId;
       setTimeout(function() {
-        if (typeof resolveArrival === 'function') resolveArrival(toId);
-        else if (typeof loadStageChoices === 'function') loadStageChoices(toId);
+        if (typeof resolveArrival === 'function') resolveArrival(_engDestId);
+        else if (typeof loadStageChoices === 'function') loadStageChoices(_engDestId);
       }, 200);
     },
     _renderEncounterInOverlay: function(biome, tier, choiceArea) {
