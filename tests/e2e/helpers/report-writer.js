@@ -17,6 +17,18 @@ const fs   = require('fs');
 const path = require('path');
 
 const TEST_RESULTS = path.join(__dirname, '..', '..', 'test-results');
+// Screenshots are written by the headed/headless specs into <project-root>/test-results/playthrough-screenshots/<mode>/
+// (NOT <tests>/test-results/...). The headed spec uses path.resolve(__dirname, '../../test-results') from tests/e2e/.
+const SCREENSHOT_ROOT = path.resolve(__dirname, '..', '..', '..', 'test-results', 'playthrough-screenshots');
+
+function countScreenshots(mode) {
+  try {
+    const dir = path.join(SCREENSHOT_ROOT, mode);
+    return fs.readdirSync(dir)
+      .filter(f => /\.(png|jpg|jpeg)$/i.test(f))
+      .length;
+  } catch (_) { return 0; }
+}
 
 class ReportWriter {
   constructor(mode) {
@@ -82,6 +94,7 @@ class ReportWriter {
     const passed   = this._families.filter(f => f.success).length;
     const total    = this._families.length;
     const newWarns = Math.max(0, warnCount - this._warnBaseline);
+    const shotCount = countScreenshots(this._mode);
 
     const lines = [];
 
@@ -100,6 +113,7 @@ class ReportWriter {
     lines.push(`| Map travels executed | ${(coverage.mapTravels || []).length} |`);
     lines.push(`| Dead-ends encountered | ${(coverage.deadEnds || []).length} |`);
     lines.push(`| JS errors logged | ${this._jsErrors.length} |`);
+    lines.push(`| Screenshots captured | ${shotCount} |`);
     lines.push(`| Validator warnings (new above baseline) | ${newWarns} |`);
     lines.push('');
 

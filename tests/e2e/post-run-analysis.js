@@ -22,7 +22,9 @@ const { spawn }      = require('child_process');
 
 const ROOT           = path.join(__dirname, '..', '..');
 const TEST_RESULTS   = path.join(ROOT, 'tests', 'test-results');
-const SCREENSHOTS    = path.join(TEST_RESULTS, 'playthrough-screenshots', 'headed');
+// Screenshots are written by the headed/headless specs into <root>/test-results/playthrough-screenshots/<mode>/
+// (NOT <root>/tests/test-results/...). The headed spec uses path.resolve(__dirname, '../../test-results').
+const SCREENSHOTS    = path.join(ROOT, 'test-results', 'playthrough-screenshots', 'headed');
 const PLANS_DIR      = path.join(ROOT, 'docs', 'superpowers', 'plans');
 const LOG_FILE       = path.join(TEST_RESULTS, 'playtest-headed-log.md');
 
@@ -431,6 +433,157 @@ async function analyzeWithSDK(domain, ctx, imagePaths) {
 }
 
 // ---------------------------------------------------------------------------
+// Implementation Triage — reads session-targets.json, verifies each target
+// via screenshot vision + pass criteria. Runs before all domain analysis.
+// ---------------------------------------------------------------------------
+const SESSION_TARGETS_PATH = path.join(ROOT, 'tests', 'test-results', 'session-targets.json');
+
+function loadSessionTargets() {
+  try {
+    const raw = fs.readFileSync(SESSION_TARGETS_PATH, 'utf8');
+    return JSON.parse(raw);
+  } catch (_) {
+    return null;
+  }
+}
+
+function findTargetScreenshots(target, allShots, ssDir) {
+  const hints = (target.screenshot_hints || []).map(h => h.toLowerCase());
+  const matches = allShots.filter(f => {
+    const lower = f.toLowerCase();
+    return hints.some(h => lower.includes(h));
+  });
+  // Cap at 4 screenshots per target to stay within token budget
+  return matches.slice(0, 4).map(f => path.join(ssDir, f));
+}
+
+async function runImplementationTriage(ctx) {
+  const targetsData = loadSessionTargets();
+  if (!targetsData || !Array.isArray(targetsData.targets) || targetsData.targets.length === 0) {
+    return { skipped: true, reason: 'No session-targets.json found or empty targets list' };
+  }
+
+  const results = [];
+  const ssDir = ctx.ssDir || SCREENSHOTS;
+  const allShots = ctx.screenshots || [];
+
+  let Anthropic;
+  try { Anthropic = require('@anthropic-ai/sdk'); } catch (_) {}
+
+  for (const target of targetsData.targets) {
+    const imgPaths = findTargetScreenshots(target, allShots, ssDir);
+    let status = 'NOT_SEEN';
+    let reasoning = 'No matching screenshots found for this target.';
+
+    if (imgPaths.length > 0 && Anthropic && process.env.ANTHROPIC_API_KEY) {
+      const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+      const content = [];
+      for (const imgPath of imgPaths) {
+        try {
+          const stat = fs.statSync(imgPath);
+          if (stat.size > 2 * 1024 * 1024) continue;
+          const ext = path.extname(imgPath).toLowerCase();
+          const mediaType = ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' : 'image/png';
+          const data = fs.readFileSync(imgPath).toString('base64');
+          content.push({ type: 'image', source: { type: 'base64', media_type: mediaType, data } });
+        } catch (_) {}
+      }
+      content.push({
+        type: 'text',
+        text: [
+          `Implementation verification task for Ledger of Ash post-playtest triage.`,
+          ``,
+          `Feature to verify: ${target.description}`,
+          `Pass criteria: ${target.pass_criteria}`,
+          ``,
+          `Examine the ${imgPaths.length} screenshot(s) above.`,
+          `Reply with exactly one of these verdicts on the first line:`,
+          `PASS — the pass criteria is clearly met in at least one screenshot`,
+          `FAIL — screenshots show the feature area but the criteria is NOT met (broken/missing)`,
+          `NOT_SEEN — screenshots do not show this feature area at all`,
+          ``,
+          `Then in 1-2 sentences explain what you saw (or didn't see).`,
+        ].join('\n'),
+      });
+
+      try {
+        const msg = await client.messages.create({
+          model: 'claude-haiku-4-5-20251001',
+          max_tokens: 256,
+          messages: [{ role: 'user', content }],
+        });
+        const reply = msg.content[0].type === 'text' ? msg.content[0].text.trim() : '';
+        if (reply.startsWith('PASS')) { status = 'PASS'; reasoning = reply.slice(4).trim(); }
+        else if (reply.startsWith('FAIL')) { status = 'FAIL'; reasoning = reply.slice(4).trim(); }
+        else if (reply.startsWith('NOT_SEEN')) { status = 'NOT_SEEN'; reasoning = reply.slice(8).trim(); }
+        else { reasoning = reply; }
+      } catch (e) {
+        reasoning = `[vision call failed: ${e.message.slice(0, 100)}]`;
+      }
+    } else if (imgPaths.length === 0) {
+      status = 'NOT_SEEN';
+      reasoning = `No screenshots matched hints: ${(target.screenshot_hints || []).join(', ')}`;
+    } else {
+      status = 'NOT_SEEN';
+      reasoning = 'Anthropic SDK unavailable — could not run vision check.';
+    }
+
+    results.push({ id: target.id, description: target.description, status, reasoning, screenshots: imgPaths.map(p => path.basename(p)) });
+    console.log(`[triage] ${target.id}: ${status}`);
+  }
+
+  return {
+    session: targetsData.session,
+    sessionDescription: targetsData.description,
+    results,
+  };
+}
+
+function formatTriageBlock(triage) {
+  if (triage.skipped) {
+    return `## Implementation Triage\n\n*Skipped: ${triage.reason}*\n`;
+  }
+  const pass     = triage.results.filter(r => r.status === 'PASS');
+  const fail     = triage.results.filter(r => r.status === 'FAIL');
+  const notSeen  = triage.results.filter(r => r.status === 'NOT_SEEN');
+
+  const lines = [
+    `## Implementation Triage`,
+    `**Session:** ${triage.session} — ${triage.sessionDescription}`,
+    `**Result:** ${pass.length} PASS · ${fail.length} FAIL · ${notSeen.length} NOT SEEN`,
+    '',
+  ];
+
+  if (fail.length) {
+    lines.push('### ✗ FAIL — Flagged for follow-up');
+    for (const r of fail) {
+      lines.push(`- **${r.id}**: ${r.description}`);
+      lines.push(`  - ${r.reasoning}`);
+      if (r.screenshots.length) lines.push(`  - Screenshots: ${r.screenshots.join(', ')}`);
+    }
+    lines.push('');
+  }
+
+  if (pass.length) {
+    lines.push('### ✓ PASS — Confirmed player-facing');
+    for (const r of pass) {
+      lines.push(`- **${r.id}**: ${r.reasoning}`);
+    }
+    lines.push('');
+  }
+
+  if (notSeen.length) {
+    lines.push('### ○ NOT SEEN — Not encountered during this run');
+    for (const r of notSeen) {
+      lines.push(`- **${r.id}**: ${r.reasoning}`);
+    }
+    lines.push('');
+  }
+
+  return lines.join('\n');
+}
+
+// ---------------------------------------------------------------------------
 // Domain 13 — Static Code Audit
 // ---------------------------------------------------------------------------
 function runCodeAudit() {
@@ -626,6 +779,11 @@ async function main() {
   const ctx = buildContext(reportPath, ssArg, LOG_FILE);
   console.log(`[post-run-analysis] ${ctx.screenshots.length} screenshots found`);
 
+  // Implementation triage — vision-check session targets against screenshots
+  console.log('[post-run-analysis] running implementation triage...');
+  const triage = await runImplementationTriage(ctx);
+  const triageBlock = formatTriageBlock(triage);
+
   // Run all domains (sequentially to avoid rate limits / process conflicts)
   const findings = {};
   for (const domain of DOMAINS) {
@@ -655,9 +813,20 @@ async function main() {
     `**Generated:** ${now.toISOString()}`,
     `**Screenshots analyzed:** ${ctx.screenshots.length}`,
     '',
+    triageBlock,
+    '',
   ];
 
   let allP0 = [], allP1 = [], allP2 = [];
+
+  // Promote triage FAILs to P1
+  if (!triage.skipped && Array.isArray(triage.results)) {
+    for (const r of triage.results) {
+      if (r.status === 'FAIL') {
+        allP1.push(`- Implementation Triage [FAIL]: ${r.id} — ${r.description} | ${r.reasoning}`);
+      }
+    }
+  }
 
   for (const domain of DOMAINS) {
     const text = findings[domain.id] || '[no findings]';
