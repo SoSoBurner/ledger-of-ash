@@ -4496,17 +4496,45 @@
           + (skillDisplay ? '<br><span style="font-size:11px;color:var(--ink-dim)">' + skillDisplay + '</span>' : '');
         btn.addEventListener('click', function() {
           choiceArea.querySelectorAll('button').forEach(function(b) { b.disabled = true; });
+
+          // Combat choice: close overlay so combat renders in the main UI; resume journey on victory
+          if (choice.id === 'enc_fight') {
+            if (typeof closeOverlay === 'function') closeOverlay('overlay-map');
+            G.pendingVictoryCallback = function() {
+              if (typeof showOverlay === 'function') showOverlay('overlay-map');
+              TRAVEL_CORRIDOR.advanceDayLeg();
+            };
+            if (typeof choice.action === 'function') choice.action();
+            return;
+          }
+
           if (typeof choice.action === 'function') {
+            // Render a result panel inside the overlay so the player sees the outcome
+            var _resultDiv = document.createElement('div');
+            _resultDiv.className = 'journey-narration';
+            _resultDiv.style.cssText = 'border-top:1px solid var(--char);padding-top:10px;margin-top:8px;';
+            choiceArea.parentNode.insertBefore(_resultDiv, choiceArea);
+            // Temporarily redirect addNarration into the overlay panel
+            var _origNarration = window.addNarration;
+            window.addNarration = function(label, html) {
+              _resultDiv.innerHTML = (label ? '<strong>' + label + '</strong><br>' : '') + html;
+              window.addNarration = _origNarration;
+            };
             choice.action();
+            // action() schedules advanceDayLeg() via _travelNextEncounter after 500ms
           } else {
-            // Fallback for any remaining CID-only choices
+            // Fallback dice roll — render result inline in overlay
             var r = typeof rollD20 === 'function' ? rollD20(choice.skill || 'wits') : { total: 10 };
             var dc = choice.tag === 'bold' ? 16 : choice.tag === 'safe' ? 7 : 13;
             var resultText = r.total >= dc
               ? (choice.successResult || 'You proceed without incident.')
               : (choice.failResult    || 'The road resists.');
-            if (typeof addNarration === 'function') addNarration('', resultText);
-            setTimeout(function() { TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
+            var _rd = document.createElement('div');
+            _rd.className = 'journey-narration';
+            _rd.style.cssText = 'border-top:1px solid var(--char);padding-top:10px;margin-top:8px;';
+            _rd.innerHTML = resultText;
+            choiceArea.parentNode.insertBefore(_rd, choiceArea);
+            setTimeout(function() { TRAVEL_CORRIDOR.advanceDayLeg(); }, 1200);
           }
         });
         choiceArea.appendChild(btn);
