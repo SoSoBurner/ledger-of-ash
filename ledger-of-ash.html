@@ -4544,10 +4544,12 @@ function renderCombatRound() {
     '</button>';
 
   // Archetype abilities
+  var _CAB_DISPLAY = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm'};
   usableAbilities.slice(0,2).forEach(ab => {
+    var _displaySkill = _CAB_DISPLAY[ab.skillReq] || ab.skillReq;
     html += '<button class="choice-btn combat-btn" data-action="ability" data-ability="' + ab.id + '">' +
       '<span class="choice-text">' + (ab.name || 'Unknown Ability') + ' — ' + (ab.effect || 'No description') + '</span>' +
-      '<span class="choice-meta"><span class="choice-skill">' + ab.skillReq + '</span><span class="choice-tag risky">ability</span></span>' +
+      '<span class="choice-meta"><span class="choice-skill">' + _displaySkill + '</span><span class="choice-tag risky">ability</span></span>' +
       '</button>';
   });
 
@@ -4923,6 +4925,13 @@ function resolveCombatAction(action, abilityId) {
   addNarration('Round ' + CS.round, resultText, resultType);
 
   if (CS.playerFell) { CS.playerFell = false; endCombat(false); return; }
+
+  // Boss phase-change hook — fires once when enemy crosses half-HP threshold
+  if (CS.enemy && typeof CS.enemy.onPhaseChange === 'function' &&
+      !CS._phaseChanged && CS.enemy.hp <= CS.enemy.maxHp * 0.5) {
+    CS._phaseChanged = true;
+    CS.enemy.onPhaseChange();
+  }
 
   // Check enemy flee
   const eFleePct = CS.enemy.hp / CS.enemy.maxHp;
@@ -10165,7 +10174,7 @@ function getAllLegends() {
 function getDefaultG() {
   return {
     name:'', archetype:null, background:null, level:1, xp:0, renown:0, hp:20, maxHp:20, gold:20,
-    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0},
+    skills:{might:0,vigor:0,charm:0,wits:0,finesse:0,spirit:0,craft:0},
     traits:[], location:'shelkopolis', timeIndex:0, dayCount:0, axisTick:0, axisInverted:false,
     stage:'Stage I', stageLabel:'Grass Roots', benevolence:0, orderAxis:0, localityHeat:{}, tensionLevel:0,
     factions:[], quests:[], questHints:{}, journal:[], journalRecords:[], history:[],
@@ -12080,11 +12089,34 @@ function renderNavChoices() {
 
 /** Renders choice buttons. Overridden to call weightChoicesForArchetype() first. Clears pending debounce. @param {Object[]} choices */
 function getAbilityById(id) {
-  if (typeof ARCHETYPE_ABILITY_TREES === 'undefined') return null;
-  var archId = G.archetype ? G.archetype.id : null;
-  if (!archId) return null;
-  var tree = ARCHETYPE_ABILITY_TREES[archId] || [];
-  return tree.find(function(a){ return a.id === id; }) || null;
+  var STARTER_ABILITY_DEFS = {
+    'pressure_strike': {
+      id: 'pressure_strike', name: 'Pressure Strike', type: 'active',
+      desc: 'Your next combat or risky roll gains +3.', unlockLevel: 2
+    },
+    'shadow_step': {
+      id: 'shadow_step', name: 'Shadow Step', type: 'active',
+      desc: 'Your next finesse roll gains +3.', unlockLevel: 2
+    },
+    'field_assess': {
+      id: 'field_assess', name: 'Field Assessment', type: 'active',
+      desc: 'Reduce the next DC you face by 2.', unlockLevel: 2
+    },
+    'pattern_recall': {
+      id: 'pattern_recall', name: 'Pattern Recall', type: 'active',
+      desc: 'Your next wits roll gains +3.', unlockLevel: 2
+    }
+  };
+  if (typeof ARCHETYPE_ABILITY_TREES !== 'undefined') {
+    var archId = G.archetype ? G.archetype.id : null;
+    if (archId) {
+      var tree = ARCHETYPE_ABILITY_TREES[archId] || [];
+      var found = tree.find(function(a){ return a.id === id; });
+      if (found) return found;
+    }
+  }
+  if (STARTER_ABILITY_DEFS[id]) return STARTER_ABILITY_DEFS[id];
+  return null;
 }
 
 function activateAbility(abilId) {
@@ -12094,6 +12126,11 @@ function activateAbility(abilId) {
   if (!ab) return;
 
   var ABILITY_EFFECTS = {
+    // starter abilities (granted at level 2 by family)
+    'pressure_strike':    { type: 'roll_bonus', skill: 'might',   bonus: 3, duration: 1 },
+    'shadow_step':        { type: 'roll_bonus', skill: 'finesse', bonus: 3, duration: 1 },
+    'field_assess':       { type: 'dc_reduce',                    amount: 2, duration: 1 },
+    'pattern_recall':     { type: 'roll_bonus', skill: 'wits',    bonus: 3, duration: 1 },
     // warrior
     wa_endure:            { type: 'heal',       hp: 4 },
     wa_rally:             { type: 'roll_bonus', skill: 'persuasion', bonus: 2 },
@@ -14040,18 +14077,10 @@ function showLevelUpScreen() {
     block.querySelectorAll('.lu-option-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var ab = options[parseInt(this.dataset.luAbility, 10)];
-        if (!G.abilities) G.abilities = [];
-        G.abilities.push({
-          id: ab.id,
-          name: ab.name || ab.id,
-          description: ab.desc || '',
-          gameEffect: ab.gameEffect || '',
-          type: ab.type || 'passive',
-          passive: (ab.type !== 'active'),
-          unlockLevel: ab.unlockLevel || ab.levelMin || 1,
-          skillReq: ab.skillReq || null,
-          source: 'levelup_ability'
-        });
+        G.unlockedAbilities = G.unlockedAbilities || [];
+        if (G.unlockedAbilities.indexOf(ab.id) === -1) {
+          G.unlockedAbilities.push(ab.id);
+        }
         block.remove();
         _finalizeLevelUp(chosenStat, chosenTrait);
       });
@@ -14341,7 +14370,8 @@ function _showModeSelectInOverlay(locId) {
       if (cost > 0) { G.gold = Math.max(0, (G.gold || 0) - cost); if (typeof updateHUD === 'function') updateHUD(); }
       G.travelMode = mode;
       if (typeof _showPackChoicesInOverlay === 'function') {
-        _showPackChoicesInOverlay(G.location, destId, mode);
+        var _fromAlias = _LOC_ALIAS_OVL[G.location] || G.location;
+        _showPackChoicesInOverlay(_fromAlias, destId, mode);
       }
     });
   });
@@ -14744,7 +14774,7 @@ function campAction(type) {
       return;
     }
     var _doCraft = function(recipe) {
-      var roll = rollD20('spirit', (G.skills.spirit || 0) + Math.floor((G.level || 1) / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('spirit') : 0) + (typeof getTraitBonus === 'function' ? getTraitBonus('spirit') : 0));
+      var roll = rollD20('craft', (G.skills.craft || 0) + Math.floor((G.level || 1) / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('craft') : 0) + (typeof getTraitBonus === 'function' ? getTraitBonus('craft') : 0));
       var itemDef = (typeof ITEM_DEFS !== 'undefined' && ITEM_DEFS[recipe.output]) ? ITEM_DEFS[recipe.output] : {};
       var itemName = itemDef.name || recipe.name;
       if (roll.isFumble) {
@@ -15364,7 +15394,7 @@ function showTrainingMenu() {
   closeOverlay('overlay-camp');
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
 
-  const SKILL_LABELS = {combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Spirit'};
+  const SKILL_LABELS = {combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm', craft:'Craft'};
   const day = G.dayCount || 0;
   const el = document.getElementById('action-content') || document.getElementById('narrative-content');
   const block = document.createElement('div');
@@ -16962,7 +16992,12 @@ var MATERIAL_SELL_PRICES = {
   highland_cloth: 3,
   bone_pin: 2,
   bone_shard: 2,
-  beast_hide: 5
+  beast_hide: 5,
+  parchment_roll: 3,
+  salt_cloth: 4,
+  hide_scrap: 5,
+  swamp_resin: 6,
+  beast_bone: 7
 };
 
 function shopShowTab(tab) {
