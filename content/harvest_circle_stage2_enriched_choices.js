@@ -321,6 +321,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Valen Crestmark's personal logbook sits in a locked drawer he doesn't think anyone noticed.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
@@ -359,6 +360,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The silo operator weighs everything. He doesn't open the offering crates. He just weighs them.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
     xpReward: 66,
@@ -461,6 +463,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The cold storage keeper logs every degree drop. The Compact's containers were never logged.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -497,6 +500,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three seed varieties went missing last autumn. No spoilage report was filed.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
     xpReward: 66,
@@ -603,6 +607,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The ritual herbalist noticed the bundle weight had changed before the route even left.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -779,6 +784,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The yield records show an allocation not in the commune\'s own ledger',
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
@@ -799,6 +805,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The elder knows about the diversion. She speaks only in crop terms',
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
@@ -838,6 +845,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'What the diverted yield was used for is implied by what came back',
+    plot: 'main',
     skill: 'wits',
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,

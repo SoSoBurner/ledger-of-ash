@@ -65,6 +65,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The sensors were changed. The dome still reads safe.",
+    plot: 'main',
     tags: ['Investigation', 'Stage2'],
     xpReward: 80,
     failResult: function() {
@@ -204,6 +205,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The shrine attendance spikes the same week as every delivery.",
+    plot: 'main',
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 70,
     failResult: function() {
@@ -542,6 +544,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The liaison's credential ran inside the dome on days the liaison wasn't here.",
+    plot: 'main',
     tags: ['Stage2', 'NPC', 'Lore'],
     xpReward: 68,
     failResult: function() {
@@ -613,6 +616,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The council tabled a motion four months ago. No vote is recorded.",
+    plot: 'main',
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 68,
     failResult: function() {
@@ -718,6 +722,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The dismissed technician filed two anomaly reports. Neither reached the maintenance record.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     failResult: function() {
@@ -818,6 +823,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The dosing pattern matches a technique the Compact documented before the suppression period.",
+    plot: 'main',
     tags: ['Stage2', 'Lore', 'Arcane'],
     xpReward: 80,
     failResult: function() {
@@ -890,6 +896,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The ritual calendar has a gap. An observance period that never happened',
+    plot: 'main',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -927,6 +934,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'Celestial observation records have a gap that matches the calendar',
+    plot: 'main',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -946,6 +954,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'Administrative filings cite the dome calendar as their timing reference',
+    plot: 'main',
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
     failResult: function() {
@@ -968,6 +977,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The glyph surge log skips three entries. The intake was active those days.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 74,
     failResult: function() {
@@ -1004,6 +1014,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The filtration cycle timer was extended. The air stayed in the dome longer.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Survival'],
     xpReward: 71,
     fn: function() {
@@ -1036,6 +1047,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The residue concentration readings are filed monthly. The last three were identical.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Craft'],
     xpReward: 68,
     failResult: function() {
@@ -1072,6 +1084,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The intake maintenance schedule runs a different corridor than the records show.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Stealth'],
     xpReward: 72,
     failResult: function() {
@@ -1108,6 +1121,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Theron's porter log has a seven-day blank. The dome was sealed for maintenance.",
+    plot: 'main',
     tags: ['Dome', 'Stage2'],
     xpReward: 76,
     fn: function() {
@@ -1140,6 +1154,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sera Whiteglass has been sleeping in the marshal office. She found something she can't unfind.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
     xpReward: 78,
     failResult: function() {
@@ -1177,6 +1192,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Mariel Sealwater keeps a second ledger. She calls it her memory book.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
     xpReward: 70,
     failResult: function() {
@@ -1213,6 +1229,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Cadrin ran the numbers himself. He's been sitting on the result for two weeks.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 73,
     failResult: function() {
@@ -1250,6 +1267,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Liora Sealwater started keeping her own tally. She doesn't call it a record.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 72,
     failResult: function() {
@@ -1287,6 +1305,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Theron keeps a smell log. He's been writing down the wrong smell since month one.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Survival'],
     xpReward: 74,
     failResult: function() {
@@ -1323,6 +1342,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Mariel's two recent guests arrived on the same day and left with the same stamp.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
     xpReward: 69,
     failResult: function() {
@@ -1361,6 +1381,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression compound has a signature smell. The dome's drainage has it too.",
+    plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 73,
     fn: function() {
@@ -1393,6 +1414,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression residue has a second source. The ventilation grates are coated from both sides.",
+    plot: 'main',
     tags: ['Stage2', 'Craft'],
     xpReward: 75,
     failResult: function() {
@@ -1429,6 +1451,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The amber residue reacts to glyph-sensitive paper. Standard filtration compound does not.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 77,
     failResult: function() {
@@ -1465,6 +1488,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The residue suppression compound was sourced before the dome was built.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 78,
     failResult: function() {
@@ -1503,6 +1527,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The same ghost supplier appears in Harvest Circle's maintenance records.",
+    plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Lore'],
     xpReward: 82,
     failResult: function() {
@@ -1539,6 +1564,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A northern circuit transit rider knows the Collegium liaison by a different name.",
+    plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Charm'],
     xpReward: 80,
     fn: function() {
@@ -1574,6 +1600,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The intake manifold pressure log shows a spike that wasn't in the filed summary.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 74,
     failResult: function() {
@@ -1610,6 +1637,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The glyph-surge threshold alarm was disabled. The disable log entry is missing a name.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Craft'],
     xpReward: 72,
     failResult: function() {
@@ -1646,6 +1674,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The filtration intake flow rate was throttled down for eight hours during each delivery.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Survival'],
     xpReward: 71,
     fn: function() {
@@ -1678,6 +1707,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The dome's air quality certification has been renewed annually. The certifier is the supplier.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 75,
     failResult: function() {
@@ -1714,6 +1744,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The dome's original filtration schematics were replaced four months ago. The old ones are missing.",
+    plot: 'main',
     tags: ['Dome', 'Stage2', 'Stealth'],
     xpReward: 73,
     failResult: function() {
@@ -1752,6 +1783,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sera Whiteglass has written up a formal complaint. She hasn't filed it yet.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
     xpReward: 76,
     failResult: function() {
@@ -1789,6 +1821,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Mariel Sealwater heard the liaison's name from a second source. It wasn't the same name.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
     xpReward: 70,
     failResult: function() {
@@ -1825,6 +1858,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Cadrin Sealwater found the supplier's registration date. It's three weeks before the delivery contract.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 72,
     failResult: function() {
@@ -1862,6 +1896,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Liora Sealwater recognizes the compound profile. She treated something like it before.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 74,
     failResult: function() {
@@ -1899,6 +1934,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Theron moved something from the east bay on a day his log shows him off-rotation.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Survival'],
     xpReward: 71,
     failResult: function() {
@@ -1935,6 +1971,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Sera tested the office air. The result is why she moved her desk.",
+    plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
     xpReward: 78,
     failResult: function() {
@@ -1974,6 +2011,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The amber residue is soluble in water. The drinking supply runs through the same loop.",
+    plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 74,
     fn: function() {
@@ -2006,6 +2044,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The residue accumulation pattern shows delivery day and the day after are both elevated.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 72,
     failResult: function() {
@@ -2042,6 +2081,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The compound's glyph-interaction leaves a trace on skin. The intake workers show it.",
+    plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 76,
     fn: function() {
@@ -2074,6 +2114,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression schedule is not monthly. It follows the commune's civic assembly calendar.",
+    plot: 'main',
     tags: ['Stage2', 'Craft'],
     xpReward: 77,
     failResult: function() {
@@ -2112,6 +2153,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The compound was found at an eastern circuit settlement. That settlement no longer exists.",
+    plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Lore'],
     xpReward: 83,
     failResult: function() {
@@ -2148,6 +2190,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Collegium liaison used the same credential at three localities in the same week.",
+    plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Stealth'],
     xpReward: 81,
     failResult: function() {

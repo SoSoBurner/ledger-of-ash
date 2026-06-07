@@ -493,6 +493,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The workshop quota board shows production targets no legitimate craft operation could meet.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
     xpReward: 68,
@@ -530,6 +531,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The intake log has a compound category no registered copy process uses.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Archive', 'Stage2', 'Observation'],
     xpReward: 65,
@@ -567,6 +569,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A materials broker filed a complaint and withdrew it the same day.",
+    plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2', 'Observation'],
     xpReward: 70,
@@ -604,6 +607,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The same item carries two certification stamps from different seasons",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
@@ -624,6 +628,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The master knows the materials are wrong. She's known for months",
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 15,
@@ -644,6 +649,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A quality mark dispute that traces back to one administrative decision",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
     xpReward: 15,
@@ -664,6 +670,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The rejected certification appeals all reference the same filing code",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
@@ -686,6 +693,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Jorin's material ledger uses two different unit systems on the same page.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Workshop', 'Records', 'Stage2'],
     xpReward: 70,
@@ -721,6 +729,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three material classifications were reclassified the same week the night-window inspections changed.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 74,
@@ -755,6 +764,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The stockyard intake manifest has a column with no header and no corresponding ledger field.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Stage2'],
     xpReward: 68,
@@ -787,6 +797,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The ledger volume covering last winter's batch deliveries is thinner than the others.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Stage2'],
     xpReward: 65,
@@ -819,6 +830,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Jorin avoids certain entries. The shape of that silence is specific.",
+    plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 72,
@@ -855,6 +867,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The stockyard measurements and ledger totals disagree by the same amount every quarter.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 76,
@@ -889,6 +902,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The copy-authentication desk has a queue that clears in under a minute.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Workshop', 'Stage2'],
     xpReward: 67,
@@ -920,6 +934,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Two certificates for the same shipment: different stamps, identical origin seal.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 78,
@@ -955,6 +970,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Copy Warden's validation marks are different weights on weekday certificates versus night-window ones.",
+    plot: 'main',
     skill: 'spirit',
     tags: ['Evidence', 'Stage2'],
     xpReward: 73,
@@ -989,6 +1005,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A trade certificate references a material classification that was abolished four years ago.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 75,
@@ -1021,6 +1038,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Blank trade certificates with pre-applied authentication stamps are not supposed to exist.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Evidence', 'Stage2'],
     xpReward: 82,
@@ -1058,6 +1076,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tess's log has seven items marked 'resolved' with no resolution note.",
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 74,
@@ -1093,6 +1112,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tess works the night-window shift because something changed three months ago and she asked to.",
+    plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 69,
@@ -1129,6 +1149,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Copy Warden has a second stamp. The desk only issues one.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['NPC', 'Evidence', 'Stage2'],
     xpReward: 80,
@@ -1164,6 +1185,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Jorin and Tess don't speak here. The silence between them is careful.",
+    plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 66,
@@ -1199,6 +1221,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Copy Warden predates the authentication system he operates.",
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Stage2'],
     xpReward: 68,
@@ -1234,6 +1257,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Jorin asked for a transfer eighteen months ago. It was denied. He never asked again.",
+    plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
     xpReward: 70,
@@ -1272,6 +1296,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The suppression compound's material inputs have a Craftspire ledger trail. It's not hidden well.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 78,
@@ -1307,6 +1332,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The same consortium name appears here and in the last locality's documents.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 76,
@@ -1342,6 +1368,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The forge output reported to the Collegium doesn't match the stockyard.",
+    plot: 'main',
     skill: 'vigor',
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 75,

@@ -404,6 +404,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The deviation notes are in a second book at the pylon base.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     failResult: function() {
@@ -437,6 +438,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The board restricted glyph research eight months ago. The record names who proposed it.",
+    plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 68,
     failResult: function() {
@@ -534,6 +536,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A shard fragment in the lab carries residue that doesn't match the formation's mineral signature.",
+    plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 68,
     fn: function() {
@@ -692,6 +695,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Two monitoring stations read the same formation. Their numbers have never matched.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 70,
     failResult: function() {
@@ -728,6 +732,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The contamination boundary shrank six months ago. The shards didn't.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 72,
     failResult: function() {
@@ -764,6 +769,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Toman's original suppression request listed a secondary reviewer. That name is blank now.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 75,
     failResult: function() {
@@ -800,6 +806,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The quarterly contamination report omits the northwest cluster entirely.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 68,
     failResult: function() {
@@ -838,6 +845,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Toman keeps his most recent fieldwork separate. He calls the folder 'personal notes'.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     xpReward: 74,
     failResult: function() {
@@ -874,6 +882,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lenna pulled the submission logs herself before I arrived. She was already counting.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     xpReward: 72,
     failResult: function() {
@@ -910,6 +919,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Toman filed a formal complaint once. He won't say what happened to it.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     xpReward: 78,
     failResult: function() {
@@ -946,6 +956,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Lenna's been marking the suppression files with a private notation system.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     xpReward: 74,
     failResult: function() {
@@ -982,6 +993,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Toman and Lenna met once before I arrived. That meeting left a mark.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     xpReward: 76,
     failResult: function() {
@@ -1020,6 +1032,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The hold mechanism is automated. No person has to sign off on individual suppressions.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 78,
     failResult: function() {
@@ -1056,6 +1069,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The secondary review queue has no assigned reviewers. Submissions go in and stop.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 76,
     failResult: function() {
@@ -1094,6 +1108,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The same NGOC routing code appears on a suppression order filed at Cosmouth.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 80,
     failResult: function() {
@@ -1130,6 +1145,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A Shelkopolis civic register lists NGOC. That address is a postal relay node.",
+    plot: 'main',
     tags: ['Research', 'Stage2'],
     xpReward: 82,
     failResult: function() {
@@ -1168,6 +1184,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The allocation records show water going somewhere not on the map',
+    plot: 'main',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -1205,6 +1222,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The allocation anomaly predates the current steward by two seasons',
+    plot: 'main',
     tags: ['Records', 'Intelligence'],
     xpReward: 15,
     failResult: function() {
@@ -1224,6 +1242,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The commune knows about the upstream supply issue. They haven\'t reported it',
+    plot: 'main',
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
     failResult: function() {

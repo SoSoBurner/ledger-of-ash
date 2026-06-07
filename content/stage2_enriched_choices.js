@@ -2,6 +2,7 @@ const STAGE2_ENRICHED_CHOICES = [
   // ========== TRAVEL ENCOUNTERS: Mysterious Figures & Hazardous Routes ==========
   {
     label: "The cloaked trader on the Ridgeway has maps she isn't selling to everyone.",
+    plot: 'main',
     tags: ['Travel', 'Mystery', 'Negotiation', 'Risk', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
@@ -35,6 +36,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The northern route is blocked. The detour is unstable. Both cost something.",
+    plot: 'main',
     tags: ['Travel', 'Risk', 'Decision', 'Route', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
@@ -68,6 +70,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The ferry captain's toll is not the listed one. The alternative is worse.",
+    plot: 'main',
     tags: ['Travel', 'Negotiation', 'Pressure', 'Choice', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
@@ -101,6 +104,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The abandoned camp has fresh supplies. Someone planned to return to it.",
+    plot: 'main',
     tags: ['Travel', 'Survival', 'Risk', 'Decision', 'Meaningful'],
     xpReward: 68,
     stageProgress: 2,
@@ -137,6 +141,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The messenger is being run down. The riders are organized.",
+    plot: 'main',
     tags: ['Travel', 'Moral', 'Combat', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
@@ -170,6 +175,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The scholar's papers are forged. The research inside them is real.",
+    plot: 'main',
     tags: ['Travel', 'Trust', 'Deception', 'Risk', 'Meaningful'],
     xpReward: 71,
     stageProgress: 2,
@@ -206,6 +212,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The lights on the horizon pulse at equal intervals. That regularity means something.",
+    plot: 'main',
     tags: ['Travel', 'Mystery', 'Danger', 'Investigation', 'Meaningful'],
     tag: 'risky',
     xpReward: 69,
@@ -240,6 +247,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The forbidden trail saves three days. The prohibition markers don't say why.",
+    plot: 'main',
     tags: ['Travel', 'Route', 'Risk', 'Temptation', 'Meaningful'],
     tag: 'bold',
     xpReward: 72,
@@ -273,6 +281,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Someone from home is on this road. They're nervous for a reason.",
+    plot: 'main',
     tags: ['Travel', 'Past', 'Connection', 'Caution', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
@@ -306,6 +315,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The refugees' stories don't match each other. Something was done to their district.",
+    plot: 'main',
     tags: ['Travel', 'Moral', 'Intelligence', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
@@ -341,6 +351,7 @@ const STAGE2_ENRICHED_CHOICES = [
   // ========== FACTION PRESSURE: Negotiation & Alliance-Building ==========
   {
     label: "The faction envoy's offer is specific. What he wants in return is not fully stated.",
+    plot: 'main',
     tags: ['Faction', 'Negotiation', 'Pressure', 'Alliance', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
@@ -374,6 +385,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Two factions want the same thing from me. They're watching which one I answer first.",
+    plot: 'main',
     tags: ['Faction', 'Choice', 'Power', 'Consequence', 'Meaningful'],
     tag: 'risky',
     xpReward: 74,
@@ -407,6 +419,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Yes to this is permanent. The faction knows that when they ask.",
+    plot: 'main',
     tags: ['Faction', 'Moral', 'Violence', 'Pressure', 'Meaningful'],
     tag: 'bold',
     xpReward: 75,
@@ -440,6 +453,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The faction safehouse is unguarded at the wrong hour. That might not be an accident.",
+    plot: 'main',
     tags: ['Faction', 'Discovery', 'Risk', 'Intelligence', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
@@ -473,6 +487,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "She's been watched long enough to know the gaps in the rotation. She wants out.",
+    plot: 'main',
     tags: ['Faction', 'Risk', 'Defection', 'Moral', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
@@ -506,6 +521,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Their internal split needs someone with no stake in either side.",
+    plot: 'main',
     tags: ['Faction', 'Politics', 'Trust', 'Authority', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
@@ -539,6 +555,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The operative didn't make the meeting. The body was left where I'd find it.",
+    plot: 'main',
     tags: ['Faction', 'Mystery', 'Danger', 'Moral', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
@@ -572,6 +589,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The faction wants eyes in a region I don't know. Saying no has a cost.",
+    plot: 'main',
     tags: ['Faction', 'Espionage', 'Network', 'Pressure', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
@@ -605,6 +623,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Empty coffers and my name on the access record. Both problems, both mine now.",
+    plot: 'main',
     tags: ['Faction', 'Suspicion', 'Investigation', 'Pressure', 'Meaningful'],
     xpReward: 73,
     stageProgress: 2,
@@ -640,6 +659,7 @@ const STAGE2_ENRICHED_CHOICES = [
   // ========== COMPANION DYNAMICS: Loyalty Tests & Moral Stands ==========
   {
     label: "She told a specific lie, sustained across weeks. That takes planning.",
+    plot: 'main',
     tags: ['Companion', 'Trust', 'Deception', 'Loyalty', 'Meaningful'],
     xpReward: 72,
     stageProgress: 2,
@@ -676,6 +696,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "His vendetta has a name now. The consequences come either way.",
+    plot: 'main',
     tags: ['Companion', 'Choice', 'Loyalty', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
@@ -709,6 +730,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The companion needs medicine that costs more than the road budget allows.",
+    plot: 'main',
     tags: ['Companion', 'Moral', 'Sacrifice', 'Care', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
@@ -742,6 +764,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The two companions are at an impasse. Both are right about different things.",
+    plot: 'main',
     tags: ['Companion', 'Moral', 'Conflict', 'Leadership', 'Meaningful'],
     tag: 'risky',
     xpReward: 71,
@@ -775,6 +798,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Sick, and she knows exactly what that means for everyone in camp.",
+    plot: 'main',
     tags: ['Companion', 'Sacrifice', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 74,
     stageProgress: 2,
@@ -811,6 +835,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "A companion's family inside a facility I can reach. The window won't stay open.",
+    plot: 'main',
     tags: ['Companion', 'Moral', 'Consequence', 'Risk', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
@@ -844,6 +869,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "A companion gave something up for the group quietly. They haven't said anything about it.",
+    plot: 'main',
     tags: ['Companion', 'Sacrifice', 'Revelation', 'Loyalty', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
@@ -877,6 +903,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "She was paid to watch me. She stopped. The reason matters more than the fact.",
+    plot: 'main',
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
     xpReward: 70,
     stageProgress: 2,
@@ -915,6 +942,7 @@ const STAGE2_ENRICHED_CHOICES = [
   // ========== ROUTE INTELLIGENCE: Scouts, Spies & Institutional Observation ==========
   {
     label: "A scout with checkpoint maps. The price is still undecided.",
+    plot: 'main',
     tags: ['Intelligence', 'Route', 'Information', 'Cost', 'Meaningful'],
     tag: 'safe',
     failResult: 'The scout moved on before the price was settled — route intelligence is still available through other channels in this district.',
@@ -949,6 +977,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Intercepted messages between institutions, discussing transit restrictions — the cipher is the first problem.",
+    plot: 'main',
     tags: ['Intelligence', 'Espionage', 'Information', 'Power', 'Meaningful'],
     tag: 'risky',
     xpReward: 71,
@@ -982,6 +1011,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "An institutional spy wants shelter. What they carry outweighs turning them in.",
+    plot: 'main',
     tags: ['Intelligence', 'Spy', 'Moral', 'Pressure', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
@@ -1015,6 +1045,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "Institutional officials on a route they don't want mapped. Their destination is the question.",
+    plot: 'main',
     tags: ['Intelligence', 'Observation', 'Espionage', 'Risk'],
     tag: 'risky',
     xpReward: 69,
@@ -1049,6 +1080,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "A scout network offers route data. The price is protection I may not deliver.",
+    plot: 'main',
     tags: ['Intelligence', 'Network', 'Alliance', 'Commitment', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
@@ -1082,6 +1114,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "A dead messenger. Encrypted documents still sealed. Someone needs these not to arrive.",
+    plot: 'main',
     tags: ['Intelligence', 'Investigation', 'Mystery', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
@@ -1116,6 +1149,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The archive is breached. The secondary stacks are unguarded. The window won't stay open.",
+    plot: 'main',
     tags: ['Intelligence', 'Opportunity', 'Moral', 'Risk', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
@@ -1149,6 +1183,7 @@ const STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "They need my testimony against institutional officers. Their protection may not outlast my usefulness.",
+    plot: 'main',
     tags: ['Intelligence', 'Corruption', 'Legal', 'Risk', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
@@ -1268,6 +1303,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_1',
     label: 'Seld counted something on his fingers just now. He stopped at four.',
+    xpReward: 20,
     text: 'Seld counted something on his fingers just now. He stopped at four.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1298,6 +1334,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_2',
     label: 'Seld has a document fragment he isn\'t supposed to have.',
+    xpReward: 20,
     text: 'Seld has a document fragment he isn\'t supposed to have.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1328,6 +1365,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_3',
     label: 'Seld is being watched. He knows and he came anyway.',
+    xpReward: 20,
     text: 'Seld is being watched. He knows and he came anyway.',
     tags: ['Confrontation', 'Social'],
     plot: 'main',
@@ -1360,6 +1398,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_4',
     label: 'Seld trusts process. The Wardens trust force. These are not compatible.',
+    xpReward: 20,
     text: 'Seld trusts process. The Wardens trust force. These are not compatible.',
     tags: ['Confrontation', 'Social'],
     plot: 'main',
@@ -1392,6 +1431,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_1',
     label: 'The checkpoint officer pulled my transit record before she said a word.',
+    xpReward: 20,
     text: 'The checkpoint officer pulled my transit record before she said a word.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1422,6 +1462,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_2',
     label: 'She has corridor data that hasn\'t been filed with any district office.',
+    xpReward: 20,
     text: 'She has corridor data that hasn\'t been filed with any district office.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1453,6 +1494,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_3',
     label: 'The Wardens are being watched from above their own chain.',
+    xpReward: 20,
     text: 'The Wardens are being watched from above their own chain.',
     tags: ['Investigation', 'Social'],
     plot: 'main',
@@ -1485,6 +1527,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_4',
     label: 'The Wardens enforce what the Collegium documents. One without the other stops here.',
+    xpReward: 20,
     text: 'The Wardens enforce what the Collegium documents. One without the other stops here.',
     tags: ['Social', 'Confrontation'],
     plot: 'main',
@@ -1517,6 +1560,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_5',
     label: 'Filing the audit request means flagging the filer.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Risk'],
     plot: 'main',
@@ -1550,6 +1594,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_6',
     label: 'The Collegium source wants something before she speaks.',
+    xpReward: 20,
     skill: 'charm',
     tags: ['Social', 'Negotiation'],
     plot: 'main',
@@ -1583,6 +1628,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_7',
     label: 'The sealed records partition runs on a different access schedule.',
+    xpReward: 20,
     skill: 'finesse',
     tags: ['Stealth', 'Evidence'],
     plot: 'main',
@@ -1616,6 +1662,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_8',
     label: 'One Collegium member broke with the faction over this suppression.',
+    xpReward: 20,
     skill: 'charm',
     tags: ['Social', 'Evidence'],
     plot: 'main',
@@ -1648,6 +1695,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_9',
     label: 'The suppression authorization came through a transit stamp, not a signatory.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Lore'],
     plot: 'main',
@@ -1680,6 +1728,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_10',
     label: 'Third record. The coordination extends well beyond this polity.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Confrontation'],
     plot: 'main',
@@ -1713,6 +1762,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_11',
     label: 'The Collegium will provide cover for the confrontation. At a price.',
+    xpReward: 20,
     skill: 'charm',
     tags: ['Social', 'Alliance'],
     plot: 'main',
@@ -1746,6 +1796,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_12',
     label: 'The final Collegium record names the mechanism. Not the person behind it.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Discovery'],
     plot: 'main',
@@ -1781,6 +1832,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_5',
     label: 'The runner knows three routes nobody maps.',
+    xpReward: 20,
     skill: 'finesse',
     tags: ['Stealth', 'Intelligence'],
     plot: 'main',
@@ -1814,6 +1866,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_6',
     label: 'The cargo broker speaks if the Road Wardens vouch for the meeting.',
+    xpReward: 20,
     skill: 'charm',
     tags: ['Social', 'Evidence'],
     plot: 'main',
@@ -1847,6 +1900,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_7',
     label: 'The safe house holds records the archive destroyed.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Discovery'],
     plot: 'main',
@@ -1879,6 +1933,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_8',
     label: 'Someone displaced by the suppression is still in Shelk.',
+    xpReward: 20,
     skill: 'charm',
     tags: ['Social', 'Moral'],
     plot: 'main',
@@ -1911,6 +1966,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_9',
     label: 'The Road Wardens know who runs enforcement. They use a codename.',
+    xpReward: 20,
     skill: 'finesse',
     tags: ['Intelligence', 'Stealth'],
     plot: 'main',
@@ -1943,6 +1999,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_10',
     label: 'Black market manifests name the routing point. Not the authority behind it.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Intelligence'],
     plot: 'main',
@@ -1975,6 +2032,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_11',
     label: 'The Road Wardens can create a distraction when the confrontation comes.',
+    xpReward: 20,
     skill: 'finesse',
     tags: ['Alliance', 'Stealth'],
     plot: 'main',
@@ -2008,6 +2066,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_12',
     label: 'The final Road Wardens source has the enforcement action itself documented.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Discovery'],
     plot: 'main',
@@ -2043,6 +2102,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_arch_combat',
     label: 'Collegium security here is surveillance architecture, not witness protection.',
+    xpReward: 20,
     skill: 'might',
     archetypeGroup: 'combat',
     tags: ['Combat', 'Intelligence'],
@@ -2074,6 +2134,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_arch_magic',
     label: 'The ward scan shows institutional certification before the suppression, not after.',
+    xpReward: 20,
     skill: 'spirit',
     archetypeGroup: 'magic',
     tags: ['Magic', 'Evidence'],
@@ -2105,6 +2166,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_arch_stealth',
     label: 'Irregular gaps in the Collegium meeting schedule. Something happens in those gaps.',
+    xpReward: 20,
     skill: 'finesse',
     archetypeGroup: 'stealth',
     tags: ['Stealth', 'Discovery'],
@@ -2136,6 +2198,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_arch_support',
     label: 'Collegium members who asked too many questions faced internal social pressure.',
+    xpReward: 20,
     skill: 'charm',
     archetypeGroup: 'support',
     tags: ['Social', 'Intelligence'],
@@ -2169,6 +2232,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_arch_combat',
     label: 'Road Wardens counter-surveillance reveals who watches the watchers.',
+    xpReward: 20,
     skill: 'might',
     archetypeGroup: 'combat',
     tags: ['Combat', 'Intelligence'],
@@ -2200,6 +2264,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_arch_magic',
     label: 'Arcane traces confirm documents were certified before their destruction.',
+    xpReward: 20,
     skill: 'spirit',
     archetypeGroup: 'magic',
     tags: ['Magic', 'Evidence'],
@@ -2231,6 +2296,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_arch_stealth',
     label: 'The Wardens\' route network maps the same gaps the suppression relied on.',
+    xpReward: 20,
     skill: 'finesse',
     archetypeGroup: 'stealth',
     tags: ['Stealth', 'Discovery'],
@@ -2262,6 +2328,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_arch_support',
     label: 'The Road Wardens\' network traces who was silenced, who fled, who stayed quiet.',
+    xpReward: 20,
     skill: 'charm',
     archetypeGroup: 'support',
     tags: ['Social', 'Moral'],
@@ -2320,6 +2387,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_deadend_1_recovery',
     label: 'The junior archive clerk works evenings. The archivist does not know her.',
+    xpReward: 20,
     skill: 'finesse',
     tags: ['Stealth', 'Opportunity'],
     plot: 'main',
@@ -2378,6 +2446,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_deadend_2_recovery',
     label: 'A different Collegium source. One who doesn\'t know about the Road Wardens connection.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Social', 'Intelligence'],
     plot: 'main',
@@ -2436,6 +2505,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_deadend_1_recovery',
     label: 'The broker\'s former partner worked a different part of the same operation.',
+    xpReward: 20,
     skill: 'charm',
     tags: ['Social', 'Intelligence'],
     plot: 'main',
@@ -2494,6 +2564,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_wardens_deadend_2_recovery',
     label: 'The backup courier. Slower, less known, different route entirely.',
+    xpReward: 20,
     skill: 'finesse',
     tags: ['Stealth', 'Opportunity'],
     plot: 'main',
@@ -2529,6 +2600,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_enforcement_mechanism_variant',
     label: 'The enforcement mechanism runs on transit infrastructure nobody questioned.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Intelligence'],
     plot: 'main',
@@ -2565,6 +2637,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_transit_stamp_variant',
     label: 'The transit stamp series traces to a specific routing post.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Intelligence'],
     plot: 'main',
@@ -2602,6 +2675,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_institutional_backing_variant',
     label: 'The coordination extends beyond this polity\'s institutional structure.',
+    xpReward: 20,
     skill: 'wits',
     tags: ['Evidence', 'Lore'],
     plot: 'main',
@@ -2641,6 +2715,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_routing_crossref',
     label: 'The district numbers and the route numbers share a column they shouldn\'t.',
+    xpReward: 20,
     text: 'The district numbers and the route numbers share a column they shouldn\'t.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
@@ -2667,6 +2742,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_follow_the_watcher',
     label: 'Someone has been following my route. I want to know who gave them the itinerary.',
+    xpReward: 20,
     text: 'Someone has been following my route. I want to know who gave them the itinerary.',
     tags: ['Stealth', 'Investigation'],
     plot: 'side',
@@ -2698,6 +2774,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_sealed_archive_loophole',
     label: 'A procedural appeal is not an access request. The rule doesn\'t cover it.',
+    xpReward: 20,
     text: 'A procedural appeal is not an access request. The rule doesn\'t cover it.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
@@ -2724,6 +2801,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_merchant_subtext',
     label: 'He answered every question I didn\'t ask. Not one I did.',
+    xpReward: 20,
     text: 'He answered every question I didn\'t ask. Not one I did.',
     tags: ['Investigation', 'Social'],
     plot: 'side',
@@ -2753,6 +2831,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_recurring_name',
     label: 'That name has appeared in four separate documents from three different offices.',
+    xpReward: 20,
     text: 'That name has appeared in four separate documents from three different offices.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
@@ -2780,6 +2859,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_collegium_public_vs_deep',
     label: 'The public Collegium office exists to be seen. What\'s behind it does not.',
+    xpReward: 20,
     text: 'The public Collegium office exists to be seen. What\'s behind it does not.',
     tags: ['Investigation', 'Stealth'],
     plot: 'side',
@@ -2809,6 +2889,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_suppression_gap',
     label: 'There\'s a gap in the suppression pattern. Someone forgot a subcategory.',
+    xpReward: 20,
     text: 'There\'s a gap in the suppression pattern. Someone forgot a subcategory.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -2838,6 +2919,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_district_night_records',
     label: 'The night shift desk doesn\'t log visitors. That\'s a known feature, not an oversight.',
+    xpReward: 20,
     text: 'The night shift desk doesn\'t log visitors. That\'s a known feature, not an oversight.',
     tags: ['Stealth', 'Investigation'],
     tag: 'risky',
@@ -2864,6 +2946,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_inspection_waiver_trail',
     label: 'Waivers don\'t get signed without a reason. Someone approved these in bulk.',
+    xpReward: 20,
     text: 'Waivers don\'t get signed without a reason. Someone approved these in bulk.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -2894,6 +2977,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_cargo_reclassification',
     label: 'Reclassified cargo stops being cargo. That\'s the point of reclassifying it.',
+    xpReward: 20,
     text: 'Reclassified cargo stops being cargo. That\'s the point of reclassifying it.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -2923,6 +3007,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_warden_patrol_gap',
     label: 'There\'s a patrol gap that stays consistent. Gaps don\'t stay consistent by accident.',
+    xpReward: 20,
     text: 'There\'s a patrol gap that stays consistent. Gaps don\'t stay consistent by accident.',
     tags: ['Stealth', 'Investigation'],
     tag: 'risky',
@@ -2949,6 +3034,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_ledger_ward_anomaly',
     label: 'The Iron Ledger Ward has a transaction that predates the institution\'s founding.',
+    xpReward: 20,
     text: 'The Iron Ledger Ward has a transaction that predates the institution\'s founding.',
     tags: ['Investigation', 'Lore'],
     tag: 'risky',
@@ -2978,6 +3064,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_arch_lore_cipher_read',
     label: 'The cipher format is institutional — I\'ve seen this encoding in the academy index.',
+    xpReward: 20,
     text: 'The cipher format is institutional — I\'ve seen this encoding in the academy index.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -3014,6 +3101,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_arch_craft_forged_seal',
     label: 'The seal impression is slightly off-center. I know what a correct stamp looks like.',
+    xpReward: 20,
     text: 'The seal impression is slightly off-center. I know what a correct stamp looks like.',
     tags: ['Investigation', 'Lore'],
     plot: 'side',
@@ -3087,6 +3175,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_courier_intercept',
     label: "The courier's route crosses a blind spot. Three minutes, no witness.",
+    plot: 'main',
     tags: ['Stealth', 'Investigation', 'Evidence'],
     tag: 'risky',
     xpReward: 88,
@@ -3120,6 +3209,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_ledger_copy',
     label: "The registry clerk steps away. The ledger is open to exactly the right page.",
+    plot: 'main',
     tags: ['Stealth', 'Investigation', 'Evidence'],
     tag: 'risky',
     xpReward: 85,
@@ -3153,6 +3243,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_shadow_official',
     label: "The liaison's second meeting is with someone who doesn't appear on any posted roster.",
+    plot: 'main',
     tags: ['Stealth', 'Surveillance', 'Evidence'],
     tag: 'risky',
     xpReward: 92,
@@ -3196,6 +3287,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_decoy_manifest',
     label: "A false manifest leaves a building they're watching. The real one already moved.",
+    plot: 'main',
     tags: ['Stealth', 'Evidence', 'Deception'],
     tag: 'risky',
     xpReward: 90,
@@ -3229,6 +3321,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_roof_observation',
     label: "The route they use runs under a window no one keeps locked from the inside.",
+    plot: 'main',
     tags: ['Stealth', 'Surveillance', 'Evidence'],
     tag: 'risky',
     xpReward: 88,
@@ -3272,6 +3365,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_lock_impression',
     label: "The lock on the secondary archive room is old. The impression will last three days.",
+    plot: 'main',
     tags: ['Stealth', 'Evidence', 'Finesse'],
     tag: 'risky',
     xpReward: 86,
@@ -3308,6 +3402,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_clerk_schedule',
     label: "The duty clerk keeps the same lunch gap every day. Three minutes, unmonitored.",
+    plot: 'main',
     tags: ['Stealth', 'Observation', 'Evidence'],
     tag: 'safe',
     failResult: 'The pattern isn\'t there this cycle. The window exists, but the timing requires more observation.',
@@ -3340,6 +3435,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_stealth_blind_informant',
     label: "She passes messages through the stall owner who doesn't know what he's carrying.",
+    plot: 'main',
     tags: ['Stealth', 'Intelligence', 'Network'],
     tag: 'bold',
     xpReward: 94,
@@ -3385,6 +3481,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_arch_combat_warden_shakedown',
     label: 'The warden is lying. He knows I can tell. That is enough.',
+    xpReward: 20,
     text: 'The warden is lying. He knows I can tell. That is enough.',
     tags: ['Combat', 'Confrontation', 'Pressure'],
     plot: 'side',
@@ -3421,6 +3518,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_arch_combat_courier_escort',
     label: 'The courier carrying that manifest needs to arrive. I can make that happen.',
+    xpReward: 20,
     text: 'The courier carrying that manifest needs to arrive. I can make that happen.',
     tags: ['Combat', 'Protection', 'Route'],
     plot: 'side',
@@ -3456,6 +3554,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_arch_combat_patrol_pattern',
     label: 'Warden deployment shifted three days ago. Someone gave an order they didn\'t write down.',
+    xpReward: 20,
     text: 'Warden deployment shifted three days ago. Someone gave an order they didn\'t write down.',
     tags: ['Combat', 'Observation', 'Tactics'],
     tag: 'risky',
@@ -3487,6 +3586,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_arch_combat_enforcer_known',
     label: 'The man following me is a professional. He wants me to know he\'s there.',
+    xpReward: 20,
     text: 'The man following me is a professional. He wants me to know he\'s there.',
     tags: ['Combat', 'Confrontation', 'Stealth'],
     plot: 'side',
@@ -3522,6 +3622,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_arch_combat_document_seizure',
     label: 'The clerk is leaving with something that isn\'t supposed to leave that building.',
+    xpReward: 20,
     text: 'The clerk is leaving with something that isn\'t supposed to leave that building.',
     tags: ['Combat', 'Confrontation', 'Evidence'],
     plot: 'side',
@@ -3558,6 +3659,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The courier ledger has gaps. Someone pulled the delivery records before archiving.",
+    plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
     xpReward: 68,
@@ -3588,6 +3690,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three polities. Three different clerks. The same name crossed out in each intake log.",
+    plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
     xpReward: 68,
@@ -3707,6 +3810,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The courier route changed three months ago. The posted notice is still the old one.",
+    plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
     xpReward: 68,
@@ -3737,6 +3841,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Collegium's outer-tier seals appear on documents that predate the tier's existence.",
+    plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
     xpReward: 68,
@@ -3767,6 +3872,7 @@ const STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The night archivist's log shows entries written during hours she wasn't rostered to work.",
+    plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
     xpReward: 68,
@@ -3982,6 +4088,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_mimolot_1',
     label: 'The tutor-magistrate marked that shelf restricted. That\'s recent.',
+    xpReward: 20,
     skill: 'wits',
     tag: 'risky',
     tags: ['Mimolot', 'Evidence', 'Lore'],
@@ -4010,6 +4117,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_mimolot_2',
     label: 'A student paying knowledge tariffs on something she already owns knows more than she\'s saying.',
+    xpReward: 20,
     skill: 'charm',
     tag: 'risky',
     tags: ['Mimolot', 'Social', 'Intelligence'],
@@ -4039,6 +4147,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_glasswake_1',
     label: 'The exposure log skips four days. That doesn\'t happen by accident.',
+    xpReward: 20,
     skill: 'wits',
     tag: 'risky',
     tags: ['Glasswake', 'Evidence', 'Discovery'],
@@ -4067,6 +4176,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_glasswake_2',
     label: 'The containment warden is doing her rounds early. Something changed.',
+    xpReward: 20,
     skill: 'finesse',
     tag: 'risky',
     tags: ['Glasswake', 'Stealth', 'Intelligence'],
@@ -4096,6 +4206,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_soreheim_1',
     label: 'The work assignment board has a tower listed that doesn\'t appear on any public manifest.',
+    xpReward: 20,
     skill: 'wits',
     tag: 'risky',
     tags: ['Soreheim', 'Evidence', 'Intelligence'],
@@ -4124,6 +4235,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_soreheim_2',
     label: 'A logistics artisan carrying sealed manifests doesn\'t unload at this bay.',
+    xpReward: 20,
     skill: 'vigor',
     tag: 'risky',
     tags: ['Soreheim', 'Stealth', 'Evidence'],
@@ -4153,6 +4265,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_guildheart_1',
     label: 'The hearing chamber closed early and the clerk is still inside.',
+    xpReward: 20,
     skill: 'charm',
     tag: 'risky',
     tags: ['Guildheart', 'Social', 'Evidence'],
@@ -4181,6 +4294,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_guildheart_2',
     label: 'Two bonded warehouses are registered to the same Guild mark with different owner names.',
+    xpReward: 20,
     skill: 'wits',
     tag: 'risky',
     tags: ['Guildheart', 'Evidence', 'Lore'],
@@ -4210,6 +4324,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_aurora_1',
     label: 'The dome steward is logging a supply count that doesn\'t match the ration board.',
+    xpReward: 20,
     skill: 'wits',
     tag: 'risky',
     tags: ['Aurora', 'Evidence', 'Discovery'],
@@ -4238,6 +4353,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_aurora_2',
     label: 'The aurora study hall has equipment running with the shutters sealed. Someone\'s working off-cycle.',
+    xpReward: 20,
     skill: 'finesse',
     tag: 'risky',
     tags: ['Aurora', 'Stealth', 'Intelligence'],
@@ -4267,6 +4383,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_shirshal_1',
     label: 'The case filing room has a notice board with names that shouldn\'t be public.',
+    xpReward: 20,
     skill: 'wits',
     tag: 'risky',
     tags: ['Shirshal', 'Evidence', 'Lore'],
@@ -4295,6 +4412,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     id: 's2_shirshal_2',
     label: 'An arcane specialist is reviewing a case file she\'s not listed on.',
+    xpReward: 20,
     skill: 'spirit',
     tag: 'risky',
     tags: ['Shirshal', 'Magic', 'Evidence'],

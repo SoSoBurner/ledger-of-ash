@@ -212,6 +212,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The dock crew eat alone and pay in script nobody at Ironhold recognizes.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
@@ -245,6 +246,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The night tally supervisor eats alone at the secondary slope. He watches the dock.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
@@ -278,6 +280,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "He's back on standard line. The dust on his collar is from the wrong vein.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 72,
@@ -378,6 +381,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Velka's fourth safety report is written. She's waiting for someone to make it hold.",
+    plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 76,
@@ -481,6 +485,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The gray coat runs the secondary cut on a schedule that doesn't appear anywhere.",
+    plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
     xpReward: 76,
@@ -516,6 +521,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The secondary cut is engineered differently from every other extraction face in the quarry.",
+    plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
     xpReward: 74,
@@ -583,6 +589,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Kael Drovish has been counting dock departures in a notebook he keeps in his coat.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 72,
@@ -754,6 +761,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The output tally and the quota sheet do not match by a large number",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
@@ -793,6 +801,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The inspection record on the supervisor's board is sealed",
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
     xpReward: 15,

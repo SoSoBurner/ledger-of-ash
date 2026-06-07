@@ -355,6 +355,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The founding charter exemptions look nothing like what they have become.",
+    plot: 'main',
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 70,
     failResult: function() {
@@ -390,6 +391,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Thora filed discrepancy reports. Someone told her to stop. That person has a name.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 72,
     failResult: function() {
@@ -525,6 +527,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The diplomatic exemptions left a gap in the tithe ledger. No one filled it.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     failResult: function() {
@@ -662,6 +665,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "One warden signed every priority crossing clearance in the gate-book.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     failResult: function() {
@@ -730,6 +734,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The newest relief crates are heavier than the manifest allows and sealed differently.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     failResult: function() {
@@ -833,6 +838,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'A toll category stopped appearing in the records',
+    plot: 'main',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -870,6 +876,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The flood log does not match the weather records for that period',
+    plot: 'main',
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -912,6 +919,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_iron_banding_weight',
     label: 'The bridge ironwork carries load memory. Stone does not lie.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'might',
     fn: function() {
@@ -941,6 +950,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_loss_ledger_death_pattern',
     label: 'The Loss Ledger has a season without a single death entry.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -970,6 +981,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_route_warden_cold_read',
     label: 'Route Warden Seldis Morn still works the day shift. Her tells are visible.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'bold',
     skill: 'charm',
     fn: function() {
@@ -1000,6 +1013,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_exemption_fee_cash_trail',
     label: 'The diplomatic exemption fee was never collected. But the ledger shows a receipt.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1028,6 +1043,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_refugees_cluster_date',
     label: 'Three refugee arrivals give the same escort description without comparing notes.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'safe',
     skill: 'charm',
     failResult: 'The shelter keeper stops the second interview before it begins. New arrivals are within their silence window, and the keeper enforces it without apology — it is the first protection the commune extends. The three refugees remain together in the hall, blankets in commune grey, and the shared detail that connects them stays unspoken for now.',
@@ -1057,6 +1074,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_ice_shelf_supply_cache',
     label: 'The ice shelf supply cache should have three weeks of stores. It has ten days.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
@@ -1085,6 +1104,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_guild_factor_faction',
     label: 'The Guild Factor here collects more than tolls. She has a second ledger.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'bold',
     skill: 'finesse',
     fn: function() {
@@ -1115,6 +1136,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_compacts_archivist_reckoning',
     label: 'The Compacts archivist wants to retire. She knows what a clean record costs.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'bold',
     skill: 'spirit',
     fn: function() {
@@ -1144,6 +1167,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_signal_fire_reckoning',
     label: 'The signal brazier schedule can be reconstructed. The transfers follow the light.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1172,6 +1197,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_commune_council_faction',
     label: 'The Commune Council has three members who voted against the exemption protocol.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'safe',
     skill: 'charm',
     failResult: 'The shelter hall back room is occupied by a mending session. The council member who is available when the approach is made again explains that the minority dissent is already in the posted session minutes — nothing said there is private, and they do not discuss council strategy outside the chamber.',
@@ -1203,6 +1230,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_night_circuit_inspector_second',
     label: 'A second Night-Lantern inspector patrols the hours Aster avoids. Different allegiances.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'finesse',
     fn: function() {
@@ -1232,6 +1261,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_compound_destination_north',
     label: 'The cylinders are going north. The route ends somewhere with no record on the ledger.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'bold',
     skill: 'spirit',
     fn: function() {
@@ -1262,6 +1293,8 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     id: 'wb_bridge_plank_cavity_discovery',
     label: 'The re-set planking does not just conceal a space. It conceals a mechanism.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'bold',
     skill: 'might',
     fn: function() {

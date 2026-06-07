@@ -237,6 +237,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The decommission file has a witness signature. No current Harbor Authority officer owns it.",
+    plot: 'main',
     tags: ['Stage2', 'NPC', 'Evidence'],
     tag: 'risky',
     xpReward: 68,
@@ -428,6 +429,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The gangway crew handoff leaves a thirty-second blind spot. Same positions, every run.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     tag: 'bold',
     xpReward: 70,
@@ -808,6 +810,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'A sealed filing in the wrong stack. Collegium seal, not guild',
+    plot: 'main',
     tags: ['Stage2', 'Records', 'Evidence'],
     tag: 'risky',
     xpReward: 20,
@@ -842,6 +845,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The hold stamp is dated three weeks after the document was filed',
+    plot: 'main',
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -863,6 +867,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   // Gated on collegium_contact_1; sets collegium_contact_2
   {
     label: "The Collegium intake form asks for a certifying reference. Fenwick's name opens one door.",
+    plot: 'main',
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
     tag: 'risky',
     xpReward: 80,
@@ -896,6 +901,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Tower Authority log continues below the waterline. Category 6 permit required.",
+    plot: 'main',
     tags: ['Stage2', 'Records', 'Evidence'],
     tag: 'risky',
     xpReward: 20,
@@ -924,6 +930,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Titan Wharf seawall inscriptions were re-chiseled within the last two seasons.",
+    plot: 'main',
     tags: ['Stage2', 'Evidence'],
     tag: 'risky',
     xpReward: 20,
@@ -951,6 +958,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The Amber Trade Authority quarterly post uses a cipher key that changed two seasons ago.",
+    plot: 'main',
     tags: ['Stage2', 'Records', 'Evidence'],
     tag: 'risky',
     xpReward: 20,
@@ -977,6 +985,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The House Shelk secondary seal appears on three separate Cosmoria documents.",
+    plot: 'main',
     tags: ['Stage2', 'Evidence'],
     tag: 'risky',
     xpReward: 20,
@@ -1003,6 +1012,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Cosmouth Administrative Continuity Trust holds insurance and bonds on the same shipments.",
+    plot: 'main',
     tags: ['Stage2', 'Records', 'Evidence'],
     tag: 'risky',
     xpReward: 20,
@@ -1176,6 +1186,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Coralyn's archive shelf has no catalog entry. The spines face inward.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
     xpReward: 74,
@@ -1210,6 +1221,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The airship dock has a manifest office that is not in the public directory.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'bold',
     xpReward: 78,
@@ -1277,6 +1289,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Marrow's cargo logs have two weight columns. The second set never matches the manifest.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
     xpReward: 80,
@@ -1310,6 +1323,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The harbormaster's authority log shows a gap. Eight months, no routing disputes filed.",
+    plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
     xpReward: 68,
@@ -1376,6 +1390,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The harbormaster's counter-seal on the night manifest is always the same two initials.",
+    plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
     xpReward: 70,
@@ -1409,6 +1424,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Selka's inn had a standing reservation for five rooms on every sealed container night.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 66,
@@ -1476,6 +1492,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The compound transit route runs through a corridor that has no listed operator.",
+    plot: 'main',
     tags: ['Airship', 'Stage2'],
     tag: 'bold',
     xpReward: 80,
@@ -1510,6 +1527,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The harbormaster's written objection was returned unsigned. No record of who received it.",
+    plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
     xpReward: 72,
@@ -1543,6 +1561,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The transit staging area has a second floor. The stairs aren't on the building plans.",
+    plot: 'main',
     tags: ['Airship', 'Stage2'],
     tag: 'bold',
     xpReward: 84,
@@ -1610,6 +1629,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The airship lane suppression notifications use a routing code that expired three years ago.",
+    plot: 'main',
     tags: ['Airship', 'Stage2'],
     tag: 'risky',
     xpReward: 74,
@@ -1643,6 +1663,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A third clerk handles the sealed container intake. Not on the Harbor Authority staff list.",
+    plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
     xpReward: 72,
@@ -1676,6 +1697,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The night airship booking record lists a Shelkopolis address that doesn't exist.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
     xpReward: 68,
@@ -1709,6 +1731,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Coralyn's secondary ledger matches Fairhaven harbor records by eleven entries.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2', 'Cross-Locality'],
     tag: 'risky',
     xpReward: 78,
@@ -1741,6 +1764,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The tide gauge bracket has notch marks that don't match the Harbor Authority's published calibration.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
     xpReward: 66,
@@ -1774,6 +1798,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Tavian's counter stamper leaves a double impression on every sealed container receipt.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 65,
@@ -1806,6 +1831,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The crane rigging schedule for berth seven runs twenty minutes longer than any other berth.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
     xpReward: 67,
@@ -1839,6 +1865,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Selka took a room off the rental list for six weeks. Won't say who stayed.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 65,
@@ -1904,6 +1931,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The archive has a second entrance. Coralyn uses it after the reading room closes.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'bold',
     xpReward: 76,
@@ -1937,6 +1965,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Nerissa's tide blessing register records a visitor who does not appear in the inn books.",
+    plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     xpReward: 67,
@@ -1970,6 +1999,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A loading receipt stamped twice: once by the Harbor Authority, once by an unnamed office.",
+    plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
     xpReward: 70,
@@ -2003,6 +2033,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The port surgeon's injury log has no entries for sealed container loading nights.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
     xpReward: 65,
@@ -2036,6 +2067,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The cargo crane bell rings seven times before a sealed container lift. Standard is four.",
+    plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
     xpReward: 66,
@@ -2069,6 +2101,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three archive boxes: wax seals re-fractured. Post-closure access.",
+    plot: 'main',
     tags: ['Stage2', 'Maritime'],
     tag: 'risky',
     skill: 'spirit',
@@ -2102,6 +2135,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The archive clerk is stalling. He is waiting for someone.",
+    plot: 'main',
     tags: ['Stage2', 'Confrontation'],
     tag: 'bold',
     skill: 'might',
@@ -2134,6 +2168,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   },
   {
     label: "The harbor master's recall goes back further than the records.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     skill: 'charm',

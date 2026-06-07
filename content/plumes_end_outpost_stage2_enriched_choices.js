@@ -216,6 +216,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "A northern road driver keeps a private log from the construction period.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
@@ -249,6 +250,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The outpost manifest has a requisition category that feeds the northern route.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
@@ -282,6 +284,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The smith repairs northern crew equipment. He's seen what it does.",
+    plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -316,6 +319,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The depot clerk flagged a discrepancy. She was told to un-flag it.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Archive'],
     xpReward: 68,
@@ -445,6 +449,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The apothecary knows the northern smell. Others have asked her about it.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
@@ -479,6 +484,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three days in the patrol log with no entries, no annotation, northern road supposedly clear.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
@@ -608,6 +614,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The northern assignment cycles through a single auxiliary. Same name, every week, never rotated.",
+    plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     xpReward: 65,
@@ -763,6 +770,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'The warden taps the document twice before handing it back',
+    plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
     xpReward: 15,
@@ -804,6 +812,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: 'A log category stopped appearing six months ago',
+    plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence'],
     xpReward: 20,

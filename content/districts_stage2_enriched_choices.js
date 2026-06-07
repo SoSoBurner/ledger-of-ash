@@ -199,6 +199,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   // BEAT 3 — Payoff
   {
     label: "The satchel on the confiscation shelf hasn't been signed out properly.",
+    plot: 'main',
     tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
     xpReward: 90,
     failResult: function() {
@@ -687,6 +688,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The patrol log skips three nights. The gap lines up with the container transfers.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     failResult: function() {
@@ -720,6 +722,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "The bonded yard keeper's private ledger has a back column. Every irregular load. Unnamed.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     failResult: function() {
@@ -849,6 +852,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Three entries in the intake ledger list the same routing code twice.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 68,
     failResult: function() {
@@ -882,6 +886,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
 
   {
     label: "Junior Warden officers resent the patrol re-routing orders. No reason was ever given.",
+    plot: 'main',
     tags: ['Stage2', 'NPC'],
     xpReward: 70,
     failResult: function() {
@@ -1109,6 +1114,8 @@ AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_ah_registry_ghost_confirmation',
     label: 'The registry records a dissolved entity as active. Someone keeps paying the filing fee.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1142,6 +1149,8 @@ IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_iron_guild_stamp_forgery',
     label: 'The modified containers carry a guild certification stamp. That stamp was not requested.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'spirit',
     fn: function() {
@@ -1175,6 +1184,8 @@ VERDANT_ROW_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_vr_suppression_notice_source',
     label: 'The "Northern Glyph Oversight Commission" left a physical address. It does not exist.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1208,6 +1219,8 @@ GRANARY_STEPS_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_granary_false_weight_pattern',
     label: 'The manifest weights cluster at exactly the exemption threshold. That precision is intentional.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'safe',
     skill: 'wits',
     failResult: 'The manifest batch files for the past two months are in active administrative review. External access during an active cycle is suspended under Granary Steps records protocol. The files that would show the weight clustering are precisely the ones locked for internal review.',
@@ -1240,6 +1253,8 @@ IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_ilw_escrow_withdrawal_pattern',
     label: 'The escrow account sends funds in irregular bursts. Each burst follows a compound shipment.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'wits',
     fn: function() {
@@ -1273,6 +1288,8 @@ RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_rq_magistrate_authorization_chain',
     label: 'The magistrate who authorized the patrol re-routes has a superior who does not know.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'bold',
     skill: 'charm',
     fn: function() {
@@ -1307,6 +1324,8 @@ SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_ss_scholar_cross_reference',
     label: 'Three researchers have assembled the same picture from different pieces. They need to compare.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'safe',
     skill: 'charm',
     failResult: 'Quenra Quillfire is mid-review cycle, Toman Iceveil is at the transit archive, and Serin Sunweave is unavailable until tomorrow. The window that would allow all three in the same room does not open today. The comparison waits.',
@@ -1343,6 +1362,8 @@ HIGH_QUARTER_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_hq_patron_faction_network',
     label: 'A high quarter patron funds the charter research. She wants the finding before anyone else.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'bold',
     skill: 'charm',
     fn: function() {
@@ -1376,6 +1397,8 @@ COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_cq_transit_node_discovery',
     label: 'The transit node alcove near the market has had new hardware bolted to it.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
@@ -1403,6 +1426,8 @@ COMMON_QUARTER_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_cq_guild_post_faction',
     label: 'The guild post clerk knows which firms skip the intake window.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'safe',
     skill: 'charm',
     failResult: 'Peva Thorns handles the post intake window at full queue pace and does not have space for an unsolicited conversation. Guild intake records are not public record. The queue builds behind the exchange and she returns to it without further comment.',
@@ -1437,6 +1462,8 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_lw_ward_elder_reckoning',
     label: 'The ward elder has seen three rounds of outside inquiry. She knows the pattern.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'safe',
     skill: 'charm',
     failResult: 'Cosset is not at the water pump bench today. The neighbor who usually knows her whereabouts says she is visiting a relative in the upper ward. The ward has registered the inquiry and is waiting to see what kind of inquiry it is before deciding what to do with it.',
@@ -1469,6 +1496,8 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_lw_eviction_paper_trail',
     label: 'Five low-ward evictions share the same notary mark.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
@@ -1498,6 +1527,8 @@ LOW_WARD_STAGE2_ENRICHED_CHOICES.push(
   {
     id: 'dist_lw_compound_exposure_firsthand',
     label: 'A ward resident describes the symptoms. She did not choose this exposure.',
+    plot: 'main',
+    xpReward: 20,
     tag: 'safe',
     skill: 'spirit',
     failResult: 'The conversation begins well but the question about the dome terminal timeline comes too early. She pulls back — she has spoken to outsiders before who used her experience to make an argument and then left the ward while she stayed in it. The meeting ends before the calendar appears.',
