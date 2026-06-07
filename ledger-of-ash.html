@@ -14434,7 +14434,8 @@ function _showModeSelectInOverlay(locId) {
       G.travelMode = mode;
       if (typeof _showPackChoicesInOverlay === 'function') {
         var _fromAlias = _LOC_ALIAS_OVL[G.location] || G.location;
-        _showPackChoicesInOverlay(_fromAlias, destId, mode);
+        var _destAlias = _LOC_ALIAS_OVL[destId] || destId;
+        _showPackChoicesInOverlay(_fromAlias, _destAlias, mode);
       }
     });
   });
