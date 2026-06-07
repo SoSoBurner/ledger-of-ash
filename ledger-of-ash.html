@@ -13543,6 +13543,7 @@ function checkLevelUp() {
       var _fam = getArchetypeFamily();
       if (STARTER_ABILITIES[_fam]) awardAbility(STARTER_ABILITIES[_fam]);
     }
+    if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_levelup');
     checkStageAdvance();
     updateHUD();
     showLevelUpScreen();
@@ -17393,12 +17394,13 @@ function maybeShowTutorial(event) {
     first_levelup: '<strong>Level up:</strong> Choose one advancement — a skill increase or an archetype ability. <em>Passive</em> abilities apply automatically. <em>Active</em> abilities must be triggered from the sheet.',
     first_camp: '<strong>Camp:</strong> Rest restores HP and refreshes your trait. Train costs an axis tick and improves one skill — but leaves you fatigued for 5 choices. Seek Care finds a healer NPC nearby.',
     first_journal: '<strong>Journal:</strong> The Ledger tracks your quests, wounds, inventory, faction relations, rival adventurers, and all journal entries. Open it from the topbar.',
-    first_npc: '<strong>NPCs:</strong> Local contacts are gated by your Lore skill. Higher Lore reveals more contacts. Approach them to open conversation. Trust increases with repeated contact.',
+    first_npc: '<strong>NPCs:</strong> Local contacts are gated by your Wits skill. Higher Wits reveals more contacts. Approach them to open conversation. Trust increases with repeated contact.',
     first_map: '<strong>Map:</strong> In Stage I, you are restricted to your origin polity. Advance to Stage II to unlock cross-polity travel. Travel advances the axis and time of day.',
     first_combat: '<strong>Combat:</strong> You enter combat only when you choose to or are forced into it. You can always attempt to talk, flee, or find another approach before fighting.',
     first_shop: '<strong>Shopping:</strong> Each location has goods available from local sites. Gold is limited — spend it on what your archetype actually uses.',
     first_watchfulness: '<strong>Watchfulness increased.</strong> This marks how visible your movements have become. High watchfulness raises DCs and draws attention from local authorities.',
-    first_pressure: '<strong>Attention is building.</strong> As it rises, encounters become harder and authority takes notice of your work.',
+    first_pressure: '<strong>Watchfulness is building.</strong> As it rises, encounters become harder and authority takes notice of your work.',
+    first_reverence: 'A thread of fate winds tighter. Reverence rises with significant acts — at its peak, the world takes notice of your legend.',
     first_rival: '<strong>A rival has gained ground.</strong> Rivals advance independently and impose DC penalties when their renown is high. Keep moving.',
   };
   if (msgs[event] && !G.tutorialFlags[event]) {
@@ -17696,8 +17698,8 @@ function updateCaseFileHUD() {
   const inv = (G && G.investigationProgress) ? G.investigationProgress : 0;
   if (inv > 0) {
     container.style.display = 'block';
-    fill.style.width = Math.min(100, Math.round((inv / 10) * 100)) + '%';
-    count.textContent = inv + ' / 10';
+    fill.style.width = Math.min(100, Math.round((inv / 15) * 100)) + '%';
+    count.textContent = inv + ' / 15';
   } else {
     container.style.display = 'none';
   }
@@ -18357,6 +18359,7 @@ function getCombatAbilityChoices(enemyKey) {
 /** Narrative combat entry. Shows enemy intent, renders Press/Defend/Talk/Retreat. Use for all story-driven fights. @param {string} enemyKey @param {{isBoss?:boolean, bossKeys?:string[]}} [context] */
 function enterCombat(enemyKey, context) {
   context = context || {};
+  if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_combat');
   // Wire authority combat victory back to the authority consequence chain (heat, watchfulness, warrant)
   if (context._authorityFight && context._authorityPolity) {
     G.pendingVictoryCallback = function() {
@@ -18481,27 +18484,21 @@ document.querySelectorAll('[data-close]').forEach(btn => btn.addEventListener('c
 document.querySelectorAll('[data-camp]').forEach(btn => btn.addEventListener('click', () => campAction(btn.dataset.camp)));
 document.getElementById('btn-confirm-end').addEventListener('click', endLegend);
 var HOWTO_SECTIONS = [
-  { heading: 'Risk Tiers', body: '<strong>Every choice involves a roll.</strong> Safe choices roll against DC 7 — low chance of failure, and when they fail the path redirects rather than ends. Risky choices roll against DC 13 — real risk, real reward. Bold choices roll against DC 16 — high stakes, harder consequences. A natural 20 is a Critical Success (shown in gold). A natural 1 is a Critical Failure — on main-plot choices, a backup path opens.' },
-  { heading: 'World Clocks', body: '<ul><li><strong>Attention</strong> — accumulates from your actions. As it rises, encounters become harder and authority takes notice.</li><li><strong>Watchfulness</strong> — marks how visible your movements have become. High watchfulness raises DCs and draws scrutiny.</li><li><strong>Rivals</strong> — advance independently each choice. High rival renown imposes DC penalties on contested ground.</li></ul>' },
+  { heading: 'Risk Tiers', body: '<strong>Every choice involves a roll.</strong> Safe choices roll against DC 7 — low chance of failure, and when they fail the path redirects rather than ends. Risky choices roll against DC 13 — real risk, real reward. Bold choices roll against DC 16 — high stakes, harder consequences. A natural 20 is a Critical Success (shown in gold). A natural 1 is a Critical Failure — on main-plot choices, a backup path opens. DCs rise by +1 per stage advanced.' },
+  { heading: 'World Clocks', body: '<ul><li><strong>Watchfulness</strong> — accumulates from your actions. As it rises, encounters become harder and authority takes notice.</li><li><strong>Omens</strong> — marks escalating supernatural tension. High omens affect spirit-based rolls and may unlock hidden paths.</li><li><strong>Rivals</strong> — advance independently each choice. High rival renown imposes DC penalties on contested ground.</li></ul>' },
   { heading: 'Stage Progression', body: 'Gathering evidence fills your case. Each stage requires a threshold of progress — bold and risky successes push it forward. Advancing stages unlocks new localities and plot threads. Your rival advances in parallel; fall too far behind and they reach key sources first.' },
-  { heading: 'Rest Mechanics', body: 'Rest at camp to recover HP. You may rest at most twice per day — a third attempt is too exhausting. <strong>Lay Low</strong> reduces watchfulness at the cost of a day. <strong>Review Notes</strong> recovers from stall conditions when the case feels stuck.' },
-  { heading: 'Travel', body: 'From the travel panel, you can move between localities. Each route costs time units and sometimes gold. Some routes are locked by stage or season. Arriving at a new locality resets local encounter options — what you find depends on when you arrive.' },
   { heading: 'Fumbles', body: 'A natural 1 is a fumble. On a fumble, the path you chose closes — that choice is locked. The case always continues: a backup path appears for main-thread choices. Some side paths, once closed, are closed for good.' },
   { heading: 'Save System', body: 'Progress saves automatically after each choice. Your save code appears on the main screen — note it to resume later. Export Save is available in Settings for a full JSON backup.' },
-  { heading: 'Camp & Recovery', body: 'The <strong>Camp</strong> button rests outside settlements — it\'s free. Resting at an <strong>inn</strong> costs 1 gold and is available through locality choices. Both restore HP and clear travel fatigue. Active traits reset on rest; passive traits remain. Companions check in at camp when available.' },
   { heading: 'Mastery', body: 'When you reach your stage\'s level cap, experience converts to Mastery XP. Spend Mastery XP at training sessions to push your skills past the cap. Check the Training option when resting.' },
-  { heading: 'Alignment', body: 'Your Benevolence and Order scores shift with your choices. Open the character sheet to see your current alignment bars. These affect how certain NPCs and factions respond to you at key moments.' },
-  { heading: 'Companions', body: 'As the case develops, allies may join you. Once unlocked, companions appear in your character sheet. They carry their own agendas and may assist or complicate your choices.' },
-  { heading: 'Journal', body: 'The journal records evidence, intelligence, contacts, and discoveries automatically. Open it to review what you know. Progress advances when your evidence reaches thresholds — check your stage bar.' },
+  { heading: 'Journal', body: 'The journal records evidence, intelligence, contacts, and discoveries automatically. Open it to review what you know. The investigation advances when your evidence reaches thresholds — check your progress in the stage bar.' },
   { heading: 'Shops & Services', body: 'Localities offer shops, inns, and services through the choice panel. When in a settlement, look for choices that lead to vendors, rest, or local services. Your inventory and equipment are in the character sheet.' },
   { heading: 'Choice Colors', body: '<strong>Blue border</strong>: Main quest — advances the central story. <strong>Orange border</strong>: Confrontation or accusation — high consequence. <strong>Dark amber border</strong>: Conflict, betrayal, or exposure. <strong>Red border</strong>: Combat action. Choices with no border are standard.' },
-  { heading: 'Roll System', body: 'Every choice involves a d20 roll. Your skill modifier is added to the result and compared to a Difficulty Class (DC). Safe choices use DC 7, risky choices DC 13, bold choices DC 16. Rolling a natural 20 gives a bonus; rolling a natural 1 is always a critical failure regardless of modifiers. Higher skills make difficult DCs more reliably passable — but the dice are never fully tamed.' },
   { heading: 'Heat & Authority', body: 'Each polity tracks your heat (0–10). At heat 3, local authority takes notice and you may face an encounter. At heat 5, all checks in that polity cost +1 DC. At heat 8, a warrant is issued and armed responses become likely. Heat fades slowly on its own or faster by avoiding that polity. Different polities have different tolerance thresholds — border settlements are more permissive than capitals.' },
   { heading: 'Rival Pressure', body: 'Your rivals operate on their own clock, accumulating renown while you work. High rival renown adds +1 to +3 DC to contested rolls — they have resources and allies you do not. The rival clock advances with each stage transition and major story beat. You can slow them by directly disrupting their operations, but outpacing them requires pushing into bold choices consistently.' },
   { heading: 'Travel', body: 'Move between localities by opening the map. On foot is free but slow. Horse, cart, and boat cost gold per leg but cover more ground. Your pace (fast, normal, slow) affects encounter chance — fast pace risks complications; slow pace reduces them. Supplies deplete each day of travel. Running out of supplies imposes penalties to Vigor rolls until you resupply at the next settlement.' },
-  { heading: 'Camp & Rest', body: 'Rest at camp to recover HP. The amount healed scales with your Vigor skill. Crafting at camp uses a Spirit roll against the recipe difficulty — success produces the item, failure consumes materials. If you have companions, posting watches overnight converts potential ambushes into warned encounters where you act first. Camp is also where companion-specific events can trigger.' },
-  { heading: 'Companions', body: 'Companions join after you resolve the Maren Oss encounter in Stage I. Vorath Gelden provides combat bonuses and intimidation presence. Mira Calden provides skill bonuses to lore and stealth. Each companion has an agenda that can create friction — they are not tools, they have opinions. Companion bonuses apply passively to relevant rolls. Losing a companion mid-stage has lasting narrative consequences.' },
-  { heading: 'Stage Progress', body: 'The progress bar in your HUD tracks your stage advancement. Risky and bold choices advance it; safe choices do not. The bar must reach 3 for the stage miniboss to unlock, and 8 or higher to face the stage boss. Completing the boss encounter clears the way to advance. You cannot skip stages — the groundwork must be laid before the confrontation becomes possible.' },
+  { heading: 'Camp & Rest', body: 'Rest at camp to recover HP. The amount healed scales with your Vigor skill. Camp actions: Rest, Sleep, Train, Talk (requires active companion), Seek Care, Lay Low, Camp Outside, Craft, Post Watches. Crafting at camp uses a Craft roll against the recipe difficulty — success produces the item, failure consumes materials. If you have companions, posting watches converts potential ambushes into warned encounters where you act first. Camp is also where companion-specific events trigger.' },
+  { heading: 'Companions', body: 'Companions join after you resolve the Maren Oss encounter and open the companion gate. Vorath Gelden provides +2 to social checks with garrison-affiliated NPCs and a once-per-scene Tactical Assessment ability. Mira Calden provides once-per-locality trade anomaly intelligence and a once-per-scene Political Read ability. Kaevrin provides +2 to Wits on intelligence-gathering choices and a once-per-scene Pattern Analysis ability. Each companion has an agenda — they are not tools, they have opinions.' },
+  { heading: 'Stage Progress', body: 'The progress bar in your HUD tracks your stage advancement. Risky and bold choices advance it; safe choices do not. The bar must reach 3 for the stage miniboss to unlock, and 15 or higher to face the stage boss. Completing the boss encounter clears the way to advance. You cannot skip stages — the groundwork must be laid before the confrontation becomes possible.' },
   { heading: 'Alignment', body: 'Two hidden axes track your moral character: Benevolence (-50 to +50) and Order (-50 to +50). Choices that help others at personal cost raise benevolence; choices that harm others lower it. Choices that uphold law and structure raise order; lawbreaking lowers it. At plus or minus 10, alignment badges appear on your character sheet. NPCs in later stages react to your alignment — some paths close, others open.' },
 ];
 
