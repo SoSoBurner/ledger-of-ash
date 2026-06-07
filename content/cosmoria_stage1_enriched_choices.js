@@ -29,11 +29,11 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         var _aurekFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
         var _aurekDetail = _aurekFam === 'combat' ? ' His eyes go to your hands once — then back to the cranes. He files you under \'not a merchant\' and decides that\'s fine.' : _aurekFam === 'stealth' ? ' He speaks without turning his head, his voice never carrying past the chain noise. He has had this kind of conversation before.' : _aurekFam === 'support' ? ' He glances sidelong after he\'s finished, calibrating whether you\'ll use what he said to help or only to know.' : '';
-        G.lastResult = `Aurek leans against the counting-house rail so his back is to the crane operators below. His voice drops under the chain noise. "Scheduling used to follow tides and declared cargo. Now I receive a list — berth two goes to Halvern's brig, berth seven stays empty until Cosmouth's factor authorizes. Independent captains sit at anchor until the tide turns against them. I've filed three complaints. Two went missing. One came back stamped 'reviewed.'" He stops talking when a stevedore passes with a ledger under his arm. The two complaints that disappeared were filed at the harbor registry. Whatever reviewed them left a trail.` + _aurekDetail;
+        G.lastResult = `Aurek Tidereach leans against the counting-house rail so his back is to the crane operators below. His voice drops under the chain noise. "Scheduling used to follow tides and declared cargo. Now I receive a list — berth two goes to Halvern's brig, berth seven stays empty until Cosmouth's factor authorizes. Independent captains sit at anchor until the tide turns against them. I've filed three complaints. Two went missing. One came back stamped 'reviewed.'" He stops talking when a stevedore passes with a ledger under his arm. The two complaints that disappeared were filed at the harbor registry. Whatever reviewed them left a trail.` + _aurekDetail;
         G.stageProgress[1]++;
         addJournal('Stable Factor revealed corrupted maritime trade route system', 'evidence', `cosmoria-trade-routes-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Aurek goes still when you ask. He picks up a cargo tally from the desk and makes a show of reading it. "Dock allocation follows tidal schedules. Schedules are posted at the harbor gate." He doesn't look up. Two dockside clerks at the far end of the counting house have stopped writing. Your question landed louder than you intended, and the attention of everyone in earshot is now a problem you'll carry past this door.`;
+        G.lastResult = `Aurek Tidereach goes still when you ask. He picks up a cargo tally from the desk and makes a show of reading it. "Dock allocation follows tidal schedules. Schedules are posted at the harbor gate." He doesn't look up. Two dockside clerks at the far end of the counting house have stopped writing. Your question landed louder than you intended, and the attention of everyone in earshot is now a problem you'll carry past this door.`;
         G.worldClocks.pressure++;
         addJournal('Stable Factor now protective of maritime trade allocation', 'complication', `cosmoria-trade-hostile-${G.dayCount}`);
       } else {
@@ -121,7 +121,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Maris speaks with her back to the shrine door and her hands folded tight in her vestments. "Last season I blessed every crew that came to the water gate. Now I'm handed a list before the morning tide. Some crews receive the full communion. Others receive" — she pauses — "a shorter rite. If they ask, I'm to say the full ceremony is reserved for members in good charter standing." She looks at the offering shelf, not at you. "There is no charter standing requirement in any text I have ever read."`;
+        G.lastResult = `Maris Coralwake speaks with her back to the shrine door and her hands folded tight in her vestments. "Last season I blessed every crew that came to the water gate. Now I'm handed a list before the morning tide. Some crews receive the full communion. Others receive" — she pauses — "a shorter rite. If they ask, I'm to say the full ceremony is reserved for members in good charter standing." She looks at the offering shelf, not at you. "There is no charter standing requirement in any text I have ever read."`;
         G.stageProgress[1]++;
         addJournal('Shrine Caretaker revealed corrupted maritime ritual system', 'evidence', `cosmoria-rituals-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -165,7 +165,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       if (result.isCrit) {
         var _tideonFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
         var _tideonDetail = _tideonFam === 'combat' ? ' He hands over the carbon without comment, but he tracks the room over your shoulder the whole time — checking who is watching, not whether you can handle what he just said.' : _tideonFam === 'stealth' ? ' He slides the carbon across with two fingers, not passing it directly. No hand-to-hand. He has thought about this moment.' : _tideonFam === 'support' ? ' When he refolds the copy, his hands are steady. He has been waiting for someone to show up for this. He is relieved you did.' : '';
-        G.lastResult = `Tideon unlocks a side drawer and pulls out a folded page — a carbon copy of an arrivals log that doesn't match the primary registry on the shelf beside it. He sets them side by side on the counter without speaking. The primary log shows the Thornwall Passage arrived on the eighteenth. The carbon shows the seventeenth. "Someone corrected the primary after the carbon was filed," he says. "I have nine of these. The carbons are in my coat pocket every morning when I leave. I don't trust the drawer anymore." He refolks the copy and tucks it away.` + _tideonDetail;
+        G.lastResult = `Tideon Anchorlight unlocks a side drawer and pulls out a folded page — a carbon copy of an arrivals log that doesn't match the primary registry on the shelf beside it. He sets them side by side on the counter without speaking. The primary log shows the Thornwall Passage arrived on the eighteenth. The carbon shows the seventeenth. "Someone corrected the primary after the carbon was filed," he says. "I have nine of these. The carbons are in my coat pocket every morning when I leave. I don't trust the drawer anymore." He refolks the copy and tucks it away.` + _tideonDetail;
         G.stageProgress[1]++;
         addJournal('Clerk of Arrivals revealed archive record falsification system', 'evidence', `cosmoria-records-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -247,7 +247,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
 
       if (result.isCrit) {
-        G.lastResult = `Sevrin keeps his own records in a salt-warped notebook that he doesn't leave at the clinic. He opens it on his knee rather than on the desk. "Three families in the lower ward, respiratory. I listed it as acute. The harbor health roll came back listing it as seasonal minor." He shows you his entry. Shows you the filed copy. The filed copy has a different date and a different severity category. "I haven't corrected it," he says quietly. "Because I don't know who's reading my corrections." He closes the notebook.`;
+        G.lastResult = `Sevrin Shellmark keeps his own records in a salt-warped notebook that he doesn't leave at the clinic. He opens it on his knee rather than on the desk. "Three families in the lower ward, respiratory. I listed it as acute. The harbor health roll came back listing it as seasonal minor." He shows you his entry. Shows you the filed copy. The filed copy has a different date and a different severity category. "I haven't corrected it," he says quietly. "Because I don't know who's reading my corrections." He closes the notebook.`;
         G.stageProgress[1]++;
         addJournal('Street Physician revealed falsified health records system', 'evidence', `cosmoria-health-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -758,7 +758,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       const npcOptions = [
         { name: 'Quartermaster Coralyn Tideglass', role: 'resource keeper', fear: 'They threatened to have me reassigned to merchant crew service if I spoke out. My family depends on my position.' },
         { name: 'Joss Pell', role: 'salt archive clerk', fear: 'They made it clear that exposing document destruction would result in my dismissal and blacklisting from all scholarly work in Cosmouth.' },
-        { name: 'Clerk Tideon', role: 'record keeper', fear: 'I wanted to resist but they said if I exposed falsified records, they\'d accuse me of the falsification itself.' }
+        { name: 'Clerk Tideon Anchorlight', role: 'record keeper', fear: 'I wanted to resist but they said if I exposed falsified records, they\'d accuse me of the falsification itself.' }
       ];
 
       const npc = npcOptions[Math.floor(Math.random() * npcOptions.length)];
