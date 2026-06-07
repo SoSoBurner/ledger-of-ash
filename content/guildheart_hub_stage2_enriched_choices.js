@@ -693,15 +693,15 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Guildheart Hub Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The Council clerk reviews the summary and sets it aside without opening the accompanying documents. "The chain requires corroboration at three points. Filed correctly, this moves. Filed now, it stalls." He hands it back. The case isn't ready. The Arbitration Hall's ambient sound fills the pause — pens on ledgers, the creak of a bench, someone counting aloud in a distant room. The clerk's expression doesn't shift. He has sent better-prepared cases back before.`;
+        G.lastResult = `The Sanction Board clerk reviews the summary and sets it aside without opening the accompanying documents. "The chain requires corroboration at three points. Filed correctly, this moves. Filed now, it stalls." He hands it back. The case isn't ready. The Arbitration Hall's ambient sound fills the pause — pens on ledgers, the creak of a bench, someone counting aloud in a distant room. The clerk's expression doesn't shift. He has sent better-prepared cases back before.`;
         G.recentOutcomeType = 'partial'; return;
       }
       const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `The Guild Council receives the chain: charter rider, tariff exemption, inn meetings, freight manifests, shrine witness. The senior Council clerk reads the presented documents once, sets them in a specific order that is not the order you handed them over, and calls for an immediate charter audit. The pre-Union rider is formally voided within the hour. The freight routing that ran through it goes dark. Whatever comes next opens without the infrastructure that built this.`;
-        addJournal('Guildheart S2 finale: Union Guild Council charter audit initiated, contract rider voided', 'evidence', `guild-finale-inst-${G.dayCount}`);
+        G.lastResult = `The Guild Sanction Board receives the chain: charter rider, tariff exemption, inn meetings, freight manifests, shrine witness. The senior Board clerk reads the presented documents once, sets them in a specific order that is not the order you handed them over, and calls for an immediate charter audit. The pre-Union rider is formally voided within the hour. The freight routing that ran through it goes dark. Whatever comes next opens without the infrastructure that built this.`;
+        addJournal('Guildheart S2 finale: Guild Sanction Board charter audit initiated, contract rider voided', 'evidence', `guild-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
         G.worldClocks.pressure = (G.worldClocks.pressure||0) + 3;
@@ -1005,7 +1005,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "Marchant's inquiry about the charter exemption was marked received. Never answered.",
+    label: "The Guildmaster's charter exemption inquiry was marked received. Never answered.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -1014,15 +1014,15 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'Guildmaster Marchant unanswered inquiry');
+      gainXp(20, 'Guildmaster Selene unanswered inquiry');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
         G.flags.guild_marchant_inquiry_found = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
-        G.lastResult = 'The Guild Council correspondence archive keeps outbound inquiries in a bound register by session date. Guildmaster Selene Marchant filed a formal charter exemption inquiry four months ago — the entry is in her hand, sealed with her council mark, addressed to the charter desk for response within ten working days. The response copy that should be filed behind it is absent. The acknowledgment stamp on the original shows it was received. It was never answered. A formal inquiry from the Guildmaster of the Guild Council sat unaddressed for four months, and the charter desk that received it processed two new exemption renewals in the same period.';
-        addJournal('Guildmaster Marchant\'s formal charter exemption inquiry: received 4 months ago, never answered — charter desk processed 2 renewals during same window without responding', 'evidence');
+        G.lastResult = 'The Guild Sanction Board correspondence archive keeps outbound inquiries in a bound register by session date. Guildmaster Selene filed a formal charter exemption inquiry four months ago — the entry is in her hand, sealed with her council mark, addressed to the charter desk for response within ten working days. The response copy that should be filed behind it is absent. The acknowledgment stamp on the original shows it was received. It was never answered. A formal inquiry from the Guildmaster sat unaddressed for four months, and the charter desk that received it processed two new exemption renewals in the same period.';
+        addJournal('Guildmaster Selene\'s formal charter exemption inquiry: received 4 months ago, never answered — charter desk processed 2 renewals during same window without responding', 'evidence');
         G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
@@ -1067,7 +1067,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
 
   {
     plot: 'main',
-    label: "The Guild Council meeting minutes from the exemption week have a page removed.",
+    label: "The Sanction Board meeting minutes from the exemption week have a page removed.",
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
@@ -1076,21 +1076,21 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(20, 'Guild Council minutes missing page');
+      gainXp(20, 'Sanction Board minutes missing page');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 12) {
         G.flags.guild_council_minutes_gap = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
-        G.lastResult = 'Guild Council meeting minutes are bound quarterly and shelved in the public record wing — open access, no research credential required. The bound volume for the relevant quarter has a visible stitch gap between pages 34 and 37: two pages removed after binding, leaving a clean cut at the thread line. Pages 35 and 36 would cover the session date when the charter exemption was initially approved. The table of contents entry for that session reads: "Charter Exemption Review — Agenda Item 4 (see attached)." The attached document is absent. The table of contents was printed before the pages were removed.';
-        addJournal('Guild Council minutes: pages 35-36 removed after binding — covers charter exemption approval session; table of contents references attached document now absent', 'evidence');
+        G.lastResult = 'Guild Sanction Board meeting minutes are bound quarterly and shelved in the public record wing — open access, no research credential required. The bound volume for the relevant quarter has a visible stitch gap between pages 34 and 37: two pages removed after binding, leaving a clean cut at the thread line. Pages 35 and 36 would cover the session date when the charter exemption was initially approved. The table of contents entry for that session reads: "Charter Exemption Review — Agenda Item 4 (see attached)." The attached document is absent. The table of contents was printed before the pages were removed.';
+        addJournal('Sanction Board minutes: pages 35-36 removed after binding — covers charter exemption approval session; table of contents references attached document now absent', 'evidence');
         G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        G.lastResult = 'The minutes volume is in the public record wing. You find the correct quarter and begin reading. A council record clerk stops at the shelf before the relevant pages are reached — she is shelving a return, she says, and takes the volume from you before you can decline. She shelves it spine-in rather than spine-out, which is not how the other volumes are oriented. The record wing closes for the day in twenty minutes.';
-        addJournal('Guild Council minutes access interrupted — record clerk reversed spine orientation when re-shelving', 'complication');
+        G.lastResult = 'The minutes volume is in the public record wing. You find the correct quarter and begin reading. A Board record clerk stops at the shelf before the relevant pages are reached — she is shelving a return, she says, and takes the volume from you before you can decline. She shelves it spine-in rather than spine-out, which is not how the other volumes are oriented. The record wing closes for the day in twenty minutes.';
+        addJournal('Sanction Board minutes access interrupted — record clerk reversed spine orientation when re-shelving', 'complication');
         G.recentOutcomeType = 'complication';
         maybeStageAdvance();
       }
