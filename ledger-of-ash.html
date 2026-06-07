@@ -2417,6 +2417,7 @@ const COMPANION_DEFS = {
 const COMPANION_PASSIVES = {
   vorath_gelden:   { atk_bonus: 1, skill: 'combat',    desc: "Vorath's discipline steadies your strikes." },
   mira_calden:     { hp_regen: 1,  skill: 'survival',  desc: "Mira's field medicine keeps you moving." },
+  kaevrin_sorel:   { skill: 'wits', bonus: 2, condition: 'intelligence_gather', desc: "Kaevrin's pattern-reading sharpens what you can see." },
   sera_vale:       { atk_bonus: 1, skill: 'stealth',   desc: "Sera's precision adds to your approach." },
   toriel_palevow:  { atk_bonus: 1, skill: 'lore',      desc: "Toriel's analysis sharpens your timing." },
   neren_rimebridge:{ hp_regen: 1,  skill: 'survival',  desc: "Neren's knowledge of the terrain steadies your endurance." },
@@ -2427,6 +2428,7 @@ const COMPANION_PASSIVES = {
 const COMPANION_ABILITIES = {
   vorath_gelden:   { name: 'Cover Attack',  desc: 'Vorath strikes — deals 1d6 damage. No action cost.',        type: 'damage',  value: 6  },
   mira_calden:     { name: 'Stabilize',     desc: 'Mira prevents death once and restores 4 HP.',               type: 'heal',    value: 4  },
+  kaevrin_sorel:   { name: 'Pattern Analysis', desc: 'Kaevrin reviews the available options. One hidden path becomes visible.', type: 'special', effect: { type: 'dc_reduce', amount: 2, duration: 1 } },
   sera_vale:       { name: 'Shadow Step',   desc: '+3 to your next attack roll this fight.',                   type: 'buff',    value: 3  },
   toriel_palevow:  { name: 'Tactical Read', desc: 'Reduce enemy effective defense by 2 this round.',           type: 'debuff',  value: 2  },
   neren_rimebridge:{ name: 'Flank',         desc: '+2 to attack, enemy cannot counter this round.',            type: 'buff',    value: 2  },
@@ -2633,7 +2635,7 @@ function startRerecruitQuest(id) {
 
 // ── CAMP TALK ──────────────────────────────────────────
 function showCampTalk() {
-  if (!G || !G.flags || !G.flags.maren_oss_resolved) {
+  if (!(G && G.flags && G.flags.companion_gate_open)) {
     addNarration('Camp', 'No companion present. Travel alone for now.');
     renderChoices([{ text: 'Break camp.', skill: 'wits', tag: 'safe', align: 'neutral', cid: 'passive_intel' }]);
     return;
@@ -4518,6 +4520,7 @@ function renderCombatRound() {
   }
   html += '<div class="combat-header">' +
     '<div class="combat-title">&#x2694; COMBAT &#x2014; Round ' + CS.round + '</div>' +
+    '<div class="combat-player-hp" style="font-size:11px;opacity:0.8;">Your HP: ' + G.hp + ' / ' + G.maxHp + '</div>' +
     '<div class="combat-enemy">' +
       '<div class="enemy-name">' + CS.enemy.name + '</div>' +
       '<div class="enemy-desc">' + CS.enemy.desc + '</div>' +
@@ -4808,7 +4811,9 @@ function resolveCombatAction(action, abilityId) {
     const allAbilities = ARCHETYPE_COMBAT_ABILITIES[archId] || [];
     const ab = allAbilities.find(a => a.id === abilityId);
     if (ab) {
-      const sk = G.skills[ab.skillReq] || 0;
+      var _CAB_KEY_NORM_ACT = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
+      var _abSkillKey = _CAB_KEY_NORM_ACT[ab.skillReq] || ab.skillReq;
+      const sk = G.skills[_abSkillKey] || 0;
       const roll = d20();
       const total = roll + sk;
       const success = total >= 10;
@@ -5061,9 +5066,26 @@ function endCombat(victory) {
         if (Math.random() < drop.chance) addMaterial(drop.id, drop.qty);
       });
     }
+    if (enemy.loot && Array.isArray(enemy.loot)) {
+      enemy.loot.forEach(function(lootEntry) {
+        if (lootEntry.name) {
+          if (!G.inventory) G.inventory = [];
+          G.inventory.push({ id: lootEntry.id || lootEntry.name.toLowerCase().replace(/\s+/g, '_'), name: lootEntry.name, desc: lootEntry.desc || '', type: lootEntry.type || 'tool', cost: 0, equipped: false });
+          victText += ' You recover the ' + lootEntry.name + '.';
+        }
+        if (lootEntry.effect) {
+          Object.keys(lootEntry.effect).forEach(function(sk) {
+            var _lootKeyNorm = {lore: 'wits', combat: 'might', stealth: 'finesse', survival: 'vigor', persuasion: 'charm'};
+            var _lootKey = _lootKeyNorm[sk] || sk;
+            if (G.skills && G.skills[_lootKey] !== undefined) { G.skills[_lootKey] += lootEntry.effect[sk]; }
+          });
+        }
+      });
+    }
     addNarration('Combat Over', victText, 'success');
     addJournal('Defeated ' + enemy.name + ' in ' + finalRound + ' rounds. Renown +1.', 'evidence');
     shiftAlignment(-5, 0); // violence costs morality slightly
+    if (enemy && typeof enemy.onDefeat === 'function') { enemy.onDefeat(); }
     saveGame(); updateHUD();
 
     // pendingVictoryCallback — set by story encounters that need custom post-combat logic
@@ -10670,6 +10692,10 @@ function _beginLegendCore() {
     var _boostKey = G._createStatBoost;
     G.skills[_boostKey] = (G.skills[_boostKey] || 0) + 1;
   }
+  var _craftFamilyArchetypes = ['artificer', 'engineer', 'alchemist'];
+  if (_craftFamilyArchetypes.indexOf(G.archetype.id) !== -1) {
+    G.skills.craft = 2;
+  }
   G.maxHp = G.archetype.hp; G.hp = G.maxHp;
   G.gold = G.archetype.startGold;
   G.traits = [{ name:G.archetype.trait, desc:G.archetype.traitDesc, used:false, passive:false, source:'archetype' }];
@@ -11944,6 +11970,26 @@ function loadStageChoices(locId) {
         }).map(adaptEnrichedChoice);
         if (_arcChoices.length) adapted.unshift.apply(adapted, _arcChoices);
       }
+    }
+    // Companion recruit injection — fires once per companion when gate is open
+    if (G.flags && G.flags.companion_gate_open && typeof showRecruitScene === 'function' && typeof COMPANION_DEFS !== 'undefined') {
+      var _RECRUITABLE = ['vorath_gelden', 'mira_calden', 'kaevrin_sorel'];
+      _RECRUITABLE.forEach(function(defId) {
+        if (G.companions && G.companions[defId]) return;
+        var _recruitDef = COMPANION_DEFS[defId];
+        if (!_recruitDef) return;
+        (function(id, def) {
+          var _label = def.name + ' has been waiting for the right question.';
+          adapted.push({
+            id: 'recruit_' + id,
+            text: _label,
+            tag: 'safe',
+            tags: ['Relationship', 'Safe'],
+            plot: 'main',
+            action: function() { showRecruitScene(def.npcId); }
+          });
+        })(defId, _recruitDef);
+      });
     }
     const choices = _injectBossSeedChoices(prioritizeChoices(adapted, 8)).slice(0, 8).filter(function(c){ return passesAlignGate(c); });
     renderChoices(choices);
@@ -15746,14 +15792,14 @@ function showPlaces(initialTab) {
     html += '<div style="font-family:var(--font-display);font-size:13px;color:var(--gold-bright);margin-bottom:2px">' + _tav.name + '</div>';
     html += '<div style="font-size:12px;color:var(--ink-faint);margin-bottom:10px;font-style:italic">' + _tav.desc + '</div>';
     var _inv2 = (G.investigationProgress || 0);
-    var _eligible = (_tav.rumors || []).filter(function(r) { return (r.minProgress || 0) <= _inv2 && !(G.tavernRumorsSeen && G.tavernRumorsSeen[r.id]); });
+    var _eligible = (_tav.rumors || []).filter(function(r) { return (r.minProgress || 0) <= _inv2 && (!G.tavernRumorsSeen || !G.tavernRumorsSeen[r.id] || G.tavernRumorsSeen[r.id] <= G.dayCount); });
     if (_eligible.length) {
       var _shuffled = _eligible.slice().sort(function() { return Math.random() - 0.5; });
       var _shown = _shuffled.slice(0, 2);
       html += '<div style="margin-bottom:10px"><div style="font-size:11px;color:var(--gold-dim);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Overheard</div>';
       _shown.forEach(function(r) {
         if (!G.tavernRumorsSeen) G.tavernRumorsSeen = {};
-        G.tavernRumorsSeen[r.id] = true;
+        G.tavernRumorsSeen[r.id] = G.dayCount + 7;
         html += '<div style="font-size:13px;color:var(--ink-mid);font-style:italic;border-left:2px solid var(--border);padding-left:10px;margin-bottom:8px">"' + r.text + '"</div>';
       });
       html += '</div>';
@@ -17057,7 +17103,7 @@ function showShop() {
     const boost = isSorehimShop ? (G.shopCreditBoost || 0) : 0;
     const effectiveCost = Math.max(1, item.cost - boost);
     const canAfford = isSorehimShop ? (G.sorePlotCredits || 0) >= effectiveCost : G.gold >= effectiveCost;
-    const alreadyOwned = (G.inventory||[]).find(inv => inv.id === item.id);
+    const alreadyOwned = (G.shopSeen && G.shopSeen[item.id]) || (G.inventory||[]).find(inv => inv.id === item.id);
     const costLabel = boost > 0 ? '<span style="text-decoration:line-through;color:var(--ink-faint)">' + item.cost + _currSymbol + '</span> <span style="color:var(--jade-bright)">' + effectiveCost + _currSymbol + '</span>' : item.cost + _currSymbol;
     html += '<div class="shop-item" data-shoptype="' + (item.type || item.category || 'other') + '">' +
       '<div class="shop-item-info">' +
@@ -17137,6 +17183,8 @@ function showShop() {
         modGold(-effectiveCost);
       }
       addToInventory(Object.assign({}, item, { equipped:false }));
+      G.shopSeen = G.shopSeen || {};
+      G.shopSeen[item.id] = true;
       // Refresh the shop display
       btn.closest('.shop-item').querySelector('.shop-buy-btn').replaceWith(
         Object.assign(document.createElement('span'), {
@@ -17329,12 +17377,12 @@ function maybeShowTutorial(event) {
     first_levelup: '<strong>Level up:</strong> Choose one advancement — a skill increase or an archetype ability. <em>Passive</em> abilities apply automatically. <em>Active</em> abilities must be triggered from the sheet.',
     first_camp: '<strong>Camp:</strong> Rest restores HP and refreshes your trait. Train costs an axis tick and improves one skill — but leaves you fatigued for 5 choices. Seek Care finds a healer NPC nearby.',
     first_journal: '<strong>Journal:</strong> The Ledger tracks your quests, wounds, inventory, faction relations, rival adventurers, and all journal entries. Open it from the topbar.',
-    first_npc: '<strong>NPCs:</strong> Local contacts are gated by your Wits skill. Higher Wits reveals more contacts. Approach them to open conversation. Trust increases with repeated contact.',
+    first_npc: '<strong>NPCs:</strong> Local contacts are gated by your Lore skill. Higher Lore reveals more contacts. Approach them to open conversation. Trust increases with repeated contact.',
     first_map: '<strong>Map:</strong> In Stage I, you are restricted to your origin polity. Advance to Stage II to unlock cross-polity travel. Travel advances the axis and time of day.',
     first_combat: '<strong>Combat:</strong> You enter combat only when you choose to or are forced into it. You can always attempt to talk, flee, or find another approach before fighting.',
     first_shop: '<strong>Shopping:</strong> Each location has goods available from local sites. Gold is limited — spend it on what your archetype actually uses.',
     first_watchfulness: '<strong>Watchfulness increased.</strong> This marks how visible your movements have become. High watchfulness raises DCs and draws attention from local authorities.',
-    first_pressure: '<strong>Watchfulness is building.</strong> As it rises, encounters become harder and authority takes notice of your work.',
+    first_pressure: '<strong>Attention is building.</strong> As it rises, encounters become harder and authority takes notice of your work.',
     first_rival: '<strong>A rival has gained ground.</strong> Rivals advance independently and impose DC penalties when their renown is high. Keep moving.',
   };
   if (msgs[event] && !G.tutorialFlags[event]) {
@@ -17398,119 +17446,13 @@ function flashStatRow(key) {
   });
 }
 
-var LOCALITY_SHOPS = {
-  shelkopolis: [
-    { id:'iron_blade', name:'Iron Blade', type:'weapon', desc:'Serviceable Shelk militia issue. Well-balanced, no frills.', cost:35, skillBonus:'combat', bonus:2, statLine:'+2 Might' },
-    { id:'courier_satchel', name:'Courier Satchel', type:'tool', desc:'Concealed document compartment used by Guild runners.', cost:20, skillBonus:'stealth', bonus:1, statLine:'+1 Finesse' },
-    { id:'field_kit', name:'Field Kit', type:'tool', desc:'Ration packs and wound binding. Three uses.', cost:15, uses:3, effect:{type:'heal', n:4}, statLine:'Heals 4 HP (3 uses)' },
-    { id:'patched_armor', name:'Patched Armor', type:'armor', desc:'Boiled leather with hammer marks. Serviceable.', cost:28, skillBonus:'survival', bonus:1, statLine:'+1 Vigor', ac:2 }
-  ],
-  cosmoria: [
-    { id:'guild_seal', name:'Guild Seal', type:'tool', desc:'Legitimate Cosmoria verification seal. Useful for document work.', cost:40, skillBonus:'lore', bonus:2, statLine:'+2 Wits' },
-    { id:'archive_key', name:'Archive Entry Warrant', type:'tool', desc:'Single-use warrant granting access to restricted archive stacks.', cost:25, effect:{type:'flag', key:'archive_access', value:true}, statLine:'Unlocks archive choices' },
-    { id:'ledger_ink', name:'Ledger Ink Set', type:'tool', desc:'Certified ink and press for document authentication.', cost:18, skillBonus:'craft', bonus:1, statLine:'+1 Spirit' },
-    { id:'steel_stylus', name:'Steel Stylus', type:'weapon', desc:'Document fraud tool. Doubles as a close-quarters weapon.', cost:22, skillBonus:'stealth', bonus:1, statLine:'+1 Finesse' }
-  ],
-  soreheim_proper: [
-    { id:'frontier_axe', name:'Frontier Axe', type:'weapon', desc:'Standard labor enforcement issue. Heavy and honest.', cost:38, skillBonus:'combat', bonus:2, statLine:'+2 Might' },
-    { id:'survey_rope', name:'Survey Rope', type:'tool', desc:'Soreheim-grade climbing and rigging rope. 30 meters.', cost:12, skillBonus:'survival', bonus:1, statLine:'+1 Vigor' },
-    { id:'quarry_helm', name:'Quarry Helm', type:'armor', desc:'Reinforced headgear standard to Soreheim labor gangs.', cost:30, skillBonus:'combat', bonus:1, statLine:'+1 Might', ac:2 },
-    { id:'assay_kit', name:'Assay Kit', type:'tool', desc:'Ore and material testing tools. Useful for identifying crafting materials.', cost:20, skillBonus:'craft', bonus:1, statLine:'+1 Spirit' }
-  ],
-  panim_haven: [
-    { id:'death_register_access', name:'Registry Access Stamp', type:'tool', desc:'Allows cross-referencing the death records without institutional sponsorship.', cost:30, effect:{type:'flag', key:'panim_registry_access', value:true}, statLine:'Unlocks registry choices' },
-    { id:'pale_blade', name:'Pale Blade', type:'weapon', desc:'Thin-bladed knife favored by Panim investigators. Light, quiet.', cost:32, skillBonus:'stealth', bonus:2, statLine:'+2 Finesse' },
-    { id:'mourning_cloak', name:'Mourning Cloak', type:'armor', desc:'Common Panim funerary attire. Offers anonymity in crowds.', cost:25, skillBonus:'stealth', bonus:1, statLine:'+1 Finesse', ac:1 },
-    { id:'coroner_notes', name:'Coroner Notes (region)', type:'tool', desc:"This season's summary of suspicious deaths. Useful intelligence.", cost:18, effect:{type:'journal', text:'Coroner notes acquired', category:'intelligence'}, statLine:'Adds journal entry' }
-  ],
-  guildheart_hub: [
-    { id:'guild_writ', name:'Guild Writ', type:'tool', desc:'Official Guild authorization for a single sanctioned action. Recognized across all polities.', cost:50, skillBonus:'persuasion', bonus:2, statLine:'+2 Charm' },
-    { id:'guild_blade', name:'Guild-Issue Blade', type:'weapon', desc:'Standard enforcement-grade short sword. Guild crest on the pommel.', cost:40, skillBonus:'combat', bonus:2, statLine:'+2 Might' },
-    { id:'council_seal', name:'Council Seal', type:'tool', desc:'Grants access to sealed council records for a single session.', cost:35, effect:{type:'flag', key:'council_archive_access', value:true}, statLine:'Unlocks council archive' },
-    { id:'light_vestments', name:'Light Vestments', type:'armor', desc:'Guild administrative attire. Confers credibility in institutional settings.', cost:22, skillBonus:'persuasion', bonus:1, statLine:'+1 Charm', ac:1 }
-  ],
-  aurora_crown_commune: [
-    { id:'resonance_rod', name:'Resonance Rod', type:'tool', desc:'Picks up residual magical signatures. Useful near sealed wards.', cost:35, skillBonus:'lore', bonus:2, statLine:'+2 Wits' },
-    { id:'warded_cloak', name:'Warded Cloak', type:'armor', desc:'Subtle ward-thread weave. Reduces magical detection.', cost:40, skillBonus:'stealth', bonus:1, statLine:'+1 Finesse', ac:1 },
-    { id:'commune_provisions', name:'Commune Provisions', type:'tool', desc:'High-quality preserved food. Four uses.', cost:16, uses:4, effect:{type:'heal', n:5}, statLine:'Heals 5 HP (4 uses)' },
-    { id:'clarity_draught', name:'Clarity Draught', type:'tool', desc:'Single dose. Clears magical interference for one encounter.', cost:28, skillBonus:'lore', bonus:1, statLine:'+1 Wits (1 use)' }
-  ],
-  glasswake_commune: [
-    { id:'glass_needle', name:'Glass Needle', type:'weapon', desc:'Fragile but precise. Favored by Glasswake artisans for close work.', cost:30, skillBonus:'stealth', bonus:2, statLine:'+2 Finesse' },
-    { id:'craftwork_brace', name:'Craftwork Brace', type:'tool', desc:'Adjustable joint support for extended craft sessions. Improves fine-motor work.', cost:22, skillBonus:'craft', bonus:1, statLine:'+1 Spirit' },
-    { id:'commune_kit', name:'Commune Kit', type:'tool', desc:'Basic wound care and supply pack. Three uses.', cost:14, uses:3, effect:{type:'heal', n:4}, statLine:'Heals 4 HP (3 uses)' },
-    { id:'glass_ward_token', name:'Glass Ward Token', type:'tool', desc:'Single-use ward against minor magical interference.', cost:25, skillBonus:'lore', bonus:1, statLine:'+1 Wits (1 use)' }
-  ],
-  whitebridge_commune: [
-    { id:'bridge_pass', name:'Bridge Transit Pass', type:'tool', desc:'Grants transit rights across Whitebridge controlled crossings without inspection.', cost:20, effect:{type:'flag', key:'whitebridge_transit', value:true}, statLine:'Bypasses bridge checkpoints' },
-    { id:'crossing_hook', name:'Crossing Hook', type:'tool', desc:'Steel grapple used by bridge maintenance crews. Doubles as climbing tool.', cost:18, skillBonus:'survival', bonus:1, statLine:'+1 Vigor' },
-    { id:'travelers_kit', name:"Traveler's Kit", type:'tool', desc:'Compact supply pack for river crossing. Three uses.', cost:12, uses:3, effect:{type:'heal', n:3}, statLine:'Heals 3 HP (3 uses)' },
-    { id:'commune_cloak', name:'Commune Cloak', type:'armor', desc:'Water-resistant commune-issue outerwear. Practical.', cost:20, skillBonus:'survival', bonus:1, statLine:'+1 Vigor', ac:1 }
-  ],
-  ironhold_quarry: [
-    { id:'quarry_pick', name:'Quarry Pick', type:'weapon', desc:'Heavy tool repurposed as a weapon. Slow but devastating.', cost:30, skillBonus:'combat', bonus:2, statLine:'+2 Might' },
-    { id:'ore_sample_kit', name:'Ore Sample Kit', type:'tool', desc:'Assay tools for material identification. Essential for serious craft work.', cost:25, skillBonus:'craft', bonus:2, statLine:'+2 Spirit' },
-    { id:'quarry_rations', name:'Quarry Rations', type:'tool', desc:'Dense caloric pack. Standard Ironhold labor issue. Four uses.', cost:10, uses:4, effect:{type:'heal', n:3}, statLine:'Heals 3 HP (4 uses)' },
-    { id:'ironhold_helm', name:'Ironhold Helm', type:'armor', desc:'Full-coverage iron helmet from Ironhold standard issue.', cost:35, skillBonus:'combat', bonus:1, statLine:'+1 Might', ac:3 }
-  ],
-  plumes_end_outpost: [
-    { id:'outpost_blade', name:'Outpost Blade', type:'weapon', desc:'Border-issue short sword. Durable, unremarkable.', cost:28, skillBonus:'combat', bonus:1, statLine:'+1 Might' },
-    { id:'signal_kit', name:'Signal Kit', type:'tool', desc:'Flare and mirror kit for long-distance communication. Useful in open terrain.', cost:20, skillBonus:'survival', bonus:1, statLine:'+1 Vigor' },
-    { id:'border_rations', name:'Border Rations', type:'tool', desc:'Long-shelf provisions for outpost duty. Five uses.', cost:12, uses:5, effect:{type:'heal', n:3}, statLine:'Heals 3 HP (5 uses)' },
-    { id:'outpost_coat', name:'Outpost Coat', type:'armor', desc:'Heavy wool with reinforced shoulders. Standard frontier issue.', cost:25, skillBonus:'survival', bonus:1, statLine:'+1 Vigor', ac:2 }
-  ],
-  craftspire: [
-    { id:'master_tools', name:'Master Tools', type:'tool', desc:'Precision instrument set for advanced craft. Craftspire guild-certified.', cost:45, skillBonus:'craft', bonus:3, statLine:'+3 Spirit' },
-    { id:'spire_blade', name:'Spire Blade', type:'weapon', desc:'Craftspire-forged. Balanced for both work and defense.', cost:40, skillBonus:'combat', bonus:2, statLine:'+2 Might' },
-    { id:'workshop_kit', name:'Workshop Kit', type:'tool', desc:'Portable repair kit. Useful in the field. Three uses.', cost:18, uses:3, effect:{type:'heal', n:4}, statLine:'Heals 4 HP (3 uses)' },
-    { id:'craft_vestments', name:'Craft Vestments', type:'armor', desc:'Reinforced work apron with tool pockets. Guild-standard.', cost:28, skillBonus:'craft', bonus:1, statLine:'+1 Spirit', ac:1 }
-  ]
-};
-
-function renderShop() {
-  var items = LOCALITY_SHOPS[G.location] || [];
-  if (items.length === 0) {
-    return '<div style="color:var(--ink-faint);padding:12px;font-family:var(--font-body);font-size:13px">Nothing available here right now.</div>';
-  }
-  return items.map(function(item){
-    var owned = (G.inventory||[]).some(function(i){ return i.id===item.id; });
-    var canAfford = (G.gold||0) >= item.cost;
-    return '<div class="shop-item">'
-      + '<div class="shop-item-info">'
-      + '<div class="shop-item-name">' + item.name + '</div>'
-      + '<div class="shop-item-desc">' + item.desc + '</div>'
-      + '<div style="font-size:11px;color:var(--jade-bright);margin-top:3px">' + item.statLine + '</div>'
-      + '</div>'
-      + '<div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">'
-      + '<div class="shop-item-cost">\u25C8' + item.cost + '</div>'
-      + (owned
-          ? '<div style="font-size:10px;color:var(--ink-faint);font-family:var(--font-display)">OWNED</div>'
-          : '<button class="shop-buy-btn" ' + (canAfford?'':'disabled ') + 'onclick="buyLegacyShopItem(\'' + item.id + '\')">' + (canAfford?'BUY':'NEED \u25C8'+item.cost) + '</button>')
-      + '</div>'
-      + '</div>';
-  }).join('');
-}
-
-function buyLegacyShopItem(itemId) {
-  var items = LOCALITY_SHOPS[G.location] || [];
-  var item = items.find(function(i){ return i.id === itemId; });
-  if (!item) return;
-  if ((G.gold||0) < item.cost) { addNarration('', 'Not enough gold.', 'notice'); return; }
-  if ((G.inventory||[]).some(function(i){ return i.id === itemId; })) { addNarration('', 'You already have that.', 'notice'); return; }
-  G.gold = (G.gold||0) - item.cost;
-  if (!G.inventory) G.inventory = [];
-  G.inventory.push(Object.assign({}, item));
-  addNarration('', item.name + ' purchased.', 'success');
-  if (item.effect) applyEffect(item.effect);
-  if (typeof updateHUD === 'function') updateHUD();
-}
-
 function buildCompanionHudHTML(companions) {
   if (!companions || companions.length === 0) return '';
   var _cdefs = (typeof window !== 'undefined' && window.COMPANION_DEFS) || (typeof COMPANION_DEFS !== 'undefined' && COMPANION_DEFS) || {};
   return companions.map(function(c) {
     var def = _cdefs[c.id] || {};
-    var passive = def.passive || '';
+    var _passiveAbil = def.abilities && def.abilities.find(function(a){ return a.type === 'passive'; });
+    var passive = _passiveAbil ? _passiveAbil.desc : '';
     return '<div class="hud-companion-name">' + (def.name || c.id || '').toUpperCase() + '</div>'
       + (passive ? '<div class="hud-companion-passive">' + passive.substr(0, 60) + (passive.length > 60 ? '\u2026' : '') + '</div>' : '');
   }).join('');
@@ -17738,8 +17680,8 @@ function updateCaseFileHUD() {
   const inv = (G && G.investigationProgress) ? G.investigationProgress : 0;
   if (inv > 0) {
     container.style.display = 'block';
-    fill.style.width = Math.min(100, Math.round((inv / 15) * 100)) + '%';
-    count.textContent = inv + ' / 15';
+    fill.style.width = Math.min(100, Math.round((inv / 10) * 100)) + '%';
+    count.textContent = inv + ' / 10';
   } else {
     container.style.display = 'none';
   }
