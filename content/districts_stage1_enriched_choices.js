@@ -20,9 +20,9 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       gainXp(55, 'reading Aurora Heights civic notices');
-      G.lastResult = `Three administrative reviews, two property hearings, one environmental compliance report — standard board rotation on its face. The compliance report is three months old. The filing cycle runs annually; a mid-cycle report means something triggered an unscheduled review outside the normal calendar. The report number sits in the Warden Order's jurisdictional series, not the district's own numbering. Someone above the district level authorized this one.`;
+      G.lastResult = `Three administrative reviews, two property hearings, one environmental compliance report — standard board rotation on its face. The compliance report is three months old. The filing cycle runs annually; a mid-cycle report means something triggered an unscheduled review outside the normal calendar. The report number sits in the Roadwardens Order's jurisdictional series, not the district's own numbering. Someone above the district level authorized this one.`;
       G.recentOutcomeType = 'neutral';
-      addJournal('Aurora Heights: mid-cycle environmental compliance report — Warden Order series, unscheduled', 'discovery', `aurora-heights-s1-notices-${G.dayCount}`);
+      addJournal('Aurora Heights: mid-cycle environmental compliance report — Roadwardens Order series, unscheduled', 'discovery', `aurora-heights-s1-notices-${G.dayCount}`);
     }
   },
 
@@ -529,13 +529,13 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A former Bureau adjudicator, outside appointed roles for two months, still at the same café.",
+    label: "A former Reckoning Quarter adjudicator, two months off-roster, still at the same café.",
     tags: ['District', 'Persuasion', 'Social'],
     xpReward: 70,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
-      gainXp(70, 'speaking with the former Bureau adjudicator');
+      gainXp(70, 'speaking with the former Reckoning Quarter adjudicator');
       if (!G.flags) G.flags = {};
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
@@ -616,7 +616,7 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
   },
 
   {
-    label: "A Warden Order liaison joined the Scriptorium review board. Eleven studies classified since.",
+    label: "A Roadwardens Order liaison joined the Scriptorium review board. Eleven studies classified since.",
     tags: ['District', 'Persuasion', 'Investigation'],
     xpReward: 65,
     fn: function() {
@@ -627,8 +627,8 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Classification of atmospheric chemistry research requires a review board determination — it's not automatic. The researcher explains that the classification process was recently changed: the review board now includes a mandatory Warden Order liaison position. "Before that change," he says, "almost nothing was classified. In the past eighteen months, eleven studies have been classified. That's more than in the previous decade combined."`;
-        addJournal('Scriptorium researcher: Warden Order liaison added to review board 18 months ago — 11 studies classified since, vs. decade norm', 'discovery', `scriptorium-s1-researcher-${G.dayCount}`);
+        G.lastResult = `Classification of atmospheric chemistry research requires a review board determination — it's not automatic. The researcher explains that the classification process was recently changed: the review board now includes a mandatory Roadwardens Order liaison position. "Before that change," he says, "almost nothing was classified. In the past eighteen months, eleven studies have been classified. That's more than in the previous decade combined."`;
+        addJournal('Scriptorium researcher: Roadwardens Order liaison added to review board 18 months ago — 11 studies classified since, vs. decade norm', 'discovery', `scriptorium-s1-researcher-${G.dayCount}`);
         G.recentOutcomeType = 'success';
       } else {
         G.lastResult = `The researcher is between projects and willing to talk. He covers the general classification framework clearly — review board composition, submission process, appeal channels. But he's been at the Scriptorium Steps for three years and hasn't served on the review board himself; the specific decisions made in the past eighteen months are above his involvement level. He names two colleagues who sit on the board. Neither of them is in the building today.`;
@@ -636,7 +636,7 @@ var SCRIPTORIUM_STEPS_STAGE1_ENRICHED_CHOICES = [
       }
     },
     failResult: {
-      text: `The two board members he names are both off-site today — one presenting at a guild-adjacent symposium, one on field leave. The classification review decision folio at the circulation desk is publicly posted and doesn't require a board member to interpret. Eleven entries in the past eighteen months, each one dated and annotated with the board composition that approved it. The Warden Order liaison's name appears on every entry in the past fourteen months. The folio is there, readable, and waiting.`,
+      text: `The two board members he names are both off-site today — one presenting at a guild-adjacent symposium, one on field leave. The classification review decision folio at the circulation desk is publicly posted and doesn't require a board member to interpret. Eleven entries in the past eighteen months, each one dated and annotated with the board composition that approved it. The Roadwardens Order liaison's name appears on every entry in the past fourteen months. The folio is there, readable, and waiting.`,
       next: [{ cid: '__arrive__', label: 'Continue', tag: 'safe', skill: 'vigor' }]
     }
   },

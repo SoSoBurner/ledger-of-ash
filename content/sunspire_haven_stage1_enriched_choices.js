@@ -857,10 +857,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      G.lastResult = `Filed route: eastern trade road, standard checkpoint stops. Actual route: a two-hour deviation northwest, avoiding the Warden Order post at Milegate. The convoy wasn't disrupted on its filed path — it was disrupted on a detour that was never formally logged. Whoever organized this knew the route, arranged the deviation, and arranged the interception at a point where no Warden checkpoint would have record of the convoy passing.`;
+      G.lastResult = `Filed route: eastern trade road, standard checkpoint stops. Actual route: a two-hour deviation northwest, avoiding the Roadwardens Order post at Milegate. The convoy wasn't disrupted on its filed path — it was disrupted on a detour that was never formally logged. Whoever organized this knew the route, arranged the deviation, and arranged the interception at a point where no Roadwardens checkpoint would have record of the convoy passing.`;
       if (!G.flags) G.flags = {};
       G.flags.found_convoy_route_deviation = true;
-      addJournal('Convoy route deviation: off-record detour avoided Warden checkpoint at Milegate', 'evidence', `sunspire-route-${G.dayCount}`);
+      addJournal('Convoy route deviation: off-record detour avoided Roadwardens checkpoint at Milegate', 'evidence', `sunspire-route-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -895,7 +895,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
   // 24. FACTION SEED: WARDEN ORDER CONTACT
   {
-    label: "The Warden post at the north gate. Either they know already, or they need to.",
+    label: "The Roadwardens post at the north gate. Either they know already, or they need to.",
     tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
@@ -904,18 +904,18 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'making Warden Order contact');
+      gainXp(68, 'making Roadwardens Order contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 12) {
-        G.lastResult = `Captain-Adjutant Sera receives your report with calibrated attention. She asks three clarifying questions — all about the container, none about the disruption itself. "We're aware of the deviation category," she says finally. "What you've added is the Milegate confirmation." She gives you a reference number and tells you an inquiry is open. She doesn't tell you what the inquiry is about. The Warden Order knows more than they're sharing.`;
+        G.lastResult = `Captain-Adjutant Sera receives your report with calibrated attention. She asks three clarifying questions — all about the container, none about the disruption itself. "We're aware of the deviation category," she says finally. "What you've added is the Milegate confirmation." She gives you a reference number and tells you an inquiry is open. She doesn't tell you what the inquiry is about. The Roadwardens Order knows more than they're sharing.`;
         if (!G.flags) G.flags = {};
         G.flags.met_warden_order_sunspire = true;
         G.factionHostility.warden_order += 1;
-        addJournal('Warden Order Captain-Adjutant Sera: confirmed awareness of container category, open inquiry exists', 'intelligence', `sunspire-warden-${G.dayCount}`);
+        addJournal('Roadwardens Order Captain-Adjutant Sera: confirmed awareness of container category, open inquiry exists', 'intelligence', `sunspire-warden-${G.dayCount}`);
       } else {
-        G.lastResult = `The duty officer takes your report by rote — pen moving before you've finished the second sentence, form already half-filled. It goes into a stack of similar forms on the corner of the desk. No follow-up is offered; no timeframe for review is mentioned. The north gate is cold and bright with morning sun off the spire stone. Either the Warden Order has no interest in this convoy's deviation, or someone has already told them not to develop one. The form disappears into the stack without ceremony.`;
+        G.lastResult = `The duty officer takes your report by rote — pen moving before you've finished the second sentence, form already half-filled. It goes into a stack of similar forms on the corner of the desk. No follow-up is offered; no timeframe for review is mentioned. The north gate is cold and bright with morning sun off the spire stone. Either the Roadwardens Order has no interest in this convoy's deviation, or someone has already told them not to develop one. The form disappears into the stack without ceremony.`;
         if (!G.flags) G.flags = {};
         G.flags.attempted_warden_order_sunspire = true;
       }
@@ -984,10 +984,10 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
       if (result.total >= 11) {
-        G.lastResult = `Tennen is still concussed but lucid. "The second driver — I didn't know him. New hire, came on three days before the run. He knew the deviation before the convoy coordinator announced it. I remember thinking: how does he know?" He pauses. "The interception didn't come from the road. It came from inside. That driver was the plant." He's told the Warden Order this. They thanked him and told him to rest. The driver can't be found.`;
+        G.lastResult = `Tennen is still concussed but lucid. "The second driver — I didn't know him. New hire, came on three days before the run. He knew the deviation before the convoy coordinator announced it. I remember thinking: how does he know?" He pauses. "The interception didn't come from the road. It came from inside. That driver was the plant." He's told the Roadwardens Order this. They thanked him and told him to rest. The driver can't be found.`;
         if (!G.flags) G.flags = {};
         G.flags.met_tennen_guard = true;
-        addJournal('Convoy guard Tennen: inside contact was the second driver, Warden Order informed but took no visible action', 'contact_made', `sunspire-tennen-${G.dayCount}`);
+        addJournal('Convoy guard Tennen: inside contact was the second driver, Roadwardens Order informed but took no visible action', 'contact_made', `sunspire-tennen-${G.dayCount}`);
       } else {
         G.lastResult = `Tennen is drifting — the infirmary light too bright, his eyes tracking something slightly to the left of wherever you're standing. He gives fragments between silences: a wrong turn, a face he didn't recognize on a seat he thought he knew. The thread drops before it connects to anything. The concussion is still doing its work. What's inside the silence between his sentences might be exactly what's needed. Come back tomorrow, or the day after, when it clears.`;
       }
