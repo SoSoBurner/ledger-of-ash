@@ -4387,6 +4387,7 @@
 
       var choiceArea = document.getElementById('journey-choice-area');
       if (!choiceArea) { TRAVEL_CORRIDOR._completeJourney(toId); return; }
+      choiceArea.innerHTML = '';
 
       if (todayAnchor) {
         G.flags._jrn_anchor_day = null;
