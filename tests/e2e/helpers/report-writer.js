@@ -185,7 +185,7 @@ class ReportWriter {
       lines.push('');
 
       // Balance matrix table: rows = families, columns = all skill keys seen
-      const ALL_SKILLS = ['combat','stealth','survival','lore','persuasion','craft'];
+      const ALL_SKILLS = ['might','finesse','vigor','wits','charm','spirit','craft'];
       const skillsInData = new Set(ALL_SKILLS);
       sigs.forEach(s => { Object.keys(s.skillCounts || {}).forEach(k => skillsInData.add(k)); });
       const skillCols = Array.from(skillsInData);

@@ -2178,8 +2178,10 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         const _skillMatch = (_btnText || '').match(/\b(SURVIVAL|COMBAT|STEALTH|LORE|PERSUASION|CRAFT|MIGHT|FINESSE|VIGOR|WITS|CHARM|SPIRIT)\b/i);
         if (_skillMatch) {
           _skillUsed = _skillMatch[1].toLowerCase();
-          const _KEY_NORM = { might:'combat', finesse:'stealth', vigor:'survival', wits:'lore', charm:'persuasion', spirit:'craft' };
-          _skillUsed = _KEY_NORM[_skillUsed] || _skillUsed;
+          // Forward-map old internal keys to display-name keys (G.skills uses display names as of May 2026).
+          // Display-name badges (might/finesse/vigor/wits/charm/spirit/craft) pass through unchanged.
+          const _LEGACY_NORM = { combat:'might', stealth:'finesse', survival:'vigor', lore:'wits', persuasion:'charm' };
+          _skillUsed = _LEGACY_NORM[_skillUsed] || _skillUsed;
         }
         // Block M — ability tracking: detect ability button clicks by label text
         if (/\babilit/i.test(_btnText || '')) {
