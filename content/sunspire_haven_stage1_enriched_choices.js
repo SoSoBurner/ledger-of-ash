@@ -93,6 +93,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 3. HARVEST COORDINATOR: FOOD DISTRIBUTION CHANGES
   {
     label: "The grain register says scarcity. The grain depot says otherwise.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Resources', 'Food'],
     condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
@@ -130,6 +131,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 4. TEXTILE MERCHANT: TRADE PREFERENCE BIAS
   {
     label: "The same three family names top every premium listing for two months running.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Commerce', 'Bias'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
@@ -171,6 +173,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 5. QUOTA KEEPER: PRODUCTION PRESSURE
   {
     label: "The quotas for certain families are set above what their resource allocation can reach.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Production', 'Quotas'],
     xpReward: 70,
     stageProgress: 1,
@@ -211,6 +214,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 6. CONVOY ORGANIZER: EXTERNAL COORDINATION
   {
     label: "Some convoys run on instructions not from the yard. She was told not to ask.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Communication', 'External'],
     xpReward: 70,
     stageProgress: 1,
@@ -248,6 +252,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 7. FAMILY ELDER: DECISION AUTHORITY EROSION
   {
     label: "The elder still holds the title. The decisions stopped being his some time ago.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Family', 'Authority'],
     xpReward: 75,
     stageProgress: 1,
@@ -288,6 +293,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 8. MARKET INSPECTOR: QUALITY ENFORCEMENT BIAS
   {
     label: "The inspector enforces standards on families who complain and waves through stalls that don't.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Quality', 'Market'],
     xpReward: 75,
     stageProgress: 1,
@@ -330,6 +336,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 9. FAMILY STRUCTURE TIER 1: SYNDICATE INTEGRATION ANALYSIS
   {
     label: "The work assignments have been pulling family members apart, systematically, for two cycles.",
+    plot: 'main',
     tags: ['Investigation', 'Family', 'Structure', 'Organization'],
     xpReward: 70,
     stageProgress: 1,
@@ -367,6 +374,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 10. RESOURCE CONTROL TIER 2: SCARCITY ENGINEERING
   {
     label: "More food comes in than goes out to households. The gap is going somewhere.",
+    plot: 'main',
     tags: ['Investigation', 'Resources', 'Scarcity', 'Control'],
     xpReward: 75,
     stageProgress: 1,
@@ -407,6 +415,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 11. INFORMATION ISOLATION TIER 1: EXTERNAL NEWS FILTERING
   {
     label: "The message board is thinner than it should be. A traveler stopped mid-story.",
+    plot: 'main',
     tags: ['Investigation', 'Information', 'Isolation', 'Communication'],
     xpReward: 70,
     stageProgress: 1,
@@ -444,6 +453,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 12. COERCION SYSTEM TIER 2: THREAT MAPPING
   {
     label: "That's not variance — it's a forced choice. Say so directly.",
+    plot: 'main',
     tags: ['Investigation', 'Coercion', 'Threats', 'Fear'],
     xpReward: 75,
     stageProgress: 1,
@@ -484,6 +494,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 13. EXTERNAL FLOWS TIER 1: RESOURCE EXTRACTION
   {
     label: "Three convoys carry more than their manifests show. Destinations point north past any trade route.",
+    plot: 'main',
     tags: ['Investigation', 'Resources', 'Flow', 'Extraction'],
     xpReward: 70,
     stageProgress: 1,
@@ -521,6 +532,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 14. COMMUNITY COHESION TIER 2: SOCIAL FRAGMENTATION
   {
     label: "The communal fire is the right size for a dozen. Four sit around it.",
+    plot: 'main',
     tags: ['Investigation', 'Community', 'Bonds', 'Fragmentation'],
     xpReward: 75,
     stageProgress: 1,
@@ -561,6 +573,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 15. FAMILY FRAGMENTATION TIER 1: KINSHIP BREAKDOWN
   {
     label: "The work assignments keep landing members of the same family in locations days apart. Consistently.",
+    plot: 'main',
     tags: ['Investigation', 'Family', 'Bonds', 'Fragmentation'],
     xpReward: 70,
     stageProgress: 1,
@@ -601,6 +614,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 16. CONSENT FICTION TIER 2: MANUFACTURED ACCEPTANCE
   {
     label: "Every council vote unanimous. No abstentions. No dissent. Not once.",
+    plot: 'main',
     tags: ['Investigation', 'Coercion', 'Consent', 'Fiction'],
     xpReward: 75,
     stageProgress: 1,
@@ -643,6 +657,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 17. STREET RUMOR: FAMILY WHISPERS
   {
     label: "The same story at both ends of the market, told quietly. Nobody is coordinating it.",
+    plot: 'main',
     tags: ['Investigation', 'Rumor', 'Family', 'Gossip'],
     xpReward: 65,
     stageProgress: 1,
@@ -671,6 +686,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: SYNDICATE CONTROL PROOF
   {
     label: "The diversion, the scarcity, the family pressure — these aren't separate problems. They're one apparatus.",
+    plot: 'main',
     tags: ['Investigation', 'Evidence', 'Proof', 'Coordination', 'Exposure'],
     xpReward: 80,
     stageProgress: 1,
@@ -713,6 +729,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 17. MORAL PRESSURE: FAMILY COMPLICITY CHOICE
   {
     label: "The family leader cooperated. The question is whether they had any other choice.",
+    plot: 'main',
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation'],
     xpReward: 70,
     stageProgress: 1,

@@ -52,6 +52,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 2. MARKET BROKER: PRICE MANIPULATION
   {
     label: "Festival pricing used to be the elder council's. Now it arrives pre-circulated to buyers.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Commerce', 'Prices', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -137,6 +138,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 4. STORAGE KEEPER: GRAIN DIVERSION
   {
     label: "Festival allocation: forty tonnes. Private transfer: forty tonnes, same date.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Storage', 'Resources', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -179,6 +181,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 5. FESTIVAL COORDINATOR: CELEBRATION MANIPULATION
   {
     label: "Premium offering for patron families. Standard share for independents. The draft isn't from the council.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Festival', 'Distribution', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -221,6 +224,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 6. RECORD KEEPER: DOCUMENT FALSIFICATION
   {
     label: "Delivery figure higher than the summary confirms. Ink shade different. He has six like this.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Records', 'Documents', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -264,6 +268,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 7. INSPECTOR: QUALITY SUPPRESSION
   {
     label: "He marks it, files the mark. Two days later it's gone — passed.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Quality', 'Inspection', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -307,6 +312,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 8. DISPUTE MEDIATOR: CONFLICT RESOLUTION FAILURES
   {
     label: "He had the outcome note before the hearing. The Halversen family lost eleven years.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Mediation', 'Conflicts', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -351,6 +357,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 9. GRAIN SYSTEM HIERARCHY: AUTHORITY REORGANIZATION
   {
     label: "Three steward positions absorbed in eighteen months. The council's rulings are now advisory.",
+    plot: 'main',
     tags: ['Investigation', 'Structure', 'Hierarchy', 'Authority', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -390,6 +397,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 10. FARMING NETWORKS: FAMILY DISPLACEMENT
   {
     label: "Fourteen families gone from current records. Seven left in the same eight-week window.",
+    plot: 'main',
     tags: ['Investigation', 'Networks', 'Farming', 'Displacement', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -432,6 +440,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 11. SPOILAGE SYSTEM: DEGRADATION ACCELERATION
   {
     label: "Same harvest, same season — stored two different ways. The gap is one administrative decision.",
+    plot: 'main',
     tags: ['Investigation', 'Spoilage', 'Degradation', 'Analysis', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -471,6 +480,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 12. FAMILY POWER TRACKING: WHO'S RISING
   {
     label: "Two families in governance for the first time fourteen months ago — same three-week session.",
+    plot: 'main',
     tags: ['Investigation', 'Power', 'Ambition', 'Tracking', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -513,6 +523,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 13. QUOTA DEPENDENCY: CONTROL SYSTEM
   {
     label: "Every farmer threaded through dependencies that make non-compliance catastrophic. By design.",
+    plot: 'main',
     tags: ['Investigation', 'Quotas', 'Dependency', 'Control', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -555,6 +566,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 14. FESTIVAL MANIPULATION: UNITY WEAPONIZATION
   {
     label: "The new draft names covenant families first. That category didn't exist before.",
+    plot: 'main',
     tags: ['Investigation', 'Festival', 'Unity', 'Division', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -599,6 +611,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 15. FIELD RUMOR: FARMER WHISPERS
   {
     label: "The field rows have a theory. Everyone in them shares it.",
+    plot: 'main',
     tags: ['Investigation', 'Rumor', 'Farming', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -629,6 +642,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 16. MARKET RUMOR: MERCHANT WHISPERS
   {
     label: "The cloth trader says it at normal volume. The caution wore off.",
+    plot: 'main',
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -659,6 +673,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 17. INSTITUTIONAL CRACK: CORRUPTION PROOF COMPILATION
   {
     label: "The paper trail linking grain and festival corruption to coordinated family strategy exists.",
+    plot: 'main',
     tags: ['Investigation', 'Evidence', 'Proof', 'Conspiracy', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,
@@ -701,6 +716,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 18. MORAL PRESSURE: FAMILY LOYALTY COMPROMISE CHOICE
   {
     label: "A Harvest Circle officer is complicit. Protect them or expose their role.",
+    plot: 'main',
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -788,6 +804,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
   // 20. CONSPIRACY COMPLETE: EXTERNAL INFLUENCE CONFIRMATION
   {
     label: "Northern interests are controlling grain resources through corrupted local systems. Confirm the scope.",
+    plot: 'main',
     tags: ['Investigation', 'Origin', 'Conspiracy', 'External', 'Meaningful'],
     xpReward: 80,
     stageProgress: 1,

@@ -1284,6 +1284,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'combat',
     label: "Two workers blocking the thermal vent access. One of them is wearing management colors.",
+    plot: 'main',
     tags: ['Combat', 'Confrontation', 'Direct'],
     xpReward: 65,
     stageProgress: 1,
@@ -1328,6 +1329,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'magic',
     label: "The ward mark is six weeks old. The panel underneath is brand new.",
+    plot: 'main',
     tags: ['Magic', 'Lore', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1374,6 +1376,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'magic',
     label: "Ley-line interference in the observation archive. The pattern isn't natural.",
+    plot: 'main',
     tags: ['Magic', 'Lore', 'Records'],
     xpReward: 65,
     stageProgress: 1,
@@ -1421,6 +1424,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'stealth',
     label: "Maintenance patrol pattern has a four-minute gap at the junction. That's the window.",
+    plot: 'main',
     tags: ['Stealth', 'Risk', 'Covert'],
     xpReward: 65,
     stageProgress: 1,
@@ -1467,6 +1471,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'stealth',
     label: "The overseer takes the same route every third shift. She\'s one junction ahead.",
+    plot: 'main',
     tags: ['Stealth', 'Covert', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1514,6 +1519,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'support',
     label: "The dome worker hasn\'t reported to medical. She has a reason for that.",
+    plot: 'main',
     tags: ['Support', 'NPC', 'Care'],
     xpReward: 65,
     stageProgress: 1,
@@ -1560,6 +1566,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'support',
     label: "Two dome crews competing for the same repair slot. The dispute is the distraction.",
+    plot: 'main',
     tags: ['Support', 'NPC', 'Negotiation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1767,6 +1774,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'combat',
     label: 'The corridor seal is rusted half-open. No one is looking this way.',
+    plot: 'main',
     tags: ['Combat', 'Direct', 'Risk', 'Infrastructure'],
     xpReward: 65,
     stageProgress: 1,
@@ -1813,6 +1821,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'combat',
     label: 'Two workers blocking the vent junction. Their argument is slowing a patrol.',
+    plot: 'main',
     tags: ['Combat', 'Direct', 'Confrontation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1857,6 +1866,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'magic',
     label: 'The ward marks on these dome panels are wrong. They have been for a while.',
+    plot: 'main',
     tags: ['Knowledge', 'Lore', 'Observation', 'Arcane'],
     xpReward: 65,
     stageProgress: 1,
@@ -1903,6 +1913,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'magic',
     label: 'The ley-line readings in the observation archive stop at a specific date.',
+    plot: 'main',
     tags: ['Knowledge', 'Lore', 'Records', 'Arcane'],
     xpReward: 65,
     stageProgress: 1,
@@ -1950,6 +1961,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'stealth',
     label: 'The maintenance patrol uses the same junction rotation every cycle.',
+    plot: 'main',
     tags: ['Stealth', 'Infiltration', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1997,6 +2009,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'stealth',
     label: 'The overseer takes the same service tunnel every morning. She never looks behind her.',
+    plot: 'main',
     tags: ['Stealth', 'Observation', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -2044,6 +2057,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'support',
     label: 'The dome worker\'s hands are wrapped wrong. She has been doing this herself.',
+    plot: 'main',
     tags: ['Care', 'NPC', 'Social'],
     xpReward: 65,
     stageProgress: 1,
@@ -2090,6 +2104,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'support',
     label: 'The two crews are fighting over a repair slot that neither of them scheduled.',
+    plot: 'main',
     tags: ['Social', 'NPC', 'Diplomacy', 'Infrastructure'],
     xpReward: 65,
     stageProgress: 1,

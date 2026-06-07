@@ -103,6 +103,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 3. QUALITY INSPECTOR: STANDARDS DETERIORATION
   {
     label: "The inspection stamps don't match what's coming off the dock. Things are passing that shouldn't.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Quality', 'Standards', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
@@ -140,6 +141,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 4. HALL KEEPER: EXCLUSION PATTERNS
   {
     label: "The hall keeps turning away the same kinds of merchants. The keeper knows the pattern.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Access', 'Membership', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
@@ -181,6 +183,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 5. LEDGER MASTER: RECORD FALSIFICATION
   {
     label: "The ledger master handles every account. Wrong numbers means someone told him.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Records', 'Finance', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
@@ -221,6 +224,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 6. WAREHOUSE BROKER: GOODS DIVERSION
   {
     label: "Bay Seven has the same crates for days. The broker knows it's not an accident.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
@@ -258,6 +262,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 7. INITIATION OVERSEER: MEMBERSHIP COERCION
   {
     label: "The new initiation oath asks about household doubts. That was never in the ceremony before.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Membership', 'Coercion', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
@@ -298,6 +303,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 8. APPRENTICE MASTER: SKILL SUPPRESSION
   {
     label: "Weight assessment and independent arbitration were year-one skills. Now they're locked behind Level Four.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Craft', 'Knowledge', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
@@ -340,6 +346,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 9. GUILD STRUCTURE TIER 1: HIERARCHY REORGANIZATION
   {
     label: "Three department heads gone, merchant council now 'advisory.' That change wasn't announced.",
+    plot: 'main',
     tags: ['Investigation', 'Structure', 'Organization', 'Power', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
@@ -377,6 +384,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 10. TRADE NETWORK TIER 2: MERCHANT DISPLACEMENT
   {
     label: "Seventeen merchants dropped in eight months. Fifteen replaced by names sharing one endorsing signature.",
+    plot: 'main',
     tags: ['Investigation', 'Networks', 'Commerce', 'Displacement', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
@@ -417,6 +425,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 11. INFORMATION CONTROL TIER 1: RUMOR SUPPRESSION
   {
     label: "Two merchants, opposite ends of the quarter, the same phrase. They don't know each other.",
+    plot: 'main',
     tags: ['Investigation', 'Information', 'Communication', 'Control', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
@@ -454,6 +463,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 12. COERCION MECHANISMS TIER 2: THREAT MAPPING
   {
     label: "Every merchant who filed a complaint lost something four days later. Same interval, different mechanism.",
+    plot: 'main',
     tags: ['Investigation', 'Coercion', 'Fear', 'Threats', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
@@ -494,6 +504,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 13. EXTERNAL MOVEMENT TIER 1: RESOURCE REDIRECTION
   {
     label: "Nineteen percent to 'administrative coordination, external.' No service contract for that line.",
+    plot: 'main',
     tags: ['Investigation', 'Resources', 'Flow', 'Redirection', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
@@ -531,6 +542,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 14. TRUST EROSION TIER 2: INSTITUTIONAL FAITH COLLAPSE
   {
     label: "The common bench is empty at midday. Merchants who arrived together stand at separate walls.",
+    plot: 'main',
     tags: ['Investigation', 'Trust', 'Institutions', 'Faith', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
@@ -571,6 +583,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 15. MERCHANT VULNERABILITY TIER 1: ECONOMIC EXPOSURE
   {
     label: "Rulings cluster on merchants with one route, no backup suppliers. Someone mapped them first.",
+    plot: 'main',
     tags: ['Investigation', 'Vulnerability', 'Economics', 'Exposure', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
@@ -611,6 +624,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 16. DECISION OPACITY TIER 2: UNEXPLAINED AUTHORITY SHIFTS
   {
     label: "No issuing body, no number — just his name on the outcome.",
+    plot: 'main',
     tags: ['Investigation', 'Authority', 'Opacity', 'Decision', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
@@ -653,6 +667,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 17. STREET RUMOR: MERCHANT WHISPERS
   {
     label: "The merchant quarter is running a story that doesn't need to be accurate. Just possible.",
+    plot: 'main',
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
@@ -681,6 +696,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 18. WAREHOUSE RUMOR: LOADING DOCK TALK
   {
     label: "The loading crews talk after hours. Someone heard something near Bay Seven.",
+    plot: 'main',
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
@@ -709,6 +725,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 18. INSTITUTIONAL CRACK: ARBITRATION CORRUPTION PROOF
   {
     label: "The paper trail of arbitration corruption is assembling. Time to compile and show it.",
+    plot: 'main',
     tags: ['Investigation', 'Evidence', 'Proof', 'Corruption', 'Meaningful'],
     xpReward: 80,
     failResult: function() {
@@ -749,6 +766,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 19. MORAL PRESSURE: GUILD ROLE COMPROMISE CHOICE
   {
     label: "A guild officer is complicit. Protect them or expose them.",
+    plot: 'main',
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
     effects: [
@@ -1136,6 +1154,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   // 6D-A: Factor stops mid-sentence — last words omitted
   {
     label: "The factor started to name the routes that don't move. Then he didn't.",
+    plot: 'main',
     tags: ['NPC', 'Trade', 'Observation'],
     xpReward: 60,
     stageProgress: 1,
@@ -1165,6 +1184,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'combat',
     label: "Staged blockade on the transit route. Three people, one road, and they know we\'re coming.",
+    plot: 'main',
     tags: ['Combat', 'Risk', 'Direct'],
     xpReward: 65,
     stageProgress: 1,
@@ -1207,6 +1227,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'combat',
     label: "Guild courier approaching the relay post. One intersection left before he\'s inside.",
+    plot: 'main',
     tags: ['Combat', 'Confrontation', 'Direct'],
     xpReward: 65,
     stageProgress: 1,
@@ -1251,6 +1272,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'magic',
     label: "Caravan manifest has a cipher running through the route codes. Not guild-standard.",
+    plot: 'main',
     tags: ['Magic', 'Lore', 'Records'],
     xpReward: 65,
     stageProgress: 1,
@@ -1291,6 +1313,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'magic',
     label: "Waymark inscription on the transit post. Underneath the guild marks there\'s a second message.",
+    plot: 'main',
     tags: ['Magic', 'Lore', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1332,6 +1355,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'stealth',
     label: "Transit district at third bell. The courier takes the same route every time.",
+    plot: 'main',
     tags: ['Stealth', 'Covert', 'Observation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1372,6 +1396,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'stealth',
     label: "Caravan staging area at night. One guard, long circuit, manifest box in the open shed.",
+    plot: 'main',
     tags: ['Stealth', 'Covert', 'Risk'],
     xpReward: 65,
     stageProgress: 1,
@@ -1413,6 +1438,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'support',
     label: "Emergency route arrangement. The factor wants something first and he\'s not pretending otherwise.",
+    plot: 'main',
     tags: ['Support', 'NPC', 'Negotiation'],
     xpReward: 65,
     stageProgress: 1,
@@ -1453,6 +1479,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
   {
     archetypeGroup: 'support',
     label: "The route discrepancy is a risk to the waymark factor's own operation.",
+    plot: 'main',
     tags: ['Support', 'NPC', 'Persuasion'],
     xpReward: 65,
     stageProgress: 1,

@@ -94,6 +94,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 3. MEMORIAL COUNSELOR: GRIEF PROCESSING CHANGING
   {
     label: "Families used to take weeks. Now they're rushed through in days and sent away empty.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Grief', 'Ritual', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
@@ -132,6 +133,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 4. PROCESSIONAL COORDINATOR: ROUTE DIVERSIONS
   {
     label: "The processional routes changed three weeks ago. Every path ends at the mediation courts now.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Process', 'Routes', 'Meaningful'],
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 70,
@@ -170,6 +172,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 5. CHAPEL KEEPER: BLESSING FAILURE
   {
     label: "People return saying their blessings didn't hold. The ritual authority says they're working as designed.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Divine', 'Protection', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -207,6 +210,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 6. RITUAL AUTHORITY: DOCTRINE CHANGES
   {
     label: "The ritual authority received sealed guidance from outside. They know the structure too precisely.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Authority', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -247,6 +251,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 7. INNKEEPER: GUEST PATTERNS AND SEALED LETTERS
   {
     label: "Northern couriers arrive every seven days, always sealed. Different courier, same timing.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Commerce', 'Intelligence', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -284,6 +289,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 8. MEDIATOR CLERIC: CASE OUTCOMES RIGGED
   {
     label: "Northern traders win every merchant dispute. The pattern is forty cases deep.",
+    plot: 'main',
     tags: ['Investigation', 'NPC', 'Justice', 'Corruption', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -326,6 +332,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 9. LORE TIER 1: RITUAL FORMULA ANALYSIS
   {
     label: "The original asks for balance. The current version asks for appropriate divine resolution.",
+    plot: 'main',
     tags: ['Investigation', 'Lore', 'Magic', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -366,6 +373,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 10. LORE TIER 2: DIVINE BALANCE DOCTRINE
   {
     label: "Old doctrine: find the just outcome. New doctrine: find the efficient one.",
+    plot: 'main',
     tags: ['Investigation', 'Lore', 'Philosophy', 'Doctrine', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -406,6 +414,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 11. CRAFT TIER 1: OFFERING PREPARATION INSPECTION
   {
     label: "Each substitution passes on its own. Together they corrupt the entire offering.",
+    plot: 'main',
     tags: ['Investigation', 'Craft', 'Materials', 'Ritual', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -446,6 +455,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 12. CRAFT TIER 2: MEDIATION LEDGER DOCUMENT ANALYSIS
   {
     label: "The binding threads on replaced sections are newer than the surrounding pages.",
+    plot: 'main',
     tags: ['Investigation', 'Craft', 'Forgery', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -486,6 +496,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 13. SURVIVAL TIER 1: ROUTE NETWORK ANALYSIS
   {
     label: "Messenger routes don't match any shrine business destination. Same paths, different messengers.",
+    plot: 'main',
     tags: ['Investigation', 'Survival', 'Routes', 'Movement', 'Meaningful'],
     xpReward: 70,
     stageProgress: 1,
@@ -526,6 +537,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 14. SURVIVAL TIER 2: WAYSTATION INSPECTION
   {
     label: "The waystation back rooms hold document supplies and currency. Not water, food, or candles.",
+    plot: 'main',
     tags: ['Investigation', 'Survival', 'Supplies', 'Evidence', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -568,6 +580,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 15. STREET RUMOR: FAMILIES BEING DIVIDED
   {
     label: "The offering hall crowd is circling something. Three people, different tones, same direction.",
+    plot: 'main',
     tags: ['Investigation', 'Rumor', 'Social', 'Gossip', 'Meaningful'],
     xpReward: 65,
     stageProgress: 1,
@@ -602,6 +615,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 16. INSTITUTIONAL CRACK: SHRINE WORKER DEFECTION
   {
     label: "A shrine worker knows the blessings changed. The fear in their voice is specific.",
+    plot: 'main',
     tags: ['Investigation', 'Evidence', 'Witness', 'Defection', 'Betrayal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -643,6 +657,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // 17. MEDIATION FAILURE: WRONGED FAMILY SPEAKS
   {
     label: "Every precedent favored her. The adjudicator ruled against her. Her home sold within the month.",
+    plot: 'main',
     tags: ['Investigation', 'Evidence', 'Victim', 'Personal', 'Meaningful'],
     xpReward: 75,
     stageProgress: 1,
@@ -950,6 +965,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
   // TYPE: INFORMATION — ARCHETYPE GATE (Saint — Support family)
   {
     label: "The blessings here have been weakened. The doctrine used to explain it is recent.",
+    plot: 'main',
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     failResult: function() {

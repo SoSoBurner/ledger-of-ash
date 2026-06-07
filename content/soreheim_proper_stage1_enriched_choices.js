@@ -1194,6 +1194,8 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   {
     id: 'sore_magma_forge_base3',
     label: "The tower-base forge is running at full quota. The heat reaches the entry stairs.",
+    plot: 'main',
+    xpReward: 20,
     tags: ['Wits', 'Soreheim'],
     tag: 'risky · DC 9',
     effects: [],
