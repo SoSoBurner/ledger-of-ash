@@ -14084,7 +14084,7 @@ function showLevelUpScreen() {
   function renderAbilityStep(chosenStat, chosenTrait) {
     var archId = G.archetype ? G.archetype.id : 'warrior';
     var pool = (ARCHETYPE_ABILITY_TREES[archId] || []);
-    var alreadyUnlocked = (G.abilities || []);
+    var alreadyUnlocked = (G.unlockedAbilities || []);
 
     function isUnlocked(ab) {
       return alreadyUnlocked.some(function(u) {
