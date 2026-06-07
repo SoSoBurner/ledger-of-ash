@@ -10212,7 +10212,7 @@ function getDefaultG() {
     telemetry:{turns:0, actions:0},
     worldClocks:{watchfulness:0, pressure:0, rival:0, weather:0, omens:0},
     suspects:{},
-    investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false, corridor_encounters_enabled:true}, rivalId:null,
+    investigationProgress:0, flags:{stage2_faction_contact_made:false, combat_intro_shown:false, corridor_encounters_enabled:true, _stage3_modal_dismissed:false}, rivalId:null,
     factionHostility:{warden_order:0,iron_compact:0,oversight_collegium:0},
     stage2_rival_status:null, stage2_evidence_shared:null, stage2_faction_declared:null,
     nomdara_last_visit_locality:null,
@@ -13825,7 +13825,7 @@ function checkStageAdvance() {
           addNarration('', '<em style="color:var(--ink-faint)">The path forward is not yet open. ' + missing.join('; ') + '.</em>');
         }
       }
-      if (G.flags.stage2_climax_complete && !(G.flags && G.flags._stage3_blocked_dismissed)) {
+      if (G.flags.stage2_climax_complete && !(G.flags && G.flags._stage3_modal_dismissed)) {
         _showStage3BlockedModal();
       }
       return;
@@ -13939,9 +13939,9 @@ function _showStage3BlockedModal() {
 }
 window._showStage3BlockedModal = _showStage3BlockedModal;
 function dismissStage3BlockedModal() {
-  if (typeof G !== 'undefined' && G && G.flags) G.flags._stage3_blocked_dismissed = true;
-  var m = document.getElementById('stage3-blocked-modal');
-  if (m) m.remove();
+  var el = document.getElementById('stage3-blocked-modal');
+  if (el) el.style.display = 'none';
+  if (typeof G !== 'undefined' && G && G.flags) G.flags._stage3_modal_dismissed = true;
   if (typeof loadStageChoices === 'function') loadStageChoices();
 }
 window.dismissStage3BlockedModal = dismissStage3BlockedModal;
