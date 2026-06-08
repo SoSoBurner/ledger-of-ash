@@ -1453,7 +1453,7 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
   {
     id: 'soreheim_craft_structural_stress',
     plot: 'main',
-    label: "The tower bridge anchor bolts are carrying triple load. The stress marks are six weeks old.",
+    label: "The bridge anchor bolts are at triple load. Stress marks, six weeks old.",
     tags: ['Craft', 'Evidence', 'Structure'],
     skill: 'craft',
     xpReward: 70,
@@ -1481,7 +1481,7 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
 
   {
     id: 'soreheim_craft_forge_calibration',
-    label: "The magma forge output is running hot. The calibration log was last signed by someone no longer here.",
+    label: "The forge runs hot. The calibration log's last signature belongs to a displaced worker.",
     tags: ['Craft', 'Evidence', 'Forge'],
     skill: 'craft',
     xpReward: 60,
