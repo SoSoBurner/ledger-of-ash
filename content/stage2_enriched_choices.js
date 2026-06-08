@@ -4441,3 +4441,13 @@ const STAGE2_ENRICHED_CHOICES = [
 ];
 
 window.STAGE2_ENRICHED_CHOICES = STAGE2_ENRICHED_CHOICES;
+
+// Dedicated locality exports — the generic pool serves shelkopolis/fairhaven/etc.
+// These ensure guildheart/mimolot/glasswake/soreheim/aurora/shirshal get their own pool
+// so the seen-dedup reset fires correctly even if choices were consumed at another locality.
+window.GUILDHEART_STAGE2_ENRICHED_CHOICES   = STAGE2_ENRICHED_CHOICES.filter(function(c){ return c && c.id && c.id.indexOf('s2_guildheart_') === 0; });
+window.MIMOLOT_STAGE2_ENRICHED_CHOICES      = STAGE2_ENRICHED_CHOICES.filter(function(c){ return c && c.id && c.id.indexOf('s2_mimolot_') === 0; });
+window.GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = STAGE2_ENRICHED_CHOICES.filter(function(c){ return c && c.id && c.id.indexOf('s2_glasswake_') === 0; });
+window.SOREHEIM_STAGE2_ENRICHED_CHOICES     = STAGE2_ENRICHED_CHOICES.filter(function(c){ return c && c.id && c.id.indexOf('s2_soreheim_') === 0; });
+window.AURORA_STAGE2_ENRICHED_CHOICES       = STAGE2_ENRICHED_CHOICES.filter(function(c){ return c && c.id && c.id.indexOf('s2_aurora_') === 0; });
+window.SHIRSHAL_STAGE2_ENRICHED_CHOICES     = STAGE2_ENRICHED_CHOICES.filter(function(c){ return c && c.id && c.id.indexOf('s2_shirshal_') === 0; });
