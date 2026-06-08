@@ -5765,7 +5765,7 @@ window.STAGE1_ADJACENCY = {
   'shelkopolis':       ['fairhaven', 'aurora', 'glasswake_commune', 'cosmoria'],
   'fairhaven':         ['shelkopolis', 'guildheart', 'ithtananalor', 'mimolot', 'panim', 'shirshal', 'soreheim', 'sunspire', 'aurora'],
   'guildheart':        ['fairhaven', 'ithtananalor', 'soreheim', 'mimolot'],
-  'soreheim':          ['guildheart', 'sunspire', 'fairhaven', 'shelkopolis'],
+  'soreheim':          ['guildheart', 'sunspire', 'fairhaven'],
   'sunspire':          ['soreheim', 'fairhaven'],
   'mimolot':           ['guildheart', 'ithtananalor', 'fairhaven'],
   'ithtananalor':      ['guildheart', 'mimolot', 'shirshal', 'fairhaven'],
@@ -11992,7 +11992,7 @@ function loadStageChoices(locId) {
     };
     // Origin-side arc injection: show departure arc choices at starting locality when progress threshold reached
     if (G.stage === 'Stage I' && G.startingLocality && loc === G.startingLocality && loc !== 'shelkopolis') {
-      var _needsArcPush = (G.stageProgress && G.stageProgress[1] >= 3) || G.level >= 4;
+      var _needsArcPush = (G.stageProgress && G.stageProgress[1] >= 5) || G.level >= 5;
       if (_needsArcPush) {
         var _bgRegionOrigin = G.background && G.background.region;
         var _arcEntryOrigin = _bgRegionOrigin && _ARC_BY_REGION[_bgRegionOrigin];
