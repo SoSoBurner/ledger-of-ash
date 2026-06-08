@@ -12454,8 +12454,10 @@ function renderChoices(choices) {
       failResult: 'The moment passes. You steady yourself and step back.',
       action: function() {
         G.tensionLevel = 0;
-        G.benevolence = (G.benevolence||0) - 3;
-        G.orderAxis   = (G.orderAxis||0)   - 3;
+        G.benevolence = Math.max(-50, Math.min(50, (G.benevolence||0) - 3));
+        G.orderAxis   = Math.max(-50, Math.min(50, (G.orderAxis||0) - 3));
+        if (typeof _applyAlignmentDCModifier === 'function') _applyAlignmentDCModifier();
+        if (typeof updateAlignmentHUD === 'function') updateAlignmentHUD();
         if (typeof addNarration === 'function') addNarration('', 'You reach for steel. Conversation ends.');
         var npcId = window._activeCombatantId || null;
         var enemyKey = (npcId && window.ENCOUNTER_TABLE && window.ENCOUNTER_TABLE[npcId]) ? npcId : 'patrol_guard';
@@ -12967,9 +12969,11 @@ function handleChoice(choice) {
   const weatherMod = weatherSev >= 4 ? 1 : (weatherSev >= 3 && isOutdoor ? 1 : 0);
   const levelMod = Math.floor(((G.level || 1) - 1) / 2);
   var _heatMod = (G._heatDCMod || 0);
+  var _wlvl = (G.worldClocks && G.worldClocks.watchfulness) || 0;
+  var _watchPenalty = _wlvl >= 7 ? 3 : _wlvl >= 5 ? 2 : _wlvl >= 3 ? 1 : 0;
   var _dcReduce = Math.max(0, G._pendingDcReduce || 0);
   if (_dcReduce > 0) G._pendingDcReduce = 0;
-  const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod + (choice.skill !== 'combat' ? _heatMod : 0) - _dcReduce;
+  const diff = baseDiff + _stageNum + levelMod + axisFlipMod + weatherMod + (choice.skill !== 'combat' ? _heatMod : 0) + (choice.skill !== 'combat' ? _watchPenalty : 0) - _dcReduce;
   const success = total >= diff;
 
   // Roll display
@@ -18569,7 +18573,7 @@ document.querySelectorAll('[data-camp]').forEach(btn => btn.addEventListener('cl
 document.getElementById('btn-confirm-end').addEventListener('click', endLegend);
 var HOWTO_SECTIONS = [
   { heading: 'Risk Tiers', body: '<strong>Every choice involves a roll.</strong> Safe choices roll against DC 7 — low chance of failure, and when they fail the path redirects rather than ends. Risky choices roll against DC 13 — real risk, real reward. Bold choices roll against DC 16 — high stakes, harder consequences. A natural 20 is a Critical Success (shown in gold). A natural 1 is a Critical Failure — on main-plot choices, a backup path opens. DCs rise by +1 per stage advanced.' },
-  { heading: 'World Clocks', body: '<ul><li><strong>Watchfulness</strong> — accumulates from your actions. As it rises, encounters become harder and authority takes notice.</li><li><strong>Omens</strong> — marks escalating supernatural tension. High omens affect spirit-based rolls and may unlock hidden paths.</li><li><strong>Rivals</strong> — advance independently each choice. High rival renown imposes DC penalties on contested ground.</li></ul>' },
+  { heading: 'World Clocks', body: '<ul><li><strong>Watchfulness</strong> — accumulates from your actions. As it rises, encounters become harder and authority takes notice.</li><li><strong>Omens</strong> — tracks escalating supernatural tension. (Mechanical effects are still unfolding — currently observational.)</li><li><strong>Rivals</strong> — advance independently each choice. High rival renown imposes DC penalties on contested ground.</li></ul>' },
   { heading: 'Stage Progression', body: 'Gathering evidence fills your case. Each stage requires a threshold of progress — bold and risky successes push it forward. Advancing stages unlocks new localities and plot threads. Your rival advances in parallel; fall too far behind and they reach key sources first.' },
   { heading: 'Fumbles', body: 'A natural 1 is a fumble. On a fumble, the path you chose closes — that choice is locked. The case always continues: a backup path appears for main-thread choices. Some side paths, once closed, are closed for good.' },
   { heading: 'Save System', body: 'Progress saves automatically after each choice. Your save code appears on the main screen — note it to resume later. Export Save is available in Settings for a full JSON backup.' },
@@ -18580,9 +18584,9 @@ var HOWTO_SECTIONS = [
   { heading: 'Heat & Authority', body: 'Each polity tracks your heat (0–10). At heat 3, local authority takes notice and you may face an encounter. At heat 5, all checks in that polity cost +1 DC. At heat 8, a warrant is issued and armed responses become likely. Heat fades slowly on its own or faster by avoiding that polity. Different polities have different tolerance thresholds — border settlements are more permissive than capitals.' },
   { heading: 'Rival Pressure', body: 'Your rivals operate on their own clock, accumulating renown while you work. High rival renown adds +1 to +3 DC to contested rolls — they have resources and allies you do not. The rival clock advances with each stage transition and major story beat. You can slow them by directly disrupting their operations, but outpacing them requires pushing into bold choices consistently.' },
   { heading: 'Travel', body: 'Move between localities by opening the map. On foot is free but slow. Horse, cart, and boat cost gold per leg but cover more ground. Your pace (fast, normal, slow) affects encounter chance — fast pace risks complications; slow pace reduces them. Supplies deplete each day of travel. Running out of supplies imposes penalties to Vigor rolls until you resupply at the next settlement.' },
-  { heading: 'Camp & Rest', body: 'Rest at camp to recover HP. The amount healed scales with your Vigor skill. Camp actions: Rest, Sleep, Train, Talk (requires active companion), Seek Care, Lay Low, Camp Outside, Craft, Post Watches. Crafting at camp uses a Craft roll against the recipe difficulty — success produces the item, failure consumes materials. If you have companions, posting watches converts potential ambushes into warned encounters where you act first. Camp is also where companion-specific events trigger.' },
+  { heading: 'Camp & Rest', body: 'Rest at camp to recover HP. Rest restores about 45% of your max HP (+10% more if your supply tier is plentiful). Camp actions: Rest, Sleep, Train, Talk (requires active companion), Seek Care, Lay Low, Camp Outside, Craft, Post Watches. Crafting at camp uses a Craft roll against the recipe difficulty — success produces the item, failure consumes materials. If you have companions, posting watches converts potential ambushes into warned encounters where you act first. Camp is also where companion-specific events trigger.' },
   { heading: 'Companions', body: 'Companions join after you resolve the Maren Oss encounter and open the companion gate. Vorath Gelden provides +2 to social checks with garrison-affiliated NPCs and a once-per-scene Tactical Assessment ability. Mira Calden provides once-per-locality trade anomaly intelligence and a once-per-scene Political Read ability. Kaevrin provides +2 to Wits on intelligence-gathering choices and a once-per-scene Pattern Analysis ability. Each companion has an agenda — they are not tools, they have opinions.' },
-  { heading: 'Stage Progress', body: 'The progress bar in your HUD tracks your stage advancement. Risky and bold choices advance it; safe choices do not. The bar must reach 3 for the stage miniboss to unlock, and 15 or higher to face the stage boss. Completing the boss encounter clears the way to advance. You cannot skip stages — the groundwork must be laid before the confrontation becomes possible.' },
+  { heading: 'Stage Progress', body: 'The progress bar in your HUD tracks your stage advancement. Risky and bold choices advance it; safe choices do not. Around progress 3, faint signs of the stage miniboss begin appearing. At progress 10, the miniboss encounter triggers. After the miniboss, the main boss becomes available at progress 15. Completing the boss encounter clears the way to advance. You cannot skip stages — the groundwork must be laid before the confrontation becomes possible.' },
   { heading: 'Alignment', body: 'Two hidden axes track your moral character: Benevolence (-50 to +50) and Order (-50 to +50). Choices that help others at personal cost raise benevolence; choices that harm others lower it. Choices that uphold law and structure raise order; lawbreaking lowers it. At plus or minus 10, alignment badges appear on your character sheet. NPCs in later stages react to your alignment — some paths close, others open.' },
 ];
 
