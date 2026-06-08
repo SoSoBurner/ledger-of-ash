@@ -1420,6 +1420,114 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
     }
   },
 
+  // ── CRAFT-SKILLED CHOICES (benefits engineer archetype) ──────────────────
+  {
+    id: 'soreheim_craft_quota_tool_wear',
+    plot: 'main',
+    label: "The cutting tools are worn to the nub. Quota forbids stopping to dress them.",
+    tags: ['Craft', 'Evidence', 'Labor'],
+    skill: 'craft',
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: 'The tool maintenance shed is locked between shifts. The equipment log is posted at the forge-base junction — each tool\'s last dressing date is recorded by the maintenance clerk.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(65, 'reading tool wear against quota pressure');
+      G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+
+      var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
+      if (_result.total >= 13) {
+        G.lastResult = 'The cutting edges in the quota yard are dressed to sixty percent of working spec — you can tell from the burr pattern, the sound of the cut, and the chip size landing in the collection trough. At this wear level, output drops twelve percent and injury rate triples. The foreman knows. The numbers in his log account for it by reclassifying slow cuts as worker error, not tool failure. The maintenance log hasn\'t been updated in three weeks. The tools are not stopping until they break.';
+        G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+        addJournal('Soreheim cutting tools at 60% spec — quota forbids dressing stops, failures logged as worker error.', 'evidence', 'soreheim-craft-tools-' + (G.dayCount||0));
+      } else {
+        G.lastResult = 'The percussion of the cutting floor carries a flat edge — tools working against their own wear, friction where there should be clean bite. You note the chip size and the dust pattern: fine where it should be coarse, meaning the edge is gone. The foreman walks the line without slowing. He knows what he is hearing. He keeps the same pace each pass, which means he has decided that knowing is not the same as acting.';
+        addJournal('Soreheim cutting floor: tool wear audible, foreman aware and not responding.', 'intelligence', 'soreheim-craft-tools-partial-' + (G.dayCount||0));
+      }
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 'soreheim_craft_structural_stress',
+    plot: 'main',
+    label: "The tower bridge anchor bolts are carrying triple load. The stress marks are six weeks old.",
+    tags: ['Craft', 'Evidence', 'Structure'],
+    skill: 'craft',
+    xpReward: 70,
+    stageProgress: 1,
+    failResult: 'The tower maintenance ledger is held at the engineering authority office, two floors above the bridge level. The bridge inspection schedule is posted at the base platform — the last inspection date is on record.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(70, 'reading structural stress evidence');
+      G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+
+      var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
+      if (_result.total >= 13) {
+        G.lastResult = 'The stress fractures at the main anchor bracket predate the quota acceleration by about six weeks — the rust color and the oxide ring around the cracks put them at the third week of the new production cycle. The bridge was designed for half the current cargo load. Whoever set the new quotas either didn\'t know or didn\'t care. The inspection log on the base platform shows the last formal check was eight weeks ago. The fracture lines are not in the public-facing section of the tower. They are behind a maintenance panel that opens from the service side.';
+        G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+        addJournal('Tower bridge: structural stress fractures 6 weeks old, load exceeds design spec, inspection overdue.', 'evidence', 'soreheim-craft-structural-' + (G.dayCount||0));
+      } else {
+        G.lastResult = 'The bridge sway pattern under cargo load is wrong — too much lateral flex in the mid-span, which means the anchor tension on the east side is compensating for something on the west. The specifics require time you don\'t have at the moment. The maintenance panel on the east anchor is bolted shut from the service side. The service access door is a floor below the bridge level, around the back of the Tower Seven approach stair.';
+        addJournal('Soreheim tower bridge: flex pattern suggests structural compromise. Service access needed for full assessment.', 'intelligence', 'soreheim-craft-structural-partial-' + (G.dayCount||0));
+      }
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 'soreheim_craft_forge_calibration',
+    label: "The magma forge output is running hot. The calibration log was last signed by someone no longer here.",
+    tags: ['Craft', 'Evidence', 'Forge'],
+    skill: 'craft',
+    xpReward: 60,
+    failResult: 'The forge calibration records are in the operating authority vault. The base-level technician holds a working copy of the current settings — it is a required safety document, posted in the lead technician\'s station.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(60, 'reading forge calibration drift');
+
+      var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
+      if (_result.total >= 12) {
+        G.lastResult = 'The calibration drift is approximately eight degrees above the upper operating band — enough to cause inconsistent material output and accelerated lining erosion. The last signature on the calibration log belongs to a name the floor technician won\'t say directly. "Transferred," she says, and returns to the temperature chart. The current operating settings were entered without a certifying signature. Whoever set them didn\'t want a record of who made the change.';
+        addJournal('Soreheim forge calibration running 8° over band — last certifying signature belongs to displaced worker, no current authorization recorded.', 'evidence', 'soreheim-craft-forge-' + (G.dayCount||0));
+      } else {
+        G.lastResult = 'The heat output from the forge base is higher than the ambient intake fans are rated for — the air above the floor level carries a shimmer that isn\'t normal operating temperature. The calibration board at the lead technician\'s station shows numbers, but reading them requires getting closer than the floor access currently allows without authorization.';
+      }
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  {
+    id: 'soreheim_spirit_ward_suppression',
+    label: "The ward at the worker assembly point was adjusted. It now prevents organized speech.",
+    tags: ['Spirit', 'Magic', 'Labor', 'Control'],
+    skill: 'spirit',
+    xpReward: 68,
+    failResult: 'Ward adjustments are recorded at the magic authority registry under the allocation office. The ward inscription at the assembly point is visible from the public walkway — the modification layer sits above the original in a different hand.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(68, 'reading ward modification intent');
+
+      var _result = rollD20('spirit', G.skills ? (G.skills.spirit || 0) : 0);
+      if (_result.total >= 13) {
+        G.lastResult = 'The original ward inscription establishes a civic assembly protection — voices raised in civic complaint carry protection under it. The modification layer above it is a resonance scatter: it doesn\'t prevent speech, but it breaks the harmonic that carries organized chanting or call-and-response. The assembly point still functions for individual conversation. It no longer functions for the kind of speech that requires multiple voices in rhythm. The modification was precise. Whoever did it understood what they were suppressing and what they were leaving intact.';
+        addJournal('Worker assembly ward modified: resonance scatter suppresses organized chant/group speech, individual speech still protected. Modification is deliberate and targeted.', 'evidence', 'soreheim-spirit-ward-' + (G.dayCount||0));
+      } else {
+        G.lastResult = 'Something about the assembly point feels deadened — not hostile, just muted. Conversations there stay short and private. Nobody raises their voice, not even in the way workers normally do across a loud yard. The ward inscription at the gate lintel carries a second layer of inscription above the first. Two different hands. The upper layer is recent — the ink is still absorbing into the stone.';
+        addJournal('Assembly ward has a second inscription layer — function unclear without closer reading.', 'intelligence', 'soreheim-spirit-ward-partial-' + (G.dayCount||0));
+      }
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
   // ── OATH-CYCLE RITUAL (fires periodically on G.dayCount % 28) ────────────
   {
     id: 'soreheim_oath_cycle',

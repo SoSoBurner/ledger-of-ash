@@ -5765,7 +5765,7 @@ window.STAGE1_ADJACENCY = {
   'shelkopolis':       ['fairhaven', 'aurora', 'glasswake_commune', 'cosmoria'],
   'fairhaven':         ['shelkopolis', 'guildheart', 'ithtananalor', 'mimolot', 'panim', 'shirshal', 'soreheim', 'sunspire', 'aurora'],
   'guildheart':        ['fairhaven', 'ithtananalor', 'soreheim', 'mimolot'],
-  'soreheim':          ['guildheart', 'sunspire', 'fairhaven'],
+  'soreheim':          ['guildheart', 'sunspire', 'fairhaven', 'shelkopolis'],
   'sunspire':          ['soreheim', 'fairhaven'],
   'mimolot':           ['guildheart', 'ithtananalor', 'fairhaven'],
   'ithtananalor':      ['guildheart', 'mimolot', 'shirshal', 'fairhaven'],
@@ -11675,7 +11675,6 @@ function adaptSeedChoice(c) {
     align: 'neutral',
     action: function() {
       document.querySelectorAll('.choice-block,.move-block').forEach(function(b){b.remove();});
-      addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + c.text + '</em>');
       var result = rollD20(c.skill, (typeof getEquipmentBonus === 'function' ? getEquipmentBonus(c.skill) : 0) + (typeof getTraitBonus === 'function' ? getTraitBonus(c.skill) : 0));
       if (result.total >= (c.dc || 12)) {
         try { if (c.onSuccess) c.onSuccess(); } catch(e) { console.error('[seed]', e); }
@@ -11993,7 +11992,7 @@ function loadStageChoices(locId) {
     };
     // Origin-side arc injection: show departure arc choices at starting locality when progress threshold reached
     if (G.stage === 'Stage I' && G.startingLocality && loc === G.startingLocality && loc !== 'shelkopolis') {
-      var _needsArcPush = (G.stageProgress && G.stageProgress[1] >= 5) || G.level >= 5;
+      var _needsArcPush = (G.stageProgress && G.stageProgress[1] >= 3) || G.level >= 4;
       if (_needsArcPush) {
         var _bgRegionOrigin = G.background && G.background.region;
         var _arcEntryOrigin = _bgRegionOrigin && _ARC_BY_REGION[_bgRegionOrigin];
@@ -12678,7 +12677,9 @@ function handleChoice(choice) {
   // Route instant-attack escalation
   if (choice.cid === '__instant_attack_escalation__') {
     document.querySelectorAll('.choice-block,.move-block').forEach(b=>b.remove());
-    G.benevolence = Math.max(-50, (G.benevolence||0) - 4);
+    G.benevolence = Math.max(-50, Math.min(50, (G.benevolence||0) - 4));
+    if (typeof _applyAlignmentDCModifier === 'function') _applyAlignmentDCModifier();
+    if (typeof updateAlignmentHUD === 'function') updateAlignmentHUD();
     var _escalEnemy = (window._activeCombatantId && ENEMY_TEMPLATES && ENEMY_TEMPLATES[window._activeCombatantId]) ? window._activeCombatantId : 'patrol_guard';
     if (typeof enterCombat === 'function') enterCombat(_escalEnemy, {escalated:true});
     return;
@@ -12729,7 +12730,6 @@ function handleChoice(choice) {
     const _rIdx = parseInt(_rParts[2], 10);
     const _rOutcome = _rParts[3];
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
     const _rSkill = G.skills[choice.skill] || 0;
     const _rRoll = Math.floor(Math.random() * 20) + 1;
     const _rDiff = getChoiceDC(choice);
@@ -12748,7 +12748,6 @@ function handleChoice(choice) {
     G._journeyDest = destId;
     G._journeyLoadout = loadout;
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
     const lmr = window.LOCALITY_MACROREGION || {};
     const fromMacro = lmr[G.location], toMacro = lmr[destId];
     const curPol = WORLD_LOCATIONS[G.location] && WORLD_LOCATIONS[G.location].polity;
@@ -12800,7 +12799,6 @@ function handleChoice(choice) {
   // Check for shop trigger
   if (choice.cid === '__shop__') {
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-    addNarration('', '<em>You chose: ' + choice.text + '</em>');
     showShop();
     return;
   }
@@ -12814,7 +12812,6 @@ function handleChoice(choice) {
     const _aOutcome = _aParts[4] || '';
     const _aHeat    = getHeat(_aPolity);
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
     // Roll for skill-based outcomes
     const _aSkillKey = choice.skill || 'persuasion';
     const _aSkillVal = G.skills[_aSkillKey] || 0;
@@ -12830,7 +12827,6 @@ function handleChoice(choice) {
   if (choice.cid && choice.cid.startsWith('__combat__')) {
     const enemyId = choice.cid.replace('__combat__','');
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-    addNarration('', '<em>You chose: ' + choice.text + '</em>');
     if (typeof startCombat === 'function') startCombat(enemyId, {});
     return;
   }
@@ -12838,7 +12834,6 @@ function handleChoice(choice) {
   // Direct-execution path for enriched choices (fn handles own roll + result)
   if (typeof choice.action === 'function') {
     document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-    addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
 
     // Universal roll: auto-derive DC if no explicit roll defined on the choice
     var _autoRoll = null;
@@ -12867,8 +12862,7 @@ function handleChoice(choice) {
       var _rollClass = 'roll-result ' + (_autoRollFailed ? 'failure' : 'success');
       var _abilStr = _abilBonus > 0 ? ' + ability ' + _abilBonus : '';
       var _skillLabel = skillDisplay(_effectiveRoll.skill);
-      var _rollSummary = '<div class="roll-summary">' + _skillLabel + ' ' + _arRoll + ' + ' + _arSkillVal + (_abilBonus > 0 ? ' + ' + _abilBonus : '') + ' = ' + _arTotal + ' vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'FAIL' : 'SUCCESS') + '</div>';
-      addNarration('', _rollSummary + '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _skillLabel + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
+      addNarration('', '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _skillLabel + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
       if (_autoRollFailed && choice.failResult) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
@@ -12910,7 +12904,6 @@ function handleChoice(choice) {
   }
 
   document.querySelectorAll('.choice-block,.move-block').forEach(b => b.remove());
-  addNarration('', '<em style="color:var(--ink-faint);font-size:13px">You chose: ' + choice.text + '</em>');
 
   var _hcKN = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
   var _hcSk = _hcKN[choice.skill] || choice.skill;
@@ -14671,11 +14664,19 @@ function enterDistrict(distId) {
   addNarration(dist.display_name_raw || dist.name, '<strong>' + (dist.display_name_raw || dist.name) + '</strong>. ' + sceneText);
   _maybePublicComplication(distId);
   updateHUD(); updateEnvironmentPanel(); buildLivingDesc(G.location, G); saveGame();
-  setTimeout(() => renderChoices([
-    { text: 'Observe the district and read its rhythms.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' },
-    { text: 'There is work here, or there are leads — one or the other.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel' },
-    { text: 'Return to ' + parentName + '.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover' }
-  ]), 300);
+  setTimeout(() => {
+    var _base = [
+      { text: 'Observe the district and read its rhythms.', skill:'lore', tag:'safe', align:'neutral', cid:'market_intel' },
+      { text: 'There is work here, or there are leads — one or the other.', skill:'lore', tag:'risky', align:'neutral', cid:'passive_intel' },
+      { text: 'Return to ' + parentName + '.', skill:'survival', tag:'safe', align:'neutral', cid:'rest_recover' }
+    ];
+    var _distChoices = window.DISTRICTS_STAGE2_CHOICES && window.DISTRICTS_STAGE2_CHOICES[distId];
+    if (_distChoices && _distChoices.length) {
+      renderChoices(_base.concat(_distChoices));
+    } else {
+      renderChoices(_base);
+    }
+  }, 300);
 }
 
 function enterNomdara() {

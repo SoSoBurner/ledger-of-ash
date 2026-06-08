@@ -1566,3 +1566,761 @@ window.SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = SCRIPTORIUM_STEPS_STAGE2_ENRI
 window.HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = HIGH_QUARTER_STAGE2_ENRICHED_CHOICES;
 window.COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = COMMON_QUARTER_STAGE2_ENRICHED_CHOICES;
 window.LOW_WARD_STAGE2_ENRICHED_CHOICES = LOW_WARD_STAGE2_ENRICHED_CHOICES;
+
+/* ============================================================
+ * DISTRICTS_STAGE2_CHOICES — per-distId injection map
+ * Used by enterDistrict() for synthetic LOCALITY_MATRIX districts
+ * (high_quarter / common_quarter / low_ward partitions).
+ * Schema: { id, label, skill, tag, roll, fn, failResult }
+ * Rewards: gainXp + addJournal + optional small gold. No stageProgress.
+ * ============================================================ */
+
+// ── SHELKOPOLIS — HIGH QUARTER (guild administration, formal proceedings) ──
+var SHELKOPOLIS_HIGH_QUARTER_S2 = [
+  {
+    id: 'dist_shelkopolis_high_quarter_1',
+    label: 'The freight tribunal posts its docket where no one bothers to read it.',
+    skill: 'wits', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The docket sheet is pinned beside the south stair, sun-bleached on the upper third. Three carriage-rate appeals, a guild-mark reissue, a sealed petition with the petitioner name struck through in red ink. The strike-through is administrative; the petition is still on the calendar. The hearing chamber number is the small one on the inner corridor — the one with no public bench. A petition heard in a room with no audience is not a petition. It is a notice.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      addJournal('Shelkopolis High Quarter: sealed petition with struck-through petitioner scheduled in the chamber with no public seating', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'A clerk crosses the corridor before you reach the board, sees you reading the sheet, and stops a half step short of saying anything. She turns down the side passage instead. The docket stays where it is. You read three lines before a second clerk steps out of the records office and pulls the sheet down for replacement — the standard mid-morning rotation, he says, without looking at you. The replacement sheet is identical to the one he removed except for one line.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_high_quarter_2',
+    label: 'Guild councillors take the rail at the third bell. They walk in formation.',
+    skill: 'charm', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'Four councillors cross the upper concourse in single file, oldest first. The order is not seniority — it is shareholding. The man at the back wears no guild mark visible at the lapel, which means he carries it inside the coat, which means he is from a chapter that does not require public display. That is a chapter of two. They board the private rail car. The escort steward checks no passes. The private car has no published schedule.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Shelkopolis High Quarter: private rail car serves councillors of an unmarked chapter — no published schedule, no pass checks', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You misjudge the angle of approach. A side steward intercepts the formation a step before they reach the platform and you are already past the inner barrier when the steward turns. He does not say anything. He looks at the mark on your sleeve, then at the second steward at the rail gate, then back at you. The councillors board. You are standing where the public is allowed to stand, which means you are allowed to stand there, which means he has nothing to write down. He writes something down anyway.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_high_quarter_3',
+    label: 'The notary stamp on a posted ruling is wrong. Same shape, wrong weight.',
+    skill: 'wits', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The seal is the right shape and the right ink. The pressure is wrong. A notary stamp impressed by hand carries a thumb-print of unevenness on the lower edge — the wrist tires across a day. This one is even on all four edges. It was set in a press, not by hand. Press-stamped notaries are reserved for high-volume reissue, which means whoever ruled on this matter ruled on a great many other matters at the same time. The ruling becomes part of a batch you have not seen.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      G.gold = (G.gold || 0) + 6;
+      addJournal('Shelkopolis High Quarter: press-stamped notary on a posted ruling — batch processing concealed in single-case format', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You crouch closer than the angle allows and a junior clerk steps out of the records alcove with the careful expression of someone trained to be careful in particular ways. He asks whether you require a copy of the ruling. The implication is that anyone who needs to read it that closely should be reading the filed copy. You decline. He stays where he is until you step back from the wall, then resumes the position he had before you arrived. The press-stamp tell goes back behind the glass.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_high_quarter_4',
+    label: 'A senior clerk has left her office twice this hour. Same corridor each time.',
+    skill: 'finesse', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'She walks the southwest corridor to a wall niche that holds nothing — no shrine, no notice, no bench — and stands there for the length of a slow breath, then turns back. Twice in one hour. The third time she does not go to the niche. She goes to the door beside it and unlocks it with a key kept on a separate ring from her duty keys. The room behind it has no window onto the corridor. She is inside for one minute. The handle of her hand is not shaking when she comes out, which is the only thing about her that is not.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      addJournal('Shelkopolis High Quarter: senior clerk maintaining a windowless side room on a separate key — repeated brief visits', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'She catches your reflection in the polished brass of the corridor lamp before her second pass. She does not break stride. She crosses to the niche, stands for the length of a slow breath, and turns back — but on the return she stops at the duty desk and writes a short note on the day-log. You do not see the page. The third pass she does not make. The corridor empties. Two stewards take the same niche in rotation for the next hour. There is no reason for stewards to stand in front of a niche.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── SHELKOPOLIS — COMMON QUARTER (working traders, transit, small shops) ──
+var SHELKOPOLIS_COMMON_QUARTER_S2 = [
+  {
+    id: 'dist_shelkopolis_common_quarter_1',
+    label: 'The transit fee booth has two queues. One is shorter for no posted reason.',
+    skill: 'wits', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The shorter queue moves at the same pace as the longer one — fewer passengers, identical processing time per passenger. The booth attendant on the short side stamps the fare ticket without looking, then drops the coin into a side tin separate from the till. The till is for the guild. The tin is for someone else. Three regulars pass through the short queue in the time you watch. Each one wears a different shoulder mark. The marks share one detail: a thumb-rub at the lower corner where a chapter wears down with handling.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      G.gold = (G.gold || 0) + 4;
+      addJournal('Shelkopolis Common Quarter: transit booth running a side-tin for a chapter identified by handling-wear on the shoulder mark', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You join the short queue and the attendant looks up before you reach the window. She closes the till drawer with her left hand and the side tin with her right and points you to the longer line without speaking. You go. The longer line takes the time it takes. When you reach the front, the attendant there processes your fare with the same flat efficiency and no irregularity at all. The short queue continues moving at the same pace. You leave the booth knowing only that you were not allowed to learn.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_common_quarter_2',
+    label: 'A small trader has scratched out a guild mark and re-inked it. Twice.',
+    skill: 'finesse', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The stallboard at the corner shop shows two layers of overwriting under the current mark. Held at the right angle, both prior marks are different chapters from the current one. A trader does not change chapter affiliation three times in one season without a reason — chapters charge a transfer fee, and the fee scales with frequency. He has paid that fee twice. Either the trades have been worth it, or someone else has been paying the fee, or the marks themselves are not real and the scratch-outs are the camouflage.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Shelkopolis Common Quarter: stallboard chapter mark overwritten twice this season — three possible explanations, all worth pursuing', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The trader notices the angle of your read and slides a wooden price-board over the mark with the side of his hand, smiling at you while he does it. He asks what you are buying. You name a small item and pay above price. He gives the change without comment. When you step back the price-board stays exactly where he set it. The next customer in line does not look at the mark either. There is a habit here you have just been welcomed into without being told what it is.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_common_quarter_3',
+    label: 'The freight log at the loading bay was signed twice. Two different hands.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The bay log binds the day in numbered entries. Entry forty-one has two signatures. The first is the receiving porter — careful capitals, the standard hand. The second is angled smaller, written in a different ink, and placed inside the porter line rather than below it. A second signature inside the line is a correction, not a co-sign. The correction does not amend the count. It amends the consignee. The original consignee has been overwritten by the second hand without striking the first. The shipment was delivered to a different recipient than the one billed.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Shelkopolis Common Quarter: bay log entry forty-one — consignee silently overwritten without strike-out by a second hand', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The bay foreman is at the desk this hour and he watches the log the way the watch watches the gate. You read three entries before he closes the book without comment and slides it across the desk to the inner shelf. He asks whether you have business at the bay today. You say you are looking for a freight master who has not arrived. He says no one is expected. He keeps the book where it is. The second signature stays inside the page that is no longer available to you.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_common_quarter_4',
+    label: 'A street-corner letter writer has the same hand as the petitioner whose name was struck.',
+    skill: 'charm', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'He sits under the awning at the third corner from the bay, taking dictation for laborers who cannot write their own filings. His hand is careful and lightly slanted, with the upper loop of the letter G closed at the top — an unusual closure, taught at one of the older charity schools. The same closure appears on the struck petition on the high quarter docket. The petitioner did not file under a false name. The petitioner cannot write. The man who wrote the petition for him is two streets away.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      G.gold = (G.gold || 0) + 8;
+      addJournal('Shelkopolis Common Quarter: street letter-writer with the closed-loop G — same hand as the struck high-quarter petition', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You stop at the corner under a pretext of needing a letter sent to a relative who does not exist. He hears the name, hears the relation, and writes nothing. He says he is finished for the day — the chalk slate beside him has been wiped clean while you were speaking, by his own hand under the table. He does not raise his voice. He folds the writing board and rises. Within a minute a boy of about ten arrives from down the lane and takes the seat to wait for him, watching you until you move.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── SHELKOPOLIS — LOW WARD (warehouses, freight overflow, day labor) ──
+var SHELKOPOLIS_LOW_WARD_S2 = [
+  {
+    id: 'dist_shelkopolis_low_ward_1',
+    label: 'The overflow warehouse has more crates today than the bay log accounts for.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'Count from the loading door: seven rows of nine, plus a partial back row of four. Sixty-seven crates. The morning bay log at the high entrance posted forty-one deliveries through the third bell. The remaining twenty-six are either holdovers from prior days, which the holdover log on the side wall would show, or they are unlogged. The holdover log shows nine. Seventeen crates are sitting in a warded warehouse without a paper trail. Their seals are uniform. The seal stamp is fresh enough that the wax is still soft on the underside.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Shelkopolis Low Ward: overflow warehouse holding seventeen unlogged crates with fresh uniform seals', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'A bay runner crosses the warehouse doorway at the moment you reach the second row of the count and stops to ask whether you are looking for the foreman. You say you are. He says the foreman is on the upper bay and will not be back until the fifth bell. He waits for you to leave with him. You leave. When you reach the door he closes it behind you with the bar dropped before you have crossed the lane. The bar means no one is inside. Someone is inside. They are recounting.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_low_ward_2',
+    label: 'Day-labor tickets are being clipped to the wrong roster. Deliberately.',
+    skill: 'finesse', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The pay window clips tickets in batches. You watch three batches process. The clerk takes the tickets from the morning roster, sets them against the afternoon roster, and clips them to the afternoon. The morning work happened. The afternoon roster bills the work as overtime. Overtime carries a stipend reimbursable from the guild relief fund — the relief fund draws from a separate ledger that is audited only quarterly. Someone is converting normal labor into reimbursable overtime at the clip-point, and the laborers see no difference in their pay.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      G.gold = (G.gold || 0) + 5;
+      addJournal('Shelkopolis Low Ward: pay window converting normal labor to overtime at the clip-point — draws on the quarterly-audited relief fund', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You move closer to read the roster headers and a second clerk at the back desk lifts his head from his ledger and watches you until you step back. He does not speak. He waits the length of three more clip-batches. When you have not moved closer again, he returns to his ledger. The clip continues. Whatever you might have read from the angle you were standing at, you cannot read from where he has decided you are allowed to stand. The pay window closes early today, by twenty minutes.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_low_ward_3',
+    label: 'The rail spur into the low ward runs cars after the schedule closes.',
+    skill: 'finesse', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The posted schedule ends at the seventh bell. Two cars come down the spur at the eighth, slow enough that the wheels do not throw spark on the curve. The cars are short — three-quarter length, a build used for assay-grade freight that requires careful handling. They are unlit at the windows and the porter on the platform has the apron of a guild handler but no chapter mark visible at the shoulder. Off-schedule cars to an unmarked porter is a routine. Routines have authors. The author is somewhere upstream of the schedule office.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      addJournal('Shelkopolis Low Ward: off-schedule short-build assay cars after eighth bell — unmarked porter — routine implies upstream author', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'A second porter steps out from the spur shed as the first car slows and crosses to the alley side of the platform — your side — with a hand lamp held low. He does not raise it to your face. He sets it on the platform rail at a position that puts your shadow long across the platform behind you, visible from the inbound cars. The cars hold their slow pace through the curve and pass the platform without stopping. They will stop further down. You will not see where.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_shelkopolis_low_ward_4',
+    label: 'A foreman brings the same lunch tin to the same bench. Nine days running.',
+    skill: 'charm', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The bench is at the lane corner outside the warehouse, in line of sight of the spur platform and the pay window both. He eats slowly. He never finishes the tin. After he leaves, a boy from the printer two doors down clears the bench and takes the tin into the print shop. The tin comes back the next morning. The tin is not lunch. The tin is the drop. The foreman is the runner. The print shop is the desk. He has been doing this for at least nine days, which means he is good at it and someone trusts him to keep being good at it.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      addJournal('Shelkopolis Low Ward: lunch-tin drop at the corner bench — foreman runs, print shop receives — nine-day pattern', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You watch from a vantage that you thought was discreet. On the fifth day of your watch the boy from the printer does not come out for the tin. The foreman finishes his lunch instead, packs the tin himself, and walks it back to the warehouse. The bench stays empty for the rest of the afternoon. You have been read. Whatever signal closed the drop also closed your visibility into the rest of the route. The corner bench will not be used again this week.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── GUILDHEART HUB — HIGH QUARTER (charter offices, guild seats) ──
+var GUILDHEART_HUB_HIGH_QUARTER_S2 = [
+  {
+    id: 'dist_guildheart_hub_high_quarter_1',
+    label: 'The charter clerk takes a different stairwell on certain mornings. Today is one of them.',
+    skill: 'finesse', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'He takes the east stair to the chartersmiths\' floor on standard days. On certain mornings — you count three in the last fortnight — he takes the north stair, which serves only the Council annex and the records vault. He carries no portfolio on those mornings. He returns within a quarter-hour. A charter clerk does not visit the records vault without a portfolio unless the visit is verbal — a note delivered to a person rather than a page filed in a binder. The pattern says the person on the receiving end of the note does not want it in writing.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Guildheart Hub High Quarter: charter clerk runs verbal-only notes to the records vault on a roughly five-day cycle', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You position yourself in the south gallery where both stairwells are visible. A floor steward steps out of the registry alcove at the third bell and asks whether you require directions to a particular office. The phrasing is the phrasing the gallery uses for people whose presence has been noted as not having an office to be going to. You name an office. He gives you the directions. He walks you to the door of that office and waits until you go in. You are now inside an office you have no business in. You leave it with a different problem than the one you came with.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_high_quarter_2',
+    label: 'A posted charter amendment uses pre-Union language that has not been current for forty years.',
+    skill: 'wits', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The amendment is short — four clauses, posted under glass in the public charter wall. Clause three uses the term "right of approach" with the obsolete restrictive — a usage retired with the Union accords. Modern drafting would use "approach rights" without the article. The obsolete form was preserved in one document family: the pre-Union chartersmiths\' compact, which the modern Hub does not publicly recognize. Whoever drafted this amendment either does not know the term is obsolete, which is unlikely at this level, or is signaling continuity with a compact the Hub does not acknowledge.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      G.gold = (G.gold || 0) + 6;
+      addJournal('Guildheart Hub High Quarter: posted charter amendment uses pre-Union chartersmiths\' compact language — deliberate signaling', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You spend longer at the charter wall than the standard reading. A second steward — older, gloved, with the cuff embroidery of a senior registry attendant — crosses to your side of the gallery without announcement and waits politely beside you. He does not ask what you are reading. After a moment he wipes a smudge from the glass with the corner of his cuff, exactly over the clause you have been reading, and steps back. The smudge was not there. The glass is clean now. He stays where he is until you leave the gallery.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_high_quarter_3',
+    label: 'A Hub Council seat went vacant three weeks ago. No successor has posted.',
+    skill: 'wits', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The seat belonged to a chartersmith from the second chapter — the standard rotation would have posted a successor announcement within the week of vacancy, drawn from the chapter\'s standing roster. Three weeks have passed. The roster has not been published. The chapter has not been asked for a nominee. The seat remains empty in the chamber. A Council that leaves a seat empty rather than fill it is either choosing whom to seat very carefully, or has reasons not to convene a quorum that would require the seat to vote. Either reading is worth following.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      addJournal('Guildheart Hub High Quarter: second-chapter Council seat vacant three weeks — no successor process initiated', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You ask the chamber porter, conversationally, whether the second-chapter seat has been filled. He says the matter is on schedule. You ask when the announcement is expected. He says the announcement will be posted when the announcement is posted. He says this without warmth and without rudeness, in the same register he would use to read off a docket. The next porter you pass in the corridor watches you for three steps longer than is necessary. The chamber doors close earlier than the posted hour.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_high_quarter_4',
+    label: 'The mark forgery on a posted guild credential is good. Not perfect. Good.',
+    skill: 'finesse', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The credential is pinned to the public board outside the chartersmiths\' annex — an attestation of mark verification for a regional trader. The mark itself is reproduced beside the attestation. The chapter sigil on the reproduction is correct. The chapter year-mark beside it is the wrong half — autumn quadrant instead of spring, which is a one-stroke error that the chartersmith reviewing the credential should have caught. The credential was attested anyway. Either the reviewer was incompetent, or the reviewer was bought, or the reviewer is the forger.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      G.gold = (G.gold || 0) + 8;
+      addJournal('Guildheart Hub High Quarter: attested credential with wrong-quadrant year-mark — attestation either bought or self-signed by the forger', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'A passing chartersmith stops a step behind you, watches the angle of your read, and says, without preamble, that public credentials are posted for verification by the trade, not by interested travellers. The phrasing is rehearsed enough that you can hear the line working off a template. You step back. He removes the credential from the board, examines it himself, and replaces it with a freshly stamped duplicate that he produces from a pouch at his hip. The year-mark on the duplicate is the correct quadrant. The original goes into the pouch.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── GUILDHEART HUB — COMMON QUARTER (mid-tier guilds, journeymen) ──
+var GUILDHEART_HUB_COMMON_QUARTER_S2 = [
+  {
+    id: 'dist_guildheart_hub_common_quarter_1',
+    label: 'A journeyman\'s tools have been re-stamped. The new mark is older than his apprenticeship.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The handle of his hammer carries a chapter mark from a chapter that closed its rolls in the year his master was still indentured. The mark is genuine — the strike-pattern is right and the wear is consistent — but the chapter no longer issues new credentials. Either the hammer was inherited from a master who took the chapter mark with him in death, which is permitted but rare, or the chapter has reopened its rolls quietly without posting the notice. The journeyman is twenty-three. His master died last summer. The math does not quite line up.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Guildheart Hub Common Quarter: journeyman carrying a closed-chapter mark — either irregular inheritance or quiet reopening of the rolls', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You ask him, lightly, about the mark. He hears the question. He sets the hammer down on the bench, turns it once so the mark faces the wood, and answers a different question about the weight of the head and the temper of the haft. You let him. He goes back to work. When you leave the workshop, the apprentice at the door is already on the lane, walking toward the chapter house at a pace that is not quite a run. By tomorrow the hammer will not be on that bench.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_common_quarter_2',
+    label: 'The wages board was altered. Last week\'s rates are lower this week.',
+    skill: 'charm', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The board is updated weekly by the wages clerk — the standard practice is to overstrike the prior rate in ink, leaving it legible beneath. This week\'s rates are written on a freshly sanded surface. The prior rates are gone. The wages clerk you speak with says the board was damaged and resurfaced — a routine maintenance. The rate she quotes you for skilled bench labor is two coppers lower than the rate her own apprentice quoted you yesterday in conversation at the workshop door. The apprentice was not lying. The clerk is not lying either. The board was changed.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      G.gold = (G.gold || 0) + 5;
+      addJournal('Guildheart Hub Common Quarter: wages board resurfaced to erase prior rates — current posted rate two coppers below quoted scale', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You compare the board against what you remember of the rate from a day earlier. The clerk watches you do it. She does not interrupt. When you finish she asks whether you have business with the wages office today. You say you were considering a short engagement. She suggests, kindly, that the workshop steward two doors down has openings and that wages discussions are settled there directly. You go. The steward there has no openings. The boards are not for outsiders to read.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_common_quarter_3',
+    label: 'A complaint scroll carries one hand under three different names.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The complaints are about three different workshops on three different streets, filed across nine days, alleging overlapping defects in journeyman work — slop solder, short measure, wrong alloy. The signatures use three different names. The hand is the same: the same down-stroke pressure on the lower letters, the same loop in the cursive R. One person is filing grievance against three workshops in succession under invented identities. The workshops named are competitors of a fourth workshop that is, conspicuously, not on the wall.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Guildheart Hub Common Quarter: three forged grievance filings against rival workshops — fourth workshop conspicuously unnamed', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You linger at the wall longer than the standard reading. The grievance clerk at the registry door watches you do it. When you finish he steps out, removes the three scrolls in a single motion, and stacks them on the inner desk for filing. He posts a single fresh notice in the space they leave: a reminder that grievances are reviewed only by registered complainants and that anonymous reading of pending matters is discouraged. He looks at you while he posts the notice. You leave. The notice stays up after you have gone.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_common_quarter_4',
+    label: 'The mid-quarter chapel rings its bell on a schedule the other chapels do not match.',
+    skill: 'spirit', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The standard schedule runs the chapel bells in rotation around the quarter — east at the third, south at the fourth, west at the fifth, north at the sixth — and the bells are tuned to ring within the same minute as their corresponding neighbours. The mid-quarter chapel rings two minutes off. Two minutes is enough to be heard distinctly. The pattern is not error — the timer is the same timer the others use, set deliberately late. Bells that ring at known offsets carry information. The information is a marker, not a prayer. Someone is reading the offset and acting on it.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      addJournal('Guildheart Hub Common Quarter: mid-quarter chapel bell deliberately offset by two minutes — used as a signal, not a call', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You stand in the chapel forecourt to time the bell against the next quarter\'s ring. The chapel keeper steps out before the bell sounds, lights a taper at the door, and waits beside you in silence for the entire interval. When the bell sounds, she nods politely and goes back inside. The bell rang on the standard schedule. You count the minute and it is exact. Either you misjudged the offset on prior days, or the bell rings to the standard when someone is watching it ring.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── GUILDHEART HUB — LOW WARD (apprentice quarters, scrap yards) ──
+var GUILDHEART_HUB_LOW_WARD_S2 = [
+  {
+    id: 'dist_guildheart_hub_low_ward_1',
+    label: 'A scrap yard is sorting metal that was not scrap when it left the workshop.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The sorting bins hold rod stock and bar stock in cuts that the workshops upstream use as finished outputs — not as scrap inputs. The cuts are clean, the temper is intact, the lengths match standard journeyman commission sizes. Finished goods sorted as scrap is a route — work declared spoiled at the workshop is reclassified at the yard and resold below board through the scrap merchants. The workshop credits the loss against insurance. The yard banks the resale. Two parties profit. The insurance pool — the relief fund — covers the gap.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      G.gold = (G.gold || 0) + 7;
+      addJournal('Guildheart Hub Low Ward: finished workshop stock laundered as scrap — relief fund covers the declared loss', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The yard foreman steps out from the shed door at the moment you reach to lift a bar from the bin. He does not raise his voice. He says the bins are sorted by quality and the customers come at the appointed hours and the bars are not to be handled before the hour. He waits for you to put the bar back. You do. He waits for you to leave the yard. You do. When you reach the lane he closes the gate behind you. The customers who arrive within the hour will not arrive at the gate while you can see them.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_low_ward_2',
+    label: 'The apprentice dormitory door has a fresh lock. The old one was not broken.',
+    skill: 'finesse', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The old lock is on the bench beside the doorman\'s stool, intact and oiled. The new lock is set higher than the old one — a thumb above the comfortable handle height for an adult, deliberately, because the higher set makes a quick fumble in low light slow enough to be noticed. The doorman is older than is standard for the post. He is reading a roster from a sheet of paper he covers with his sleeve when you pass. The dormitory is not being secured against intruders. It is being secured against the apprentices themselves leaving at the wrong hour.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Guildheart Hub Low Ward: dormitory re-keyed against the apprentices — doorman keeps a roster of who is allowed out', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You walk past the doorman to read the lock-set angle and he stops you with a raised hand before the third step. He asks whether you have a name on his roster. You say you are looking for an apprentice with a message from his family. He asks for the family name. You give one. He looks at the roster and says the apprentice is at the workshop and will return at the seventh bell, which he says is the standard hour. The apprentice you named is real. He is not at this dormitory. You have been told a fact you cannot use without revealing how you got it.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_low_ward_3',
+    label: 'A child in the back lane carries a sealed wallet. Too heavy for wages.',
+    skill: 'finesse', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'She holds the wallet at the bottom — wage packets are held at the strap, because the strap is what survives the day if you drop it. The bottom grip is for weight. Wages in copper would be lighter at this size; wages in silver would not be carried by a child. The seal is a workshop chapter mark, not a guild relief seal, which means the wallet is not charity. She crosses the lane to the back door of a shop that does not deal in metals on its public floor. The door opens before she knocks. Whoever opens it does not look at her face.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      G.gold = (G.gold || 0) + 9;
+      addJournal('Guildheart Hub Low Ward: silver-weight wallet under a workshop chapter seal routed by a child to an off-public-trade back door', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You follow at the discreet distance. She stops short at the lane corner, turns, and looks at you without surprise. She does not say anything. She crosses to a different shop than she would have crossed to — a shop that visibly does deal in metals, with a wage hour posted at the door — and goes inside. You wait. She does not come out within the next quarter hour. The shop has a back entrance. The real shop she was going to is now closed to you for the rest of the day.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_guildheart_hub_low_ward_4',
+    label: 'The ward\'s charity hall has stopped serving the evening meal three nights running.',
+    skill: 'charm', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The notice at the hall door cites a supply shortfall and asks for patience. The grain stores at the back of the hall, visible through the open service door, are not short — three full sacks remain at the head of the row, with the prior delivery date still legible on the chalk slate. The shortfall is not of grain. It is of permission. The hall keeper says, when asked, that the steward who countersigns the evening service has been called to another matter and the countersignature has not been delegated. Three nights without delegation is policy, not absence.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      addJournal('Guildheart Hub Low Ward: charity hall withholding evening meal under cover of supply shortfall — countersignature deliberately undelegated', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You ask the hall keeper directly about the grain at the back of the hall. She closes the service door with the side of her foot before she answers. She says the grain is reserved for a separate distribution scheduled for the eighth day of the cycle. She thanks you for the concern and turns to a queue of three waiting petitioners who have arrived behind you. The queue moves. You move with it, out into the lane. The door closes behind you. The grain stays where it is.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── COSMORIA — HIGH QUARTER (harbor masters, customs offices) ──
+var COSMORIA_HIGH_QUARTER_S2 = [
+  {
+    id: 'dist_cosmoria_high_quarter_1',
+    label: 'The tide board has been hand-altered. Three sailings now show a different posted hour.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The chalk on the upper tide board has been wetted and re-set on three sailing entries — the prior figures are still faintly visible under the rewrite. The new times push all three sailings into the same half-bell window, which is not a tide window. It is a window between customs inspector rotations. A sailing scheduled across a roster gap can clear the quay without the inspector who would otherwise read its manifest. Three sailings sharing that gap on the same day is not coincidence. The harbor master either authorized the change or did not see it happen.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      addJournal('Cosmoria High Quarter: three sailings re-timed into the inspector roster gap — chalk rewrite confirms deliberate scheduling', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'A junior harbor clerk crosses the deck and asks whether you need a copy of today\'s sailings. You say you were checking a friend\'s passage. He asks the friend\'s name. You give one. He says no such name is booked today. He suggests the small office at the inner quay, which keeps passenger lists. He waits until you turn that way. When you look back from the inner quay, the upper board has been wiped clean of all three altered times and rewritten in a single fresh hand. The rewrite has erased the rewrite.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_high_quarter_2',
+    label: 'A customs seal is wrong. The colour is right; the wax is from prior stock.',
+    skill: 'finesse', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'Customs wax is replenished quarterly. The current quarter\'s stock has a deeper amber tone and a finer grain — the prior quarter\'s wax was coarser and runs cooler under the impress, leaving a wider raised edge. This paper carries a wax seal that matches the prior stock, on a passage dated this quarter. The wax is from a private supply, held by someone who kept a portion of the prior stock past the quarterly turn. The seal is genuine in form. It is irregular in source. Whoever sealed this paper kept the prior wax for a reason.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      G.gold = (G.gold || 0) + 9;
+      addJournal('Cosmoria High Quarter: passage paper sealed with prior-quarter wax — private holdback of the old stock for off-roster sealings', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You hold the paper a moment too long against the lamp at the customs counter to read the impress edge. The counter officer takes it back from you and sets it under the day-ledger without comment. He stamps the day\'s log with a new entry — passage verified — and returns the paper to the bearer beside you, who has been waiting through the inspection without watching you. The bearer leaves. The officer keeps you at the counter for another half-bell on a question about your own papers. The paper you were reading is now on a ship.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_high_quarter_3',
+    label: 'The harbor master\'s ledger of fines posts a quiet pattern in the last column.',
+    skill: 'wits', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The fines ledger is public. Most entries note the offence and the fine in the standard format — short cargo, manifest variance, late mooring fee. The last column records the receiving officer\'s mark for the collection. Three masters cycle through the column on the standard rotation. The fourth mark, appearing in roughly one entry of every nine, belongs to no officer on the public roster. The mark is small and tidy. It has been on the ledger for at least three months. Someone outside the roster has been collecting fines under their own mark, and the ledger records it openly.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Cosmoria High Quarter: public fines ledger shows an off-roster collection mark on roughly one entry in nine — three months running', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The reading desk clerk closes the ledger five minutes before her posted hour and apologizes — the master needs the book for the afternoon audit. You ask whether the ledger will return to the desk after the audit. She says it will, in the standard practice, on the following morning. The following morning the ledger returns. The last column has been recopied in a slightly different hand. The off-roster mark is gone from every entry. The pattern is no longer visible in the public record.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_high_quarter_4',
+    label: 'A consul\'s carriage waits at the customs gate longer than its papers require.',
+    skill: 'charm', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'A consular carriage is cleared at the gate by paper only — the customs officer checks the seal, logs the consulate code, and waves it through. The standard transit is under a minute. This carriage has waited three. The consul inside is not visible behind the curtain. The driver is leaning toward the gate officer in conversation that is not transit business — the angle of his shoulders says he is delivering, not receiving. Whatever changes hands is small enough to pass through the gate window without being seen from the lane. The carriage moves on as if nothing happened.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Cosmoria High Quarter: consular carriage running small handoffs at the customs gate window under cover of clearance delay', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You move closer along the lane to read the gate window from the side. A second gate officer steps out of the inner booth before you reach the angle that would let you see across the window. He stands with his back to the carriage, facing you, until the carriage clears. The carriage moves on. He does not move until the carriage is out of sight. Then he returns to the booth. He does not look at you again. The next consular carriage at the gate clears in under a minute.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── COSMORIA — COMMON QUARTER (warehousing, freight forwarders) ──
+var COSMORIA_COMMON_QUARTER_S2 = [
+  {
+    id: 'dist_cosmoria_common_quarter_1',
+    label: 'A cargo manifest at the freight forwarder\'s window has been amended in pencil.',
+    skill: 'wits', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The manifest is a fair copy in ink — line items, weights, consignee, port of origin. Beside three line items the weights have been amended in soft pencil, rounded downward by a unit each. Pencil amendments to an inked manifest are not standard; the standard is a strike-through with the corrected figure beside it in fresh ink and a clerk\'s mark. Pencil amends without marks erase as easily as they wrote. Someone is lightening the recorded weight at the window — short of the inspector, the consignee, or both — and intends to erase the change before the manifest files.';
+      G.recentOutcomeType = 'success';
+      gainXp(18);
+      G.gold = (G.gold || 0) + 5;
+      addJournal('Cosmoria Common Quarter: freight forwarder running pencil-amend weight shorts on a fair-copy manifest — meant to be erased pre-filing', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The forwarder\'s clerk slides the manifest under the inner pad of the desk as you lean to read the amends. She apologizes — the manifest is in the middle of consignee review and is not for public consultation at this stage. She offers you a copy of the standard tariff sheet instead. You take it. The window closes the manifest review for the morning. When the window reopens after lunch, the manifest on the counter is a fresh fair copy with no pencil at all, and the weights have all been amended cleanly to the lower figures in ink.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_common_quarter_2',
+    label: 'A warehouse on the back lane has been turning carts away that arrived early.',
+    skill: 'finesse', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The standard practice is to receive on arrival and queue the offload by lot. This warehouse has turned three carts back since the morning bell, each one ahead of its appointed hour by under a quarter-bell. The carts were carrying standard goods on standard manifests — the foreman did not read them. He counted the bell, looked at the cart, and waved them off. The warehouse is reserving a slot in its receiving for one particular cart whose timing matters more than its manifest. Other carts on time would force the foreman to handle the wrong one in the same hour.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Cosmoria Common Quarter: warehouse foreman holding the receiving slot for a particular cart — manifest does not matter, timing does', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You linger at the back lane near the warehouse mouth to watch which cart the foreman accepts. He steps out of the warehouse before any cart arrives and walks the length of the lane in both directions. He returns to the warehouse and closes the receiving door for the next half-bell. No cart is received. When the door reopens, the appointed cart has already been received through the rear gate from the other lane, which you could not have seen. The receiving log will show the standard hour.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_common_quarter_3',
+    label: 'A passage clerk\'s tin of nibs has more red nibs than the regulation requires.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'Passage papers are written in standard black ink. Red ink is reserved for the inspector\'s countersign — one nib per clerk, replaced at quarterly inventory. The clerk\'s tin holds four red nibs, three of them worn. Worn red nibs imply heavy use of the red ink — far more countersigns than this clerk\'s desk should produce. Either the clerk is signing the inspector\'s countersign on the inspector\'s behalf, or the inspector signs at this desk often enough to wear out the clerk\'s nibs and that visit pattern has not been logged.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      G.gold = (G.gold || 0) + 6;
+      addJournal('Cosmoria Common Quarter: passage clerk\'s nib tin shows heavy red use — countersigns being run off-log at this desk', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You read the tin from the wrong angle and the clerk closes the lid with the side of his hand before you can finish the count. He looks at you a moment without speaking. He turns the tin so the lid faces you and writes a note on the day-log in a single short line. He hands you a standard passage form and asks whether you require one. You do not. You step back. The next time you pass this desk the tin is gone from the counter and the clerk is using a single black nib from a small pot beside the inkwell.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_common_quarter_4',
+    label: 'The dockside inn\'s back room pays porters coin outside the wage rotation.',
+    skill: 'charm', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The wage rotation pays porters once per shift at the wage window above the quay. Coin paid outside the rotation is, by Union regulation, taxed under the gratuities head — which is rarely declared. The back room at the dockside inn pays a different kind of coin: small purses, handed over without ceremony, after a specific cart has cleared the quay. The porters do not count the purses at the table. They take the purse, leave the room, count the contents in the lane, and split with whoever is waiting for the split. The waiters are the harbor watch on off-hours.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      G.gold = (G.gold || 0) + 10;
+      addJournal('Cosmoria Common Quarter: dockside inn back-room running off-rotation purses to porters — splits with off-duty harbor watch', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You take a seat at the corner table where the back-room door is visible and order a small ale. The keeper brings it himself rather than sending the boy. He stays at the table while you drink. He does not say anything other than to ask whether you require anything else. When you finish the ale he clears the cup, and as he turns away he says, without looking, that the back room is reserved tonight. You leave. The back-room door does not open again while you are in the inn.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── COSMORIA — LOW WARD (boatyards, smuggler-edge wharfs) ──
+var COSMORIA_LOW_WARD_S2 = [
+  {
+    id: 'dist_cosmoria_low_ward_1',
+    label: 'A dry-docked boat has the wrong keel for the name painted on its bow.',
+    skill: 'wits', tag: 'bold', roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The bow paint is fresh enough to still smell of solvent at the rail. The name on the bow belongs to a coastal carrier of standard build — a flat-keel for shallow coastal work. The keel under this hull is a deepwater build, shaped for offshore passage. Either the registry has been transferred to a hull that does not match the original certificate of build, or the name has been borrowed from a coastal carrier that is, somewhere else, sitting on the keel that should be here. One name. Two boats. The yard foreman has not flagged it on the dry-dock register.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      addJournal('Cosmoria Low Ward: dry-dock hull running a coastal-carrier\'s name on a deepwater keel — registry decoupled from build', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You move along the cradle to read the keel from a better angle. The yard foreman steps off the gangway plank above you and crosses the keel-bay between your line of sight and the boat. He apologizes for the obstruction and asks whether you are the inspector\'s replacement. You say you are not. He waits politely for you to leave the keel-bay. You do. The next time you pass the dry-dock the boat is gone — launched on the early tide. The cradle holds a different hull. The bow paint here is dry now.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_low_ward_2',
+    label: 'The far-quay wharf lamps were re-set. The spacing is not for sailing.',
+    skill: 'finesse', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'Wharf lamps along the public quay run at even spacing — the standard interval is six paces, set by the harbor measure. The far quay\'s lamps are now at uneven spacing: four paces, then nine, then four, then nine. The pattern is not for navigation. It throws light and shadow across the quay in regular gaps wide enough to walk a small cart through without crossing illuminated ground. A cart in the dark moves between two pools of light without ever being inside one. Someone has rebuilt the quay\'s lighting to make a specific path invisible.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Cosmoria Low Ward: far-quay lamps reset to four-nine-four-nine pattern — creates a dark corridor for cart traffic between the pools', 'intelligence');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You walk the quay to count the lamp spacing and a lamplighter on the inner walk lights his pole as you reach the fourth lamp. He is older than the standard lighter and he carries the pole over his shoulder rather than at the carry. He passes within a stride of you, lights the next lamp, and continues without speaking. The lamps along the quay are all lit by the time you reach the end. The spacing is even now. Either the spacing was always even and you misjudged the paces, or the lighter has corrected it on the walk.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_low_ward_3',
+    label: 'A boatwright is setting a fresh registry stamp before the prime dries.',
+    skill: 'wits', tag: 'risky', roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'Registry numbers are filed quarterly on the transom in deep stamp. Standard reissue grinds the prior stamp flush, primes the wood, and waits a day for the prime to cure before the new stamp is set. This boatwright has skipped the cure. The new stamp is going in over wet prime, which will not hold a deep impress past the next swelling tide — the number will blur within the week, conveniently. The registry will read as faded rather than reissued. The boat keeps the new identity in the harbor records and shrugs off the new identity at sea.';
+      G.recentOutcomeType = 'success';
+      gainXp(22);
+      G.gold = (G.gold || 0) + 7;
+      addJournal('Cosmoria Low Ward: boatwright setting registry stamp on wet prime — deliberate blur — boat will read faded by next swell', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You step closer along the cradle to see the stamp work. The boatwright pauses, looks at you over the shoulder, and continues. The apprentice at the prime can sets the can down and steps between you and the transom, not aggressively, just deliberately. He stays there until you have read the air long enough to understand that the conversation is closed. You retreat down the cradle. When you look back from the lane the transom has been draped with sailcloth — drying cover, the boatwright will say if asked. The stamp work continues underneath.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+  {
+    id: 'dist_cosmoria_low_ward_4',
+    label: 'The inner fish stalls close an hour early. Same day. Every week.',
+    skill: 'charm', tag: 'safe', roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The standard close is at the eighth bell across the whole market. The inner stalls — the three rows nearest the back gate — close at the seventh on the same day each week. The vendors at the inner stalls walk out together, leave the gate ajar behind them, and meet at a small ale-house two lanes inland. The ajar gate is the signal. Within the hour a cart enters the gate from the lane behind the market, offloads into the empty inner stalls, and leaves before the eighth bell when the outer vendors close. The inner stalls hold the cargo overnight. Whatever it is, it is not fish.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Cosmoria Low Ward: inner fish stalls used as weekly overnight holding for off-market cargo — back-gate cart route, inner vendors paid to clear', 'discovery');
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You take a place at the alehouse where the inner vendors have gathered and order a small ale to listen. They are friendly enough — they greet the keeper, they joke about the day\'s catch, they do not speak about the market at all. After a quarter-bell the keeper sets a fresh round in front of them on the house and gives you a look that suggests, without rudeness, that the table is reserved. You finish the ale and leave. The vendors are still there when you reach the lane. The back gate of the market is no longer ajar.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  }
+];
+
+// ── EXPORT — keyed by LOCALITY_MATRIX locality_id (synthetic districts) ──
+window.DISTRICTS_STAGE2_CHOICES = {
+  // Shelkopolis
+  shelkopolis_high_quarter: SHELKOPOLIS_HIGH_QUARTER_S2,
+  shelkopolis_common_quarter: SHELKOPOLIS_COMMON_QUARTER_S2,
+  shelkopolis_low_ward: SHELKOPOLIS_LOW_WARD_S2,
+  // Guildheart Hub
+  guildheart_hub_high_quarter: GUILDHEART_HUB_HIGH_QUARTER_S2,
+  guildheart_hub_common_quarter: GUILDHEART_HUB_COMMON_QUARTER_S2,
+  guildheart_hub_low_ward: GUILDHEART_HUB_LOW_WARD_S2,
+  // Cosmoria (harbor city — Fairhaven analogue per task)
+  cosmoria_high_quarter: COSMORIA_HIGH_QUARTER_S2,
+  cosmoria_common_quarter: COSMORIA_COMMON_QUARTER_S2,
+  cosmoria_low_ward: COSMORIA_LOW_WARD_S2
+};
