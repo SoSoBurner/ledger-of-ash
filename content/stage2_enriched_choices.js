@@ -4215,7 +4215,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20('wits');
-      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      var dc = 13;
       if (r.total >= dc) {
         G.stageProgress[2]++;
         G.flags.soreheim_tower_discrepancy = true;
@@ -4244,7 +4244,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20('vigor');
-      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      var dc = 13;
       if (r.total >= dc) {
         G.stageProgress[2]++;
         G.flags.soreheim_sealed_route_tracked = true;
@@ -4274,7 +4274,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20('charm');
-      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      var dc = 13;
       if (r.total >= dc) {
         G.stageProgress[2]++;
         G.flags.guildheart_clerk_source = true;
@@ -4303,7 +4303,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20('wits');
-      var dc = 12 + Math.floor(((G.level || 1) - 1) / 2);
+      var dc = 12;
       if (r.total >= dc) {
         G.stageProgress[2]++;
         G.flags.guildheart_duplicate_mark_found = true;
@@ -4333,7 +4333,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20('wits');
-      var dc = 12 + Math.floor(((G.level || 1) - 1) / 2);
+      var dc = 12;
       if (r.total >= dc) {
         G.stageProgress[2]++;
         G.flags.aurora_supply_discrepancy = true;
@@ -4362,7 +4362,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       var r = rollD20('finesse');
-      var dc = 13 + Math.floor(((G.level || 1) - 1) / 2);
+      var dc = 13;
       if (r.total >= dc) {
         G.stageProgress[2]++;
         G.flags.aurora_offcycle_research = true;
