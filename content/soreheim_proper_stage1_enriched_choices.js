@@ -125,6 +125,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "Three accidents this month. Nobody is filing complaints. That's the point.",
     tags: ['Investigation', 'NPC', 'Safety', 'Labor', 'Meaningful'],
     xpReward: 75,
+    align: {type: 'morality', n: 1},
     stageProgress: 1,
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     failResult: 'This path is closed here, but the repair crew takes its water break at the stone trough behind the grinding shed — away from the yard supervisors, away from the quota board, twelve minutes no one documents. The trough is set into the back wall of the shed, below the sound of the equipment; anything said there stays there. Eldis fills his cup slowly when he has something to say and quickly when he does not. Arriving before the bell gives a read of which it will be.',
@@ -495,6 +496,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "No formal warnings — just reassignments, always timed precisely.",
     tags: ['Investigation', 'Resistance', 'Suppression', 'Fear', 'Meaningful'],
     xpReward: 75,
+    align: {type: 'order', n: -1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the reassignment notices themselves are filed in the personnel board record, which is posted by guild charter at the annex entrance — the pattern is readable in the dates without requiring anyone to speak. A reassignment dated within three days of a quota objection is not random correlation when it happens four times running. The board shows names and dates. The grievance log shows names and dates. The overlap is arithmetic, not inference.',
     fn: function() {
@@ -533,6 +535,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "This isn't an economy under pressure. Someone drew the pressure map first.",
     tags: ['Investigation', 'Survival', 'Vulnerability', 'Pressure', 'Meaningful'],
     xpReward: 70,
+    align: {type: 'morality', n: 1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the housing allocation ledger is posted at the residential block entrance by district ordinance — names, dependency counts, and tenure status in a single column, no authorization required to read the board. Cross-referencing those names against the displacement log shows which workers with children or elderly dependents were cut first. The tenure column shows how long each person had worked here before removal. That sequence is a map of who was most exposed and who got targeted first.',
     fn: function() {
@@ -637,6 +640,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "They hit ninety-two percent of sustainable output every day. They fail quota every day.",
     tags: ['Investigation', 'Evidence', 'Proof', 'Systems', 'Exposure', 'Meaningful'],
     xpReward: 80,
+    align: {type: 'morality', n: 1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the two-year-old capacity survey was submitted to the guild council as part of a public works assessment — that report is bound and filed at the council clerk office, available on request without labor administration authorization. The survey recorded sustainable daily output under normal conditions: crew size, equipment state, seasonal adjustment. Placed next to the current quota baseline and this month\'s actual output, those three numbers produce a comparison that requires no interpretation. The arithmetic does the work.',
     fn: function() {
@@ -677,6 +681,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "They're waiting to learn what this conversation costs them.",
     tags: ['Investigation', 'Moral', 'Choice', 'Pressure', 'Confrontation', 'Meaningful'],
     xpReward: 70,
+    align: {type: 'morality', n: -1},
     stageProgress: 1,
     failResult: 'This path is closed here, but the NPC\'s name is already in the displacement log — approaching them through the documented record rather than direct confrontation removes the personal threat and gives them a different kind of opening.',
     fn: function() {
@@ -781,6 +786,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "Thirty-one workers crossed out in a different hand. Notation says transferred. No destination.",
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    align: {type: 'morality', n: 1},
     failResult: 'This path is closed here, but the displacement log was drafted before it was filed — Record Keeper Parol works the outer desk alone on the morning half-shift, before the labor administrator arrives with the stamp.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -851,6 +857,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "The Compact arbiter's office is inside the shift administration building. Unusual for a neutral party.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 72,
+    align: {type: 'order', n: -1},
     failResult: 'This path is closed here, but Vare said even-numbered afternoons during shift administrator reviews — the office runs a posted schedule and the secretary records every name that waits. The waiting area is a bench in the corridor outside the Iron Compact door. Anyone sitting there is visible from the administration hall end of the building. Being seen waiting to speak with the arbiter carries its own signal. Whether that signal is a cost or a useful one depends on what comes out of the meeting.',
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -894,6 +901,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     label: "Decide how to secure the documentation you've gathered before it can be confiscated.",
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
+    align: {type: 'order', n: -1},
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
