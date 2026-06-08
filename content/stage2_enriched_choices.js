@@ -4437,6 +4437,303 @@ const STAGE2_ENRICHED_CHOICES = [
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: 'The reading alcove is empty. The afternoon session cleared early.'
+  },
+
+  // ============================================================
+  //  POOL EXPANSION — guildheart / soreheim / aurora additional choices
+  //  No sp2 increment; the original *_1 and *_2 entries already handle stage advancement.
+  //  Rewards: XP + journal + small gold only.
+  // ============================================================
+
+  // --- Guildheart pool expansion ---
+  {
+    id: 's2_guildheart_3',
+    label: 'The stamp on this transit seal was applied after the date it shows.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Guildheart', 'Evidence'],
+    roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The transit seal is a tar-and-resin disc pressed onto the manifest while the wax is hot. Cold-pressed seals crack at the rim. This one has no cracks and the resin is still tacky. The date stamped underneath is six days old. You hold it against the registry lamp and the resin warms enough to release the paper beneath — a second date is impressed into the manifest itself, two days from now. The seal was applied early. Someone wanted the cargo cleared before its own paperwork existed.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Guildheart: transit seal applied two days ahead of manifest date. Cargo cleared before its own paperwork existed.', 'evidence');
+      G.gold = (G.gold||0) + 6;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The registry lamp is shuttered for the afternoon — a maintenance cycle the desk clerk announces only when someone reaches for it. Without the lamp the seal is just a tar disc and the manifest is just a sheet of paper. The clerk watches you set them down. He does not offer the alternate reading station. He does not need to say that the alternate station is for bonded traders. You leave the manifest where it lay. Someone will file it before you can come back.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_guildheart_4',
+    label: 'A dispute clerk closed a hearing with the petitioner still in the chamber.',
+    skill: 'charm',
+    tag: 'risky',
+    tags: ['Guildheart', 'Social'],
+    roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The petitioner is a freight broker from the western quarter, still seated when the clerk\'s gavel marks the hearing as concluded. You catch her at the door before she finds her composure. She does not want to talk in the corridor. She wants to talk where there are no Guild ears, which on this tower means the stairwell landing two floors down. The hearing closed without ruling, she says, because the opposing party submitted a withdrawal that nobody read aloud. The withdrawal was signed by a name she does not recognize and could not be the actual respondent.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Guildheart: dispute hearing closed via unread withdrawal signed by name unrelated to respondent. Petitioner left without ruling.', 'intelligence');
+      G.gold = (G.gold||0) + 5;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The petitioner is already moving by the time the gavel sounds, and she does not slow when you fall into step beside her. She has the careful posture of someone who has lost a hearing she expected to lose, and the careful silence of someone who has lost it for the wrong reasons. At the tower stair she steps onto the descent ramp and the ramp carries her down past three landings before you can choose which to follow. You pick the wrong one. The corridor she takes is members-only.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_guildheart_5',
+    label: 'The Sanction Board posted a notice this morning and took it down before midday.',
+    skill: 'wits',
+    tag: 'safe',
+    tags: ['Guildheart', 'Discovery'],
+    roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The Sanction Board is a public posting wall maintained by Guild attendants, and posted notices remain until their stated expiration. A morning posting taken down by midday is not procedure — it is intervention. The attendant rotation log at the board\'s base records the removal under attendant initials that do not appear elsewhere on today\'s shift sheet. The notice\'s subject line was preserved in the rotation log per standing rule: a sanction warning against a bonded warehouse you have seen referenced before, under a different Guild mark.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Guildheart Sanction Board: morning notice removed by midday under attendant initials not on shift. Subject was sanction against warehouse previously seen under different Guild mark.', 'evidence');
+      G.gold = (G.gold||0) + 4;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The Sanction Board attendant is sitting on the rotation log when you reach the base of the wall — literally, a hip on the corner of the bench that holds it. He greets you by the standard greeting, asks which mark you came to look up, and waits. He is not impatient. He is not friendly. The morning posting is gone and the rotation log is under his weight, and he is the one who decides how long it stays there.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_guildheart_6',
+    label: 'A bonded courier is delivering to a warehouse that wasn\'t on his route this morning.',
+    skill: 'wits',
+    tag: 'bold',
+    tags: ['Guildheart', 'Evidence', 'Intelligence'],
+    roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'You saw the courier\'s route board at the dispatch hall this morning — bonded couriers post their daily routes in full because every consignment is countersigned at delivery. The warehouse he\'s entering now is not on it. You watch him from the corner of the registration plaza. He signs the consignment book at the warehouse door, but the warehouse\'s own counter-signature is provided by a Guild attendant standing inside the threshold, not by the warehouse keeper. Attendants countersign for warehouses that have been administratively closed. The warehouse should not be receiving anything.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Guildheart: bonded courier delivering to administratively-closed warehouse with Guild attendant providing counter-signature. Delivery is off posted route.', 'evidence');
+      G.gold = (G.gold||0) + 8;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The plaza traffic thickens as the courier reaches the warehouse door — a wedge of bonded handlers crossing toward the freight ramp, a meeting of two Guild attendants at the corner pillar, a registry clerk pulling a wheeled file rack across the cobble. By the time the wedge passes, the warehouse door is closed and the courier is gone. The consignment book left at the doorpost has already been collected. The Guild attendant on the corner watches you stand where you stand for one count too long.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  // --- Soreheim pool expansion ---
+  {
+    id: 's2_soreheim_3',
+    label: 'The allocation hall logs heat-metal outputs by tower floor. Floor seven has stopped reporting.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Soreheim', 'Evidence'],
+    roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The allocation hall ledger is a brass-bound book chained to the assayer\'s podium, updated at each forge cycle by the floor wardens. Floor seven\'s column shows entries for the past nineteen cycles and nothing after. Other floors continue reporting. A non-reporting floor either ceased production or was reassigned to a closed-allocation channel — both of which require a posted notice and a temporary warden reassignment. Neither notice is posted. The seventh-floor warden is listed on today\'s duty roster as active, but the duty roster is the only place she still appears.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Soreheim: allocation ledger shows floor seven non-reporting for nineteen cycles. No posted closure notice. Floor warden listed active only on duty roster.', 'evidence');
+      G.gold = (G.gold||0) + 6;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The allocation hall is at shift change and the assayer\'s podium is surrounded — wardens posting cycle results, foremen reading the running totals, a tower tribune watching the chain on the ledger. The chain is short. The book is open to the current page. The previous pages are not turned for you. You read what you can over a warden\'s shoulder and what you read is the current cycle only. The tribune notices your angle and shifts his position to block it.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_soreheim_4',
+    label: 'A freight manifest shows twice the tonnage of what the bridge can carry.',
+    skill: 'craft',
+    tag: 'risky',
+    tags: ['Soreheim', 'Evidence', 'Lore'],
+    roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The freight bridge between the assembly tower and the long-forge has a posted load limit of four hundred stone per crossing — engineering data, not a procedural cap. The manifest the freight crew is loading from lists eight hundred stone of finished plate for a single crossing. You watch the crew chief stamp the loading slip and direct the cart onto the bridge. The cart\'s wheels groan on the bridge plates and the bridge cabling sings a half-tone higher than the neighboring bridges. The crew is not slowing it. Whatever is on the cart is not what the manifest says it is.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Soreheim: freight bridge crossed at double posted load limit. Cart sang under tension. Cargo mass does not match manifest description.', 'evidence');
+      G.gold = (G.gold||0) + 6;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'You are still pacing the load limit posting when the cart starts onto the bridge. By the time you reach a vantage point that lets you read the manifest sheet pinned to the cart\'s side board, the cart is halfway across and moving faster than freight should move on a singing bridge. The crew chief is already walking back to the loading apron. You catch the manifest column from too far away to make out the totals. What you do see is the destination, which is a forge designation you do not recognize.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_soreheim_5',
+    label: 'A magma channel grate is clamped open. The heat is reaching the wrong corridor.',
+    skill: 'might',
+    tag: 'bold',
+    tags: ['Soreheim', 'Hazard', 'Evidence'],
+    roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The grate clamp is a forge-iron sleeve hammered onto the channel\'s pressure plate, holding the plate open so the magma surge bypasses the standard heat-shed. You wedge a length of broken stake under the sleeve and lever it free with the heel of your boot for footing — the channel exhales as the plate drops and the corridor pressure equalizes within three breaths. The surge that had been venting into the personnel corridor returns to the heat-shed channel. The clamp lies on the deck plate beside the grate. Someone installed it deliberately. Someone wanted that corridor hot.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Soreheim: magma channel grate clamped open to vent surge into personnel corridor. Clamp removed. Installation was deliberate.', 'evidence');
+      G.gold = (G.gold||0) + 8;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The clamp does not lever. The sleeve has been hammered tight and the channel plate is hot enough that the stake you wedged in begins to smolder under your hand. You drop the stake and step back as the corridor air shimmers. A foreman rounds the corner of the heat-shed bay and sees you standing where you should not be standing, with a smoking length of wood at your feet. He does not call security. He calls the channel warden, which is worse.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_soreheim_6',
+    label: 'The forge talley boy is counting batches in a rhythm that doesn\'t match the strikes.',
+    skill: 'wits',
+    tag: 'safe',
+    tags: ['Soreheim', 'Discovery'],
+    roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The talley boy stands at the long-forge\'s out-rack and marks each finished plate with a chalk tick on the slate board. Forge strikes are paced by the hammer master\'s call — one strike, one batch, one tick. You watch for a full cycle. The hammer master calls eight strikes. The talley boy marks eleven ticks. Three of the ticks go onto the slate while the hammer is still raised — entered before the batch exists. The slate is collected at cycle end by an allocation runner who does not stop to count.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Soreheim long-forge: talley boy chalking three phantom batches per eight-strike cycle. Allocation runner collects without recount.', 'evidence');
+      G.gold = (G.gold||0) + 4;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The forge floor heat distorts the air between you and the slate board, and the talley boy\'s hand moves faster than you can resolve from the gallery. You count the strikes by ear and lose track at six when the hammer master shifts to a double-tempo call for a finishing pass. The chalk ticks blur in the haze. By the time the cycle ends and the slate is collected, you have a count for the strikes and no count for the marks. You cannot prove what you almost saw.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  // --- Aurora pool expansion ---
+  {
+    id: 's2_aurora_3',
+    label: 'The dome steward ran two separate supply counts for the same day.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Aurora', 'Evidence'],
+    roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The supply ledger is bound in two volumes — the active running count and the certified daily total, which the steward transcribes from the running count at distribution close. You catch him at the transcription bench. The running count for today shows fourteen sealed grain units. The certified total he is writing into the second volume shows ten. He notices your shadow on the page and does not flinch. He turns the running count face-down with the back of his hand, a practiced motion. The certified total goes to the Sheresh stewards by overnight courier. The running count stays in the dome.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Aurora Crown: steward maintains two supply volumes. Running count shows fourteen units; certified total to Sheresh stewards shows ten. Practiced suppression of running count on observation.', 'evidence');
+      G.gold = (G.gold||0) + 6;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The transcription bench is set into the steward\'s alcove with a half-wall on the ration-court side, which is enough to block any reading angle from outside the alcove. You wait at the alcove opening for the steward to turn for a fresh inkwell. He does not turn. The dome auxiliary takes the running count to the alcove desk under his elbow and stays there until the certified volume is closed. The certified volume goes into the courier sleeve and the courier is already at the threshold.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_aurora_4',
+    label: 'The observatory shutter log shows sealed entries during broadcast hours.',
+    skill: 'wits',
+    tag: 'risky',
+    tags: ['Aurora', 'Evidence', 'Lore'],
+    roll: { dc: 13 },
+    fn: function() {
+      G.lastResult = 'The observatory shutter is opened on the broadcast schedule — celestial readings are paced by the dome\'s clear-sky window posting, which is publicly logged. The shutter log records every open and close to the quarter-mark. You cross-read the broadcast schedule against the shutter log for the past two cycles. Six broadcast hours show the shutter logged as sealed at the time of the broadcast. A sealed shutter during broadcast means the broadcast was conducted with no celestial reading — fabricated or pre-recorded. The dome\'s public readings for those hours are in the archive. They show clear-sky data.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Aurora observatory: six broadcast hours conducted with shutter sealed. Public readings show clear-sky data inconsistent with sealed-shutter state. Broadcasts fabricated or pre-recorded.', 'evidence');
+      G.gold = (G.gold||0) + 6;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The shutter log is kept on the observation deck and the deck is closed to the public during the broadcast queue. The dome auxiliary at the deck gate accepts cross-reference requests on a posted schedule, none of which are this hour. The broadcast schedule itself is posted at the dome plaza but the cross-reference requires both volumes in the same hand, which is not granted to standing visitors. You leave the gate. The auxiliary marks the request denial in his ledger without your name.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_aurora_5',
+    label: 'A drift marker has been moved. Someone is hiding how far the floor has shifted.',
+    skill: 'spirit',
+    tag: 'bold',
+    tags: ['Aurora', 'Evidence', 'Discovery'],
+    roll: { dc: 16 },
+    fn: function() {
+      G.lastResult = 'The drift markers are iron pins driven into the bedrock through the dome floor — survey references for the dome\'s structural calibration. The pin at the northwest survey station is set into a patch of concrete that is paler than the surrounding floor, with the cure-edge still visible. The original pin location is three handspans to the east, marked by the bolt-hole that was filled and ground flat. The drift the moved pin conceals is enough that the dome\'s recorded shift rate, if calculated against true bedrock, would exceed the safe-occupancy threshold posted in the Sheresh steward manuals.';
+      G.recentOutcomeType = 'success';
+      gainXp(20);
+      addJournal('Aurora Crown: northwest drift marker relocated and concrete patched. Concealed drift exceeds safe-occupancy threshold per Sheresh steward manuals.', 'evidence');
+      G.gold = (G.gold||0) + 8;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The northwest survey station is a gated maintenance recess under a hinged floor plate at the dome\'s base. The plate is locked from beneath and the hinge has been recently oiled — a maintenance signature, not a public-access signature. You crouch over the plate long enough to confirm the lock, which is long enough that the dome auxiliary on watch rotation crosses your line of approach and asks whether you are looking for someone. You give the name of a researcher you read off the staff board. He nods. He waits for you to walk away.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
+  },
+
+  {
+    id: 's2_aurora_6',
+    label: 'The dome pressurization gauge reads inside the safe band, but the seal hum is wrong.',
+    skill: 'spirit',
+    tag: 'safe',
+    tags: ['Aurora', 'Discovery'],
+    roll: { dc: 12 },
+    fn: function() {
+      G.lastResult = 'The dome\'s pressure seals carry a low constant hum that sets the rhythm of dome life — a sound the residents stop hearing within a day of arrival. You have only been here long enough to still hear it. The hum at the south-arc seal is a quarter-tone flat against the other three. The pressurization gauge mounted beside the seal reads inside the safe band. Gauges are calibrated against the seals they sit beside. A flat hum and a green gauge mean the gauge has been recalibrated to a degraded seal, not that the seal is sound. The recalibration plate is recent.';
+      G.recentOutcomeType = 'success';
+      gainXp(15);
+      addJournal('Aurora Crown: south-arc pressure seal degraded; gauge recalibrated to mask the drop. Recalibration plate recent. Dome reading green against compromised hardware.', 'evidence');
+      G.gold = (G.gold||0) + 5;
+      addNarration('', G.lastResult, 'success');
+      if (typeof saveGame === 'function') saveGame();
+    },
+    failResult: function() {
+      G.lastResult = 'The seal hum is constant enough that you cannot hold it against the others without a second listening point, and the dome layout puts the next seal at the far quadrant past two staffed corridors. You start across, lose the south-arc tone before you have walked twenty paces, and reach the north-arc seal with no clean comparison left in your ear. The dome residents passing you do not hear what you almost heard. The hum becomes background to you too, by the time you reach the gauge.';
+      G.recentOutcomeType = 'complication';
+      addNarration('', G.lastResult, 'complication');
+      if (typeof saveGame === 'function') saveGame();
+    }
   }
 ];
 
