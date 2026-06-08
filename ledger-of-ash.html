@@ -13954,6 +13954,7 @@ function canAdvanceToStage3() {
 }
 
 function _showStage3BlockedModal() {
+  if (document.getElementById('stage3-blocked-modal')) return;
   var d = document.createElement('div');
   d.id = 'stage3-blocked-modal';
   d.className = 'modal-overlay';
@@ -13971,9 +13972,9 @@ function _showStage3BlockedModal() {
 window._showStage3BlockedModal = _showStage3BlockedModal;
 function dismissStage3BlockedModal() {
   var el = document.getElementById('stage3-blocked-modal');
-  if (el) el.style.display = 'none';
+  if (el && el.parentNode) el.parentNode.removeChild(el);
   if (typeof G !== 'undefined' && G && G.flags) G.flags._stage3_modal_dismissed = true;
-  if (typeof loadStageChoices === 'function') loadStageChoices();
+  if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
 }
 window.dismissStage3BlockedModal = dismissStage3BlockedModal;
 
