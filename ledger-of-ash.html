@@ -12473,22 +12473,6 @@ function renderChoices(choices) {
     html += '<div class="trait-use-area"><button class="trait-use-btn" id="btn-use-trait">&#x2736; Use Trait: ' + G.archetype.trait + '</button></div>';
   }
 
-  // Active ability buttons (ARCHETYPE_ABILITY_TREES, type:'active', once per rest)
-  var _activeAbs = (G.unlockedAbilities || []).map(function(id){ return getAbilityById(id); })
-    .filter(function(a){ return a && a.type === 'active'; });
-  if (_activeAbs.length > 0) {
-    html += '<div class="ability-btn-area">';
-    _activeAbs.forEach(function(ab) {
-      var _used = G.abilityUsedThisRest && G.abilityUsedThisRest[ab.id];
-      html += '<button class="ability-btn' + (_used ? ' ability-btn--spent' : '') + '"'
-        + ' onclick="activateAbility(\'' + ab.id + '\')"'
-        + (_used ? ' disabled' : '') + '>'
-        + (_used ? '[Used] ' : '&#x2736; ') + ab.name
-        + '</button>';
-    });
-    html += '</div>';
-  }
-
   block.innerHTML = html;
   block.querySelectorAll('.choice-btn').forEach(btn => {
     btn.addEventListener('click', () => {
