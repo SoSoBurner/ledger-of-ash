@@ -1555,6 +1555,100 @@ SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES.push(
 
       G.recentOutcomeType = 'investigate';
     }
+  },
+
+  // ── SHELKOPOLIS REDIRECT (narrative dead-ends + sp1 advancement) ─────────
+
+  // The bridge deviation report traces north
+  {
+    id: 'soreheim_redirect_bridge_report',
+    plot: 'main',
+    label: "The structural deviation report on your bridge carries an authorization stamp from outside Soreheim.",
+    tags: ['Craft', 'Evidence', 'Trail'],
+    skill: 'craft',
+    xpReward: 70,
+    stageProgress: 1,
+    failResult: 'The Roadwarden dispatch office holds the filed copy of every structural deviation report. The desk clerk handles requests by appointment — the appointment calendar is posted at the outer window.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(70, 'tracing bridge deviation authorization');
+      G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+
+      var _result = rollD20('craft', G.skills ? (G.skills.craft || 0) : 0);
+      if (_result.total >= 12) {
+        G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+        G.lastResult = 'The authorization stamp on the deviation report is not a Roadwarden stamp. It is not a Soreheim Alliance stamp. It is a trade bureau mark from the Shelkopolis Freight Oversight Registry — a body with no Soreheim jurisdiction that has nonetheless signed off on a structural modification to a bridge inside Soreheim territory. The modification you know from the design. It is not an error. It is a deliberate weakening of the load-bearing tolerance in the third span. Someone in Shelkopolis authorized this. The name on the stamp is a bureau position, not a person. The bureau is still there.';
+        addJournal('Bridge deviation authorization traces to Shelkopolis Freight Oversight Registry — outside Soreheim jurisdiction, deliberate structural modification confirmed.', 'discovery', 'soreheim-bridge-redirect-' + (G.dayCount||0));
+        if (!G.flags) G.flags = {};
+        G.flags.soreheim_trail_points_shelkopolis = true;
+      } else {
+        G.lastResult = 'The Roadwarden clerk finds the report without difficulty — it is correctly filed, correctly stamped. The authorization line at the bottom carries a mark you do not recognize. Not Soreheim. The clerk reads it, then looks at the top of the page, then back. "That is a Shelkopolis trade bureau stamp." He does not explain why a Shelkopolis bureau is authorizing Soreheim infrastructure modifications. He is not sure it is his place to ask. It is yours.';
+        addJournal('Bridge deviation report: authorization stamp identified as Shelkopolis trade bureau — jurisdiction anomaly flagged.', 'evidence', 'soreheim-bridge-redirect-partial-' + (G.dayCount||0));
+        if (!G.flags) G.flags = {};
+        G.flags.soreheim_trail_points_shelkopolis = true;
+      }
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // The displaced workers' records were transferred to the central bureau
+  {
+    id: 'soreheim_redirect_records_transferred',
+    plot: 'main',
+    label: "The personnel records for the displaced workers were transferred. Not to any Soreheim archive.",
+    tags: ['Wits', 'Evidence', 'Records'],
+    skill: 'wits',
+    xpReward: 65,
+    stageProgress: 1,
+    failResult: 'The registry clerk handles transfer requests through a weekly batch process — filing a formal records-location inquiry puts the request in the batch, which is processed on the fifth day of each week. The inquiry form is available at the outer counter.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(65, 'tracing records transfer destination');
+      G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+
+      var _result = rollD20('wits', G.skills ? (G.skills.wits || 0) : 0);
+      if (_result.total >= 11) {
+        G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+        G.lastResult = 'The records-location inquiry returns in under an hour, which is unusual. Normally batch requests take five days. Someone is monitoring this inquiry class in real time. The returned slip gives a single forwarding address: the Shelkopolis Central Labor Bureau, Compliance and Audit Division. That division handles disputed displacement — workers contesting wrongful removal from labor registries. The records were filed there before anyone in Soreheim filed a dispute. Someone anticipated the disputes and moved the evidence preemptively.';
+        addJournal('Displaced worker records transferred to Shelkopolis Central Labor Bureau — preemptive filing before any dispute was raised.', 'discovery', 'soreheim-records-redirect-' + (G.dayCount||0));
+        if (!G.flags) G.flags = {};
+        G.flags.soreheim_trail_points_shelkopolis = true;
+      } else {
+        G.lastResult = 'The records-location inquiry returns with a transfer notice: personnel files for the six-week displacement period are no longer held in Soreheim. The forwarding address is incomplete — a bureau name without a registry section, a city name without a district. The city named is Shelkopolis. The clerk at the outer window does not have an explanation for why Soreheim labor records would be held in a Shelkopolis bureau. She writes down the bureau name and hands it back. That is the limit of what she can give you here.';
+        addJournal('Displaced worker records forwarded to Shelkopolis bureau — records no longer accessible within Soreheim.', 'evidence', 'soreheim-records-redirect-partial-' + (G.dayCount||0));
+        if (!G.flags) G.flags = {};
+        G.flags.soreheim_trail_points_shelkopolis = true;
+      }
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
+  },
+
+  // Investigation wall — the trail ends here, points north
+  {
+    id: 'soreheim_redirect_wall',
+    plot: 'main',
+    label: "Three closed doors in one morning. Whatever controls this place is not housed here.",
+    tags: ['Pattern', 'Redirect'],
+    xpReward: 55,
+    stageProgress: 1,
+    failResult: 'The morning is not finished. The archive will be open again after the shift change.',
+    fn: function() {
+      advanceTime(1);
+      if (G.telemetry) { G.telemetry.turns++; G.telemetry.actions++; }
+      gainXp(55, 'reading the pattern of closed doors');
+      G.stageProgress[1] = (G.stageProgress[1] || 0) + 1;
+
+      G.lastResult = 'The quota authority. The displacement registry. The bridge inspection archive. Three requests, three different clerks, three different refusals — each with a different procedural reason, none of which match the stated reason on the posted access policy. The pattern is not a series of coincidences. The decisions that produced this situation were made somewhere with the authority to coordinate across three separate administrative divisions simultaneously. That kind of coordinating authority does not exist in Soreheim. It exists in Shelkopolis. That is where the decisions were made. That is where the evidence will be.';
+      addJournal('Investigation wall: three simultaneous archive closures indicate coordinating authority external to Soreheim — trail points to Shelkopolis.', 'intelligence', 'soreheim-wall-redirect-' + (G.dayCount||0));
+      if (!G.flags) G.flags = {};
+      G.flags.soreheim_trail_points_shelkopolis = true;
+      G.recentOutcomeType = 'investigate';
+      maybeStageAdvance();
+    }
   }
 
 );
