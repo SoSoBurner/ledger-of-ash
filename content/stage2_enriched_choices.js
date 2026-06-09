@@ -105,7 +105,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Survival', 'Risk', 'Decision', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A branch breaks under your boot and a voice answers from the treeline. You hold position, count to twenty, and back out the way you came. The camp keeps its secrets. The path keeps yours.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -174,7 +174,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Trust', 'Deception', 'Risk', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The scholar reads your hesitation before you finish your sentence and folds the papers back into his coat. He thanks you politely and turns onto a side path you would not have chosen. He does not look back.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -644,7 +644,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Trust', 'Deception', 'Loyalty', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The question stalls between you. She watches the fire instead of you and the silence sets harder than the answer would have. The lie holds. The trust between you does not break — but it does not move either.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -779,7 +779,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Sacrifice', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'She turns her face away before you finish offering. The cough is wet now. She will not let you change the calculus she has already made and the conversation ends with both of you knowing what comes next.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -881,7 +881,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'She tells you it does not matter and the way she says it tells you it does. You let her keep the reason. The fact she stopped is enough for now, and the rest will come or it will not.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1273,7 +1273,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Seld closes his hand mid-count and slides it under the table. The fourth finger stays folded. He resumes speaking about something neutral and the number he almost said stays unspoken in the space between you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1305,7 +1305,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Seld\'s hand rests on the fragment edge but does not move it toward you. He says he is not certain it is what you think it is. The fragment stays where it is. The conversation moves to other ground.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1336,7 +1336,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact; },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Seld glances over your shoulder and his posture changes. Whatever he came to say is rerouted into something safer for the watcher to hear. He leaves first. You wait the standard interval and follow a different street out.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1369,7 +1369,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact; },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Seld hears you out and then asks for a week. The Wardens, he says, do not give weeks. You leave him to choose which clock he is willing to break. The seam between the two factions stays unaddressed.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1401,7 +1401,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'main',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The officer files your transit record back into the box without comment and gestures you through. The reason she pulled it stays on her side of the desk. You walk past the booth and the line resumes behind you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1433,7 +1433,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'She is not opening the data for review today. The folder stays under her elbow and she steers the conversation to a different corridor entirely. You leave with what she chose to mention. Not what you came for.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1465,7 +1465,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact; },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The Warden you came to read does not read back. She accepts your remark with a nod that means nothing and returns to her ledger. Whoever sits above the chain stays above it for another day.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1498,7 +1498,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     condition: function() { return G.flags && G.flags.stage2_wardens_contact && G.flags.stage2_collegium_contact; },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Neither the Warden nor the Collegium clerk will move first, and you are not yet enough to make either one move. The conversation closes politely on both sides. The seam between enforcement and documentation stays sealed.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2334,7 +2334,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return G.flags && G.flags.stage2_collegium_contact && !G.flags.collegium_archivist_burned;
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archivist meets your pressure with the practiced patience of someone who has weathered it before. She does not concede and does not engage. You leave the desk having spent the credit you came in with and bought nothing.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2393,7 +2393,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return G.flags && G.flags.stage2_collegium_contact && G.flags.stage2_wardens_contact && !G.flags.collegium_wardens_exposed;
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The Wardens\' name lands wrong. The Collegium source corrects you on a small detail of their charter and uses the correction to close the meeting politely. You leave with the introduction unmade and the name unspoken in any useful direction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2452,7 +2452,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return G.flags && G.flags.wardens_broker_testimony && !G.flags.wardens_broker_burned;
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The broker waits out your pressure with the practiced silence of someone whose cooperation has a fixed ceiling. He says nothing further. The cup in his hand stays half-full. You leave with what he already gave you and no more.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2511,7 +2511,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return G.flags && G.flags.wardens_route_known && !G.flags.wardens_route_compromised;
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You hold the approach an extra count and the runner clocks you before you clear the alley. The route closes for the night. Whatever the runner was carrying is still moving — just no longer along a line you can intercept.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2712,7 +2712,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Investigation'],
     plot: 'side',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The watcher you were watching splits at the second junction and you lose the angle. By the time you reach the corner, two different figures could fit the shape. The itinerary remains in someone else\'s hand and you do not know whose.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2771,7 +2771,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Social'],
     plot: 'side',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The merchant deflects with a story about weather and bridge tolls and the price of dyed linen. By the time he finishes, your question has lost the shape it had when you arrived. He thanks you for your time and stays at his stall.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2829,7 +2829,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stealth'],
     plot: 'side',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The public office corridor stays public. Whatever is behind the third door keeps its hours and its silences. You leave with the same pamphlets the public window hands out, which tell you exactly what you knew on the way in.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2859,7 +2859,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore'],
     plot: 'side',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The catalog index you were reading is pulled for a quarterly update before you can copy the gap. By the time the updated index returns to the desk, the missing subcategory has been quietly reclassified. The pattern closes behind itself.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2916,7 +2916,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore'],
     plot: 'side',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The waiver stack is moved off the counter as you reach for the top sheet, slid into a filing tray by a clerk who does not look up. The bulk signature stays beneath the stack. The trail closes at the tray edge.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2947,7 +2947,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore'],
     plot: 'side',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The reclassification entry is six lines long and three of those lines are crossed through with a single pen stroke. The original category is illegible under the strike. The clerk who logged it transferred out two months ago. The trail closes at the strike-line.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3041,7 +3041,7 @@ const STAGE2_ENRICHED_CHOICES = [
       );
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You match the first three glyph groups against the academic index from memory. The fourth does not appear in any catalogue you were trained on. Whatever administrative body drafted this used an internal variant the academies were never given.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3079,7 +3079,7 @@ const STAGE2_ENRICHED_CHOICES = [
       );
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You hold the document at three different angles to catch the impression\'s relief. The light is wrong, the paper stock is wrong, and the only known-genuine seal you have for comparison was made by a different press in a different decade. The deviation could be anything.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3454,7 +3454,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The warden sees the shape of your weight shift before you finish making it. He calls a second warden over from the gatehouse without breaking eye contact and asks them to witness the rest of the conversation. The ledger stays closed under his palm.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3491,7 +3491,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The courier left earlier than the dispatch schedule listed and used a different route than the one you were told. By the time you reach the handoff, the satchel is already gone and the courier won\'t say to whom. The schedule itself was a test.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3559,7 +3559,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You set the trap at the end of a blind alley and wait. He never enters. From a balcony two streets over, you see him watching the alley mouth from a tea stall, drinking slowly, in no hurry. He wanted you to know he saw the trap too.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3595,7 +3595,7 @@ const STAGE2_ENRICHED_CHOICES = [
       return typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'combat';
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The clerk crosses the threshold with two of his colleagues already at his shoulder, talking about an unrelated meeting they are all walking to. The satchel passes hands twice between them before they reach the street corner. Whatever was inside is already gone.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3871,7 +3871,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The broker reads the question, then reads the next page of the registry, then reads you. Her hand returns to the ledger without turning a page. The two unlisted names stay below her thumb and she changes the subject to a tariff schedule that is already months old.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -3932,7 +3932,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The category exists in the current taxonomy but the cross-reference index has been rebuilt twice since the allocation was filed. You cannot prove the category did not exist when the entry was made — only that you cannot find evidence it did. The discrepancy is real and undocumentable.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
