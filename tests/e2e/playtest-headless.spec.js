@@ -221,7 +221,7 @@ async function actionHTML(page) {
 async function snapshotChoices(page) {
   try {
     return await page.evaluate(() =>
-      Array.from(document.querySelectorAll('.choice-btn:not([style*="display:none"])'))
+      Array.from(document.querySelectorAll('.choice-btn:not([disabled])'))
         .map(b => ({
           text: (b.querySelector('.choice-text') || b).textContent.trim().slice(0, 80),
           cls:  b.className,
@@ -424,6 +424,7 @@ async function pickChoice(page, pickNum, forcePlotMain) {
   const snap = await snapshotChoices(page);
   let bestIdx = 0, bestLen = -1;
   snap.forEach((s, i) => { if (s.text.length > bestLen) { bestLen = s.text.length; bestIdx = i; } });
+  if (bestIdx >= count) bestIdx = 0; // guard: snapshotChoices may count more buttons than the :visible:not([disabled]) locator
   const btn = buttons.nth(bestIdx);
   const m   = await meta(btn);
   await btn.click();
@@ -949,6 +950,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           tracker.onMapTravel(fromLoc, travelledTo, picks);
           lastMapTravelPick = picks;
           await page.waitForTimeout(PACE.short);
+          await waitForChoices(page, PACE.waitChoices); // ensure new locality choices render before next pick
+          choiceCount = await page.locator('.choice-btn:visible:not([disabled])').count().catch(() => 0);
           g = await readG(page);
           tracker.onPick(g);
           if (g.location) visitedLocalities.add(g.location);
@@ -1027,7 +1030,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
             if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(loc);
             else if (typeof loadStageChoices === 'function') loadStageChoices();
           }, escLoc);
-          await page.waitForTimeout(400); // Let corridor encounter setTimeout(300ms) fire + DOM settle
+          await page.waitForTimeout(800); // Let corridor encounter setTimeout(300ms) fire + DOM settle
+          await waitForChoices(page, PACE.waitChoices); // ensure new locality choices render after teleport
         } catch (_) {}
         stuckAtLoc = 0;
         lastPickLabels = [];
@@ -1085,7 +1089,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               else if (typeof loadStageChoices === 'function') loadStageChoices();
             }
           }, ESCAPE_LOCS);
-          await page.waitForTimeout(400); // Let corridor encounter setTimeout(300ms) fire + DOM settle
+          await page.waitForTimeout(800); // Let corridor encounter setTimeout(300ms) fire + DOM settle
+          await waitForChoices(page, PACE.waitChoices); // ensure new locality choices render after teleport
         } catch (_) {}
         lastPickLabels = [];
         stuckAtLoc = 0;
