@@ -854,7 +854,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Lamp resin and ritual incense settle into the shrine threshold while a mediator clergy member turns her attention to the next petitioner. The exchange does not open. You leave the offering rail before the rite-bell marks the hour.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -952,7 +952,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Lamp resin and ritual incense settle into the shrine threshold while a mediator clergy member turns her attention to the next petitioner. The exchange does not open. You leave the offering rail before the rite-bell marks the hour.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -970,7 +970,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Lamp resin and ritual incense settle into the shrine threshold while a mediator clergy member turns her attention to the next petitioner. The exchange does not open. You leave the offering rail before the rite-bell marks the hour.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -997,7 +997,7 @@ var PANIM_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Lamp resin and ritual incense settle into the shrine threshold while a mediator clergy member turns her attention to the next petitioner. The exchange does not open. You leave the offering rail before the rite-bell marks the hour.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
