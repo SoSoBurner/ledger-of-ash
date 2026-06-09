@@ -120,6 +120,8 @@ window.PLACES_DATA = {
   soreheim_proper: {
     name: "Soreheim Proper",
     description: "Continental capital. The Titan Towers visible from the deep-water berths on the western coast.",
+    // places[]: travel routing metadata only — not rendered in the Places overlay UI.
+    // type:'harbor' signals boat departure availability; checked by travel routing code.
     places: [
       {
         name: "Soreheim Western Docks",
@@ -372,6 +374,47 @@ window.PLACES_DATA = {
         { id: 'cos_r5', text: 'Two ships came in without lodging arrival notices. The harbor authority cleared them anyway. The clearance paperwork was backdated.', minProgress: 2 }
       ]
     }
+  },
+
+  'nomdara_caravan': {
+    shops: [{
+      id: 'nomdara_stock',
+      name: 'Caravan Stock',
+      type: 'trade',
+      desc: 'Traveling goods. What they carry depends on where they\'ve been.',
+      items: [
+        {
+          id: 'nomdara_provisions',
+          name: 'Caravan Provisions',
+          desc: 'Three days of travel rations. Keeps in any weather.',
+          cost: 8,
+          type: 'consumable',
+          effect: { type: 'item', id: 'nomdara_provisions', name: 'Caravan Provisions' }
+        },
+        {
+          id: 'nomdara_cure',
+          name: 'Caravan Remedy',
+          desc: 'Brewed in the wagon. Two uses. Each restores 5 HP.',
+          cost: 14,
+          type: 'consumable',
+          effect: { type: 'item', id: 'nomdara_cure', name: 'Caravan Remedy', healAmount: 5, uses: 2 }
+        },
+        {
+          id: 'nomdara_almanac',
+          name: 'Route Almanac',
+          desc: 'Way-stops and water sources annotated by the caravan master. Wits +1 on unfamiliar roads.',
+          cost: 20,
+          effect: { type: 'item', id: 'nomdara_almanac', name: 'Route Almanac', skillBonus: 'wits', bonus: 1 }
+        },
+        {
+          id: 'nomdara_blade',
+          name: 'Compact Blade',
+          desc: 'Caravan defense stock. Balanced for the road. Might +1.',
+          cost: 22,
+          effect: { type: 'item', id: 'nomdara_blade', name: 'Compact Blade', skillBonus: 'might', bonus: 1 }
+        }
+      ]
+    }]
   }
 
 };
