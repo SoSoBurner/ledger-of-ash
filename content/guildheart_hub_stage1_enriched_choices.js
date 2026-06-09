@@ -16,7 +16,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Guild', 'Justice', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -61,7 +61,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Commerce', 'Agreements', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -108,7 +108,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -146,7 +146,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -187,7 +187,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Records', 'Finance', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -228,7 +228,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Commerce', 'Movement', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -266,7 +266,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Membership', 'Coercion', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -307,7 +307,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Craft', 'Knowledge', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -350,7 +350,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Structure', 'Organization', 'Power', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -388,7 +388,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Networks', 'Commerce', 'Displacement', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -429,7 +429,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Information', 'Communication', 'Control', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -467,7 +467,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Coercion', 'Fear', 'Threats', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -508,7 +508,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Resources', 'Flow', 'Redirection', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -546,7 +546,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Trust', 'Institutions', 'Faith', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -587,7 +587,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Vulnerability', 'Economics', 'Exposure', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -628,7 +628,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Authority', 'Opacity', 'Decision', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -671,7 +671,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -700,7 +700,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Commerce', 'Gossip', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -729,7 +729,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Proof', 'Corruption', 'Meaningful'],
     xpReward: 80,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -774,7 +774,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
       { type: 'rival', amount: 1 }
     ],
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -814,7 +814,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Origin', 'Discovery', 'Climax'],
     xpReward: 80,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     stageProgress: 1,
@@ -856,7 +856,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -886,7 +886,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -920,7 +920,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -948,9 +948,8 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "The Collegium observer has been here sixty-two days. That's monitoring, not an inquiry.",
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
-    failResult: 'This path is closed here, but the formal submission channel Trent described — written, signed, specific — is still open.',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Trent finishes his copyist row and slides the manifest into the bonded warehouse bin without looking up. The formal submission channel he described — written, signed, specific — is still open at the registry counter two pavilions over.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -980,7 +979,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -998,9 +997,8 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Everything that leaves Guildheart gets logged at the guild desk. Mandatory for a year now.",
     tags: ['PersonalArc', 'Stealth', 'Stage1', 'Meaningful'],
     xpReward: 65,
-    failResult: 'This path is closed here, but the wool merchant who makes the outlying settlement run three times a week may operate differently than the registry couriers.',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The guild desk clerk turns the logging slip toward you with three duplicate manifests already stamped behind her. The wool merchant who runs the outlying settlement loop three times a week leaves from the canal-side loading lane, not this counter.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1025,9 +1023,8 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "Three factors pulled last month for the same violation. Two kept their licenses. One didn't.",
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 67,
-    failResult: 'This path is closed here, but the empty stall space still carries Paerun\'s registration number — the hall records will show who filed the enforcement action.',
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Paerun\'s empty stall space still carries his registration number along the arbitration pavilion fence — visible from where you stand. The registry hall records will show who filed the enforcement action when the morning queue clears.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1052,11 +1049,9 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     label: "A factor passes a note. Someone has been asking about me. The questions are detailed.",
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 58,
-    failResult: {
-      text: `The dockside factor is in conversation with a hall clerk when you approach — a formal exchange, ledger open between them, nothing to interrupt. She clocks your approach without acknowledging it and keeps her attention on the clerk. The note she meant to pass stays in her apron. When the clerk leaves she moves directly to her next stall. The passage for it will come later — she'll look for you at the freight counter's east end during the slow hour before close of yard, which is where she handles anything that shouldn't be handed over in a crowd.`,
-      xp: 0,
-      effects: [],
-      next: [{ text: 'The factor will look for you at the freight counter\'s east end before close of yard.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+    failResult: function() {
+      addNarration('', `The dockside factor is in conversation with a hall clerk when you approach — a formal exchange, ledger open between them, nothing to interrupt. She clocks your approach without acknowledging it and keeps her attention on the clerk. The note she meant to pass stays in her apron. When the clerk leaves she moves directly to her next stall. The passage for it will come later — she'll look for you at the freight counter's east end during the slow hour before close of yard, which is where she handles anything that shouldn't be handed over in a crowd.`, 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1093,7 +1088,7 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['Suppression', 'Observation', 'Stage1'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1113,11 +1108,9 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   label: 'The notice board has recent postings.',
   tags: ['social'],
   xpReward: 5,
-  failResult: {
-    text: `The notice board is bare — stripped for the daily re-posting that happens at close of hall. A clerk with a stack of fresh notices is making her way from the east annexe, cards in hand, but she's been stopped at the corridor junction by a registrar with a question. The board will be current again in ten minutes. The old postings, the ones taken down, accumulate in a wire basket below the board for three days before filing. Yesterday's notices are still in the basket, rubber-banded and legible.`,
-    xp: 0,
-    effects: [],
-    next: [{ text: 'Yesterday\'s notices are still in the wire basket below the board.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+  failResult: function() {
+    addNarration('', `The notice board is bare — stripped for the daily re-posting that happens at close of hall. A clerk with a stack of fresh notices is making her way from the east annexe, cards in hand, but she's been stopped at the corridor junction by a registrar with a question. The board will be current again in ten minutes. The old postings, the ones taken down, accumulate in a wire basket below the board for three days before filing. Yesterday's notices are still in the basket, rubber-banded and legible.`, 'failure');
+    loadStageChoices(G.location);
   },
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
@@ -1133,11 +1126,9 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
   label: 'Two officials. One number. Then they see me',
   tags: ['Intelligence', 'Observation'],
   xpReward: 15,
-  failResult: {
-    text: `The manifest desk is empty — both officials gone, the counter clear, the shift handoff in progress. A replacement clerk is still coming up from the lower office. The reference code that stopped the earlier conversation is no longer being spoken; it's filed somewhere in the routing stack behind the counter, visible only to desk staff. The public routing board on the adjacent wall lists active administrative references by category. An administrative reference code, heard in context with a Category D hold and a Bay Seven clearance, narrows to a small section of that board — three or four entries at most.`,
-    xp: 0,
-    effects: [],
-    next: [{ text: 'The public routing board narrows the reference code to three or four category entries.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__' }]
+  failResult: function() {
+    addNarration('', `The manifest desk is empty — both officials gone, the counter clear, the shift handoff in progress. A replacement clerk is still coming up from the lower office. The reference code that stopped the earlier conversation is no longer being spoken; it's filed somewhere in the routing stack behind the counter, visible only to desk staff. The public routing board on the adjacent wall lists active administrative references by category. An administrative reference code, heard in context with a Category D hold and a Bay Seven clearance, narrows to a small section of that board — three or four entries at most.`, 'failure');
+    loadStageChoices(G.location);
   },
   fn: function() {
     advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1158,9 +1149,8 @@ var GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES = [
     tags: ['NPC', 'Trade', 'Observation'],
     xpReward: 60,
     stageProgress: 1,
-    failResult: "The factor is in a closed session on the upper floor. The annexe clerk takes a note but cannot say when the session ends. The routing corridor board on the ground floor lists active contracts by category — publicly accessible, no session required.",
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The factor is in a closed session on the upper floor of the counting hall. The annexe clerk takes a note but cannot say when the session ends. The routing corridor board on the ground floor lists active contracts by category — publicly accessible.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1188,11 +1178,9 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     tags: ['Combat', 'Risk', 'Direct'],
     xpReward: 65,
     stageProgress: 1,
-    failResult: {
-      text: 'The three blocking the route are better positioned than they look — two have the high ground on the road shoulder and the third is behind a loaded cart that would take both of you to move. The blockade is professionally set. You withdraw and circle to the waymark post through the secondary footpath, which adds two hours to the route.',
-      xp: 0,
-      effects: [],
-      next: [{text: 'Take the secondary footpath around the blockade to the waymark post.', skill: 'vigor', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    failResult: function() {
+      addNarration('', 'The three blocking the route are better positioned than they look — two have the high ground on the road shoulder and the third is behind a loaded cart that would take both of you to move. The blockade is professionally set. You withdraw and circle to the waymark post through the secondary footpath, which adds two hours to the route.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1231,11 +1219,9 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     tags: ['Combat', 'Confrontation', 'Direct'],
     xpReward: 65,
     stageProgress: 1,
-    failResult: {
-      text: 'The courier is already past the intersection when you clear the staging area corner. He is inside the relay post gate before you reach the intersection. The gate closes with the standard relay post security lock. The dispatch is filed. Whatever it contained is now inside the post record, and the post record is guild-restricted access.',
-      xp: 0,
-      effects: [],
-      next: [{text: 'The relay post has a formal channel. Use that instead.', skill: 'charm', tag: 'safe', align: 'neutral', cid: '__arrive__'}]
+    failResult: function() {
+      addNarration('', 'The courier is already past the intersection when you clear the staging area corner. He is inside the relay post gate before you reach the intersection. The gate closes with the standard relay post security lock. The dispatch is filed. Whatever it contained is now inside the post record, and the post record is guild-restricted access.', 'failure');
+      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
@@ -1277,7 +1263,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1318,7 +1304,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1360,7 +1346,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1401,7 +1387,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1443,7 +1429,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1484,7 +1470,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1534,7 +1520,7 @@ GUILDHEART_HUB_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk in tariff-house grey crosses the counting-hall floor with three sealed manifests and a copyist trailing. You step back to the queue rail before the wrong line lists you against the wrong sanction.', 'failure');
       loadStageChoices(G.location);
     },
   }
