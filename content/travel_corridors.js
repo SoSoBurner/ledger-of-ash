@@ -4337,9 +4337,10 @@
   // ---------------------------------------------------------------------------
   window.TRAVEL_CORRIDOR = {
 
-    triggerEncounters: function(routeTier, fromId, toId) {
+    triggerEncounters: function(routeTier, fromId, toId, ctx) {
       var tier = routeTier || 'short';
       var from = fromId || '';
+      var _ctx = ctx || {};
       // toId is the destination locality — G.location is already set to it when called.
       // We must capture it so every downstream path calls resolveArrival(dest).
       var dest = toId || from;
@@ -4399,6 +4400,7 @@
         G.flags._corridor_to                   = dest;
         G.flags._corridor_dest                 = dest;
         G.flags._corridor_tier                 = tier;
+        G.flags._corridor_nautical             = !!_ctx.nautical;
       }
 
       // Show macroregion narration
@@ -4931,9 +4933,9 @@
   // ---------------------------------------------------------------------------
   // Wire the hook — override _travelStartEncounter
   // ---------------------------------------------------------------------------
-  window._travelStartEncounter = function(type, fromId, toId) {
+  window._travelStartEncounter = function(type, fromId, toId, ctx) {
     var tier = type || 'short';
-    window.TRAVEL_CORRIDOR.triggerEncounters(tier, fromId || '', toId || '');
+    window.TRAVEL_CORRIDOR.triggerEncounters(tier, fromId || '', toId || '', ctx || {});
   };
 
   // Expose route and modifier tables for functions in ledger-of-ash.html
@@ -5220,7 +5222,7 @@
         { text: 'A lateen rig under no flag will respect a clear hail before a fight.', skill: 'charm', tag: 'risky', align: 'neutral', roll: { dc: 13 },
           successResult: 'You shout across the water — a name, a route, a routing-office number. The cutter\'s captain hesitates. The hooks come back inboard. They sheer off without a word.',
           failResult: 'The cutter does not answer. The boarding hooks come up. You take a wound at the rail before the crew clears them off.' },
-        { text: 'They came for cargo. They will fight for it. Meet them at the rail.', action: function() { if (!G.flags) G.flags = {}; G.flags._travelNonHumanoidDouble = false; if (typeof startCombat === 'function') startCombat('sea_raider', { isBoss: false }); } },
+        { text: 'They came for cargo. They will fight for it. Meet them at the rail.', action: function() { if (!G.flags) G.flags = {}; G.flags._travelNonHumanoidDouble = false; var _n = !!(G && G.flags && G.flags._corridor_nautical); if (typeof startCombat === 'function') startCombat('sea_raider', { isBoss: false, nautical: _n }); } },
         { text: 'Below deck. The captain\'s crew is the captain\'s problem.', skill: 'finesse', tag: 'safe', align: 'neutral',
           successResult: 'You go below before the boarding starts. The fight on the deck is brief — the crew is competent and the corsairs were testing. You hear it end. The crew does not look at you when you come back up.',
           failResult: 'You go below but the corsairs board through the cargo hatch. You take a blow before the crew clears them out, and the captain notes which passenger was not on the deck.' }
@@ -5337,7 +5339,8 @@
         // Otherwise: normal creature encounter
         var pool = (typeof BIOME_ENCOUNTER_POOLS !== 'undefined' && window.BIOME_ENCOUNTER_POOLS && window.BIOME_ENCOUNTER_POOLS[b]) || ['plains_dust_hound'];
         var enemy = pool[Math.floor(Math.random() * pool.length)];
-        if (typeof startCombat === 'function') startCombat(enemy, { isBoss: false });
+        var _nautical = !!(G && G.flags && G.flags._corridor_nautical);
+        if (typeof startCombat === 'function') startCombat(enemy, { isBoss: false, nautical: _nautical });
       }
     };
   }
