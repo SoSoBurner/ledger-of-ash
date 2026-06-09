@@ -14194,8 +14194,8 @@ function showLevelUpScreen() {
 
     var html = '<div class="lu-title">Choose a new ability:</div><div class="lu-options">';
     options.forEach(function(ab, i) {
-      var tagClass = (ab.type === 'active' || ab.traitType === 'active') ? 'gold' : 'jade';
-      var typeLabel = (ab.type === 'active' || ab.traitType === 'active') ? 'active' : 'passive';
+      var tagClass = ab._isCombat ? 'combat' : ((ab.type === 'active' || ab.traitType === 'active') ? 'gold' : 'jade');
+      var typeLabel = ab._isCombat ? 'combat' : ((ab.type === 'active' || ab.traitType === 'active') ? 'active' : 'passive');
       html += '<button class="lu-option-btn choice-btn" data-lu-ability="' + i + '">' +
         '<div class="lu-opt-label">' + (ab.name || ab.id) + '</div>' +
         '<div class="lu-opt-detail">' + (ab.desc || '') + '</div>' +
