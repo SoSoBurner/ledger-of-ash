@@ -234,7 +234,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Letha is in the watchtower running the dawn instrument calibration — the sequence cannot be paused once started and the lower-deck duty patrol restricts non-Roadwarden traffic during instrument hours. Her reflection in the tower window catches you on the walk-up and she shakes her head once, a small signal across the glass.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -341,7 +341,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Exposure', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The patrol dispatch wagon is already on the southbound road — the courier left thirty minutes before the morning bell with the day\'s sanctioned packets. The communications handler at the outpost desk is logging the dispatch and Letha cannot prepare a parallel copy without breaking the staged-review protocol on the cleared outgoing.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -590,7 +590,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The patrol hand-off is happening in the duty room with the door pulled to — voices low and clipped through the gap. Standing at the threshold during a Roadwarden hand-off counts as listening in, and the duty clerk at the front counter has already noticed. The push and its name stay inside the briefing.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -650,7 +650,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The communications log lives in the duty station, which runs on Letha\'s posted schedule — the daily administrative period closed forty minutes ago and won\'t reopen until the morning rotation. The duty clerk pulls the bolt on the outer door. Wind off the high route pushes against the shutters as the post settles for evening.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -675,7 +675,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Letha is in her office with the suppression-order archive cabinet open against the north wall — the smell of pine-resin sealer carries into the corridor. She is mid-review of the standard-template directives, both the comparison version and the current order under her hand. The door stays closed until the review concludes. She has asked not to be interrupted.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -723,7 +723,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The duty station\'s external correspondence folder is in Letha\'s locked desk and she is up at the watchtower running the morning instrument check. The wind off the high route pushes under the supply station door — the clerk keeps a woodsmoke fire going against it. The correspondence folder stays in the desk until Letha returns and authorizes.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -748,7 +748,7 @@ var PLUMES_END_OUTPOST_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The hearth room is closed during the daylight shift — overnight-watch territory by long practice and the day clerk turns visitors back at the inner door. The smoke vent above the supply station roof still shows a faint draw from the banked fire. The watch officer who could explain the practice is off-rotation until evening.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
