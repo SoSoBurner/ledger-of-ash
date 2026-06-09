@@ -98,7 +98,7 @@ function checkAddJournalArgOrder() {
 // ─── All addJournal calls use valid categories ────────────────────────────────
 
 function checkAddJournalCategories() {
-  const CAT_CALL_RE = /addJournal\s*\((?:[^)(]|\([^)]*\))+,\s*['"]([^'"]+)['"]\s*\)/g;
+  const CAT_CALL_RE = /addJournal\s*\(\s*(?:'[^']*'|"[^"]*")\s*,\s*['"]([^'"]+)['"]/g;
   const files = [
     ...fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.js') && fs.statSync(path.join(CONTENT_DIR, f)).isFile()).map(f => path.join(CONTENT_DIR, f)),
     HTML_PATH,

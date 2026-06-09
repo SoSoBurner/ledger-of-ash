@@ -1,0 +1,14 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2] [cursor=pointer]:
+    - generic [ref=e3]:
+      - text: Ledger
+      - generic [ref=e4]: of
+      - text: Ash
+    - generic [ref=e5]: A Living World RPG
+  - generic [ref=e9]:
+    - generic [ref=e11]:
+      - button "Begin New Legend" [ref=e12] [cursor=pointer]
+      - button "Load Save" [ref=e13] [cursor=pointer]
+      - button "Hall of Legends" [ref=e14] [cursor=pointer]
+      - button "How to Play" [ref=e15] [cursor=pointer]
+    - generic [ref=e16]: Stage I–II · V33 Canon · v0.1
