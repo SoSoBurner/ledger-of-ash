@@ -108,11 +108,9 @@ const NOMDARA_STAGE1_CHOICES = [
     tags: ['Nomdara', 'Leave'],
     xpReward: 0,
     fn: function() {
-      G.telemetry.turns++;
-      if (!G.flags) G.flags = {};
-      G.flags.nomdara_last_visit_locality = G.location || 'unknown';
-      G.lastResult = `The caravan's lanterns shrink behind you, amber against the dark. A dog barks once at the edge of camp and stops. The road ahead has the particular silence of open ground after a settlement — a quiet that comes with distance, not with absence.`;
-      G.recentOutcomeType = 'neutral';
+      addNarration('', 'The caravan noise fades behind you. The road opens again.', 'neutral');
+      var returnLoc = (G && G.previousLocation) ? G.previousLocation : 'shelkopolis';
+      if (typeof resolveArrival === 'function') resolveArrival(returnLoc);
     }
   }
 

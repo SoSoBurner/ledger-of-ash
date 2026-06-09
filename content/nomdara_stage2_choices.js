@@ -156,13 +156,9 @@ const NOMDARA_STAGE2_CHOICES = [
     tags: ['Travel', 'Nomdara'],
     xpReward: 20,
     fn: function() {
-      G.lastResult = `You step past the last wagon and the camp noise drops off quickly — not silence, but the muffled version of it that comes through canvas and wheel-wood. The road beyond the Nomdara perimeter is unlit and cooler by several degrees. You walk until the caravan's lantern glow is a single warm smear on the horizon behind you.`;
-      if (typeof renderChoices === 'function' && G && G.location) {
-        if (typeof generateChoices === 'function') {
-          renderChoices(generateChoices());
-        }
-      }
-      G.recentOutcomeType = 'rest';
+      addNarration('', 'The caravan disbands around you. You carry what you learned forward.', 'neutral');
+      var returnLoc = (G && G.previousLocation) ? G.previousLocation : 'shelkopolis';
+      if (typeof resolveArrival === 'function') resolveArrival(returnLoc);
     }
   }
 

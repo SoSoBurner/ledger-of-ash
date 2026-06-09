@@ -117,6 +117,18 @@ window.PLACES_DATA = {
     }
   },
 
+  soreheim_proper: {
+    name: "Soreheim Proper",
+    description: "Continental capital. The Titan Towers visible from the deep-water berths on the western coast.",
+    places: [
+      {
+        name: "Soreheim Western Docks",
+        description: "Deep-water berths. Cross-continental departures to the Principalities. Passage documents checked twice.",
+        type: "harbor"
+      }
+    ]
+  },
+
   sunspire: {
     shops: [{
       id: 'sunspire_waystation',
@@ -174,6 +186,13 @@ window.PLACES_DATA = {
   },
 
   ithtananalor: {
+    places: [
+      {
+        name: "Roaz Offshore Anchorage",
+        description: "Tender service from offshore anchorage. No dock facilities — cargo and passengers transferred by lighter.",
+        type: "harbor"
+      }
+    ],
     shops: [{
       id: 'ithtan_clearance',
       name: 'The Roazian Document Office',
@@ -230,6 +249,13 @@ window.PLACES_DATA = {
   },
 
   shirshal: {
+    places: [
+      {
+        name: "Shirshal Port Quarter",
+        description: "The sea-entry point for Shirsh territory. Vessel registration required. Passage documents validated on arrival.",
+        type: "harbor"
+      }
+    ],
     shops: [{
       id: 'shirshal_permits',
       name: 'The Compliance Counter',
@@ -314,6 +340,13 @@ window.PLACES_DATA = {
   },
 
   cosmoria: {
+    places: [
+      {
+        name: "Cosmoria Harbor Ring",
+        description: "The city's working edge. Cargo cranes, manifest inspectors, departure tickets for the inland sea routes.",
+        type: "harbor"
+      }
+    ],
     shops: [{
       id: 'cosmoria_manifest',
       name: 'The Shipwright\'s Counter',
