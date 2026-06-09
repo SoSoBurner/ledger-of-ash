@@ -13,7 +13,7 @@ const STAGE2_SHADOWHANDS_ARC = [
       G.telemetry.turns++;
       gainXp(75, 'finding Shadowhands dead-drop signal');
       G.flags = G.flags || {};
-      var result = rollD20('stealth', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var result = rollD20('stealth', (G.skills.finesse||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (result.total >= 12) {
         G.lastResult = "The dead-drop is behind a loose stone in the third column of the Guildheart lower corridor. A folded paper, no name on it. The handwriting is careful and compressed. It says: the same names appear in four ledgers they think no one has access to. We have access. If you want to compare notes — the Anchor taproom, three nights from now, second table from the door. Come alone. The paper has already been read by at least one other person; the fold crease is wrong.";
         G.flags.shadowhands_contacted = true;
@@ -40,7 +40,7 @@ const STAGE2_SHADOWHANDS_ARC = [
       G.telemetry.turns++;
       gainXp(85, 'meeting Shadowhands contact at Anchor');
       G.flags = G.flags || {};
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('persuasion'):0));
+      var result = rollD20('charm', (G.skills.charm||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('persuasion'):0));
       if (result.total >= 11) {
         G.lastResult = "She gives her name as Ilve. She has no tell that she's nervous — only that she is always watching the door, and the watching is automatic, not situational. She lays out the arrangement without preamble: the Shadowhands have three years of supply chain documentation that connects Ironhold extraction rates to Shelkopolis dome additive records. They've been waiting for someone who could move between localities without drawing Collegium attention. She slides a ledger page across the table. The numbers match what you already know — and extend three months further back than anything you've found.";
         G.flags.shadowhands_met = true;
@@ -67,7 +67,7 @@ const STAGE2_SHADOWHANDS_ARC = [
       G.telemetry.turns++;
       gainXp(90, 'providing operational cover for Shadowhands document transfer');
       G.flags = G.flags || {};
-      var result = rollD20('stealth', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var result = rollD20('stealth', (G.skills.finesse||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (result.total >= 13) {
         G.lastResult = "You take the eastern corridor approach and watch the Collegium checkpoint rotation for two hours before signaling clear. Ilve moves the document case through the secondary loading bay in eleven minutes. The Ironhold ledger she hands you afterward is water-damaged on the lower third — the important half is intact. The extraction quotas it records are forty percent higher than the officially filed outputs. The difference went somewhere. You now have a number to track.";
         G.flags.shadowhands_cover_resolved = true;
@@ -96,7 +96,7 @@ const STAGE2_SHADOWHANDS_ARC = [
       G.telemetry.turns++;
       gainXp(110, 'receiving Shadowhands final intelligence');
       G.flags = G.flags || {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('lore'):0));
+      var result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('lore'):0));
       if (result.total >= 12) {
         G.lastResult = "Ilve gives you a name: Overseer Torveld Mast, stationed at the Soreheim Transit Post for the past eight months. Not an architect of the operation — a mechanism. The authorization signatures on the suppressed quota reports all carry his registry stamp. He stamps what he is told to stamp. But the stamp is the link between the extraction numbers and the dome additive substitution chain. Ilve says: he will not come voluntarily. She does not say what she means by that. She doesn't need to.";
         G.flags.shadowhands_finale_done = true;
