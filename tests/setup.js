@@ -220,6 +220,7 @@ function createGameContext(gOverrides) {
     buyShopItem:             ctx.buyShopItem,
     buyLegacyShopItem:       ctx.buyLegacyShopItem,
     LOCALITY_SHOPS:          ctx.__LOCALITY_SHOPS || ctx.LOCALITY_SHOPS,
+    useUtilitySkill:         ctx.useUtilitySkill,
   };
 }
 

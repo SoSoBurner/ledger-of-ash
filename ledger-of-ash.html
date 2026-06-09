@@ -18388,15 +18388,11 @@ function useUtilitySkill(skillId) {
   var trait = (G.traits || []).find(function(t){ return t.id === skillId; });
   if (!trait || trait.used) return;
   trait.used = true;
-  var r = rollD20(trait.skill || 'wits', (trait.bonus || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus(trait.skill || 'wits') : 0));
-  var resultText;
-  if (r.total >= 10) {
-    resultText = trait.utilityResult || trait.name + ': You apply your expertise to good effect.';
-  } else {
-    resultText = trait.name + ': The attempt yields little this time.';
-  }
+  var resultText = trait.utilityResult || (trait.name ? trait.name + ': You apply your expertise to good effect.' : 'The ability takes effect.');
+  addNarration('Ability Used', resultText, 'success');
   G.lastResult = resultText;
-  addJournal(resultText, 'discovery');
+  if (trait.hpRestore) { modHP(trait.hpRestore); }
+  if (trait.dcReduce) { G._pendingDcReduce = (G._pendingDcReduce || 0) + trait.dcReduce; }
   if (typeof updateHUD === 'function') updateHUD();
 }
 
