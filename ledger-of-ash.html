@@ -5111,6 +5111,20 @@ function endCombat(victory) {
         }
       });
     }
+    // Double loot for non-humanoid travel corridor encounters
+    if (G.flags && G.flags._travelNonHumanoidDouble) {
+      G.flags._travelNonHumanoidDouble = false;
+      var _bEntry = typeof BESTIARY !== 'undefined' && BESTIARY[enemy.id];
+      if (_bEntry && _bEntry.loot && _bEntry.loot.length) {
+        _bEntry.loot.forEach(function(drop) {
+          if (drop && drop.item) {
+            if (typeof addMaterial === 'function') addMaterial(drop.item, drop.qty || 1);
+          } else if (typeof drop === 'string') {
+            if (typeof addMaterial === 'function') addMaterial(drop, 1);
+          }
+        });
+      }
+    }
     addNarration('Combat Over', victText, 'success');
     addJournal('Defeated ' + enemy.name + ' in ' + finalRound + ' rounds. Renown +1.', 'evidence');
     shiftAlignment(-5, 0); // violence costs morality slightly
@@ -12069,7 +12083,7 @@ function loadStageChoices(locId) {
     if (G.flags && G.flags._jrn_to && (G.flags._jrn_current || 0) < (G.flags._jrn_total || 1)) {
       adapted.unshift({
         id: 'resume_journey',
-        label: 'The road is not finished. Return to the journey.',
+        text: 'The road is not finished. Return to the journey.',
         tag: 'safe',
         plot: 'main',
         fn: function() {
