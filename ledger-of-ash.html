@@ -17672,7 +17672,8 @@ function buildCompanionHudHTML(companions) {
   return companions.map(function(c) {
     var def = _cdefs[c.id] || {};
     var _passiveAbil = def.abilities && def.abilities.find(function(a){ return a.type === 'passive'; });
-    var passive = _passiveAbil ? _passiveAbil.desc : '';
+    // Accept either {abilities:[{type:'passive',desc}]} or shorthand {passive:'...'} (used by tests/back-compat defs)
+    var passive = _passiveAbil ? _passiveAbil.desc : (typeof def.passive === 'string' ? def.passive : '');
     return '<div class="hud-companion-name">' + (def.name || c.id || '').toUpperCase() + '</div>'
       + (passive ? '<div class="hud-companion-passive">' + passive.substr(0, 60) + (passive.length > 60 ? '\u2026' : '') + '</div>' : '');
   }).join('');

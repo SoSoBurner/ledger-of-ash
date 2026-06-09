@@ -63,9 +63,15 @@ function buildSandbox(gOverrides) {
       get firstChild() { return _children[0] || null; },
       appendChild(c) { _children.push(c || fakeEl()); return c; },
       removeChild(c) { const i = _children.indexOf(c); if (i >= 0) _children.splice(i, 1); return c; },
+      // showTutorial calls el.insertBefore(callout, el.firstChild). Without this, the
+      // typeof guard in showTutorial early-returns; some call paths assume it ran. Provide
+      // a no-op so the path is exercisable without throwing.
+      insertBefore(c) { _children.unshift(c || fakeEl()); return c; },
       remove: () => {},
       addEventListener: () => {},
-      querySelector: () => null,
+      // showTutorial does callout.querySelector('.tutorial-callout-close').addEventListener(...).
+      // Return a stub element so the chained addEventListener call doesn't NPE.
+      querySelector: () => ({ addEventListener: () => {}, remove: () => {} }),
       querySelectorAll: () => ({ forEach: () => {}, length: 0 }),
       classList: { add: () => {}, remove: () => {}, contains: () => false, toggle: () => {} },
     };
@@ -82,6 +88,11 @@ function buildSandbox(gOverrides) {
     readyState: 'complete',
     addEventListener:   () => {},
   };
+
+  // Mount a tutorial-modal-friendly element so showTutorial doesn't hit a null
+  // when it looks up #narrative-content via getElementById. The fakeDoc factory
+  // above returns a fresh fakeEl on every getElementById call, which carries
+  // insertBefore + non-null querySelector, satisfying showTutorial's contract.
 
   const fakeStorage = (() => {
     const store = {};

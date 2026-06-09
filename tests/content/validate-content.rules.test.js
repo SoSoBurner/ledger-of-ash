@@ -169,8 +169,18 @@ describe('checkRuleA7 — safe choices must have failResult', () => {
     expect(checkRuleA7(choice)).toBeNull();
   });
 
-  test('passes when tags is array (semantic tags) without failResult', () => {
+  test('passes when tags is array (semantic safe tags) with failResult', () => {
+    const choice = { label: 'Array tag path.', tags: ['NPC', 'Stage1'], xpReward: 65, fn: function() {}, failResult: 'A redirect line.' };
+    expect(checkRuleA7(choice)).toBeNull();
+  });
+
+  test('fails when tags is array (semantic safe tags) without failResult', () => {
     const choice = { label: 'Array tag path.', tags: ['NPC', 'Stage1'], xpReward: 65, fn: function() {} };
+    expect(checkRuleA7(choice)).toMatch(/failResult/);
+  });
+
+  test('passes when tags is array of non-safe tags without failResult', () => {
+    const choice = { label: 'Non-safe array path.', tags: ['Stage1'], xpReward: 65, fn: function() {} };
     expect(checkRuleA7(choice)).toBeNull();
   });
 });
