@@ -20,7 +20,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1);
       if (!G.stageProgress) G.stageProgress = {1:0,2:0,3:0,4:0,5:0};
-      var result = rollD20('wits');
+      var result = rollD20('wits', G.skills.wits || 0);
       if (result.isCrit || result.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (typeof maybeStageAdvance === 'function') maybeStageAdvance();

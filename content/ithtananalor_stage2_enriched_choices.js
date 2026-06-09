@@ -24,7 +24,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.flags) G.flags = {};
       const result = rollD20('wits', (G.skills.wits||0));
       const arch = G.archetype && G.archetype.group;
-      if (result.total >= 16) {
+      if (result.total >= 13) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -58,7 +58,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
-      if (result.total >= 16) {
+      if (result.total >= 13) {
         G.flags.met_ivena_ironspike = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -92,7 +92,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.factionHostility) G.factionHostility = {};
       if (!G.rivalId) G.rivalId = 'warden_captain';
       const result = rollD20('combat', (G.skills.might||0));
-      if (result.total >= 16) {
+      if (result.total >= 13) {
         G.flags.met_velden_ironspike = true;
         G.flags.stage2_faction_contact_made = true;
         G.worldClocks.rival = (G.worldClocks.rival||0) + 1;
@@ -125,7 +125,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       const result = rollD20('charm', (G.skills.charm||0));
-      if (result.total >= 16) {
+      if (result.total >= 13) {
         G.flags.met_brenn_ironspike = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
