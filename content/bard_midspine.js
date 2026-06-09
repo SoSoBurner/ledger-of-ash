@@ -14,7 +14,7 @@ window.BARD_MIDSPINE_NODES = [
   // ── NODE 1 ── Listen for the shape of the silence ─────────────────────────
   // Gate: G.archetype === 'bard' && G.stage === 1 && !G.signals.bardSpine
   {
-    label: 'Listen to what the room is not saying — find the shape of the silence',
+    label: 'The room is shaped around something it will not say.',
     plot: 'main',
     tags: ['Bard', 'Investigate', 'Social', 'Voice'],
     fn: function() {
@@ -82,7 +82,7 @@ window.BARD_MIDSPINE_NODES = [
   // ── NODE 2 ── Pull the suppressed thread ──────────────────────────────────
   // Gate: G.signals.bardSpine === 'voice_found'
   {
-    label: 'Follow the thread you found — trace who went quiet and why',
+    label: 'Someone went quiet on purpose. The trail starts where their voice stopped.',
     plot: 'main',
     tags: ['Bard', 'Investigate', 'Pressure', 'Voice'],
     fn: function() {
@@ -151,7 +151,7 @@ window.BARD_MIDSPINE_NODES = [
   // ── NODE 3 ── Recover the suppressed account ──────────────────────────────
   // Gate: G.signals.bardSpine === 'thread_pulled'
   {
-    label: 'Recover the suppressed account — extract what was erased from the record',
+    label: 'The account they erased still lives in someone\'s mouth. It can be retrieved.',
     plot: 'main',
     tags: ['Bard', 'Investigate', 'Decisive', 'Voice'],
     fn: function() {

@@ -9,7 +9,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
 
   // ——— NODE 1: THE LOYALTY TEST ———
   {
-    label: "Two factions have each approached you separately. The Oversight Collegium wants your findings first. The private network wants them kept out of Collegium hands. Choose.",
+    label: "Both factions want the findings first. Whoever I answer second remembers the order.",
     plot: 'main',
     tags: ['Midspine', 'Support', 'Decision'],
     xpReward: 85,
@@ -49,7 +49,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
 
   // ——— NODE 2: THE RESOURCE QUESTION ———
   {
-    label: "A third faction — the private network's institutional backers — offers resources you need. The price is formal affiliation. Consider what formal affiliation means for your independence.",
+    label: "The resources come with a name attached. The name is what they actually want.",
     plot: 'main',
     tags: ['Midspine', 'Support', 'Decision'],
     xpReward: 90,
@@ -90,7 +90,7 @@ const SUPPORT_MIDSPINE_CHOICES = [
 
   // ——— NODE 3: THE ALIGNMENT ———
   {
-    label: "Having navigated the factional landscape, quietly favor the faction whose goals actually match what you've found — not the one offering the most resources.",
+    label: "One of them will move first. I choose which, without saying I chose.",
     plot: 'main',
     tags: ['Midspine', 'Support', 'Decision'],
     xpReward: 95,

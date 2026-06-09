@@ -9,7 +9,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 1: THE CONFRONTATION ———
   {
-    label: "A Roadwardens Order patrol has been tracking the same thread. Their commander wants a formal meeting.",
+    label: "The Roadwarden commander has been watching the same thread. He wants a sit-down.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 85,
@@ -48,7 +48,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 2: THE TEST ———
   {
-    label: "A Roadwardens Order garrison in your current district is obstructing access to a critical document. Get through them — by whatever means suits you.",
+    label: "The garrison stands between me and the document. The method is mine to choose.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Risk'],
     xpReward: 90,
@@ -93,7 +93,7 @@ const COMBAT_MIDSPINE_CHOICES = [
 
   // ——— NODE 3: THE OFFER ———
   {
-    label: "Edvar contacts you again with an offer. The Roadwardens Order wants to fold your work into their structure.",
+    label: "Edvar's second message is an offer. The Order wants my work inside their structure.",
     plot: 'main',
     tags: ['Midspine', 'Combat', 'Decision'],
     xpReward: 95,
