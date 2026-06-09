@@ -483,10 +483,10 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
-        G.lastResult = `The two supply streams map against each other: Ironhold's raw mineral precursor and Craftspire's extracted compound reach industrial-grade concentration only in combination. Neither is sufficient alone. Both are moving. The Whitebridge crossing sits on the route that connects both origin points to Shelkopolis's outer district. The combination occurs at a third location — not a quarry, not a processing facility. The scale of what the combined material enables points toward dome-level infrastructure. Something in Shelkopolis's outer district is the endpoint.`;
+        G.lastResult = `The two supply streams map against each other: Ironhold's raw mineral precursor and Craftspire's extracted compound reach industrial-grade concentration only in combination. Neither is sufficient alone. Both are moving. The Whitebridge crossing sits on the route that connects both origin points to Shelkopolis's outer district. The combination occurs at a third location — not a quarry, not a processing facility. The scale of what the combined material enables points toward civic conduit infrastructure. Something in Shelkopolis's outer district is the endpoint.`;
         if (!G.flags) G.flags = {};
         G.flags.mapped_ironhold_shelkopolis_connection = true;
-        addJournal('Ironhold + Craftspire materials converge toward Shelkopolis outer district — dome-level atmospheric application endpoint', 'evidence', `ironhold-connection-${G.dayCount}`);
+        addJournal('Ironhold + Craftspire materials converge toward Shelkopolis outer district — civic reservoir application endpoint', 'evidence', `ironhold-connection-${G.dayCount}`);
       } else {
         G.lastResult = `The container route ends at Whitebridge and the trail goes cold. What's in hand: two origin points, a transfer crossing, and a northbound road that runs toward the Shelkopolis outer district. What's missing: the final leg's documentation. Mapping it requires port records, district freight manifests, or an outer district registry that covers inbound industrial supply — none of which are held at Ironhold. The charter mark on the containers was partially visible. That mark is registered with the Compact.`;
       }
