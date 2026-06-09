@@ -3084,7 +3084,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.craft || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'The stamp die was cut from a different material than the standard Compact seal — harder, which produces a slightly sharper impression with less ink spread. The off-center placement is consistent across six documents, which rules out handling error. The person stamping these used a replica die, and they used the same one every time. A replica die requires a mold of the original. You photograph the impression angle with a ruled reference next to it. The documentation of a forged seal is itself evidence.';
         G.recentOutcomeType = 'discovery';
@@ -3098,7 +3098,6 @@ const STAGE2_ENRICHED_CHOICES = [
         addJournal('Seal impression anomaly noted. Confirmation requires genuine comparison document from same issuing office.', 'intelligence');
       }
       if (typeof updateHUD === 'function') updateHUD();
-      if (typeof loadStageChoices === 'function') loadStageChoices();
     }
   },
 
