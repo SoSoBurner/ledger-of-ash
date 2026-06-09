@@ -43,7 +43,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -81,7 +81,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -116,7 +116,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -152,7 +152,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -188,7 +188,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -348,7 +348,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -385,7 +385,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -422,7 +422,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -459,7 +459,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -497,7 +497,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -534,7 +534,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -571,7 +571,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -608,7 +608,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -645,7 +645,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -682,7 +682,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -719,7 +719,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -756,7 +756,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -797,7 +797,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -832,7 +832,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -866,7 +866,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -901,7 +901,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -935,7 +935,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -969,7 +969,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1004,7 +1004,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1038,7 +1038,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1074,7 +1074,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1111,7 +1111,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1148,7 +1148,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1185,7 +1185,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1222,7 +1222,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1260,7 +1260,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1296,7 +1296,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1774,7 +1774,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1810,7 +1810,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1859,7 +1859,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The case-rack hush of the magistracy corridor presses in. An investigator at the desk closes a folio with a deliberate snap that is meant to be heard. You retreat from the inquiry counter before the next clerk arrives.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

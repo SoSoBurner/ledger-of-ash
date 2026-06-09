@@ -866,7 +866,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -885,7 +885,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'NPC', 'Stage1'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -970,7 +970,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -988,7 +988,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1015,7 +1015,7 @@ var SHIRSHAL_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The magistracy hall keeps its inquiries on rails. An archive aide pauses at the case-rack and watches the corridor while you cross it. The question goes unfiled. You step back before the watch becomes a citation.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
