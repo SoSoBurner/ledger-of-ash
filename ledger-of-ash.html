@@ -1042,6 +1042,25 @@ input, button, select, textarea { font-family: inherit; }
   border-left: 3px solid var(--blood-bright);
   box-shadow: 0 0 8px rgba(110,16,16,0.4), inset 0 1px 0 rgba(110,16,16,.15);
 }
+.result-block.neutral { background: transparent; border-left: none; }
+.result-tag.neutral { color: rgba(255,255,255,0.4); }
+.result-block.complication {
+  background: linear-gradient(135deg,rgba(120,95,20,0.22) 0%,rgba(80,60,10,0.14) 100%);
+  border-left: 3px solid var(--accent-gold);
+}
+.result-tag.complication { color: var(--accent-gold); }
+.result-block.notice {
+  background: linear-gradient(135deg,rgba(70,100,140,0.18) 0%,rgba(45,65,95,0.12) 100%);
+  border-left: 3px solid rgba(74,122,181,0.5);
+}
+.result-tag.notice { color: rgba(130,170,220,0.8); }
+.result-block.encounter {
+  background: linear-gradient(135deg,rgba(80,80,100,0.15) 0%,rgba(50,50,65,0.10) 100%);
+  border-left: 3px solid rgba(180,180,200,0.3);
+}
+.result-tag.encounter { color: rgba(180,180,200,0.6); }
+.result-block.dim { background: transparent; border-left: 3px solid rgba(120,120,140,0.2); opacity: 0.7; }
+.result-tag.dim { color: rgba(160,160,180,0.5); }
 .result-text { font-family: 'Crimson Pro', serif; font-size: 14.7px; font-weight: 300; font-style: normal; line-height: 1.85; color: var(--ink); }
 .result-block .result-tag { animation: fadeUp .35s .08s ease both; }
 .result-block .result-text { animation: fadeUp .4s .18s ease both; }
@@ -1056,6 +1075,7 @@ input, button, select, textarea { font-family: inherit; }
 }
 .roll-result.success { border-left-color: var(--jade-bright); }
 .roll-result.failure { border-left-color: var(--blood-mid); }
+.roll-result { animation: resultIn .35s ease both; }
 .roll-summary { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); margin-bottom: 6px; padding: 4px 14px; }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -11466,7 +11486,19 @@ function addNarration(label, html, resultType) {
   let inner = '';
   if (label) inner += '<div class="scene-location">' + label + '</div>';
   if (resultType) {
-    const icon = resultType === 'crit' ? '&#x2605; Critical Success' : resultType === 'fumble' ? '&#x2620; Fumble' : resultType === 'success' ? '&#x2713; Success' : resultType === 'failure' ? '&#x2717; Failure' : '~ Partial';
+    var _ICON_MAP = {
+      'crit': '&#x2605; Critical Success',
+      'fumble': '&#x2620; Fumble',
+      'success': '&#x2713; Success',
+      'failure': '&#x2717; Failure',
+      'partial': '~ Partial',
+      'neutral': '&middot; Neutral',
+      'complication': '&#x26A1; Complication',
+      'notice': '&#x25C8; Notice',
+      'encounter': '&#x2694; Encounter',
+      'dim': '&middot; '
+    };
+    var icon = _ICON_MAP[resultType] || '~ Partial';
     inner += '<div class="result-block ' + resultType + '"><div class="result-tag ' + resultType + '">' + icon + '</div><div class="result-text">' + _safeHtml + '</div></div>';
   } else {
     inner += '<div class="narrative-text">' + _safeHtml + '</div>';
@@ -11616,7 +11648,7 @@ function adaptEnrichedChoice(c) {
             return;
           }
           var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : '');
-          addNarration('', _frTxt, 'complication');
+          addNarration('', _frTxt, 'failure');
           if (typeof updateHUD === 'function') updateHUD();
           if (typeof saveGame === 'function') saveGame();
           setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
@@ -12917,7 +12949,7 @@ function handleChoice(choice) {
       if (_autoRollFailed && choice.failResult) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
-        addNarration('', choice.failResult, 'complication');
+        addNarration('', choice.failResult, 'failure');
         if (typeof updateHUD === 'function') updateHUD();
         if (typeof saveGame === 'function') saveGame();
         setTimeout(function() { if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
