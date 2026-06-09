@@ -393,7 +393,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -471,7 +471,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The Silkweaver chapel bell sounds the third watch. Petitioners file in around you; the wax-and-stone smell of the nave thickens. The thread you almost held loosens between two passing shoulders.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -512,7 +512,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "A Roadwarden's plumed silhouette steps into the alley mouth ahead, and your line of sight closes. Coal-smoke from Ironspool drifts low over the flagstones. The passage will not read itself today.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -550,7 +550,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "Marta's regulars at the Amber Fountain start a new conversation around you, leaving no opening to step into. The fish-salt of the harbor end drifts in through the door. The window has passed.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -631,7 +631,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "Two artisans at the Verdant Row bench close their conversation as you draw near. The indigo-and-emerald banners overhead flutter in the courtyard breeze. The neighborly silence reseals itself before the next bell.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -705,7 +705,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     xpReward: 80,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The registry hall's tallow-and-ink smell sits flat over the reading bench. A scribe pulls the volumes you wanted into the locked annex. The pale stone walls hold their indifference. The thread will need another route.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -785,7 +785,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     xpReward: 80,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -825,7 +825,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Evidence', 'Stage1'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1056,7 +1056,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Stage1'],
     xpReward: 66,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1084,7 +1084,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1104,7 +1104,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
     xpReward: 45,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1123,7 +1123,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
   tags: ['social'],
   xpReward: 5,
   failResult: function() {
-    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
     loadStageChoices(G.location);
   },
   fn: function() {
@@ -1170,7 +1170,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Inn', 'Rest', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1190,7 +1190,7 @@ var SHELKOPOLIS_STAGE1_ENRICHED_CHOICES = [
     tags: ['Suppression', 'Records', 'Bureaucracy', 'Stage1'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', "The clerk turns back to her stamp without comment. Verdant Row's afternoon trade swallows the moment; the lamp-smoke smell from the registry hall thickens behind you as the counter window dims.", 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

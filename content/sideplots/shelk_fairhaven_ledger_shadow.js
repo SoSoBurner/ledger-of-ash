@@ -5,7 +5,7 @@ var SHELK_FAIRHAVEN_LEDGER_SHADOW = (function() {
     if (!G || G.flags.sideplot_shadow_ledger_started) return null;
     return {
       cid: 'sideplot_shadow_ledger_hook',
-      text: 'At the permit desk — a clerk stamps without reading.',
+      text: 'At the Shelkopolis civic hall permit desk, beneath the indigo-and-emerald banner — a clerk stamps without reading.',
       tags: ['Investigation'], plot: 'side',
       result: function() {
         G.flags.sideplot_shadow_ledger_started = true;
