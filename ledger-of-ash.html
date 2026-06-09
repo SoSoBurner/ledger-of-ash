@@ -3640,6 +3640,21 @@ const ENEMY_TEMPLATES = {
     loot:{gold:8, item:'Magistratus Case File (intelligence)', materials:[{id:'shadow_residue',qty:1,chance:0.5},{id:'stamped_paper',qty:1,chance:0.7}]},
     fleeThreshold:0.4,
     abilities:[{name:'Arcane Read', effect:'on hit, reveals player\'s highest skill to opponent; next attack targets that skill\'s defense'}]
+  },
+
+  // ── NAMED BOSSES ──────────────────────────────────────────
+  marshal_sera_ironveil:{
+    name:'Marshal Sera Ironveil',
+    hp:52, maxHp:52,
+    attack:7, defense:8, morale:100,
+    boss:true,
+    desc:"Commander of the Roadwardens' Shelkopolis operations. Disciplined, precise, authoritative. She does not fight unless cornered — and when cornered, she fights to end it.",
+    loot:{gold:0, item:'ORE Intake Seal (authority)', materials:[{id:'stamped_paper',qty:2,chance:0.8},{id:'patrol_insignia',qty:1,chance:0.6}]},
+    fleeThreshold:0.05,
+    abilities:[
+      {name:'Command Strike', effect:'every third round, attack+3 and forces a composure check — player must pass DC 13 or lose next action'},
+      {name:'Shield Wall', effect:'when above 50% HP, defense+2; drops when HP falls below half'}
+    ]
   }
 };
 
