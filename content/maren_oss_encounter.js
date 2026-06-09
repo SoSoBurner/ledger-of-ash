@@ -34,19 +34,19 @@ var MAREN_OSS_ENCOUNTER = (function() {
           id: 'maren_evidence_study',
           text: 'The methodology is two steps ahead. You need to understand it before you leave.',
           tag: 'bold',
-          action: function() { studyNotes(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); studyNotes(); }
         },
         {
           id: 'maren_evidence_take',
           text: 'A copy in your coat. The clerk is still on break.',
           tag: 'risky',
-          action: function() { copyNotes(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); copyNotes(); }
         },
         {
           id: 'maren_evidence_leave',
           text: 'Whoever left this decided you should find it. The question is why.',
           tag: 'safe',
-          action: function() { leaveNotes(); }
+          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); leaveNotes(); }
         }
       ]);
     }, 400);

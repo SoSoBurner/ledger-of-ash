@@ -10,7 +10,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A twelve-day crossing pattern matching the northern courier schedule Vaelis identified in Fairhaven.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -44,7 +44,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Cargo transfers on the bridge after midnight. Not logged in any crossing record.",
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -77,7 +77,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A farmer's cargo claim includes a description of an unusual container found on the bridge.",
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -109,7 +109,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sealed non-agricultural containers using grain convoy exemptions to cross without inspection.",
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -269,7 +269,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The shelter hall's evening story circle named an expedition that never returned",
     tags: ['stage2', 'whitebridge_commune', 'NPC', 'Persuasion', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -299,7 +299,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The arbitration docket skipped a seat — an arbiter chair sits empty undeclared",
     tags: ['stage2', 'whitebridge_commune', 'Lore', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -330,7 +330,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A refugee carries papers stamped at a dome sealed four days ago",
     tags: ['stage2', 'whitebridge_commune', 'Survival', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'reading the anomalous refugee paperwork');
@@ -357,7 +357,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The founding charter exemptions look nothing like what they have become.",
     plot: 'main',
     tags: ['Stage2', 'Lore', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -393,7 +393,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Thora filed discrepancy reports. Someone told her to stop. That person has a name.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -427,7 +427,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The twelve-day courier never varies his route. He varies his company at the midspan.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -461,7 +461,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Cold enough no one expects a watcher at the twelve-day window.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -494,7 +494,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The apothecary examined Nyra's vials. His notes went somewhere they weren't supposed to go.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -529,7 +529,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The diplomatic exemptions left a gap in the tithe ledger. No one filled it.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -564,7 +564,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The brazier keeper doesn't sleep through the nights Aster avoids.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -598,7 +598,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A surveyor back from the ice shelf crossed during one of the flagged windows.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -632,7 +632,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The shelter-hall bath-house is where haulers talk when the Compacts is not listening.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -667,7 +667,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "One warden signed every priority crossing clearance in the gate-book.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -702,7 +702,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The shelter keeper pulled a council notice within hours — she remembers what it said.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -736,7 +736,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The newest relief crates are heavier than the manifest allows and sealed differently.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -771,7 +771,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The mending circle knows the midspan load pattern better than anyone.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -805,7 +805,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Nyra's samples and Aster's log are enough. The crossing can be closed or documented.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 104,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -859,7 +859,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The bridge keeper answers carefully. She keeps the commune connected',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

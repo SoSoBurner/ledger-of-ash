@@ -12,7 +12,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -51,7 +51,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -88,7 +88,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -124,7 +124,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -160,7 +160,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Survival', 'Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -383,7 +383,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -421,7 +421,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -459,7 +459,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -497,7 +497,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -535,7 +535,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'timing courier cycle against tide schedule at Fairhaven dock');
@@ -569,7 +569,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining equipment barn at western field road terminus');
@@ -603,7 +603,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -640,7 +640,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -678,7 +678,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -715,7 +715,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -753,7 +753,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -791,7 +791,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -829,7 +829,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -869,7 +869,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Tavian directs the request to the exchange's formal inquiry process — a form, a two-week queue, a response window he describes without looking up. He has the sealed column right beside him. The form is already on the counter before the question finishes.",
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'pressing Tavian Silkgate on sealed manifest column totals');
@@ -905,7 +905,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'bold',
     failResult: "Elandra's expression does not change, but her pen cap comes off and goes back on twice before she answers. 'Commodity classification is proprietary to the brokerage.' She does not deny a glyph-suppression grade line. She says the classification is proprietary and means every subsequent question has the same answer.",
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'confronting Elandra Velvetmere on glyph-suppression commodity pricing');
@@ -941,7 +941,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Corin listens past the first sentence and then straightens in his chair. 'Checkpoint logs are district property. Any cross-reference request goes to the post commander in writing.' He sets his hands flat on the desk. His tone is not hostile — it's the register of a man who has been told what to do with questions like this one.",
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'cross-referencing Roadwarden Sergeant Corin Bloomcrest checkpoint notes');
@@ -977,7 +977,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Aelric says he takes time away from the forge when the season turns. He says it plainly, without embellishment, and the plainness is the door closing. He has given the answer before. The forge behind him has a six-week dust line on the top shelf that contradicts the season explanation and he does not acknowledge it.",
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining Aelric Sunweave forge gap against cave modification timeline');
@@ -1011,7 +1011,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 108,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

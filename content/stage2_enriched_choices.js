@@ -5,7 +5,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Mystery', 'Negotiation', 'Risk', 'Meaningful'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -38,7 +38,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Risk', 'Decision', 'Route', 'Meaningful'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -71,7 +71,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Negotiation', 'Pressure', 'Choice', 'Meaningful'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -103,7 +103,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The abandoned camp has fresh supplies. Someone planned to return to it.",
     plot: 'main',
     tags: ['Travel', 'Survival', 'Risk', 'Decision', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -140,7 +140,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Moral', 'Combat', 'Consequence', 'Meaningful'],
     tag: 'bold',
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -172,7 +172,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The scholar's papers are forged. The research inside them is real.",
     plot: 'main',
     tags: ['Travel', 'Trust', 'Deception', 'Risk', 'Meaningful'],
-    xpReward: 71,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -209,7 +209,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Mystery', 'Danger', 'Investigation', 'Meaningful'],
     tag: 'risky',
-    xpReward: 69,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -243,7 +243,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Route', 'Risk', 'Temptation', 'Meaningful'],
     tag: 'bold',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -276,7 +276,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Past', 'Connection', 'Caution', 'Meaningful'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -309,7 +309,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Moral', 'Intelligence', 'Consequence', 'Meaningful'],
     tag: 'bold',
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -344,7 +344,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Negotiation', 'Pressure', 'Alliance', 'Meaningful'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -377,7 +377,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Choice', 'Power', 'Consequence', 'Meaningful'],
     tag: 'risky',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -410,7 +410,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Moral', 'Violence', 'Pressure', 'Meaningful'],
     tag: 'bold',
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -443,7 +443,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Discovery', 'Risk', 'Intelligence', 'Meaningful'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -476,7 +476,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Risk', 'Defection', 'Moral', 'Meaningful'],
     tag: 'bold',
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -509,7 +509,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Politics', 'Trust', 'Authority', 'Meaningful'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -542,7 +542,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Mystery', 'Danger', 'Moral', 'Meaningful'],
     tag: 'bold',
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -575,7 +575,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Espionage', 'Network', 'Pressure', 'Meaningful'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -607,7 +607,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "Empty coffers and my name on the access record. Both problems, both mine now.",
     plot: 'main',
     tags: ['Faction', 'Suspicion', 'Investigation', 'Pressure', 'Meaningful'],
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -642,7 +642,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "She told a specific lie, sustained across weeks. That takes planning.",
     plot: 'main',
     tags: ['Companion', 'Trust', 'Deception', 'Loyalty', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -679,7 +679,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Choice', 'Loyalty', 'Consequence', 'Meaningful'],
     tag: 'bold',
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -712,7 +712,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Moral', 'Sacrifice', 'Care', 'Meaningful'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -745,7 +745,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Moral', 'Conflict', 'Leadership', 'Meaningful'],
     tag: 'risky',
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -777,7 +777,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "Sick, and she knows exactly what that means for everyone in camp.",
     plot: 'main',
     tags: ['Companion', 'Sacrifice', 'Moral', 'Risk', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -814,7 +814,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Moral', 'Consequence', 'Risk', 'Meaningful'],
     tag: 'bold',
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -847,7 +847,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Sacrifice', 'Revelation', 'Loyalty', 'Meaningful'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -879,7 +879,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "She was paid to watch me. She stopped. The reason matters more than the fact.",
     plot: 'main',
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -919,7 +919,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Route', 'Information', 'Cost', 'Meaningful'],
     tag: 'safe',
     failResult: 'The scout moved on before the price was settled — route intelligence is still available through other channels in this district.',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -952,7 +952,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Intelligence', 'Espionage', 'Information', 'Power', 'Meaningful'],
     tag: 'risky',
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -985,7 +985,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Intelligence', 'Spy', 'Moral', 'Pressure', 'Meaningful'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1018,7 +1018,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Intelligence', 'Observation', 'Espionage', 'Risk'],
     tag: 'risky',
-    xpReward: 69,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1052,7 +1052,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Intelligence', 'Network', 'Alliance', 'Commitment', 'Meaningful'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1085,7 +1085,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Intelligence', 'Investigation', 'Mystery', 'Consequence', 'Meaningful'],
     tag: 'bold',
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1119,7 +1119,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Intelligence', 'Opportunity', 'Moral', 'Risk', 'Meaningful'],
     tag: 'bold',
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1152,7 +1152,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Intelligence', 'Corruption', 'Legal', 'Risk', 'Meaningful'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
@@ -1189,7 +1189,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: 'Seld has been building the same picture from the other side.',
     tags: ['stage2', 'faction_contact', 'Faction', 'Collegium', 'Social'],
     tag: 'risky',
-    xpReward: 60,
+    xpReward: 40,
     fn: function() {
       var roll = rollD20('wits', G.skills.wits);
       if (roll.total >= 13) {
@@ -1216,7 +1216,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: 'The question in that note could only come from someone tracking the same routes.',
     tags: ['stage2', 'faction_contact', 'Faction', 'Shadowhands', 'Stealth'],
     tag: 'risky',
-    xpReward: 60,
+    xpReward: 40,
     fn: function() {
       var roll = rollD20('finesse', G.skills.finesse);
       if (roll.total >= 13) {
@@ -1243,7 +1243,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: 'The Warden flagged my transit pattern — she already knows what I\'ve been tracking.',
     tags: ['stage2', 'faction_contact', 'Faction', 'Wardens', 'Social'],
     tag: 'risky',
-    xpReward: 60,
+    xpReward: 40,
     fn: function() {
       var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {
@@ -3106,7 +3106,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: 'The service entrance isn\'t on the floor plan. Neither is what\'s behind it.',
     tags: ['Stealth', 'Investigation'],
     tag: 'risky',
-    xpReward: 85,
+    xpReward: 40,
     plot: 'side',
     condition: function() {
       return G.stage === 'Stage II' &&
@@ -3143,7 +3143,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stealth', 'Investigation', 'Evidence'],
     tag: 'risky',
-    xpReward: 88,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth' &&
@@ -3177,7 +3177,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stealth', 'Investigation', 'Evidence'],
     tag: 'risky',
-    xpReward: 85,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth' &&
@@ -3211,7 +3211,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stealth', 'Surveillance', 'Evidence'],
     tag: 'risky',
-    xpReward: 92,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily(G.archetype) === 'stealth' &&
@@ -3255,7 +3255,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stealth', 'Evidence', 'Deception'],
     tag: 'risky',
-    xpReward: 90,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
@@ -3289,7 +3289,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stealth', 'Surveillance', 'Evidence'],
     tag: 'risky',
-    xpReward: 88,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
@@ -3333,7 +3333,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stealth', 'Evidence', 'Finesse'],
     tag: 'risky',
-    xpReward: 86,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
@@ -3371,7 +3371,7 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Observation', 'Evidence'],
     tag: 'safe',
     failResult: 'The pattern isn\'t there this cycle. The window exists, but the timing requires more observation.',
-    xpReward: 75,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
@@ -3403,7 +3403,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stealth', 'Intelligence', 'Network'],
     tag: 'bold',
-    xpReward: 94,
+    xpReward: 40,
     condition: function() {
       return G.stage === 'Stage II' &&
         typeof getArchetypeFamily === 'function' && getArchetypeFamily() === 'stealth' &&
@@ -3627,7 +3627,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing courier network gaps');
@@ -3658,7 +3658,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-polity name suppression pattern');
@@ -3688,7 +3688,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The Collegium has a liaison in every major locality. None file the same report.",
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'mapping Collegium liaison inconsistencies');
@@ -3717,7 +3717,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "Someone moved through this waystation without being logged. The dust says otherwise.",
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading unlogged waystation transit');
@@ -3746,7 +3746,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The supply manifest lists weights that don't match the cargo dimensions. Someone trained did this.",
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'detecting cargo manifest falsification');
@@ -3778,7 +3778,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing courier route notices');
@@ -3809,7 +3809,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'dating Collegium seal documents');
@@ -3840,7 +3840,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading archivist roster against access log');
@@ -3869,7 +3869,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     label: "A broker's ledger lists three clients. Only one appears in the Guild registry as licensed.",
     tags: ['Stage2', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -3902,7 +3902,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The transit warden stamped fourteen crates without opening one. The cargo list says dry goods.",
     tags: ['Stage2', 'Investigation'],
     tag: 'bold',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'questioning transit warden inspection procedure');
@@ -3930,7 +3930,7 @@ const STAGE2_ENRICHED_CHOICES = [
   {
     label: "The missing quarter's supply allocation reappeared, filed under a category that didn't exist then.",
     tags: ['Stage2', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -3963,7 +3963,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The person who processed these clearances left two months ago. No one replaced her.",
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing vacant clearance role');
@@ -3992,7 +3992,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: "The duty roster pins identical shifts for three weeks. No one keeps identical shifts.",
     tags: ['Stage2', 'Investigation'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading duty roster for shift pattern anomalies');
@@ -4023,7 +4023,7 @@ const STAGE2_ENRICHED_CHOICES = [
     label: 'She knows about the unmarked cargo — that phrase wasn\'t an accident.',
     tags: ['stage2', 'faction_contact', 'Faction', 'RedHood', 'Stealth'],
     tag: 'risky',
-    xpReward: 60,
+    xpReward: 40,
     fn: function() {
       var roll = rollD20('charm', G.skills.charm);
       if (roll.total >= 13) {

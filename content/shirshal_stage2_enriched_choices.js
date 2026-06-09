@@ -41,7 +41,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Tazren's case file touches every thread I've followed. He's been at this longer.",
     tags: ['Investigation', 'Stage2'],
-    xpReward: 84,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -79,7 +79,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three glyph case evidence packages marked delivered. None logged at destination.",
     tags: ['NPC', 'Stealth', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -114,7 +114,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Suppression compound precursors flowing through Shirshal under false material classifications.",
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -150,7 +150,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "She's watched magistracy patterns for years. She knows who doesn't belong on the roster.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -186,7 +186,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A cluster of glyph-locality petitions dismissed simultaneously under a single ruling. Three months ago.",
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -346,7 +346,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A northern staging courier. Sealed packet to the same unlisted sub-registry Luneth mapped.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -383,7 +383,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A woman from Panim Haven arrived with testimony. Not seen inside since the first morning.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -420,7 +420,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The sub-registry code is in the magistracy's own charter. Embedded years before it was used.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -457,7 +457,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Two of Tazren's supervisors in the building today. One signed the original case closure order.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -495,7 +495,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The transit post kept a field rotation log. The magistracy never asked them to stop.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -532,7 +532,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A retired archivist near the registry shrine. She left under circumstances the record doesn't describe.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -569,7 +569,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The north road at the hour Mirae named. The ten-day cycle leaves from here.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -606,7 +606,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The residue on the calibration stone is a compound, not sediment. Specific formulation.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -643,7 +643,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The surge reports and dismissal dates don't match the filed account.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -680,7 +680,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Verdant Row network tracks which localities received the suppressed materials.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -717,7 +717,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The override code appeared in a second magistracy branch three months before here.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -754,7 +754,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The hidden transcripts name three surge witnesses. One is still in Shirshal.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -795,7 +795,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The archivist's index uses three notation systems. The third one appears nowhere in the key.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -830,7 +830,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three filing slots in the restricted section show evidence of re-ordering within the past month.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -864,7 +864,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Northern transit depot logs show a standing gap — same three-week window, annually.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -899,7 +899,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The Fairhaven staging ledger has a Shirshal magistracy notation that Fairhaven never authorized.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -933,7 +933,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The archive's material transfer log skips four entries without an annotation. Ink date matches.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -967,7 +967,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Northern route compliance cert is signed by an officer who retired two years ago.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1002,7 +1002,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The sealed-section catalog shows forty-three files. The shelf holds forty.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 73,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1036,7 +1036,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Water-damage noted on the file box. Inside: pristine files, not a warped edge.",
     tags: ['Archive', 'Stage2'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1072,7 +1072,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Luneth signs for packages he wasn't told the contents of — keeping a private tally.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1109,7 +1109,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Khalis ran the same import category through three classification requests. All three came back identical.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1146,7 +1146,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Sivren's shrine records a dedication rite that no charter recognizes. Performed on petition dismissal day.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1183,7 +1183,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Mirae knows which guests never signed the visitors' book. She tracked them separately.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1220,7 +1220,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Tazren drew a network map before the case closed. It's still in his drawer.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 85,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1258,7 +1258,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The porter rotation excluded Luneth from the restricted wing. He noticed the week it happened.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1294,7 +1294,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Mirae's spare room is always reserved for the same party. No name. Standing block.",
     tags: ['NPC', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1333,7 +1333,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Resonance compound uses an import sub-tier that hasn't been valid since the charter revision.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'auditing resonance compound import classification against current charter');
@@ -1364,7 +1364,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Compound shipments arrive light — declared weights don't match what the depot receives.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'comparing border weight declarations to depot receipt weights');
@@ -1394,7 +1394,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The transit manifest lists a handling agent that doesn't appear in any magistracy contractor registry.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'cross-checking transit manifest handling agent against contractor registry');
@@ -1425,7 +1425,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A second compound type moving through the same route. Different classification. Same handler.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'identifying second compound type in transit route');
@@ -1455,7 +1455,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Northern transfer receiving signature is initials only — same two initials on every form.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing receiving signature initials across northern transfer forms');
@@ -1485,7 +1485,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The shipment schedule repeats on a 73-day cycle. Axial flip timing. Not coincidence.",
     tags: ['Transit', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'identifying 73-day axial cycle pattern in compound shipment schedule');
@@ -1517,7 +1517,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Guildheart's staging records carry a Shirshal notation. Neither authority signed off.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing Guildheart staging records against Shirshal magistracy authorizations');
@@ -1548,7 +1548,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A Shelkopolis ward registry entry names Shirshal as co-administering authority. No Shelkopolis record matches.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-referencing Shelkopolis ward registry against Shirshal co-administration claim');
@@ -1578,7 +1578,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Panim Haven's compliance clerk queried Shirshal six months ago. The reply wasn't from the magistracy.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing Panim Haven compliance query response origin');
@@ -1608,7 +1608,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "Three Fairhaven glyph surge reports list a Shirshal case number. Shirshal denies it exists.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'cross-checking Fairhaven glyph surge case numbers against Shirshal magistracy records');
@@ -1639,7 +1639,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A carrier remembers the last shipment he couldn't ask questions about. He remembers everything.",
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'interviewing northern route carrier about suppressed shipment');
@@ -1671,7 +1671,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A magistracy oversight auditor has arrived. Her case list includes my name.",
     tags: ['Heat', 'Authority', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'managing magistracy oversight auditor inquiry');
@@ -1706,7 +1706,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "The magistracy's heat on this wing has doubled since the charter amendment came up.",
     tags: ['Heat', 'Stage2'],
-    xpReward: 65,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'assessing heightened magistracy surveillance of archive wing');
@@ -1738,7 +1738,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     label: "A Magistratus man sits in the magistracy lobby since the courier intercept. Not reading.",
     tags: ['Heat', 'Authority', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'evading Magistratus surveillance in magistracy lobby');
@@ -1772,7 +1772,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Coordinated evidence management confirmed. magistracy director or route around it — both paths are open.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 110,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1808,7 +1808,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "Seal degradation rates don't match the recorded dates — these pages are too new",
     tags: ['Stage2', 'Investigation'],
     skill: 'spirit',
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1834,7 +1834,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The records officer stopped searching. He's waiting for me to leave.",
     tags: ['Stage2', 'Confrontation'],
     skill: 'might',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       var result = rollD20('might', {dc: 13, locality: 'shirshal', label: 'Records officer confrontation'});
       if (result.isCrit) {
@@ -1857,7 +1857,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     label: "The auditor has run this review loop three years without resolution.",
     tags: ['Stage2', 'Social'],
     skill: 'charm',
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

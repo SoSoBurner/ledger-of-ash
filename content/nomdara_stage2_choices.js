@@ -46,7 +46,7 @@ const NOMDARA_STAGE2_CHOICES = [
     label: "Wren's training: esoteric knowledge, paid in time.",
     skill: 'wits',
     tags: ['Training', 'Nomdara'],
-    xpReward: 55,
+    xpReward: 40,
     fn: function() {
       advanceTime(2); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(55, 'Nomdara esoteric training with Wren');
@@ -154,7 +154,7 @@ const NOMDARA_STAGE2_CHOICES = [
     label: "Leave the Nomdara Caravan — step back onto the road.",
     skill: 'wits',
     tags: ['Travel', 'Nomdara'],
-    xpReward: 0,
+    xpReward: 20,
     fn: function() {
       G.lastResult = `You step past the last wagon and the camp noise drops off quickly — not silence, but the muffled version of it that comes through canvas and wheel-wood. The road beyond the Nomdara perimeter is unlit and cooler by several degrees. You walk until the caravan's lantern glow is a single warm smear on the horizon behind you.`;
       if (typeof renderChoices === 'function' && G && G.location) {

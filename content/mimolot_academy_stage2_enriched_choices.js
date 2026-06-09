@@ -12,7 +12,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound formula appears in theoretical texts three years before it was commissioned.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -51,7 +51,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Incoming shipments logged that don't match standard academic supply manifests.",
     skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -87,7 +87,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Three recent acquisitions bypassed tariff entirely. No exemption filed.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -124,7 +124,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "A late-night conversation about 'pressure management protocols.' The guests aren't on the faculty roster.",
     skill: 'finesse',
     tags: ['NPC', 'Stealth', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -160,7 +160,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The shrine inscriptions include pre-suppression glyph data that was never formally classified.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -199,7 +199,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Leth Quillfire has been carrying the same sealed ledger for three days without logging it.",
     skill: 'charm',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 64,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'confronting Leth Quillfire over unlogged sealed ledger');
@@ -234,7 +234,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Restricted Stacks seal is newer than the archive housing it.",
     skill: 'wits',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 60,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'examining Restricted Stacks seal and archive infrastructure');
@@ -265,7 +265,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Calia Quillfire asked a question in the wrong register and the lecture hall went quiet.",
     skill: 'finesse',
     tags: ['stage2', 'mimolot_academy'],
-    xpReward: 58,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(58, 'navigating Calia Quillfire social complication in lecture hall');
@@ -300,7 +300,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Things moved through the night dock that don't appear in the morning intake log.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -338,7 +338,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The faculty auditor stopped filing anomaly reports six weeks ago. No explanation given.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -375,7 +375,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "A regular Fairhaven courier stop at the Academy that doesn't appear in the public schedule.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -413,7 +413,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The archive papers are cited by research that doesn't exist in the Academy's own catalog.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -451,7 +451,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The manifest notation isn't Academy standard. Someone with field training filled this in.",
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -488,7 +488,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The study room access log has entries in the same hand as the charter exemptions.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -526,7 +526,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Student stipend disbursements for glyph resonance candidates stopped without a faculty notice.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -563,7 +563,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "A pressure spike on the same night as a Fairhaven delivery not in any manifest.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -601,7 +601,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The credential file holds a Collegium endorsement the Collegium's registry can't confirm.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -639,7 +639,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The east tunnel approach serviced three times in one month. No maintenance order filed.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -676,7 +676,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The emeritus office was cleared mid-term. Furniture out, key returned, no sabbatical notice posted.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -714,7 +714,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "After certain seminars the same group leaves together. They don't return to the dormitory.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -752,7 +752,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The seal is genuine. The paper it's on was made this year.",
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -788,7 +788,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Academy's classified research was the theoretical foundation. Expose or contain.",
     skill: 'wits',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 108,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -824,7 +824,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Faculty correspondence in the archive hints at outside interference — no name attached.",
     skill: 'wits',
     tags: ['Collegium', 'Stage2', 'Evidence'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -859,7 +859,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Ruveth knows the suppression history cold — until the conversation reaches the Academy itself.",
     skill: 'charm',
     tags: ['Collegium', 'Stage2', 'Intelligence'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -942,7 +942,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph damping theoretical texts cite a practitioner network the faculty won't name.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Arcane'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1003,7 +1003,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Renne's cross-reference code points to a name in the Academy's restricted visitor log.",
     skill: 'charm',
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion', 'Faction'],
-    xpReward: 95,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1042,7 +1042,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'bold',
     failResult: "Quillan is behind the access desk with two faculty members present. He listens to the question, opens a form drawer, and produces the external inquiry protocol sheet without speaking. The faculty members do not look up. The form has seven fields. The review cycle takes fourteen days.",
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'pressing Quillan Quillmark on restricted-access paperwork he processed');
@@ -1078,7 +1078,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
     failResult: "Vessa's canon compliance work runs through the faculty review channel, not the public archive. External access to compliance records requires a faculty membership number on file. She writes the reference number for the access form on a slip of paper and slides it across the desk. Her expression is not unkind.",
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'drawing out Vessa Scriptmere on phantom citation canon compliance failure');
@@ -1114,7 +1114,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'bold',
     failResult: "Valcrest's office door is closed and the schedule posted outside shows his next available appointment is in eleven days. The archive attendant offers to add a name to the waiting list. She does not offer a reason for the delay. The waiting list has four names above the one she writes.",
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'confronting Archivist Luthen Valcrest on restricted-stack rotation bypass authorization');
@@ -1150,7 +1150,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     tag: 'risky',
     failResult: "The Book Tariff Office's authority file index is a restricted administrative document — exempt designation codes and their originating authorities are not public record. The clerk at the counter explains this with the practiced patience of someone who has said it many times. The index stays in its locked cabinet behind the desk.",
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing Crown Research Protocol authority origin in Book Tariff Office registry');
@@ -1187,7 +1187,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Sarith's 'theoretical materials' ledger column has no description and no recipient name.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'auditing Sarith Quillfire theoretical-materials ledger column');
@@ -1221,7 +1221,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The restricted wing smells of something that isn't in the academy's reagent catalog.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 65,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'identifying unregistered reagent odor in restricted Academy wing');
@@ -1254,7 +1254,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph resonance text has marginalia in two different hands — neither is faculty.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing non-faculty marginalia in restricted glyph resonance text');
@@ -1287,7 +1287,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Three crate labels list Watchers Perch as a transit waypoint, not a destination.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'auditing Watchers Perch transit-waypoint crate labels in loading records');
@@ -1319,7 +1319,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Fairhaven courier's seal matches the wax type on the restricted archive gate.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'comparing courier wax seal to restricted archive gate wax');
@@ -1352,7 +1352,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The shipment weights don't match what glyph damping theory actually requires.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-checking shipment weights against glyph damping theoretical material requirements');
@@ -1387,7 +1387,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Quenra's restricted access list has forty names. Thirty-seven of them are faculty.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'cross-referencing faculty restricted access with Tutor-Magistrate Quenra Quillfire');
@@ -1421,7 +1421,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Ilys knows which students don't come back after certain seminars.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'drawing out Ilys Quillfire on students absent after specific seminars');
@@ -1454,7 +1454,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Velis noticed a second set of footprints at the shrine door. Not students, not faculty.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'drawing out Velis Quillfire on unidentified visitors to the Memory Hall shrine');
@@ -1488,7 +1488,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Myra's cargo log has an entry she crossed out and re-entered three weeks later.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'drawing out Myra Quillfire on a corrected and re-entered cargo log entry');
@@ -1521,7 +1521,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Sarith filed a discrepancy notice four months ago. Nobody responded.",
     skill: 'charm',
     tags: ['Academy', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'drawing out Sarith Quillfire on an unanswered discrepancy notice');
@@ -1555,7 +1555,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "Myra logged a delivery signed by a porter who doesn't match any staff record.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'tracing Myra Quillfire ghost-porter signature in delivery record');
@@ -1590,7 +1590,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The formula's pressure tolerance range is ten times what academic damping work would need.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'analyzing suppression formula pressure tolerance parameters against academic use');
@@ -1623,7 +1623,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound has a stabilizer compound only available outside Academy supply channels.",
     skill: 'spirit',
     tags: ['Academy', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing suppression compound stabilizer to non-Academy supply source');
@@ -1656,7 +1656,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The earliest version of the formula lacked the deployment mechanism. It was added later.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'tracing iterative additions to suppression formula draft sequence');
@@ -1689,7 +1689,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The Watchers Perch modification schematics show a conversion, not a construction project.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'analyzing Watchers Perch modification schematics against original installation records');
@@ -1722,7 +1722,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The compound's degradation window rules out everything except population-scale deployment.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'analyzing suppression compound degradation timeline against academic vs field application');
@@ -1757,7 +1757,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "The three external clearance codes share a common registration block in the admin ledger.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing shared registration block for external Academy clearance codes');
@@ -1790,7 +1790,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "One external agent attended a faculty-only thesis session. No committee record of it.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-checking external agent attendance against faculty thesis committee records');
@@ -1823,7 +1823,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "External agents' key return dates all fall on the same day as Draith Calver's arrivals.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'correlating external agent key return dates with Draith Calver courier arrival schedule');
@@ -1855,7 +1855,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     label: "One external agent's faculty endorsement is signed by someone who died two years ago.",
     skill: 'wits',
     tags: ['Academy', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'verifying visiting faculty endorsement signature against faculty mortality records');

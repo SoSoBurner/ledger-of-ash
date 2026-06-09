@@ -10,7 +10,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Diplomatic transit arrivals not logged in the main registry. Only in a shadow sub-register.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -44,7 +44,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Parties from prior mediations have now appeared in the same network. The records cross-identify them.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -75,7 +75,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Patients with low-level exposure symptoms. All Unity Square residents near the coordination meeting points.",
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -110,7 +110,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "A second shadow ledger he didn't build. The handwriting isn't his.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -146,7 +146,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Unlogged arrival, consignment weight matching no known cargo class. The staging point is traceable.",
     skill: 'finesse',
     tags: ['Stage2', 'Registry'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -181,7 +181,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The mediation spills into the open court. One party thinks I'm here to document them.",
     skill: 'charm',
     tags: ['Stage2', 'Social'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -216,7 +216,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -250,7 +250,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -284,7 +284,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'Social'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -319,7 +319,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -353,7 +353,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Tinmarch's patient remembers which days she got worse. Those days have a pattern.",
     skill: 'vigor',
     tags: ['Stage2', 'Social'],
-    xpReward: 67,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -385,7 +385,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "Without a signature, the diplomatic exemptions expire. One administrator has been signing every renewal.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -418,7 +418,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The northern laneway gatekeeper post goes unstaffed on a schedule. Someone set that schedule.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 67,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -451,7 +451,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The hub is confirmed. Expose the shadow register or intercept the final meeting.",
     skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 102,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -487,7 +487,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Archive'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -525,7 +525,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Archive', 'Stage2', 'Lore'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -563,7 +563,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2', 'Social'],
-    xpReward: 67,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -601,7 +601,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "The notice board has a gap where something was taken down",
     skill: 'wits',
     tags: ['Records', 'Observation', 'Stage2'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -620,7 +620,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "A civic functionary answers a procedural question with the wrong procedure",
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -660,7 +660,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     label: "A street crier's route ends earlier than it used to",
     skill: 'wits',
     tags: ['Rumor', 'Observation', 'Stage2'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -682,7 +682,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -718,7 +718,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -751,7 +751,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -784,7 +784,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -817,7 +817,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -850,7 +850,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Registry', 'Stage2'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -885,7 +885,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Mediation', 'Stage2'],
-    xpReward: 73,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -918,7 +918,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Mediation', 'Stage2'],
-    xpReward: 67,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -951,7 +951,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Mediation', 'Registry', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -985,7 +985,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Mediation', 'Stage2'],
-    xpReward: 71,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1018,7 +1018,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Mediation', 'Observation', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1053,7 +1053,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1086,7 +1086,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['NPC', 'Mediation', 'Stage2'],
-    xpReward: 69,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1119,7 +1119,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1152,7 +1152,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 77,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1185,7 +1185,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Registry', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1218,7 +1218,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1253,7 +1253,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Cargo', 'Stage2'],
-    xpReward: 79,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1286,7 +1286,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Cargo', 'Observation', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1317,7 +1317,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Cargo', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

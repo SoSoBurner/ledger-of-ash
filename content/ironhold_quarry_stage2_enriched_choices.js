@@ -10,7 +10,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Six months of 'special mineral assessment' entries. No assay reports back any of them.",
     skill: 'might',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -44,7 +44,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Workers in the special extraction section show symptoms matching the Unity Square exposure cluster.",
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -77,7 +77,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The special vein is accessible during night shift handover. The raw mineral needs examining.",
     skill: 'finesse',
     tags: ['Investigation', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -112,7 +112,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The detention record sits between us. He has something he didn't say the first time.",
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Escalation'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -149,7 +149,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The extraction face is visible from the ridge during midday break.",
     skill: 'vigor',
     tags: ['Stage2', 'Physical', 'Survival'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'observing the special assessment section from the ridge during midday break');
@@ -181,7 +181,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Challenge the tally publicly and the whole crew becomes the audience.",
     skill: 'charm',
     tags: ['Stage2', 'Social', 'Complication'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -215,7 +215,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -249,7 +249,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -283,7 +283,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -317,7 +317,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The weighing station engineer handles the standard ore. The special ore never reaches her scale.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -350,7 +350,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Six months of those coins. The canteen cook knows exactly when the crew changed.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Observation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -384,7 +384,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'NPC', 'Craft'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -420,7 +420,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The schedule board shows two shifts. There are three crews clocking in.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Lore'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -454,7 +454,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The quarry infirmary keeps a log the safety office never sees.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -488,7 +488,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -524,7 +524,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -558,7 +558,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The manifest gets signed just before the dock seals. That's the window.",
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -592,7 +592,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -626,7 +626,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The intake supervisor has assigned this rotation long enough to know the pattern by heart.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC', 'Survival'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -659,7 +659,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "Every crew's requisition slips go through the same shed. The special crew's are filed separately.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -692,7 +692,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The quarry survey map on file omits the secondary cut entirely.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Lore'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -726,7 +726,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The source is confirmed. ORE command or Roadwarden — the evidence needs a route.",
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 104,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -784,7 +784,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     label: "The worker knows something. He adjusts his grip before every sentence",
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -804,7 +804,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

@@ -12,7 +12,7 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sealed charter-period correspondence sits in Aurora Heights archive. The noble registry controls access.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -40,7 +40,7 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The high-society network holds off-record knowledge about the charter parties.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -67,7 +67,7 @@ var AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The registrar's counter-mark is on a low ward eviction — wrong jurisdiction, same hand.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -98,7 +98,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Workers who touched the container modifications end their shifts at the ward taverns.",
     tags: ['Investigation', 'Stealth', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -126,7 +126,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A ward fence has been moving suppression compound that leaked from the main supply chain.",
     tags: ['Stealth', 'Craft', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -157,7 +157,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The pawn window tag has been rewritten four days running.",
     tags: ['RedHood', 'Stage2', 'Faction'],
-    xpReward: 60,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -176,7 +176,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Quote the listing code back at the counter and ask what the lamp actually costs.",
     tags: ['RedHood', 'Stage2', 'Faction', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -201,7 +201,7 @@ var IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The satchel on the confiscation shelf hasn't been signed out properly.",
     plot: 'main',
     tags: ['RedHood', 'Stage2', 'Faction', 'Payoff'],
-    xpReward: 90,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -232,7 +232,7 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Botanical healers have been quietly documenting suppression compound exposure cases.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -261,7 +261,7 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Every allied healer and recorder here is connected. Waiting for something worth routing.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -289,7 +289,7 @@ var VERDANT_ROW_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A Reckoning Quarter magistrate has been taking depositions inside the healer's collective without local notice.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -320,7 +320,7 @@ var GRANARY_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The routing number theft is in the manifests right now. Catch it before it clears.",
     tags: ['Investigation', 'Craft', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -373,7 +373,7 @@ var IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The suppression compound payments are filed as routine asset transfers in the financial records.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -428,7 +428,7 @@ var RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A memorial service provider filed a fraud complaint, then withdrew it. Pressure was applied.",
     tags: ['Investigation', 'Persuasion', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -483,7 +483,7 @@ var SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Scriptorium Steps has a back-channel that bypasses Academy mail. The evidence needs that route.",
     tags: ['Craft', 'Lore', 'Stage2'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -511,7 +511,7 @@ var SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Scriptorium correspondence to Glasswake scholars is being routed through the Iron Ledger Ward franking office.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -544,7 +544,7 @@ var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Charter and contract files in the high quarter hall. The credentials may open the gate.",
     tags: ['Investigation', 'Lore', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -572,7 +572,7 @@ var HIGH_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The high quarter social circuit keeps its own record of charter activity.",
     tags: ['Persuasion', 'Stage2'],
-    xpReward: 62,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -602,7 +602,7 @@ var COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Market stall traders track every unusual shipment. They share freely.",
     tags: ['Survival', 'Stage2'],
-    xpReward: 58,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -629,7 +629,7 @@ var COMMON_QUARTER_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Ward workers know which employers are running outside guild contracts.",
     tags: ['Persuasion', 'Craft', 'Stage2'],
-    xpReward: 56,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -659,7 +659,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The low ward tracks contraband movement. Someone here knows the suppression compound edge.",
     tags: ['Stealth', 'Stage2'],
-    xpReward: 60,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -690,7 +690,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The patrol log skips three nights. The gap lines up with the container transfers.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -724,7 +724,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "The bonded yard keeper's private ledger has a back column. Every irregular load. Unnamed.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -757,7 +757,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The weight-check station keeps a shadow manifest for loads that bypass the standard inspector.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -789,7 +789,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The evicted tenant kept her notice papers. She knows who served them.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -821,7 +821,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The stamping tool was ordered from a copy house. The order slip survives.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -854,7 +854,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Three entries in the intake ledger list the same routing code twice.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -888,7 +888,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
     label: "Junior Warden officers resent the patrol re-routing orders. No reason was ever given.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -922,7 +922,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The night archivist works alone. She has seen what gets filed and pulled before morning.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -954,7 +954,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The ghost entity is accepting commodity receipts. It has no warehouse to hold them.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -985,7 +985,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The apothecary delivery records and the treatment logs don't tell the same story.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1017,7 +1017,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The route supervisor was removed after filing a discrepancy report. He kept a copy.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1049,7 +1049,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The estate solicitor mentioned the charter holder family once. She didn't finish the sentence.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1080,7 +1080,7 @@ var LOW_WARD_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Workers who handled off-books cargo for extra pay know more than they told their handlers.",
     tags: ['Combat', 'Stealth', 'Stage2'],
-    xpReward: 58,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

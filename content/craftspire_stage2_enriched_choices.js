@@ -11,7 +11,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Specialty chemical inputs appear in the ledgers. No purchase orders exist for them.",
     skill: 'spirit',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -48,7 +48,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Workshops operating after hours on materials that match suppression compound components.",
     skill: 'finesse',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -81,7 +81,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Formula copies reproduced under academic exemption. The Mimolot citation is falsified.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -117,7 +117,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "A recurring Collegium credit offsets the no-PO inputs. The record trail is disappearing.",
     skill: 'wits',
     tags: ['Stage2', 'NPC', 'Escalation'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -153,7 +153,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Unmarked crates moving through the corridor Tess flagged. The floor inspectors can't see it.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth', 'Environmental'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -188,7 +188,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "An artisan blocks the copy window. A crowd is watching. The Warden isn't here yet.",
     skill: 'charm',
     tags: ['Stage2', 'Social', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -224,7 +224,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -258,7 +258,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -292,7 +292,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC', 'Investigation'],
     plot: 'main',
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -327,7 +327,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     skill: 'wits',
     tags: ['Stage2', 'NPC', 'Investigation'],
     plot: 'main',
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -361,7 +361,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "The manifest was amended after the shipment left. The correction is in different ink.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -394,7 +394,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "The defect report is statistically impossible. No workshop has ever cleared this clean.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -427,7 +427,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "The sealed archive predates the charter. It names institutions never supposed to exist here.",
     skill: 'wits',
     tags: ['Stage2', 'Lore', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -460,7 +460,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     label: "Craftspire is the production facility. Guild authority or supply chain — one path ends here.",
     skill: 'spirit',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 102,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -496,7 +496,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -534,7 +534,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Archive', 'Stage2', 'Observation'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -572,7 +572,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2', 'Observation'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -631,7 +631,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence', 'Stage2'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -652,7 +652,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Intelligence', 'Stage2'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -696,7 +696,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Workshop', 'Records', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -732,7 +732,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -767,7 +767,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -800,7 +800,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Stage2'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -833,7 +833,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Workshop', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -870,7 +870,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -905,7 +905,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Workshop', 'Stage2'],
-    xpReward: 67,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'observing copy-authentication desk processing speed and warden behavior');
@@ -937,7 +937,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -973,7 +973,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Evidence', 'Stage2'],
-    xpReward: 73,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1008,7 +1008,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1041,7 +1041,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['Evidence', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1079,7 +1079,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Workshop', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1115,7 +1115,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 69,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1152,7 +1152,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'finesse',
     tags: ['NPC', 'Evidence', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1188,7 +1188,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1224,7 +1224,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1260,7 +1260,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['NPC', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1299,7 +1299,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Evidence', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1335,7 +1335,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1371,7 +1371,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Records', 'Pattern', 'Stage2'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

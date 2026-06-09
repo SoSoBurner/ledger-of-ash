@@ -15,11 +15,11 @@ var SHERESH_STAGE1 = (function() {
     setTimeout(function() {
       (window._rawRenderChoices || window.renderChoices)([
         { id: 'sheresh_ask_elder', plot: 'main', text: 'An elder would remember what was before the gap.', tag: 'bold',
-          action: function() { askElder(); } },
+          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); askElder(); } },
         { id: 'sheresh_search_older', plot: 'main', text: 'Search older records — find evidence she existed before the gap.', tag: 'risky',
-          action: function() { searchOlderRecords(); } },
+          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); searchOlderRecords(); } },
         { id: 'sheresh_sit_with_it', plot: 'main', text: 'Sit with the knowledge. What does it mean that she is gone from here too?', tag: 'safe',
-          action: function() { sitWithIt(); } }
+          action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); sitWithIt(); } }
       ]);
     }, 400);
   }

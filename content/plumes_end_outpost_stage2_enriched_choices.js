@@ -10,7 +10,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Persistent glyph pressure gradient pointing northwest. It points toward the staging location.",
     skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -46,7 +46,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The Patrol Leader has seen the unmapped structure. He's been warned off it.",
     skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -80,7 +80,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Multiple travelers described the northwestern structure. They called it 'the pressure management work.'",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -116,7 +116,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Cysur held something back. A second conversation once the shrine clears may draw it out.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -152,7 +152,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "There's a gap in the rotation where the tree line runs close to the wall.",
     skill: 'finesse',
     tags: ['Stage2', 'Scouting'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'scouting the staging structure guard rotation');
@@ -183,7 +183,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The northern gate checkpoint demands a stated purpose. The wrong answer is anything vague.",
     skill: 'charm',
     tags: ['Stage2', 'Social'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -219,7 +219,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -253,7 +253,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -287,7 +287,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -322,7 +322,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Archive'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -356,7 +356,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "A survey marker in the tree line. The team stopped reporting six weeks ago.",
     skill: 'vigor',
     tags: ['Stage2', 'Scouting'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'locating abandoned survey camp marker on northern tree line');
@@ -385,7 +385,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "Letha Dawnsilk's instrument housing holds a calibration record that predates her assignment by eight months.",
     skill: 'spirit',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -418,7 +418,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The northern route runner knows the structure by its cargo. She's been inside.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -452,7 +452,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -487,7 +487,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -521,7 +521,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "A traveler from the northern hills with symptoms the outpost medic doesn't recognize.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -554,7 +554,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The night-watch keeps his own record of what moves north after gate close.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -587,7 +587,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "A waymarker post repositioned on the northern road. The original socket is ten meters back.",
     skill: 'finesse',
     tags: ['Stage2', 'Scouting'],
-    xpReward: 65,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining repositioned northern road waymarker for route alteration evidence');
@@ -617,7 +617,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -651,7 +651,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The trapper stopped working his best northern territory eight months ago. The reason matters.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -684,7 +684,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The woodcutter's delivery records name a northern structure that isn't on any register.",
     skill: 'spirit',
     tags: ['Stage2', 'Lore'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -717,7 +717,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: "The location is confirmed. Patrol Leader or Letha's map — two ways in.",
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 112,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -753,7 +753,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     label: 'Transit records sealed. Not the usual kind',
     skill: 'wits',
     tags: ['Records', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -773,7 +773,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

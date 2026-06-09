@@ -17,20 +17,20 @@ var STAGE2_CLIMAX = (function() {
         plot: 'main',
         skill: 'charm',
         text: 'They want a version of me I haven\u2019t decided to give them.',
-        action: function() { phase1_negotiate(); }
+        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); phase1_negotiate(); }
       },
       {
         id: 'climax_p1_deflect',
         plot: 'main',
         skill: 'finesse',
         text: 'Play the clerk. Let them see what they expect.',
-        action: function() { phase1_deflect(); }
+        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); phase1_deflect(); }
       },
       {
         id: 'climax_p1_refuse',
         plot: 'main',
         text: 'Answering their summons is already a concession.',
-        action: function() { phase1_refuse(); }
+        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); phase1_refuse(); }
       }
     ]);
   }
@@ -104,17 +104,17 @@ var STAGE2_CLIMAX = (function() {
         id: 'climax_p3_expose',
         skill: 'wits',
         text: 'The city doesn\u2019t know what it\u2019s holding. It should.',
-        action: function() { phase3_expose(); }
+        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); phase3_expose(); }
       },
       {
         id: 'climax_p3_align',
         text: 'Orveth wants the same thing. Her method is the question.',
-        action: function() { phase3_align(); }
+        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); phase3_align(); }
       },
       {
         id: 'climax_p3_withdraw',
         text: 'I don\u2019t know what this record is yet. That matters.',
-        action: function() { phase3_withdraw(); }
+        action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); phase3_withdraw(); }
       }
     ]);
   }

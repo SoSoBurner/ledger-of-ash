@@ -12,7 +12,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Panim memorial manifests have been using harvest shipment routing numbers. The records prove it.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -47,7 +47,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A northern shipment six weeks ago. No recognized manifest category. No record of contents.",
     skill: 'vigor',
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -81,7 +81,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A grievance filed: the anomalous shipment moved through restricted grain storage without permission.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -114,7 +114,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A northern supplier claims dealings with Harvest Circle. Elyra's never seen the contract.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -150,7 +150,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "A sealed cargo handling fee dispute. The irregularity it exposes is more than the dispute.",
     skill: 'spirit',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -324,7 +324,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -363,7 +363,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'examining silo weight records at Panim transit junction');
@@ -395,7 +395,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The Compact filed against him and his routes stopped. He's still here, still watching.",
     skill: 'charm',
     tags: ['Stage2', 'Charm'],
-    xpReward: 64,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'tracing suppressed complaint against independent grain trader');
@@ -428,7 +428,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Academic transit orders for compound materials are going to distribution sites, not research facilities.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -466,7 +466,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -503,7 +503,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -539,7 +539,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The pre-dawn courier saw the Compact's handlers up close. No one has asked him.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -574,7 +574,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The irrigation channel maintenance log runs through three seasons of sealed access windows nobody authorized.",
     skill: 'spirit',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -610,7 +610,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -646,7 +646,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "The offering routes were rescheduled to match the Compact's windows. One office holds that authority.",
     skill: 'wits',
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -681,7 +681,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Denet Alvar moved to the eastern stalls. He still watches his old routes.",
     skill: 'finesse',
     tags: ['Stage2', 'NPC'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -716,7 +716,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Two months of gap entries in the night patrol log near cold storage.",
     skill: 'vigor',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -751,7 +751,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: "Routing fraud and ghost supplier confirmed. Report to council or intercept the next shipment.",
     skill: 'vigor',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 104,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -808,7 +808,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -828,7 +828,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     label: 'A work period with no yield record attached to it',
     skill: 'wits',
     tags: ['Records', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

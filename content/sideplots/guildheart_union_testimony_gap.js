@@ -17,7 +17,7 @@ var GUILDHEART_UNION_TESTIMONY_GAP = (function() {
         if (typeof updateHUD === 'function') updateHUD();
         (window._rawRenderChoices || window.renderChoices)([
           { id: 'testimony_find_name', text: 'A struck name in the middle of a log is not administrative. Someone did that on purpose.', tag: 'safe',
-            action: function() {
+            action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
               G.flags.testimony_gap_rung1 = true;
               G.lastResult = 'The clerk remembers the name without needing to check the log — Sela Vorn, a cargo route mediator who filed a labor grievance on behalf of three dispatch crews. She appeared for two of the three scheduled testimony sessions. After the second one she did not come back and did not file a withdrawal. The inquiry closed three days later with no finding.';
               G.recentOutcomeType = 'discovery';

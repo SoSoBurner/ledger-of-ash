@@ -9,7 +9,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Shard output tracks against external glyph pressure events. The shards respond to engineered surges.",
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -42,7 +42,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A suppression order names four specific research conclusions. Together they describe the full mechanism.",
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -75,7 +75,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The research and suppression order form a complete package. It needs a protected channel.",
     tags: ['Investigation', 'Craft', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 84,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -114,7 +114,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A second data set: shard resonance across three clear-sky windows. The amplification is timed.",
     tags: ['Stage2', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -149,7 +149,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The pylons go dark at low-observation hours. The glyph gradient is readable from the trench.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'reading glyph pressure gradient at the shard formation site');
@@ -180,7 +180,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A procedural breach flagged. The Concord requires collective sign-off before field access.",
     tags: ['Stage2', 'Persuasion'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'navigating collective process breach with Lenna Bannerhold');
@@ -212,7 +212,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The containment warden's field book has two readings absent from the posted log.",
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -245,7 +245,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression authority's courier left a receipt. The return address isn't in any public registry.",
     tags: ['Stage2', 'Lore'],
     plot: 'main',
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -278,7 +278,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The disposal schedule changed. New hours run when no assessor is on shift.",
     tags: ['Stage2', 'Survival'],
     plot: 'main',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing waste shard disposal schedule change at glasswake commune');
@@ -307,7 +307,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Four years of glyph readings. The last six months don't resemble the earlier record.",
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -340,7 +340,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Formula notes in an unrecognized hand inside a returned text. Lenna hasn't decided yet.",
     tags: ['Stage2', 'NPC'],
     plot: 'main',
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -373,7 +373,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A Mimolot researcher arrived and left abruptly. Four words in the visitor log.",
     tags: ['Stage2', 'Stealth'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -406,7 +406,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The deviation notes are in a second book at the pylon base.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -440,7 +440,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The board restricted glyph research eight months ago. The record names who proposed it.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -473,7 +473,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The third-watch disposal partner keeps a private tally. It doesn't agree with the run sheets.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -505,7 +505,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The pylon circuit board is exposed. The timing config isn't from the commune's spec.",
     tags: ['Stage2', 'Craft'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -538,7 +538,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A shard fragment in the lab carries residue that doesn't match the formation's mineral signature.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining shard fragment residue in glasswake containment lab');
@@ -567,7 +567,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Six months ago a delivery bypassed the standard weighing station. No record of why.",
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -599,7 +599,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Orend Cavel keeps office hours in the north wing. His meeting calendar is posted outside.",
     tags: ['Stage2', 'Stealth'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -631,7 +631,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Trench soil residue readable at the surface. The gradient points toward the source.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading compound residue gradient in glasswake disposal trench soil');
@@ -659,7 +659,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The full mechanism is confirmed. Publish openly or submit to institutional authority.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 106,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -697,7 +697,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Two monitoring stations read the same formation. Their numbers have never matched.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -734,7 +734,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The contamination boundary shrank six months ago. The shards didn't.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -771,7 +771,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman's original suppression request listed a secondary reviewer. That name is blank now.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -808,7 +808,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The quarterly contamination report omits the northwest cluster entirely.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -847,7 +847,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman keeps his most recent fieldwork separate. He calls the folder 'personal notes'.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -884,7 +884,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Lenna pulled the submission logs herself before I arrived. She was already counting.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -921,7 +921,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman filed a formal complaint once. He won't say what happened to it.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -958,7 +958,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Lenna's been marking the suppression files with a private notation system.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -995,7 +995,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Toman and Lenna met once before I arrived. That meeting left a mark.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1034,7 +1034,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The hold mechanism is automated. No person has to sign off on individual suppressions.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1071,7 +1071,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The secondary review queue has no assigned reviewers. Submissions go in and stop.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1110,7 +1110,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The same NGOC routing code appears on a suppression order filed at Cosmouth.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1147,7 +1147,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A Shelkopolis civic register lists NGOC. That address is a postal relay node.",
     plot: 'main',
     tags: ['Research', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1205,7 +1205,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The steward answers carefully. Her job requires outside relationships',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1224,7 +1224,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: 'The allocation anomaly predates the current steward by two seasons',
     plot: 'main',
     tags: ['Records', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1265,7 +1265,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     plot: 'main',
     skill: 'spirit',
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1291,7 +1291,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Confrontation'],
     plot: 'main',
     skill: 'might',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       var result = rollD20('might', {dc: 13, locality: 'glasswake_commune', label: 'Monitoring post bluff'});
       if (result.isCrit) {
@@ -1313,7 +1313,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     plot: 'main',
     skill: 'charm',
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

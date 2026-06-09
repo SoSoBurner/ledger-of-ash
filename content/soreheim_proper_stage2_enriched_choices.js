@@ -13,7 +13,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Relic Wing requisitions under 'northern defense assessment' match suppression compound precursor profiles.",
     skill: 'wits',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 84,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -52,7 +52,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Mordoth approved the distribution contracts. The evidence exists now. He may be willing to negotiate.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -91,7 +91,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The staging location used Soreheim military transport passes. Vorgul commands the logistics chain.",
     skill: 'might',
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -128,7 +128,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Cron is privately alarmed. Not part of the conspiracy, but he suspects his council colleagues.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -165,7 +165,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The Northern Ambition bloc's expansion projects depend on glyph disruption keeping rivals destabilized.",
     skill: 'wits',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -352,7 +352,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Compound shipments moving under a Giant Council exemption code that expired two seasons ago.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -390,7 +390,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A junior Wing clerk wrote down what Decon entered. She kept the note.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -426,7 +426,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A Wing courier leaves the third tower every fourth night. No assignment covers the route.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -463,7 +463,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The forge ring runs cold one night a week. A crew shows up anyway.",
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'enduring the outer forge ring to observe off-books loading');
@@ -495,7 +495,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Residue on the staging sleds matches a compound profile never authorized for export.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -531,7 +531,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The wage records for off-books laborers show the same sealed-charter reference Roth's budget used.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -567,7 +567,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Extra routes when Decon is absent. The destinations don't match any posted address.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -603,7 +603,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The blueprint vault floor plan doesn't match the structure visible from the north bridge.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -639,7 +639,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Some passes move through the curfew line without being logged.",
     skill: 'vigor',
     tags: ['Stage2', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'enduring a full night on the north bridge curfew line to log post-curfew transit');
@@ -671,7 +671,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The forge cavity crate marks don't match any Soreheim stamp.",
     skill: 'spirit',
     tags: ['Stage2', 'Craft'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -707,7 +707,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A retired Wing officer designed the override protocols. He left without explanation.",
     skill: 'charm',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -743,7 +743,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A hidden addendum quietly legalized what the operation needed.",
     skill: 'wits',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -779,7 +779,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "A sealed dispatch rider leaves every third morning on a route that avoids the checkpoints.",
     skill: 'finesse',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -814,7 +814,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "The command structure is confirmed. Cron's Arbiter seal for prosecution or expose the expansion budget.",
     skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 112,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -948,7 +948,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "One north-gate banner hangs lower than the others.",
     skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction'],
-    xpReward: 60,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'reading the altered north-gate banner');
@@ -964,7 +964,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Stand under the low banner at the rotation change. Meet whoever is doing the inviting.",
     skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -990,7 +990,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: "Station 42 log is the piece Ruven needs — and it's still in the archive.",
     skill: 'wits',
     tags: ['Wardens', 'Stage2', 'Faction', 'Payoff'],
-    xpReward: 90,
+    xpReward: 40,
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_wardens_contacted)) {
         G.lastResult = 'Halse has not named the next step yet. The Station 42 archive is in the eastern duty hall, and the log is still in the filing cabinet — he confirmed that much at the mustering yard meeting. Moving without his timing means moving without the hearing as cover, and without the hearing the log is just a stolen document with no admissible chain. Wait for Halse to name the window.';
@@ -1039,7 +1039,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     label: 'The merchant factor calls it market variance. He\'s wrong and he knows it',
     skill: 'wits',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1106,7 +1106,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Lyria sets her pen down and turns the allocation ledger face-down without being asked. 'Ward-level reconciliation is administered on a rolling basis. Inquiries should be directed to the Giant Council intake desk.' She picks the pen up again, resettles it in her grip, and returns to the column without looking up. The intake desk will produce a queue ticket and a three-day wait. The ledger stays face-down.",
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'pressing Lyria Firesoul on northern ward allocation delay');
@@ -1140,7 +1140,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Survival'],
     tag: 'bold',
     failResult: "The crossing foreman at Ironroot is a large man with a very short memory for faces he does not recognize. He takes the manifest from your hand, reads the date, and hands it back. 'Rotation records are internal Crossing documentation. You'll need a labor assignment to pull those.' He turns back to the loading sled without waiting for a response.",
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'enduring the Ironroot Crossing yard to read phantom crew entries');
@@ -1174,7 +1174,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'NPC'],
     tag: 'risky',
     failResult: "Eryndor Bladewright crosses his arms and does not uncross them. 'Contribution rankings are a council process. Challenging a ranking without a formal disputation form goes nowhere.' He is not hostile. The forge heat coming off the adjacent station is steady and loud. He is a man who has learned that precise procedure is the only defense available to him, and he is using it without apology.",
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'approaching Eryndor Bladewright about contribution ranking drop');
@@ -1208,7 +1208,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'bold',
     failResult: "The Assembly clerk at the grievance board desk pulls the register back across the counter before you finish reading the entry. 'Withdrawn postings are not subject to further review. The filing party retracted it.' She closes the register. Withdrawn postings are retracted by the filing party — or retracted for them.",
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing the vanished Miners Assembly grievance to its source filing');

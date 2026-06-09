@@ -12,7 +12,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'reviewing maritime archive vessel and cargo records');
@@ -45,7 +45,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'pressuring Harbor Captain Marrow Tideglass on sealed cargo waivers');
@@ -75,7 +75,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "The market is just a stamp. The containers never touch the floor.",
     tags: ['NPC', 'Craft', 'Stage2'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing sealed container distribution with market clerk Tavian Tideglass');
@@ -104,7 +104,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "The agent books the room, receives a letter, leaves on the night airship. Never stays.",
     tags: ['NPC', 'Stealth', 'Stage2'],
     tag: 'risky',
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'questioning innkeeper Selka Tideglass about shipping agent patterns');
@@ -134,7 +134,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'reviewing tidal-surge correlation data with Nerissa Tideglass');
@@ -240,7 +240,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stage2', 'NPC', 'Evidence'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the witness signature on the Pallmark Reach decommission file');
@@ -274,7 +274,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Evidence'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'comparing night vs day airship manifests for added columns');
@@ -307,7 +307,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining the discontinued Cosmouth tide calendar against Nerissa\'s tidal records');
@@ -338,7 +338,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "Selka's second booking register doesn't go to Harbor Authority inspectors.",
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'pressing Selka Tideglass on the existence of a second booking register');
@@ -368,7 +368,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "The bonded transit column has been audited three times. Same auditor. Always inconclusive.",
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing repeat audit history in the Floating Market bonded transit column');
@@ -399,7 +399,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing Pallmark Reach approach chart in harbor pilot licensing board records');
@@ -432,7 +432,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Stage2', 'NPC'],
     tag: 'bold',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'working the night platform dock through a full tide window to time the gangway gap');
@@ -464,7 +464,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "The night platform roster shows the same crew every time. That's not how rosters work.",
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'cross-referencing quayside labor guild night platform crew rosters');
@@ -496,7 +496,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'reviewing customs bond records for sealed container surety with bond broker');
@@ -526,7 +526,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "The sealed containers are heavier than their waiver classification allows. The dock math says so.",
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'calculating sealed container weight against dock platform load tolerances');
@@ -558,7 +558,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'bold',
     plot: 'main',
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reviewing harbor weighmaster intake log for sealed container weight entries');
@@ -589,7 +589,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "Eight months of shift log entries. Not one is in the night watchman's hand.",
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
-    xpReward: 64,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'examining warehouse night watchman shift log for signature irregularities');
@@ -619,7 +619,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "Wax seal means they expect it unopened. Forty-one letters. All before a departure.",
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reviewing dock factor correspondence ledger for sealed-wax agent letters');
@@ -651,7 +651,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     tag: 'bold',
     plot: 'main',
-    xpReward: 108,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(108, 'Cosmoria Stage 2 resolution');
@@ -682,7 +682,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "A sealed Collegium filing sits in the public index — clerk glances at the cabinet.",
     tags: ['Collegium', 'Stage2', 'Evidence'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'Cosmoria Collegium sealed filing');
@@ -714,7 +714,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     label: "Peldan tracks Collegium authorization cadence — forty-one same-day approvals, never the same signature twice.",
     tags: ['Collegium', 'Stage2', 'Intelligence'],
     tag: 'risky',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'Cosmoria Collegium archivist cadence');
@@ -828,7 +828,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The administrator checks the same folder before answering anything',
     tags: ['Stage2', 'NPC', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -870,7 +870,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
     tag: 'risky',
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
@@ -1047,7 +1047,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tag: 'safe',
     failResult: "The Harbor Registry's public reading hours end before the folio circulation log can be found. The duty archivist names no patrons. The log stays closed, and the pattern stays unconfirmed for now.",
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'cross-checking Harbor Registry folio circulation against Halv Tidereach access log');
@@ -1083,7 +1083,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tag: 'risky',
     failResult: "The Merchant Fleet Office's secondary accounts are audited quarterly and are not open to non-credentialed review. Mira Sealedger processes the denial correctly, dates it, and files it in the tray that goes to Harbor Authority oversight.",
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reviewing Merchant Fleet Office dormant-account reactivation with Mira Sealedger');
@@ -1118,7 +1118,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tag: 'bold',
     failResult: "Sena Crestwave is not at the Sea Wall Lookout at the expected hour. A posted notice says the lookout is under scheduled maintenance for two days. The notice is new — the paint on the clip holding it is still wet.",
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'meeting Sena Crestwave at the Sea Wall Lookout for night-platform observation notes');
@@ -1153,7 +1153,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tag: 'risky',
     failResult: "Doran Wavecrest is not in the Trade Hall today. A clerk at the hall's front desk confirms his complaint was reclassified three weeks ago and does not have a scheduled hearing date. The clerk has already filled in the inquiry form before the question is finished.",
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'speaking with Doran Wavecrest about his reclassified Cosmouth Trade Hall complaint');
@@ -1189,7 +1189,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-referencing uncataloged archive shelf against public index');
@@ -1224,7 +1224,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'bold',
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'locating and accessing the unlisted airship dock manifest office');
@@ -1258,7 +1258,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'tracing Nerissa Tideglass shrine records against the suppression timeline');
@@ -1292,7 +1292,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'cross-referencing cargo weight columns against night airship manifests with Marrow');
@@ -1326,7 +1326,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'auditing harbormaster routing dispute log for the sealed container period');
@@ -1360,7 +1360,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Maritime', 'Stage2', 'Cross-Locality'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'cross-referencing Tavian bonded transit buyer records against Fairhaven trade house registry');
@@ -1393,7 +1393,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing the Harbor Authority counter-seal pattern on night manifests');
@@ -1427,7 +1427,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reviewing Selka Tideglass booking records for the sealed container nights');
@@ -1460,7 +1460,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Airship', 'Stage2'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing airship lane suppression schedule against public shipping calendar');
@@ -1495,7 +1495,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Airship', 'Stage2'],
     tag: 'bold',
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'tracing the unlisted airship corridor operator in the lane registry');
@@ -1530,7 +1530,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing the routing of Marrow\'s written objection to the sealed cargo waivers');
@@ -1564,7 +1564,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Airship', 'Stage2'],
     tag: 'bold',
-    xpReward: 84,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'locating the unlisted second floor in the airship compound transit staging area');
@@ -1598,7 +1598,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Cross-Locality', 'Stage2'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 86,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(86, 'cross-referencing Guildheart Hub transfer records against the Cosmoria sealed container agent');
@@ -1632,7 +1632,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Airship', 'Stage2'],
     tag: 'risky',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'auditing the routing code on airship lane suppression notifications');
@@ -1666,7 +1666,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'cross-checking Harbor Authority staff list against the third intake clerk');
@@ -1700,7 +1700,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the Shelkopolis address in the night airship booking record');
@@ -1734,7 +1734,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2', 'Cross-Locality'],
     tag: 'risky',
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'cross-referencing Coralyn secondary ledger against Fairhaven harbor records');
@@ -1767,7 +1767,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'cross-referencing tide gauge calibration marks against Harbor Authority published data');
@@ -1801,7 +1801,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 65,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining sealed container receipts from the Floating Market for counter-stamp irregularity');
@@ -1834,7 +1834,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
-    xpReward: 67,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'auditing crane rigging schedules for berth seven against other berths');
@@ -1868,7 +1868,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 65,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'pressing Selka Tideglass on the off-list room and its occupant');
@@ -1901,7 +1901,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Maritime', 'Stage2'],
     tag: 'bold',
     plot: 'main',
-    xpReward: 88,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'recovering the third manifest copy from Selka Tideglass');
@@ -1934,7 +1934,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'bold',
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'accessing the archive second entrance after hours to meet Coralyn privately');
@@ -1968,7 +1968,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 67,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'cross-referencing Nerissa shrine blessing register against Selka inn booking records');
@@ -2002,7 +2002,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Harbor Authority', 'Stage2'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing the unnamed office stamp on the sealed container loading receipts');
@@ -2036,7 +2036,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
-    xpReward: 65,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'auditing port surgeon injury log against sealed container loading nights');
@@ -2070,7 +2070,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Maritime', 'Stage2'],
     tag: 'risky',
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'cross-referencing crane bell count against safety protocol for sealed container lifts');
@@ -2105,7 +2105,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Maritime'],
     tag: 'risky',
     skill: 'spirit',
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'analyzing wax seal fractures on archive boxes for post-closure access');
@@ -2139,7 +2139,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Confrontation'],
     tag: 'bold',
     skill: 'might',
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'confronting archive clerk about deliberate stall behavior');
@@ -2172,7 +2172,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     tag: 'risky',
     skill: 'charm',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'drawing out harbor master memory of unscheduled night shipments');

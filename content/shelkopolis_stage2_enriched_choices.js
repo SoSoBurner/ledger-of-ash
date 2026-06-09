@@ -16,7 +16,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tag: 'safe',
     plot: 'main',
     failResult: "The intermediary's expression closes before you finish the question. She's heard this framing before, recently, and whoever asked it last left a mark that hasn't faded. The prayer cloth goes back on the altar. The chapel alcove smells of cold wax. Nothing is shared today.",
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'investigating sealed letter network');
@@ -53,7 +53,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tag: 'safe',
     plot: 'main',
     failResult: "The archive numbers won't hold. The cross-reference produces three cases that contradict the correlation, and the reading room lamp isn't bright enough to resolve whether the discrepancy is data or error. The pattern is there but it won't stand up today.",
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'correlating glyph and letter patterns');
@@ -85,7 +85,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Faction'],
     tag: 'risky',
     plot: 'main',
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'mapping noble faction benefit');
@@ -119,7 +119,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Investigation', 'Consequence', 'Stage2'],
     tag: 'risky',
-    xpReward: 85,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'handling gathered evidence');
@@ -154,7 +154,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tag: 'safe',
     plot: 'main',
     failResult: "The gate staff takes your name and returns without offering anything further. Lady Isabella is not available to persons without standing in the Iron Accord registry. The household visitor log records the attempt. The coal smoke from the harbor reaches even this terrace.",
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'approaching House Shelk matriarch');
@@ -188,7 +188,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['NPC', 'Combat', 'Authority', 'Stage2'],
     tag: 'bold',
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'briefing Roadwarden command');
@@ -224,7 +224,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Religion', 'Stage2'],
     tag: 'safe',
     failResult: "The cathedral anteroom is cold and the attendant who receives you is precise: the High Priestess is not available for unsolicited consultations on chapel operational matters. The formal declination goes into the liturgical visitor record. The cathedral door is heavier on the way out.",
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'consulting High Priestess on ritual routes');
@@ -259,7 +259,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     tags: ['Faction', 'Antagonist', 'Stage2'],
     tag: 'bold',
-    xpReward: 85,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'first Roadwardens Order contact');
@@ -294,7 +294,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'might',
     tags: ['Rival', 'Stage2', 'Combat'],
     tag: 'bold',
-    xpReward: 88,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'managing named rival encounter');
@@ -333,7 +333,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'might',
     tags: ['Personal', 'Combat', 'Stage2'],
     tag: 'risky',
-    xpReward: 88,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(88, 'Warden recruitment offer');
@@ -365,7 +365,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Personal', 'Magic', 'Lore', 'Stage2'],
     tag: 'safe',
     failResult: "The archive attendant denies access before the credentials are fully presented. She writes your name in the access attempt log while you are still standing at the counter. The log is already open. You are not the first this week.",
-    xpReward: 84,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'cathedral archive access attempt');
@@ -398,7 +398,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Personal', 'Stealth', 'Stage2'],
     tag: 'risky',
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'learning Verdant Row information protocols');
@@ -434,7 +434,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tag: 'safe',
     plot: 'main',
     failResult: "Elowen's administrative staff processes credentials before any meeting is confirmed. The review finds an inconsistency. The meeting is cancelled by note. Your name goes into the guild visitor record at the front desk.",
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'facilitating guild audit');
@@ -470,7 +470,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "Aelra kept a private log in her room ledger margin. Two months. Her own cipher.",
     skill: 'charm',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -502,7 +502,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The scorch patterns don't radiate from a center. They lean. The surge was channeled in.",
     skill: 'wits',
     tags: ['Lore', 'Environment', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -532,7 +532,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The patrol leader has sealed records access. The property dispute is leverage on both sides.",
     skill: 'vigor',
     tags: ['Survival', 'Faction', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'evaluating patrol leader arrangement');
@@ -560,7 +560,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The operation's shape is clear. The name at the top is one link away.",
     skill: 'wits',
     tags: ['Investigation', 'Advanced', 'Stage2', 'Consequence'],
-    xpReward: 95,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -669,7 +669,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -704,7 +704,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "Forren Dass signs off the south dock rotation thirty minutes early. Every time. Without fail.",
     skill: 'finesse',
     tags: ['Stage2', 'Investigation', 'Stealth'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -738,7 +738,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -772,7 +772,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "Two names from suppressed docket complaints, still in the city. Both went quiet together.",
     skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -805,7 +805,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The charter amendment's ratification window closes in five days. The Panim co-sign is the brake.",
     skill: 'charm',
     tags: ['Stage2', 'Faction', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -841,7 +841,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'spirit',
     tags: ['Stage2', 'Investigation', 'Craft'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -876,7 +876,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The shell subsidiary's founding signatory died eighteen months after filing. The proxy name still draws.",
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -910,7 +910,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The replacement night foreman was transferred in from Panim six weeks ago.",
     skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -943,7 +943,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The evidence is complete. The choice about how to use it doesn't reverse.",
     skill: 'charm',
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent'],
-    xpReward: 120,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -981,7 +981,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The ward mark on the bathhouse door is Roazian.",
     skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction'],
-    xpReward: 60,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(60, 'reading the altered Ironspool ward mark');
@@ -997,7 +997,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "Whoever wrote this expects a reader. The curl is not dry yet.",
     skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1023,7 +1023,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Shadowhands', 'Stage2', 'Faction', 'Payoff'],
-    xpReward: 90,
+    xpReward: 40,
     fn: function() {
       if (!(G.flags && G.flags.stage2_faction_shadowhands_contacted)) {
         G.lastResult = 'Kess has not named the window yet. The night-shift turnover runs during the third bell, and the ledger sits unattended for those twenty minutes — but moving without her timing means moving blind into a dock station with at least two guards on rotation. The dye-works back room carries the sharp smell of cloth treatment and old wood. The signal comes from her side first. Moving early doesn\'t shorten the wait; it removes the option entirely.';
@@ -1051,7 +1051,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The Ironspool crates are heavier than the intake slips say. The crane logs are independent.",
     skill: 'vigor',
     tags: ['Investigation', 'Stage2', 'Survival'],
-    xpReward: 88,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1087,7 +1087,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1123,7 +1123,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     skill: 'charm',
     tags: ['Stage2', 'NPC', 'Investigation'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1158,7 +1158,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "The Ironspool night foreman knows whose crates skip the Collegium intake check.",
     skill: 'vigor',
     tags: ['Stage2', 'Investigation', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1191,7 +1191,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "Three signatures from ratification. One belongs to someone who hasn't signed yet.",
     skill: 'finesse',
     tags: ['Stage2', 'Investigation', 'Faction'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1225,7 +1225,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "Orveth's sealed notes on the fourth case were filed separately. The location is inferrable.",
     skill: 'wits',
     tags: ['Stage2', 'Investigation', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1259,7 +1259,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     label: "Lady Elowen's hand is steady on the cup. The other is not.",
     skill: 'charm',
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 84,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1299,7 +1299,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tag: 'safe',
     plot: 'main',
     failResult: "The gate warden pulls the tollbook before the first page is finished and sets an access request form on the counter. Visitor review of active gate records requires a Civic Registry authorization. Your name goes into the gate inquiry log.",
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'reading south gate tollbook arrival patterns');
@@ -1330,7 +1330,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Investigation', 'Stage2', 'Stealth'],
     tag: 'bold',
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'intercepting sealed letter at unattended relay house');
@@ -1362,7 +1362,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "The cross-reference requires a registry authorization level above standard access. The senior clerk reads the request carefully and declines it under a trade inquiry confidentiality hold. The hold was filed this week. Your name goes into the flagged inquiry log.",
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing suppressed contracts at guild registry');
@@ -1394,7 +1394,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     skill: 'finesse',
     tags: ['Investigation', 'Stage2', 'Stealth', 'Faction'],
     tag: 'risky',
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'approaching the recurring figure at the far table');
@@ -1426,7 +1426,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "Aelra shows the second notation and closes the ledger in the same motion. The ledger goes under the counter. The inn smells of old wood and coal smoke. That door is closed until trust is rebuilt.",
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reading Aelra\'s second margin cipher in the room ledger');
@@ -1456,7 +1456,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Antagonist', 'Stage2'],
     tag: 'risky',
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'meeting the Roadwardens Order second representative');
@@ -1490,7 +1490,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "The amendment is held under a sealed access classification one level above standard registry credentials. Your name goes into the request log. The log is reviewed by the Director of Civic Charter Integrity — precisely the office that most needs to not know you are looking.",
-    xpReward: 77,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(77, 'analyzing the chapel oversight amendment for retroactive additions');

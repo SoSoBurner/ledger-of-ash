@@ -18,7 +18,7 @@ var SHELK_FAIRHAVEN_LEDGER_SHADOW = (function() {
         if (typeof updateHUD === 'function') updateHUD();
         (window._rawRenderChoices || window.renderChoices)([
           { id: 'shadow_note_company', text: 'The company name is on the form. It should be in the register.', tag: 'safe',
-            action: function() {
+            action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice');
               G.flags.shadow_ledger_rung1 = true;
               G.lastResult = 'You note the name and the seal. The company\'s registration number leads to an address in the Clerks\' Quarter — a building that was converted to storage twelve years ago. The number is current. The address is not.';
               G.recentOutcomeType = 'discovery';

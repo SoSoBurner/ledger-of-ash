@@ -65,7 +65,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The afterlife ledger has irregular entries. The clustering is not administrative error.",
     plot: 'main',
     tags: ['Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -104,7 +104,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elior Sepulcher holds the sealed backlog. He's been waiting for someone with outside standing.",
     plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -143,7 +143,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Processions keep missing the same streets. Three months of the same gap.",
     plot: 'main',
     tags: ['Investigation', 'Survival', 'Stage2', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -178,7 +178,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Saryna's flags have been suppressed six months. She kept her own copies.",
     plot: 'main',
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -213,7 +213,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Something arrives at the third hour. Velune won't name it to a stranger.",
     plot: 'main',
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -249,7 +249,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Ithren Sepulcher has a porter's memory. He noticed which cargo didn't weigh right.",
     plot: 'main',
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -284,7 +284,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The Collegium observer is running a parallel inquiry. They don't know I've noticed yet.",
     plot: 'main',
     tags: ['Faction', 'Antagonist', 'Stage2', 'Meaningful'],
-    xpReward: 86,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(86, 'Oversight Collegium first contact');
@@ -319,7 +319,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppressed inquest files are in the district registry. Night is the only window.",
     plot: 'main',
     tags: ['Stealth', 'Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 84,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -356,7 +356,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Merev Sepulcher hears every conversation in the Memorial Inn. The past month has been unusual.",
     plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -391,7 +391,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The backlog is managed, not accidental. Someone benefits from a saturated mediation hall.",
     plot: 'main',
     tags: ['Lore', 'Investigation', 'Stage2', 'Meaningful'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -510,7 +510,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Nemeia Sepulcher works the coffin benches — the unsealed shipments passed her.",
     plot: 'main',
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -544,7 +544,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The third-hour visitor leaves by the porter's gate, not the pilgrim arch.",
     plot: 'main',
     tags: ['Stealth', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -577,7 +577,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The northern charter subsidiary has a registration address. It belongs to something that doesn't exist.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -614,7 +614,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "That building's floor has been cut. The rite marks are cover for something structural.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -651,7 +651,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Caldor takes the same route every day. Not today. He changed it.",
     plot: 'main',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -688,7 +688,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The freight lane moves before the bell. A wrong seal is readable at that hour.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'dawn freight lane observation');
@@ -721,7 +721,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The district watch captain filed three reports that went nowhere. He stopped filing after that.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -758,7 +758,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Every unsealed memorial shipment carries the same signatory name. One name, every time.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -795,7 +795,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The wrapping cloth on returned memorial containers has a residue. It is not incense.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -832,7 +832,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "A family came to collect remains. The files showed no record of the service.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -869,7 +869,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The chandler's shop is empty during business hours. The back room is not.",
     plot: 'main',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -906,7 +906,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Four names in the notary chain. Three signed the same month they were appointed.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -944,7 +944,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The annex delivery log is posted at the loading bay. No appointment required.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'reading archive annex delivery log');
@@ -977,7 +977,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The sanctuary list traces to trade rosters. Not one name appears in congregant records.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1013,7 +1013,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The shrine water runs under two buildings. One is the unregistered storage site.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing shrine water course to unregistered building');
@@ -1048,7 +1048,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Lore'],
     tag: 'safe',
     failResult: "The district breakdown map is not posted for public use — Marrowen says this without apology and removes it from its peg before the question is fully formed. A formal records access request routes through the mediation hall intake, which routes to the oversight tier. The path forward exists. It requires more time and a different approach.",
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'analyzing afterlife registry clustering patterns');
@@ -1081,7 +1081,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Persuasion'],
     tag: 'risky',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'accessing Celis Lanthorn grief mediation records');
@@ -1117,7 +1117,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Investigation', 'Stage2'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'approaching Toriel Palevow at Mortuary Halls');
@@ -1153,7 +1153,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Investigation', 'Stage2', 'Stealth'],
     tag: 'bold',
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'accessing sealed documents via Panim Archives reading room');
@@ -1192,7 +1192,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'auditing witness column patterns in the afterlife ledger');
@@ -1224,7 +1224,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'cross-checking death dates against memorial contract filings');
@@ -1256,7 +1256,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'bold',
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'examining sealed addendum packets on ledger entries');
@@ -1290,7 +1290,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing ink formula shifts in ledger quarterly entries');
@@ -1322,7 +1322,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'safe',
-    xpReward: 65,
+    xpReward: 40,
     failResult: "The volumes are out on the reading desk when the archive warden makes her circuit. Nothing useful surfaced before she took notice.",
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1355,7 +1355,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Ledger', 'Stage2'],
     tag: 'risky',
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'tracing a departed clerk\'s initial in current ledger entries');
@@ -1389,7 +1389,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'bold',
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'pressing Elior Sepulcher on the mediation-route correlation');
@@ -1423,7 +1423,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(71, 'reading the situation with Merev Sepulcher at the inn counter');
@@ -1455,7 +1455,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'pressing Saryna Sepulcher on the market receipt archive gap');
@@ -1487,7 +1487,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Shrine'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'cross-checking Velune\'s shrine attendance log against mediation days');
@@ -1519,7 +1519,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'reading Ithren Sepulcher\'s porter cargo log');
@@ -1551,7 +1551,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Ledger', 'Stage2'],
     tag: 'bold',
-    xpReward: 85,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(85, 'cross-referencing Elior\'s handwriting against unsigned ledger addenda');
@@ -1585,7 +1585,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['NPC', 'Stage2'],
     tag: 'risky',
-    xpReward: 69,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(69, 'drawing Merev Sepulcher out on pre-dawn guest departures');
@@ -1619,7 +1619,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
-    xpReward: 75,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'documenting cargo movement through the no-traffic processional road');
@@ -1651,7 +1651,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2', 'Shrine'],
     tag: 'risky',
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'auditing shrine annex storage bay availability records');
@@ -1683,7 +1683,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'risky',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing the transit warden transfer after the final no-traffic waiver');
@@ -1715,7 +1715,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Processional', 'Stage2'],
     tag: 'bold',
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'tracing unlogged cargo arrivals against the harbor manifest');
@@ -1752,7 +1752,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'auditing emergency session code use in the mediation chamber reservation log');
@@ -1784,7 +1784,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'tracing the repeated co-signatory clerk number across sealed records');
@@ -1816,7 +1816,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Mediation', 'Stage2'],
     tag: 'risky',
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'auditing the pattern of same-day denials in the mediation oversight review log');
@@ -1847,7 +1847,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The phantom memorial evidence is complete. Official channels or informal — this choice doesn't reverse.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
-    xpReward: 110,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);

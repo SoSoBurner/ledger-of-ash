@@ -65,7 +65,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The sensors were changed. The dome still reads safe.",
     plot: 'main',
     tags: ['Investigation', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -105,7 +105,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Maintenance supply crates arrive monthly. They never go to maintenance.",
     tags: ['NPC', 'Survival', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -138,7 +138,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The filtration budget tripled. Nothing new was built.",
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -171,7 +171,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The liaison's documents arrive with one seal. They leave with another.",
     tags: ['NPC', 'Stealth', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -205,7 +205,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The shrine attendance spikes the same week as every delivery.",
     plot: 'main',
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -363,7 +363,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The supplier authorization came from a committee that has not met in six months.",
     tags: ['Stage2', 'NPC', 'Lore'],
     plot: 'main',
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -401,7 +401,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residents nearest the filtration intake have been attending the shrine the most.",
     tags: ['Stage2', 'NPC', 'Survival'],
     plot: 'main',
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -437,7 +437,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Theron Sealwater knows what the third-bell crates contain. He's decided not to.",
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -472,7 +472,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The dismissed technician still lives here. She didn't dispute the dismissal.",
     tags: ['Stage2', 'NPC', 'Stealth'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -507,7 +507,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Ten times the annual maintenance supply. None of it in the maintenance stores.",
     tags: ['Stage2', 'NPC', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -544,7 +544,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The liaison's credential ran inside the dome on days the liaison wasn't here.",
     plot: 'main',
     tags: ['Stage2', 'NPC', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -580,7 +580,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A second distribution path runs under the filtration intake. It isn't on any schematic.",
     tags: ['Stage2', 'NPC', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -616,7 +616,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The council tabled a motion four months ago. No vote is recorded.",
     plot: 'main',
     tags: ['Stage2', 'NPC', 'Craft'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -651,7 +651,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The liaison's private exit log never matches the public entry record.",
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -687,7 +687,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The east storage bay hasn't been on the maintenance rotation for three months.",
     tags: ['Stage2', 'Stealth'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -722,7 +722,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The dismissed technician filed two anomaly reports. Neither reached the maintenance record.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -757,7 +757,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The workers moved from intake didn't ask questions. Someone knows why they didn't.",
     tags: ['Stage2', 'NPC', 'Social'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -792,7 +792,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The delivery vehicles have fleet marks — Northern Provision Compact has no registered fleet.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining delivery vehicle fleet marks against Northern Provision Compact registration');
@@ -823,7 +823,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The dosing pattern matches a technique the Compact documented before the suppression period.",
     plot: 'main',
     tags: ['Stage2', 'Lore', 'Arcane'],
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -861,7 +861,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The evidence is complete. The dome is being dosed. Time to move.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 110,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -915,7 +915,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: 'The dome keeper deflects questions about the missing period',
     tags: ['NPC', 'Intelligence'],
-    xpReward: 15,
+    xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -977,7 +977,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph surge log skips three entries. The intake was active those days.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1014,7 +1014,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The filtration cycle timer was extended. The air stayed in the dome longer.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Survival'],
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(71, 'examining filtration cycle timer extension records in the dome stabilizer corridor');
@@ -1047,7 +1047,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residue concentration readings are filed monthly. The last three were identical.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Craft'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1084,7 +1084,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The intake maintenance schedule runs a different corridor than the records show.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Stealth'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1121,7 +1121,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Theron's porter log has a seven-day blank. The dome was sealed for maintenance.",
     plot: 'main',
     tags: ['Dome', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing porter log gaps with dome sealing records');
@@ -1154,7 +1154,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Sera Whiteglass has been sleeping in the marshal office. She found something she can't unfind.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1192,7 +1192,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Mariel Sealwater keeps a second ledger. She calls it her memory book.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1229,7 +1229,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Cadrin ran the numbers himself. He's been sitting on the result for two weeks.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 73,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1267,7 +1267,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Liora Sealwater started keeping her own tally. She doesn't call it a record.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1305,7 +1305,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Theron keeps a smell log. He's been writing down the wrong smell since month one.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Survival'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1342,7 +1342,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Mariel's two recent guests arrived on the same day and left with the same stamp.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
-    xpReward: 69,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1381,7 +1381,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound has a signature smell. The dome's drainage has it too.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'tracing suppression compound residue through dome drainage outflow points');
@@ -1414,7 +1414,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression residue has a second source. The ventilation grates are coated from both sides.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1451,7 +1451,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The amber residue reacts to glyph-sensitive paper. Standard filtration compound does not.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 77,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1488,7 +1488,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residue suppression compound was sourced before the dome was built.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1527,7 +1527,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The same ghost supplier appears in Harvest Circle's maintenance records.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Lore'],
-    xpReward: 82,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1564,7 +1564,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "A northern circuit transit rider knows the Collegium liaison by a different name.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Charm'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'pressing a northern circuit transit rider about the Collegium liaison identity discrepancy');
@@ -1600,7 +1600,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The intake manifold pressure log shows a spike that wasn't in the filed summary.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1637,7 +1637,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The glyph-surge threshold alarm was disabled. The disable log entry is missing a name.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Craft'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1674,7 +1674,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The filtration intake flow rate was throttled down for eight hours during each delivery.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Survival'],
-    xpReward: 71,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(71, 'examining filtration flow rate records against delivery timestamps in the eastern corridor log');
@@ -1707,7 +1707,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The dome's air quality certification has been renewed annually. The certifier is the supplier.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Lore'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1744,7 +1744,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The dome's original filtration schematics were replaced four months ago. The old ones are missing.",
     plot: 'main',
     tags: ['Dome', 'Stage2', 'Stealth'],
-    xpReward: 73,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1783,7 +1783,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Sera Whiteglass has written up a formal complaint. She hasn't filed it yet.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1821,7 +1821,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Mariel Sealwater heard the liaison's name from a second source. It wasn't the same name.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Stealth'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1858,7 +1858,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Cadrin Sealwater found the supplier's registration date. It's three weeks before the delivery contract.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1896,7 +1896,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Liora Sealwater recognizes the compound profile. She treated something like it before.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Lore'],
-    xpReward: 74,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1934,7 +1934,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Theron moved something from the east bay on a day his log shows him off-rotation.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Survival'],
-    xpReward: 71,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1971,7 +1971,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "Sera tested the office air. The result is why she moved her desk.",
     plot: 'main',
     tags: ['NPC', 'Stage2', 'Craft'],
-    xpReward: 78,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -2011,7 +2011,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The amber residue is soluble in water. The drinking supply runs through the same loop.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'testing amber residue solubility against the condensate potable water loop at the thermal junction');
@@ -2044,7 +2044,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The residue accumulation pattern shows delivery day and the day after are both elevated.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -2081,7 +2081,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The compound's glyph-interaction leaves a trace on skin. The intake workers show it.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'observing glyph-trace markers on intake corridor workers and cross-referencing with dismissed technician log');
@@ -2114,7 +2114,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression schedule is not monthly. It follows the commune's civic assembly calendar.",
     plot: 'main',
     tags: ['Stage2', 'Craft'],
-    xpReward: 77,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -2153,7 +2153,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The compound was found at an eastern circuit settlement. That settlement no longer exists.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Lore'],
-    xpReward: 83,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -2190,7 +2190,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     label: "The Collegium liaison used the same credential at three localities in the same week.",
     plot: 'main',
     tags: ['Stage2', 'CrossLocality', 'Stealth'],
-    xpReward: 81,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -2228,7 +2228,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation'],
     plot: 'main',
     skill: 'spirit',
-    xpReward: 80,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -2255,7 +2255,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Confrontation'],
     plot: 'main',
     skill: 'might',
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       var result = rollD20('might', {dc: 13, locality: 'aurora_crown_commune', label: 'Corridor confrontation'});
       if (result.isCrit) {
@@ -2278,7 +2278,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Infiltration'],
     plot: 'main',
     skill: 'finesse',
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       var result = rollD20('finesse', {dc: 14, locality: 'aurora_crown_commune', label: 'Ventilation access'});
       if (result.isCrit) {

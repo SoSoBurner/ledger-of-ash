@@ -60,7 +60,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Suppression requests citing a non-existent regulatory authority. The registry keeps receiving them.",
     plot: 'main',
     tags: ['Investigation', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -97,7 +97,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Convoy modification requisitions matching suppression compound transport container descriptions.",
     tags: ['NPC', 'Craft', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -129,7 +129,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A payment dispute over container modification work. The commissioning party's documentation is in it.",
     tags: ['NPC', 'Persuasion', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -163,7 +163,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Glyph surges disrupting wildlife migration in a pattern Elyra has tracked for four months.",
     plot: 'main',
     tags: ['NPC', 'Survival', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -199,7 +199,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "A community member filed a report. Convoy handlers receiving payments from an external party.",
     tags: ['NPC', 'Lore', 'Stage2'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -353,7 +353,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The charter exemption number she cited was written for diplomatic pouches, not bulk cargo.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -389,7 +389,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The backup archive was last accessed the week the suppression requests started.",
     plot: 'main',
     tags: ['Stage2', 'Stealth'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -424,7 +424,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The withdrawn contract dispute has a reference number and no resolution on file.",
     tags: ['Stage2', 'Persuasion'],
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing withdrawn contract dispute in Elyra Mossbane patronage portfolio');
@@ -456,7 +456,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The sealed bay was listed as testing infrastructure. The question is what it is testing.",
     tags: ['Stage2', 'Survival'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining sealed component bay in machinery section');
@@ -489,7 +489,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Researcher Orvaith left tools in his funded workspace. The tools are still there.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -525,7 +525,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Twelve days in the convoy log with no notation where daily entries should be.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -560,7 +560,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The communal grain count and the storehouse physical stock are two different numbers.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -596,7 +596,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The handler who took the external payment has avoided the common house for a month.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -630,7 +630,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The night watch rotation during the container work ran four handlers instead of two.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -665,7 +665,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra's logbook has pages she did not include in her submitted filings.",
     plot: 'main',
     tags: ['Stage2', 'NPC'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -702,7 +702,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The suppression requests were drafted somewhere — Taldan's junior assistant remembers the handwriting.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 64,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -736,7 +736,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The charter subsidiary's local agent signed three documents in Sunspire before the modification work began.",
     tags: ['Stage2', 'NPC'],
-    xpReward: 70,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -773,7 +773,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression requests targeted the same countermeasure the Compact developed.",
     plot: 'main',
     tags: ['Stage2', 'Lore', 'Arcane'],
-    xpReward: 76,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -815,7 +815,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Taldan's registry has two restricted tiers. The second has no public entries at all.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'auditing magical knowledge registry tiers with Overseer Taldan Veyst');
@@ -847,7 +847,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Registry intake stamps run unbroken — except a three-week window six months ago.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'auditing Knowledge Registry intake stamp sequence for gaps');
@@ -880,7 +880,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Four restricted access entries share the same charter reference as the suppression requests.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 78,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'cross-checking restricted access log against suppression request charter references');
@@ -911,7 +911,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The registry's physical glyph-ward seals were upgraded after the suppression requests arrived.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining glyph-ward seal upgrade timeline at Knowledge Registry');
@@ -942,7 +942,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Two researchers applied for restricted section access the same week. Both withdrew applications without explanation.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing withdrawn restricted access applications at Knowledge Registry');
@@ -972,7 +972,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "An index cross-reference points to a locality that doesn't match any Sunspire district.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'tracing anomalous cross-reference notation in Knowledge Registry index');
@@ -1003,7 +1003,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The registry's copy of the Northern Charter Accord is missing its third annex entirely.",
     plot: 'main',
     tags: ['Registry', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'auditing Northern Charter Accord holdings in Knowledge Registry');
@@ -1035,7 +1035,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra's forest patrol routes avoid the northern staging road entirely.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1069,7 +1069,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Kael's machinery logs have a gap during the last three convoy cycles.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 68,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1103,7 +1103,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Orvak keeps the adjudication docket locked after the second bell. Someone came after second bell.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 66,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1137,7 +1137,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Jorva keeps the communal ledger locked after the second bell. The lock is new.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 65,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1171,7 +1171,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Taldan asked the Patron-Family council for oversight authority two months ago. It was denied.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 72,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1206,7 +1206,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Elyra knows the researcher Orvaith. She has not said so until now.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 67,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1241,7 +1241,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Kael recognized the container specs — he built similar insulation for Guildheart.",
     plot: 'main',
     tags: ['NPC', 'Stage2'],
-    xpReward: 75,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -1278,7 +1278,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The northern staging road has two waypoints that don't appear on the Roadwarden's public map.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 74,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-checking northern staging road against Roadwarden public waypoint map');
@@ -1309,7 +1309,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The convoy weight declarations at the north gate averaged four hundred pounds under actual load.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 76,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing north gate weight declarations against axle-load records');
@@ -1339,7 +1339,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "A convoy manifest had its origin locality listed as a locality that does not exist.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 70,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing false origin locality on convoy manifest');
@@ -1369,7 +1369,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The staging yard's loading crane was rented from an outside party for the modification period.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 67,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'tracing staging yard equipment rental for container loading period');
@@ -1399,7 +1399,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Three convoy drivers took the same northern deviation last run. None filed a report.",
     plot: 'main',
     tags: ['Convoy', 'Stage2'],
-    xpReward: 69,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(69, 'locating convoy drivers who took undocumented northern deviation');
@@ -1431,7 +1431,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The suppression compound requires glyph pressure at a specific saturation threshold to activate.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 80,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'cross-referencing suppression compound activation conditions from Orvaith workspace data');
@@ -1461,7 +1461,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Not a weapon — a suppression agent for active glyph wards. That is more frightening.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'synthesizing compound purpose from registry and workspace evidence');
@@ -1495,7 +1495,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Altitude matters. The calibration required elevation — the compound behaves differently above the plateau line.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 73,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'documenting altitude-dependency of suppression compound calibration');
@@ -1525,7 +1525,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "Orvaith's dispersal dataset is the only thing that can quantify the compound's effective radius.",
     plot: 'main',
     tags: ['Arcane', 'Stage2'],
-    xpReward: 77,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(77, 'establishing Orvaith dataset as critical missing evidence for compound radius');
@@ -1557,7 +1557,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "The charter subsidiary that commissioned the containers holds a registered address in Guildheart.",
     plot: 'main',
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 82,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(82, 'tracing charter subsidiary registration address to Guildheart');
@@ -1588,7 +1588,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     label: "This suppression pattern appeared two weeks north of here before it reached Sunspire.",
     plot: 'main',
     tags: ['CrossLocality', 'Stage2'],
-    xpReward: 79,
+    xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(79, 'cross-referencing Sunspire suppression pattern against prior locality records');
@@ -1682,7 +1682,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
   {
     label: "Sunspire is an operation infrastructure node. Shut it down formally or neutralize it quietly.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
-    xpReward: 104,
+    xpReward: 40,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
