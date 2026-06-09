@@ -104,7 +104,7 @@ function _pell_phase1() {
           G.dayCount = (G.dayCount || 0) + 4;
           if (typeof updateHUD === 'function') updateHUD();
         } else {
-          addNarration('', 'The delay costs more than the meeting would have. By the second day without response a Division Liaison appears at your lodgings — not Pell, someone younger, holding a second form. "Senior Auditor Pell asks that I note your non-appearance in the intake log," she says. She is apologetic about it. The log notation is not. The inquiry window shortens; the paper trail thickens.');
+          addNarration('', 'Four days pass before the next opening. The auditor\'s calendar has shifted; the gap you needed is closed. By the second day without response a Division Liaison appears at your lodgings — not Pell, someone younger, holding a second form. "Senior Auditor Pell asks that I note your non-appearance in the intake log," she says. She is apologetic about it. The log notation is not. The inquiry window shortens; the paper trail thickens.');
           G.worldClocks = G.worldClocks || {};
           G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 2;
           G.flags.stage2_miniboss_p1_failed_delay = true;
