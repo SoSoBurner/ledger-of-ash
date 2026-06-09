@@ -2322,5 +2322,13 @@ window.DISTRICTS_STAGE2_CHOICES = {
   // Cosmoria (harbor city — Fairhaven analogue per task)
   cosmoria_high_quarter: COSMORIA_HIGH_QUARTER_S2,
   cosmoria_common_quarter: COSMORIA_COMMON_QUARTER_S2,
-  cosmoria_low_ward: COSMORIA_LOW_WARD_S2
+  cosmoria_low_ward: COSMORIA_LOW_WARD_S2,
+  // Canon districts — keyed by exact locality_id passed to enterDistrict()
+  shelkopolis_aurora_heights: AURORA_HEIGHTS_STAGE2_ENRICHED_CHOICES,
+  shelkopolis_ironspool_ward: IRONSPOOL_WARD_STAGE2_ENRICHED_CHOICES,
+  shelkopolis_verdant_row: VERDANT_ROW_STAGE2_ENRICHED_CHOICES,
+  harvest_keep_granary_steps: GRANARY_STEPS_STAGE2_ENRICHED_CHOICES,
+  ithtananalor_iron_ledger_ward: IRON_LEDGER_WARD_STAGE2_ENRICHED_CHOICES,
+  panim_haven_reckoning_quarter: RECKONING_QUARTER_STAGE2_ENRICHED_CHOICES,
+  mimolot_academy_scriptorium_steps: SCRIPTORIUM_STEPS_STAGE2_ENRICHED_CHOICES
 };
