@@ -62,7 +62,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -99,7 +99,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -131,7 +131,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -165,7 +165,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Survival', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -201,7 +201,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -355,7 +355,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -391,7 +391,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -491,7 +491,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -527,7 +527,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -562,7 +562,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -598,7 +598,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -632,7 +632,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -667,7 +667,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -704,7 +704,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -738,7 +738,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -775,7 +775,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore', 'Arcane'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1037,7 +1037,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1071,7 +1071,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1105,7 +1105,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1139,7 +1139,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1173,7 +1173,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1208,7 +1208,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1243,7 +1243,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1684,7 +1684,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The contract-table noise of the market heart absorbs the moment. A patron-family retainer stops a half step behind you and waits without speaking. You leave the workshop row before the wait becomes a question.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

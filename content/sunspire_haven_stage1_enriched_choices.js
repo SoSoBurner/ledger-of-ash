@@ -662,7 +662,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -734,7 +734,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -775,7 +775,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     xpReward: 80,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -816,7 +816,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 74,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -846,7 +846,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -871,7 +871,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Archetype', 'Stage1'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -899,7 +899,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -929,7 +929,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 53,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -948,7 +948,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 62,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -975,7 +975,7 @@ var SUNSPIRE_HAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cart wheels and counting-shed talk move past in the market heart. A syndicate clerk taps the quota stamp against her station once and looks elsewhere. You step out of the yard line before the seal goes down on anything that names you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
