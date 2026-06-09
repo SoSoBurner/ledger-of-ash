@@ -225,7 +225,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -335,7 +335,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -576,7 +576,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A factor with the wrong colored guild ribbon catches the wall clerk\'s attention before you do and the queue board ticks two slots past your number without anyone moving. You step back into the vendor row aisle. The numbered tickets in your hand are now worth less than the carrier slip in his.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -635,7 +635,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -700,7 +700,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The observer\'s desk in the sanctioned dispute corner is unattended — note pinned to the partition, "attending bargaining floor four." You walk the loading lane to floor four. The dispute has already adjourned and the observer is gone. The covered lane carries only the squeak of empty wagon springs.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -725,7 +725,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step away from the bargaining floor before the question lands. The color-coded guild awnings shift overhead in a draft that comes off the covered loading lanes; the tally tower clerks tap their boards in the rhythm of the next hour. The exchange court swallows the moment in noise.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -742,7 +742,7 @@ var UNITY_SQUARE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The founding charter is stored in a stacked counting house above the inspection sheds — third floor, two locked doors, a clerk\'s assistant who recognizes the form your inquiry took and answers nothing. The stairs back down smell of varnish and old ink. The provision stays unread by you.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

@@ -12,7 +12,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -46,7 +46,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -77,7 +77,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Tinmarch\'s street-side dispensary closes early — a clerk you don\'t recognize is at the half-door with the ledger sleeve and a polite, fixed refusal. The tenement row behind the inspection shed is quiet at this hour. The patient list stays with the doctor. You step back into the carrier lane.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -112,7 +112,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -148,7 +148,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Registry'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -183,7 +183,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -218,7 +218,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -252,7 +252,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The lamplit windows of the third-floor counting room go dark at the strike of the second bell — somebody upstairs knew the timing of your arrival to the minute. The stacked counting house holds its facade in the pre-dawn cold. You pull your coat collar and walk past as if you had business elsewhere.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -286,7 +286,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -321,7 +321,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -355,7 +355,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -387,7 +387,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -420,7 +420,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The gatekeeper\'s booth is staffed today — by a face you do not know, in a coat that doesn\'t match the standard ward-guard cut. He looks at you the way a tally clerk looks at a discrepancy. You turn the lane corner and let the covered loading shed take you out of his line of sight.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -453,7 +453,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -489,7 +489,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Archive'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -527,7 +527,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -565,7 +565,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -603,7 +603,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Observation', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A vendor row clerk approaches the board with a fresh stack of bulletins before you can examine the gap closely — the new postings cover the unmarked nail-holes in three quick stamps. The vendor row goes back to its hum. You walk on. Whatever was there yesterday is not there today, and now never was.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -622,7 +622,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -642,7 +642,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Social', 'Observation', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -662,7 +662,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Rumor', 'Observation', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -684,7 +684,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -720,7 +720,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -753,7 +753,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -786,7 +786,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -819,7 +819,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -852,7 +852,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -887,7 +887,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Mediation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -920,7 +920,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Mediation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -953,7 +953,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Mediation', 'Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -987,7 +987,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Mediation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1020,7 +1020,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Mediation', 'Observation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The north-gate boundary stone sits in plain sight under the lantern-arch, the older shadow of its previous bedding still visible in the paving when the light is right. Two ward officers are at the gate post the entire afternoon. You walk the perimeter once and head back into the square without pausing.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1055,7 +1055,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1088,7 +1088,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Mediation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1121,7 +1121,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1154,7 +1154,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1187,7 +1187,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Registry', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1220,7 +1220,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1255,7 +1255,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Cargo', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1288,7 +1288,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Cargo', 'Observation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The eastern alley has been swept and re-cobbled this morning — too clean to hold the print of any handoff. A carrier in unmarked greys clocks you at the alley mouth and turns to a side door before you can read his guild ribbon. You walk past the inspection shed in the other direction.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1319,7 +1319,7 @@ var UNITY_SQUARE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Cargo', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'You step out of the bargaining floor into the carrier lane before the question lands. The paved exchange court reflects the early afternoon glare off the counting-house white. A tally tower bell marks the half-hour; a carrier with a sealed crate angles past, and the moment dissolves into the rhythm of the square.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
