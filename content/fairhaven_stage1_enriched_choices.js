@@ -1027,7 +1027,7 @@ var FAIRHAVEN_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The fishing fleet has moved on with the tide before you reach the harbor coordination board — the fields and farm carts cut across your route from the upper market and slow you to a midday crawl. The catch-volume entries are pinned for the day; the boats won\'t return until the evening run.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

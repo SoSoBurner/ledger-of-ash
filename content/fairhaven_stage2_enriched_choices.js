@@ -14,7 +14,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Thalen is mid-distillation when you cross the workshop yard — the copper still hisses and he cannot leave the burner unattended for the next two bells. The ledger sits closed under a stack of charter receipts on the high shelf. He nods toward tomorrow without looking up from the gauge.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -53,7 +53,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The chapel doors are wedged with the evening prayer block — Felujitas observance, the side path roped off so the sanctuary stays undisturbed for the next hour. Serin is inside leading the responses. The sighting log stays on the chancel desk behind him.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -90,7 +90,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Maris is in the middle of the morning manifest reconciliation when you reach the counter — three porters are queued behind you with bonded crates and the supervisor is already counting time. She gives you the small headshake of someone who cannot speak now without being overheard. The earmarked ledger stays under the counter.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -126,7 +126,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Vaelis has a full house this evening — a Soreheim cartage party occupies the long table and she is moving plates and managing the kitchen pass alone. Every approach to the guest desk gets intercepted by a request for ale or a meal count. The register stays under her hand and the conversation never opens.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -162,7 +162,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Survival', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The Watchers Perch path is wet from a low overnight rain — the upper shale section is too slick to climb without rope and the back-route is blocked by a Sunweave shepherd moving a small flock down the ridge. The cave mouth stays out of reach for the rest of the morning.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -385,7 +385,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The checkpoint office is closed for the noon shift change — the duty warden walked the half-mile to the inn for the meal break and the log book is locked in the desk behind him. The replacement warden arrives an hour late, citing weather on the upper road. The window for unsupervised review has passed.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -423,7 +423,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Aldra Wennis is mid-inspection on the lower wharf when you reach the registry — a Shelkopolis trader has arrived with a manifest dispute and the harbormistress is required to mediate before she returns to her desk. The clearance ledger is closed in the registry office and the deputy waves you toward the morning roster.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -461,7 +461,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A Sunweave shepherd is pasturing the late flock on the north scrub when you reach the cutoff — the dog watches you the moment you leave the main road, and the shepherd straightens to track your direction. Following the secondary path under his sightline is the kind of mistake that ends up retold at the inn.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -499,7 +499,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Thalen will not surface the supplier route during the day — the workshop fronts the market street and the wrong customer at the wrong moment would carry the question back. He suggests the evening, after the burner cools and the shutters are down. Until then the supply records stay in the cedar cabinet under his bench.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -605,7 +605,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Orra Seld is treating a goat-kick fracture at the Sunweave east farmhouse and will not be back in the dispensary before dusk — the runner who came for her left the front door propped open with a slate, the herb counter unattended, and the symptom calendar on the back wall out of reach until she returns.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -642,7 +642,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A Cyfoes blessing-rite is in progress at the shrine basin — four field-hands kneel at the offering ring while Brael recites the seasonal prayer. He cannot break observance to speak. The side door, where his pocket log sits on its hook, is roped off until the rite completes.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -680,7 +680,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Pell Orvast is two days into a wheel-iron commission for a Sunweave cart and the forge is hot — he gives you the small shake of someone who cannot leave the bellows. The tin box under the wheel-iron rack stays untouched until the rim is set. He nods you toward the evening shutter-down.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -717,7 +717,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Deputy Sava is on the lower wharf when you reach the registry — she is supervising a quarterly hull-inspection sweep across three docked traders and cannot be drawn aside. The amendment log stays in the registry desk drawer. Her thumb runs the edge of her clipboard in a tight rhythm that says she has noticed the approach.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -755,7 +755,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Veth Olan is dispatched to the upper road on a foot-search for missing cartage from the Shelkopolis quarterly run — he is gone before the post opens and not expected back for two full watches. The desk drawer that holds his notation ledger has a Roadwarden seal across the latch. The post clerk does not have the key.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -793,7 +793,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The market exchange counter is shut for the morning audit cycle — the voluntary trader register is locked under the shutter and the desk clerk has been called to the back office for the quarterly reconciliation. The shutter does not lift until the third hour. Ashwick has already passed through and gone.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -831,7 +831,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The guild certification office is closed for the inspector route-review session — the clerk has the calendar binder open across the back desk and a Shelkopolis liaison is reading entries aloud over her shoulder. The counter shutter stays down until the session ends, the murmured cross-checks audible from the street.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1013,7 +1013,7 @@ var FAIRHAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The Roadwarden post is sealed for the morning shift change — the duty commander has not arrived from his quarters above the inn and the night warden refuses to receive a formal report without command oversight. The folder of cross-references stays in your hand. The post clock above the door ticks slowly into the next quarter-bell.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
