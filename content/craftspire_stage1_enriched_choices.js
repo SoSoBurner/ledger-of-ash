@@ -201,10 +201,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 8. MORAL PRESSURE: JORIN'S CHOICE
   {
     label: "Jorin's been quiet for four months. He needs to know if that still holds.",
-    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
+    tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Jorin\'s bench in the calibration bay sits beside the materials yards entry — workshop foreman two benches down, a junior journeyman at the gauge rail behind. Jorin sets the notebook face-down without turning a page and shakes his head once. The bench rail catches a half-meter of flux dust before the next shift bell. The conversation does not happen.', 'failure');
       loadStageChoices(G.location);
     },
     effects: [
@@ -302,10 +302,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   {
     label: "Jorin's six-month analysis needs a secure copy outside the guild.",
     skill: 'finesse',
-    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 67,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The guild\'s outgoing review desk sits at the main exit — clerk at the stamps tray, manifest checklist clipped to the desk corner. A senior factor stands beside the clerk discussing the day\'s outgoing parcels. The analysis sheets in the supply folder cannot pass the desk while the factor is present. You step back into the materials yards.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -466,10 +466,10 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
   // 19. PERSONAL ARC: TRAVEL DECISION
   {
     label: "Every day here is a day the supply chain keeps running. This doesn't wait.",
-    tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
+    tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The Material Ledger Office at end-of-shift has the day\'s receipts piled at the duty registrar\'s elbow and a senior journeyman waiting at the counter for a stamp. The travel route binder hangs on the back wall. You cannot reach the binder without crossing the registrar\'s sightline. The decision sheet stays unsigned today.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -523,7 +523,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'A registry clerk steps out of a north-end workshop with a renewal stamp kit in hand and crosses the lane toward the next doorframe. The lane is too narrow to stand and study the marks without standing in her path. You step into the chalk gate alcove and let her pass.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -565,7 +565,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The Material Ledger Office\'s manifest counter is closed for the noon recalibration — the duty registrar at the next desk over points at the locked drawer and shrugs. The old register sits behind the panel-frame door, and the recalibration bell hasn\'t rung yet. You leave your name on the inquiry slip.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -647,7 +647,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The queue court is full when the second bell hits — a delivery cart wedged against the chalk gate boards, two carriers arguing over a damaged seal at the centre of the court. The cumulative quiet of the district is buried under the immediate noise of the dispute. You can\'t hear the pause from inside it.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -686,7 +686,7 @@ var CRAFTSPIRE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Bold', 'Stage1'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The northern annex corridor terminates at a bonded-store bay with two wardens on patrol — they pass the door on a tight rotation that overlaps at the new hasp every four minutes. The corridor lamp throws your shadow long across the boards each time you shift. You back to the inner courtyard before the next pass.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
