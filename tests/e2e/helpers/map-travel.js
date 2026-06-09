@@ -114,7 +114,7 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
     await page.waitForTimeout(400);
 
     // Handle pack selection — pick first available pack
-    const packBtn = page.locator('.overlay-pack-btn:visible').first();
+    const packBtn = page.locator('.overlay-pack-btn:visible:not([disabled])').first();
     const packBtnCount = await packBtn.count().catch(() => 0);
     if (packBtnCount > 0) {
       await packBtn.click();
