@@ -42,10 +42,10 @@ const STAGE2_SHADOWHANDS_ARC = [
       G.flags = G.flags || {};
       var result = rollD20('charm', (G.skills.charm||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('persuasion'):0));
       if (result.total >= 11) {
-        G.lastResult = "She gives her name as Ilve. She has no tell that she's nervous — only that she is always watching the door, and the watching is automatic, not situational. She lays out the arrangement without preamble: the Shadowhands have three years of supply chain documentation that connects Ironhold extraction rates to Shelkopolis dome additive records. They've been waiting for someone who could move between localities without drawing Collegium attention. She slides a ledger page across the table. The numbers match what you already know — and extend three months further back than anything you've found.";
+        G.lastResult = "She gives her name as Ilve. She has no tell that she's nervous — only that she is always watching the door, and the watching is automatic, not situational. She lays out the arrangement without preamble: the Shadowhands have three years of supply chain documentation that connects Ironhold extraction rates to Shelkopolis tariff registry entries. They've been waiting for someone who could move between localities without drawing Collegium attention. She slides a ledger page across the table. The numbers match what you already know — and extend three months further back than anything you've found.";
         G.flags.shadowhands_met = true;
         G.flags.shadowhands_ilve_contact = true;
-        addJournal('Ilve (Shadowhands): supply chain documentation connects Ironhold extraction to Shelkopolis dome additives — extends evidence 3 months', 'evidence');
+        addJournal('Ilve (Shadowhands): supply chain documentation connects Ironhold extraction to Shelkopolis tariff registry entries — extends evidence 3 months', 'evidence');
         G.recentOutcomeType = 'success';
         G.investigationProgress = (G.investigationProgress||0) + 1;
       } else {
@@ -98,11 +98,11 @@ const STAGE2_SHADOWHANDS_ARC = [
       G.flags = G.flags || {};
       var result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('lore'):0));
       if (result.total >= 12) {
-        G.lastResult = "Ilve gives you a name: Overseer Torveld Mast, stationed at the Soreheim Transit Post for the past eight months. Not an architect of the operation — a mechanism. The authorization signatures on the suppressed quota reports all carry his registry stamp. He stamps what he is told to stamp. But the stamp is the link between the extraction numbers and the dome additive substitution chain. Ilve says: he will not come voluntarily. She does not say what she means by that. She doesn't need to.";
+        G.lastResult = "Ilve gives you a name: Overseer Torveld Mast, stationed at the Soreheim Transit Post for the past eight months. Not an architect of the operation — a mechanism. The authorization signatures on the suppressed quota reports all carry his registry stamp. He stamps what he is told to stamp. But the stamp is the link between the extraction numbers and the tariff substitution chain that ends in Shelkopolis. Ilve says: he will not come voluntarily. She does not say what she means by that. She doesn't need to.";
         G.flags.shadowhands_finale_done = true;
         G.flags.shadowhands_torveld_revealed = true;
         G.flags.stage2_faction_contact_made = true;
-        addJournal('Torveld Mast (Overseer, Soreheim Transit Post) — authorization stamps link extraction quotas to dome substitution chain', 'evidence');
+        addJournal('Torveld Mast (Overseer, Soreheim Transit Post) — authorization stamps link extraction quotas to Shelkopolis tariff substitution chain', 'evidence');
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.recentOutcomeType = 'success';
       } else {
