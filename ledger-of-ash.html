@@ -1454,7 +1454,7 @@ input, button, select, textarea { font-family: inherit; }
 .encounter--boss { border-left: 3px solid var(--accent-gold, #d89a2c) !important; border-color: var(--accent-gold, #d89a2c) !important; background: rgba(216,154,44,0.06); box-shadow: inset 0 0 24px rgba(190,40,40,0.08), 0 4px 20px rgba(190,40,40,.35) !important; }
 .encounter--boss .combat-location { color: var(--accent-gold, #d89a2c); font-size: 10px; letter-spacing: 4px; }
 .encounter--nautical { border-left: 3px solid #2a5a8a; }
-.encounter--nautical .encounter-header::before { content: '\2693 Aboard Ship \2014 '; color: #4a8abf; }
+.encounter--nautical .combat-location::before { content: '\2693 Aboard Ship \2014 '; color: #4a8abf; font-size: 0.9em; text-transform: none; letter-spacing: 0; }
 .combat-location { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--blood-bright); text-transform: uppercase; margin-bottom: 10px; }
 .combat-intent { font-family: 'Crimson Pro', serif; font-size: 16.5px; color: var(--ink); line-height: 1.65; font-style: italic; margin-bottom: 8px; }
 .combat-companions { font-size: 12.1px; color: var(--jade-bright); margin-bottom: 6px; font-family: var(--font-display); letter-spacing: 1px; }
@@ -15466,31 +15466,36 @@ function doJourneyStart(destId) {
     setTimeout(function() { renderChoices(paceChoices); }, 300);
   }
 
-  var modeChoices = [
-    {
+  var modeChoices = [];
+  if ((route.foot || 0) > 0) {
+    modeChoices.push({
       text: 'Foot \u2014 free',
       skill: 'survival', tag: 'risky', align: 'neutral', cid: 'mode_foot_' + destId,
       fn: function() { G.travelMode = 'foot'; _promptPace('foot'); }
-    },
-    {
+    });
+  }
+  if ((route.horse || 0) > 0) {
+    modeChoices.push({
       text: 'Horse \u2014 8g',
       skill: 'survival', tag: 'safe', align: 'neutral', cid: 'mode_horse_' + destId,
       fn: function() {
         if ((G.gold || 0) < 8) { addNarration('Depart', 'Not enough gold for a horse.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
         G.gold -= 8; G.travelMode = 'horse'; _promptPace('horse');
       }
-    },
-    {
+    });
+  }
+  if ((route.cart || 0) > 0) {
+    modeChoices.push({
       text: 'Cart \u2014 12g',
       skill: 'lore', tag: 'safe', align: 'order', cid: 'mode_cart_' + destId,
       fn: function() {
         if ((G.gold || 0) < 12) { addNarration('Depart', 'Not enough gold for a cart.', 'failure'); setTimeout(function() { renderChoices(modeChoices); }, 300); return; }
         G.gold -= 12; G.travelMode = 'cart'; _promptPace('cart');
       }
-    }
-  ];
-  if (route.boat) {
-    modeChoices.splice(3, 0, {
+    });
+  }
+  if ((route.boat || 0) > 0) {
+    modeChoices.push({
       text: 'Boat \u2014 15g',
       skill: 'lore', tag: 'safe', align: 'order', cid: 'mode_boat_' + destId,
       fn: function() {
