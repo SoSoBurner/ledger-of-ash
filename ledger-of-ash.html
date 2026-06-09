@@ -11484,6 +11484,7 @@ const SKILL_DISPLAY = {might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits'
 const _KEY_NORM_GLOBAL = {combat:'might',stealth:'finesse',survival:'vigor',lore:'wits',persuasion:'charm'};
 /** Return player-facing skill label for any key (internal or display). */
 function skillDisplay(key) {
+  if (!key) return 'Unknown';
   var _sk = _KEY_NORM_GLOBAL[key] || key;
   return SKILL_DISPLAY[_sk] || (_sk.charAt(0).toUpperCase() + _sk.slice(1));
 }
@@ -11861,7 +11862,7 @@ function loadStageChoices(locId) {
   // Normalize locality aliases so dynamic table-key lookup hits the canonical export.
   // 'panim_haven' resolves to PANIM_STAGE2_ENRICHED_CHOICES (file exports under PANIM_).
   var _STAGE_TABLE_ALIAS_S1 = { mimolot: 'mimolot_academy', panim: 'panim_haven', sunspire: 'sunspire_haven', aurora: 'aurora_crown_commune', guildheart: 'guildheart_hub', soreheim: 'soreheim_proper' };
-  var _STAGE_TABLE_ALIAS_S2 = { panim_haven: 'panim', mimolot_academy: 'mimolot' };
+  var _STAGE_TABLE_ALIAS_S2 = { panim_haven: 'panim', mimolot_academy: 'mimolot', sunspire_haven: 'sunspire' };
   var _keyLoc = (stageNum === '2' ? _STAGE_TABLE_ALIAS_S2 : _STAGE_TABLE_ALIAS_S1)[loc] || loc;
   const tableKey = _keyLoc.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase()
     + '_STAGE' + stageNum + '_ENRICHED_CHOICES';
@@ -14138,6 +14139,10 @@ function showLevelUpScreen() {
     var archId = G.archetype ? G.archetype.id : 'warrior';
     var pool = (ARCHETYPE_ABILITY_TREES[archId] || []);
     var alreadyUnlocked = (G.unlockedAbilities || []);
+    var alreadyUnlockedCombat = (G.unlockedCombatAbilities || []);
+    var combatPool = (ARCHETYPE_COMBAT_ABILITIES[archId] || []).filter(function(cab) {
+      return !alreadyUnlockedCombat.includes(cab.id);
+    });
 
     function isUnlocked(ab) {
       return alreadyUnlocked.some(function(u) {
@@ -14158,6 +14163,18 @@ function showLevelUpScreen() {
     });
 
     var options = actives.length > 0 ? actives : passives;
+    combatPool.forEach(function(cab) {
+      options.push({
+        id: cab.id,
+        name: cab.name,
+        type: 'combat',
+        _isCombat: true,
+        _cabRef: cab,
+        desc: '(' + cab.cost + ') ' + cab.effect,
+        gameEffect: cab.effect,
+        unlockLevel: 1
+      });
+    });
     var stepLabel = actives.length > 0 ? 'ACTIVE ABILITY' : (passives.length > 0 ? 'PASSIVE ABILITY' : '');
 
     var block = document.createElement('div');
@@ -14193,9 +14210,13 @@ function showLevelUpScreen() {
     block.querySelectorAll('.lu-option-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var ab = options[parseInt(this.dataset.luAbility, 10)];
-        G.unlockedAbilities = G.unlockedAbilities || [];
-        if (G.unlockedAbilities.indexOf(ab.id) === -1) {
-          G.unlockedAbilities.push(ab.id);
+        if (ab._isCombat) {
+          applyLevelUpChoice({ kind: 'combat_ability', ab: ab._cabRef });
+        } else {
+          G.unlockedAbilities = G.unlockedAbilities || [];
+          if (G.unlockedAbilities.indexOf(ab.id) === -1) {
+            G.unlockedAbilities.push(ab.id);
+          }
         }
         block.remove();
         _finalizeLevelUp(chosenStat, chosenTrait);
