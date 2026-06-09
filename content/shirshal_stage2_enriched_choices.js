@@ -15,7 +15,6 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     plot: 'main',
     skill: 'wits',
-    stageProgress: 1,
     xpReward: 40,
     failResult: 'The accord registry requires a Magistratus certification to access expired clause records.',
     fn: function() {
@@ -53,7 +52,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_tazren_coilspire = true;
         G.investigationProgress++;
@@ -90,7 +89,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'tracing missing evidence transfers with Luneth Coilspire');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.met_luneth_coilspire = true;
         G.investigationProgress++;
@@ -125,7 +124,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'examining arcane material import classifications');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.flags.met_khalis_coilspire = true;
         G.investigationProgress++;
@@ -161,7 +160,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'questioning Mirae Coilspire about magistracy personnel patterns');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_mirae_coilspire = true;
         G.investigationProgress++;
@@ -198,7 +197,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_sivren_coilspire = true;
         G.investigationProgress++;
@@ -358,7 +357,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.courier_intercept_done = true;
         G.investigationProgress++;
@@ -395,7 +394,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.panim_witness_found = true;
         G.investigationProgress++;
@@ -432,7 +431,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.charter_amendment_traced = true;
         G.investigationProgress++;
@@ -469,7 +468,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.supervisors_confronted = true;
         G.investigationProgress++;
@@ -507,7 +506,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.transit_rotation_log_found = true;
         G.investigationProgress++;
@@ -544,7 +543,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.retired_archivist_spoken = true;
         G.investigationProgress++;
@@ -581,7 +580,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.north_road_departure_witnessed = true;
         G.investigationProgress++;
@@ -618,7 +617,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.flags.ward_stone_residue_analyzed = true;
         G.investigationProgress++;
@@ -655,7 +654,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.surge_petition_timeline_cross_checked = true;
         G.investigationProgress++;
@@ -692,7 +691,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.verdant_row_map_obtained = true;
         G.investigationProgress++;
@@ -729,7 +728,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.override_code_second_branch_traced = true;
         G.investigationProgress++;
@@ -766,7 +765,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.surge_witness_found = true;
         G.investigationProgress++;
@@ -807,7 +806,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -842,7 +841,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -876,7 +875,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -911,7 +910,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -945,7 +944,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -979,7 +978,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1014,7 +1013,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1048,7 +1047,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1084,7 +1083,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.luneth_tally_reviewed = true;
         G.investigationProgress++;
@@ -1121,7 +1120,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.flags.khalis_classification_reviewed = true;
         G.investigationProgress++;
@@ -1158,7 +1157,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.sivren_rite_crosschecked = true;
         G.investigationProgress++;
@@ -1195,7 +1194,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.mirae_private_log_reviewed = true;
         G.investigationProgress++;
@@ -1232,7 +1231,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.tazren_map_obtained = true;
         G.investigationProgress++;
@@ -1270,7 +1269,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.luneth_rotation_change_noted = true;
         G.investigationProgress++;
@@ -1306,7 +1305,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.mirae_standing_reservation_confirmed = true;
         G.investigationProgress++;
@@ -1341,7 +1340,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1372,7 +1371,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1402,7 +1401,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1433,7 +1432,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1463,7 +1462,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1493,7 +1492,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1525,7 +1524,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1556,7 +1555,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1586,7 +1585,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1616,7 +1615,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1647,7 +1646,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1679,7 +1678,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.oversight_auditor_managed = true;
         G.investigationProgress++;
@@ -1714,7 +1713,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1746,7 +1745,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.magistratus_observer_evaded = true;
         G.investigationProgress++;
@@ -1787,7 +1786,7 @@ var SHIRSHAL_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

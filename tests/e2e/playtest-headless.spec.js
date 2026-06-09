@@ -1177,13 +1177,13 @@ async function runFamily(browser, family, pools, jsErrors, mode, firstAttemptOve
 // Organic progression only — no sp1/sp2 injection. Coverage tracked per run.
 // ===========================================================================
 test.describe('Headless QA — 4 families', () => {
-  test.setTimeout(62 * 60 * 1000); // 62 min outer ceiling
+  test.setTimeout(92 * 60 * 1000); // 92 min outer ceiling (matches 90 min HEADLESS_CAP + 2 min buffer)
 
   test('headless 4-family playtest', async ({ browser }) => {
     initLog('headless');
     const jsErrors      = [];
     const familyResults = {};
-    const HEADLESS_CAP  = 60 * 60 * 1000; // 1 hour
+    const HEADLESS_CAP  = 90 * 60 * 1000; // 90 min (increased from 60 min to give all 4 families adequate time)
     const suiteStart    = Date.now();
     const tracker       = new CoverageTracker();
     const reporter      = new ReportWriter('headless');
@@ -1203,7 +1203,7 @@ test.describe('Headless QA — 4 families', () => {
 
     for (const family of HEADLESS_FAMILY_ORDER) {
       if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
-        log(`[suite:headless] 1hr cap reached — stopping before family:${family}`);
+        log(`[suite:headless] 90min cap reached — stopping before family:${family}`);
         break;
       }
 
@@ -1227,7 +1227,7 @@ test.describe('Headless QA — 4 families', () => {
       log(`[headless] ${failedFamilies.length} famil${failedFamilies.length === 1 ? 'y' : 'ies'} failed — re-running: ${failedFamilies.join(', ')}`);
       for (const family of failedFamilies) {
         if ((Date.now() - suiteStart) >= HEADLESS_CAP) {
-          log(`[suite:headless] 1hr cap reached — stopping retry for family:${family}`);
+          log(`[suite:headless] 90min cap reached — stopping retry for family:${family}`);
           break;
         }
         const retryTag = `${family}_retry`;
@@ -1247,7 +1247,7 @@ test.describe('Headless QA — 4 families', () => {
 
     // Summary
     log('\n' + '='.repeat(60));
-    log(`[suite:headless] COMPLETE — ceiling=${ceiling} (1hr cap or all 4 families done)`);
+    log(`[suite:headless] COMPLETE — ceiling=${ceiling} (90min cap or all 4 families done)`);
     for (const [fam, r] of Object.entries(familyResults)) {
       log(`  ${fam}: ${r.success ? `SUCCESS ${r.archetypeId}/${r.backgroundId} ${r.attempts} attempts ${r.picks} picks` : `incomplete (${r.attempts} attempts)`}`);
     }

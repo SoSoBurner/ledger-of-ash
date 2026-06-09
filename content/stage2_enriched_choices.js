@@ -6,14 +6,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Mystery', 'Negotiation', 'Risk', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'engaging mysterious traveler');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -40,14 +39,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Risk', 'Decision', 'Route', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(72, 'choosing dangerous route');
       
-      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 2));
+      const result = rollD20('vigor', (G.skills.vigor || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -74,14 +72,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Negotiation', 'Pressure', 'Choice', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'negotiating river crossing');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -107,7 +104,6 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Survival', 'Risk', 'Decision', 'Meaningful'],
     xpReward: 68,
-    stageProgress: 2,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -118,7 +114,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(68, 'managing travel risks');
       
-      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -145,14 +141,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Moral', 'Combat', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(73, 'making moral stand');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -178,7 +173,6 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Travel', 'Trust', 'Deception', 'Risk', 'Meaningful'],
     xpReward: 71,
-    stageProgress: 2,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -189,7 +183,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(71, 'assessing companion trustworthiness');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -216,14 +210,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Mystery', 'Danger', 'Investigation', 'Meaningful'],
     tag: 'risky',
     xpReward: 69,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(69, 'pursuing mysterious phenomenon');
       
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -251,14 +244,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Route', 'Risk', 'Temptation', 'Meaningful'],
     tag: 'bold',
     xpReward: 72,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(72, 'navigating forbidden terrain');
       
-      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 2));
+      const result = rollD20('vigor', (G.skills.vigor || 0));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -285,14 +277,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Past', 'Connection', 'Caution', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'reconnecting with past');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 11;
 
       if (result.isCrit) {
@@ -319,14 +310,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Travel', 'Moral', 'Intelligence', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(71, 'encountering regional crisis');
       
-      const result = rollD20('wits', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -355,14 +345,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Negotiation', 'Pressure', 'Alliance', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(72, 'engaging with faction politics');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -389,14 +378,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Choice', 'Power', 'Consequence', 'Meaningful'],
     tag: 'risky',
     xpReward: 74,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(74, 'navigating factional rivalry');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -423,14 +411,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Moral', 'Violence', 'Pressure', 'Meaningful'],
     tag: 'bold',
     xpReward: 75,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(75, 'dealing with dark faction requests');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -457,14 +444,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Discovery', 'Risk', 'Intelligence', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'discovering faction infrastructure');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -491,14 +477,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Risk', 'Defection', 'Moral', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(73, 'managing factional defection');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 2));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -525,14 +510,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Politics', 'Trust', 'Authority', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(72, 'mediating internal faction conflict');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -559,14 +543,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Mystery', 'Danger', 'Moral', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(71, 'discovering operative death');
       
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -593,14 +576,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Faction', 'Espionage', 'Network', 'Pressure', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'undertaking espionage assignment');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -626,14 +608,13 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Faction', 'Suspicion', 'Investigation', 'Pressure', 'Meaningful'],
     xpReward: 73,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(73, 'clearing factional suspicion');
       
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 2));
+      const result = rollD20('wits', (G.skills.wits || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -662,7 +643,6 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Trust', 'Deception', 'Loyalty', 'Meaningful'],
     xpReward: 72,
-    stageProgress: 2,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -673,7 +653,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(72, 'navigating companion deception');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -700,14 +680,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Choice', 'Loyalty', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(71, 'managing companion departure');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -734,14 +713,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Moral', 'Sacrifice', 'Care', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'sacrificing for companion welfare');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 11;
 
       if (result.isCrit) {
@@ -768,14 +746,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Moral', 'Conflict', 'Leadership', 'Meaningful'],
     tag: 'risky',
     xpReward: 71,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(71, 'mediating companion conflicts');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -801,7 +778,6 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Sacrifice', 'Moral', 'Risk', 'Meaningful'],
     xpReward: 74,
-    stageProgress: 2,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -812,7 +788,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(74, 'facing companion illness crisis');
       
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -839,14 +815,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Moral', 'Consequence', 'Risk', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(73, 'managing companion family crisis');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 13 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -873,14 +848,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Companion', 'Sacrifice', 'Revelation', 'Loyalty', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(72, 'discovering companion sacrifice');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -906,7 +880,6 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     tags: ['Companion', 'Trust', 'Deception', 'Conflict', 'Meaningful'],
     xpReward: 70,
-    stageProgress: 2,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
       loadStageChoices(G.location);
@@ -917,7 +890,7 @@ const STAGE2_ENRICHED_CHOICES = [
       G.telemetry.actions++;
       gainXp(70, 'processing companion betrayal revelation');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -947,14 +920,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tag: 'safe',
     failResult: 'The scout moved on before the price was settled — route intelligence is still available through other channels in this district.',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'acquiring route intelligence');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 11;
 
       if (result.isCrit) {
@@ -981,14 +953,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Espionage', 'Information', 'Power', 'Meaningful'],
     tag: 'risky',
     xpReward: 71,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(71, 'intercepting institutional communication');
       
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -1015,14 +986,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Spy', 'Moral', 'Pressure', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(72, 'harboring institutional spy');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 12 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -1049,14 +1019,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Observation', 'Espionage', 'Risk'],
     tag: 'risky',
     xpReward: 69,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(69, 'performing covert observation');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -1084,14 +1053,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Network', 'Alliance', 'Commitment', 'Meaningful'],
     tag: 'risky',
     xpReward: 70,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(70, 'building intelligence network');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 2));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -1118,14 +1086,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Investigation', 'Mystery', 'Consequence', 'Meaningful'],
     tag: 'bold',
     xpReward: 71,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(71, 'investigating dead messenger');
       
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -1153,14 +1120,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Opportunity', 'Moral', 'Risk', 'Meaningful'],
     tag: 'bold',
     xpReward: 73,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(73, 'breaching institutional archives');
       
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 2));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       const target = 13;
 
       if (result.isCrit) {
@@ -1187,14 +1153,13 @@ const STAGE2_ENRICHED_CHOICES = [
     tags: ['Intelligence', 'Corruption', 'Legal', 'Risk', 'Meaningful'],
     tag: 'risky',
     xpReward: 72,
-    stageProgress: 2,
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
       gainXp(72, 'dealing with corruption testimony');
       
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 12;
 
       if (result.isCrit) {
@@ -3153,7 +3118,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(85, 'accessing building via unlisted service entrance');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
+      var r = rollD20('finesse', (G.skills.finesse || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -3190,7 +3155,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(88, 'intercepting restricted document courier in transit');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var r = rollD20('finesse', (G.skills.finesse||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (r.total >= 13) {
         G.flags.s2_stealth_courier_done = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -3224,7 +3189,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(85, 'copying restricted ledger page during clerk absence');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var r = rollD20('finesse', (G.skills.finesse||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (r.total >= 13) {
         G.flags.s2_stealth_ledger_done = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -3258,7 +3223,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(92, 'trailing liaison officer to off-roster contact meeting');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
+      var r = rollD20('finesse', (G.skills.finesse||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('stealth'):0));
       if (r.isCrit) {
         G.flags.s2_stealth_shadow_done = true;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 2;
@@ -3302,7 +3267,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(90, 'reading decoy manifest misdirection');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
+      var r = rollD20('finesse', (G.skills.finesse || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -3337,7 +3302,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(88, 'surveilling transit route from elevated position');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
+      var r = rollD20('finesse', (G.skills.finesse || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
       if (r.isCrit) {
         G.flags.s2_stealth_roof_obs_done = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
@@ -3381,7 +3346,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(86, 'taking wax impression of secondary archive lock');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
+      var r = rollD20('finesse', (G.skills.finesse || 0) + (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0));
       if (r.total >= 13) {
         G.flags.s2_stealth_lock_done = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
@@ -3417,7 +3382,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reading clerk schedule for access window');
       G.flags = G.flags || {};
-      var r = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      var r = rollD20('wits', (G.skills.wits || 0));
       if (r.total >= 10) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -3451,7 +3416,7 @@ const STAGE2_ENRICHED_CHOICES = [
       gainXp(94, 'tracing blind courier network through market stall');
       G.flags = G.flags || {};
       G.worldClocks = G.worldClocks || {};
-      var r = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      var r = rollD20('charm', (G.skills.charm || 0));
       if (r.isCrit) {
         G.flags.s2_stealth_blind_informant_done = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
@@ -3668,7 +3633,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing courier network gaps');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.courier_ledger_gap_found = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3699,7 +3664,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-polity name suppression pattern');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.suppressed_name_crosspolity = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3729,7 +3694,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'mapping Collegium liaison inconsistencies');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.collegium_liaison_divergence = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3758,7 +3723,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading unlogged waystation transit');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.waystation_unlogged_transit = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3787,7 +3752,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'detecting cargo manifest falsification');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.flags.manifest_weight_fraud = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3819,7 +3784,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing courier route notices');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.courier_route_discrepancy = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3850,7 +3815,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'dating Collegium seal documents');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.collegium_seal_anachronism = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3881,7 +3846,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading archivist roster against access log');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.archivist_offhours_entries = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3914,7 +3879,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-checking broker ledger against Guild registry');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.broker_unlicensed_clients = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3943,7 +3908,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'questioning transit warden inspection procedure');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.transit_warden_uninspected = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3975,7 +3940,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing retroactively filed supply allocation');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.supply_retroactive_filing = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -4004,7 +3969,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing vacant clearance role');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.clearance_role_vacant = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -4033,7 +3998,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading duty roster for shift pattern anomalies');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.craft||0));
       if (result.isCrit) {
         G.flags.roster_shift_pattern = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
