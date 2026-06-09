@@ -16,7 +16,7 @@ describe('renderMasterySection', () => {
   });
 
   test('shows 3 upgrade buttons when masteryXP > 0 and none purchased', () => {
-    ctx.G.masteryXP = 100;
+    ctx.G.masteryXP = 200;
     ctx.G.masteryPurchased = [];
     const html = ctx.renderMasterySection();
     const matches = html.match(/ability-btn/g) || [];
@@ -24,7 +24,7 @@ describe('renderMasterySection', () => {
   });
 
   test('excludes already-purchased upgrades', () => {
-    ctx.G.masteryXP = 100;
+    ctx.G.masteryXP = 200;
     ctx.G.masteryPurchased = ['m_hp'];
     const html = ctx.renderMasterySection();
     // m_hp excluded — next 3 from pool should appear (m_roll, m_gold, m_heat)
@@ -34,7 +34,7 @@ describe('renderMasterySection', () => {
   });
 
   test('buttons disabled when cannot afford upgrade', () => {
-    ctx.G.masteryXP = 1;  // too low to afford any upgrade (cheapest is 40)
+    ctx.G.masteryXP = 1;  // too low to afford any upgrade (cheapest is 80)
     ctx.G.masteryPurchased = [];
     const html = ctx.renderMasterySection();
     expect(html).toContain('disabled');
@@ -55,8 +55,8 @@ describe('buyMasteryUpgrade', () => {
   test('deducts cost from masteryXP on purchase', () => {
     ctx.G.masteryXP = 100;
     ctx.G.masteryPurchased = [];
-    ctx.buyMasteryUpgrade('m_hp');  // costs 40
-    expect(ctx.G.masteryXP).toBe(60);
+    ctx.buyMasteryUpgrade('m_hp');  // costs 80
+    expect(ctx.G.masteryXP).toBe(20);
   });
 
   test('records purchased id in G.masteryPurchased', () => {
@@ -69,7 +69,7 @@ describe('buyMasteryUpgrade', () => {
   test('does nothing when masteryXP is insufficient', () => {
     ctx.G.masteryXP = 10;
     ctx.G.masteryPurchased = [];
-    ctx.buyMasteryUpgrade('m_hp');  // costs 40
+    ctx.buyMasteryUpgrade('m_hp');  // costs 80
     expect(ctx.G.masteryXP).toBe(10);
     expect(ctx.G.masteryPurchased).toHaveLength(0);
   });
@@ -86,7 +86,7 @@ describe('buyMasteryUpgrade', () => {
     ctx.G.masteryXP = 100;
     ctx.G.masteryPurchased = [];
     ctx.G.masteryBonuses = {};
-    ctx.buyMasteryUpgrade('m_roll');  // costs 40
+    ctx.buyMasteryUpgrade('m_roll');  // costs 100
     expect(ctx.G.masteryBonuses.rollBonus).toBe(1);
   });
 
@@ -94,15 +94,15 @@ describe('buyMasteryUpgrade', () => {
     ctx.G.masteryXP = 100;
     ctx.G.masteryPurchased = [];
     ctx.G.masteryBonuses = {};
-    ctx.buyMasteryUpgrade('m_gold');  // costs 40
+    ctx.buyMasteryUpgrade('m_gold');  // costs 80
     expect(ctx.G.masteryBonuses.goldBonus).toBe(3);
   });
 
   test('m_heat sets masteryBonuses.heatReduction', () => {
-    ctx.G.masteryXP = 100;
+    ctx.G.masteryXP = 150;
     ctx.G.masteryPurchased = [];
     ctx.G.masteryBonuses = {};
-    ctx.buyMasteryUpgrade('m_heat');  // costs 60
+    ctx.buyMasteryUpgrade('m_heat');  // costs 120
     expect(ctx.G.masteryBonuses.heatReduction).toBe(1);
   });
 
@@ -110,7 +110,7 @@ describe('buyMasteryUpgrade', () => {
     ctx.G.masteryXP = 100;
     ctx.G.masteryPurchased = [];
     ctx.G.masteryBonuses = {};
-    ctx.buyMasteryUpgrade('m_craft');  // costs 60
+    ctx.buyMasteryUpgrade('m_craft');  // costs 100
     expect(ctx.G.masteryBonuses.craftDCReduction).toBe(2);
   });
 
@@ -118,8 +118,8 @@ describe('buyMasteryUpgrade', () => {
     // applyEffect is a DOM-level call — verify the purchase bookkeeping only
     ctx.G.masteryXP = 100;
     ctx.G.masteryPurchased = [];
-    ctx.buyMasteryUpgrade('m_hp');  // costs 40
-    expect(ctx.G.masteryXP).toBe(60);
+    ctx.buyMasteryUpgrade('m_hp');  // costs 80
+    expect(ctx.G.masteryXP).toBe(20);
     expect(ctx.G.masteryPurchased).toContain('m_hp');
   });
 });
