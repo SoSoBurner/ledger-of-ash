@@ -224,7 +224,7 @@ async function actionHTML(page) {
 async function snapshotChoices(page) {
   try {
     return await page.evaluate(() =>
-      Array.from(document.querySelectorAll('.choice-btn:not([style*="display:none"])'))
+      Array.from(document.querySelectorAll('.choice-btn:not([disabled])'))
         .map(b => ({
           text: (b.querySelector('.choice-text') || b).textContent.trim().slice(0, 80),
           cls:  b.className,
@@ -447,6 +447,7 @@ async function pickChoice(page, pickNum, forcePlotMain) {
     if (s.cls.includes('choice-btn--warn') || s.cls.includes('combat-btn')) score -= 10; // avoid pure combat spirals
     if (score > bestScore) { bestScore = score; bestIdx = i; }
   });
+  if (bestIdx >= count) bestIdx = 0; // guard: snapshotChoices may count more buttons than the :visible:not([disabled]) locator
   const btn = buttons.nth(bestIdx);
   const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
 }
@@ -1794,6 +1795,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
           if (tracker) tracker.onMapTravel(fromLoc, travelled, picks);
           await screenshot(page, `${tag}_map_travel_p${picks}`);
           g = await readG(page);
+          await waitForChoices(page, PACE.waitChoices); // ensure new locality choices render before next pick
           // P1-H: flag dead-on-arrival localities (no choices after map travel)
           const _postTravelChoices = await page.locator('.choice-btn:visible:not([disabled])').count().catch(() => 0);
           if (_postTravelChoices === 0) {
@@ -2123,6 +2125,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               if (typeof loadStageChoices === 'function') loadStageChoices(loc);
             }
           }, escLoc);
+          await page.waitForTimeout(800); // Let corridor encounter setTimeout(300ms) fire + DOM settle
+          await waitForChoices(page, PACE.waitChoices); // ensure new locality choices render after teleport
         } catch (_) {}
         stuckAtLoc = 0;
         lastPickLabels = [];
@@ -2276,6 +2280,8 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
               }
             }
           }, ESCAPE_LOCS);
+          await page.waitForTimeout(800); // Let corridor encounter setTimeout(300ms) fire + DOM settle
+          await waitForChoices(page, PACE.waitChoices); // ensure new locality choices render after teleport
         } catch (_) {}
         lastPickLabels = [];
         stuckAtLoc = 0;
