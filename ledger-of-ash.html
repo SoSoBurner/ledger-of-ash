@@ -12500,7 +12500,7 @@ function renderChoices(choices) {
     var _prevRaw = c.preview || (c.result && typeof c.result === 'string' ? c.result.split(' ').slice(0, 30).join(' ') + '\u2026' : '');
     var _prevText = _prevRaw ? _prevRaw.replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
     html += '<button class="' + btnClasses + '" data-idx="' + i + '"' + (isLocked ? ' disabled' : '') + threatStyle + (_prevText ? ' data-preview="' + _prevText + '"' : '') + '>' +
-      '<span class="choice-text">' + c.text + (isLocked ? ' <span style="font-size:10px;opacity:0.7">[path closed]</span>' : '') + '</span>' +
+      '<span class="choice-text">' + (c.text || c.label || '\u2014') + (isLocked ? ' <span style="font-size:10px;opacity:0.7">[path closed]</span>' : '') + '</span>' +
       '<span class="choice-meta">' +
       (c.skill ? '<span class="choice-skill">' + c.skill + '</span>' : '') +
       (c.tag ? '<span class="choice-tag ' + c.tag + '">' + c.tag + '</span>' : '') +
@@ -14799,7 +14799,7 @@ function enterNomdara() {
   if (G.stage === 'Stage I' && typeof window.NOMDARA_STAGE1_CHOICES !== 'undefined' && window.NOMDARA_STAGE1_CHOICES.length) {
     addNarration('', 'The caravan has halted for the night. Traders call from between the wagons.', 'neutral');
     renderChoices(window.NOMDARA_STAGE1_CHOICES.map(function(c) {
-      return { label: c.label, cid: '__enriched__nomdara_s1_' + (c.id || c.label), fn: function() { adaptEnrichedChoice(c); } };
+      return { text: c.label, label: c.label, cid: '__enriched__nomdara_s1_' + (c.id || c.label), action: function() { adaptEnrichedChoice(c); } };
     }));
     return;
   }
