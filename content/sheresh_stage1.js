@@ -116,7 +116,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     },
-    failResult: 'The board is too layered with current postings to read what is underneath without disturbing material still in use. The record keeper cycles it weekly. Returning after the next change would give clear access to the older filings.'
+    failResult: 'The board sits at the dome\'s inner ring beside the harvest tally lamps, layered with current postings the record keeper cycles weekly. Reading the older filings underneath means returning after the next change, when the surface clears.'
   },
   {
     id: 'sheresh_water_route',
@@ -142,7 +142,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     },
-    failResult: 'The ground is dry and the light is wrong for reading recent disturbance. The route marker reading would be clearer in morning light or after rain — conditions that make soil compression visible without crouching for an hour.'
+    failResult: 'Beyond the dome edge the ground is dry and the angled light through the survival panels is wrong for reading disturbance. The marker reading would be clearer in morning light or after rain, when soil compression shows without crouching for an hour.'
   },
   {
     id: 'sheresh_provisioning_log',
@@ -168,7 +168,7 @@ var SHERESH_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate';
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     },
-    failResult: 'The provisioning house closes before there is enough time to work through five years of entries methodically. Coming back during the morning distribution hours, before the building fills with members, would give a clear window.'
+    failResult: 'The provisioning house at the dome\'s inner court closes before there is enough time to work through five years of entries methodically. Coming back during morning distribution hours, before the building fills with members, would give a clear window.'
   }
 ];
 
