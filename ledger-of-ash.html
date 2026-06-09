@@ -1453,6 +1453,8 @@ input, button, select, textarea { font-family: inherit; }
 }
 .encounter--boss { border-left: 3px solid var(--accent-gold, #d89a2c) !important; border-color: var(--accent-gold, #d89a2c) !important; background: rgba(216,154,44,0.06); box-shadow: inset 0 0 24px rgba(190,40,40,0.08), 0 4px 20px rgba(190,40,40,.35) !important; }
 .encounter--boss .combat-location { color: var(--accent-gold, #d89a2c); font-size: 10px; letter-spacing: 4px; }
+.encounter--nautical { border-left: 3px solid #2a5a8a; }
+.encounter--nautical .encounter-header::before { content: '\2693 Aboard Ship \2014 '; color: #4a8abf; }
 .combat-location { font-family: var(--font-display); font-size: 8.8px; letter-spacing: 3px; color: var(--blood-bright); text-transform: uppercase; margin-bottom: 10px; }
 .combat-intent { font-family: 'Crimson Pro', serif; font-size: 16.5px; color: var(--ink); line-height: 1.65; font-style: italic; margin-bottom: 8px; }
 .combat-companions { font-size: 12.1px; color: var(--jade-bright); margin-bottom: 6px; font-family: var(--font-display); letter-spacing: 1px; }
@@ -10285,6 +10287,7 @@ function getDefaultG() {
     trainingCooldowns:{}, trainingSessionsUsed:{}, lastTrainedStat:null,
     lastResult:'',
     masteryXP:0, masteryPurchased:[], masteryBonuses:{}, traitProgress:{}, unlockedTraits:[], spentAbilities:{},
+    previousLocation: null,
     archetypeBaseStats:{}, sorePlotCredits:0, soreCreditUsed:{},
     shopCreditBoost:0, statCap:10,
     restCount:0,
@@ -13640,7 +13643,7 @@ function checkLevelUp() {
     if (typeof updateHUD === 'function') updateHUD();
     return;
   }
-  const needed = G.level === 1 ? 120 : G.level * 60;
+  const needed = (G.level + 1) * 60;
   if (G.xp >= needed && !_awaitingLevelUp) {
     _awaitingLevelUp = true;
     G.xp -= needed;
@@ -14522,21 +14525,31 @@ function _showModeSelectInOverlay(locId) {
   var _fromKey = _LOC_ALIAS_OVL[G.location] || G.location;
   var _toKey   = _LOC_ALIAS_OVL[locId]      || locId;
   var routeData = window.ROUTE_SPATIAL_DATA ? window.ROUTE_SPATIAL_DATA.get(_fromKey, _toKey) : null;
-  var allowed = routeData ? routeData.allowed_modes : ['foot','horse','cart'];
   var routeEntry = (window.TRAVEL_ROUTES || {})[_fromKey + '|' + _toKey]
                 || (window.TRAVEL_ROUTES || {})[_toKey + '|' + _fromKey] || {};
+  var _r = routeEntry || {};
+  var allowed = [];
+  if ((_r.foot || 0) > 0) allowed.push('foot');
+  if ((_r.horse || 0) > 0) allowed.push('horse');
+  if ((_r.cart || 0) > 0) allowed.push('cart');
+  if ((_r.boat || 0) > 0) allowed.push('boat');
+  if (!allowed.length) allowed = ['foot']; // fallback: on-foot always possible
   var _gold = G.gold || 0;
 
   var btnsHtml = allowed.map(function(m) {
     var cost = _costs[m] || 0;
-    var days = routeEntry[m] || '?';
+    var days = (routeEntry && routeEntry[m] > 0) ? routeEntry[m] : '?';
     var canAfford = cost === 0 || _gold >= cost;
+    var label = m === 'boat' ? 'By Boat \u2014 ' + days + 'd (sea)' :
+                m === 'foot' ? 'On Foot \u2014 ' + days + 'd' :
+                m === 'horse' ? 'On Horseback \u2014 ' + days + 'd' :
+                'By Cart \u2014 ' + days + 'd';
     return '<button class="choice-btn overlay-mode-btn"'
       + ' data-mode="' + m + '" data-destid="' + locId + '"'
       + (!canAfford ? ' disabled style="opacity:0.4;cursor:not-allowed"' : '')
-      + '>' + _labels[m]
+      + '>' + label
       + (cost > 0 ? ' \u2014 ' + cost + 'g' : ' \u2014 Free')
-      + '<br><span style="font-size:11px;color:var(--ink-dim)">~' + (typeof days === 'number' ? Math.ceil(days) : days) + ' days</span></button>';
+      + '</button>';
   }).join('');
 
   var noteHtml = routeData && routeData.route_note
@@ -14683,6 +14696,7 @@ function maybeFireArrivalScene(localityId) {
 // shouldShowArrivalScene and buildArrivalChoice defined in content/locality_arrival_narrations.js
 
 function resolveArrival(locId) {
+  G.previousLocation = G.location || null;
   try {
   const loc = WORLD_LOCATIONS[locId];
   if (!loc) return;
@@ -14782,6 +14796,13 @@ function enterDistrict(distId) {
 }
 
 function enterNomdara() {
+  if (G.stage === 'Stage I' && typeof window.NOMDARA_STAGE1_CHOICES !== 'undefined' && window.NOMDARA_STAGE1_CHOICES.length) {
+    addNarration('', 'The caravan has halted for the night. Traders call from between the wagons.', 'neutral');
+    renderChoices(window.NOMDARA_STAGE1_CHOICES.map(function(c) {
+      return { label: c.label, cid: '__enriched__nomdara_s1_' + (c.id || c.label), fn: function() { adaptEnrichedChoice(c); } };
+    }));
+    return;
+  }
   const nomdara = window.NOMDARA_OVERLAY;
   if (!nomdara) return;
   const prevLocation = G.location;
@@ -15527,7 +15548,7 @@ function doTravelJourney(destId) {
   if (!route) return;
 
   var mode = G.travelMode || 'foot';
-  var days = route[mode] || route.foot || 1;
+  var days = (route[mode] > 0) ? route[mode] : (route.foot > 0 ? route.foot : 1);
   var pace = G.pace || 'normal';
   var paceMod = (window.PACE_MODIFIERS && window.PACE_MODIFIERS[pace]) || { tickMultiplier: 1, encounterRateBonus: 1, fatiguePerDay: 1 };
 
@@ -15558,9 +15579,19 @@ function doTravelJourney(destId) {
   buildLivingDesc(G.location, G);
 
   // Fire corridor encounters
-  if (typeof window._travelStartEncounter === 'function') {
-    window._travelStartEncounter(route.tier, origin, destId);
+  if (G.travelMode === 'boat' && days > 0) {
+    var _eCt = Math.max(1, Math.floor(days / 7));
+    for (var _ei = 0; _ei < _eCt; _ei++) {
+      if (typeof window._travelStartEncounter === 'function') {
+        window._travelStartEncounter(route.tier, origin, destId, {nautical: true});
+      }
+    }
   } else {
+    if (typeof window._travelStartEncounter === 'function') {
+      window._travelStartEncounter(route.tier, origin, destId, {});
+    }
+  }
+  if (typeof window._travelStartEncounter !== 'function') {
     addNarration('Arrival', 'You arrive at your destination after ' + adjustedDays + ' days on the road.', 'neutral');
     saveGame(); updateHUD();
     if (typeof loadStageChoices === 'function') loadStageChoices();
@@ -16482,7 +16513,7 @@ function activateAbilityFromSheet(abilityId) {
 // ── CHARACTER SHEET ────────────────────────────────────────
 function showCharSheet() {
   setText('sheet-title', G.name || (G.archetype && G.archetype.name) || 'Character');
-  const needed = G.level === 1 ? 120 : G.level * 60;
+  const needed = (G.level + 1) * 60;
   const sb = document.getElementById('sheet-body');
 
   const woundRows = (G.wounds||[]).filter(w=>!w.healed).map(w =>
@@ -17667,7 +17698,7 @@ function updateHUD() {
       _xpEl.style.color = 'var(--accent-gold)';
     } else {
       if (_xpLabelEl) _xpLabelEl.textContent = 'XP';
-      var _nextXp = (G.level === 1) ? 120 : (G.level || 1) * 60;
+      var _nextXp = (G.level + 1) * 60;
       _xpEl.textContent = (G.xp || 0) + ' / ' + _nextXp;
       _xpEl.style.color = '';
     }
@@ -18580,6 +18611,7 @@ function enterCombat(enemyKey, context) {
   const woundLine = woundCount > 0 ? '<div style="color:var(--blood-bright);font-size:12px;margin-top:6px">' + woundCount + ' unhealed wound' + (woundCount>1?'s':'') + ' — you are not at full capacity.</div>' : '';
 
   const _bossCls = (context.isBoss || (context.bossKeys && context.bossKeys.indexOf(enemyKey) !== -1)) ? ' encounter--boss' : '';
+  const _nauticalCls = (context && context.nautical) ? ' encounter--nautical' : '';
 
   var _hpPct = Math.round((enemy.hp / enemy.maxHp) * 100);
   var _hpBarHtml = '<div class="enemy-hp-row" style="margin:4px 0 8px">'
@@ -18590,7 +18622,7 @@ function enterCombat(enemyKey, context) {
     + (enemy.desc ? '<div style="font-size:11px;color:var(--ink-dim);font-style:italic;margin-top:4px">' + enemy.desc + '</div>' : '')
     + '</div>';
 
-  const html = '<div class="combat-entry' + _bossCls + '"><div class="combat-location">' + enemy.name + '</div>' + _hpBarHtml + '<div class="combat-intent">' + intent + '</div>' + (compLine ? '<div class="combat-companions">' + compLine + '</div>' : '') + woundLine + '<div class="combat-actions-label">HOW DO YOU RESPOND</div></div>';
+  const html = '<div class="combat-entry' + _bossCls + _nauticalCls + '"><div class="combat-location">' + enemy.name + '</div>' + _hpBarHtml + '<div class="combat-intent">' + intent + '</div>' + (compLine ? '<div class="combat-companions">' + compLine + '</div>' : '') + woundLine + '<div class="combat-actions-label">HOW DO YOU RESPOND</div></div>';
 
   addNarration('Combat', html);
   addJournal('Entered combat with ' + enemy.name + '.', 'field_note', 'combat_entry_' + enemyKey + '_' + (G.dayCount||0));
