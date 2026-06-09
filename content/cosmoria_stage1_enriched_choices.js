@@ -943,7 +943,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The tide markers are below the walk and the tide has come back in faster than the harbor gate board predicted. Salt spray covers the lower carvings; the names you wanted to read are under three fingers of brine. Low tide returns before dawn.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -962,7 +962,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The administrator looks up from the desk as you cross the corridor — the harbor mouth visible through their window keeps them facing that direction by habit, but the slightest movement in the corner pulls their attention. You step out of the sightline before they fix on you. The log stays in the office.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1047,7 +1047,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
   tags: ['social'],
   xpReward: 5,
   failResult: function() {
-    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    addNarration('', 'The notice board outside the counting house is full of older pins — manifest disputes, tide-schedule adjustments curling at the edges from salt air. Nothing posted since this morning has been replaced. The wind off the lower harbor lifts a corner of yesterday\'s sheet and sets it back.', 'failure');
     loadStageChoices(G.location);
   },
   fn: function() {
