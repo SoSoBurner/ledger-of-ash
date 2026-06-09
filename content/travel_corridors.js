@@ -110,7 +110,22 @@
     'sunspire_haven|fairhaven':        { tier:'long', biome:'highland', foot:244.5, horse:146.7, cart:326.1, boat:0 },
     'fairhaven|sunspire_haven':        { tier:'long', biome:'highland', foot:244.5, horse:146.7, cart:326.1, boat:0 },
     'aurora_crown_commune|fairhaven':  { tier:'long', biome:'highland', foot:108.2, horse:64.9,  cart:144.3, boat:0 },
-    'fairhaven|aurora_crown_commune':  { tier:'long', biome:'highland', foot:108.2, horse:64.9,  cart:144.3, boat:0 }
+    'fairhaven|aurora_crown_commune':  { tier:'long', biome:'highland', foot:108.2, horse:64.9,  cart:144.3, boat:0 },
+    // Direct Shelkopolis spoke routes (from world graph — previously missing)
+    'ithtananalor|shelkopolis':        { tier:'long', biome:'plains',   foot:45.5,  horse:27.3,  cart:60.7,  boat:0 },
+    'shelkopolis|ithtananalor':        { tier:'long', biome:'plains',   foot:45.5,  horse:27.3,  cart:60.7,  boat:0 },
+    'shirshal|shelkopolis':            { tier:'long', biome:'plains',   foot:48.0,  horse:28.8,  cart:64.0,  boat:0 },
+    'shelkopolis|shirshal':            { tier:'long', biome:'plains',   foot:48.0,  horse:28.8,  cart:64.0,  boat:0 },
+    'guildheart_hub|shelkopolis':      { tier:'long', biome:'plains',   foot:52.5,  horse:31.5,  cart:70.0,  boat:0 },
+    'shelkopolis|guildheart_hub':      { tier:'long', biome:'plains',   foot:52.5,  horse:31.5,  cart:70.0,  boat:0 },
+    'mimolot_academy|shelkopolis':     { tier:'long', biome:'highland', foot:57.0,  horse:34.2,  cart:76.0,  boat:0 },
+    'shelkopolis|mimolot_academy':     { tier:'long', biome:'highland', foot:57.0,  horse:34.2,  cart:76.0,  boat:0 },
+    'panim_haven|shelkopolis':         { tier:'long', biome:'coastal',  foot:63.5,  horse:38.1,  cart:84.7,  boat:21.0 },
+    'shelkopolis|panim_haven':         { tier:'long', biome:'coastal',  foot:63.5,  horse:38.1,  cart:84.7,  boat:21.0 },
+    'sunspire_haven|shelkopolis':      { tier:'long', biome:'highland', foot:70.0,  horse:42.0,  cart:93.3,  boat:0 },
+    'shelkopolis|sunspire_haven':      { tier:'long', biome:'highland', foot:70.0,  horse:42.0,  cart:93.3,  boat:0 },
+    'soreheim_proper|shelkopolis':     { tier:'long', biome:'mountain', foot:79.5,  horse:47.7,  cart:106.0, boat:0 },
+    'shelkopolis|soreheim_proper':     { tier:'long', biome:'mountain', foot:79.5,  horse:47.7,  cart:106.0, boat:0 }
   };
 
   // Encounter rate extras by biome (added rolls on top of base tier count)

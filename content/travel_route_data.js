@@ -136,6 +136,48 @@ window.ROUTE_SPATIAL_DATA = {
     biomes: ['highland', 'plains'],
     route_class: 'overland',
     allowed_modes: ['foot','horse','cart']
+  },
+  'ithtananalor|shelkopolis': {
+    route_note: 'The Ithtananalor overland crossing passes principality boundary posts before the Shelk approach. Intent and patronage are declared at each toll gate.',
+    biomes: ['plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'shirshal|shelkopolis': {
+    route_note: 'Shirshal roads narrow into the Shelk lowlands. House authority ends at the ridge; Shelk patrols begin at the river crossing.',
+    biomes: ['plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'guildheart_hub|shelkopolis': {
+    route_note: 'Union freight lanes run parallel to the Shelk access road. Cargo manifests are checked where the roads converge.',
+    biomes: ['plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'mimolot_academy|shelkopolis': {
+    route_note: 'The Academy descent crosses highland passes before the plains open toward Shelkopolis. Elevation drops sharply at the boundary marker.',
+    biomes: ['highland', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'panim_haven|shelkopolis': {
+    route_note: 'Panim sea lanes connect to the Shelk harbor district. Overland travelers follow the coast road through Shelk customs at port entry.',
+    biomes: ['coastal', 'plains'],
+    route_class: 'mixed',
+    allowed_modes: ['foot','horse','cart','boat']
+  },
+  'sunspire_haven|shelkopolis': {
+    route_note: 'Sunspire descent crosses highland terrain before the road opens toward the Shelk lowlands. Elevation checkpoints mark the boundary.',
+    biomes: ['highland', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
+  },
+  'soreheim_proper|shelkopolis': {
+    route_note: 'The Soreheim approach descends through mountain passes before entering Shelk territorial roads. Allocation transit rules apply at the highland boundary.',
+    biomes: ['mountain', 'highland', 'plains'],
+    route_class: 'overland',
+    allowed_modes: ['foot','horse','cart']
   }
 };
 
