@@ -1,7 +1,7 @@
 /**
  * AURORA CROWN COMMUNE STAGE 2 ENRICHED CHOICES
- * Investigation arc: shell air filtration system / glyph surge residue suppression
- * NPCs: Warden Sera Whiteglass (Shelter-shell Stabilizer Marshal), Mariel Sealwater (Innkeeper),
+ * Investigation arc: dome air filtration system / glyph surge residue suppression
+ * NPCs: Warden Sera Whiteglass (Dome Stabilizer Marshal), Mariel Sealwater (Innkeeper),
  *       Cadrin Sealwater (Market Clerk), Liora Sealwater (Shrine Attendant), Theron Sealwater (Porter)
  */
 
@@ -62,7 +62,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The sensors were changed. The shell still reads safe.",
+    label: "The sensors were changed. The dome still reads safe.",
     plot: 'main',
     tags: ['Investigation', 'Stage2'],
     xpReward: 40,
@@ -72,7 +72,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'investigating shell sensor recalibration with Sera Whiteglass');
+      gainXp(80, 'investigating dome sensor recalibration with Sera Whiteglass');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -85,18 +85,18 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 1;
         G.lastResult = `Sera pulls the calibration log without being asked. She found the change three weeks ago — not a malfunction, the codes were altered deliberately, using Collegium administrative credentials routed through an external access. She points to the timestamp. The sensor suppression has been running since then. Aurora Crown's reported glyph exposure figures go to the broader settlement network at the suppressed rate. On paper the commune reads safe. Sera sets the log on the desk between you and doesn't pick it up again.`;
-        addJournal('Cold-shell sensors recalibrated by Collegium access — filed records suppress exposure data', 'evidence', `aur-sera-${G.dayCount}`);
+        addJournal('Dome sensors recalibrated by Collegium access — filed records suppress exposure data', 'evidence', `aur-sera-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         G.factionHostility.oversight_collegium = (G.factionHostility.oversight_collegium||0) + 1;
-        G.lastResult = `Sera's security protocol classifies any external inquiry into shell sensor calibration as a potential sabotage probe — a distinction you learn only after she's already flagged it. She detains you in the administration anteroom for forty minutes. Identification documentation. Written statement of purpose. Two of her staff present. She sets your written statement on the desk in front of her, smooths it flat with one hand, and does not look at it again while she speaks. She releases you without apology. Your name is now in the cold-shell security log with a protocol flag next to it.`;
-        addJournal('Cold-shell security protocol triggered — brief detention, identification required', 'complication', `aur-sera-fail-${G.dayCount}`);
+        G.lastResult = `Sera's security protocol classifies any external inquiry into dome sensor calibration as a potential sabotage probe — a distinction you learn only after she's already flagged it. She detains you in the administration anteroom for forty minutes. Identification documentation. Written statement of purpose. Two of her staff present. She sets your written statement on the desk in front of her, smooths it flat with one hand, and does not look at it again while she speaks. She releases you without apology. Your name is now in the dome security log with a protocol flag next to it.`;
+        addJournal('Dome security protocol triggered — brief detention, identification required', 'complication', `aur-sera-fail-${G.dayCount}`);
       } else {
         G.flags.met_warden_sera_whiteglass = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = `Sera confirms the irregularities without being told what you already know. "Consistent with external recalibration," she says, pulling a second file. She's been working on the access event since she found it. "Someone changed our baseline readings." She writes something in her log, caps the pen, looks at you. "I don't know why yet. I intend to." She smooths the written statement flat with one hand and does not look at it again. Her jaw is set. She's already moving to the next step before you've left the room.`;
-        addJournal('Cold-shell sensor baseline changed by external access — Sera working the access event', 'evidence', `aur-sera-partial-${G.dayCount}`);
+        addJournal('Dome sensor baseline changed by external access — Sera working the access event', 'evidence', `aur-sera-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -123,8 +123,8 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
 
         addJournal('Filtration supplies contain suppression precursors — Collegium liaison authorizing quarantine bypass', 'evidence', `aur-theron-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Theron pulls up the intake manifest system and hits the classified barrier immediately — quarantine bypass records sit under shell security protocol. He needs Warden Whiteglass's written authorization to access them. He hasn't requested it. He says this with a slight pause that suggests he made a calculation about asking and landed on no. The records are there. Getting into them requires a path through Whiteglass's office.`;
-        addJournal('Quarantine bypass records under shell security — Warden authorization required', 'complication', `aur-theron-fail-${G.dayCount}`);
+        G.lastResult = `Theron pulls up the intake manifest system and hits the classified barrier immediately — quarantine bypass records sit under dome security protocol. He needs Warden Whiteglass's written authorization to access them. He hasn't requested it. He says this with a slight pause that suggests he made a calculation about asking and landed on no. The records are there. Getting into them requires a path through Whiteglass's office.`;
+        addJournal('Quarantine bypass records under dome security — Warden authorization required', 'complication', `aur-theron-fail-${G.dayCount}`);
       } else {
         G.flags.met_theron_sealwater = true;
         G.investigationProgress++;
@@ -153,7 +153,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_cadrin_sealwater = true;
         G.investigationProgress++;
         G.lastResult = `Cadrin runs his finger to the single line item where the entire budget increase lives: "specialized filtration compound procurement." He reads the supplier name aloud: Northern Provision Compact. He checks the approved vendor registry while you watch — it isn't there, and it wasn't in the prior year either. The approval came through the Collegium liaison category, bypassing the vendor registry requirement entirely. Aurora Crown's maintenance budget is funding compound purchases from a supplier that doesn't appear in any filed record.`;
-        addJournal('Cold-shell budget funding Northern Provision Compact — same ghost supplier as Harvest Circle', 'evidence', `aur-cadrin-${G.dayCount}`);
+        addJournal('Dome budget funding Northern Provision Compact — same ghost supplier as Harvest Circle', 'evidence', `aur-cadrin-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = `Cadrin looks up from the ledger counter and explains, without particular inflection, that supply ledger access for external review requires communal finance committee authorization. Your request triggers a committee notification automatically — it's the process. The notification goes out before he finishes the sentence. Someone on the finance committee will know you asked within the hour. He hands you the authorization form and doesn't make eye contact.`;
@@ -162,7 +162,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_cadrin_sealwater = true;
         G.investigationProgress++;
         G.lastResult = `Cadrin confirms the tripling when you set the numbers side by side on the counter. He pulls the prior year ledger to check — the specialized compound category simply didn't exist before. "The supplier name isn't in our approved vendor registry." He checks twice. "Expense was approved at Collegium liaison level." He writes that down in his own notes while he's still holding the thought. He doesn't say anything else, but he doesn't close the ledger either.`;
-        addJournal('Cold-shell budget increase in unregistered supplier category — Collegium liaison approval', 'evidence', `aur-cadrin-partial-${G.dayCount}`);
+        addJournal('Dome budget increase in unregistered supplier category — Collegium liaison approval', 'evidence', `aur-cadrin-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -187,10 +187,10 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.lastResult = `Mariel describes it the way she describes everything about the inn: matter-of-fact, detail-first. "They arrive with Collegium-sealed documents. They leave with different seals." She's noticed it across six visits. The secondary seal is small, geometric — she draws it from memory on the back of a room ledger. It matches the charter pattern exactly. She tears the drawing off and slides it across the counter without being asked. "I notice things," she says. "It's useful."`;
 
-        addJournal('Collegium liaison performs seal swap at shell inn — same charter geometric mark confirmed', 'evidence', `aur-mariel-${G.dayCount}`);
+        addJournal('Collegium liaison performs seal swap at dome inn — same charter geometric mark confirmed', 'evidence', `aur-mariel-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Mariel sets a room key on the counter and straightens the hooks behind her before answering. "There's a standing instruction from shell administration not to discuss Collegium liaison visits with external parties." She meets your eyes once, briefly. "I follow it." The conversation ends there. She goes back to the room ledger. The inn continues around you — cooking smells from the kitchen passage, hammering somewhere in the upper level. She doesn't tell you to leave.`;
-        addJournal('Cold-shell inn standing instruction — Collegium liaison visits not discussable', 'complication', `aur-mariel-fail-${G.dayCount}`);
+        G.lastResult = `Mariel sets a room key on the counter and straightens the hooks behind her before answering. "There's a standing instruction from dome administration not to discuss Collegium liaison visits with external parties." She meets your eyes once, briefly. "I follow it." The conversation ends there. She goes back to the room ledger. The inn continues around you — cooking smells from the kitchen passage, hammering somewhere in the upper level. She doesn't tell you to leave.`;
+        addJournal('Dome inn standing instruction — Collegium liaison visits not discussable', 'complication', `aur-mariel-fail-${G.dayCount}`);
       } else {
         G.flags.met_mariel_sealwater = true;
         G.investigationProgress++;
@@ -224,7 +224,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
         G.lastResult = `Liora lays her petition records alongside the delivery manifest you brought. Six months of data, two columns. Respiratory complaint spikes appear within seventy-two hours of each filtration delivery — every time, without exception — then fall off over the following week as the compound disperses through the ventilation cycle. She traces it with her finger across all six months, slowly, not for your benefit but for her own. "I brought this to the medical board six weeks ago," she says. "They called it seasonal." She looks at the delivery dates again. "It follows the delivery schedule exactly."`;
 
-        addJournal('Cold-shell residents dosed via air supply — respiratory spike 72hrs post-delivery confirmed', 'evidence', `aur-liora-${G.dayCount}`);
+        addJournal('Dome residents dosed via air supply — respiratory spike 72hrs post-delivery confirmed', 'evidence', `aur-liora-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
         G.lastResult = `Liora keeps her hands folded on the shrine counter and explains the doctrine: health petition records are confidential, sharing them with anyone outside the medical board requires board authorization, and she's not going to breach that without it. She says it gently and completely. The shrine is quiet around you, low candles burning at the memorial stone nearby. "Submit a written request to the medical board" is the last thing she tells you. She doesn't move to close the conversation, but she doesn't open it either.`;
@@ -251,11 +251,11 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.flags.met_alis_sealwater = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('The Scribe\'s Undocketed File', 'Alis pulls a slim folder from the back of her lower drawer — not the cabinet, the drawer, where the desk surface would hide it from anyone standing. She sets it on the table and folds her hands on top of it before she opens it. An amendment to the cold-shell filtration maintenance contract, dated four months ago. Signed by the Collegium liaison and countersigned by a name Alis does not recognize. "Undocketed," she says. "I was told to hold it pending formal registry. No one has come back to register it."');
+        addNarration('The Scribe\'s Undocketed File', 'Alis pulls a slim folder from the back of her lower drawer — not the cabinet, the drawer, where the desk surface would hide it from anyone standing. She sets it on the table and folds her hands on top of it before she opens it. An amendment to the dome filtration maintenance contract, dated four months ago. Signed by the Collegium liaison and countersigned by a name Alis does not recognize. "Undocketed," she says. "I was told to hold it pending formal registry. No one has come back to register it."');
         addJournal('Undocketed contract amendment held by commune scribe — Collegium liaison signature, unknown countersignature', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Record Protocol', 'Alis pulls the registry index without urgency, runs her finger down two columns, and closes it. "The document you are describing would require a formal access request to the cold-shell administration archive." She caps her pen. "I can prepare the form now if you would like to submit it." She is not obstructing — this is simply what the process looks like when someone is precise about it. The form is three pages. She sets it on the counter and waits.');
+        addNarration('Record Protocol', 'Alis pulls the registry index without urgency, runs her finger down two columns, and closes it. "The document you are describing would require a formal access request to the dome administration archive." She caps her pen. "I can prepare the form now if you would like to submit it." She is not obstructing — this is simply what the process looks like when someone is precise about it. The form is three pages. She sets it on the counter and waits.');
       }
     }
   },
@@ -271,7 +271,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       var roll = rollD20('vigor', G.skills.vigor);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
-        addNarration('Residue in the Intake Gallery', 'The maintenance gallery runs along the cold-shell\'s lower curve, warm from the thermal conduits packed into the wall behind the paneling. The filtration intake manifold is third on the left — a chest-high unit bolted into the floor, inspection cover accessible without tools. The residue ring inside the intake throat is the wrong color: pale amber where it should be grey-white, with a waxy deposit along the lower seam. The service log clipped to the unit shows the last inspection as routine. Nothing about amber. Nothing about the waxy line.');
+        addNarration('Residue in the Intake Gallery', 'The maintenance gallery runs along the dome\'s lower curve, warm from the thermal conduits packed into the wall behind the paneling. The filtration intake manifold is third on the left — a chest-high unit bolted into the floor, inspection cover accessible without tools. The residue ring inside the intake throat is the wrong color: pale amber where it should be grey-white, with a waxy deposit along the lower seam. The service log clipped to the unit shows the last inspection as routine. Nothing about amber. Nothing about the waxy line.');
         addJournal('Filtration intake manifold — amber residue and waxy deposit inconsistent with standard filtration compounds', 'discovery');
         maybeStageAdvance();
       } else {
@@ -281,7 +281,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The shell flagged my transit record. I'm now a repeat non-compliant on paper.",
+    label: "The dome flagged my transit record. I'm now a repeat non-compliant on paper.",
     tags: ['stage2', 'aurora_crown_commune'],
     xpReward: 30,
     fn: function() {
@@ -293,11 +293,11 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         addNarration('Screening Queue, Side Gate', 'The side gate queue moves faster and the steward running it is younger — checking transit stamps without reading the names above them. The contamination-check notation on your record is a secondary flag, not a primary hold; it only surfaces if the steward cross-references the transit log against the daily alert sheet. This one does not. You are through in four minutes. Behind you, another steward at the main gate is going sheet by sheet. The two queues are twenty meters apart and processing the same list by different methods.');
-        addJournal('Transit flag workaround — shell intake screening inconsistently applied between entry gates', 'intelligence');
+        addJournal('Transit flag workaround — dome intake screening inconsistently applied between entry gates', 'intelligence');
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addNarration('Secondary Hold', 'The contamination-check flag pulls you to the secondary screening bay — a narrow room off the main corridor with two benches and a Cold-shell Steward at a standing desk. She reads the transit log entry twice, notes the flag, and writes your name in the daily hold register before she looks up. "You\'ll need to account for your last three entry points." A formal notation goes into your transit record while you stand there. It will be visible at every shell checkpoint until a steward manually clears it.');
+        addNarration('Secondary Hold', 'The contamination-check flag pulls you to the secondary screening bay — a narrow room off the main corridor with two benches and a Dome Steward at a standing desk. She reads the transit log entry twice, notes the flag, and writes your name in the daily hold register before she looks up. "You\'ll need to account for your last three entry points." A formal notation goes into your transit record while you stand there. It will be visible at every dome checkpoint until a steward manually clears it.');
       }
     }
   },
@@ -316,7 +316,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Foreman Bastian logged skipped-inspection deliveries on rotation board — liaison authorization on record', 'evidence');
         maybeStageAdvance();
       } else {
-        addNarration('Wrong Register at the Rotation Board', 'Bastian straightens from the rotation board before you reach him, left thumb going still against his wrist. "Gallery crews get briefed by shell administration on what they can discuss with outside parties." His tone is even, schedule-bound, unhappy. "This is a rotation morning. I have four crews to brief in twenty minutes." He doesn\'t tell you to leave the anteroom. He does turn his shoulder and go back to the board. A labor scribe at a side desk watches the exchange without writing anything down — which means she is watching carefully.');
+        addNarration('Wrong Register at the Rotation Board', 'Bastian straightens from the rotation board before you reach him, left thumb going still against his wrist. "Gallery crews get briefed by dome administration on what they can discuss with outside parties." His tone is even, schedule-bound, unhappy. "This is a rotation morning. I have four crews to brief in twenty minutes." He doesn\'t tell you to leave the anteroom. He does turn his shoulder and go back to the board. A labor scribe at a side desk watches the exchange without writing anything down — which means she is watching carefully.');
       }
     }
   },
@@ -331,7 +331,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
-        addNarration('Ration Court, Mid-Distribution', 'The ration court is loud at mid-distribution — warm from bodies, sharp with the smell of lentil steam and wet wool. Two women at the grain line are halfway through a version of the story that has the liaison swapping seals at the inn: already garbled, already spreading. A shelter shell steward twenty paces away is listening without turning her head, a cup halfway to her mouth. The rumor has outrun the evidence. The liaison will hear a ration-court version within the day, and whatever they do next will be pre-emptive.');
+        addNarration('Ration Court, Mid-Distribution', 'The ration court is loud at mid-distribution — warm from bodies, sharp with the smell of lentil steam and wet wool. Two women at the grain line are halfway through a version of the story that has the liaison swapping seals at the inn: already garbled, already spreading. A dome steward twenty paces away is listening without turning her head, a cup halfway to her mouth. The rumor has outrun the evidence. The liaison will hear a ration-court version within the day, and whatever they do next will be pre-emptive.');
         addJournal('Liaison rumor spreading through ration court — shelter stewards monitoring, pre-emptive response likely', 'intelligence');
         maybeStageAdvance();
       } else {
@@ -385,7 +385,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         addHeat('shelk', 1);
-        G.lastResult = `The procurement file sits in the cold-shell administration archive under a classification tier that requires Sera's own counter-authorization to access — a protocol she put in place after the quarantine bypass anomalies. She initiates the authorization while you watch, which generates a security log entry for the archive access. Someone auditing the shelter shell's archive activity will see it. The file will take until the following morning to clear. She notes the time. You note the log.`;
+        G.lastResult = `The procurement file sits in the dome administration archive under a classification tier that requires Sera's own counter-authorization to access — a protocol she put in place after the quarantine bypass anomalies. She initiates the authorization while you watch, which generates a security log entry for the archive access. Someone auditing the dome's archive activity will see it. The file will take until the following morning to clear. She notes the time. You note the log.`;
         addJournal('Procurement archive access flagged — security log entry generated', 'complication', `aur-sera-supplier-fail-${G.dayCount}`);
       } else {
         G.flags.met_warden_sera_whiteglass = true;
@@ -457,7 +457,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Theron logged Class-C chemical crate movements to east bay at third bell — aware of compound class', 'evidence', `aur-theron-crates-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Theron's response is simple and immediate: he received a porter briefing from shell administration at the start of the month covering what discussions about cargo movement are permitted with external parties. That briefing included the third-bell crates. He names it without tension, the way he might name a departure time. He will not discuss it further. He goes back to his routing board, picks up a pencil, and resumes marking. He was not rude. He will not help.`;
+        G.lastResult = `Theron's response is simple and immediate: he received a porter briefing from dome administration at the start of the month covering what discussions about cargo movement are permitted with external parties. That briefing included the third-bell crates. He names it without tension, the way he might name a departure time. He will not discuss it further. He goes back to his routing board, picks up a pencil, and resumes marking. He was not rude. He will not help.`;
         addJournal('Theron briefed by administration — third-bell cargo off-limits to external discussion', 'complication', `aur-theron-crates-fail-${G.dayCount}`);
       } else {
         G.flags.met_theron_sealwater = true;
@@ -492,7 +492,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
         addHeat('shelk', 1);
-        G.lastResult = `The quarter near the filtration access is small enough that a stranger moving through it at an off-hour is noticed before they reach the address. A shelter shell steward falls in behind you two blocks out — routine, unhurried, but consistent. When you reach the technician's residence the door doesn't open. The following morning a notation appears in the cold-shell administration visitor log: external party, filtration quarters, unannounced, evening hours. Someone added a cross-reference to your name at the cold-shell checkpoint.`;
+        G.lastResult = `The quarter near the filtration access is small enough that a stranger moving through it at an off-hour is noticed before they reach the address. A dome steward falls in behind you two blocks out — routine, unhurried, but consistent. When you reach the technician's residence the door doesn't open. The following morning a notation appears in the dome administration visitor log: external party, filtration quarters, unannounced, evening hours. Someone added a cross-reference to your name at the dome checkpoint.`;
         addJournal('Filtration quarters patrol noted — steward surveillance triggered, visitor log entry created', 'complication', `aur-tech-fail-${G.dayCount}`);
       } else {
         G.flags.aurora_dismissed_technician_found = true;
@@ -514,7 +514,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing shell sealant surplus via Cadrin Sealwater market supply ledger');
+      gainXp(68, 'tracing dome sealant surplus via Cadrin Sealwater market supply ledger');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -523,25 +523,25 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_cadrin_sealwater = true;
         G.flags.aurora_sealant_surplus_traced = true;
         G.investigationProgress++;
-        G.lastResult = `Cadrin lays the purchase record and the maintenance inventory side by side on the counter. The shell sealant purchase — four months ago, quantity sufficient for a decade of standard maintenance — shows a delivery address in the commune's maintenance stores. The current inventory shows three months of standard supply. The gap between purchased and present is nine-tenths of the original order. Cadrin runs the arithmetic twice. "It was received," he says. "Signed and received. Then it moved." He checks the transfer log. There is no outbound entry. "Whatever it moved into, it moved off the books."`;
-        addJournal('Cold-shell sealant surplus received and logged — nine-tenths transferred off-book, no outbound record', 'evidence', `aur-cadrin-sealant-${G.dayCount}`);
+        G.lastResult = `Cadrin lays the purchase record and the maintenance inventory side by side on the counter. The dome sealant purchase — four months ago, quantity sufficient for a decade of standard maintenance — shows a delivery address in the commune's maintenance stores. The current inventory shows three months of standard supply. The gap between purchased and present is nine-tenths of the original order. Cadrin runs the arithmetic twice. "It was received," he says. "Signed and received. Then it moved." He checks the transfer log. There is no outbound entry. "Whatever it moved into, it moved off the books."`;
+        addJournal('Dome sealant surplus received and logged — nine-tenths transferred off-book, no outbound record', 'evidence', `aur-cadrin-sealant-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         addHeat('shelk', 1);
-        G.lastResult = `The finance committee notification went out when you accessed the main supply ledger earlier. When you pull the cold-shell sealant line item separately, a second notification generates automatically — two external access events in the same ledger category triggers an escalation flag. Cadrin shows you the escalation notice on his screen with the expression of someone who has now been involved in something he didn't choose. "The committee chair will have this before the end of the day," he says. He closes the ledger.`;
+        G.lastResult = `The finance committee notification went out when you accessed the main supply ledger earlier. When you pull the dome sealant line item separately, a second notification generates automatically — two external access events in the same ledger category triggers an escalation flag. Cadrin shows you the escalation notice on his screen with the expression of someone who has now been involved in something he didn't choose. "The committee chair will have this before the end of the day," he says. He closes the ledger.`;
         addJournal('Second ledger access triggered escalation flag — finance committee chair notified', 'complication', `aur-cadrin-sealant-fail-${G.dayCount}`);
       } else {
         G.flags.met_cadrin_sealwater = true;
         G.investigationProgress++;
         G.lastResult = `Cadrin finds the sealant purchase in thirty seconds — a line item that size is not easy to miss once you know to look. He checks the maintenance inventory without being asked. "Received and signed for four months ago. Current stores hold about a month's worth of normal use." He does the subtraction on the ledger margin, pencil, no calculator. "The rest isn't in any maintenance record." He underlines the number. "If it was moved, it was moved without a transfer entry." He does not speculate about where it went.`;
-        addJournal('Cold-shell sealant bulk purchase confirmed — surplus absent from all maintenance records', 'intelligence', `aur-cadrin-sealant-partial-${G.dayCount}`);
+        addJournal('Dome sealant bulk purchase confirmed — surplus absent from all maintenance records', 'intelligence', `aur-cadrin-sealant-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
   {
-    label: "The liaison's credential ran inside the cold-shell on days the liaison wasn't here.",
+    label: "The liaison's credential ran inside the dome on days the liaison wasn't here.",
     plot: 'main',
     tags: ['Stage2', 'NPC', 'Lore'],
     xpReward: 40,
@@ -551,7 +551,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'cross-referencing liaison credential access history in shell archive');
+      gainXp(68, 'cross-referencing liaison credential access history in dome archive');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -560,17 +560,17 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_credential_ghost_access = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The shell archive access log shows sixteen credential uses attributed to the Collegium liaison over four months. You pull the liaison's recorded visit schedule from the transit intake register — Mariel's inn booking dates. The credential was used on eleven days when the liaison was not in the commune. Someone inside the cold-shell is operating under the liaison's access code. You copy both columns side by side. The gap between arrival dates and credential activity is not accidental. The insider has been running administrative changes between visits.`;
+        G.lastResult = `The dome archive access log shows sixteen credential uses attributed to the Collegium liaison over four months. You pull the liaison's recorded visit schedule from the transit intake register — Mariel's inn booking dates. The credential was used on eleven days when the liaison was not in the commune. Someone inside the dome is operating under the liaison's access code. You copy both columns side by side. The gap between arrival dates and credential activity is not accidental. The insider has been running administrative changes between visits.`;
         addJournal('Liaison credential used on days liaison absent — insider operating under borrowed access code', 'evidence', `aur-cred-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         addHeat('shelk', 1);
-        G.lastResult = `The archive access log sits behind the cold-shell security classification tier — the same tier Sera's authorization unlocked for you once already. Pulling it a second time from a different entry point generates a duplicate access flag. The security system marks the pattern as anomalous. A log entry is created, timestamped, and routed to Sera's security queue. She will see it by morning. Whether she reads it as your diligence or your overreach depends on what she already thinks of you.`;
+        G.lastResult = `The archive access log sits behind the dome security classification tier — the same tier Sera's authorization unlocked for you once already. Pulling it a second time from a different entry point generates a duplicate access flag. The security system marks the pattern as anomalous. A log entry is created, timestamped, and routed to Sera's security queue. She will see it by morning. Whether she reads it as your diligence or your overreach depends on what she already thinks of you.`;
         addJournal('Duplicate archive access flag generated — Sera notified via security queue', 'complication', `aur-cred-fail-${G.dayCount}`);
       } else {
         G.flags.aurora_credential_ghost_access = true;
         G.investigationProgress++;
-        G.lastResult = `The access log shows credential activity attributed to the liaison on dates that don't line up with the inn's booking record. The discrepancy is three days across four months — narrow enough to miss without both records side by side. You note the dates. Someone with the liaison's credential code made archive changes between visits. The log doesn't record who held the physical access key. That answer is somewhere else in the cold-shell.`;
+        G.lastResult = `The access log shows credential activity attributed to the liaison on dates that don't line up with the inn's booking record. The discrepancy is three days across four months — narrow enough to miss without both records side by side. You note the dates. Someone with the liaison's credential code made archive changes between visits. The log doesn't record who held the physical access key. That answer is somewhere else in the dome.`;
         addJournal('Liaison credential active between visits — 3-day access discrepancy confirmed', 'intelligence', `aur-cred-partial-${G.dayCount}`);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -600,8 +600,8 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Condensate lines route filtration compounds into potable water system — systemic exposure via thermal junction', 'evidence', `aur-orvyn-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Orvyn listens to the question, then sets his clipboard on the condensate manifold housing and folds his hands on top of it. "Water distribution infrastructure queries from external parties go through the cold-shell safety committee." He says it without inflection — the same voice he uses when a valve reading is slightly off. "I'll need a committee referral in writing before I can show you the schematic." The referral process takes three working days. He writes the committee clerk's name on a slip of paper and hands it to you. He is entirely unhelpful and entirely correct.`;
-        addJournal('Condensate schematic blocked — shell safety committee referral required', 'complication', `aur-orvyn-fail-${G.dayCount}`);
+        G.lastResult = `Orvyn listens to the question, then sets his clipboard on the condensate manifold housing and folds his hands on top of it. "Water distribution infrastructure queries from external parties go through the dome safety committee." He says it without inflection — the same voice he uses when a valve reading is slightly off. "I'll need a committee referral in writing before I can show you the schematic." The referral process takes three working days. He writes the committee clerk's name on a slip of paper and hands it to you. He is entirely unhelpful and entirely correct.`;
+        addJournal('Condensate schematic blocked — dome safety committee referral required', 'complication', `aur-orvyn-fail-${G.dayCount}`);
       } else {
         G.flags.met_orvyn_mast = true;
         G.investigationProgress++;
@@ -672,8 +672,8 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         addHeat('shelk', 1);
-        G.lastResult = `Pella pulls the entry log and reads through the Collegium liaison visits before she responds. "Collegium-credentialed parties have transit protocol privacy status under shell security agreement." She closes the log. "I cannot share transit records for credentialed parties without a shelter shell security officer's written release." She marks your request in the transit inquiry ledger with a time and a date. The inquiry notation will be visible to shell security when they review the day's log. It is not a threat. It is simply how the system works.`;
-        addJournal('Liaison transit records protected — shell security privacy protocol, written release required', 'complication', `aur-pella-fail-${G.dayCount}`);
+        G.lastResult = `Pella pulls the entry log and reads through the Collegium liaison visits before she responds. "Collegium-credentialed parties have transit protocol privacy status under dome security agreement." She closes the log. "I cannot share transit records for credentialed parties without a dome security officer's written release." She marks your request in the transit inquiry ledger with a time and a date. The inquiry notation will be visible to dome security when they review the day's log. It is not a threat. It is simply how the system works.`;
+        addJournal('Liaison transit records protected — dome security privacy protocol, written release required', 'complication', `aur-pella-fail-${G.dayCount}`);
       } else {
         G.flags.met_pella_greave = true;
         G.investigationProgress++;
@@ -729,7 +729,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'tracing dismissed technician anomaly reports through shell administrative system');
+      gainXp(68, 'tracing dismissed technician anomaly reports through dome administrative system');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -738,12 +738,12 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_anomaly_reports_traced = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = `The shell maintenance incident register holds both reports — filed, timestamped, and classified downward from anomaly to routine maintenance variance within forty-eight hours of each submission. Both reclassifications carry the same authorization code: the Collegium liaison's administrative access credential. The reclassification stripped the reports of their anomaly status before any review could be triggered, then filed them in the variance archive where they would not surface in the active maintenance log. The technician who filed them was dismissed four days after the second report. Her dismissal paperwork cites inadequate record-keeping. Both reports are detailed, organized, and correct.`;
+        G.lastResult = `The dome maintenance incident register holds both reports — filed, timestamped, and classified downward from anomaly to routine maintenance variance within forty-eight hours of each submission. Both reclassifications carry the same authorization code: the Collegium liaison's administrative access credential. The reclassification stripped the reports of their anomaly status before any review could be triggered, then filed them in the variance archive where they would not surface in the active maintenance log. The technician who filed them was dismissed four days after the second report. Her dismissal paperwork cites inadequate record-keeping. Both reports are detailed, organized, and correct.`;
         addJournal('Both anomaly reports reclassified by liaison credential — dismissed four days after second filing, reports accurate', 'evidence', `aur-reports-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The maintenance incident register requires a shelter shell administration access code to query historical reports — the live queue is open, but anything older than the current quarter sits behind an archive tier. Accessing the archive tier from an external party terminal flags the access in the administrative audit log. You get three entries into the archive tier before the terminal session auto-terminates and generates a notification for shell administration. The reports are in there. Getting to them from here just told someone you were looking.`;
-        addJournal('Archive tier access flagged — shell administration notified of external terminal query', 'complication', `aur-reports-fail-${G.dayCount}`);
+        G.lastResult = `The maintenance incident register requires a dome administration access code to query historical reports — the live queue is open, but anything older than the current quarter sits behind an archive tier. Accessing the archive tier from an external party terminal flags the access in the administrative audit log. You get three entries into the archive tier before the terminal session auto-terminates and generates a notification for dome administration. The reports are in there. Getting to them from here just told someone you were looking.`;
+        addJournal('Archive tier access flagged — dome administration notified of external terminal query', 'complication', `aur-reports-fail-${G.dayCount}`);
       } else {
         G.flags.aurora_anomaly_reports_traced = true;
         G.investigationProgress++;
@@ -764,7 +764,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'talking to shell labor representative Sovan Drest about filtration worker reassignments');
+      gainXp(68, 'talking to dome labor representative Sovan Drest about filtration worker reassignments');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
@@ -777,7 +777,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Four workers rotated off intake section with hazard bonuses — paid to stop noticing the anomaly', 'evidence', `aur-sovan-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `Sovan listens to the question and the answer arrives before you finish asking it: "Worker rotation records are between the cold-shell labor office and the individual workers." He straightens a notice on the board without turning. "I represent the workers. I don't share their labor records with outside parties without their consent." He's not hostile. He's not going to move. Labor representation in Aurora Crown runs on one rule and he just stated it. He goes back to the board. Whatever he knows stays with him until someone he trusts brings it out.`;
+        G.lastResult = `Sovan listens to the question and the answer arrives before you finish asking it: "Worker rotation records are between the dome labor office and the individual workers." He straightens a notice on the board without turning. "I represent the workers. I don't share their labor records with outside parties without their consent." He's not hostile. He's not going to move. Labor representation in Aurora Crown runs on one rule and he just stated it. He goes back to the board. Whatever he knows stays with him until someone he trusts brings it out.`;
         addJournal('Labor representative declined to share rotation records — worker consent required', 'complication', `aur-sovan-fail-${G.dayCount}`);
       } else {
         G.flags.met_sovan_drest = true;
@@ -803,11 +803,11 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.isCrit) {
         G.flags.aurora_fleet_marks_traced = true;
         G.investigationProgress++;
-        G.lastResult = `The shell exterior intake bay has a vehicle log nailed to the post at the access road junction — Theron's work, a pencil habit nobody authorized. The last six delivery vehicles are listed by arrival time, driver count, and a notation Theron made of the fleet marks. You run the marks against the transport registry at the commune's market counter. None of them are registered to Northern Provision Compact. Three are registered to a haulage company based out of Cosmouth. Two have no registry entry at all. The vehicles arriving as Northern Provision Compact deliveries belong to other entities entirely — or to nothing.`;
+        G.lastResult = `The dome exterior intake bay has a vehicle log nailed to the post at the access road junction — Theron's work, a pencil habit nobody authorized. The last six delivery vehicles are listed by arrival time, driver count, and a notation Theron made of the fleet marks. You run the marks against the transport registry at the commune's market counter. None of them are registered to Northern Provision Compact. Three are registered to a haulage company based out of Cosmouth. Two have no registry entry at all. The vehicles arriving as Northern Provision Compact deliveries belong to other entities entirely — or to nothing.`;
         addJournal('Delivery fleet marks traced — vehicles registered to Cosmouth haulage company or unregistered, not Northern Provision Compact', 'evidence', `aur-fleet-${G.dayCount}`);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = `The intake bay access road runs along the cold-shell exterior — outside the main gate, which means outside the cold-shell security perimeter. A pair of men in Collegium-marked coats are running a vehicle check at the access road junction when you arrive, positioned where they would see anyone approaching the bay from the settlement side. They don't stop you. They don't need to. You came from the direction they were watching and they logged the time before you turned back. They are still at the junction when you reach the main gate.`;
+        G.lastResult = `The intake bay access road runs along the dome exterior — outside the main gate, which means outside the dome security perimeter. A pair of men in Collegium-marked coats are running a vehicle check at the access road junction when you arrive, positioned where they would see anyone approaching the bay from the settlement side. They don't stop you. They don't need to. You came from the direction they were watching and they logged the time before you turned back. They are still at the junction when you reach the main gate.`;
         addJournal('Collegium personnel monitoring intake bay access road — approach logged', 'complication', `aur-fleet-fail-${G.dayCount}`);
       } else {
         G.flags.aurora_fleet_marks_traced = true;
@@ -830,7 +830,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(80, 'connecting shell dosing method to Resonance Compact pre-suppression documentation');
+      gainXp(80, 'connecting dome dosing method to Resonance Compact pre-suppression documentation');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags.arcane_contact_2) {
@@ -843,8 +843,8 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.stage2_faction_contact_made = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The dismissed technician\'s log describes the compound profile in precise field notation — compound class, intake concentration curve, dispersal rate through the cold-shell\'s ventilation cycle. You set the Compact\'s pre-classification research notes beside it. The match is exact: not approximate, not similar. The same delivery method the Compact developed to map population glyph sensitivity for protective purposes is being run here in reverse, as an exposure protocol. The technician reads the comparison without speaking for a long time. Then she pulls a name from memory: a Compact operative still working in the northern circuit who would recognize this as her organization\'s own method being used against the people it was built to protect.';
-        addJournal('Cold-shell dosing method matches Resonance Compact protective protocol exactly — Compact operative identified, willing to act', 'contact_made');
+        G.lastResult = 'The dismissed technician\'s log describes the compound profile in precise field notation — compound class, intake concentration curve, dispersal rate through the dome\'s ventilation cycle. You set the Compact\'s pre-classification research notes beside it. The match is exact: not approximate, not similar. The same delivery method the Compact developed to map population glyph sensitivity for protective purposes is being run here in reverse, as an exposure protocol. The technician reads the comparison without speaking for a long time. Then she pulls a name from memory: a Compact operative still working in the northern circuit who would recognize this as her organization\'s own method being used against the people it was built to protect.';
+        addJournal('Dome dosing method matches Resonance Compact protective protocol exactly — Compact operative identified, willing to act', 'contact_made');
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
         G.lastResult = 'The comparison requires access to the Compact\'s original documentation, and the only copy available here is incomplete — field notes without the full protocol specification. The match is suggestive but not demonstrable. Someone at the shelter stewardship level has also noticed the research materials spread across the technician\'s table; a note goes into the visitor log before you have packed them away.';
@@ -852,14 +852,14 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       } else {
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         G.lastResult = 'The compound profile in the technician\'s log is consistent with a Compact-documented dispersal method — the concentration curve follows the same shape, the ventilation-cycle timing matches. Consistent is not identical, and the Compact\'s original documentation is not accessible here in full. But the technician examines the field notes and says, quietly, that she has seen the intake behavior before in a research context she does not name. The connection is there. It is not yet closeable.';
-        addJournal('Cold-shell intake profile consistent with Compact dispersal method — technician confirms pattern without naming source', 'evidence');
+        addJournal('Dome intake profile consistent with Compact dispersal method — technician confirms pattern without naming source', 'evidence');
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
   {
-    label: "The evidence is complete. The shell is being dosed. Time to move.",
+    label: "The evidence is complete. The dome is being dosed. Time to move.",
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
@@ -870,7 +870,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(110, 'Aurora Crown Commune Stage 2 resolution');
       if (!G.investigationProgress || G.investigationProgress < 8) {
-        G.lastResult = `The evidence chain isn't complete yet. Acting on the cold-shell system now, without the full documentation, leaves too many gaps for the delivery contract to survive a challenge. More is needed before the next move. The meeting house holds the woodsmoke from the morning's council session — the collective governance of Aurora Crown doesn't act on incomplete information, and that same standard applies here. A partial presentation gives the Collegium liaison room to dismiss the claim before the full record is assembled.`;
+        G.lastResult = `The evidence chain isn't complete yet. Acting on the dome system now, without the full documentation, leaves too many gaps for the delivery contract to survive a challenge. More is needed before the next move. The meeting house holds the woodsmoke from the morning's council session — the collective governance of Aurora Crown doesn't act on incomplete information, and that same standard applies here. A partial presentation gives the Collegium liaison room to dismiss the claim before the full record is assembled.`;
         G.recentOutcomeType = 'partial'; return;
       }
       if (!G.worldClocks) G.worldClocks = {};
@@ -879,7 +879,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
-        G.lastResult = `You lay the full evidence chain on Sera Whiteglass's desk: sensor recalibration logs, intake quarantine bypasses, budget line items, health petition correlations, the seal drawing from Mariel. Sera reads through it without speaking. When she finishes she places the last document face-down on top of the stack and sets her pen across it — deliberate, done. She picks up the duty phone and issues a suspension of all filtration maintenance deliveries under emergency shell security authority. Then she initiates a formal Oversight Collegium complaint in writing, dated and signed before she hands it to the duty clerk. "The liaison's access to Aurora Crown administrative systems is revoked as of this moment," she says.`;
+        G.lastResult = `You lay the full evidence chain on Sera Whiteglass's desk: sensor recalibration logs, intake quarantine bypasses, budget line items, health petition correlations, the seal drawing from Mariel. Sera reads through it without speaking. When she finishes she places the last document face-down on top of the stack and sets her pen across it — deliberate, done. She picks up the duty phone and issues a suspension of all filtration maintenance deliveries under emergency dome security authority. Then she initiates a formal Oversight Collegium complaint in writing, dated and signed before she hands it to the duty clerk. "The liaison's access to Aurora Crown administrative systems is revoked as of this moment," she says.`;
         addJournal('Aurora Crown S2 finale: Whiteglass emergency suspension, Collegium liaison removed', 'evidence', `aur-finale-inst-${G.dayCount}`);
       } else {
         G.flags.stage2_finale_underworld = true;
@@ -904,8 +904,8 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'calendar gap anomaly');
-      G.lastResult = 'The ritual calendar is maintained in the cold-shell archive — precise, continuous, going back fifteen cycles. Every observance period is logged: preparation, peak, close. One period is absent entirely. The surrounding entries continue without notation. There is no cancellation record, no postponement, no explanation. The gap is the right duration for the period that should be there. The calendar simply skips it, as if the observance never existed.';
-      addJournal('Aurora Crown Commune ritual calendar shows a missing observance period — no cancellation or postponement recorded, surrounding entries uninterrupted. Source: Aurora Crown shell archive.', 'evidence', `aur-cal-gap-${G.dayCount}`);
+      G.lastResult = 'The ritual calendar is maintained in the dome archive — precise, continuous, going back fifteen cycles. Every observance period is logged: preparation, peak, close. One period is absent entirely. The surrounding entries continue without notation. There is no cancellation record, no postponement, no explanation. The gap is the right duration for the period that should be there. The calendar simply skips it, as if the observance never existed.';
+      addJournal('Aurora Crown Commune ritual calendar shows a missing observance period — no cancellation or postponement recorded, surrounding entries uninterrupted. Source: Aurora Crown dome archive.', 'evidence', `aur-cal-gap-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
@@ -913,7 +913,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: 'The shell keeper deflects questions about the missing period',
+    label: 'The dome keeper deflects questions about the missing period',
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
@@ -922,9 +922,9 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(15, 'shell keeper deflection');
-      G.lastResult = 'She knows which period you mean before you finish naming it. Her answer is about the cold-shell\'s light-indexing system — how the apertures are calibrated, how each cycle\'s records feed the next cycle\'s alignment. It is accurate and detailed and has nothing to do with what you asked. She does not say there is nothing unusual. She does not say the period existed. She answers the question she prefers you to have asked.';
-      addJournal('Aurora Crown shell keeper gave a detailed deflection about light-indexing when asked about the missing observance period. Source: Aurora Crown shell archive, keeper\'s office.', 'intelligence', `aur-keeper-deflect-${G.dayCount}`);
+      gainXp(15, 'dome keeper deflection');
+      G.lastResult = 'She knows which period you mean before you finish naming it. Her answer is about the dome\'s light-indexing system — how the apertures are calibrated, how each cycle\'s records feed the next cycle\'s alignment. It is accurate and detailed and has nothing to do with what you asked. She does not say there is nothing unusual. She does not say the period existed. She answers the question she prefers you to have asked.';
+      addJournal('Aurora Crown dome keeper gave a detailed deflection about light-indexing when asked about the missing observance period. Source: Aurora Crown dome archive, keeper\'s office.', 'intelligence', `aur-keeper-deflect-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       maybeStageAdvance();
     }
@@ -942,8 +942,8 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'observation gap correlation');
-      G.lastResult = 'The shell\'s observational records and the ritual calendar are kept separately, cross-referenced by date. The observation records for the missing period are there — nightly entries, aperture readings, alignment notes. But they are not cross-referenced to any ritual entry. The observation continued. The ritual did not. Whatever happened during that period was observed but not marked. The shell was watching. The calendar was told to look away.';
-      addJournal('Aurora Crown celestial observation records continue through the missing calendar period with no ritual cross-reference — the cold-shell observed, but the period was not marked. Source: Aurora Crown observation archive.', 'evidence', `aur-obs-gap-${G.dayCount}`);
+      G.lastResult = 'The dome\'s observational records and the ritual calendar are kept separately, cross-referenced by date. The observation records for the missing period are there — nightly entries, aperture readings, alignment notes. But they are not cross-referenced to any ritual entry. The observation continued. The ritual did not. Whatever happened during that period was observed but not marked. The dome was watching. The calendar was told to look away.';
+      addJournal('Aurora Crown celestial observation records continue through the missing calendar period with no ritual cross-reference — the dome observed, but the period was not marked. Source: Aurora Crown observation archive.', 'evidence', `aur-obs-gap-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
@@ -951,7 +951,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: 'Administrative filings cite the cold-shell calendar as their timing reference',
+    label: 'Administrative filings cite the dome calendar as their timing reference',
     plot: 'main',
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
@@ -961,9 +961,9 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(25, 'shell calendar timing reference');
-      G.lastResult = 'The shell calendar is public — the commune uses it for everything. Cross-referencing dates: an administrative filing elsewhere cites an Aurora Crown observance date as its effective date. Not a guild date. Not a seasonal date. A specific light-calendar observance from the cold-shell. Someone used Aurora Crown\'s ritual calendar as the timing mechanism for an administrative action taken somewhere else. The missing observance period corresponds to a filing that has no effective date recorded.';
-      addJournal('An external administrative filing uses Aurora Crown shell calendar dates as timing reference — the missing observance period corresponds to a filing with no effective date. Source: Aurora Crown archive, cross-reference research.', 'evidence', `aur-cal-timing-${G.dayCount}`);
+      gainXp(25, 'dome calendar timing reference');
+      G.lastResult = 'The dome calendar is public — the commune uses it for everything. Cross-referencing dates: an administrative filing elsewhere cites an Aurora Crown observance date as its effective date. Not a guild date. Not a seasonal date. A specific light-calendar observance from the dome. Someone used Aurora Crown\'s ritual calendar as the timing mechanism for an administrative action taken somewhere else. The missing observance period corresponds to a filing that has no effective date recorded.';
+      addJournal('An external administrative filing uses Aurora Crown dome calendar dates as timing reference — the missing observance period corresponds to a filing with no effective date. Source: Aurora Crown archive, cross-reference research.', 'evidence', `aur-cal-timing-${G.dayCount}`);
       G.recentOutcomeType = 'success';
       G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
       maybeStageAdvance();
@@ -971,12 +971,12 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
 
-  // ── SHELL FILTRATION RECORDS & GLYPH SURGE DATA (5) ──────────────────────────
+  // ── DOME FILTRATION RECORDS & GLYPH SURGE DATA (5) ──────────────────────────
 
   {
     label: "The glyph surge log skips three entries. The intake was active those days.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Lore'],
+    tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
@@ -997,7 +997,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Glyph surge log missing 3 entries — intake active on all three days, physical log intact and unaltered', 'evidence', 'aur-surge-gap-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The stabilizer corridor terminal requires a shell maintenance access code for archive queries — a code your current clearance level does not include. The access attempt registers in the terminal audit log before the denial screen appears. A shelter shell steward at the far end of the corridor looks up from her clipboard. She does not approach. She writes something down. The terminal logs a failed external access attempt with your transit stamp attached.';
+        G.lastResult = 'The stabilizer corridor terminal requires a dome maintenance access code for archive queries — a code your current clearance level does not include. The access attempt registers in the terminal audit log before the denial screen appears. A dome steward at the far end of the corridor looks up from her clipboard. She does not approach. She writes something down. The terminal logs a failed external access attempt with your transit stamp attached.';
         addJournal('Surge terminal access denied — failed attempt logged with transit stamp', 'complication', 'aur-surge-gap-fail-' + G.dayCount);
       } else {
         G.flags.aurora_surge_log_gap_traced = true;
@@ -1011,13 +1011,13 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The filtration cycle timer was extended. The air stayed in the cold-shell longer.",
+    label: "The filtration cycle timer was extended. The air stayed in the dome longer.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Survival'],
+    tags: ['Dome', 'Stage2', 'Survival'],
     xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(71, 'examining filtration cycle timer extension records in the cold-shell stabilizer corridor');
+      gainXp(71, 'examining filtration cycle timer extension records in the dome stabilizer corridor');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1026,7 +1026,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_cycle_timer_extended = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The cycle timer panel in the eastern filtration corridor shows its full parameter history on the interior maintenance display — a feature intended for calibration audits that no one has used for that purpose in months. Four months ago, the recirculation dwell time was extended from ninety minutes to two hundred and forty minutes. The change is logged under a Collegium technical services code. A longer dwell time means any compound entering the intake circulates through the cold-shell\'s air supply for nearly three times as long before venting. The amber residue ring inside the intake throat makes a different kind of sense now.';
+        G.lastResult = 'The cycle timer panel in the eastern filtration corridor shows its full parameter history on the interior maintenance display — a feature intended for calibration audits that no one has used for that purpose in months. Four months ago, the recirculation dwell time was extended from ninety minutes to two hundred and forty minutes. The change is logged under a Collegium technical services code. A longer dwell time means any compound entering the intake circulates through the dome\'s air supply for nearly three times as long before venting. The amber residue ring inside the intake throat makes a different kind of sense now.';
         addJournal('Cycle timer extended from 90min to 240min dwell — Collegium code, compound exposure tripled per cycle', 'evidence', 'aur-cycle-timer-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1046,7 +1046,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The residue concentration readings are filed monthly. The last three were identical.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Craft'],
+    tags: ['Dome', 'Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
@@ -1054,7 +1054,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(68, 'comparing monthly glyph residue concentration reports in shell maintenance archive');
+      gainXp(68, 'comparing monthly glyph residue concentration reports in dome maintenance archive');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1067,7 +1067,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Residue concentration reports cloned for 3 months — sensor data not reaching archive, readings fabricated', 'evidence', 'aur-residue-clone-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The residue concentration archive requires the same authorization tier as the sensor calibration records — Sera\'s access code, already used once this week. A second pull on the same access tier within seven days generates an internal compliance notification. Sera will see it by morning. You close the terminal before the notification completes generating. It generates anyway. The shell administration audit log has timestamped the access attempt regardless.';
+        G.lastResult = 'The residue concentration archive requires the same authorization tier as the sensor calibration records — Sera\'s access code, already used once this week. A second pull on the same access tier within seven days generates an internal compliance notification. Sera will see it by morning. You close the terminal before the notification completes generating. It generates anyway. The dome administration audit log has timestamped the access attempt regardless.';
         addJournal('Residue archive access generated compliance notification — Sera notified, audit log timestamped', 'complication', 'aur-residue-clone-fail-' + G.dayCount);
       } else {
         G.flags.aurora_residue_reports_cloned = true;
@@ -1083,7 +1083,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The intake maintenance schedule runs a different corridor than the records show.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Stealth'],
+    tags: ['Dome', 'Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
@@ -1100,17 +1100,17 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_maintenance_route_diverges = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The posted maintenance schedule says the intake crew works the western corridor. You follow the sound of the work instead of the schedule and find the crew in the eastern corridor — running a service pass on a secondary manifold junction that does not appear on the public schematic. The junction connects the main intake to a recirculation loop that feeds back through the cold-shell\'s residential ventilation system before the primary vent cycle. A compound dosed at the intake would hit this loop first, before it reaches the public air exchange. The workers are doing their jobs. The job is maintaining a distribution pathway that is not on any published schematic.';
+        G.lastResult = 'The posted maintenance schedule says the intake crew works the western corridor. You follow the sound of the work instead of the schedule and find the crew in the eastern corridor — running a service pass on a secondary manifold junction that does not appear on the public schematic. The junction connects the main intake to a recirculation loop that feeds back through the dome\'s residential ventilation system before the primary vent cycle. A compound dosed at the intake would hit this loop first, before it reaches the public air exchange. The workers are doing their jobs. The job is maintaining a distribution pathway that is not on any published schematic.';
         addJournal('Intake crew working undocumented eastern junction — connects intake to residential vent loop before public exchange', 'evidence', 'aur-route-diverge-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = 'You follow the wrong sound — a thermal conduit diagnostic two corridors over — and come out in a section of the cold-shell infrastructure that requires a staff access band. A steward at the junction marks your transit stamp before you can explain. The notation goes into the cold-shell access log with a location flag. The eastern corridor maintenance crew finishes their rotation while you are giving a purpose statement in the access-control anteroom. Whatever they were servicing, they have finished servicing it.';
+        G.lastResult = 'You follow the wrong sound — a thermal conduit diagnostic two corridors over — and come out in a section of the dome infrastructure that requires a staff access band. A steward at the junction marks your transit stamp before you can explain. The notation goes into the dome access log with a location flag. The eastern corridor maintenance crew finishes their rotation while you are giving a purpose statement in the access-control anteroom. Whatever they were servicing, they have finished servicing it.';
         addJournal('Wrong corridor — staff access zone entry logged, maintenance crew finished rotation during hold', 'complication', 'aur-route-diverge-fail-' + G.dayCount);
       } else {
         G.flags.aurora_maintenance_route_diverges = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The crew is in the eastern corridor, not the western one the schedule posts. You watch from the junction before they notice you — they are servicing a manifold housing that is not on the wall-mounted schematic near the intake. The housing connects to something further into the cold-shell structure. The foreman sees you eventually and the work stops. "Routine service," he says. He does not say what system the housing connects to. He marks you in his work log before he goes back to it.';
+        G.lastResult = 'The crew is in the eastern corridor, not the western one the schedule posts. You watch from the junction before they notice you — they are servicing a manifold housing that is not on the wall-mounted schematic near the intake. The housing connects to something further into the dome structure. The foreman sees you eventually and the work stops. "Routine service," he says. He does not say what system the housing connects to. He marks you in his work log before he goes back to it.';
         addJournal('Maintenance crew in eastern corridor — working undocumented manifold housing not on public schematic', 'evidence', 'aur-route-diverge-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1118,13 +1118,13 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "Theron's porter log has a seven-day blank. The shell was sealed for maintenance.",
+    label: "Theron's porter log has a seven-day blank. The dome was sealed for maintenance.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2'],
+    tags: ['Dome', 'Stage2'],
     xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(76, 'cross-referencing porter log gaps with shell sealing records');
+      gainXp(76, 'cross-referencing porter log gaps with dome sealing records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       var result = rollD20('finesse', (G.skills.finesse||0));
@@ -1132,8 +1132,8 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_theron_sealwater = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The seven-day blank in Theron\'s log corresponds exactly to a shelter shell sealing window that isn\'t in the public maintenance schedule. Unofficial sealing requires marshal authorization — Sera Whiteglass\'s signature. But the marshal\'s office has no record of issuing it. Theron lays both documents on the routing board and points at the date columns without speaking. The sealed period moved cargo that does not appear in any manifest Theron was given. He logged the seal dates anyway, in the margin, in pencil, because the cold-shell was quiet and he noticed.';
-        addJournal('Seven-day porter gap matches unofficial shell sealing — no marshal record, cargo moved off-manifest', 'evidence', 'aur-theron-seal-' + G.dayCount);
+        G.lastResult = 'The seven-day blank in Theron\'s log corresponds exactly to a dome sealing window that isn\'t in the public maintenance schedule. Unofficial sealing requires marshal authorization — Sera Whiteglass\'s signature. But the marshal\'s office has no record of issuing it. Theron lays both documents on the routing board and points at the date columns without speaking. The sealed period moved cargo that does not appear in any manifest Theron was given. He logged the seal dates anyway, in the margin, in pencil, because the dome was quiet and he noticed.';
+        addJournal('Seven-day porter gap matches unofficial dome sealing — no marshal record, cargo moved off-manifest', 'evidence', 'aur-theron-seal-' + G.dayCount);
       } else if (result.isFumble) {
         G.lastResult = 'Theron reports the access query to the stabilizer marshal office before you have left the routing room. A compliance notation is filed against your transit stamp. The porter log goes into a secondary archive review — Theron explains this without apology, still writing in his routing board. "Any external request for a maintenance log with a gap in it triggers protocol." He caps his pen. The log is now unavailable until the review completes. He did not make this rule.';
         addJournal('Porter log access flagged — archive review triggered, log unavailable until review completes', 'complication', 'aur-theron-seal-fail-' + G.dayCount);
@@ -1141,7 +1141,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_theron_sealwater = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Theron confirms the blank but doesn\'t explain it directly. He compares the seven-day window against the maintenance schedule posted on the inner corridor wall — slowly, finger moving down each line. The shell sealing cycle on the schedule doesn\'t match the dates in his log. He marks the discrepancy with his pencil, then caps it. "I log what I observe," he says. "The schedule is what someone else wrote." He hands you the log open to the relevant week.';
+        G.lastResult = 'Theron confirms the blank but doesn\'t explain it directly. He compares the seven-day window against the maintenance schedule posted on the inner corridor wall — slowly, finger moving down each line. The dome sealing cycle on the schedule doesn\'t match the dates in his log. He marks the discrepancy with his pencil, then caps it. "I log what I observe," he says. "The schedule is what someone else wrote." He hands you the log open to the relevant week.';
         addJournal('Porter log blank vs maintenance schedule mismatch — sealed period not posted on schedule', 'evidence', 'aur-theron-seal-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1171,11 +1171,11 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_sera_overnight_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Sera has a bedroll under her desk — visible because she didn\'t move it when she stood up. She opens the third drawer and puts a folder on the desk without covering the bedroll first. "I found the internal compliance review." The folder is four pages. A shelter shell administration review of the filtration intake anomalies, commissioned three months ago, completed two months ago, never entered into the public record. The conclusion: the anomalies are consistent with intentional compound dosing. It was filed under a technical maintenance category. The administrator who classified it was the Collegium liaison\'s counterpart in the commune executive. She holds up the page with the signature. "This is who buried it."';
+        G.lastResult = 'Sera has a bedroll under her desk — visible because she didn\'t move it when she stood up. She opens the third drawer and puts a folder on the desk without covering the bedroll first. "I found the internal compliance review." The folder is four pages. A dome administration review of the filtration intake anomalies, commissioned three months ago, completed two months ago, never entered into the public record. The conclusion: the anomalies are consistent with intentional compound dosing. It was filed under a technical maintenance category. The administrator who classified it was the Collegium liaison\'s counterpart in the commune executive. She holds up the page with the signature. "This is who buried it."';
         addJournal('Internal compliance review found — confirms intentional dosing, classified by commune executive at liaison instruction', 'evidence', 'aur-sera-overnight-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'Sera looks at the question and then at the space behind you, and explains that what she has found in the marshal office is classified under shell security protocol until she completes her review process. Her jaw is set in a way that says she has already had this conversation with herself and made the same decision. She closes the folder on her desk before you can read the header. "I will share what I can share when I can share it." The bedroll is under the desk. She does not address the bedroll.';
+        G.lastResult = 'Sera looks at the question and then at the space behind you, and explains that what she has found in the marshal office is classified under dome security protocol until she completes her review process. Her jaw is set in a way that says she has already had this conversation with herself and made the same decision. She closes the folder on her desk before you can read the header. "I will share what I can share when I can share it." The bedroll is under the desk. She does not address the bedroll.';
         addJournal('Sera\'s findings classified during active review — will not share until process complete', 'complication', 'aur-sera-overnight-fail-' + G.dayCount);
       } else {
         G.flags.met_warden_sera_whiteglass = true;
@@ -1246,7 +1246,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_cadrin_independent_audit = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Cadrin reaches under the counter and puts a folded paper on the surface — a handwritten budget reconciliation, pencil columns, dated two weeks ago. "I ran the filtration maintenance numbers against actual maintenance output." He unfolds it. The Northern Provision Compact line item accounts for forty percent of the cold-shell\'s total maintenance budget. The actual maintenance work attributed to that supplier: zero. No labor logs. No material receipts for installed components. The money is flowing to Northern Provision Compact and nothing from Northern Provision Compact is being installed in the cold-shell. He has checked three times. His handwriting gets smaller in the later columns, which means he was concentrating.';
+        G.lastResult = 'Cadrin reaches under the counter and puts a folded paper on the surface — a handwritten budget reconciliation, pencil columns, dated two weeks ago. "I ran the filtration maintenance numbers against actual maintenance output." He unfolds it. The Northern Provision Compact line item accounts for forty percent of the dome\'s total maintenance budget. The actual maintenance work attributed to that supplier: zero. No labor logs. No material receipts for installed components. The money is flowing to Northern Provision Compact and nothing from Northern Provision Compact is being installed in the dome. He has checked three times. His handwriting gets smaller in the later columns, which means he was concentrating.';
         addJournal('Cadrin\'s independent audit: 40% of maintenance budget to NPC with zero attributed installed output', 'evidence', 'aur-cadrin-audit-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1288,13 +1288,13 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Liora\'s personal tally: 31 residents with symptom progression over 4 months — board dismissed as unrelated complaints', 'evidence', 'aur-liora-tally-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
-        G.lastResult = 'Liora straightens the candle at the memorial stone before she answers. "What I observe at the shrine stays at the shrine." She folds her hands on the counter — not the clasped-hands posture of someone comfortable, but something held. "The medical board has the petition records. Anything I have observed that is not in the petition records is in my conscience, not in a document." The low candle at the shrine sends a thin ribbon of smoke toward the cold-shell venting grate above. She watches it rise. She does not add to what she has said.';
+        G.lastResult = 'Liora straightens the candle at the memorial stone before she answers. "What I observe at the shrine stays at the shrine." She folds her hands on the counter — not the clasped-hands posture of someone comfortable, but something held. "The medical board has the petition records. Anything I have observed that is not in the petition records is in my conscience, not in a document." The low candle at the shrine sends a thin ribbon of smoke toward the dome venting grate above. She watches it rise. She does not add to what she has said.';
         addJournal('Liora refused to share personal observations — directed to medical board, stated observations remain in conscience only', 'complication', 'aur-liora-tally-fail-' + G.dayCount);
       } else {
         G.flags.met_liora_sealwater = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Liora touches her robe pocket once before she answers — a small gesture, quick, then stopped. "I keep notes," she says. "Not shrine records. Personal notes about patterns I have observed over time." She does not bring them out. "Thirty-one people came to the shrine with one kind of symptom and came back with a different kind. The medical board has the petition data. They have not connected it the way I have." She looks at the cold-shell venting grate above the memorial stone. "I have not shared my notes because I was not sure they were enough. I am still not sure."';
+        G.lastResult = 'Liora touches her robe pocket once before she answers — a small gesture, quick, then stopped. "I keep notes," she says. "Not shrine records. Personal notes about patterns I have observed over time." She does not bring them out. "Thirty-one people came to the shrine with one kind of symptom and came back with a different kind. The medical board has the petition data. They have not connected it the way I have." She looks at the dome venting grate above the memorial stone. "I have not shared my notes because I was not sure they were enough. I am still not sure."';
         addJournal('Liora has personal notes on 31 symptom-progression cases — not yet shared, questioning whether sufficient', 'intelligence', 'aur-liora-tally-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1359,7 +1359,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_mariel_two_guests = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Mariel checks the room register without being asked and sets it on the counter open to the relevant week. "Two guests, same arrival day. Different rooms, no shared meals, no visible interaction." She pulls the transit stamp records clipped to the back of that week\'s register page. Both guests carry the same compound-transport clearance stamp — a specialized shell-transit endorsement for certified compound handlers. She sets the stamp records side by side. The stamps are from the same issuing clerk, processed within forty minutes of each other, at a transit station one settlement south of Aurora Crown. "They came together," she says. "They were careful not to show it."';
+        G.lastResult = 'Mariel checks the room register without being asked and sets it on the counter open to the relevant week. "Two guests, same arrival day. Different rooms, no shared meals, no visible interaction." She pulls the transit stamp records clipped to the back of that week\'s register page. Both guests carry the same compound-transport clearance stamp — a specialized dome-transit endorsement for certified compound handlers. She sets the stamp records side by side. The stamps are from the same issuing clerk, processed within forty minutes of each other, at a transit station one settlement south of Aurora Crown. "They came together," she says. "They were careful not to show it."';
         addJournal('Two guests with compound-handler transit stamps processed same day at same station — arrived separately to avoid appearance of coordination', 'evidence', 'aur-mariel-guests-' + G.dayCount);
       } else if (result.isFumble) {
         G.lastResult = 'Mariel straightens the key hooks and sets down her wipe cloth before she looks at you. "Two guests arriving on the same day is not unusual." She opens the room register to a week at random — three arrivals that day, four the next. "I don\'t cross-reference guest transit records. That\'s not my role." She closes the register. The standing instruction about Collegium liaison visits is still in force. She does not name it, but the shape of her answer has the same boundary.';
@@ -1378,13 +1378,13 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   // ── RESIDUE SUPPRESSION EVIDENCE TRAILS (4) ─────────────────────────────────
 
   {
-    label: "The suppression compound has a signature smell. The shelter shell's drainage has it too.",
+    label: "The suppression compound has a signature smell. The dome's drainage has it too.",
     plot: 'main',
     tags: ['Stage2', 'Survival'],
     xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'tracing suppression compound residue through shell drainage outflow points');
+      gainXp(73, 'tracing suppression compound residue through dome drainage outflow points');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1393,11 +1393,11 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_drainage_residue_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The drainage outflow channel runs along the cold-shell\'s lower curve, between the thermal conduit housing and the foundation seal — accessible by crouching under the access panel near the service junction. The amber residue is here too: a pale waxy line along the channel floor, heavier near the filtration intake section, thinning as the channel runs toward the outer venting points. The compound has been cycling through the air system, condensing on the channel walls, and draining out. The quantity of residue in the channel is consistent with months of sustained introduction, not a single event. You smell the channel wall before you pull back. Waxy, faintly resinous. The same smell Theron wrote down.';
-        addJournal('Amber residue in shell drainage channel — heaviest near intake, consistent with months of sustained compound introduction', 'evidence', 'aur-drain-residue-' + G.dayCount);
+        G.lastResult = 'The drainage outflow channel runs along the dome\'s lower curve, between the thermal conduit housing and the foundation seal — accessible by crouching under the access panel near the service junction. The amber residue is here too: a pale waxy line along the channel floor, heavier near the filtration intake section, thinning as the channel runs toward the outer venting points. The compound has been cycling through the air system, condensing on the channel walls, and draining out. The quantity of residue in the channel is consistent with months of sustained introduction, not a single event. You smell the channel wall before you pull back. Waxy, faintly resinous. The same smell Theron wrote down.';
+        addJournal('Amber residue in dome drainage channel — heaviest near intake, consistent with months of sustained compound introduction', 'evidence', 'aur-drain-residue-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The access panel near the service junction is locked on a shelter shell safety protocol — drainage access requires a signed inspection clearance from the safety committee. A worker in the foundation corridor sees you trying the panel and marks you in the work log before asking if you need clearance instructions. You do. The instructions are three pages. The safety committee meets on alternating weeks. The next meeting is in five days.';
+        G.lastResult = 'The access panel near the service junction is locked on a dome safety protocol — drainage access requires a signed inspection clearance from the safety committee. A worker in the foundation corridor sees you trying the panel and marks you in the work log before asking if you need clearance instructions. You do. The instructions are three pages. The safety committee meets on alternating weeks. The next meeting is in five days.';
         addJournal('Drainage access panel locked — safety committee clearance required, 5-day wait for meeting', 'complication', 'aur-drain-residue-fail-' + G.dayCount);
       } else {
         G.flags.aurora_drainage_residue_confirmed = true;
@@ -1434,7 +1434,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Eastern quarter grates: residue on both faces — exterior deposition confirms second introduction point in residential spaces', 'evidence', 'aur-double-source-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 2;
-        G.lastResult = 'A shelter shell steward in the eastern quarter residential corridor is running a routine safety check on the ventilation grates when you arrive — an uncommon timing that suggests either coincidence or forewarning. She notes your arrival in the corridor log before asking your purpose. You have no documentation supporting residential infrastructure access. She walks you to the corridor exit without making it a confrontation. The safety check log shows a flag next to the date of your visit. She will finish the grate inspection after you leave.';
+        G.lastResult = 'A dome steward in the eastern quarter residential corridor is running a routine safety check on the ventilation grates when you arrive — an uncommon timing that suggests either coincidence or forewarning. She notes your arrival in the corridor log before asking your purpose. You have no documentation supporting residential infrastructure access. She walks you to the corridor exit without making it a confrontation. The safety check log shows a flag next to the date of your visit. She will finish the grate inspection after you leave.';
         addJournal('Residential corridor steward running grate safety check on arrival — no access documentation, corridor exit flagged in log', 'complication', 'aur-double-source-fail-' + G.dayCount);
       } else {
         G.flags.aurora_double_source_confirmed = true;
@@ -1467,7 +1467,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_glyph_reactive_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The shrine keeps glyph-sensitive assay paper for resensitization assessments — Liora supplies a strip without asking what it is for. You press the strip against the amber residue on the intake throat wall. The strip changes: a slow bloom of dark blue from the contact point, spreading outward in the uneven pattern characteristic of glyph-resonance compounds, not chemical solvents. Standard filtration compound produces no reaction on glyph-sensitive paper. The amber residue is glyph-active. Whatever is being introduced through the intake system is designed to interact with the residents\' glyph-sensitivity, not merely their respiratory system. The dosing is targeted at the specific physiological pathway the cold-shell was built to protect.';
+        G.lastResult = 'The shrine keeps glyph-sensitive assay paper for resensitization assessments — Liora supplies a strip without asking what it is for. You press the strip against the amber residue on the intake throat wall. The strip changes: a slow bloom of dark blue from the contact point, spreading outward in the uneven pattern characteristic of glyph-resonance compounds, not chemical solvents. Standard filtration compound produces no reaction on glyph-sensitive paper. The amber residue is glyph-active. Whatever is being introduced through the intake system is designed to interact with the residents\' glyph-sensitivity, not merely their respiratory system. The dosing is targeted at the specific physiological pathway the dome was built to protect.';
         addJournal('Amber residue tests glyph-reactive — blue bloom on assay paper, glyph-sensitivity pathway targeted, not respiratory only', 'evidence', 'aur-glyph-react-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.reverence = (G.worldClocks.reverence||0) - 1;
@@ -1477,7 +1477,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_glyph_reactive_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The assay strip changes when you press it against the amber residue — dark blue, spreading from the contact point. The reaction is slow, which means the compound concentration is low, but the color is definitive: glyph-reactive. Standard filtration compound produces no color on the strip. Whatever is in the intake system carries a glyph-interaction profile. You fold the strip and put it away. The shell\'s air filtration system was designed to protect the residents\' glyph-sensitivity from environmental surge. Something glyph-active is being introduced through the same infrastructure.';
+        G.lastResult = 'The assay strip changes when you press it against the amber residue — dark blue, spreading from the contact point. The reaction is slow, which means the compound concentration is low, but the color is definitive: glyph-reactive. Standard filtration compound produces no color on the strip. Whatever is in the intake system carries a glyph-interaction profile. You fold the strip and put it away. The dome\'s air filtration system was designed to protect the residents\' glyph-sensitivity from environmental surge. Something glyph-active is being introduced through the same infrastructure.';
         addJournal('Amber residue glyph-reactive confirmed by assay paper — intentional glyph-sensitivity pathway targeting via filtration system', 'evidence', 'aur-glyph-react-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1485,7 +1485,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The residue suppression compound was sourced before the cold-shell was built.",
+    label: "The residue suppression compound was sourced before the dome was built.",
     plot: 'main',
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
@@ -1495,27 +1495,27 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(78, 'tracing compound pre-formulation history against shell construction records');
+      gainXp(78, 'tracing compound pre-formulation history against dome construction records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
       var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
-        G.flags.aurora_compound_predates_shell = true;
+        G.flags.aurora_compound_predates_dome = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The shell construction archive has a technical specification section — sealed, but accessible under the commune founding charter\'s public infrastructure clause. The filtration system\'s design specifications include a compound compatibility list: approved classes for introduction into the intake system. The Northern Provision Compact compound class is on that list, added during the original design phase, before the cold-shell was built. Not added later as an approved vendor. Specified from the beginning. Someone anticipated this compound\'s use in the Aurora Crown filtration system before the cold-shell existed. The compatibility specification was written by the same Collegium technical authority that later changed the sensor calibration baseline.';
-        addJournal('Suppression compound class specified in original shell design — Collegium technical authority wrote it in before construction, anticipated use pre-planned', 'evidence', 'aur-compound-predates-' + G.dayCount);
+        G.lastResult = 'The dome construction archive has a technical specification section — sealed, but accessible under the commune founding charter\'s public infrastructure clause. The filtration system\'s design specifications include a compound compatibility list: approved classes for introduction into the intake system. The Northern Provision Compact compound class is on that list, added during the original design phase, before the dome was built. Not added later as an approved vendor. Specified from the beginning. Someone anticipated this compound\'s use in the Aurora Crown filtration system before the dome existed. The compatibility specification was written by the same Collegium technical authority that later changed the sensor calibration baseline.';
+        addJournal('Suppression compound class specified in original dome design — Collegium technical authority wrote it in before construction, anticipated use pre-planned', 'evidence', 'aur-compound-predates-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The shell construction archive is classified under the commune founding charter\'s infrastructure security provision — a different clause than the public infrastructure access clause, and the distinction matters. The archivist explains this with precision: public infrastructure records cover current operational status, not historical design specifications. Design specifications require a separate access petition to the founding charter committee. The committee meets quarterly. The last meeting was six weeks ago.';
-        addJournal('Cold-shell construction archive under infrastructure security provision — design specs not covered by public access clause', 'complication', 'aur-compound-predates-fail-' + G.dayCount);
+        G.lastResult = 'The dome construction archive is classified under the commune founding charter\'s infrastructure security provision — a different clause than the public infrastructure access clause, and the distinction matters. The archivist explains this with precision: public infrastructure records cover current operational status, not historical design specifications. Design specifications require a separate access petition to the founding charter committee. The committee meets quarterly. The last meeting was six weeks ago.';
+        addJournal('Dome construction archive under infrastructure security provision — design specs not covered by public access clause', 'complication', 'aur-compound-predates-fail-' + G.dayCount);
       } else {
-        G.flags.aurora_compound_predates_shell = true;
+        G.flags.aurora_compound_predates_dome = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The shell design specifications list the compound class used by Northern Provision Compact as compatible with the intake system — not added after commissioning, written into the original specification. The shell was designed to accept this class of compound from the beginning. The filtration intake was built to accommodate it. You set the design document against the delivery manifests. The intake system and the compound were specified in the same period, by the same technical authority. This was not opportunistic. Someone planned it.';
-        addJournal('Compound class in original shell design spec — intake built to accept it from construction, same Collegium authority throughout', 'evidence', 'aur-compound-predates-part-' + G.dayCount);
+        G.lastResult = 'The dome design specifications list the compound class used by Northern Provision Compact as compatible with the intake system — not added after commissioning, written into the original specification. The dome was designed to accept this class of compound from the beginning. The filtration intake was built to accommodate it. You set the design document against the delivery manifests. The intake system and the compound were specified in the same period, by the same technical authority. This was not opportunistic. Someone planned it.';
+        addJournal('Compound class in original dome design spec — intake built to accept it from construction, same Collegium authority throughout', 'evidence', 'aur-compound-predates-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -1553,7 +1553,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_harvest_circle_connection = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Northern Provision Compact appears in Harvest Circle\'s maintenance records — three entries, field drainage systems, same four-month window as Aurora Crown. The authorization code on the Harvest Circle entries matches the Collegium liaison authorization code from the Aurora Crown filtration budget. Different locality. Different infrastructure. Same supplier code. Same authorizing identity. The operation runs across at least two localities simultaneously. You copy both sets of entries and put them side by side. The shape of the thing is larger than one shell.';
+        G.lastResult = 'Northern Provision Compact appears in Harvest Circle\'s maintenance records — three entries, field drainage systems, same four-month window as Aurora Crown. The authorization code on the Harvest Circle entries matches the Collegium liaison authorization code from the Aurora Crown filtration budget. Different locality. Different infrastructure. Same supplier code. Same authorizing identity. The operation runs across at least two localities simultaneously. You copy both sets of entries and put them side by side. The shape of the thing is larger than one dome.';
         addJournal('NPC in Harvest Circle drainage records — same liaison code, same period, same ghost vendor, two-locality pattern confirmed', 'evidence', 'aur-harvest-link-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1576,30 +1576,30 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_liaison_alias_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The transit rider is a northern circuit regular — Soreheim to the upper localities, quarterly run. She knows the Collegium liaison who visits Aurora Crown because she has carried sealed correspondence for them three times. The name on the correspondence she carried does not match the name in the Aurora Crown shell administration register. She says the name she knows without being asked twice. You write it down. It is a Soreheim institutional name — not a Collegium one. The liaison is operating under a Collegium credential that belongs to a position that may not exist. The rider looks at what you wrote. "That person moves around a lot," she says. "Quietly."';
-        addJournal('Liaison name on northern circuit correspondence differs from shell register — Soreheim institutional name, possible fabricated Collegium credential', 'evidence', 'aur-liaison-alias-' + G.dayCount);
+        G.lastResult = 'The transit rider is a northern circuit regular — Soreheim to the upper localities, quarterly run. She knows the Collegium liaison who visits Aurora Crown because she has carried sealed correspondence for them three times. The name on the correspondence she carried does not match the name in the Aurora Crown dome administration register. She says the name she knows without being asked twice. You write it down. It is a Soreheim institutional name — not a Collegium one. The liaison is operating under a Collegium credential that belongs to a position that may not exist. The rider looks at what you wrote. "That person moves around a lot," she says. "Quietly."';
+        addJournal('Liaison name on northern circuit correspondence differs from dome register — Soreheim institutional name, possible fabricated Collegium credential', 'evidence', 'aur-liaison-alias-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The transit rider in the inn common room finishes her meal before she answers the question about the Collegium liaison, and the answer is a long look at the space above your left shoulder followed by a simple statement: she does not discuss the business of people she carries correspondence for. It is a professional practice she names without apology. She picks up her tankard and turns her shoulder. The inn common room is warm and the sound of the cold-shell\'s ventilation system is a low continuous note in the background. The rider does not look at you again.';
+        G.lastResult = 'The transit rider in the inn common room finishes her meal before she answers the question about the Collegium liaison, and the answer is a long look at the space above your left shoulder followed by a simple statement: she does not discuss the business of people she carries correspondence for. It is a professional practice she names without apology. She picks up her tankard and turns her shoulder. The inn common room is warm and the sound of the dome\'s ventilation system is a low continuous note in the background. The rider does not look at you again.';
         addJournal('Transit rider declined to discuss liaison — professional correspondence confidentiality', 'complication', 'aur-liaison-alias-fail-' + G.dayCount);
       } else {
         G.flags.aurora_liaison_alias_confirmed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The northern circuit rider knows the liaison from transit work. She does not give the full name unprompted, but when you describe the person — the Collegium coat, the sealed documentation, the regular Aurora Crown visits — she nods and says a name. It is not the name in the cold-shell administration register. She does not explain the difference. "I carry what I\'m given. I note who gave it." She finishes her drink. "That name has come up in more than one direction on the circuit." She does not say more. She does not need to.';
-        addJournal('Transit rider gives different name for liaison — northern circuit name diverges from shell register, described as multi-directional presence on circuit', 'intelligence', 'aur-liaison-alias-part-' + G.dayCount);
+        G.lastResult = 'The northern circuit rider knows the liaison from transit work. She does not give the full name unprompted, but when you describe the person — the Collegium coat, the sealed documentation, the regular Aurora Crown visits — she nods and says a name. It is not the name in the dome administration register. She does not explain the difference. "I carry what I\'m given. I note who gave it." She finishes her drink. "That name has come up in more than one direction on the circuit." She does not say more. She does not need to.';
+        addJournal('Transit rider gives different name for liaison — northern circuit name diverges from dome register, described as multi-directional presence on circuit', 'intelligence', 'aur-liaison-alias-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
   },
 
 
-  // ── NEW BATCH: SHELL FILTRATION RECORDS & GLYPH SURGE DATA (5) ───────────────
+  // ── NEW BATCH: DOME FILTRATION RECORDS & GLYPH SURGE DATA (5) ───────────────
 
   {
     label: "The intake manifold pressure log shows a spike that wasn't in the filed summary.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Lore'],
+    tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
@@ -1636,7 +1636,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The glyph-surge threshold alarm was disabled. The disable log entry is missing a name.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Craft'],
+    tags: ['Dome', 'Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
@@ -1653,17 +1653,17 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_alarm_disable_traced = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The stabilizer panel log runs in two columns: event and authorizing party. Every disable event in the log has a name in the second column except one — the disable event three weeks before the first Northern Provision Compact delivery. That entry reads "technical services" without a personal identifier. Cold-shell protocol requires an individual name for any threshold modification. "Technical services" is not a person. The alarm that should have triggered when glyph-surge concentrations exceeded the cold-shell\'s residential safety threshold was silenced before the compound deliveries began, under an authorization that names no one. The silence was deliberate and the deliberateness was hidden.';
+        G.lastResult = 'The stabilizer panel log runs in two columns: event and authorizing party. Every disable event in the log has a name in the second column except one — the disable event three weeks before the first Northern Provision Compact delivery. That entry reads "technical services" without a personal identifier. Dome protocol requires an individual name for any threshold modification. "Technical services" is not a person. The alarm that should have triggered when glyph-surge concentrations exceeded the dome\'s residential safety threshold was silenced before the compound deliveries began, under an authorization that names no one. The silence was deliberate and the deliberateness was hidden.';
         addJournal('Surge alarm disable log missing authorizing name — blanket "technical services" entry, pre-dates first delivery, protocol violation', 'evidence', 'aur-alarm-disable-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The stabilizer panel log access requires a shell maintenance certification code — a physical key tag, not a password. The duty officer at the stabilizer station checks your hands for the tag before she says anything else. External parties can submit a log access request to the stabilizer administration office. The office processes requests in five working days. She says this without particular inflection. The panel log is two meters from where you are standing.';
+        G.lastResult = 'The stabilizer panel log access requires a dome maintenance certification code — a physical key tag, not a password. The duty officer at the stabilizer station checks your hands for the tag before she says anything else. External parties can submit a log access request to the stabilizer administration office. The office processes requests in five working days. She says this without particular inflection. The panel log is two meters from where you are standing.';
         addJournal('Stabilizer panel log requires physical key tag — access request process, five working days', 'complication', 'aur-alarm-disable-fail-' + G.dayCount);
       } else {
         G.flags.aurora_alarm_disable_traced = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'One entry in the stabilizer panel log has no name in the authorizing party column. Every other entry does — date, event, name, certification number. This one has "technical services" and nothing else. The event is a threshold alarm disable, dated three weeks before the first delivery. Protocol requires a name. The entry doesn\'t have one. Whatever standard prevented the cold-shell\'s alarm from sounding when the compound concentrations rose, it was turned off by someone who did not want to be identified in the log.';
+        G.lastResult = 'One entry in the stabilizer panel log has no name in the authorizing party column. Every other entry does — date, event, name, certification number. This one has "technical services" and nothing else. The event is a threshold alarm disable, dated three weeks before the first delivery. Protocol requires a name. The entry doesn\'t have one. Whatever standard prevented the dome\'s alarm from sounding when the compound concentrations rose, it was turned off by someone who did not want to be identified in the log.';
         addJournal('Surge alarm disabled by unnamed "technical services" entry — protocol violation, predates deliveries', 'evidence', 'aur-alarm-disable-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1673,7 +1673,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The filtration intake flow rate was throttled down for eight hours during each delivery.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Survival'],
+    tags: ['Dome', 'Stage2', 'Survival'],
     xpReward: 40,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1690,7 +1690,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Flow rate throttled to 30% during 8hr window on every delivery date — compound dwell concentration multiplied, paper card log confirms', 'evidence', 'aur-flow-throttle-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The paper card holder is in the eastern corridor behind a maintenance gate — accessible to credentialed shell staff only during active rotation. A crew running thermal conduit work has the gate open, but the foreman plants himself between you and the card holder before you reach it. "Maintenance documentation is for maintenance personnel." He is not unkind. He also does not move. The cards sit in their slots two meters away and the flow data on them belongs to a date range that could change everything.';
+        G.lastResult = 'The paper card holder is in the eastern corridor behind a maintenance gate — accessible to credentialed dome staff only during active rotation. A crew running thermal conduit work has the gate open, but the foreman plants himself between you and the card holder before you reach it. "Maintenance documentation is for maintenance personnel." He is not unkind. He also does not move. The cards sit in their slots two meters away and the flow data on them belongs to a date range that could change everything.';
         addJournal('Flow rate card holder behind maintenance gate — crew foreman blocked access during active rotation', 'complication', 'aur-flow-throttle-fail-' + G.dayCount);
       } else {
         G.flags.aurora_flow_throttle_confirmed = true;
@@ -1704,9 +1704,9 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   },
 
   {
-    label: "The shelter shell's air quality certification has been renewed annually. The certifier is the supplier.",
+    label: "The dome's air quality certification has been renewed annually. The certifier is the supplier.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Lore'],
+    tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
@@ -1723,7 +1723,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_certifier_conflict_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The shell air quality certification is posted on the administration board near the main gate — a public record, required for any enclosed settlement under Collegium infrastructure standards. The certifying authority is the Northern Settlements Technical Consortium, a Collegium-aligned body. You pull the Consortium\'s registered membership list from the commune archive. Northern Provision Compact is a member-organization of the Consortium. The entity certifying Aurora Crown\'s air quality as safe and the entity supplying the compound being introduced into the air supply are the same organizational family. The certification was most recently renewed six weeks after the first delivery.';
+        G.lastResult = 'The dome air quality certification is posted on the administration board near the main gate — a public record, required for any enclosed settlement under Collegium infrastructure standards. The certifying authority is the Northern Settlements Technical Consortium, a Collegium-aligned body. You pull the Consortium\'s registered membership list from the commune archive. Northern Provision Compact is a member-organization of the Consortium. The entity certifying Aurora Crown\'s air quality as safe and the entity supplying the compound being introduced into the air supply are the same organizational family. The certification was most recently renewed six weeks after the first delivery.';
         addJournal('Air quality certifier is same organizational family as supplier — Consortium member Northern Provision Compact, certification renewed post-delivery', 'evidence', 'aur-certifier-conflict-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1733,7 +1733,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_certifier_conflict_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The air quality certification posted at the main gate names the Northern Settlements Technical Consortium as certifying authority. The Consortium\'s membership list includes Northern Provision Compact. The certifier and the supplier are members of the same body. The certification was renewed after the deliveries began. The shell\'s posted proof of safe air was produced by an organization whose member is introducing the compound into the cold-shell\'s air system. You write the Consortium\'s name next to the supplier\'s name in your notes. The two names share a line.';
+        G.lastResult = 'The air quality certification posted at the main gate names the Northern Settlements Technical Consortium as certifying authority. The Consortium\'s membership list includes Northern Provision Compact. The certifier and the supplier are members of the same body. The certification was renewed after the deliveries began. The dome\'s posted proof of safe air was produced by an organization whose member is introducing the compound into the dome\'s air system. You write the Consortium\'s name next to the supplier\'s name in your notes. The two names share a line.';
         addJournal('Air quality certifier Consortium includes supplier as member — certification renewed after deliveries began, conflict of interest confirmed', 'evidence', 'aur-certifier-conflict-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1743,7 +1743,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
   {
     label: "The original filtration schematics were replaced four months ago. The old ones are missing.",
     plot: 'main',
-    tags: ['Cold-shell', 'Stage2', 'Stealth'],
+    tags: ['Dome', 'Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
       addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
@@ -1751,7 +1751,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(73, 'locating the original shell filtration schematics before their replacement by Collegium-filed versions');
+      gainXp(73, 'locating the original dome filtration schematics before their replacement by Collegium-filed versions');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
@@ -1760,18 +1760,18 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_original_schematics_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The shell archive index lists two sets of filtration schematics: the current version and the prior version, which should have been archived in the technical records section. The technical records section has the current version and a placeholder noting the prior version was "removed for revision." But the dismissed technician kept a personal copy. She pulls it from the sleeve under her worktable — the same sleeve as the anomaly log. The original schematic shows no condensate secondary loop, no eastern residential vent junction, no second manifold housing in the undocumented corridor. Every distribution pathway that now carries compound exposure through the cold-shell was added after the original design. The shell was modified to deliver what is in it now.';
-        addJournal('Original schematic shows no secondary loop or undocumented manifold — all compound pathways added post-construction, shell modified for delivery', 'evidence', 'aur-original-schema-' + G.dayCount);
+        G.lastResult = 'The dome archive index lists two sets of filtration schematics: the current version and the prior version, which should have been archived in the technical records section. The technical records section has the current version and a placeholder noting the prior version was "removed for revision." But the dismissed technician kept a personal copy. She pulls it from the sleeve under her worktable — the same sleeve as the anomaly log. The original schematic shows no condensate secondary loop, no eastern residential vent junction, no second manifold housing in the undocumented corridor. Every distribution pathway that now carries compound exposure through the dome was added after the original design. The dome was modified to deliver what is in it now.';
+        addJournal('Original schematic shows no secondary loop or undocumented manifold — all compound pathways added post-construction, dome modified for delivery', 'evidence', 'aur-original-schema-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The technical records section of the cold-shell archive is undergoing a scheduled reorganization — a clerk in there is pulling and re-sorting a filing system that occupies three shelving units. Access to the section during reorganization requires a supervisor signature. The supervisor is the same administrator whose signature appeared on the council minutes suppression order. The clerk looks at you the way someone looks at a problem they have been asked not to create. She is very sorry. She cannot help.';
+        G.lastResult = 'The technical records section of the dome archive is undergoing a scheduled reorganization — a clerk in there is pulling and re-sorting a filing system that occupies three shelving units. Access to the section during reorganization requires a supervisor signature. The supervisor is the same administrator whose signature appeared on the council minutes suppression order. The clerk looks at you the way someone looks at a problem they have been asked not to create. She is very sorry. She cannot help.';
         addJournal('Technical records section closed for reorganization — supervisor authorization required, same signatory as suppressed council minutes', 'complication', 'aur-original-schema-fail-' + G.dayCount);
       } else {
         G.flags.aurora_original_schematics_found = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The dismissed technician\'s copy of the original schematic differs from the current posted version in ways that take a moment to see clearly: the secondary condensate loop is absent, the eastern residential vent junction does not appear, the undocumented manifold housing in the eastern corridor is not there. The distribution infrastructure that carries compound exposure through the cold-shell was not in the original design. It was added. The schematic in the cold-shell archive was replaced to match the modified infrastructure rather than the original build. You set the two versions side by side on her table. The differences are exact.';
-        addJournal('Original schematic missing secondary loop and undocumented manifold — modifications to shell post-construction created compound delivery pathways', 'evidence', 'aur-original-schema-part-' + G.dayCount);
+        G.lastResult = 'The dismissed technician\'s copy of the original schematic differs from the current posted version in ways that take a moment to see clearly: the secondary condensate loop is absent, the eastern residential vent junction does not appear, the undocumented manifold housing in the eastern corridor is not there. The distribution infrastructure that carries compound exposure through the dome was not in the original design. It was added. The schematic in the dome archive was replaced to match the modified infrastructure rather than the original build. You set the two versions side by side on her table. The differences are exact.';
+        addJournal('Original schematic missing secondary loop and undocumented manifold — modifications to dome post-construction created compound delivery pathways', 'evidence', 'aur-original-schema-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
     }
@@ -1800,11 +1800,11 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_sera_complaint_revealed = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Sera doesn\'t hide the document — it\'s on top of the pile, face-up. A formal shell security complaint, three pages, addressed to the Collegium Regional Oversight Board. She has signed it. She has not dated it. She looks at it while you look at it. "Filing it names the commune executive who buried the compliance review," she says. "The executive has authority to place my office under administrative review if she chooses to respond that way." She aligns the pages with one hand. "I have been trying to determine whether the evidence is strong enough that the review would not matter." She sets the pen on the top page. "Tell me what you have found."';
+        G.lastResult = 'Sera doesn\'t hide the document — it\'s on top of the pile, face-up. A formal dome security complaint, three pages, addressed to the Collegium Regional Oversight Board. She has signed it. She has not dated it. She looks at it while you look at it. "Filing it names the commune executive who buried the compliance review," she says. "The executive has authority to place my office under administrative review if she chooses to respond that way." She aligns the pages with one hand. "I have been trying to determine whether the evidence is strong enough that the review would not matter." She sets the pen on the top page. "Tell me what you have found."';
         addJournal('Sera\'s complaint drafted and signed — not dated, held pending sufficient evidence to withstand commune executive retaliation', 'evidence', 'aur-sera-complaint-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'Sera turns the document face-down before you are fully through the door. Not urgently — the deliberate movement of someone who has already decided. "Procedural actions under active shell security review are not for external discussion." She sets her pen beside the upturned page. Her jaw is set in the same way it was the first time you met her — a decision already completed, waiting for the right moment to act on it. She asks what brought you back to her office. The document stays face-down for the entire conversation.';
+        G.lastResult = 'Sera turns the document face-down before you are fully through the door. Not urgently — the deliberate movement of someone who has already decided. "Procedural actions under active dome security review are not for external discussion." She sets her pen beside the upturned page. Her jaw is set in the same way it was the first time you met her — a decision already completed, waiting for the right moment to act on it. She asks what brought you back to her office. The document stays face-down for the entire conversation.';
         addJournal('Sera turned complaint face-down — active review prevents external discussion, decision already made', 'complication', 'aur-sera-complaint-fail-' + G.dayCount);
       } else {
         G.flags.met_warden_sera_whiteglass = true;
@@ -1838,16 +1838,16 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_mariel_second_name = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Mariel wipes down the same section of counter twice before she answers — a tell she doesn\'t seem to know she has. "A transit rider stayed here last month. She mentioned the liaison by name while talking to another guest. The name was different from the one in the cold-shell register." She sets down the cloth. "I notice things. I notice names especially." She writes the name she heard on the back of a room-booking slip and sets it on the counter between you. "I have not told anyone else this." The shell\'s ventilation hum is low and continuous in the background. She picks up the cloth again and goes back to the counter.';
+        G.lastResult = 'Mariel wipes down the same section of counter twice before she answers — a tell she doesn\'t seem to know she has. "A transit rider stayed here last month. She mentioned the liaison by name while talking to another guest. The name was different from the one in the dome register." She sets down the cloth. "I notice things. I notice names especially." She writes the name she heard on the back of a room-booking slip and sets it on the counter between you. "I have not told anyone else this." The dome\'s ventilation hum is low and continuous in the background. She picks up the cloth again and goes back to the counter.';
         addJournal('Mariel heard liaison called by different name from transit rider — wrote it down, disclosed only to player', 'evidence', 'aur-mariel-name-' + G.dayCount);
       } else if (result.isFumble) {
-        G.lastResult = 'Mariel sets the room ledger down and looks at the hooks behind the counter before she answers. There is a standing instruction from shell administration about discussing Collegium liaison visits with external parties. She names it again, the same phrasing as before. "I follow it." She picks up the room ledger. The inn continues around you — the low shell-filtered air moving through the common room vents, a draft from the kitchen passage, the particular dampened quality of sound inside a sealed structure. She does not look up from the ledger.';
+        G.lastResult = 'Mariel sets the room ledger down and looks at the hooks behind the counter before she answers. There is a standing instruction from dome administration about discussing Collegium liaison visits with external parties. She names it again, the same phrasing as before. "I follow it." She picks up the room ledger. The inn continues around you — the low dome-filtered air moving through the common room vents, a draft from the kitchen passage, the particular dampened quality of sound inside a sealed structure. She does not look up from the ledger.';
         addJournal('Mariel declined to share — standing instruction on Collegium liaison discussions', 'complication', 'aur-mariel-name-fail-' + G.dayCount);
       } else {
         G.flags.met_mariel_sealwater = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Mariel polishes the counter for a moment before she speaks. "A transit rider mentioned the liaison in conversation last month. Used a different name than the one in the cold-shell register." She does not offer the name unprompted. "I noticed. I write things down." She opens the ledger to the relevant week, not the memory book — the official room register. The transit rider\'s booking is on the page. She taps the entry without naming the rider or the name. "The information is there if you know how to read it."';
+        G.lastResult = 'Mariel polishes the counter for a moment before she speaks. "A transit rider mentioned the liaison in conversation last month. Used a different name than the one in the dome register." She does not offer the name unprompted. "I noticed. I write things down." She opens the ledger to the relevant week, not the memory book — the official room register. The transit rider\'s booking is on the page. She taps the entry without naming the rider or the name. "The information is there if you know how to read it."';
         addJournal('Mariel confirms second name heard for liaison via transit rider — points to room register without naming it directly', 'intelligence', 'aur-mariel-name-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1923,7 +1923,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_liora_sealwater = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Liora listens to the compound profile description and is still for a moment longer than usual — the kind of stillness that is not hesitation but recognition. "I have seen something like this profile before. Not here." She goes to the treatment cabinet and checks something inside it without bringing it out. "A research context, years ago, southern circuit." She closes the cabinet. "The compound class was associated with glyph-sensitivity monitoring in controlled environments." She turns back. "Not treatment. Monitoring." The memorial candle sends a thin ribbon of smoke toward the cold-shell venting grate. She watches it. "The study ended."';
+        G.lastResult = 'Liora listens to the compound profile description and is still for a moment longer than usual — the kind of stillness that is not hesitation but recognition. "I have seen something like this profile before. Not here." She goes to the treatment cabinet and checks something inside it without bringing it out. "A research context, years ago, southern circuit." She closes the cabinet. "The compound class was associated with glyph-sensitivity monitoring in controlled environments." She turns back. "Not treatment. Monitoring." The memorial candle sends a thin ribbon of smoke toward the dome venting grate. She watches it. "The study ended."';
         addJournal('Liora recognizes compound from southern circuit research — glyph-sensitivity monitoring application, study discontinued', 'intelligence', 'aur-liora-prior-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -1988,7 +1988,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_sera_office_test = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Sera\'s desk is against the south wall, away from the ventilation grate in the north corner — moved recently, the original position visible in faint scuff marks on the floor. She doesn\'t comment until you ask directly. Then she opens the bottom drawer and sets a sealed sample container on the desk between you. A shelter shell air sample, date-labeled, from the grate where her desk stood. "The concentration at that vent is four times the residential average," she says. "The marshal\'s office is on the intake corridor. I have been breathing this longer than the residential sections." She sets the assay result beside the container. The result paper has a bloom of dark blue from edge to edge.';
+        G.lastResult = 'Sera\'s desk is against the south wall, away from the ventilation grate in the north corner — moved recently, the original position visible in faint scuff marks on the floor. She doesn\'t comment until you ask directly. Then she opens the bottom drawer and sets a sealed sample container on the desk between you. A dome air sample, date-labeled, from the grate where her desk stood. "The concentration at that vent is four times the residential average," she says. "The marshal\'s office is on the intake corridor. I have been breathing this longer than the residential sections." She sets the assay result beside the container. The result paper has a bloom of dark blue from edge to edge.';
         addJournal('Sera ran personal air test — intake corridor vent 4x residential average, assay paper full bloom, desk moved as personal protective measure', 'evidence', 'aur-sera-office-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -1998,7 +1998,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.met_warden_sera_whiteglass = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Sera looks at the scuff marks on the floor where her desk used to be, then at you. "I moved it three days ago." She reaches into the bottom drawer and brings out a small sealed sample tube — a shelter shell air sample, labeled with the grate position and a date. "I ran an assay." She doesn\'t open the drawer all the way. "The concentration at the north grate is higher than the residential average." She puts the tube back. "The marshal\'s office is directly on the filtration intake corridor. I wanted to know what I was working in." She caps the pen on her desk. "Now I know."';
+        G.lastResult = 'Sera looks at the scuff marks on the floor where her desk used to be, then at you. "I moved it three days ago." She reaches into the bottom drawer and brings out a small sealed sample tube — a dome air sample, labeled with the grate position and a date. "I ran an assay." She doesn\'t open the drawer all the way. "The concentration at the north grate is higher than the residential average." She puts the tube back. "The marshal\'s office is directly on the filtration intake corridor. I wanted to know what I was working in." She caps the pen on her desk. "Now I know."';
         addJournal('Sera moved desk after personal air test — intake corridor grate concentration above residential average, test result kept in desk drawer', 'intelligence', 'aur-sera-office-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -2023,17 +2023,17 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_residue_water_soluble = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The dismissed technician\'s lab shelf has a small solubility testing kit — field-grade, the kind used for intake compound assessments. You dissolve a scraping of amber residue from the intake throat sample in ten milliliters of water. The compound dissolves cleanly within forty seconds: no particulate, no cloudiness, complete dissolution. A compound that is fully water-soluble and is present in the cold-shell\'s condensate channel — which Orvyn confirmed feeds into the potable water distribution system — is entering the drinking supply at every condensation cycle. The shell\'s residents are being exposed through two separate pathways simultaneously: air and water. The amber ring on the intake throat is not the only delivery mechanism.';
+        G.lastResult = 'The dismissed technician\'s lab shelf has a small solubility testing kit — field-grade, the kind used for intake compound assessments. You dissolve a scraping of amber residue from the intake throat sample in ten milliliters of water. The compound dissolves cleanly within forty seconds: no particulate, no cloudiness, complete dissolution. A compound that is fully water-soluble and is present in the dome\'s condensate channel — which Orvyn confirmed feeds into the potable water distribution system — is entering the drinking supply at every condensation cycle. The dome\'s residents are being exposed through two separate pathways simultaneously: air and water. The amber ring on the intake throat is not the only delivery mechanism.';
         addJournal('Amber residue fully water-soluble — potable water loop carries compound via condensate cycle, dual air-water exposure confirmed', 'evidence', 'aur-water-soluble-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The solubility test requires a residue sample large enough to dissolve cleanly, which means scraping from the intake throat — and the intake throat requires a shell maintenance clearance to access without supervision. You get close enough to smell the amber line before a labor crew working the conduit bank clocks your position. The foreman waves you back without raising his voice. The clearance form for unsupervised intake access requires three business days and a health certification. He says this helpfully. He does not move until you do.';
+        G.lastResult = 'The solubility test requires a residue sample large enough to dissolve cleanly, which means scraping from the intake throat — and the intake throat requires a dome maintenance clearance to access without supervision. You get close enough to smell the amber line before a labor crew working the conduit bank clocks your position. The foreman waves you back without raising his voice. The clearance form for unsupervised intake access requires three business days and a health certification. He says this helpfully. He does not move until you do.';
         addJournal('Solubility test blocked — intake throat access requires 3-day clearance and health certification', 'complication', 'aur-water-soluble-fail-' + G.dayCount);
       } else {
         G.flags.aurora_residue_water_soluble = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The residue sample dissolves in water. You use the field kit from the technician\'s shelf: ten milliliters, forty seconds, clean dissolution. Completely water-soluble, no particulate. Orvyn said the condensate loop feeds back into the potable water distribution system through the thermal junction. A compound that dissolves completely in water and is present in a condensate cycle that serves the cold-shell\'s drinking supply is entering it every time the condensate cycle runs. The waxy amber trace at the intake throat is the first point. The tap is another.';
+        G.lastResult = 'The residue sample dissolves in water. You use the field kit from the technician\'s shelf: ten milliliters, forty seconds, clean dissolution. Completely water-soluble, no particulate. Orvyn said the condensate loop feeds back into the potable water distribution system through the thermal junction. A compound that dissolves completely in water and is present in a condensate cycle that serves the dome\'s drinking supply is entering it every time the condensate cycle runs. The waxy amber trace at the intake throat is the first point. The tap is another.';
         addJournal('Residue water-soluble — condensate-to-potable-water pathway confirmed as second exposure route', 'evidence', 'aur-water-soluble-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -2064,7 +2064,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         addJournal('Residue depth map shows peak at intake on delivery day, peak at secondary loop junction day after — exposure still rising on day two', 'evidence', 'aur-residue-map-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The drainage channel access from a second entry point — a different panel than the one you used before — is locked on a safety rotation protocol that only cycles open during scheduled maintenance windows. The next window is in eleven days. A shelter shell steward doing perimeter rounds marks you in the corridor log when you try the panel. She writes the location and the time. She does not stop or speak to you. The notation is enough.';
+        G.lastResult = 'The drainage channel access from a second entry point — a different panel than the one you used before — is locked on a safety rotation protocol that only cycles open during scheduled maintenance windows. The next window is in eleven days. A dome steward doing perimeter rounds marks you in the corridor log when you try the panel. She writes the location and the time. She does not stop or speak to you. The notation is enough.';
         addJournal('Second drainage access panel locked on rotation protocol — marked in perimeter log, next window 11 days', 'complication', 'aur-residue-map-fail-' + G.dayCount);
       } else {
         G.flags.aurora_residue_accumulation_mapped = true;
@@ -2130,17 +2130,17 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_assembly_dosing_pattern = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The civic assembly calendar is posted near the cold-shell\'s community board — Aurora Crown holds quarterly assemblies and six-week council review sessions, all dates fixed at the start of each cycle. You overlay the delivery dates against the calendar. Every delivery falls between four and six days before either a full civic assembly or a council review session. The compound\'s peak concentration, given the dwell extension and the day-after accumulation pattern, would reach its highest level in residents during the assembly or review itself. The dosing schedule was not chosen for operational convenience. It was calibrated to produce maximum glyph-sensitivity suppression during the commune\'s deliberative governance events.';
+        G.lastResult = 'The civic assembly calendar is posted near the dome\'s community board — Aurora Crown holds quarterly assemblies and six-week council review sessions, all dates fixed at the start of each cycle. You overlay the delivery dates against the calendar. Every delivery falls between four and six days before either a full civic assembly or a council review session. The compound\'s peak concentration, given the dwell extension and the day-after accumulation pattern, would reach its highest level in residents during the assembly or review itself. The dosing schedule was not chosen for operational convenience. It was calibrated to produce maximum glyph-sensitivity suppression during the commune\'s deliberative governance events.';
         addJournal('Deliveries 4-6 days pre-assembly/review — peak compound concentration timed to civic governance events, suppression of deliberative capacity confirmed', 'evidence', 'aur-assembly-pattern-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
-        G.lastResult = 'The community board near the assembly hall has had the civic calendar removed for the current quarter — replaced with a notice about a shelter shell infrastructure maintenance posting period that requires the space. A steward at the hall entrance notes your interest in the board and writes it down. The assembly schedule is in the cold-shell archive. The archive access log will show another entry under your name. The tray of notifications in Cadrin\'s counter behind him has grown by one since this morning.';
+        G.lastResult = 'The community board near the assembly hall has had the civic calendar removed for the current quarter — replaced with a notice about a dome infrastructure maintenance posting period that requires the space. A steward at the hall entrance notes your interest in the board and writes it down. The assembly schedule is in the dome archive. The archive access log will show another entry under your name. The tray of notifications in Cadrin\'s counter behind him has grown by one since this morning.';
         addJournal('Civic calendar removed from community board — archive access required, another access log entry generated', 'complication', 'aur-assembly-pattern-fail-' + G.dayCount);
       } else {
         G.flags.aurora_assembly_dosing_pattern = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'Six deliveries. Six civic assembly or council review events. You put the delivery dates next to the assembly calendar dates. Every delivery precedes a governance event by four to six days. Given the dwell extension and the residue accumulation pattern, peak concentration in the cold-shell\'s air supply falls on the day of the assembly or the day before. The schedule is not convenient for a supplier\'s logistics. It is tuned to the commune\'s deliberative calendar. Whatever the compound does to glyph-sensitivity, it is being applied specifically when residents gather to make communal decisions.';
+        G.lastResult = 'Six deliveries. Six civic assembly or council review events. You put the delivery dates next to the assembly calendar dates. Every delivery precedes a governance event by four to six days. Given the dwell extension and the residue accumulation pattern, peak concentration in the dome\'s air supply falls on the day of the assembly or the day before. The schedule is not convenient for a supplier\'s logistics. It is tuned to the commune\'s deliberative calendar. Whatever the compound does to glyph-sensitivity, it is being applied specifically when residents gather to make communal decisions.';
         addJournal('Delivery schedule maps to pre-assembly timing — peak compound concentration falls on civic governance days', 'evidence', 'aur-assembly-pattern-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();
@@ -2169,7 +2169,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_eastern_settlement_precedent = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The settlement dissolution archive has a four-year-old entry: a commune in the eastern circuit, Verath Crossing, dissolved by collective vote eighteen months after a shelter shell infrastructure upgrade. The upgrade was authorized by the same Collegium regional technical authority that authorized Aurora Crown\'s sensor recalibration. Verath Crossing\'s dissolution petition cited community fatigue, reduced civic participation, and a collapse of the resident governance council over a twelve-month period. The petition was unanimous. The archived medical records for the settlement show a respiratory and fatigue complaint pattern that begins three months before the infrastructure upgrade and continues until dissolution. The Northern Provision Compact name does not appear in Verath Crossing\'s records. The Collegium technical authority does.';
+        G.lastResult = 'The settlement dissolution archive has a four-year-old entry: a commune in the eastern circuit, Verath Crossing, dissolved by collective vote eighteen months after a dome infrastructure upgrade. The upgrade was authorized by the same Collegium regional technical authority that authorized Aurora Crown\'s sensor recalibration. Verath Crossing\'s dissolution petition cited community fatigue, reduced civic participation, and a collapse of the resident governance council over a twelve-month period. The petition was unanimous. The archived medical records for the settlement show a respiratory and fatigue complaint pattern that begins three months before the infrastructure upgrade and continues until dissolution. The Northern Provision Compact name does not appear in Verath Crossing\'s records. The Collegium technical authority does.';
         addJournal('Verath Crossing dissolved 4 years prior — same Collegium technical authority, same symptom pattern, governance collapse, unanimous dissolution 18mo post-upgrade', 'evidence', 'aur-verath-link-' + G.dayCount);
       } else if (result.isFumble) {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 1;
@@ -2179,7 +2179,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
         G.flags.aurora_eastern_settlement_precedent = true;
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        G.lastResult = 'The dissolution archive has an entry for Verath Crossing: a shelter shell commune in the eastern circuit, dissolved by collective vote four years ago. The dissolution petition cites civic fatigue and governance collapse over an eighteen-month period following a Collegium-authorized infrastructure upgrade. The settlement\'s medical records in the archive show respiratory and fatigue complaints that match the pattern Liora has been tracking. The Collegium technical authority named in the Verath Crossing upgrade is the same one named in Aurora Crown\'s sensor recalibration documents. The precedent exists. This has happened before.';
+        G.lastResult = 'The dissolution archive has an entry for Verath Crossing: a dome commune in the eastern circuit, dissolved by collective vote four years ago. The dissolution petition cites civic fatigue and governance collapse over an eighteen-month period following a Collegium-authorized infrastructure upgrade. The settlement\'s medical records in the archive show respiratory and fatigue complaints that match the pattern Liora has been tracking. The Collegium technical authority named in the Verath Crossing upgrade is the same one named in Aurora Crown\'s sensor recalibration documents. The precedent exists. This has happened before.';
         addJournal('Verath Crossing dissolution — same Collegium authority, same symptom timeline, governance collapse preceding unanimous dissolution vote', 'evidence', 'aur-verath-link-part-' + G.dayCount);
       }
       G.recentOutcomeType = result.isFumble ? 'complication' : 'success'; maybeStageAdvance();

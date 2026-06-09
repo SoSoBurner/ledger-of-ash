@@ -1,6 +1,6 @@
 /**
  * AURORA CROWN COMMUNE STAGE 1 ENRICHED MEANINGFUL CHOICES
- * 20 deeply grounded investigation paths tied to shell maintenance, survival, and contamination
+ * 20 deeply grounded investigation paths tied to dome maintenance, survival, and contamination
  * Generated for: Individual need vs collective survival, hope vs fatalism, containment vs contamination
  * Each choice: 65-80 XP, grounded in specific NPC perspective, layered wrongness reveal
  */
@@ -8,7 +8,7 @@
 var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // ========== NPC-GROUNDED CHAINS (8 CHOICES) ==========
 
-  // 1. SHELTER-SHELL TECHNICIAN: MAINTENANCE ROTATIONS DISRUPTED
+  // 1. DOME TECHNICIAN: MAINTENANCE ROTATIONS DISRUPTED
   {
     plot: 'main',
     questId: 'q_s1_pattern',
@@ -31,9 +31,9 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
-        G.lastResult = `Kess leans against the corridor wall and keeps her voice low. "Skeleton crews on every rotation, and the maintenance chief calls it 'conservation schedule.' The shell doesn't conserve — it degrades. If people are being pulled, the work isn't getting done." She looks at the record board behind her. "I filed a note two weeks ago. It came back stamped reviewed. Nothing changed." Her hands don't stop moving — checking seals, checking pressure gauges — even while she talks. The name on that stamp is in the registry hall.`;
+        G.lastResult = `Kess leans against the corridor wall and keeps her voice low. "Skeleton crews on every rotation, and the maintenance chief calls it 'conservation schedule.' The dome doesn't conserve — it degrades. If people are being pulled, the work isn't getting done." She looks at the record board behind her. "I filed a note two weeks ago. It came back stamped reviewed. Nothing changed." Her hands don't stop moving — checking seals, checking pressure gauges — even while she talks. The name on that stamp is in the registry hall.`;
         G.stageProgress[1]++;
-        addJournal('Cold-shell technician flagged personnel diversion from maintenance', 'evidence', `aurora-technician-rotations-${G.dayCount}`);
+        addJournal('Dome technician flagged personnel diversion from maintenance', 'evidence', `aurora-technician-rotations-${G.dayCount}`);
       } else if (result.isFumble) {
         G.lastResult = `Kess's posture changes before you finish the question. She steps back, looks at the floor. "Rotation schedules are administrative. I don't discuss administrative." She picks up her toolkit and walks away down the corridor without another word. The hatch behind her clicks shut. The maintenance division is closed now — everyone in earshot watched the exchange and drew their conclusions.`;
         G.worldClocks.pressure++;
@@ -43,7 +43,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         addJournal('Technician confirmed unusual personnel reallocations', 'evidence', `aurora-technician-understaffed-${G.dayCount}`);
       } else {
         G.lastResult = `Kess doesn't look up from the gauge she's reading. "Schedules change. That's survival work." She marks something on her log, replaces the gauge cap, and moves to the next station. The conversation is over and she never raised her voice. The work order queue in the repair coordinator's office carries the same schedule — if the rotations are being deliberately thinned, the queue will show which repair slots are staying empty longest.`;
-        addJournal('Cold-shell maintenance schedule inquiry inconclusive', 'evidence', `aurora-technician-blocked-${G.dayCount}`);
+        addJournal('Dome maintenance schedule inquiry inconclusive', 'evidence', `aurora-technician-blocked-${G.dayCount}`);
       }
 
       G.recentOutcomeType = 'investigate';
@@ -157,7 +157,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
-        G.lastResult = `Yani drops the work order queue on the table between you and doesn't sit down. Several critical repairs marked "under review" — weeks past any normal review window. She's circled them herself, in red, with dates. "Cold-shell structural stress needs immediate attention. I followed up twice. I was told to stop asking." She points at the top item on the stack. "When the cold-shell starts failing, it'll be logged as structural age. It's not age. Every one of these could have been repaired. Someone is keeping them stuck."`;
+        G.lastResult = `Yani drops the work order queue on the table between you and doesn't sit down. Several critical repairs marked "under review" — weeks past any normal review window. She's circled them herself, in red, with dates. "Dome structural stress needs immediate attention. I followed up twice. I was told to stop asking." She points at the top item on the stack. "When the dome starts failing, it'll be logged as structural age. It's not age. Every one of these could have been repaired. Someone is keeping them stuck."`;
 
         G.stageProgress[1]++;
         addJournal('Coordinator mapped systematic repair blocking pattern', 'evidence', `aurora-coordinator-${G.dayCount}`);
@@ -169,7 +169,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `Yani lets you look at three completed files before closing the stack. Two of the three show extended review periods — six and nine weeks respectively, against a four-day standard. She marks that in her own log while you read. "I don't know what's holding them," she says. "I just log what I see." She writes the word "irregular" next to each entry. The word is careful. She's been careful about this for a while.`;
         addJournal('Work orders show signs of unusual delay patterns', 'evidence', `aurora-coordinator-delayed-${G.dayCount}`);
       } else {
-        G.lastResult = `The work order room is dense with binders, cross-indexed by section code and date. Repairs are being logged. Work is listed as happening. But reading whether any specific delay is deliberate requires knowing what normal looks like in this commune — and you don't, not yet. The celestial observer's four-week pattern charts include a column tracking shell intervention dates — laid against this queue, the gaps would be legible.`;
+        G.lastResult = `The work order room is dense with binders, cross-indexed by section code and date. Repairs are being logged. Work is listed as happening. But reading whether any specific delay is deliberate requires knowing what normal looks like in this commune — and you don't, not yet. The celestial observer's four-week pattern charts include a column tracking dome intervention dates — laid against this queue, the gaps would be legible.`;
         addJournal('Repair queue patterns inconclusive', 'evidence', `aurora-coordinator-unclear-${G.dayCount}`);
       }
 
@@ -186,7 +186,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The observation room is dark — morning cycle complete, afternoon cycle not yet begun. The high windows carry amber light from the shell panels. A single readings sheet from last week is pinned to the corkboard outside: baseline figures, unsigned. The archive carries four weeks of comparison data.', 'failure');
+      addNarration('', 'The observation room is dark — morning cycle complete, afternoon cycle not yet begun. The high windows carry amber light from the dome panels. A single readings sheet from last week is pinned to the corkboard outside: baseline figures, unsigned. The archive carries four weeks of comparison data.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -199,7 +199,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
-        G.lastResult = `Corvus has his observation charts spread across a long worktable and doesn't offer you a seat. He points instead — bands of pattern data running across four weeks of nights. "Used to follow a cycle. The shelter shell's interaction with the contamination field made stable, readable patterns." His finger traces where the pattern breaks. Three weeks ago. "That's not natural drift. Either the contamination itself changed, or someone is manipulating the containment field deliberately." He rolls the chart back up. "What we're seeing out there now — that's not what the barrier is supposed to look like."`;
+        G.lastResult = `Corvus has his observation charts spread across a long worktable and doesn't offer you a seat. He points instead — bands of pattern data running across four weeks of nights. "Used to follow a cycle. The dome's interaction with the contamination field made stable, readable patterns." His finger traces where the pattern breaks. Three weeks ago. "That's not natural drift. Either the contamination itself changed, or someone is manipulating the containment field deliberately." He rolls the chart back up. "What we're seeing out there now — that's not what the barrier is supposed to look like."`;
 
         G.stageProgress[1]++;
         addJournal('Observer revealed intentional contamination field destabilization', 'evidence', `aurora-observer-${G.dayCount}`);
@@ -246,7 +246,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.stageProgress[1]++;
         addJournal('Monitor revealed authorized barrier protocol sabotage', 'evidence', `aurora-monitor-${G.dayCount}`);
       } else if (result.isFumble) {
-        G.lastResult = `Kael's expression doesn't change. "Safety information is restricted to certified personnel. Questions about shell integrity from outside the certification structure get logged." He's already writing. The log is a proper commune record — numbered, dated, formally headed. He finishes the entry and caps his pen. "If you have a safety concern, submit it in writing through the registry hall." He means it as a dismissal. It works. The pressure of being logged is specific: everything you ask from this point will be read in the context of this entry.`;
+        G.lastResult = `Kael's expression doesn't change. "Safety information is restricted to certified personnel. Questions about dome integrity from outside the certification structure get logged." He's already writing. The log is a proper commune record — numbered, dated, formally headed. He finishes the entry and caps his pen. "If you have a safety concern, submit it in writing through the registry hall." He means it as a dismissal. It works. The pressure of being logged is specific: everything you ask from this point will be read in the context of this entry.`;
         G.worldClocks.pressure++;
         addJournal('Contamination monitor flagged your inquiry as security threat', 'complication', `aurora-monitor-alert-${G.dayCount}`);
       } else if (result.total >= 13) {
@@ -283,7 +283,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('charm', (G.skills.charm || 0));
 
       if (result.isCrit) {
-        G.lastResult = `Nox waits until the other relay operator steps out, then speaks at normal volume, which turns out to be the most unnerving choice. "Messages about shell maintenance, resource allocation, contamination seepage — those get routed through a secondary relay before they go out. I was told it was protocol consolidation." She points at the routing board behind her. "Coordination between communes means if one fails, the others respond. Someone is cutting that off. You only do that if you want one commune to fail quietly."`;
+        G.lastResult = `Nox waits until the other relay operator steps out, then speaks at normal volume, which turns out to be the most unnerving choice. "Messages about dome maintenance, resource allocation, contamination seepage — those get routed through a secondary relay before they go out. I was told it was protocol consolidation." She points at the routing board behind her. "Coordination between communes means if one fails, the others respond. Someone is cutting that off. You only do that if you want one commune to fail quietly."`;
 
         G.stageProgress[1]++;
         addJournal('Relay keeper revealed message filtering to external communes', 'evidence', `aurora-keeper-${G.dayCount}`);
@@ -348,7 +348,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // ========== ARCHETYPE DEEP DIVES (8 CHOICES) ==========
 
-  // 9. LORE/INVESTIGATION TIER 1: SHELL STRUCTURAL ANALYSIS
+  // 9. LORE/INVESTIGATION TIER 1: DOME STRUCTURAL ANALYSIS
   {
     plot: 'main',
     label: "Three stress points appear fourteen times in the log. None have repair authorizations.",
@@ -369,7 +369,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
-        G.lastResult = `The structural records go back to the shelter shell's original construction. You read them at a communal table, cold water glass sweating beside you. Load-bearing sections show weight routed through specific concentration points where better distribution was possible — the inspection reports for three of them are in the same binder, dated and signed. No repair was ever authorized against those reports. The shell stays up because the balance holds. It is precisely the kind of balance that doesn't announce when it ends.`;
+        G.lastResult = `The structural records go back to the dome's original construction. You read them at a communal table, cold water glass sweating beside you. Load-bearing sections show weight routed through specific concentration points where better distribution was possible — the inspection reports for three of them are in the same binder, dated and signed. No repair was ever authorized against those reports. The dome stays up because the balance holds. It is precisely the kind of balance that doesn't announce when it ends.`;
         G.stageProgress[1]++;
         addJournal('Structural analysis revealed intentional stress point concentration', 'evidence', `aurora-structure-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -492,7 +492,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
-        G.lastResult = `You spend the morning at the communal tables near the grain stores, listening. Three separate conversations stop when they notice you. Not because of who you are — because of what you're near. People talk around the shelter shell's condition, the resource distribution, the contamination reports. They reference "the record" and "the commune decision" the way people reference things they've stopped expecting to change. Everyone present knows someone who was reassigned after raising a question publicly. The ration boards are clearly visible. Nobody needs to say the rest.`;
+        G.lastResult = `You spend the morning at the communal tables near the grain stores, listening. Three separate conversations stop when they notice you. Not because of who you are — because of what you're near. People talk around the dome's condition, the resource distribution, the contamination reports. They reference "the record" and "the commune decision" the way people reference things they've stopped expecting to change. Everyone present knows someone who was reassigned after raising a question publicly. The ration boards are clearly visible. Nobody needs to say the rest.`;
         G.stageProgress[1]++;
         addJournal('Coercion analysis mapped fear-based compliance network', 'evidence', `aurora-coercion-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -520,7 +520,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The commons is too active right now — a scheduled assembly in progress, every seat taken, voices overlapping. The amber light through the shell panels gives the room a warmth the faces don\'t match. The founding stone at the cold-shell\'s anchor point is quieter. What was built here is written on it.', 'failure');
+      addNarration('', 'The commons is too active right now — a scheduled assembly in progress, every seat taken, voices overlapping. The amber light through the dome panels gives the room a warmth the faces don\'t match. The founding stone at the dome\'s anchor point is quieter. What was built here is written on it.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -533,7 +533,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
-        G.lastResult = `The communal spaces built for assembly stand empty at the hours they used to fill. A long-term resident — she's been here since the shelter shell's second decade, she mentions it without pride — sits at a table in the commons and doesn't look up when two people walk past. That's the thing you keep noticing: nobody looks up. Aurora Crown was built on collective decision-making; the record boards are everywhere, the decision logs are public. The boards are current. Nobody reads them. When you ask a group near the cooking area about the future, the answers arrive in the same register: the cold-shell will fail. There's no way through.`;
+        G.lastResult = `The communal spaces built for assembly stand empty at the hours they used to fill. A long-term resident — she's been here since the dome's second decade, she mentions it without pride — sits at a table in the commons and doesn't look up when two people walk past. That's the thing you keep noticing: nobody looks up. Aurora Crown was built on collective decision-making; the record boards are everywhere, the decision logs are public. The boards are current. Nobody reads them. When you ask a group near the cooking area about the future, the answers arrive in the same register: the dome will fail. There's no way through.`;
         G.stageProgress[1]++;
         addJournal('Psychological analysis revealed systematic demoralization campaign', 'evidence', `aurora-psychology-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -574,7 +574,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('vigor', (G.skills.vigor || 0));
 
       if (result.isCrit) {
-        G.lastResult = `Mapped on paper, the decision chain doesn't follow the org chart. The maintenance chief's freeze orders trace back to the contamination monitor's office. The contamination monitor's protocol changes align with timing from the survival planner's directives. The survival planner's decisions correlate exactly with incoming relay traffic on a secondary channel. Someone outside Aurora Crown is issuing instructions that travel through three local administrators before they reach the shelter shell's physical systems. The commune's own structure is being used as a transmission mechanism.`;
+        G.lastResult = `Mapped on paper, the decision chain doesn't follow the org chart. The maintenance chief's freeze orders trace back to the contamination monitor's office. The contamination monitor's protocol changes align with timing from the survival planner's directives. The survival planner's decisions correlate exactly with incoming relay traffic on a secondary channel. Someone outside Aurora Crown is issuing instructions that travel through three local administrators before they reach the dome's physical systems. The commune's own structure is being used as a transmission mechanism.`;
         G.stageProgress[1]++;
         addJournal('Administrative mapping revealed external coordination of local sabotage', 'evidence', `aurora-admin-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -599,12 +599,12 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   // 15. STREET RUMOR: SURVIVAL ANXIETIES
   {
     plot: 'main',
-    label: "The maintenance workers don't talk about the cold-shell readings. Not where anyone can hear.",
+    label: "The maintenance workers don't talk about the dome readings. Not where anyone can hear.",
     tags: ['Investigation', 'Rumor', 'Gossip', 'Fear'],
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The maintenance corridor is empty — shift change just ended and nobody lingers. The amber smell of shell sealant hangs without anyone to breathe it. The commons will fill again at midday. Fragments travel at mealtimes, between people who don\'t know they\'re passing the same one.', 'failure');
+      addNarration('', 'The maintenance corridor is empty — shift change just ended and nobody lingers. The amber smell of dome sealant hangs without anyone to breathe it. The commons will fill again at midday. Fragments travel at mealtimes, between people who don\'t know they\'re passing the same one.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -614,7 +614,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(65, 'parsing worker anxiety narratives');
       G.stageProgress[1]++;
 
-      const rumor = ['the shell stress readings are worse than anyone admits', 'people disappear during reassignment and nobody asks where they go', 'the barrier is leaking and they\'re not repairing it', 'someone is collecting contamination samples on purpose', 'if we protest, we get reassigned to the contamination detail'];
+      const rumor = ['the dome stress readings are worse than anyone admits', 'people disappear during reassignment and nobody asks where they go', 'the barrier is leaking and they\'re not repairing it', 'someone is collecting contamination samples on purpose', 'if we protest, we get reassigned to the contamination detail'];
       const selected = rumor[Math.floor(Math.random() * rumor.length)];
 
       G.lastResult = `A maintenance worker, two minutes into a rotation handoff, drops his voice: "${selected}." The person receiving the handoff nods without looking up. It's not a revelation — it's confirmation of something already circulating. The same fragment surfaces twice more through the morning, in different corridors, from people who don't know each other. Nobody attaches a source. Nobody has the full shape of it. But the detail itself travels because it lands on something people already half-know is true.`;
@@ -689,7 +689,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.stageProgress[1]++;
 
       const npcOptions = [
-        { name: 'Kess', role: 'shell technician', fear: 'They said if I didn\'t cooperate, I\'d be reassigned to contamination detail. I have a child.' },
+        { name: 'Kess', role: 'dome technician', fear: 'They said if I didn\'t cooperate, I\'d be reassigned to contamination detail. I have a child.' },
         { name: 'Kael', role: 'contamination monitor', fear: 'I tried to report it. They told me if I kept talking, my access would be revoked and I\'d be marked unreliable.' },
         { name: 'Thass', role: 'resource allocator', fear: 'I was ordered to divert supplies. The order came from above. I have no choice.' }
       ];
@@ -725,7 +725,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(80, 'discovering origin source of shell sabotage');
+      gainXp(80, 'discovering origin source of dome sabotage');
       G.stageProgress[1]++;
 
       const result = rollD20('wits', (G.skills.wits || 0));
@@ -772,7 +772,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
-        G.lastResult = `Laid out on the communal table in sequence: the structural stress points left unrepaired, the barrier materials substituted for cheaper equivalents, the seepage rerouted instead of contained, the resource diverted from survival stores, the evacuation procedures removed from protocol. None of these failing systems is touching the others at the surface level. Structurally they're all touching: a weakened barrier lets contamination enter; diverted resources prevent repair; blocked maintenance can't fix the cold-shell; a population with no evacuation option and no hope of outside help stops looking for a way through. Every failure is designed to amplify the next one.`;
+        G.lastResult = `Laid out on the communal table in sequence: the structural stress points left unrepaired, the barrier materials substituted for cheaper equivalents, the seepage rerouted instead of contained, the resource diverted from survival stores, the evacuation procedures removed from protocol. None of these failing systems is touching the others at the surface level. Structurally they're all touching: a weakened barrier lets contamination enter; diverted resources prevent repair; blocked maintenance can't fix the dome; a population with no evacuation option and no hope of outside help stops looking for a way through. Every failure is designed to amplify the next one.`;
         G.stageProgress[1]++;
         addJournal('Systems analysis revealed coordinated collapse engineering', 'evidence', `aurora-pattern-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -800,7 +800,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 80,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The synthesis requires a table and uninterrupted time — neither is available right now. The shell anchor is quiet in the early afternoon. The founding stone sits at its base. Sometimes the shape of a thing becomes visible when you stop reading documents and look at what was built.', 'failure');
+      addNarration('', 'The synthesis requires a table and uninterrupted time — neither is available right now. The dome anchor is quiet in the early afternoon. The founding stone sits at its base. Sometimes the shape of a thing becomes visible when you stop reading documents and look at what was built.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -813,7 +813,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
-        G.lastResult = `The pattern holds at every level you check it: shell, barrier, resources, protocol, population. Each pressure applied in sequence, each withdrawal timed. But what you're reading isn't destruction for its own sake. The schedule is too measured. The changes are calibrated — enough to degrade, not enough to cause immediate collapse. Someone is not trying to destroy Aurora Crown quickly. They're observing how long a survival commune can hold under systematic pressure before it stops functioning as a community. The commune is the data. Whatever is being learned here will be applied somewhere else.`;
+        G.lastResult = `The pattern holds at every level you check it: dome, barrier, resources, protocol, population. Each pressure applied in sequence, each withdrawal timed. But what you're reading isn't destruction for its own sake. The schedule is too measured. The changes are calibrated — enough to degrade, not enough to cause immediate collapse. Someone is not trying to destroy Aurora Crown quickly. They're observing how long a survival commune can hold under systematic pressure before it stops functioning as a community. The commune is the data. Whatever is being learned here will be applied somewhere else.`;
         G.stageProgress[1]++;
         addJournal('Aurora Crown understood as experimental laboratory for systematic collapse engineering', 'discovery', `aurora-understanding-${G.dayCount}`);
       } else if (result.isFumble) {
@@ -824,7 +824,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         G.lastResult = `The pressure on Aurora Crown isn't random degradation. The scheduling, the calibration, the fact that no single failure has been severe enough to trigger outside intervention — it reads as managed. Someone knows the threshold at which a survival commune calls for external help, and they're staying just under it. The purpose of that — the reason to want a commune failing slowly rather than failing loudly — points toward observation. You don't have the final link yet. The shape of it is clear enough to be unsettling.`;
         addJournal('External experimental pressure testing of Aurora Crown suspected', 'discovery', `aurora-understanding-experimental-${G.dayCount}`);
       } else {
-        G.lastResult = `The evidence establishes what is happening. The why stays out of reach. Deliberate shell degradation, deliberate resource diversion, deliberate population pressure — these are documented and real. What someone gains from Aurora Crown's slow failure specifically, rather than a faster or more direct approach, isn't something the records you've accessed can answer. The purpose behind the method is still missing.`;
+        G.lastResult = `The evidence establishes what is happening. The why stays out of reach. Deliberate dome degradation, deliberate resource diversion, deliberate population pressure — these are documented and real. What someone gains from Aurora Crown's slow failure specifically, rather than a faster or more direct approach, isn't something the records you've accessed can answer. The purpose behind the method is still missing.`;
         addJournal('Systemic purpose not yet fully revealed', 'evidence', `aurora-understanding-incomplete-${G.dayCount}`);
       }
 
@@ -841,7 +841,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 73,
     failResult: function() {
-      addNarration('', 'The archive section holding the bound service logs is in its morning consolidation window — thirty minutes, the sign says. The amber light from the shell panels reaches this corridor but doesn\'t warm it. The filtration specification sheet is posted in the open reference section. The specification alone won\'t show the substitution, but it names what should be there.', 'failure');
+      addNarration('', 'The archive section holding the bound service logs is in its morning consolidation window — thirty minutes, the sign says. The amber light from the dome panels reaches this corridor but doesn\'t warm it. The filtration specification sheet is posted in the open reference section. The specification alone won\'t show the substitution, but it names what should be there.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -854,10 +854,10 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
-        G.lastResult = `The specification calls for quarterly maintenance cycles and specific mineral additives. The most recent service log — eighteen months ago — carries a two-word margin note: "material substitution." The substitute compound isn't named. The log was signed by someone in the contamination monitor's chain, not the maintenance chief's. The shelter shell's degradation since that date follows the pattern you'd see if the stabilizing additive had been replaced with an inert filler. The contamination isn't a failure of maintenance. The maintenance record shows it was introduced.`;
+        G.lastResult = `The specification calls for quarterly maintenance cycles and specific mineral additives. The most recent service log — eighteen months ago — carries a two-word margin note: "material substitution." The substitute compound isn't named. The log was signed by someone in the contamination monitor's chain, not the maintenance chief's. The dome's degradation since that date follows the pattern you'd see if the stabilizing additive had been replaced with an inert filler. The contamination isn't a failure of maintenance. The maintenance record shows it was introduced.`;
         if (!G.flags) G.flags = {};
         G.flags.found_filtration_documentation = true;
-        addJournal('Filtration records: additive substitution eighteen months ago matches shell degradation pattern', 'evidence', `aurora-filtration-${G.dayCount}`);
+        addJournal('Filtration records: additive substitution eighteen months ago matches dome degradation pattern', 'evidence', `aurora-filtration-${G.dayCount}`);
       } else {
         G.lastResult = `The bound volume is intact except for three pages in the relevant service log section. They've been excised cleanly — not torn, cut at the binding with something narrow. The archive log shows the volume was last accessed four months ago by someone whose name appears only by initial. The information was here and it was removed deliberately, recently enough that the binding still shows faint resistance where the cut was made. Someone came for these pages specifically. The contamination monitor's chain signed the most recent service entry — the one directly before the gap.`;
         if (!G.worldClocks) G.worldClocks = {};
@@ -867,18 +867,18 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     }
   },
 
-  // 22. CLUE: SHELL PRESSURE GRADIENT DATA
+  // 22. CLUE: DOME PRESSURE GRADIENT DATA
   {
     label: "The northeast quadrant reading should have tripped an alarm. The alarm wire has been bypassed.",
     tags: ['Investigation', 'Evidence', 'Craft', 'Stage1'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The northeast quadrant access corridor is behind a maintenance lock — requires a rotation card, not available to visitors. The shell\'s outer walkway circles the perimeter at ground level. From there you can see the quadrant\'s exterior face. The stress isn\'t always visible, but the repair markers tell you where to look.', 'failure');
+      addNarration('', 'The northeast quadrant access corridor is behind a maintenance lock — requires a rotation card, not available to visitors. The dome\'s outer walkway circles the perimeter at ground level. From there you can see the quadrant\'s exterior face. The stress isn\'t always visible, but the repair markers tell you where to look.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      gainXp(70, 'measuring shell pressure gradient');
+      gainXp(70, 'measuring dome pressure gradient');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       G.investigationProgress++;
@@ -886,14 +886,14 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('spirit', (G.skills.spirit || 0));
       if (result.isCrit) {
-        G.lastResult = `Northeast quadrant: seventeen percent above tolerance. That reading alone should trigger automatic maintenance protocol — the shelter shell's own safety architecture requires it. It hasn't triggered. You follow the sensor wire to its junction box and find a bypass loop — a short piece of wire that reroutes the signal before it reaches the reporting system. The loop is clean work. Not improvised. The shell is failing in that quadrant and the alarm has been manually removed from the circuit. The failure is meant to proceed without announcing itself.`;
+        G.lastResult = `Northeast quadrant: seventeen percent above tolerance. That reading alone should trigger automatic maintenance protocol — the dome's own safety architecture requires it. It hasn't triggered. You follow the sensor wire to its junction box and find a bypass loop — a short piece of wire that reroutes the signal before it reaches the reporting system. The loop is clean work. Not improvised. The dome is failing in that quadrant and the alarm has been manually removed from the circuit. The failure is meant to proceed without announcing itself.`;
         if (!G.flags) G.flags = {};
-        G.flags.found_shell_sensor_bypass = true;
-        addJournal('Cold-shell sensor bypass: NE quadrant failure alarm manually disconnected', 'discovery', `aurora-shell-sensor-${G.dayCount}`);
+        G.flags.found_dome_sensor_bypass = true;
+        addJournal('Dome sensor bypass: NE quadrant failure alarm manually disconnected', 'discovery', `aurora-dome-sensor-${G.dayCount}`);
       } else if (result.total >= 12) {
-        G.lastResult = `Three quadrants read within acceptable range. The northeast reads significantly above them — not off the charts, but distinct enough to flag in any honest comparison. The distribution suggests stress concentrated in that sector specifically, not general structural aging. Whether that's an underlying structural problem or something applied from outside requires access to the maintenance history for that section. The shell isn't degrading evenly.`;
+        G.lastResult = `Three quadrants read within acceptable range. The northeast reads significantly above them — not off the charts, but distinct enough to flag in any honest comparison. The distribution suggests stress concentrated in that sector specifically, not general structural aging. Whether that's an underlying structural problem or something applied from outside requires access to the maintenance history for that section. The dome isn't degrading evenly.`;
       } else {
-        G.lastResult = `Four readings, four points around the perimeter. The variance is real — you can see it in the numbers — but without calibrated equipment to compare against the shelter shell's design tolerances, you can't say whether the spread is within expected range for a structure this age or a sign of concentrated stress. The shell carries pressure. You can confirm that. The engineer who filed the original complaint — the one who was reassigned — had the baseline tolerances in the documentation he submitted. He still has it.`;
+        G.lastResult = `Four readings, four points around the perimeter. The variance is real — you can see it in the numbers — but without calibrated equipment to compare against the dome's design tolerances, you can't say whether the spread is within expected range for a structure this age or a sign of concentrated stress. The dome carries pressure. You can confirm that. The engineer who filed the original complaint — the one who was reassigned — had the baseline tolerances in the documentation he submitted. He still has it.`;
       }
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
@@ -914,13 +914,13 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       const arch = G.archetype && G.archetype.group;
 
       if (arch === 'combat') {
-        G.lastResult = `The commune runs emergency rotations — watchers on the shell perimeter in eight-hour shifts. Not structural engineers: commune members in work gear taking turns. Woodsmoke from the communal heating drifts through the corridor as the shift changes. They've organized their own defense response without leadership direction, passing watch duties hand to hand through a chain the administration didn't build. The formal structure has failed and the community is running security laterally. This is a population that's stopped trusting its institutions.`;
+        G.lastResult = `The commune runs emergency rotations — watchers on the dome perimeter in eight-hour shifts. Not structural engineers: commune members in work gear taking turns. Woodsmoke from the communal heating drifts through the corridor as the shift changes. They've organized their own defense response without leadership direction, passing watch duties hand to hand through a chain the administration didn't build. The formal structure has failed and the community is running security laterally. This is a population that's stopped trusting its institutions.`;
       } else if (arch === 'magic') {
-        G.lastResult = `The atmospheric contamination is creating cognitive pressure — conversations lose their thread, people forget what they were doing mid-sentence. The cold coming through the shelter shell's high-latitude panels doesn't help; the mind works slower in it. The pressure sits below thresholds that would trigger formal medical protocol. Whoever designed this wanted degradation, not crisis. They're not trying to kill Aurora Crown. They're trying to make it impossible to think clearly.`;
+        G.lastResult = `The atmospheric contamination is creating cognitive pressure — conversations lose their thread, people forget what they were doing mid-sentence. The cold coming through the dome's high-latitude panels doesn't help; the mind works slower in it. The pressure sits below thresholds that would trigger formal medical protocol. Whoever designed this wanted degradation, not crisis. They're not trying to kill Aurora Crown. They're trying to make it impossible to think clearly.`;
       } else if (arch === 'stealth') {
         G.lastResult = `Three commune members circle the commons in irregular patterns. Not guards — their body language is too casual. Information couriers, using movement as cover for message passing. The woodsmoke from the far heating bank gives them cover: stop near the fire, exchange a word, move on. The commune has a parallel communication network operating below its visible structure. They're organizing in the spaces outside the commune's visible oversight.`;
       } else {
-        G.lastResult = `The communal meal distribution is off. Portions are slightly smaller in the outer residential blocks than in the central sector. The northern light coming through the shell panels is the same for everyone — but what goes on the plates is not. Not a conscious decision — a symptom of a logistics breakdown that's been ongoing long enough to become normalized. The resource pressure is being absorbed unequally and no one has named it yet.`;
+        G.lastResult = `The communal meal distribution is off. Portions are slightly smaller in the outer residential blocks than in the central sector. The northern light coming through the dome panels is the same for everyone — but what goes on the plates is not. Not a conscious decision — a symptom of a logistics breakdown that's been ongoing long enough to become normalized. The resource pressure is being absorbed unequally and no one has named it yet.`;
       }
       addJournal('Aurora Crown commons: parallel security structure, cognitive contamination, unequal resource distribution', 'evidence', `aurora-commons-read-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
@@ -963,15 +963,15 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'The shell anchor corridor is blocked — a maintenance crew running pressure checks, the space too narrow to pass safely. The founding stone will be accessible again in an hour. The commons carry the same history in smaller form: the marks where the first internal walls were set are still visible in the floor tile pattern.', 'failure');
+      addNarration('', 'The dome anchor corridor is blocked — a maintenance crew running pressure checks, the space too narrow to pass safely. The founding stone will be accessible again in an hour. The commons carry the same history in smaller form: the marks where the first internal walls were set are still visible in the floor tile pattern.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(50, 'reading founding memorial');
 
-      G.lastResult = `The stone is earth-brick and older than anything else in the commune, set at the shelter shell's original anchor point where the founding team drove the first stake. The inscription reads: "We built to breathe where others said nothing would grow. The shell is not shelter from the world. It is proof the world can be changed." Below it, in smaller text added later: "Maintained by the hands of those who live within it." The stone is clean. Someone still polishes it — recently, you can tell by the dust line. In the grey light of a shelter shell running at diminished capacity, that second line reads differently than it was meant to.`;
-      addJournal('Aurora Crown founding stone: shell as proof of communal will, memorial maintained', 'discovery', `aurora-founding-${G.dayCount}`);
+      G.lastResult = `The stone is earth-brick and older than anything else in the commune, set at the dome's original anchor point where the founding team drove the first stake. The inscription reads: "We built to breathe where others said nothing would grow. The dome is not shelter from the world. It is proof the world can be changed." Below it, in smaller text added later: "Maintained by the hands of those who live within it." The stone is clean. Someone still polishes it — recently, you can tell by the dust line. In the grey light of a dome running at diminished capacity, that second line reads differently than it was meant to.`;
+      addJournal('Aurora Crown founding stone: dome as proof of communal will, memorial maintained', 'discovery', `aurora-founding-${G.dayCount}`);
       G.recentOutcomeType = 'explore'; maybeStageAdvance();
     }
   },
@@ -992,7 +992,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 11) {
-        G.lastResult = `She travels between Aurora Crown and three outer settlements on a regular supply run — predictable enough that a sealed tube in her pack draws no particular attention. She doesn't ask what's in it. She'll drop it at the transit depot in the second settlement, marked for pickup. The filtration records leave the cold-shell in a supply pack alongside preserves and replacement seals. Whatever happens to the archive copy, this one is outside anyone's reach here.`;
+        G.lastResult = `She travels between Aurora Crown and three outer settlements on a regular supply run — predictable enough that a sealed tube in her pack draws no particular attention. She doesn't ask what's in it. She'll drop it at the transit depot in the second settlement, marked for pickup. The filtration records leave the dome in a supply pack alongside preserves and replacement seals. Whatever happens to the archive copy, this one is outside anyone's reach here.`;
         G.flags.aurora_evidence_secured = true;
         addJournal('Filtration anomaly data secured via commune traveler — offsite copy created', 'evidence', `aurora-evidence-${G.dayCount}`);
       } else {
@@ -1017,7 +1017,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
-        G.lastResult = `Orren keeps his voice level in the way of someone who's had nine weeks to get used to what happened. "I filed with supporting pressure data and photographs of the NE quadrant stress fractures. Three days later — reassigned to residential maintenance. They called it a rotation." He wasn't consulted. His replacement has no shell engineering background. He pauses on that. "Someone needed the complaint to go away without formally rejecting it. Moving me sideways accomplished that." He reaches into a storage locker and sets a sealed document case on the bench between you. "I still have everything I submitted."`;
+        G.lastResult = `Orren keeps his voice level in the way of someone who's had nine weeks to get used to what happened. "I filed with supporting pressure data and photographs of the NE quadrant stress fractures. Three days later — reassigned to residential maintenance. They called it a rotation." He wasn't consulted. His replacement has no dome engineering background. He pauses on that. "Someone needed the complaint to go away without formally rejecting it. Moving me sideways accomplished that." He reaches into a storage locker and sets a sealed document case on the bench between you. "I still have everything I submitted."`;
 
         if (!G.flags) G.flags = {};
         G.flags.met_orren_engineer = true;
@@ -1031,7 +1031,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
   // 28. SHADOW RIVAL INTRO
   {
-    label: "Someone else came asking about the cold-shell. The credentials didn't add up.",
+    label: "Someone else came asking about the dome. The credentials didn't add up.",
     tags: ['Rival', 'Warning', 'Stage1'],
     xpReward: 57,
     fn: function() {
@@ -1041,13 +1041,13 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
 
       const arch = G.archetype && G.archetype.group;
       if (arch === 'combat') {
-        G.lastResult = `A maintenance worker you've spoken with twice already stops you near the warm corridor. "Asked about the commune's security response to the cold-shell degradation. Not the engineering — the community response. How organized. How coordinated. Whether the watch rotations were documented." The cold coming off the shell panels makes the corridor feel smaller than it is. Someone was assessing whether Aurora Crown could mount a coordinated defense of its own internal records. The question about documentation is the part that matters.`;
+        G.lastResult = `A maintenance worker you've spoken with twice already stops you near the warm corridor. "Asked about the commune's security response to the dome degradation. Not the engineering — the community response. How organized. How coordinated. Whether the watch rotations were documented." The cold coming off the dome panels makes the corridor feel smaller than it is. Someone was assessing whether Aurora Crown could mount a coordinated defense of its own internal records. The question about documentation is the part that matters.`;
       } else if (arch === 'magic') {
-        G.lastResult = `An archivist from the morning record shift pulls you aside near the open reference stacks. "Claimed to be from a material sciences faculty. But her questions were about the additive compound specifically — not the failure pattern, not the shell design. She knew what compound to ask about before she'd seen the records." The woodsmoke smell from the hall heating carries in under the archive door. Someone already has the technical answer. They were verifying it against Aurora Crown's own documentation.`;
+        G.lastResult = `An archivist from the morning record shift pulls you aside near the open reference stacks. "Claimed to be from a material sciences faculty. But her questions were about the additive compound specifically — not the failure pattern, not the dome design. She knew what compound to ask about before she'd seen the records." The woodsmoke smell from the hall heating carries in under the archive door. Someone already has the technical answer. They were verifying it against Aurora Crown's own documentation.`;
       } else if (arch === 'stealth') {
-        G.lastResult = `Someone Orren trusts enough to mention it approaches you near the lower maintenance bay, voice low enough to be swallowed by the ambient pressure-check hum. "Didn't ask Orren anything directly. Just asked for a tour of the maintenance areas, took notes, and left. But Orren noticed the notes were in code — not a private shorthand, an actual cipher." The amber shell panels above give the corridor a deceptive warmth. Someone is documenting the shell failure in a format that can't be read if intercepted. Professional compartmentalization.`;
+        G.lastResult = `Someone Orren trusts enough to mention it approaches you near the lower maintenance bay, voice low enough to be swallowed by the ambient pressure-check hum. "Didn't ask Orren anything directly. Just asked for a tour of the maintenance areas, took notes, and left. But Orren noticed the notes were in code — not a private shorthand, an actual cipher." The amber dome panels above give the corridor a deceptive warmth. Someone is documenting the dome failure in a format that can't be read if intercepted. Professional compartmentalization.`;
       } else {
-        G.lastResult = `A commune member you don't recognize by name flags you down outside the registry hall, speaking quickly. "Said they were from an external support organization. Wanted to know which commune members had tried to organize a collective response to the cold-shell issue. Names, positions, who was coordinating with whom." The pine-cold draft through the hall's upper vents carries the smell of the forest outside the shell perimeter. Someone is mapping the commune's leadership structure. Not to help it — to understand its vulnerabilities.`;
+        G.lastResult = `A commune member you don't recognize by name flags you down outside the registry hall, speaking quickly. "Said they were from an external support organization. Wanted to know which commune members had tried to organize a collective response to the dome issue. Names, positions, who was coordinating with whom." The pine-cold draft through the hall's upper vents carries the smell of the forest outside the dome perimeter. Someone is mapping the commune's leadership structure. Not to help it — to understand its vulnerabilities.`;
       }
 
       G.lastResult += ` Whoever this person is, they're a step ahead on the Aurora Crown thread.`;
@@ -1058,7 +1058,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
         else G.rivalId = 'provost_lenn';
       }
       G.flags.stage1_rival_seeded = true;
-      addJournal('Rival-adjacent operative confirmed working the Aurora Crown shell failure ahead of you', 'complication', `aurora-rival-${G.dayCount}`);
+      addJournal('Rival-adjacent operative confirmed working the Aurora Crown dome failure ahead of you', 'complication', `aurora-rival-${G.dayCount}`);
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     }
   },
@@ -1069,7 +1069,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   fn: function() {
     var key = 'rumor_drawn_' + G.location + '_' + G.dayCount;
     if (G.flags[key]) {
-      G.lastResult = 'The board has nothing new since this morning. The amber panels above it are on their midday cycle, and the cold draft from the cold-shell wall gives the posted sheets a faint curl at the corners. Two collective work assignments and a water filtration maintenance notice from yesterday still hold the top slots. The woodsmoke from the communal heating drifts past without anyone stopping to read. Nothing worth copying down.';
+      G.lastResult = 'The board has nothing new since this morning. The amber panels above it are on their midday cycle, and the cold draft from the dome wall gives the posted sheets a faint curl at the corners. Two collective work assignments and a water filtration maintenance notice from yesterday still hold the top slots. The woodsmoke from the communal heating drifts past without anyone stopping to read. Nothing worth copying down.';
       return;
     }
     G.flags[key] = true;
@@ -1104,17 +1104,17 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       var target = 14;
 
       if (result.isCrit) {
-        G.lastResult = 'The latch snaps on the second strike — clean, no secondary noise. The corridor beyond smells of thermal gel and old sealant. A restricted maintenance log hangs on the inside wall: vent allocation schedules for the past three weeks, signed by the coordinator\'s office, show two shell sections receiving zero maintenance hours while a third gets double the standard crew time. The discrepancy is dated and stamped. You copy the reference numbers before the corridor\'s heat alarms register the open door.';
+        G.lastResult = 'The latch snaps on the second strike — clean, no secondary noise. The corridor beyond smells of thermal gel and old sealant. A restricted maintenance log hangs on the inside wall: vent allocation schedules for the past three weeks, signed by the coordinator\'s office, show two dome sections receiving zero maintenance hours while a third gets double the standard crew time. The discrepancy is dated and stamped. You copy the reference numbers before the corridor\'s heat alarms register the open door.';
         G.stageProgress[1]++;
         addJournal('Forced sealed corridor — maintenance log inside shows skewed allocation; coordinator signature present', 'evidence');
       } else if (result.isFumble) {
-        G.lastResult = 'The latch gives on the wrong axis — a pressure release rather than a break, venting a burst of hot air from the thermal duct on the other side. The alarm strip above the door activates. You have twenty seconds before the nearest shell monitor arrives, and the corridor is a dead end. Whatever was inside the sealed section is now behind a door that is also flagged in the incident log.';
+        G.lastResult = 'The latch gives on the wrong axis — a pressure release rather than a break, venting a burst of hot air from the thermal duct on the other side. The alarm strip above the door activates. You have twenty seconds before the nearest dome monitor arrives, and the corridor is a dead end. Whatever was inside the sealed section is now behind a door that is also flagged in the incident log.';
         addJournal('Corridor forced — pressure alarm triggered, incident logged', 'complication');
       } else if (result.total >= target) {
-        G.lastResult = 'The latch gives on the third attempt and you are inside before the corridor noise settles. The sealed section holds a decommissioned gauge array — still live, still reading. The pressure readings are two weeks out of sync with the posted shell status board. Someone is receiving real data here and posting different numbers publicly. The array has a registry tag from the coordinator\'s office, filed as decommissioned fourteen days ago.';
-        addJournal('Forced corridor — live gauge array inside reads differently from public shell status board', 'evidence');
+        G.lastResult = 'The latch gives on the third attempt and you are inside before the corridor noise settles. The sealed section holds a decommissioned gauge array — still live, still reading. The pressure readings are two weeks out of sync with the posted dome status board. Someone is receiving real data here and posting different numbers publicly. The array has a registry tag from the coordinator\'s office, filed as decommissioned fourteen days ago.';
+        addJournal('Forced corridor — live gauge array inside reads differently from public dome status board', 'evidence');
       } else {
-        G.lastResult = 'The latch holds. You get purchase on the frame but not enough force behind it — the cold-shell construction here is heavier than the residential corridors. A work crew comes around the bend before your third attempt and you fall back. The sealed section stays sealed. The same coordinator stamp appears on the access restriction notice beside the latch.';
+        G.lastResult = 'The latch holds. You get purchase on the frame but not enough force behind it — the dome construction here is heavier than the residential corridors. A work crew comes around the bend before your third attempt and you fall back. The sealed section stays sealed. The same coordinator stamp appears on the access restriction notice beside the latch.';
         addJournal('Sealed corridor access failed — coordinator-stamped restriction noted', 'discovery');
       }
 
@@ -1145,7 +1145,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       var target = 14;
 
       if (result.isCrit) {
-        G.lastResult = 'The worker in management colors reads the situation accurately and steps back first. The second worker follows. The thermal vent access is clear. Inside: the vent calibration log for the past month. Every third entry is initialled by someone whose name does not appear on the commune\'s posted personnel board. A name that exists in paperwork and nowhere else. The vent has been routed away from the residential shell sections on days that align with the observation archive gaps.';
+        G.lastResult = 'The worker in management colors reads the situation accurately and steps back first. The second worker follows. The thermal vent access is clear. Inside: the vent calibration log for the past month. Every third entry is initialled by someone whose name does not appear on the commune\'s posted personnel board. A name that exists in paperwork and nowhere else. The vent has been routed away from the residential dome sections on days that align with the observation archive gaps.';
         G.stageProgress[1]++;
         addJournal('Cleared management blockade — vent calibration log shows phantom initialler; routing aligns with archive gaps', 'evidence');
       } else if (result.isFumble) {
@@ -1153,7 +1153,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
         addJournal('Confrontation at thermal vent — patrol logged; unauthorized pressure notation', 'complication');
       } else if (result.total >= target) {
-        G.lastResult = 'The management-colors worker moves. He does it without words — just steps to the side and looks at the wall. The other follows. The thermal vent access is open long enough for you to read the routing manifest taped inside the panel door: the vent serves three shell sections, but the flow allocation for the past twelve days shows one section receiving sixty percent of available heat output. That section is the coordinator\'s administrative block.';
+        G.lastResult = 'The management-colors worker moves. He does it without words — just steps to the side and looks at the wall. The other follows. The thermal vent access is open long enough for you to read the routing manifest taped inside the panel door: the vent serves three dome sections, but the flow allocation for the past twelve days shows one section receiving sixty percent of available heat output. That section is the coordinator\'s administrative block.';
         addJournal('Vent access forced — routing manifest shows coordinator block receiving 60% heat output for 12 days', 'evidence');
       } else {
         G.lastResult = 'The management-colors worker holds his position and does not look at you while he does it. He has done this before, in this corridor, probably for the same reason. After three minutes of not moving, you have a choice between escalating into something that ends in a patrol report or withdrawing. The thermal vent access stays blocked. The coordinator stamp on the blockade notice is the same stamp on the sealed corridor two junctions back.';
@@ -1188,15 +1188,15 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The ward mark is written in three layers: a standard shell-protection sigil, a secondary layer added within the past three weeks, and a third mark underneath that predates the panel by at least eight months — carried over from whatever was here before. That third mark is not commune standard. The symbol class belongs to a pre-commune authority whose seal appears in the registry hall archive as a dissolved predecessor institution. Something from before the current administration is still being warded. The panel is new. The thing it replaced is not.';
+        G.lastResult = 'The ward mark is written in three layers: a standard dome-protection sigil, a secondary layer added within the past three weeks, and a third mark underneath that predates the panel by at least eight months — carried over from whatever was here before. That third mark is not commune standard. The symbol class belongs to a pre-commune authority whose seal appears in the registry hall archive as a dissolved predecessor institution. Something from before the current administration is still being warded. The panel is new. The thing it replaced is not.';
         G.stageProgress[1]++;
-        addJournal('Ward mark on new shell panel shows pre-commune authority layer — predecessor institution seal identified', 'evidence');
+        addJournal('Ward mark on new dome panel shows pre-commune authority layer — predecessor institution seal identified', 'evidence');
       } else if (result.isFumble) {
-        G.lastResult = 'The ward mark reads normally until the third sigil layer, where the decoding requires a reference index that is not standard commune curriculum. You lose time searching for the anchor glyph and attract the attention of the cold-shell monitor doing her panel check. She does not ask what you are reading. She logs the panel number and your presence in the same notation, and moves to the next section. The ward itself is intact. What it means is still unclear.';
-        addJournal('Ward mark analysis interrupted — shell monitor logged panel and presence together', 'complication');
+        G.lastResult = 'The ward mark reads normally until the third sigil layer, where the decoding requires a reference index that is not standard commune curriculum. You lose time searching for the anchor glyph and attract the attention of the dome monitor doing her panel check. She does not ask what you are reading. She logs the panel number and your presence in the same notation, and moves to the next section. The ward itself is intact. What it means is still unclear.';
+        addJournal('Ward mark analysis interrupted — dome monitor logged panel and presence together', 'complication');
       } else if (result.total >= target) {
-        G.lastResult = 'The ward mark is genuine shell-protection script — thermal containment class, correctly anchored — but the inscription date embedded in the sigil base is six weeks old. The panel beneath it was installed eleven days ago, according to the installation stamp on the lower frame. The ward was written before the panel existed. Either the panel replaced something else and the ward was carried over, or the ward was prepared in advance of a planned replacement. Both possibilities require a work order that should be in the coordinator\'s registry.';
-        addJournal('Cold-shell panel ward predates panel installation by 5 weeks — replacement or pre-planned swap indicated', 'evidence');
+        G.lastResult = 'The ward mark is genuine dome-protection script — thermal containment class, correctly anchored — but the inscription date embedded in the sigil base is six weeks old. The panel beneath it was installed eleven days ago, according to the installation stamp on the lower frame. The ward was written before the panel existed. Either the panel replaced something else and the ward was carried over, or the ward was prepared in advance of a planned replacement. Both possibilities require a work order that should be in the coordinator\'s registry.';
+        addJournal('Dome panel ward predates panel installation by 5 weeks — replacement or pre-planned swap indicated', 'evidence');
       } else {
         G.lastResult = 'The ward mark is correctly formed and reads as standard thermal containment. The inscription date is embedded in the base sigil — six weeks back, as you estimated. Nothing in the symbol grammar indicates corruption or tampering. But the panel is demonstrably new, and a valid ward on a new panel means either the ward was transferred or the panel swap was planned well in advance. The coordinator\'s office manages planned maintenance. That is where the work order would live.';
         addJournal('Ward mark reads standard — temporal mismatch with panel age; work order likely in coordinator records', 'discovery');
@@ -1229,17 +1229,17 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The interference pattern is not random noise. It is a suppression field — a deliberate arcane construction layered over the natural ley signature of the cold-shell\'s observation platform. Someone inscribed it into the foundation stones of the archive annex, probably during a maintenance window, probably at night. The suppression is targeted: it specifically attenuates the frequency band used by the cold-shell\'s celestial anomaly monitors. The monitors still function. They simply cannot report what they are reading. The inscription anchor point is in the sealed section, under the coordinator\'s clearance lock.';
+        G.lastResult = 'The interference pattern is not random noise. It is a suppression field — a deliberate arcane construction layered over the natural ley signature of the dome\'s observation platform. Someone inscribed it into the foundation stones of the archive annex, probably during a maintenance window, probably at night. The suppression is targeted: it specifically attenuates the frequency band used by the dome\'s celestial anomaly monitors. The monitors still function. They simply cannot report what they are reading. The inscription anchor point is in the sealed section, under the coordinator\'s clearance lock.';
         G.stageProgress[1]++;
         addJournal('Observation archive interference confirmed as deliberate suppression field — attenuation targets celestial anomaly monitor frequency; anchor in sealed coordinator section', 'evidence');
       } else if (result.isFumble) {
         G.lastResult = 'The interference is stronger than expected and the reading process pulls on your concentration for longer than it should. By the time you have a usable baseline, the archive morning session has ended and the archivist is running the close-cycle, which involves resetting the floor panels you were using as reference points. Whatever the interference field is doing, the reading is incomplete. The archivist notes your extended presence in the session log.';
         addJournal('Ley interference analysis incomplete — extended session logged by archivist', 'complication');
       } else if (result.total >= target) {
-        G.lastResult = 'The ley-line signature in the observation archive shows two distinct interference bands — one consistent with the cold-shell\'s standard thermal regulation field, one with no matching source in the public maintenance registry. The second band is recent, narrow, and specifically positioned over the celestial observation instrumentation. It is not disrupting the instruments. It is filtering their output before the readings reach the public log. Someone is editing what the cold-shell sees before the record is written.';
+        G.lastResult = 'The ley-line signature in the observation archive shows two distinct interference bands — one consistent with the dome\'s standard thermal regulation field, one with no matching source in the public maintenance registry. The second band is recent, narrow, and specifically positioned over the celestial observation instrumentation. It is not disrupting the instruments. It is filtering their output before the readings reach the public log. Someone is editing what the dome sees before the record is written.';
         addJournal('Second interference band identified in archive — filters celestial instrument output before public log entry', 'evidence');
       } else {
-        G.lastResult = 'The ley-line baseline for this section of the cold-shell should be stable — thermal infrastructure generates a consistent field signature. The archive reading shows a second signal layered underneath, periodic rather than continuous, cycling on a schedule that does not match any standard maintenance window you can identify. The cycle period is close to the celestial observation rotation logged on the public board, but offset by eleven minutes. The offset is precise enough to be intentional.';
+        G.lastResult = 'The ley-line baseline for this section of the dome should be stable — thermal infrastructure generates a consistent field signature. The archive reading shows a second signal layered underneath, periodic rather than continuous, cycling on a schedule that does not match any standard maintenance window you can identify. The cycle period is close to the celestial observation rotation logged on the public board, but offset by eleven minutes. The offset is precise enough to be intentional.';
         addJournal('Ley archive shows periodic secondary signal — offset 11 minutes from celestial observation rotation, too precise for coincidence', 'discovery');
       }
 
@@ -1271,7 +1271,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       var target = 15;
 
       if (result.isCrit) {
-        G.lastResult = 'The junction clears on schedule and you are through before the echo of the patrol\'s boots has fully faded. The service passage beyond the gap leads to the cold-shell\'s secondary monitoring station — unmanned, still recording. The station log shows the last eighteen days of shell pressure readings in real time, and they do not match the public board. The divergence began sixteen days ago. The log timestamps show the public board was last synchronized on that same day, then decoupled. Someone stopped the sync and left the station running separately.';
+        G.lastResult = 'The junction clears on schedule and you are through before the echo of the patrol\'s boots has fully faded. The service passage beyond the gap leads to the dome\'s secondary monitoring station — unmanned, still recording. The station log shows the last eighteen days of dome pressure readings in real time, and they do not match the public board. The divergence began sixteen days ago. The log timestamps show the public board was last synchronized on that same day, then decoupled. Someone stopped the sync and left the station running separately.';
         G.stageProgress[1]++;
         addJournal('Accessed secondary monitoring station — real-time pressure readings diverge from public board; sync decoupled 16 days ago', 'evidence');
       } else if (result.isFumble) {
@@ -1312,7 +1312,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       var target = 15;
 
       if (result.isCrit) {
-        G.lastResult = 'Three junctions, two stairwells, and a pressure-door cycle. The overseer\'s route ends at a meeting room that is not on the public facility map — a room that exists in the cold-shell\'s construction record but was listed as decommissioned four years ago. She knocks twice and enters without waiting. Through the insulation gap above the door frame: two voices, the smell of a cooler air supply, and a very specific phrase — "the allocation runs through the registry on day seven." You catch the signature name before the door seals. It is the same name that stamps the sealed maintenance corridors.';
+        G.lastResult = 'Three junctions, two stairwells, and a pressure-door cycle. The overseer\'s route ends at a meeting room that is not on the public facility map — a room that exists in the dome\'s construction record but was listed as decommissioned four years ago. She knocks twice and enters without waiting. Through the insulation gap above the door frame: two voices, the smell of a cooler air supply, and a very specific phrase — "the allocation runs through the registry on day seven." You catch the signature name before the door seals. It is the same name that stamps the sealed maintenance corridors.';
         G.stageProgress[1]++;
         addJournal('Shadowed overseer to unmapped decommissioned room — heard allocation reference and caught signature name matching sealed corridors', 'evidence');
       } else if (result.isFumble) {
@@ -1322,7 +1322,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
         G.lastResult = 'Two junctions in, the overseer stops at a marked access panel that the public facility map shows as a standard utility closet. She uses a key that is not on the standard maintenance ring — it is separate, on a plain loop. She is inside for four minutes. When she comes out, she is carrying a sealed document envelope that she was not carrying before. The document envelope goes into her inner jacket pocket, not her work satchel. The access panel is marked with the coordinator\'s restriction stamp.';
         addJournal('Overseer accessed restricted panel with non-standard key — left with sealed document envelope', 'evidence');
       } else {
-        G.lastResult = 'One junction of clean following distance. Then the acoustic profile of the corridor changes — the thermal insulation thins out near the cold-shell wall and sound carries differently. Your footfall timing is off by just enough. The overseer doesn\'t stop, doesn\'t look back, but her pace changes — slightly faster, slightly more deliberate. She knows the tunnel acoustics better than you do. You back off. You learned one thing: she went left at the third junction. That branch leads toward the coordinator\'s restricted section.';
+        G.lastResult = 'One junction of clean following distance. Then the acoustic profile of the corridor changes — the thermal insulation thins out near the dome wall and sound carries differently. Your footfall timing is off by just enough. The overseer doesn\'t stop, doesn\'t look back, but her pace changes — slightly faster, slightly more deliberate. She knows the tunnel acoustics better than you do. You back off. You learned one thing: she went left at the third junction. That branch leads toward the coordinator\'s restricted section.';
         addJournal('Partial shadow — overseer pace shifted; route toward coordinator restricted section confirmed', 'discovery');
       }
 
@@ -1334,20 +1334,20 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT x2
   {
     archetypeGroup: 'support',
-    label: "The shell worker hasn\'t reported to medical. She has a reason for that.",
+    label: "The dome worker hasn\'t reported to medical. She has a reason for that.",
     plot: 'main',
     tags: ['Support', 'NPC', 'Care'],
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The shell worker waves you off before you finish the offer — not hostile, just practiced. She has been managing this injury through her shift and the muscle memory of doing so has closed the conversation. She ties off the pressure wrap on her own and goes back to the gauge station. You don\'t learn why she hasn\'t reported. The next shift handoff in two hours will take her through the medical station corridor; the reason might surface there.', 'failure');
+      addNarration('', 'The dome worker waves you off before you finish the offer — not hostile, just practiced. She has been managing this injury through her shift and the muscle memory of doing so has closed the conversation. She ties off the pressure wrap on her own and goes back to the gauge station. You don\'t learn why she hasn\'t reported. The next shift handoff in two hours will take her through the medical station corridor; the reason might surface there.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'tending to injured shell worker');
+      gainXp(65, 'tending to injured dome worker');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1356,16 +1356,16 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (result.isCrit) {
         G.lastResult = 'Ressa lets you wrap the wrist properly and doesn\'t speak until you\'re tying the knot. "Medical reports go to the coordinator\'s office now. Not to the medical station — to the coordinator." Her other hand finds the edge of her work chit and folds it once, the way she apparently does with every piece of paper she\'s thinking about. "First time I reported a workplace injury under the new system, I lost my maintenance rotation access for six days. The report said it was for recovery observation. I was working full capacity by the second day." She looks at the wrist. "This is fine. I\'ll manage." The coordinator\'s office routing started eight weeks ago.';
         G.stageProgress[1]++;
-        addJournal('Cold-shell worker: medical reports now route to coordinator, not medical station — worker lost rotation access after reporting; 8 weeks ago same time as rotation changes', 'evidence');
+        addJournal('Dome worker: medical reports now route to coordinator, not medical station — worker lost rotation access after reporting; 8 weeks ago same time as rotation changes', 'evidence');
       } else if (result.isFumble) {
         G.lastResult = 'Ressa accepts the help and says nothing during it — arms, hands, all the conversation she intends to have. When the wrap is done she stands up and goes back to the gauge station. The silence is not unfriendly. She simply has nothing to give you: whatever reason she has for not reporting, it lives somewhere that is not going to open for a stranger in a maintenance corridor. The wrap is better than it was. That is the extent of the transaction.';
-        addJournal('Tended shell worker — no information gained; barrier too established', 'discovery');
+        addJournal('Tended dome worker — no information gained; barrier too established', 'discovery');
       } else if (result.total >= target) {
         G.lastResult = 'Ressa lets you work on the wrist and keeps her voice low. "Medical station is logged to the coordinator\'s office now. Everything goes through." She glances toward the gauge station. "I\'m not trying to get a notation in my file right now." She says it flatly, without self-pity — the way someone states a fact about weather or equipment. Her thumbnail finds the edge of her work chit without her looking at it. The routing change is real. The fear of a notation is real. The coordinator\'s office is at the center of both.';
-        addJournal('Cold-shell worker: medical station reporting routes to coordinator — fears notation in file; confirmed routing change is discouraging reporting', 'evidence');
+        addJournal('Dome worker: medical station reporting routes to coordinator — fears notation in file; confirmed routing change is discouraging reporting', 'evidence');
       } else {
         G.lastResult = 'Ressa lets you help and relaxes slightly while the wrap goes on — a small drop in the tension she has been carrying through her shift. She doesn\'t offer the reason she hasn\'t reported. But she does say: "I\'ll go when this rotation\'s done." Her thumbnail finds the fold of her work chit while she says it. Whatever the actual barrier is, she has decided it is manageable. The medical station is two corridors east. If she goes, the reason she delayed will show up in the intake record.';
-        addJournal('Cold-shell worker agreed to report after rotation — delay reason unclear but may appear in medical intake record', 'discovery');
+        addJournal('Dome worker agreed to report after rotation — delay reason unclear but may appear in medical intake record', 'discovery');
       }
 
       G.recentOutcomeType = 'investigate';
@@ -1375,7 +1375,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
 
   {
     archetypeGroup: 'support',
-    label: "Two shell crews competing for the same repair slot. The dispute is the distraction.",
+    label: "Two dome crews competing for the same repair slot. The dispute is the distraction.",
     plot: 'main',
     tags: ['Support', 'NPC', 'Negotiation'],
     xpReward: 65,
@@ -1388,7 +1388,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'brokering shell crew slot dispute');
+      gainXp(65, 'brokering dome crew slot dispute');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
@@ -1422,7 +1422,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // COMBAT ×2 — commune defense posture changes
   {
     id: 'aurora_arch_combat_3',
-    label: 'The commune defense rotation added an inner perimeter. The shell is being watched from inside.',
+    label: 'The commune defense rotation added an inner perimeter. The dome is being watched from inside.',
     skill: 'might',
     archetypeGroup: 'combat',
     tags: ['Security', 'Perimeter', 'Observation'],
@@ -1432,8 +1432,8 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'A second, inner patrol ring has been added to the commune\'s defense rotation — a perimeter that runs between the residential quarters and the shell maintenance access points. Inner perimeters are not designed against external threats. This one watches the maintenance corridors, the research annexes, and the relay room approaches. The commune is now defended against its own residents moving toward the cold-shell\'s operational infrastructure. The inner ring was added quietly, without announcement, after the new appointments.');
-      addJournal('Commune defense: inner perimeter added around shell access points — watches residents, not external threat.', 'intelligence');
+      addNarration('', 'A second, inner patrol ring has been added to the commune\'s defense rotation — a perimeter that runs between the residential quarters and the dome maintenance access points. Inner perimeters are not designed against external threats. This one watches the maintenance corridors, the research annexes, and the relay room approaches. The commune is now defended against its own residents moving toward the dome\'s operational infrastructure. The inner ring was added quietly, without announcement, after the new appointments.');
+      addJournal('Commune defense: inner perimeter added around dome access points — watches residents, not external threat.', 'intelligence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
@@ -1451,7 +1451,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'Two of the recently appointed shell administration officers arrived with personal security personnel — guards not affiliated with the commune defense rotation and not authorized through the commune council. The commune security captain knows they are present and has no authority to remove them. Their presence normalizes a parallel security structure inside the commune that is not accountable to commune governance. The shell\'s internal security is now partially outside the commune\'s control.');
+      addNarration('', 'Two of the recently appointed dome administration officers arrived with personal security personnel — guards not affiliated with the commune defense rotation and not authorized through the commune council. The commune security captain knows they are present and has no authority to remove them. Their presence normalizes a parallel security structure inside the commune that is not accountable to commune governance. The dome\'s internal security is now partially outside the commune\'s control.');
       addJournal('New appointees brought unauthorized security personnel — parallel security structure inside commune, outside council control.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -1461,14 +1461,14 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // MAGIC ×2 — ceremonial energy shifts
   {
     id: 'aurora_arch_magic_3',
-    label: 'The shell calibration has shifted. The new settings favor transmission, not filtration.',
+    label: 'The dome calibration has shifted. The new settings favor transmission, not filtration.',
     skill: 'spirit',
     archetypeGroup: 'magic',
-    tags: ['Magic', 'Cold-shell', 'Calibration'],
+    tags: ['Magic', 'Dome', 'Calibration'],
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The shell\'s arcane calibration has been adjusted from a filtration-priority configuration — which protects residents from atmospheric compound buildup — toward a transmission-priority configuration, which maximizes signal output from the cold-shell\'s relay function. The change sacrifices the filtration margin that the maintenance technicians consider the safety threshold. The new calibration is within operational parameters but below the safety standard the commune established for residential protection. The relay function now outranks resident safety in the cold-shell\'s priority order.');
-      addJournal('Cold-shell calibration: shifted from filtration-priority to transmission-priority, relay function now outranks residential safety margin.', 'evidence');
+      addNarration('', 'The dome\'s arcane calibration has been adjusted from a filtration-priority configuration — which protects residents from atmospheric compound buildup — toward a transmission-priority configuration, which maximizes signal output from the dome\'s relay function. The change sacrifices the filtration margin that the maintenance technicians consider the safety threshold. The new calibration is within operational parameters but below the safety standard the commune established for residential protection. The relay function now outranks resident safety in the dome\'s priority order.');
+      addJournal('Dome calibration: shifted from filtration-priority to transmission-priority, relay function now outranks residential safety margin.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
@@ -1482,8 +1482,8 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     tags: ['Magic', 'Logging', 'Registry'],
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The shell\'s observation logging wards used to feed their output to the regional celestial registry — a standard transparency requirement for research facilities. That feed has been disconnected. The observation logs still run locally, but the data no longer flows to any external body. Cutting the registry feed means shell activity is now fully opaque to external audit. Whatever is being transmitted through the relay channel, whatever is being observed from the cold-shell\'s position, is now known only to the people inside the facility who changed the configuration.');
-      addJournal('Cold-shell observation wards disconnected from regional registry feed — shell activity now fully opaque to external audit.', 'evidence');
+      addNarration('', 'The dome\'s observation logging wards used to feed their output to the regional celestial registry — a standard transparency requirement for research facilities. That feed has been disconnected. The observation logs still run locally, but the data no longer flows to any external body. Cutting the registry feed means dome activity is now fully opaque to external audit. Whatever is being transmitted through the relay channel, whatever is being observed from the dome\'s position, is now known only to the people inside the facility who changed the configuration.');
+      addJournal('Dome observation wards disconnected from regional registry feed — dome activity now fully opaque to external audit.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
@@ -1521,7 +1521,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The shell maintenance rotation skips Panel 7 in the northeastern maintenance corridor on every cycle — the inspection log shows the panel number present in adjacent entries but absent from the checklist record for seven consecutive cycles. Panel 7 covers the secondary channel junction. The skip is not random and it is not clerical; it is a systematic omission of the one panel that monitors the secondary transmission channel. Something at Panel 7 is not being checked because someone does not want it checked.');
+      addNarration('', 'The dome maintenance rotation skips Panel 7 in the northeastern maintenance corridor on every cycle — the inspection log shows the panel number present in adjacent entries but absent from the checklist record for seven consecutive cycles. Panel 7 covers the secondary channel junction. The skip is not random and it is not clerical; it is a systematic omission of the one panel that monitors the secondary transmission channel. Something at Panel 7 is not being checked because someone does not want it checked.');
       addJournal('Maintenance rotation: Panel 7 skipped 7 consecutive cycles — covers secondary channel junction, systematic deliberate omission.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -1541,7 +1541,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'The elder council at Aurora Crown Commune has a formal consultative role in shell operational decisions — any change to calibration, relay function, or maintenance protocol requires a council advisory. In the past three months, the new administrative appointments have made four operational changes without advisory consultation. The council has filed objections; the objections are logged and unanswered. The consultative structure still exists on paper. It has been made inert in practice.');
+      addNarration('', 'The elder council at Aurora Crown Commune has a formal consultative role in dome operational decisions — any change to calibration, relay function, or maintenance protocol requires a council advisory. In the past three months, the new administrative appointments have made four operational changes without advisory consultation. The council has filed objections; the objections are logged and unanswered. The consultative structure still exists on paper. It has been made inert in practice.');
       addJournal('Elder council bypassed on 4 operational changes in 3 months — consultative role made inert while structure remains on paper.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
@@ -1550,7 +1550,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
 
   {
     id: 'aurora_arch_support_4',
-    label: 'Technicians who raised safety concerns have been reassigned away from the cold-shell.',
+    label: 'Technicians who raised safety concerns have been reassigned away from the dome.',
     skill: 'charm',
     archetypeGroup: 'support',
     tags: ['Social', 'Retaliation', 'Pattern'],
@@ -1560,8 +1560,8 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     },
     fn: function() {
       G.investigationProgress = (G.investigationProgress||0) + 1;
-      addNarration('', 'Three shell technicians filed internal safety concerns about the calibration changes in the past two months. All three have been reassigned to external maintenance work — the perimeter grounds, the water management systems, any posting that removes them from shell access. The reassignments were framed as routine rotation. They were not. The pattern — concern filed, access removed — has been consistent enough that the remaining technicians inside the cold-shell have stopped filing. Institutional silence was purchased with reassignment.');
-      addJournal('Three technicians who filed safety concerns reassigned away from shell access — pattern silenced remaining staff.', 'evidence');
+      addNarration('', 'Three dome technicians filed internal safety concerns about the calibration changes in the past two months. All three have been reassigned to external maintenance work — the perimeter grounds, the water management systems, any posting that removes them from dome access. The reassignments were framed as routine rotation. They were not. The pattern — concern filed, access removed — has been consistent enough that the remaining technicians inside the dome have stopped filing. Institutional silence was purchased with reassignment.');
+      addJournal('Three technicians who filed safety concerns reassigned away from dome access — pattern silenced remaining staff.', 'evidence');
       if (typeof updateHUD === 'function') updateHUD();
       if (typeof saveGame === 'function') saveGame();
     },
@@ -1583,7 +1583,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The seal gives a quarter-turn before the pressure differential shoves it back — the cold-shell\'s thermal system is still live on this branch. The bang echoes down the maintenance corridor and draws a patrol head-around from the junction. You\'re moving before they call out, but the route is burned. The technician who logs this seal will find the scuff marks.', 'failure');
+      addNarration('', 'The seal gives a quarter-turn before the pressure differential shoves it back — the dome\'s thermal system is still live on this branch. The bang echoes down the maintenance corridor and draws a patrol head-around from the junction. You\'re moving before they call out, but the route is burned. The technician who logs this seal will find the scuff marks.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1607,7 +1607,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
         G.lastResult = 'The seal yields with steady pressure and a controlled hiss. Inside: a narrow access alcove with a pressure gauge array and a rotation log clipped to the wall. The log covers the past three weeks. Two thermal vent assignments marked as suspended carry a different counter-signature than the rest — one you haven\'t seen on any open board. You note it and ease the seal back into place. The gauge readings don\'t change. No one comes.';
         addJournal('Accessed restricted alcove — unfamiliar counter-signature on suspended vent assignments', 'evidence');
       } else {
-        G.lastResult = 'The seal moves, but the locking pin beneath it doesn\'t. The shell maintenance system uses a two-step engagement you can feel but can\'t see. You apply pressure until your forearms ache and get nothing. The patrol rotation down this branch runs every twenty minutes; you\'ve used seven of them. You step back before the window closes. The seal is undamaged. The corridor is still locked.';
+        G.lastResult = 'The seal moves, but the locking pin beneath it doesn\'t. The dome maintenance system uses a two-step engagement you can feel but can\'t see. You apply pressure until your forearms ache and get nothing. The patrol rotation down this branch runs every twenty minutes; you\'ve used seven of them. You step back before the window closes. The seal is undamaged. The corridor is still locked.';
         addJournal('Sealed corridor: two-step lock resisted forced entry', 'discovery');
       }
 
@@ -1661,38 +1661,38 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // MAGIC ×2 — Reading arcane residue or celestial data
   {
     archetypeGroup: 'magic',
-    label: 'The ward marks on these shell panels are wrong. They have been for a while.',
+    label: 'The ward marks on these dome panels are wrong. They have been for a while.',
     plot: 'main',
     tags: ['Knowledge', 'Lore', 'Observation', 'Arcane'],
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The shell panel script is maintenance shorthand layered over older ward notation — two systems written in the same space, neither fully legible through the other. Reading it properly would take a reference text you don\'t have access to. The archive reading room carries the notation manual for shell inscription systems. That route is still open.', 'failure');
+      addNarration('', 'The dome panel script is maintenance shorthand layered over older ward notation — two systems written in the same space, neither fully legible through the other. Reading it properly would take a reference text you don\'t have access to. The archive reading room carries the notation manual for dome inscription systems. That route is still open.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'reading shell ward mark anomalies');
+      gainXp(65, 'reading dome ward mark anomalies');
       G.stageProgress[1]++;
 
       var result = rollD20('lore', (G.skills.wits || 0));
       var target = 13;
 
       if (result.isCrit) {
-        G.lastResult = 'The original ward marks are thermal containment seals — standard commune inscription, correctly applied. The newer marks layered over them are not maintenance notation. They\'re suppression marks: designed to damp the resonance field that the containment seals generate when shell integrity degrades. Someone has been marking the panels to hide what the seals would otherwise signal. The suppression work is recent — the chalk base hasn\'t fully cured. Whoever applied it was here within the last two days.';
+        G.lastResult = 'The original ward marks are thermal containment seals — standard commune inscription, correctly applied. The newer marks layered over them are not maintenance notation. They\'re suppression marks: designed to damp the resonance field that the containment seals generate when dome integrity degrades. Someone has been marking the panels to hide what the seals would otherwise signal. The suppression work is recent — the chalk base hasn\'t fully cured. Whoever applied it was here within the last two days.';
         G.stageProgress[1]++;
-        addJournal('Cold-shell panels carry suppression marks over containment seals — applied within 48 hours', 'evidence');
+        addJournal('Dome panels carry suppression marks over containment seals — applied within 48 hours', 'evidence');
       } else if (result.isFumble) {
         G.lastResult = 'The notation resolves partway and then doesn\'t — you\'ve been reading maintenance shorthand as ward script and the meanings have compounded into something incoherent. You\'ve spent twenty minutes in a maintenance corridor running your hand along panels, and a technician passing at the junction has stopped to watch. She doesn\'t say anything. She notes something in her rotation log and moves on. Whatever you misread, someone now knows you were here reading it.';
-        addJournal('Cold-shell panel reading misread — observation logged by passing technician', 'complication');
+        addJournal('Dome panel reading misread — observation logged by passing technician', 'complication');
       } else if (result.total >= target) {
-        G.lastResult = 'The ward marks are standard thermal containment inscription — correctly applied in the original layer. The second layer is something else: notation you recognize from structural suppression work, the kind used when a shelter shell section is being quietly decommissioned without formal announcement. The marks cover three consecutive panels. The formal decommission register is posted outside the coordinator\'s office. These panels are not on it.';
+        G.lastResult = 'The ward marks are standard thermal containment inscription — correctly applied in the original layer. The second layer is something else: notation you recognize from structural suppression work, the kind used when a dome section is being quietly decommissioned without formal announcement. The marks cover three consecutive panels. The formal decommission register is posted outside the coordinator\'s office. These panels are not on it.';
         addJournal('Panels carry suppression notation absent from formal decommission register', 'evidence');
       } else {
         G.lastResult = 'The marks are layered — original inscription under a second pass of a different hand and tool. You can read the original well enough: thermal containment, standard commune issue. The second layer uses a notation style you\'ve seen but can\'t place precisely without a reference text. It isn\'t decorative. It isn\'t maintenance. The commune archive carries the notation index — the reading room is open during both daily windows.';
-        addJournal('Cold-shell panels: dual-layer inscription, second layer unidentified — archive notation index needed', 'discovery');
+        addJournal('Dome panels: dual-layer inscription, second layer unidentified — archive notation index needed', 'discovery');
       }
 
       G.recentOutcomeType = 'investigate';
@@ -1741,7 +1741,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     }
   },
 
-  // STEALTH ×2 — Moving undetected through shell infrastructure
+  // STEALTH ×2 — Moving undetected through dome infrastructure
   {
     archetypeGroup: 'stealth',
     label: 'The maintenance patrol uses the same junction rotation every cycle.',
@@ -1768,7 +1768,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
         G.stageProgress[1]++;
         addJournal('Bypassed patrol — suspended vent assignments with unlisted office counter-signature logged', 'evidence');
       } else if (result.isFumble) {
-        G.lastResult = 'You time the patrol correctly but misjudge the acoustic properties of the corridor — the cold-shell\'s curved wall returns footstep sound from an angle, and you hear yourself a half-second after the patrol does. They stop. They don\'t call out; they just stop and listen. You press flat against the junction wall and don\'t breathe. After thirty seconds, they continue. But one of them turns and looks back at the junction before they round the corner. They know something was there.';
+        G.lastResult = 'You time the patrol correctly but misjudge the acoustic properties of the corridor — the dome\'s curved wall returns footstep sound from an angle, and you hear yourself a half-second after the patrol does. They stop. They don\'t call out; they just stop and listen. You press flat against the junction wall and don\'t breathe. After thirty seconds, they continue. But one of them turns and looks back at the junction before they round the corner. They know something was there.';
         G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1;
         addJournal('Patrol alerted to corridor presence — acoustic slip, not confirmed', 'complication');
       } else if (result.total >= target) {
@@ -1828,7 +1828,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
   // SUPPORT ×2 — Social/care-based extraction
   {
     archetypeGroup: 'support',
-    label: 'The shell worker\'s hands are wrapped wrong. She has been doing this herself.',
+    label: 'The dome worker\'s hands are wrapped wrong. She has been doing this herself.',
     plot: 'main',
     tags: ['Care', 'NPC', 'Social'],
     xpReward: 65,
@@ -1850,7 +1850,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       if (result.isCrit) {
         G.lastResult = 'She lets you retape the thermal wrap on her left palm — a pressure burn, not deep, but the kind that comes from working a valve without gloves on a restricted vent line. She talks while you work. "The restricted lines have been run hot for three weeks. We\'re not supposed to touch them without authorization, but the authorized crews never come. So you either let the readings climb or you manage it yourself and don\'t report the contact." She keeps her voice below the ventilation hum. "Three of us have burns. None of them are in the medical log." Her right thumb finds the seam of the wrap and presses it flat without her seeming to notice.';
         G.stageProgress[1]++;
-        addJournal('Cold-shell worker revealed unauthorized manual management of restricted vent lines — 3 unreported burns', 'evidence');
+        addJournal('Dome worker revealed unauthorized manual management of restricted vent lines — 3 unreported burns', 'evidence');
       } else if (result.isFumble) {
         G.lastResult = 'She accepts the offer, sits down on the equipment crate, and then doesn\'t talk. She watches the corridor while you work. When the wrap is done she flexes her hand twice, thanks you with the particular brevity of someone who has learned not to owe anything to strangers, and returns to the gauge station. You offered something real and she took it and gave nothing back. This is not hostility. It\'s caution that has been tested enough to become reflex.';
         addJournal('Injured worker accepted care, offered nothing — caution without hostility', 'discovery');
@@ -1882,7 +1882,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
-      gainXp(65, 'brokering between competing shell crews');
+      gainXp(65, 'brokering between competing dome crews');
       G.stageProgress[1]++;
 
       var result = rollD20('persuasion', (G.skills.charm || 0));
