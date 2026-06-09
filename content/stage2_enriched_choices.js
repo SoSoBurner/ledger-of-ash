@@ -1278,7 +1278,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'He touches each fingertip in sequence — thumb to little finger, then back — while he speaks about filing rotations, and the count doesn\'t match the words. He\'s tallying something else. When you meet his eyes he stops and glances toward the corridor. He says his name is Seld, that he works mornings in the secondary index, and that he has seen the same routing number appear in three separate suppression batches. He says it like a question. He leaves before you answer.';
         G.recentOutcomeType = 'discovery';
@@ -1310,7 +1310,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 11) {
         G.lastResult = 'He counts to four again before he speaks — a habit he probably doesn\'t notice. The fragment is a quarter-sheet, torn along a ruled line, in administrative script. Three routing codes and a date stamp from fourteen months ago. He says the full record was pulled from the main index and the withdrawal slip was filed under a category that shouldn\'t exist: "Procedural Alignment." He has seen that category twice. Both times the record disappeared within a week.';
         G.recentOutcomeType = 'discovery';
@@ -1342,7 +1342,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 14) {
         G.lastResult = 'He sits across from you in the canteen and counts through all five fingers twice, both hands, before he says anything. Two Collegium readers have been logging his access requests for the past eight days. He knows because one of them left the notation sheet visible on the reading room desk — careless, or deliberate. He names what he needs from you: a route out of the building after dark, one night only. He is not asking to leave permanently. He is asking to move something.';
         G.recentOutcomeType = 'discovery';
@@ -1374,7 +1374,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 13) {
         G.lastResult = 'You bring both threads to the same table — not literally, but in sequence, same afternoon. Seld wants the routing records formally entered into the Collegium\'s suppression index so they can\'t be quietly withdrawn again. The Warden liaison wants them kept out of any official record so nothing triggers a jurisdictional review. Seld counts through his fingers while you explain the Warden\'s position. He stops at three. He says he can work with a sealed filing — not public, but permanent. You carry that back. The Warden accepts it with the expression of someone who has learned not to argue about procedure.';
         G.recentOutcomeType = 'discovery';
@@ -1406,7 +1406,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'She has your transit dates memorized — not from the sheet in her hand, from memory, which means she looked at this before you arrived. She asks about three specific route entries that don\'t follow a logical traveler\'s progression. She isn\'t accusing you. She is showing you that someone with access to route manifests has been tracking the same anomaly she has. She sets the transit record face-down between you and tells you her name is not important but her shift ends at dusk.';
         G.recentOutcomeType = 'discovery';
@@ -1438,7 +1438,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.vigor || 0);
+      var r = rollD20('vigor', G.skills.vigor || 0);
       if (r.total >= 11) {
         G.lastResult = 'The maps she spreads across the field desk are patrol-issue — the kind that get updated by the officers walking the corridors, not by administrative decree. Three routes show markings she made herself: cargo movement times, vehicle types, one notation that reads "non-manifest, recurring." She circles the Shelk transit junction with one finger and says it happens every nine days. No one has filed a report because filing a report creates a record and a record creates a review and a review would go to the same office that is managing the movement.';
         G.recentOutcomeType = 'discovery';
@@ -1471,7 +1471,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'She tells you without drama: Order command has attached a compliance observer to the patrol district for thirty days. No stated reason. The observer attends briefings and says nothing. She has seen this before — twice, in other postings — and both times it meant someone above the district level had decided the local record was unreliable. She can share what she has while the window stays open, but after thirty days she doesn\'t know what her access will look like. The observation log is already running. She knows because the observer logs everything, including who she speaks to on her breaks.';
         G.recentOutcomeType = 'discovery';
@@ -1503,7 +1503,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 13) {
         G.lastResult = 'She listens to the shape of what the Collegium archivist described without asking his name, which tells you she already knows there is someone on that side tracking the same thing. She says the Order\'s compliance observer is logging who files complication reports and who doesn\'t — which means a formal Collegium record could trigger an Order review she can\'t control the outcome of. She pauses. Then she says: if the filing goes into a sealed category, the compliance observer won\'t flag it. She gives you the category designation without being asked.';
         G.recentOutcomeType = 'discovery';
@@ -1535,7 +1535,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.collegium_audit_flagged = true;
@@ -1569,7 +1569,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.collegium_witness_met = true;
@@ -1603,7 +1603,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.collegium_sealed_accessed = true;
@@ -1637,7 +1637,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'He left the Collegium\'s administrative tier fourteen months ago. He says it plainly, without bitterness: he raised a procedural objection to a suppression batch at a records review meeting and the meeting ended early. No one spoke to him afterward. His access to the secondary index was revoked within a week. He still attends the Collegium as a researcher — the research credentials were not pulled, only the administrative ones. He says that tells him something about how the suppression was authorized: narrowly, specifically, and at a level that knew the difference between access types.');
@@ -1670,7 +1670,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The suppression mandate does not carry a personal seal. It carries a transit authority stamp — the kind issued to routing post supervisors to certify cargo manifests. Someone used a transit stamp in place of an administrative signatory, which is procedurally irregular but not technically invalid, because the transit authority charter predates the Collegium\'s suppression protocol by forty years. Whoever authorized this knew the gap existed. The transit post with that stamp series is registered in the Soreheim district. You write down the stamp reference number.');
@@ -1703,7 +1703,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
         G.flags.collegium_evidence_complete = true;
@@ -1737,7 +1737,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.collegium_cover_arranged = true;
@@ -1771,7 +1771,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
         G.flags.gleam_mechanism_identified = true;
@@ -1807,7 +1807,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.wardens_route_known = true;
@@ -1841,7 +1841,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.wardens_broker_testimony = true;
@@ -1875,7 +1875,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The safe house is a storage room above a cooperage — barrels going in and out at irregular hours providing cover for everything else. The Road Wardens\' records are not organized by category. They are organized by the people who kept them: each bundle tied with cord in a different color, each color belonging to someone who passed through and left what they had. Three bundles contain duplicates of Collegium records marked for destruction. The destruction order carries a category stamp: "Procedural Alignment." The records themselves were not destroyed. They were copied first, by someone who knew the order was coming.');
@@ -1908,7 +1908,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'He is not hiding, exactly — he is living in a way that does not accumulate records. No registered address, no guild affiliation, work that pays in coin without ledger entries. He speaks slowly and in order, as if he has told this before and knows which parts matter: the axis exploitation operation removed the operational records of his trading post before the post was formally closed. The closure order came after the records were gone. He has been waiting in Shelk for fourteen months because the records that would prove his post was solvent are the same records that disappeared. He asks whether you have found them.');
@@ -1941,7 +1941,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The Road Wardens\' senior contact does not write the codename down. She says it once, in a low register, in the middle of a sentence about something else, the way you say a word you do not want anyone in the room to associate with the conversation: Gleam. That is the codename. She does not know if it is a person, a process, or an institutional structure. She knows it has been used in three separate enforcement actions in the past two years, always in connection with transit authority routing, and that no one who tried to identify what is behind it has stayed in a position to keep trying. She says that last part without apparent emotion.');
@@ -1974,7 +1974,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
         addNarration('', 'The black market manifests the broker provided contain a routing point that appears in every non-manifest movement: the Soreheim Transit Post. Not the district, not the corridor — the specific post, which is a small waystation operated by a single supervisor whose name appears on the transit stamps used to authorize the suppression mandates. The supervisor\'s name is Torveld Mast. He countersigned the non-manifest movements and he stamped the suppression authorizations, and neither action was technically outside his authority. The mandate structure was built around what he could legally do.');
@@ -2007,7 +2007,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.wardens_distraction_arranged = true;
@@ -2041,7 +2041,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 14) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
         G.flags.gleam_mechanism_identified = true;
@@ -2077,7 +2077,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.might || 0);
+      var r = rollD20('might', G.skills.might || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The Collegium entrance posts are staffed by people trained to watch, not to stop. The sight lines are positioned to log arrivals, not to intercept threats — every blind spot is in the direction that would matter for protecting a witness, not in the direction that would matter for tracking a visitor. Someone designed this building to know who enters and with whom, not to protect the people inside from the people outside. The security arrangement is not for the Collegium\'s protection. It is for documentation.');
@@ -2109,7 +2109,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.spirit || 0);
+      var r = rollD20('spirit', G.skills.spirit || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The ward layer on the Collegium documents is institutional certification — not protection against tampering, but attestation that the document was processed through the proper channel. The ward signatures predate the suppression orders by two to four weeks on every document you can reach. The certification was applied before the suppression was processed. Whoever authorized the suppression used the certification infrastructure as the mechanism, not as a consequence of the process. The wards are the authorization, not the record of it.');
@@ -2141,7 +2141,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The Collegium\'s posted meeting schedule has four gaps in the past eight weeks — each exactly ninety minutes, each on a day when the reading room supervisor is listed as absent. The gaps fall at irregular intervals, which means they are not a routine maintenance window. You track the next gap two days in advance and watch the building from the secondary entry point. Three people enter during the ninety minutes who are not on any publicly posted access list. One of them carries a sealed document case with a transit authority stamp on the latch.');
@@ -2173,7 +2173,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The pattern is consistent across four separate accounts: a member asks a procedural question about the suppression batches, the question is answered without incident, and then — over the following two weeks — small things change. Reading room appointments become harder to schedule. Collaboration requests go unanswered. Social invitations stop arriving. Nobody does anything hostile or explicit. The social infrastructure of the Collegium simply redirects around the person who asked. It is not punishment. It is something more effective than punishment: exclusion without accusation.');
@@ -2207,7 +2207,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.might || 0);
+      var r = rollD20('might', G.skills.might || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The Road Wardens use a rotating three-person counter-surveillance formation — one ahead, one behind, one stationary at a fixed point with sightlines to both. You run it with them twice before you understand what it is revealing: the people watching the Road Wardens are not uniformed enforcement. They are moving in pairs, in civilian clothing, using the same checkpoint patterns the non-manifest cargo used on the routes. Whoever is monitoring the Road Wardens is embedded in the same transit infrastructure the suppression relied on. They are not separate operations. They are the same operation watching itself being watched.');
@@ -2239,7 +2239,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.spirit || 0);
+      var r = rollD20('spirit', G.skills.spirit || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The destroyed documents left residual arcane traces on the cases that held them — certification ward impressions that persist after the documents themselves are gone. The impressions are faint but readable: institutional certification, applied in sequence, predating the destruction order by two to three weeks. The documents were verified as legitimate through the proper certification channel before the destruction order was issued. Whoever ordered the destruction knew the documents were authentic — the certification confirms it. They were not destroyed because they were false. They were destroyed because they were true.');
@@ -2271,7 +2271,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The three unmapped routes the Road Wardens\' runner maintains pass through monitoring gaps in the transit checkpoint network — specific intersections where the checkpoint coverage does not overlap, where a movement can occur between the checkpoint timing cycles without being logged. Laying the Road Wardens\' route map against the non-manifest cargo movements reveals the same gaps, used in sequence, over the same eighteen-month window. The Road Wardens did not design the routes to exploit those gaps. They discovered the gaps because someone else was already using them. The route network and the suppression operation share the same geography of absence.');
@@ -2303,7 +2303,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('', 'The Road Wardens maintain a list — not written, but kept — of the people who should have filed reports and didn\'t, the people whose credentials were pulled without stated cause, the people who changed routes or localities or occupations in the fourteen-month window of the axis exploitation operation. Eleven names across four polities. The senior contact recites them without referring to anything. Seven fled to different districts. Three stayed and went quiet. One filed a formal objection through the Collegium and was not heard from again. The list is not evidence. It is the shape of what happened to people who noticed.');
@@ -2362,7 +2362,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.collegium_archive_recovery_done = true;
@@ -2421,7 +2421,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.collegium_alt_source_found = true;
@@ -2480,7 +2480,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.wardens_partner_met = true;
@@ -2539,7 +2539,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.wardens_backup_courier_active = true;
@@ -2575,7 +2575,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.enforcement_mechanism_surfaced = true;
@@ -2612,7 +2612,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.transit_stamp_traced = true;
@@ -2650,7 +2650,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 13) {
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.flags.cross_polity_scope_confirmed = true;
@@ -2687,7 +2687,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'The column alignment is not accidental. Someone has been filing district expense authorizations against route codes in a format that makes the cross-reference invisible unless you lay both ledgers side by side. The shared column represents seven months of movements that appear in neither record individually. You copy the column headings and the date range by hand. The ink on the copies is your own. The originals go back on the shelf.';
         G.recentOutcomeType = 'discovery';
@@ -2718,7 +2718,7 @@ const STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 13) {
         G.lastResult = 'You double back through the grain market where the stalls overlap and the sightlines are short. The figure behind you hesitates at the entrance — they\'re good, but not good enough with crowds. You watch from a vendor\'s alcove while they scan the stalls. When they move on, you follow them instead. They walk to a courier exchange office three streets over and go in. The building has a posting board outside. One of the notices lists a route summary — yours, from yesterday — posted as a query. Someone is paying for location updates on your transit.';
         G.recentOutcomeType = 'discovery';
@@ -2746,7 +2746,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'The procedural appeal window is forty-eight hours and requires a filing number rather than a name — which means you can reference the restricted record by its administrative designation without triggering the personal access review. The intake clerk accepts the form without looking at what it references. The appeal goes into the system. Six hours later, a summary record is returned to the public index by automatic procedure: three pages of the document you couldn\'t reach directly, now technically available under appeal review. Enough to read. Enough to copy.';
         G.recentOutcomeType = 'discovery';
@@ -2776,7 +2776,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.charm || 0);
+      var r = rollD20('charm', G.skills.charm || 0);
       if (r.total >= 12) {
         G.lastResult = 'You stop asking direct questions and start noting what he volunteers. He describes a shipping delay in language that implies he knew the route would be affected before the delay was announced. He mentions a district assessor by name, unprompted, the way you name a colleague rather than a threat. He tells you a cargo lot arrived "clean" — which is a specific reassurance no one asked him for. By the end of the conversation, you have three data points that don\'t fit the story he\'s telling. He notices you noticing and offers you tea.';
         G.recentOutcomeType = 'discovery';
@@ -2803,7 +2803,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 11) {
         G.lastResult = 'The name "Arven Pol" — a processing authority designation, not a personal name, which is why it survived multiple redaction passes — appears as signatory on four documents that have no stated connection to each other. Freight release in Shelk. Transit variance in the Roaz corridor. A cargo reclassification issued without physical inspection. An emergency route authorization that post-dates the route\'s closure. Every document moves something. The same authority signature approves it. No one in any of these offices is named Arven Pol.';
         G.recentOutcomeType = 'discovery';
@@ -2834,7 +2834,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 13) {
         G.lastResult = 'The public intake desk processes citizen queries and files summary reports — nothing suppressed, nothing cross-referenced. But the corridor behind the intake desk has a door that does not appear on the building\'s public layout. You spend an afternoon mapping foot traffic: who goes through it, at what hours, carrying what. Three people with Collegium marks. One without any mark at all. The one without a mark goes through twice and both times leaves with a smaller bag than they entered with. That door is where the documents go when they stop being public.';
         G.recentOutcomeType = 'discovery';
@@ -2864,7 +2864,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'The suppression was applied to primary records and summary indices. But the subcategory cross-reference files — maintained separately, updated quarterly, and formatted for administrative review rather than public access — were not flagged. They\'re not public, but they\'re not restricted either. They sit in a procedural gap between suppression and disclosure. You pull the relevant quarter. Inside: cargo type codes, movement authorizations, and a column of inspection waivers, all referencing the same route cluster. The gap is probably deliberate. Someone left it.';
         G.recentOutcomeType = 'discovery';
@@ -2891,7 +2891,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.finesse || 0);
+      var r = rollD20('finesse', G.skills.finesse || 0);
       if (r.total >= 11) {
         G.lastResult = 'The night desk clerk is a different person from the day staff and operates under a separate register — one that does not record visitor names, only transaction codes. You come in as a transit inquiry and leave with access to the secondary manifest stack that the day staff redirects to the restricted counter. The night clerk processes the transaction by the code, not the category, and doesn\'t cross-check against the suppression list. Two hours of reading by lamplight. The secondary manifests cover routes the day counter says don\'t exist.';
         G.recentOutcomeType = 'discovery';
@@ -2921,7 +2921,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 12) {
         G.lastResult = 'Eleven inspection waivers across a four-month window, all for cargo originating from the same two transfer points. Each waiver cites a different procedural basis — weather delay, transit emergency, seasonal reclassification — but all eleven were processed by the same authorization desk within a forty-eight-hour window of each other. The procedural bases are real categories. The timing makes it impossible for them to be independent decisions. Someone requested them all at once, formatted them individually, and filed them over four months to avoid the bulk-processing flag.';
         G.recentOutcomeType = 'discovery';
@@ -2952,7 +2952,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 13) {
         G.lastResult = 'The reclassification entries move goods from the freight manifest into the "materials in transit" category — a classification used for institutional supplies that bypasses standard cargo inspection and customs declaration. Once reclassified, the goods disappear from the freight record entirely and reappear in a separate institutional ledger that isn\'t cross-referenced with customs. Six reclassifications over two years, all originating at the same loading dock, all arriving at a single institutional address in the inner district. You copy the address.';
         G.recentOutcomeType = 'discovery';
@@ -2979,7 +2979,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.vigor || 0);
+      var r = rollD20('vigor', G.skills.vigor || 0);
       if (r.total >= 11) {
         G.lastResult = 'Three days of observation from the same rooftop position — a tanning shed roof, which means the smell is considerable, but the sightline is direct. The gap in the patrol rotation is fourteen minutes, appearing at the same hour each evening. No variation. Patrol rotations have natural drift unless someone is actively managing the clock. You mark the gap\'s location: a loading bay access on the eastern freight corridor, wide enough for a cart.';
         G.recentOutcomeType = 'discovery';
@@ -3006,7 +3006,7 @@ const STAGE2_ENRICHED_CHOICES = [
     plot: 'side',
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 13) {
         G.lastResult = 'The date stamp is in the older format — a calendar notation that predates the current administrative system by six years. The Iron Ledger Ward was not established until four years after the current system began. The transaction it records should be impossible: a route authorization issued through an institution that didn\'t exist yet. The format is internally consistent and the seal is genuine. Someone created this record after the fact and backdated it. The transaction it authorizes is the origin point for the route cluster you\'ve been tracking.';
         G.recentOutcomeType = 'discovery';
@@ -3046,7 +3046,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.wits || 0);
+      var r = rollD20('wits', G.skills.wits || 0);
       if (r.total >= 11) {
         G.lastResult = 'The encoding is a variant of the standard administrative cipher used in institutional correspondence — a format you know because your training covered the index systems of four administrative bodies. The variant tells you which body generated it: a fiscal sub-registry that operates under the Compact\'s transit authority but files under the district government\'s identifier. That administrative overlap is not accidental. It allows the same record to be reported to two separate oversight bodies without either body knowing the other received it. The document\'s full content opens under that key.';
         G.recentOutcomeType = 'discovery';
@@ -3459,7 +3459,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.might || 0);
+      var r = rollD20('might', G.skills.might || 0);
       if (r.total >= 12) {
         G.lastResult = 'The warden\'s hand stops moving when you step closer. You don\'t touch him. You don\'t need to — what you project is the specific patience of someone who has hurt people for functional reasons and found it unremarkable. He recalculates something privately and pushes the ledger across the table. The entry you wanted to see is circled in the original ink, flagged for review by someone whose name is in a column the public version does not include. He doesn\'t look up while you read.';
         G.recentOutcomeType = 'discovery';
@@ -3496,7 +3496,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.might || 0);
+      var r = rollD20('might', G.skills.might || 0);
       if (r.total >= 11) {
         G.lastResult = 'Three figures step out of the alley at the second crossing — the kind of interception that requires someone knowing the route in advance. You read the geometry before they\'ve finished moving: two flanking, one center, the center one watching your hands. You close the distance fast enough that the center step becomes a retreat. They peel off within a block. The courier says nothing for the rest of the walk. At the handoff point, she gives you a name: the clerk who told someone about the schedule.';
         G.recentOutcomeType = 'discovery';
@@ -3529,7 +3529,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.might || 0);
+      var r = rollD20('might', G.skills.might || 0);
       if (r.total >= 10) {
         G.lastResult = 'A tactical eye reads this the same way it reads any changed deployment: there is a reason, and the reason is the thing being protected. The new patrol arc covers the transit administration\'s rear entrance and the weighmaster\'s annex — two buildings that share a wall but have no public connection. The coverage gap they created is over the public records entrance, which is now effectively unmonitored at shift change. Someone repositioned the wardens toward what matters and left the appearance of coverage intact.';
         G.recentOutcomeType = 'discovery';
@@ -3564,7 +3564,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.might || 0);
+      var r = rollD20('might', G.skills.might || 0);
       if (r.total >= 13) {
         G.lastResult = 'You choose the time and the ground — a narrow service passage, no exits to either side. He rounds the corner and stops when he sees you\'ve turned. For a moment the calculation runs on both sides. He\'s good: his weight is forward, hands relaxed, feet wider than a civilian would stand. He was told to follow, not to engage. You tell him what you know and who you think gave the order. He doesn\'t confirm anything, but the specific way he doesn\'t confirm it is its own answer. He leaves. By morning, whoever sent him knows what you said.';
         G.recentOutcomeType = 'discovery';
@@ -3600,7 +3600,7 @@ const STAGE2_ENRICHED_CHOICES = [
     },
     fn: function() {
       if (!G.flags) G.flags = {};
-      var r = rollD20(G.skills.might || 0);
+      var r = rollD20('might', G.skills.might || 0);
       if (r.total >= 12) {
         G.lastResult = 'He makes it half a block before your hand is on his shoulder. He\'s not a fighter — the satchel drops and he starts talking before you\'ve said anything. The document inside is a routing variance authorization signed by someone three ranks above the clerk\'s supervisor. He was told to deliver it to a private residence address and destroy the transit record. The address is on the document header. He didn\'t write it there; someone above him did, which means the paper has a chain even it didn\'t intend to have.';
         G.recentOutcomeType = 'discovery';
