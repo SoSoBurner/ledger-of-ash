@@ -108,7 +108,7 @@ var STAGE2_CLIMAX = (function() {
       },
       {
         id: 'climax_p3_align',
-        text: 'Orveth wants the same thing. Her method is the question.',
+        text: "Orveth's reasons point the same direction. Following is faster than building my own.",
         action: function() { if (typeof gainXp === 'function') gainXp(20, 'choice'); phase3_align(); }
       },
       {
