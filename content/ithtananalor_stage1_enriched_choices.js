@@ -946,7 +946,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Garrison stone holds the chill of the corridor against your back. The duty clerk turns a page without looking up. Whatever opening might have existed is sealed by the registration of an unanswered question. You retreat into the inspection line.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -965,7 +965,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Garrison stone holds the chill of the corridor against your back. The duty clerk turns a page without looking up. Whatever opening might have existed is sealed by the registration of an unanswered question. You retreat into the inspection line.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

@@ -14,7 +14,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -50,7 +50,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -82,7 +82,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Combat', 'Authority', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -117,7 +117,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -148,7 +148,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'NPC', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -180,7 +180,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -212,7 +212,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Combat', 'Investigation', 'Personal', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -245,7 +245,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -272,7 +272,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -298,7 +298,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'ithtananalor'],
     xpReward: 30,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -326,7 +326,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'ithtananalor', 'Archive', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -356,7 +356,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'ithtananalor', 'Stealth', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -386,7 +386,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'ithtananalor', 'NPC', 'Persuasion', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -416,7 +416,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -448,7 +448,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -480,7 +480,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -512,7 +512,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -544,7 +544,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -576,7 +576,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -608,7 +608,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -640,7 +640,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -672,7 +672,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -704,7 +704,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -736,7 +736,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -768,7 +768,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -800,7 +800,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -832,7 +832,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -874,7 +874,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -905,7 +905,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -937,7 +937,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -967,7 +967,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -996,7 +996,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'Cold light through a narrow fortification window falls across an enforcement seal you cannot cross today. The duty clerk taps a stylus once against the log without writing anything. You step back before the second tap.', 'failure');
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
