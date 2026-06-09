@@ -17492,12 +17492,14 @@ function showTutorial(flag, message) {
   G.tutorialFlags[flag] = true;
 
   const el = document.getElementById('narrative-content');
+  if (!el || typeof el.insertBefore !== 'function') return;
   const callout = document.createElement('div');
   callout.className = 'scene-block';
   callout.innerHTML = '<div class="tutorial-callout">' + message +
     '<button class="tutorial-callout-close" data-tc-id="' + flag + '">&#x00D7;</button>' +
     '</div>';
-  callout.querySelector('.tutorial-callout-close').addEventListener('click', () => callout.remove());
+  var _closeBtn = callout.querySelector('.tutorial-callout-close');
+  if (_closeBtn) _closeBtn.addEventListener('click', () => callout.remove());
   el.insertBefore(callout, el.firstChild);
   saveGame();
 }
