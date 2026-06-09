@@ -21,7 +21,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_cadrin_crownmere = true;
         G.investigationProgress++;
@@ -54,7 +54,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'gathering night-transfer witness account from Aster Starice');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.met_aster_starice = true;
         G.investigationProgress++;
@@ -87,7 +87,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'reviewing unusual container claim with Arbiter Nyra Thawmark');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_arbiter_nyra_thawmark = true;
         G.investigationProgress++;
@@ -120,7 +120,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_thora_snowveil = true;
         G.investigationProgress++;
@@ -277,7 +277,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing the missing expedition through story circle');
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.wb_missing_expedition_traced = true;
         G.investigationProgress++;
@@ -307,7 +307,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'reading the skipped arbiter seat');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.wb_arbiter_seat_skipped = true;
         G.investigationProgress++;
@@ -334,7 +334,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'reading the anomalous refugee paperwork');
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.wb_refugee_anomaly = true;
         G.investigationProgress++;
@@ -368,7 +368,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.wb_charter_exemption_traced = true;
         G.investigationProgress++;
@@ -404,7 +404,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.wb_thora_suppression_named = true;
         G.investigationProgress++;
@@ -438,7 +438,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.wb_courier_tailed = true;
         G.investigationProgress++;
@@ -472,7 +472,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.wb_overnight_stakeout = true;
         G.investigationProgress++;
@@ -505,7 +505,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.wb_apothecary_notes_traced = true;
         G.investigationProgress++;
@@ -540,7 +540,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.wb_tithe_gap_traced = true;
         G.investigationProgress++;
@@ -575,7 +575,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.wb_brazier_keeper_spoken = true;
         G.investigationProgress++;
@@ -609,7 +609,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.wb_surveyor_witness = true;
         G.investigationProgress++;
@@ -643,7 +643,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.wb_bathhouse_intel = true;
         G.investigationProgress++;
@@ -678,7 +678,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.wb_gatebook_warden_named = true;
         G.investigationProgress++;
@@ -713,7 +713,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.wb_pulled_notice_recovered = true;
         G.investigationProgress++;
@@ -747,7 +747,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.wb_storeroom_compounds_found = true;
         G.investigationProgress++;
@@ -782,7 +782,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.wb_mending_circle_spoken = true;
         G.investigationProgress++;
@@ -819,7 +819,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -924,7 +924,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'risky',
     skill: 'might',
     fn: function() {
-      var roll = rollD20('might', (G.skills.might||0) + Math.floor(G.level/3));
+      var roll = rollD20('might', (G.skills.might||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -955,7 +955,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'risky',
     skill: 'wits',
     fn: function() {
-      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var roll = rollD20('wits', (G.skills.wits||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -986,7 +986,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'bold',
     skill: 'charm',
     fn: function() {
-      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var roll = rollD20('charm', (G.skills.charm||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1018,7 +1018,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'risky',
     skill: 'wits',
     fn: function() {
-      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var roll = rollD20('wits', (G.skills.wits||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1049,7 +1049,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     failResult: 'The shelter keeper stops the second interview before it begins. New arrivals are within their silence window, and the keeper enforces it without apology — it is the first protection the commune extends. The three refugees remain together in the hall, blankets in commune grey, and the shared detail that connects them stays unspoken for now.',
     fn: function() {
-      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var roll = rollD20('charm', (G.skills.charm||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1079,7 +1079,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'risky',
     skill: 'vigor',
     fn: function() {
-      var roll = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      var roll = rollD20('vigor', (G.skills.vigor||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1109,7 +1109,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'bold',
     skill: 'finesse',
     fn: function() {
-      var roll = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      var roll = rollD20('finesse', (G.skills.finesse||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1141,7 +1141,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'bold',
     skill: 'spirit',
     fn: function() {
-      var roll = rollD20('spirit', (G.skills.spirit||0) + Math.floor(G.level/3));
+      var roll = rollD20('spirit', (G.skills.spirit||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1172,7 +1172,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'risky',
     skill: 'wits',
     fn: function() {
-      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var roll = rollD20('wits', (G.skills.wits||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1203,7 +1203,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     failResult: 'The shelter hall back room is occupied by a mending session. The council member who is available when the approach is made again explains that the minority dissent is already in the posted session minutes — nothing said there is private, and they do not discuss council strategy outside the chamber.',
     fn: function() {
-      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var roll = rollD20('charm', (G.skills.charm||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1235,7 +1235,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'risky',
     skill: 'finesse',
     fn: function() {
-      var roll = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      var roll = rollD20('finesse', (G.skills.finesse||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1266,7 +1266,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'bold',
     skill: 'spirit',
     fn: function() {
-      var roll = rollD20('spirit', (G.skills.spirit||0) + Math.floor(G.level/3));
+      var roll = rollD20('spirit', (G.skills.spirit||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;
@@ -1298,7 +1298,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tag: 'bold',
     skill: 'might',
     fn: function() {
-      var roll = rollD20('might', (G.skills.might||0) + Math.floor(G.level/3));
+      var roll = rollD20('might', (G.skills.might||0));
       advanceTime(1);
       G.telemetry.turns++;
       G.telemetry.actions++;

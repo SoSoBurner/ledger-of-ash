@@ -21,7 +21,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.met_letha_dawnsilk = true;
         G.investigationProgress++;
@@ -56,7 +56,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'questioning Patrol Leader about unmapped northern structure');
 
 
-      const result = rollD20('combat', (G.skills.might||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.might||0));
       if (result.isCrit) {
         G.flags.met_patrol_leader = true;
         G.investigationProgress++;
@@ -91,7 +91,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
 
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_shrine_keeper_cysur = true;
         G.investigationProgress++;
@@ -127,7 +127,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.cysur_second_meeting = true;
         G.investigationProgress++;
@@ -159,7 +159,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.staging_structure_scouted = true;
         G.investigationProgress++;
@@ -194,7 +194,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.roadwarden_checkpoint_passed = true;
         G.investigationProgress++;
@@ -227,7 +227,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'reviewing caravan driver traffic log for construction and supply entries');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_caravan_driver_osset = true;
         G.investigationProgress++;
@@ -261,7 +261,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing phantom supply requisition category feeding the northern route');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.phantom_requisition_traced = true;
         G.investigationProgress++;
@@ -296,7 +296,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'speaking with outpost smith Brann Veld about northern equipment repairs');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_smith_brann_veld = true;
         G.investigationProgress++;
@@ -331,7 +331,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing supply depot discrepancy with clerk Pella Orn');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_clerk_pella_orn = true;
         G.investigationProgress++;
@@ -361,7 +361,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'locating abandoned survey camp marker on northern tree line');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.survey_camp_found = true;
         G.investigationProgress++;
@@ -394,7 +394,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining pre-assignment calibration record in Letha Dawnsilk hazard station');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.letha_early_record_found = true;
         G.investigationProgress++;
@@ -427,7 +427,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'speaking with northern supply runner Destin Var about staging structure interior');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.met_runner_destin_var = true;
         G.investigationProgress++;
@@ -461,7 +461,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'questioning outpost apothecary Wend Sallor about northern chemical odor');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_apothecary_wend_sallor = true;
         G.investigationProgress++;
@@ -496,7 +496,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing three-day gap in outpost northern patrol log');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.patrol_log_gap_traced = true;
         G.investigationProgress++;
@@ -530,7 +530,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'speaking with infirmary traveler Molk Breyen about northern exposure symptoms');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.met_traveler_molk_breyen = true;
         G.investigationProgress++;
@@ -563,7 +563,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing night-watch account from guard Ferret Ondal about after-hours northern traffic');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_nightwatch_ferret_ondal = true;
         G.investigationProgress++;
@@ -592,7 +592,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining repositioned northern road waymarker for route alteration evidence');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.waymarker_alteration_found = true;
         G.investigationProgress++;
@@ -626,7 +626,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining Roadwarden duty roster for unrotated northern assignment');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.roster_anomaly_found = true;
         G.investigationProgress++;
@@ -660,7 +660,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'speaking with trapper Aldus Ferch about territorial displacement from northern spruce line');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_trapper_aldus_ferch = true;
         G.investigationProgress++;
@@ -693,7 +693,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'examining woodcutter fuel delivery records for staging structure supply entries');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.woodcutter_records_found = true;
         G.investigationProgress++;
@@ -731,7 +731,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/2));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

@@ -23,7 +23,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_quenra_quillfire = true;
         G.investigationProgress++;
@@ -61,7 +61,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'reviewing Archive Loading Bay delivery records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
@@ -97,7 +97,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'examining Academy knowledge tariff bypass records');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
@@ -134,7 +134,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(66, 'questioning Academy innkeeper about scholar guests');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.met_ilys_quillfire = true;
         G.investigationProgress++;
@@ -171,7 +171,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_velis_quillfire = true;
         G.investigationProgress++;
@@ -206,7 +206,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var roll = rollD20('charm', (G.skills.charm||0));
       if (roll.total >= 16) {
         G.flags.met_leth_quillfire = true;
         G.investigationProgress++;
@@ -240,7 +240,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(60, 'examining Restricted Stacks seal and archive infrastructure');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var roll = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var roll = rollD20('wits', (G.skills.wits||0));
       if (roll.total >= 13) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -272,7 +272,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var roll = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      var roll = rollD20('finesse', (G.skills.finesse||0));
       if (roll.total >= 13) {
         G.flags.met_calia_quillfire = true;
         G.investigationProgress++;
@@ -311,7 +311,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.met_hoven_draske = true;
         G.investigationProgress++;
@@ -349,7 +349,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_pellin_ost = true;
         G.investigationProgress++;
@@ -386,7 +386,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.met_draith_calver = true;
         G.investigationProgress++;
@@ -424,7 +424,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.mim_phantom_citations_mapped = true;
         G.investigationProgress++;
@@ -462,7 +462,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.mim_reagent_notation_decoded = true;
         G.investigationProgress++;
@@ -499,7 +499,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.mim_access_log_handwriting_matched = true;
         G.investigationProgress++;
@@ -537,7 +537,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.mim_stipend_halt_traced = true;
         G.investigationProgress++;
@@ -574,7 +574,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.mim_observatory_spike_linked = true;
         G.investigationProgress++;
@@ -612,7 +612,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.mim_lecturer_credential_fraudulent = true;
         G.investigationProgress++;
@@ -650,7 +650,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.met_torva_seld = true;
         G.investigationProgress++;
@@ -687,7 +687,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.mim_emeritus_office_traced = true;
         G.investigationProgress++;
@@ -725,7 +725,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.mim_student_debrief_route_mapped = true;
         G.investigationProgress++;
@@ -763,7 +763,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.mim_charter_document_forged = true;
         G.investigationProgress++;
@@ -802,7 +802,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/2));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -834,7 +834,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'Mimolot Collegium academic correspondence');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/2));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit || result.total >= 12) {
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -869,7 +869,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'Mimolot Collegium scholar evasion');
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit || result.total >= 14) {
         G.flags.met_scholar_ruveth = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -952,7 +952,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'tracing practitioner network cited in Academy glyph damping theory');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.total >= 13 || result.isCrit) {
         G.flags.arcane_contact_1 = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1017,7 +1017,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
         return;
       }
       gainXp(95, 'completing Collegium chain at Mimolot Academy');
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 14) {
         G.flags.collegium_contact_3 = true;
         G.flags.stage2_faction_contact_made = true;
@@ -1049,7 +1049,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_quillan_quillmark = true;
         G.investigationProgress++;
@@ -1085,7 +1085,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_vessa_scriptmere = true;
         G.investigationProgress++;
@@ -1121,7 +1121,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_archivist_valcrest = true;
         G.investigationProgress++;
@@ -1157,7 +1157,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.mim_crown_protocol_traced = true;
         G.investigationProgress++;
@@ -1194,7 +1194,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
@@ -1228,7 +1228,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1261,7 +1261,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1294,7 +1294,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1326,7 +1326,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1359,7 +1359,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1394,7 +1394,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_quenra_quillfire = true;
         G.investigationProgress++;
@@ -1428,7 +1428,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_ilys_quillfire = true;
         G.investigationProgress++;
@@ -1461,7 +1461,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_velis_quillfire = true;
         G.investigationProgress++;
@@ -1495,7 +1495,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
@@ -1528,7 +1528,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_sarith_quillfire = true;
         G.investigationProgress++;
@@ -1562,7 +1562,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_myra_quillfire = true;
         G.investigationProgress++;
@@ -1597,7 +1597,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1630,7 +1630,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1663,7 +1663,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1696,7 +1696,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1729,7 +1729,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1764,7 +1764,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1797,7 +1797,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1830,7 +1830,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1862,7 +1862,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;

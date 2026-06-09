@@ -19,7 +19,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'investigating special mineral assessment logs with Darian Ironspike');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('combat', (G.skills.might||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.might||0));
       if (result.isCrit) {
         G.flags.met_darian_ironspike_quarry = true;
         G.investigationProgress++;
@@ -54,7 +54,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'investigating worker exposure symptoms with Quarry Overseer Velka Ironspike');
 
 
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.met_velka_ironspike = true;
         G.investigationProgress++;
@@ -88,7 +88,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
         if (G.investigationProgress === 5) G.worldClocks.pressure = (G.worldClocks.pressure||0) + 1;
@@ -123,7 +123,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_darian_ironspike_quarry = true;
         G.flags.darian_second_encounter = true;
@@ -156,7 +156,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.flags.special_assessment_observed = true;
@@ -192,7 +192,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.flags.weighing_station_trust = true;
@@ -223,7 +223,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'observing the off-manifest transport crew at the quarry canteen');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.transport_crew_identified = true;
         G.investigationProgress++;
@@ -257,7 +257,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'approaching the night tally supervisor at the secondary slope rest point');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_night_tally_supervisor = true;
         G.investigationProgress++;
@@ -292,7 +292,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'approaching the rotated-off extraction worker on the standard line');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_extraction_worker = true;
         G.investigationProgress++;
@@ -326,7 +326,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'speaking with the weighing station engineer about the missing ore flow');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_weighing_engineer = true;
         G.investigationProgress++;
@@ -359,7 +359,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'talking with the canteen cook about the transport crew composition and timeline');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_canteen_cook = true;
         G.investigationProgress++;
@@ -393,7 +393,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'collaborating with Velka Ironspike to structure an unfiled safety report');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.velka_fourth_report = true;
         G.flags.met_velka_ironspike = true;
@@ -429,7 +429,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'cross-referencing the shift schedule against the section entry log');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.flags.third_shift_located = true;
@@ -463,7 +463,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading the quarry infirmary admissions log');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.infirmary_log_read = true;
         G.investigationProgress++;
@@ -497,7 +497,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'tracking the gray-coated extraction supervisor through the quarry site');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.gray_coat_supervisor_identified = true;
         G.investigationProgress++;
@@ -533,7 +533,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(74, 'assessing the secondary cut excavation method from the access tunnel approach');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.secondary_cut_assessed = true;
         G.investigationProgress++;
@@ -567,7 +567,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'approaching the transport dock signing officer at shift-end manifest close');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.dock_manifest_signatory_met = true;
         G.investigationProgress++;
@@ -601,7 +601,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'returning to Kael Drovish at the secondary slope with his dock departure count');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.kael_departure_log = true;
         G.investigationProgress++;
@@ -635,7 +635,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'pressing the prison labor intake supervisor on special extraction rotation assignments');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.intake_supervisor_met = true;
         G.investigationProgress++;
@@ -668,7 +668,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining the tool requisition records for the special extraction crew');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.tool_requisition_examined = true;
         G.investigationProgress++;
@@ -701,7 +701,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'comparing the posted quarry survey map against the physical site layout');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.survey_map_discrepancy_found = true;
         G.investigationProgress++;
@@ -740,7 +740,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/2));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;

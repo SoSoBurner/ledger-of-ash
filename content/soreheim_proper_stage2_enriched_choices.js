@@ -21,7 +21,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(84, 'examining relic strategy requisitions with Decon Von Reckshem');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_decon_von_reckshem = true;
         G.investigationProgress++;
@@ -60,7 +60,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'negotiating with Councillor Mordoth Valinheim');
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_mordoth_valinheim = true;
         G.investigationProgress++;
@@ -99,7 +99,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'confronting Councillor Vorgul Oxtend on military transport passes');
-      const result = rollD20('combat', (G.skills.might||0) + Math.floor(G.level/3));
+      const result = rollD20('combat', (G.skills.might||0));
       if (result.isCrit) {
         G.flags.met_vorgul_oxtend = true;
         G.investigationProgress++;
@@ -136,7 +136,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'appealing to Councillor Cron Udenine Arbiter of Justice');
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_cron_udenine = true;
         G.investigationProgress++;
@@ -173,7 +173,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'exposing Northern Ambition funding dependencies');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_roth_udenine = true;
         G.investigationProgress++;
@@ -314,7 +314,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     xpReward: 34,
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
-      var roll = rollD20('spirit', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.spirit);
       if (roll.total >= 13) {
         G.investigationProgress = (G.investigationProgress || 0) + 1;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -361,7 +361,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing expired exemption code in northern transit ledger');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.transit_ledger_exemption_confirmed = true;
         G.investigationProgress++;
@@ -399,7 +399,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'interviewing junior Relic Strategy Wing clerk Senne Orvath');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_senne_orvath = true;
         G.investigationProgress++;
@@ -435,7 +435,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'shadowing the off-schedule Relic Strategy Wing courier');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.courier_route_traced = true;
         G.investigationProgress++;
@@ -468,7 +468,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'enduring the outer forge ring to observe off-books loading');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.forge_ring_offbooks_witnessed = true;
         G.investigationProgress++;
@@ -504,7 +504,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'analyzing compound residue against the Soreheim alloy export register');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.compound_residue_matched = true;
         G.investigationProgress++;
@@ -540,7 +540,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing off-books wage records to sealed-charter reference');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.wage_ledger_traced = true;
         G.investigationProgress++;
@@ -576,7 +576,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'pressing council herald Bren Sothwick on irregular dispatch routes');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_bren_sothwick = true;
         G.investigationProgress++;
@@ -612,7 +612,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'accessing restricted tower blueprint vault to find undisclosed floor space');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.blueprint_discrepancy_found = true;
         G.investigationProgress++;
@@ -644,7 +644,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'enduring a full night on the north bridge curfew line to log post-curfew transit');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.night_transit_log_observed = true;
         G.investigationProgress++;
@@ -680,7 +680,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing crate assay marks against Soreheim registered forge stamps');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.assay_marks_traced = true;
         G.investigationProgress++;
@@ -716,7 +716,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'approaching retired Wing officer Hassel Dorn about internal override protocols');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_hassel_dorn = true;
         G.investigationProgress++;
@@ -752,7 +752,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'uncovering suppressed Iron Compact treaty addendum in amendment archive');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.treaty_addendum_found = true;
         G.investigationProgress++;
@@ -788,7 +788,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'intercepting dispatch rider leaving the factor-address block to read shipment timing');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.dispatch_rider_intercepted = true;
         G.investigationProgress++;
@@ -826,7 +826,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The evidence assembled so far doesn't carry enough weight for formal action. The council operates on documentation, and documentation has gaps — missing links that a skilled advocate will use to dismiss the whole package before a tribunal. More is needed before any formal step holds. At least one more chain must be confirmed, one more signature traced back to a named authority. The structure is visible. The proof isn't complete.`;
         G.recentOutcomeType = 'investigate'; return;
       }
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -891,7 +891,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'decommodification prohibition cross-reference');
       if (!G.flags) G.flags = {};
-      var roll = rollD20('spirit', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.spirit);
       if (roll.total >= 13) {
         G.flags.sor_decom_prohibition_match = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
@@ -1111,7 +1111,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'pressing Lyria Firesoul on northern ward allocation delay');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      var result = rollD20('charm', (G.skills.charm || 0));
       if (result.isCrit) {
         G.flags.met_lyria_firesoul = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -1145,7 +1145,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'enduring the Ironroot Crossing yard to read phantom crew entries');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
+      var result = rollD20('vigor', (G.skills.vigor || 0));
       if (result.isCrit) {
         G.flags.ironroot_crossing_phantom_crew = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -1179,7 +1179,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'approaching Eryndor Bladewright about contribution ranking drop');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      var result = rollD20('charm', (G.skills.charm || 0));
       if (result.isCrit) {
         G.flags.met_eryndor_bladewright = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;
@@ -1213,7 +1213,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing the vanished Miners Assembly grievance to its source filing');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      var result = rollD20('wits', (G.skills.wits || 0));
       if (result.isCrit) {
         G.flags.miners_assembly_grievance_traced = true;
         G.investigationProgress = (G.investigationProgress || 0) + 1;

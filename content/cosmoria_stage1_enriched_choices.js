@@ -23,7 +23,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading maritime trade pattern shifts');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -70,7 +70,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering supply chain manipulation');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Coralyn Tideglass pulls a ledger from the lower stack — not the one on top. She opens it to a page where three lines have been crossed out. "Sailcloth, forty bolts, crew maintenance." She covers the original entry with her thumb, then lifts it. "Twenty bolts. Listed for independent merchants." She covers the correction, lifts it. "Forty. Listed for Cosmouth brig crews." Same handwriting across five more pages. "I didn't write those corrections," she says. She keeps her thumb on the line she's practiced not speaking aloud.`;
@@ -118,7 +118,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading corrupted maritime ritual patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Maris Coralwake speaks with her back to the shrine door and her hands folded tight in her vestments. "Last season I blessed every crew that came to the water gate. Now I'm handed a list before the morning tide. Some crews receive the full communion. Others receive" — she pauses — "a shorter rite. If they ask, I'm to say the full ceremony is reserved for members in good charter standing." She looks at the offering shelf, not at you. "There is no charter standing requirement in any text I have ever read."`;
@@ -160,7 +160,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering archive record tampering');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         var _tideonFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
@@ -203,7 +203,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering mediation system corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Vethis sets a sealed document on the table between you and doesn't open it. "This arrived before my last hearing. It outlined the preferred ruling." The seal is a Cosmouth administrative mark — not a judicial one. "I ruled differently. The following week I received a review notice questioning my professional credentials." She taps the document. "I kept it. In case someone came asking." She slides it across the table. The salt smell drifts up from the lower harbor. She waits.`;
@@ -244,7 +244,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading population health corruption patterns');
       G.stageProgress[1]++;
 
-      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0));
 
       if (result.isCrit) {
         G.lastResult = `Sevrin Shellmark keeps his own records in a salt-warped notebook that he doesn't leave at the clinic. He opens it on his knee rather than on the desk. "Three families in the lower ward, respiratory. I listed it as acute. The harbor health roll came back listing it as seasonal minor." He shows you his entry. Shows you the filed copy. The filed copy has a different date and a different severity category. "I haven't corrected it," he says quietly. "Because I don't know who's reading my corrections." He closes the notebook.`;
@@ -285,7 +285,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering archive destruction conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The Archive Keeper walks you to a shelf and points to a gap — three fingers wide, dust free at the edges, older dust in the center. "Trade Compact records, years forty-one through forty-six. The years when independent merchants ran forty percent of the harbor." He doesn't lower his voice. There's nobody else here. "They were re-classified as restricted operational history two weeks ago. Sealed storage, third level. I don't have a key for the third level." He turns to face you. "I've worked this archive for nineteen years. There was no third level until six months ago."`;
@@ -326,7 +326,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering shipwright safety corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.spirit || 0));
 
       if (result.isCrit) {
         G.lastResult = `Haskon puts down the adze and wipes pitch from his hands before answering. He walks you to a vessel on the middle berth — Cosmouth house flag, new timber, finished yesterday by the look of the caulking. He runs his thumb along a join near the waterline. "That passes now. Two years ago I'd have sent it back." He crosses to an independent builder's brig two berths over, older vessel, tight joins. "This one has been under correction review for eleven days. Minor variation in rib spacing — within tolerance, just not Cosmouth standard." He doesn't raise his voice. He doesn't need to.`;
@@ -369,7 +369,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'maritime hierarchy analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The ward charter amendments from the past eight months are public record — five of them, each adding a Cosmouth oversight clause to a previously independent district function. The third amendment reclassified ward councils as advisory. The fifth removed the ward mediator appointment process from district vote. The amendments were passed under emergency maritime stability provisions that don't require public hearing. Each one individually is minor. Together they redirect every decision node in the district structure toward a single point.`;
@@ -407,7 +407,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'merchant network displacement mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The harbor trader roster from three years ago lists sixty-four active independent merchants. The current roster has forty-one. You pull departure records for the missing twenty-three: twelve left Cosmoria entirely, six have no recorded activity after their dock access was declined, five are still listed as registered but haven't filed a cargo manifest in more than a year. In the same period, nine new merchants with Cosmouth house affiliations appear in the active roster. The harbor didn't shrink. It was selectively cleared.`;
@@ -448,7 +448,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'archive system integrity analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The archive's public access ledger lists what's available without a credential. Twelve months ago that list ran to three pages. The current version is one page. You count the categories that dropped off: merchant autonomy records, harbor taxation history, disease and injury rolls, independent ward correspondence. Every removed category covers a period before Cosmouth consolidated harbor authority. The access ledger itself is dated and signed. The person who signed it signed all twelve restriction orders in the same week.`;
@@ -486,7 +486,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'personal ambition pattern mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Three names appear across multiple institutional changes in the past year. A treasury clerk named Ossel now signs off on supply allocation orders that previously required a harbor commissioner's seal. A merchant named Farre with two years of registry history is listed as advisor to the archive board. A shipwright named Calden whose workshop was registered fourteen months ago sits on the inspection standards panel. None of them held these positions two years ago. All three positions were newly created in the same administrative cycle. All three appointments were made by the same harbor authority office.`;
@@ -527,7 +527,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'institutional dependency system documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Four independent merchants describe the same sequence: a minor administrative irregularity flagged against their record, a compliance review scheduled, a suggestion from a Cosmouth clerk that the review might be resolved favorably if they adjusted their dock preference requests. All four adjusted. Two sailors describe certification delays that ended after they stopped working with a specific independent captain. A clinic patient describes being told their shrine blessing was "conditional." The coercion doesn't announce itself. It arrives as process, as delay, as paperwork — until the person at the center works out what the paperwork wants from them.`;
@@ -568,7 +568,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'resource scarcity manipulation mapping');
       G.stageProgress[1]++;
 
-      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.spirit || 0));
 
       if (result.isCrit) {
         G.lastResult = `The supplier manifests show full deliveries arriving at the harbor warehouse. The independent builder allocation records show partial distributions — sailcloth at sixty percent of ordered quantity, rope at seventy. The warehouse inventory reconciliation shows the remaining stock categorized as "reserved — Cosmouth fleet maintenance." The fleet maintenance logs show nothing scheduled for the dates those reserves were created. The materials exist. They're sitting in a warehouse fifty meters from where builders are requesting them and being refused.`;
@@ -609,7 +609,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'ritual weaponization documentation');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The morning tide ceremony at the water gate lasts twenty minutes for a Cosmouth brig crew. You watch. The caretaker completes the full rite — tide-oath, water-sealing, the blessing at the bow. An independent fishing crew arrives at the gate while the ceremony is still running. They wait. When the Cosmouth crew finishes, the caretaker turns and tells the fishing crew the gate is closed for the morning session, to return at the afternoon tide. They leave without argument. They've been turned away before. You can see it in how quickly they go.`;
@@ -710,7 +710,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing institutional corruption conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Laid flat on a counting-house table you've borrowed for the afternoon: nine carbon arrival copies with corrected primaries, Coralyn's corrected supply ledger, Vethis's pre-issued ruling document, the access tier list signed in one week, the warehouse allocation records against the fleet maintenance logs that don't match. Each document is a different institution. Each has the same quality — a deliberate alteration that absorbs its own evidence. They don't point at each other. They all point the same direction. That's the paper trail.`;
@@ -795,7 +795,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of institutional corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Behind the arrival corrections and the supply diversions and the pre-issued rulings: a courier manifest tucked into the back of the arrival log Tideon kept hidden. Destination: a harbor address in the northern territories. Contents listed as "administrative correspondence — institutional coordination." Three financial transfer records from the same northern address to a Cosmouth administrative account, dated one week before each of the five ward charter amendments. The money came first. The amendments followed. Cosmoria's institutions didn't change from inside. They were purchased from outside.`;
@@ -837,7 +837,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
         G.lastResult = `Seven vessels departed Cosmoria over four months with standard cargo manifests and no return entries filed. Maritime law requires an automatic follow-up flag for any vessel without a return entry. All seven flags were raised. All seven were cleared before action — manually, by the same harbor administrator, on irregular days that don't follow a duty schedule. The clearance notes say "resolved — internal compliance." No case numbers. No counter-signatures. The administrator cleared their own flags.`;
         if (!G.flags) G.flags = {};
@@ -917,7 +917,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 12) {
         G.lastResult = `Sull Crenn's office smells of tar paper and ledger ink. He listens to the ghost vessel summary without interrupting. "Seven departures without returns shows up as a routing gap. The Iron Compact's cargo projections run short when vessels vanish mid-cycle." He's not troubled by the fraud itself — he's troubled by the disruption to his forecasting. He puts his hands flat on the desk. "I'll share cargo pattern data from the past six months. You share the template manifests. I can use those for a formal routing discrepancy claim." A transaction. Clean and immediate.`;
         if (!G.flags) G.flags = {};
@@ -970,7 +970,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'obtaining administrator appointment log');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 12) {
         G.lastResult = `The appointment log is a bound book, each entry in the administrator's own hand. Seven entries on the flag-clearance days: "internal compliance review — 15 min." No counterparty. No case reference. No secondary signature. A flag clearance that requires harbor authority confirmation and registry update resolved in fifteen minutes with no documentation trail. The administrator wrote it down because a blank in the log would be more conspicuous than a vague entry. They created their own cover by recording just enough to fill the space.`;
         G.flags.obtained_administrator_log = true;
@@ -991,7 +991,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'interviewing returning crew member');
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `Kavan describes the Shelf Islands run with the careful specificity of someone who's been rehearsing how much to say. "Private mooring. No authority presence. The cargo came off in two hours — sealed cases, uniform weight, handled by men who weren't dock labor." He pauses. "They moved like they'd offloaded there before. Same mooring, same positions." Triple rate, no return manifest, told it was a tax arrangement. "I've done gray-margin runs. This wasn't that." He looks at the harbor mouth. "The cases were labeled in a script I didn't recognize."`;
 
@@ -1068,7 +1068,7 @@ var COSMORIA_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1);
       G.telemetry.turns++;
       gainXp(55, 'at the dockside tavern');
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3) + (typeof getTraitBonus==='function'?getTraitBonus('lore'):0));
+      var result = rollD20('wits', (G.skills.wits||0) + (typeof getTraitBonus==='function'?getTraitBonus('lore'):0));
       if (result.total >= 11) {
         G.lastResult = "The barman at the Anchor counts his coin between every exchange — a habit, not suspicion. He mentions that the southern berths have been rotating faster than seasonal demand explains. Two vessels arrived, took on no cargo, and left within a day. He doesn't know what that means. He knows it isn't nothing. A dockworker at the far end of the bar sets down his cup when the barman says it. He doesn't look up. He doesn't have to. The barman switches topics.";
         G.recentOutcomeType = 'success';

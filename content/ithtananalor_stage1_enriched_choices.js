@@ -27,7 +27,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'gathering military intelligence');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       const target = 11 + Math.max(0, G.worldClocks.pressure);
 
       if (result.isCrit) {
@@ -69,7 +69,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering oath corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Marshal Sera Ironveil speaks without looking up from the armor she's checking. Her voice is flat and careful. "The old oath ran: I bind myself to the protection of those I serve. The new version runs: I bind myself to the commands of those above me in the line of duty." She sets the arm plate down. "The wording sounds like tradition. Most soldiers don't hear the change. But the binding target is different. Principle to authority. Justice to obedience." She picks the plate back up. "An oath-bound soldier who receives an unjust order has no recourse. The oath removes the recourse."`;
@@ -112,7 +112,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading binding record corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
 
       if (result.isCrit) {
         G.lastResult = `Oth pulls a record from three years ago against a current record for the same soldier. Sets them side by side on the table. "The sworn text in the original reads: protection of those in my charge. The current record reads: compliance with lawful command." He speaks slowly, like someone who's been rehearsing this disclosure and isn't sure it's safe. "When I flagged it, I was told these are administrative alignments — bringing older records into current terminology. They aren't. The soldiers swore one thing. Their records now say another. They don't know."`;
@@ -153,7 +153,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'exposing training abuse');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Kross walks you through the week's schedule on the board outside the training yard. The numbers are visible: rest periods cut from eight hours to four, endurance thresholds set above the garrison's own baseline standards, pain tolerance cycles running every third day instead of every seventh. "I've run training programs for thirty years," he says, without inflection. "The line between discipline and damage is not ambiguous to someone who's stood on both sides of it. This crosses it. Deliberately. Someone designed this schedule to produce compliant exhaustion, not capable soldiers."`;
@@ -194,7 +194,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading personnel disappearance');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Oth checks the door before pulling the second ledger from the back of the lower drawer. His hands are steady but his breath isn't. The crown-stamped roster and the assignment roster don't match — soldiers listed in the second ledger don't appear anywhere in the first. No duty rotation, no supply allocation, no casualty protocol. "I maintain both," he says. "When I asked what the second one was for I was told to keep accurate records and stop asking what they were for." His voice has the flatness of someone who stopped asking months ago.`;        G.stageProgress[1]++;
@@ -234,7 +234,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'reading supply redistribution');
       G.stageProgress[1]++;
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
 
       if (result.isCrit) {
         G.lastResult = `Casvel takes you to the inventory board before speaking. Points at the storage totals for the eastern weapons depot, then at the physical count he ran last week. The numbers don't match. "I've been marking equipment as training surplus and routing it to three addresses listed as maintenance facilities. I visited one of those addresses." He stops. "It's a warehouse. Empty shelving except for what arrived from here." He closes the inventory log. "The garrison's service weapons are being moved out. Whoever holds those addresses is being armed while the garrison is quietly reduced."`;
@@ -275,7 +275,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'uncovering ritual corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Brenn Ironspike — shrine attendant for the binding rites — brings out a ceremonial scroll and places it beside an older one from the archive shelf. Reads them in parallel, pointing to specific passages. The old invocation calls the soldier to serve the people they protect. The revised version calls the soldier to serve the command above them. The words surrounding each phrase are the same — the traditional cadence preserved, the central binding redirected. "If you hear it without a reference point, it sounds correct. That's the design." A hand rests on the archive scroll. "The form is intact. The meaning was replaced."`;
@@ -316,7 +316,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping authority corruption');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Dame Orsella Roaz speaks at the side entrance of the authority chamber, not inside it. Voice low, back to the inner door. "The validation ritual confirms that a commander carries legitimate authority within the chain of sacred duty. I have performed that ritual for commanders who haven't passed the three trials that legitimacy requires." A pause, watching the inner door. "When I noted the discrepancy I was told the trials were conducted under expedited wartime protocol. There is no active wartime protocol. I am certifying authority I cannot verify — and when I have raised this, I am told that questioning command is questioning the order itself."`;
@@ -359,7 +359,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'military structural analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0));
 
       if (result.isCrit) {
         G.lastResult = `The northern gate's sightline has been broken by a storage structure added three months ago — positioned to cover exactly the angle the gate watch needs to hold. The southern choke point has load-bearing repairs pending, with temporary barriers that are passable by a coordinated group. Two weapon emplacements on the eastern wall were repositioned in the last quarter; the new positions create a gap in overlapping coverage that the old positions didn't allow. None of these are maintenance failures. Each creates a specific vulnerability at a specific tactical point.`;
@@ -400,7 +400,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping shadow military structure');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Cross-referencing the hidden roster against the supply movement records and the weapon cache addresses produces a coherent picture: the disappeared soldiers are deployed to three external locations outside the garrison's administrative boundary. No traditional command insignia. Communication through courier routing that bypasses the garrison's standard messenger network. They're organized, equipped from the redistributed garrison weapons, and answering to a command authority that doesn't appear in any Iron Accord-sealed record. A second military structure is operating inside Ithtananalor's geographic footprint with none of Ithtananalor's institutional accountability.`;
@@ -441,7 +441,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'oath legal archaeology');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Oath law runs back four centuries. The core language: soldiers bind to principle and justice. A legal reinterpretation entered the precedent record eight months ago — a ruling that "principle" is defined by the commanding authority's declaration rather than by independent ethical standard. The implication: soldiers are bound to whatever the command declares as principle, not to any external definition of the word. Three scholars who filed objections to that ruling were removed from the precedent council within ninety days of their submission. The ruling stands. The objections are not in the sealed precedent record.`;
@@ -482,7 +482,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'mapping oath-based coercion');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The pattern assembles over three conversations in separate corners of the garrison commons. Soldiers are being asked to swear supplementary oaths — not at the standard binding ceremony, but in private, to specific commanders by name. Refusing results in reassignment to exposed positions and public notation as "uncommitted." Those who have attempted to walk back a supplementary oath are declared oath-breakers: stripped of rank, barred from the garrison community, exiled. Swearing binds the soldier to the commander. Breaking destroys the soldier's place in the only institution they belong to. The mechanism doesn't require force. It only requires the oath.`;
@@ -523,7 +523,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'military morale analysis');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Soldiers at the end of rotation walk past each other without acknowledgment. In the commons, unit groups that would normally share a table eat in separated clusters. Officers receive compliance — no eye contact, no voluntary communication beyond the required response. A sergeant who's been at the garrison fifteen years doesn't look up when a superior passes. When asked directly about the unit's condition, the answer is brief and identical across four different conversations: "We do what's required." The garrison is mechanically functional and socially emptied. The form of military order without any of its substance.`;
@@ -564,7 +564,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'uncovering command conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0));
 
       if (result.isCrit) {
         G.lastResult = `The command communication pattern tells the story. Darian receives written orders that don't originate from any Ithtananalor command office — the formatting and authentication marks are external. Oth receives directives about record modifications through a sealed courier pouch with no garrison return address. The shadow force deployment orders, when one surfaces through the supply trace, bear authentication from a source outside Ithtananalor's military structure entirely. The orders arriving at every corrupted node come from the same external direction. Someone outside this garrison has the authority to direct it — and the people inside are executing those directions as if they were their own.`;
@@ -636,7 +636,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'exposing military conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The documents assembled together: external-authenticated orders contradicting garrison command authority. Oath records modified to bind soldiers to command rather than principle. Oth's hidden roster. Casvel's weapon redistribution log. The shadow force deployment addresses. Each piece has an alternative explanation in isolation — administrative error, policy change, record-keeping variance. Together they don't. The pattern is coordinated, executed across multiple systems simultaneously, and structured to replace Ithtananalor's own military authority with an external command structure disguised as internal administration. This is not corruption from within. This is occupation from outside.`;
@@ -720,7 +720,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'discovering origin source of military conspiracy');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `A sealed courier pouch in the command records room — not in the filing system, kept flat under the directory ledger. Inside: four directives, each signed with insignia that doesn't belong to any Ithtananalor command office. The authentication marks are Shelkopolis. Orders directing the oath record modifications, the shadow force deployment, the garrison disarmament — all of it traced back to a single external authority operating out of Shelkopolis. Not destroying the garrison. Absorbing it. The garrison's identity stays intact as a shell. The command inside it has been replaced. And the consolidation is still in progress.`;
@@ -761,7 +761,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(75, 'recognizing systematic military capture pattern');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `The pattern becomes undeniable. Oaths are being corrupted to bind soldiers to external authority. The military hierarchy is being restructured to replace legitimate command. A shadow force is being built outside accountability. These aren't separate military failures — they're coordinated occupation tactics. When combined, they create total compromise: soldiers are oath-bound to obey external authority, the legitimate command structure is replaced, and a shadow force enforces occupation while claiming to be garrison. It's a military takeover disguised as internal restructuring. Someone has engineered Ithtananalor's complete military capture.`;
@@ -802,7 +802,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(80, 'achieving military occupation understanding');
       G.stageProgress[1]++;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
 
       if (result.isCrit) {
         G.lastResult = `Everything connects. Oaths are being corrupted deliberately. The command hierarchy is being replaced deliberately. A shadow military force is being built deliberately. The traditional garrison is being made complicit through oath-binding. Someone is not just attacking Ithtananalor's military — they're absorbing it. The soldiers are being systematically transformed from defenders of Ithtananalor into tools of an external force. The military isn't being conquered; it's being converted. And this same process is likely being replicated in other garrisons. Ithtananalor isn't a victory; it's a proof of concept for systematic military occupation. The real expansion is just beginning.`;
@@ -844,7 +844,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
         G.lastResult = `Three accounts appear in transaction summaries under non-standard registration codes — the ledger system accepts them, but the codes don't correspond to any registered entity in the public directory. These accounts are moving significant sums. They're not hidden: they're in plain sight, formatted to look like administrative clearing accounts. Whoever created them knows the ledger's formatting conventions well enough to make invisible money look like overhead.`;
         if (!G.flags) G.flags = {};
@@ -924,7 +924,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(70, 'making crown inquiry contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 12) {
         G.lastResult = `Inquisitor Vaud Serrik is measuring you carefully. He's aware of the ghost accounts and declines to confirm what he knows about them. "The crown's interest in Ithtananalor's financial architecture is ongoing and scoped to the Iron Accord's standing remit." He offers a reference number for a formal inquiry channel. The offer reads as a test of whether you'll come in through the sanctioned door or keep working the edges. Lord Aric Roaz wants to know which you are.`;
         if (!G.flags) G.flags = {};
@@ -973,7 +973,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'meeting Mira Steelmarch');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `Mira Steelmarch is precise and unhurried. She's been handling disputed accounts for seven years. You don't mention the ghost accounts directly — you ask a technical question about formatting codes in the public registry. She answers without hesitation, then pauses. "That's an interesting question to come in with." She's smart enough to know you're not here about a formatting question. She gives you her direct schedule and says the door is open for follow-up.`;
         G.flags.met_mira_steelmarch = true;
@@ -999,7 +999,7 @@ var ITHTANANALOR_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'interviewing displaced officer');
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 12) {
         G.lastResult = `Captain Lysel retired "voluntarily" four months ago. She won't say what was used against her. But she will say this: "The debt wasn't even current. I'd been managing it. Then a letter arrived saying it had been called in — full amount, thirty days. I couldn't produce that in thirty days. Nobody could." She took the retirement offer instead. "I don't know who holds it now. I was told it would be canceled if I left quietly." She sounds like she believes it won't be.`;
         if (!G.flags) G.flags = {};

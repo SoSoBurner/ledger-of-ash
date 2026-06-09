@@ -3752,7 +3752,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'detecting cargo manifest falsification');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.manifest_weight_fraud = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -3998,7 +3998,7 @@ const STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reading duty roster for shift pattern anomalies');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.roster_shift_pattern = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;

@@ -19,7 +19,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(80, 'reviewing union freight charter exemptions');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_sable_ledgermere = true;
         G.investigationProgress++;
@@ -54,7 +54,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'questioning freight porter Luthen Ledgermere');
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.met_luthen_ledgermere = true;
         G.investigationProgress++;
@@ -86,7 +86,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining systematically zero-rated imports with Derris Ledgermere');
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_derris_ledgermere = true;
         G.investigationProgress++;
@@ -118,7 +118,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'questioning innkeeper Cala Ledgermere about trade arbiter guests');
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_cala_ledgermere = true;
         G.investigationProgress++;
@@ -152,7 +152,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'speaking with shrine attendant Nyra Ledgermere');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_nyra_ledgermere = true;
         G.investigationProgress++;
@@ -263,7 +263,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing monthly provisional registration renewal at Guildheart Hub');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.guild_provisional_reg_traced = true;
         G.investigationProgress++;
@@ -297,7 +297,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'cross-referencing Shelk notary cipher against active seal registry');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.guild_notary_cipher_exposed = true;
         G.investigationProgress++;
@@ -331,7 +331,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'locating northeast waypoint in Shelk charter annex');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.guild_shelk_waypoint_found = true;
         G.investigationProgress++;
@@ -364,7 +364,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'confronting Guild Arbiter over fraudulent review completion');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.guild_arbiter_compromised = true;
         G.investigationProgress++;
@@ -397,7 +397,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'tracing Panim cultural attaché stamp on memorial import classification');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.guild_panim_stamp_traced = true;
         G.investigationProgress++;
@@ -430,7 +430,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing uninsured charter-exempt loads at Union bonding house');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.guild_bonding_waiver_exposed = true;
         G.investigationProgress++;
@@ -465,7 +465,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'examining Guild Watchers duty roster for coverage gaps');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.guild_watchers_gap_exposed = true;
         G.investigationProgress++;
@@ -498,7 +498,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'cross-referencing Ithtananalor transit node capacity against assigned volume');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.guild_ithtan_volume_exposed = true;
         G.investigationProgress++;
@@ -530,7 +530,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'examining Union ink-seal press for non-standard compound residue');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.guild_seal_press_exposed = true;
         G.investigationProgress++;
@@ -562,7 +562,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'locating reclassified archive fire report for the charter exemption subroom');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('vigor', (G.skills.vigor||0) + Math.floor(G.level/3));
+      const result = rollD20('vigor', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.guild_fire_report_found = true;
         G.investigationProgress++;
@@ -594,7 +594,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'tracing withdrawn labor guild grievance about off-hours loading crews');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.guild_labor_grievance_found = true;
         G.investigationProgress++;
@@ -627,7 +627,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'locating uncontacted witness named in Sanction Board charter hearing record');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.guild_phantom_witness_found = true;
         G.investigationProgress++;
@@ -661,7 +661,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(64, 'examining unsigned standing amendment in charter exemption category registry');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.guild_registry_amendment_found = true;
         G.investigationProgress++;
@@ -696,7 +696,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
         G.lastResult = `The Sanction Board clerk reviews the summary and sets it aside without opening the accompanying documents. "The chain requires corroboration at three points. Filed correctly, this moves. Filed now, it stalls." He hands it back. The case isn't ready. The Arbitration Hall's ambient sound fills the pause — pens on ledgers, the creak of a bench, someone counting aloud in a distant room. The clerk's expression doesn't shift. He has sent better-prepared cases back before.`;
         G.recentOutcomeType = 'partial'; return;
       }
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -724,7 +724,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'Guildheart Collegium factor');
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/2));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit || result.total >= 13) {
         G.flags.met_factor_toven = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -756,7 +756,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'Guildheart Collegium sealed order');
-      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/2));
+      var result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit || result.total >= 12) {
         G.investigationProgress = (G.investigationProgress||0) + 1;
         G.lastResult = 'The document is heavier than standard transit paper — linen content, the kind used for long-archive filings. The seal is iron-grey wax with a quill impression, pressed at a slight angle as if stamped in haste. The routing stamp below it reads GUILDHEART TRANSIT HUB — RECEIVING, but the freight category line is blank. Not redacted. Blank, as if whoever typed the order did not know what category applied, or did not want one to. The order number is not sequential with the surrounding block. A blank category on linen-weight paper means it was intended to outlast whatever question it answered.';
@@ -871,7 +871,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(36, 'examining canal weigh station duplicate ticket mechanism');
-      var roll = rollD20('spirit', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.spirit);
       if (roll.total >= 13) {
         G.flags.guild_weigh_station_traced = true;
         G.investigationProgress++;
@@ -984,7 +984,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       if (!G.flags) G.flags = {};
       gainXp(70, 'establishing Collegium contact at Guildheart Hub');
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/2));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.total >= 13) {
         G.flags.collegium_contact_1 = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1048,7 +1048,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(20, 'charter category capacity overage');
       if (!G.flags) G.flags = {};
-      var roll = rollD20('spirit', G.skills.craft);
+      var roll = rollD20('spirit', G.skills.spirit);
       if (roll.total >= 13) {
         G.flags.guild_charter_capacity_overage = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
@@ -1111,7 +1111,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'cross-referencing Neutral Counting House dual-column anomaly with Porter Ledgermere');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      var result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_porter_ledgermere = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1146,7 +1146,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(75, 'pressing Sena Ledgermere at Arbitration Hall on the charter exemption dispute outcome');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_sena_ledgermere = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1181,7 +1181,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'pressing Orin Hearthmark at the Freight Exchange over an unqueued manifest');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_orin_hearthmark = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;
@@ -1216,7 +1216,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
       gainXp(65, 'tracing Renn Tinmarch retraction notice on the Union Notice Board');
       if (!G.flags) G.flags = {};
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('stealth', (G.skills.finesse||0) + Math.floor(G.level/3));
+      var result = rollD20('stealth', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.met_renn_tinmarch = true;
         G.investigationProgress = (G.investigationProgress||0) + 1;

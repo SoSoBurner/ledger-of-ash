@@ -22,7 +22,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'meeting Cadrin the bridge keeper');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.flags.met_cadrin = true;
         G.lastResult = `Cadrin keeps his log open on the crossing station desk, pen beside it. "Three nights per month my count and the walker's disagree. Same three nights. New moon, every time." He taps the page with one finger — not agitated, just precise. "My numbers don't change after I write them. Someone else's do." He slides the log toward you so you can read the column he's marked.`;
@@ -82,7 +82,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
         G.lastResult = `Cadrin draws the mark on the back of a tally slip — a horizontal bar, two upward points like the outer tines of a crown, nothing between them. The trade register lists it under a northern transport consortium: freight category "sensitive materials — administrative classification," land transit license only. River crossing requires a waterway permit. Their name does not appear in the Whitebridge permit ledger for the past two years.`;
         if (!G.flags) G.flags = {};
@@ -112,7 +112,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('vigor', (G.skills.vigor || 0) + Math.floor(G.level / 3));
+      const result = rollD20('vigor', (G.skills.vigor || 0));
       if (result.isCrit) {
         G.lastResult = `Cadrin's timings put the crossings between eleventh and twelfth bell — the last scheduled ferry goes at ninth. Walking the western approach road in morning light, you find wheel ruts branching off the main road three hundred meters short of the bridge. The branch track is packed earth, not mud — used enough to have hardened. It ends at a flat clearing with a low stone lip built for cart loading. No commune map marks it. The clearing was built, not found.`;
         if (!G.flags) G.flags = {};
@@ -168,7 +168,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing registry access on alteration days');
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
         G.lastResult = `The commune archive keeps its own access log — a secondary record of who touches the registry and when. On each of the three new-moon nights, a single access entry appears: "district coordination deputy." The commune's organizational chart lists no such position. The access codes are valid, formatted correctly, and were issued through proper channels. Someone built a credential for a role that was never formally created, and has been using it monthly ever since.`;
         if (!G.flags) G.flags = {};
@@ -195,7 +195,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'making Iron Compact contact');
       if (!G.factionHostility) G.factionHostility = { warden_order: 0, iron_compact: 0, oversight_collegium: 0 };
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 12) {
         G.lastResult = `Delt Karnn has a desk at the back of the trade office stacked with transit compliance filings, each one tabbed in a different color. He reads the charter mark sketch without touching it. "Land-only license, river crossing — that's a clear violation." He sets the sketch down and leans back. "I can open a transit compliance file on that alone. What's in the containers is a different matter and a different desk." He wants the transport evidence first. He isn't asking about the cargo yet.`;
         if (!G.flags) G.flags = {};
@@ -224,7 +224,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'interviewing duty walker');
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 10) {
         G.lastResult = `Terris keeps his tally counter on his belt — a worn brass clicker, four years of use on the thumb lever. When you ask about the count discrepancy on new-moon nights, he answers at length: the commune's traffic patterns, the difference between pedestrian and cart crossings, how weather affects toll speed. None of it addresses what you asked. Then, without transition: "My method doesn't change. Click for every crossing, total at end of shift, same as always." He clicks it once, absently. "New-moon nights my total comes out higher than Cadrin's. I reported it twice. Both times they said I'd miscounted." He doesn't say he believes them. He doesn't say he doesn't.`;
         if (!G.flags) G.flags = {};
@@ -279,7 +279,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('spirit', (G.skills.craft || 0) + Math.floor(G.level / 3));
+      const result = rollD20('spirit', (G.skills.spirit || 0));
       if (result.total >= 12) {
         G.lastResult = `The eastern span's flagstones show compression fractures along their edges — the kind that accumulate under repeated heavy loads, not the gradual wear of mixed traffic. The fracture pattern is consistent: three to five tonnes per crossing, concentrated in two parallel wheel tracks. New-moon nights, same weight, same track spacing, same point of entry from the western approach. Whatever crosses here is the same load, the same cart configuration, repeated on a schedule.`;
         addJournal('Bridge stone stress: 3-5 tonne load per crossing, consistent weight distribution — regular industrial-scale shipment', 'evidence', `whitebridge-load-${G.dayCount}`);
@@ -326,7 +326,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
         G.lastResult = `Three months ago, the bridge director filed an internal inquiry: "new-moon crossing irregularities — request for review." The inquiry sits in the administrative archive, stamped: "resolved — within operational parameters." The closing signature belongs to the district coordination deputy. The same ghost account that clears the registry alterations also closed the administration's own inquiry into those alterations. The commune's response mechanism has been turned back on itself.`;
         addJournal('Administration captured: internal inquiry closed by ghost account "district coordination deputy" — administrative response weaponized', 'evidence', `whitebridge-admin-${G.dayCount}`);
@@ -352,7 +352,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       gainXp(68, 'securing Cadrin\'s log offsite');
       if (!G.flags) G.flags = {};
 
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 10) {
         G.lastResult = `Cadrin spends two hours copying six months of entries by lamplight — date, bell-time, apparent cargo weight, number of handlers. His handwriting is identical to the original; he's been trained for exact duplication since his first posting. The copy goes into a sealed correspondence pouch addressed to a trade house in Shelkopolis, carried by a traveling advocate who takes commercial post as a side income. The original stays in Cadrin's desk. The copy is already past the bridge before dawn.`;
         G.flags.cadrin_log_secured = true;
@@ -404,7 +404,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(67, 'interviewing former bridge director');
 
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.flags.met_ashe_director = true;
         G.lastResult = `Ashe lives on the far side of the crossing now, window facing away from the bridge. She pours water for both of you, then keeps her eyes on the window frame while she talks — not looking out, just not looking at you. You ask about the inquiry she filed. She answers with the crossing schedule: tidal windows, load weight limits, mortar review cycles, warden rotation intervals. Thorough, unhurried, technically accurate, and none of it addresses what you asked. She speaks at length about bridge maintenance culture. The closures, the new-moon nights, the ghost account that shut her own inquiry — none of it surfaces. She refills your cup when it's still half full. The helpfulness is the answer.`;
@@ -433,7 +433,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       G.investigationProgress++;
       if (G.investigationProgress === 3) G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
 
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.isCrit) {
         G.lastResult = `Two carts come down the branch track at eleventh bell. No lanterns — the handlers know the path well enough to work by starlight. The containers are sealed, uniform, the same two-tined mark on each lid. What stops you is how the handlers carry them: deliberate, no rushing, no casual toss or stack. One container shifts slightly on its mount and the handler near it puts a hand out immediately and holds the side until it steadies. Two of them are wearing heavy leather gloves — summer, no rain. Whatever the containers hold, the outside of them is already a hazard worth managing.`;
         if (!G.flags) G.flags = {};
@@ -483,7 +483,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(73, 'tracing ghost account authorization');
 
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 14) {
         G.lastResult = `The credential chain traces to a body called the Regional Transit Oversight Coordination — a name that doesn't appear in any public registry for this administrative district, but whose credentials are formatted to the correct standard and carry valid authorization codes. Registered address: a northern commercial district, three settlements away. Nobody in Whitebridge's administration has any record of interacting with this body or confirming its authority. The credentials arrived, were accepted by the system because they were correctly formatted, and began operating. A parallel authority structure, inserted through the gap between format and verification.`;
         if (!G.flags) G.flags = {};
@@ -629,7 +629,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'reviewing bridge director administrative log');
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 12) {
         G.lastResult = `The notation appears eighteen times over the past nine months — always adjacent to entries involving the midnight cargo crossings Cadrin's log documents. "Authorized under operational continuity." The commune's charter uses no such phrase. The crossing authority's founding documents use no such phrase. It's a bureaucratic construction with no legal basis in any document governing this bridge, used repeatedly to authorize crossings that needed authorization without a legitimate mechanism to provide it. Whoever wrote those entries invented the authority they cited.`;
         if (!G.flags) G.flags = {};
@@ -654,7 +654,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(78, 'locating midnight crossing manifests');
-      const result = rollD20('finesse', (G.skills.finesse || 0) + Math.floor(G.level / 3));
+      const result = rollD20('finesse', (G.skills.finesse || 0));
       if (result.total >= 14) {
         G.lastResult = `The midnight cargo manifests are filed under "supplementary transit authorizations" — a category that exists in the administrative system but carries no public access designation, meaning they're neither sealed nor available by default. They sit in a filing drawer that isn't labeled on the front because it isn't expected to be searched. Three manifests for the past month: all three list the cargo as "consolidated regional goods," all three list the carrier as the same numeric reference code, all three show a destination address that is a Shelkopolis commercial post office box rather than a commercial premises. The address receives cargo without a named recipient.`;
         if (!G.flags) G.flags = {};
@@ -697,7 +697,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'finding night-shift crossing counter');
-      const result = rollD20('charm', (G.skills.charm || 0) + Math.floor(G.level / 3));
+      const result = rollD20('charm', (G.skills.charm || 0));
       if (result.total >= 11) {
         G.lastResult = `Sali has been keeping a tally on the back of her rotation schedule — hash marks, one per crossing, with a weight estimate beside each based on how the bridge deck responded under the load. She pulls the schedule from her jacket pocket and smooths it flat on the railing with her forearm, the same motion you'd use to clean a surface before writing. "Something to do. And it seemed like the kind of thing someone should know." Seventeen crossings in four months. The high-end loads correspond with the new moon dates Cadrin identified. The bridge deck flexes differently under that weight. Sali noticed. She has no idea what to do with the information.`;
         if (!G.flags) G.flags = {};
@@ -739,7 +739,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'reading crossing authority founding compact');
-      const result = rollD20('wits', (G.skills.wits || 0) + Math.floor(G.level / 3));
+      const result = rollD20('wits', (G.skills.wits || 0));
       if (result.total >= 13) {
         G.lastResult = `The crossing authority's founding compact — the original document establishing Cadrin's position and its powers — includes a provision for "operational suspension on grounds of manifest record discrepancy." If the keeper's crossing count and the administrative record diverge by more than fifteen percent over any thirty-day period, the keeper has authority to suspend crossings pending reconciliation. Cadrin's count and the administrative record diverge by thirty-one percent over the past month. The authority to act exists. Cadrin didn't know the provision existed. He was never shown the full founding compact — only the duty summary.`;
         if (!G.flags) G.flags = {};

@@ -20,7 +20,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(72, 'tracing specialty chemical input discrepancies with Jorin Ledgermere');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/3));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
         G.investigationProgress++;
@@ -58,7 +58,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'reviewing after-hours workshop observations with Tess Ledgermere');
 
 
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.met_tess_ledgermere = true;
         G.investigationProgress++;
@@ -92,7 +92,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
 
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_copy_warden = true;
         G.investigationProgress++;
@@ -128,7 +128,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
         G.flags.jorin_second_pass = true;
@@ -164,7 +164,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      const result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.ghost_workshop_crates_witnessed = true;
         G.investigationProgress++;
@@ -199,7 +199,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
 
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      const result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.copy_bureau_social_standing = true;
         G.investigationProgress++;
@@ -232,7 +232,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'speaking with the dismissed copyist outside the ghost workshop corridor');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_dismissed_copyist_sovi = true;
         G.investigationProgress++;
@@ -266,7 +266,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'tracing the dormant guild account sustaining the dead charter reference');
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      const result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.dead_charter_account_traced = true;
         G.investigationProgress++;
@@ -301,7 +301,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining unsigned certification forms with the materials inspector');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.certification_backlog_exposed = true;
         G.investigationProgress++;
@@ -336,7 +336,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing the ghost-shift furnace operator and his unlisted wages');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.ghost_shift_operator_traced = true;
         G.investigationProgress++;
@@ -370,7 +370,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining the amended transit manifest for the redirected precision tools');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.transit_manifest_amended = true;
         G.investigationProgress++;
@@ -403,7 +403,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'cross-referencing the quality auditor\'s impossible defect report against historical records');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.audit_report_impossibility_confirmed = true;
         G.investigationProgress++;
@@ -436,7 +436,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'accessing the sealed pre-charter guild correspondence archive');
       if (!G.worldClocks) G.worldClocks = {};
-      var result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('wits', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.sealed_archive_accessed = true;
         G.investigationProgress++;
@@ -474,7 +474,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       }
       if (!G.worldClocks) G.worldClocks = {};
 
-      const result = rollD20('spirit', (G.skills.craft||0) + Math.floor(G.level/2));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.total >= 14 || result.isCrit) {
         G.flags.stage2_finale_institutional = true;
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness||0) + 3;
@@ -505,7 +505,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'examining workshop quota targets against registered capacity');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      const result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
         G.flags.quota_board_discrepancy_found = true;
         G.investigationProgress++;
@@ -543,7 +543,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'cross-checking copy tower materials intake log against registered process categories');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('wits', (G.skills.wits||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
+      const result = rollD20('wits', (G.skills.wits||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('wits'):0));
       if (result.isCrit) {
         G.flags.copy_tower_intake_anomaly = true;
         G.investigationProgress++;
@@ -581,7 +581,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(70, 'tracing withdrawn supply chain complaint in Craftspire guild registry');
       if (!G.worldClocks) G.worldClocks = {};
-      const result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
+      const result = rollD20('charm', (G.skills.charm||0) + (typeof getEquipmentBonus==='function'?getEquipmentBonus('charm'):0));
       if (result.isCrit) {
         G.flags.supply_broker_complaint_found = true;
         G.investigationProgress++;
@@ -706,7 +706,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'cross-checking unit system discrepancy in Craftspire material ledger');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
         G.investigationProgress++;
@@ -742,7 +742,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'tracing reclassification timing against inspection schedule changes');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.reclassification_timing_flagged = true;
         G.investigationProgress++;
@@ -776,7 +776,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(68, 'tracing anonymous column in stockyard intake manifest');
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -809,7 +809,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(65, 'auditing ledger volume completeness for winter batch period');
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -843,7 +843,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'reading Jorin Ledgermere for what he avoids in the ledger');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
         G.flags.jorin_partial_disclosure = true;
@@ -879,7 +879,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(76, 'cross-referencing stockyard measurement records against ledger totals');
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -911,7 +911,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(67, 'observing copy-authentication desk processing speed and warden behavior');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.copy_warden_observed = true;
         G.investigationProgress++;
@@ -947,7 +947,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(78, 'comparing duplicate trade certificate authentication against origin seal');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.duplicate_certificate_found = true;
         G.investigationProgress++;
@@ -983,7 +983,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(73, 'comparing copy warden validation mark weight across certificate batches');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('craft', (G.skills.craft||0) + Math.floor(G.level/3));
+      var result = rollD20('craft', (G.skills.craft||0));
       if (result.isCrit) {
         G.flags.nightwindow_certificates_flagged = true;
         G.investigationProgress++;
@@ -1017,7 +1017,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(75, 'tracing obsolete material classification on active trade certificate');
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
@@ -1051,7 +1051,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(82, 'documenting pre-stamped blank trade certificates at Craftspire authentication desk');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.prestamped_blanks_found = true;
         G.investigationProgress++;
@@ -1089,7 +1089,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(74, 'examining inspection log resolution gaps with Night-Lantern Inspector Tess');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.met_tess_ledgermere = true;
         G.investigationProgress++;
@@ -1125,7 +1125,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(69, 'learning what prompted Tess Ledgermere to request night-window assignment');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_tess_ledgermere = true;
         G.flags.tess_motive_known = true;
@@ -1162,7 +1162,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(80, 'observing Copy Warden carrying unauthorized second authentication stamp');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('finesse', (G.skills.finesse||0) + Math.floor(G.level/3));
+      var result = rollD20('finesse', (G.skills.finesse||0));
       if (result.isCrit) {
         G.flags.copy_warden_second_stamp = true;
         G.investigationProgress++;
@@ -1197,7 +1197,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
       gainXp(66, 'reading the dynamic between Jorin and Tess Ledgermere in the ledger house');
       if (!G.flags) G.flags = {};
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
         G.flags.met_tess_ledgermere = true;
@@ -1234,7 +1234,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'placing Copy Warden tenure against authentication system history');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.copy_warden_observed = true;
         G.investigationProgress++;
@@ -1270,7 +1270,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(70, 'tracing Jorin Ledgermere transfer request denial and its aftermath');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('charm', (G.skills.charm||0) + Math.floor(G.level/3));
+      var result = rollD20('charm', (G.skills.charm||0));
       if (result.isCrit) {
         G.flags.met_jorin_ledgermere = true;
         G.flags.jorin_compromised = true;
@@ -1309,7 +1309,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(78, 'threading Craftspire ledger entries to suppression compound material supply chain');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.suppression_craftspire_link = true;
         G.investigationProgress++;
@@ -1345,7 +1345,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(76, 'cross-referencing consortium name between Craftspire records and prior locality documents');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('lore', (G.skills.wits||0) + Math.floor(G.level/3));
+      var result = rollD20('lore', (G.skills.wits||0));
       if (result.isCrit) {
         G.flags.consortium_cross_reference = true;
         G.investigationProgress++;
@@ -1381,7 +1381,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
       gainXp(75, 'cross-referencing Craftspire forge output reports against stockyard physical holdings');
       if (!G.flags) G.flags = {};
       if (!G.investigationProgress) G.investigationProgress = 0;
-      var result = rollD20('survival', (G.skills.vigor||0) + Math.floor(G.level/3));
+      var result = rollD20('survival', (G.skills.vigor||0));
       if (result.isCrit) {
         G.flags.output_reporting_gap = true;
         G.investigationProgress++;

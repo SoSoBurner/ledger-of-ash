@@ -107,7 +107,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(72, 'examining convoy modification requisitions with Kael Emberthrone');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_kael_emberthrone = true;
         G.investigationProgress++;
@@ -500,7 +500,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.worldClocks) G.worldClocks = {};
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.sun_orvaith_workspace_examined = true;
         G.investigationProgress++;
@@ -917,7 +917,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'examining glyph-ward seal upgrade timeline at Knowledge Registry');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_taldan_veyst = true;
         G.investigationProgress++;
@@ -1079,7 +1079,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(68, 'auditing Kael Emberthrone machinery log continuity');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_kael_emberthrone = true;
         G.investigationProgress++;
@@ -1251,7 +1251,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(75, 'tracing Kael Emberthrone prior Guildheart commission connection');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.met_kael_emberthrone = true;
         G.flags.sun_kael_guildheart_link = true;
@@ -1375,7 +1375,7 @@ var SUNSPIRE_HAVEN_STAGE2_ENRICHED_CHOICES = [
       gainXp(67, 'tracing staging yard equipment rental for container loading period');
       if (!G.investigationProgress) G.investigationProgress = 0;
       if (!G.flags) G.flags = {};
-      const result = rollD20('spirit', (G.skills.craft||0));
+      const result = rollD20('spirit', (G.skills.spirit||0));
       if (result.isCrit) {
         G.flags.sun_crane_rental_traced = true;
         G.investigationProgress++;
