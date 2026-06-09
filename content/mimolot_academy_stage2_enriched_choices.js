@@ -14,7 +14,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -53,7 +53,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -89,7 +89,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -126,7 +126,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -162,7 +162,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -302,7 +302,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -340,7 +340,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -377,7 +377,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -415,7 +415,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -453,7 +453,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -490,7 +490,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -528,7 +528,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -565,7 +565,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -603,7 +603,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -641,7 +641,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -678,7 +678,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -716,7 +716,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -754,7 +754,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -790,7 +790,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -826,7 +826,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Evidence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -861,7 +861,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Intelligence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -944,7 +944,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore', 'Arcane'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1005,7 +1005,7 @@ var MIMOLOT_ACADEMY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion', 'Faction'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The archive hush settles over the reading carrel before the second sentence forms. A registrar pauses at the catalogue station, tracking you without raising her eyes. You step back from the brass-fitted shelving and leave the question unspoken.', 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
