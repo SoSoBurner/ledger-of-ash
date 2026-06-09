@@ -93,20 +93,100 @@ async function openMapAndTravel(page, visitedLocalities, log, picks) {
     const target = candidate;
 
     log(`[map-travel] pick=${picks} → travelling to ${target} (${unvisited.length} unvisited available)`);
-
-    // Use _travelCoreTravelTo directly — bypasses mode-select/pack-choices UI layers
-    // (clicking map-travel-btn → mode-select → pack-choices overlay, all inside #overlay-map;
-    //  dismissOverlays() would close it before pickChoice could interact).
-    // _travelCoreTravelTo fires corridor encounters and sets G.location, same as escape teleports.
-    await page.evaluate((locId) => {
-      try { if (typeof closeOverlay === 'function') closeOverlay('overlay-map'); } catch (_) {}
-      try {
-        if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(locId);
-        else if (typeof resolveArrival === 'function') resolveArrival(locId);
-      } catch (_) {}
-    }, target).catch(() => {});
-
     resetInterval();
+
+    // Click the travel button to open mode selection
+    await page.click(`.map-travel-btn[data-locid="${target}"]`);
+    await page.waitForTimeout(400);
+
+    // Handle mode selection — pick first non-disabled mode (prefer foot/free)
+    const modeBtn = page.locator('.overlay-mode-btn:visible:not([disabled])').first();
+    const modeBtnCount = await modeBtn.count().catch(() => 0);
+    if (!modeBtnCount) {
+      log(`[map-travel] pick=${picks} → no mode buttons found, falling back`);
+      await page.evaluate((locId) => {
+        try { if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(locId); } catch(_) {}
+      }, target).catch(() => {});
+      await page.waitForSelector('.choice-btn:visible:not([disabled])', { timeout: 5000 }).catch(() => {});
+      return target;
+    }
+    await modeBtn.click();
+    await page.waitForTimeout(400);
+
+    // Handle pack selection — pick first available pack
+    const packBtn = page.locator('.overlay-pack-btn:visible').first();
+    const packBtnCount = await packBtn.count().catch(() => 0);
+    if (packBtnCount > 0) {
+      await packBtn.click();
+      await page.waitForTimeout(400);
+    }
+
+    // Wait for journey choice area
+    const journeyAreaVisible = await page.locator('#journey-choice-area .choice-btn:visible:not([disabled])').count().catch(() => 0);
+    if (!journeyAreaVisible) {
+      // Journey may not have started — wait up to 5s
+      await page.waitForSelector('#journey-choice-area .choice-btn:visible', { timeout: 5000 }).catch(() => {});
+    }
+
+    // Journey loop — pick day-leg choices organically
+    const MAX_JOURNEY_ITERS = 60;
+    for (let _jIter = 0; _jIter < MAX_JOURNEY_ITERS; _jIter++) {
+      // Check journey still active (journey-tab-strip present means we're in journey mode)
+      const inJourney = await page.locator('.journey-tab-strip').isVisible().catch(() => false);
+      if (!inJourney) break; // Journey completed
+
+      // Camp if HP < 40%
+      const hpRatio = await page.evaluate(() => {
+        try { return G.maxHp > 0 ? G.hp / G.maxHp : 1; } catch(_) { return 1; }
+      }).catch(() => 1);
+
+      if (hpRatio < 0.40) {
+        const campTab = page.locator('.journey-tab[data-tab="camp"]');
+        const campTabVisible = await campTab.isVisible().catch(() => false);
+        if (campTabVisible) {
+          await campTab.click();
+          await page.waitForTimeout(300);
+          const restBtn = page.locator('button:has-text("Rest"):visible').first();
+          if (await restBtn.count().catch(() => 0)) {
+            await restBtn.click();
+            await page.waitForTimeout(500);
+            // Switch back to journey tab
+            const journeyTab = page.locator('.journey-tab[data-tab="journey"]');
+            if (await journeyTab.isVisible().catch(() => false)) await journeyTab.click();
+            await page.waitForTimeout(300);
+            continue;
+          }
+        }
+      }
+
+      // Pick a journey choice
+      const journeyChoice = page.locator('#journey-choice-area .choice-btn:visible:not([disabled])').first();
+      const hasJourneyChoice = await journeyChoice.count().catch(() => 0);
+      if (!hasJourneyChoice) {
+        // May be in combat — check for combat buttons
+        const combatBtn = page.locator('.combat-action-btn:visible:not([disabled]), #combat-area .choice-btn:visible:not([disabled])').first();
+        if (await combatBtn.count().catch(() => 0)) {
+          await combatBtn.click();
+          await page.waitForTimeout(600);
+          continue;
+        }
+        // No choices visible — wait briefly and retry
+        await page.waitForTimeout(800);
+        continue;
+      }
+
+      await journeyChoice.click();
+      await page.waitForTimeout(600);
+    }
+
+    if (await page.locator('.journey-tab-strip').isVisible().catch(() => false)) {
+      // Journey loop hit cap — fall back
+      log(`[map-travel] pick=${picks} → journey loop cap hit, falling back to _travelCoreTravelTo`);
+      await page.evaluate((locId) => {
+        try { if (typeof _travelCoreTravelTo === 'function') _travelCoreTravelTo(locId); } catch(_) {}
+      }, target).catch(() => {});
+    }
+
     // Wait for choices to appear at destination (up to 5s)
     await page.waitForSelector('.choice-btn:visible', { timeout: 5000 }).catch(() => {});
     await page.waitForTimeout(200);
