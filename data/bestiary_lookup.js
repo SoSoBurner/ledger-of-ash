@@ -133,6 +133,11 @@ window.ENEMY_STATS = {
   ice_locked_frostgrip: { name:'Frostgrip',             hp:21, atk:5, def:4, desc:'Large four-limbed predator with ice-white coat. Hunts in pairs on frozen routes.', loot:['frost_pelt'], group:'ice_creature' },
   ice_locked_polar_asp: { name:'Polar Asp',             hp:13, atk:6, def:2, desc:'Cold-water serpent. Conceals itself under ice film.', loot:['cold_venom_sac'], group:'ice_creature' },
 
+  // ── NAUTICAL (open sea / boarding / deep water) ──────────
+  sea_raider:           { name:'Corsair Crew',          hp:18, atk:7, def:5, desc:'Lateen-rigged opportunists. Fast cutters, light armor, boarding hooks.', loot:[], group:'nautical_hostile' },
+  naval_officer:        { name:'Naval Officer',         hp:22, atk:9, def:7, desc:'Union or House cutter officer. Armored coat, saber. Backed by crew.', loot:[], group:'nautical_authority' },
+  sea_creature:         { name:'Deep Thing',            hp:30, atk:11, def:4, desc:'Something that followed the hull for two days before it surfaced.', loot:[], group:'nautical_wild' },
+
   // ── NAMED BOSSES / MINIBOSSES ────────────────────────────
   marshal_sera_ironveil: { name:'Marshal Sera Ironveil', hp:52, atk:7, def:8, desc:"Commander of the Roadwardens' Shelkopolis operations. Disciplined, precise, authoritative. She does not fight unless cornered — and when cornered, she fights to end it.", loot:[], group:'shelk_roadwarden', boss:true }
 };

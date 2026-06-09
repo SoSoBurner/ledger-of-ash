@@ -5159,6 +5159,111 @@
         { text: 'A sealed crate with a closed office mark is not empty. Open it.', skill: 'wits', tag: 'bold', align: 'neutral', cid: 'tep_sea_manifest_open' },
         { text: 'The manifest discrepancy belongs to the captain, not to a passenger.', skill: 'charm', tag: 'safe', align: 'neutral', cid: 'tep_sea_manifest_pass' }
       ]
+    },
+    {
+      id: 'tep_sea_storm_surge',
+      title: 'Storm Front Closing',
+      text: 'The barometer on the wheelhouse wall has dropped a full notch in the last hour. The horizon to the west has turned the wrong color. Crew are already lashing down loose gear. The captain looks at you the way captains look at passengers who are about to be in the way.',
+      choices: [
+        { text: 'Brace the lines with the crew. A wet rope is a working rope.', skill: 'vigor', tag: 'risky', align: 'neutral',
+          successResult: 'You hold a sheet line through the worst of it. The captain notes the help without comment — which from a working captain is the only kind of acknowledgment that matters.',
+          failResult: 'A swell catches you wrong-footed. The line tears through your hands and you take the rest of the storm below, useless and bruised.' },
+        { text: 'Below deck is where the cargo is. Watch it instead of the weather.', skill: 'wits', tag: 'safe', align: 'neutral',
+          successResult: 'You ride out the storm in the hold. Two crates have shifted but nothing breaks open. The crew is too busy to thank you, which is the same as being thanked.',
+          failResult: 'The hold pitches harder than the deck. You spend the storm bracing crates with your shoulder and arrive on the other side bruised down one side.' }
+      ]
+    },
+    {
+      id: 'tep_sea_naval_inspection',
+      title: 'Union Cutter Signaling',
+      text: 'A Union cutter has come up off the port quarter, flag bright against the sky. They are signaling for a routine boarding inspection. The captain mutters that the last time their cutters were doing routine inspections in this water, two crews lost their licenses on technicalities.',
+      choices: [
+        { text: 'The papers are correct. The papers are always correct.', skill: 'wits', tag: 'safe', align: 'neutral',
+          successResult: 'The inspector boards, finds nothing, and re-stamps the manifest with the gesture of someone working through a quota. Twenty minutes and they are gone.',
+          failResult: 'The inspector finds an irregularity in the route declaration. It is a small thing. It still costs the captain a half-day and you a name in a Union ledger somewhere.' },
+        { text: 'Whatever the captain is moving below, it is the captain\'s problem.', skill: 'charm', tag: 'risky', align: 'neutral',
+          successResult: 'You stay out of the inspector\'s eyeline. They board, they leave. The captain does not say what was in the third hold, and you do not ask.',
+          failResult: 'The inspector pulls every passenger aside. Yours is the longest interview of the morning, and you give them more than you meant to.' }
+      ]
+    },
+    {
+      id: 'tep_sea_fog_navigation',
+      title: 'Fog Bank Ahead',
+      text: 'The fog came in from the south while no one was watching. It is a wall now — flat, grey, swallowing the horizon. The captain calls for a sounding line and a slower pace. Visibility ahead is under fifty meters. The chart says there are rocks somewhere in there.',
+      choices: [
+        { text: 'A second pair of eyes at the bow is worth more than a sounding line.', skill: 'wits', tag: 'risky', align: 'neutral',
+          successResult: 'You spot the dark shape in the fog ten seconds before the lookout does. The captain corrects the heading without thanking you. That is the version of thanks captains keep for after the run.',
+          failResult: 'You miss the rock by the same margin the lookout does — luck, not skill. The hull scrapes something but does not breach.' },
+        { text: 'Below deck. The captain has a crew. The crew has a job.', skill: 'wits', tag: 'safe', align: 'neutral',
+          successResult: 'You wait out the fog in your bunk. By the time the bell rings clear, the danger is two hours astern and nobody mentions it.',
+          failResult: 'The captain finds you below and gives you a job. You spend the next hour holding the sounding line in cold water.' }
+      ]
+    },
+    {
+      id: 'tep_sea_floating_wreckage',
+      title: 'Wreckage on the Swell',
+      text: 'Something has been riding the swell ahead for the last fifteen minutes — too low for a boat, too regular for driftwood. The captain throttles back. As you close, it resolves: a section of decking, a coil of rope still tied to nothing, a small chest jammed against the planks. No bodies. No flag.',
+      choices: [
+        { text: 'Whoever owned that chest is past needing it. The salvage is fair.', skill: 'wits', tag: 'risky', align: 'neutral',
+          successResult: 'You pull the chest aboard. Inside: ledger pages from a route that no longer runs, and a small purse of coastal coin. The captain takes the purse. You take the pages.',
+          failResult: 'The chest tips as you lift it. The ledger pages dissolve into the water before you can save more than three. Two of those are unreadable. The third names a polity that should not have been on that route.' },
+        { text: 'Wreckage on a charted lane is a question, not an answer. Note the position.', skill: 'wits', tag: 'safe', align: 'neutral',
+          successResult: 'You log the bearing in your notebook. Whatever happened here, the next vessel that finds debris will have a reference point.',
+          failResult: 'You log the position but your bearing is off by a quarter-arc. The note is no use to anyone but you.' }
+      ]
+    },
+    {
+      id: 'tep_sea_corsair_approach',
+      title: 'Lateen-Rigged Cutter',
+      text: 'A low cutter has been closing on the port side for the last quarter-hour. Lateen rig, no colors, hull painted the grey-green that reads as nothing against the water. The captain sees it and orders the bow gun uncovered. The cutter has not signaled. It is close enough now to read the boarding hooks on the rail.',
+      choices: [
+        { text: 'A lateen rig under no flag will respect a clear hail before a fight.', skill: 'charm', tag: 'risky', align: 'neutral', roll: { dc: 13 },
+          successResult: 'You shout across the water — a name, a route, a routing-office number. The cutter\'s captain hesitates. The hooks come back inboard. They sheer off without a word.',
+          failResult: 'The cutter does not answer. The boarding hooks come up. You take a wound at the rail before the crew clears them off.' },
+        { text: 'They came for cargo. They will fight for it. Meet them at the rail.', action: function() { if (!G.flags) G.flags = {}; G.flags._travelNonHumanoidDouble = false; if (typeof startCombat === 'function') startCombat('sea_raider', { isBoss: false }); } },
+        { text: 'Below deck. The captain\'s crew is the captain\'s problem.', skill: 'finesse', tag: 'safe', align: 'neutral',
+          successResult: 'You go below before the boarding starts. The fight on the deck is brief — the crew is competent and the corsairs were testing. You hear it end. The crew does not look at you when you come back up.',
+          failResult: 'You go below but the corsairs board through the cargo hatch. You take a blow before the crew clears them out, and the captain notes which passenger was not on the deck.' }
+      ]
+    },
+    {
+      id: 'tep_sea_cargo_dispute',
+      title: 'Passenger Argument',
+      text: 'Two passengers are arguing on the foredeck over a crate that has been moved between holds. One is a Cosmouth factor in a salt-stained coat. The other is a Soreheim agent who has not bothered to take off her travel gloves. The captain is busy at the wheel. The argument is loud enough to involve everyone within ten meters.',
+      choices: [
+        { text: 'A factor and an agent arguing over a crate is a Union problem, not a sea problem.', skill: 'charm', tag: 'risky', align: 'neutral',
+          successResult: 'You ask them which routing office the crate cleared from. Both of them pause. The Cosmouth factor answers first. The Soreheim agent walks away without finishing her sentence. The captain glances at you once, and that is enough.',
+          failResult: 'You try to mediate and end up in the argument. By the time the captain breaks it up, both passengers think you took the other side.' },
+        { text: 'Loud people on a small boat sort themselves out. Stay out of it.', skill: 'wits', tag: 'safe', align: 'neutral',
+          successResult: 'The captain finishes at the wheel, comes forward, and ends the argument with one sentence. The crate goes back where it was. Neither passenger speaks to the other for the rest of the run.',
+          failResult: 'You stay out and the argument escalates. The crate is dropped. One of the passengers thinks you saw what was inside, and that wrong assumption follows you into the next port.' }
+      ]
+    },
+    {
+      id: 'tep_sea_strange_vessel',
+      title: 'Vessel That Should Not Be Here',
+      text: 'A ship has crossed your bow at the limit of visibility — old rig, deep hull, sails the color of dried blood. The chart shows no friendly polity that flies a flag like that. The captain has gone quiet. The lookout is already coming down from the mast. The vessel does not adjust heading. It does not acknowledge you. It is simply going somewhere that should not exist on this route.',
+      choices: [
+        { text: 'A ship that ignores another ship on this route is reading something I am not.', skill: 'wits', tag: 'bold', align: 'neutral', roll: { dc: 14 },
+          successResult: 'You watch the vessel\'s wake until it disappears. The angle of its course matches no charted destination — but it matches a bearing the captain mentioned once and stopped mentioning. You write it down. Whatever the captain knows, you now know one half of it.',
+          failResult: 'You watch the vessel until it is gone. You learn nothing the captain did not already know, and the captain knows you were watching too closely.' },
+        { text: 'Whatever it is, it is not stopping. Neither am I.', skill: 'vigor', tag: 'safe', align: 'neutral',
+          successResult: 'You go back to your bunk. The captain does not bring it up again. Some routes have ships on them that nobody talks about, and that is a fact about the sea, not a problem.',
+          failResult: 'You go below but you cannot stop thinking about it. You sleep badly for two nights and arrive in port less rested than you should have been.' }
+      ]
+    },
+    {
+      id: 'tep_sea_whale_sounding',
+      title: 'Sounding in the Deep',
+      text: 'Something large is moving below the hull. The crew feels it before they see it — the deck pitches once in a way the swell does not explain. Then a shape breaks the surface fifty meters off the bow: a back as long as a small barge, slick with seawater, dark. It sounds again before you can count the rest of it. The captain does not change course. He does not need to.',
+      choices: [
+        { text: 'A creature that size does not surface twice without a reason.', skill: 'spirit', tag: 'safe', align: 'neutral', roll: { dc: 8 },
+          successResult: 'You watch the water where it went down. Two minutes later it surfaces again — closer, but moving with the swell, not against it. It is feeding, not approaching. The crew loses interest first. You stay at the rail until it is gone.',
+          failResult: 'You stare at the empty water for ten minutes. The creature does not surface again. You miss the moment because you were not looking in the right direction.' },
+        { text: 'The captain is not concerned. There is no reason to be concerned.', skill: 'wits', tag: 'safe', align: 'neutral',
+          successResult: 'You go back to what you were doing. The creature surfaces twice more in the next hour. The crew calls out each time. Each time it is further away.',
+          failResult: 'You go back to what you were doing and the crew calls you up for the second sounding. By the time you reach the deck the creature is already gone.' }
+      ]
     }
   ];
 
@@ -5289,3 +5394,24 @@
   window._wrapEncounterChoices = _wrapEncounterChoices;
 
 })();
+
+// ---------------------------------------------------------------------------
+// BOAT_ROUTE_NARRATIONS — per-route opening narration for boat travel mode.
+// Keyed 'fromId|toId'. Read by the travel overlay when a sea route is taken.
+// ---------------------------------------------------------------------------
+window.BOAT_ROUTE_NARRATIONS = {
+  'cosmoria|brineland': "The floating city's crane arms recede behind the stern. Ahead, the Brineland inland sea opens flat and wide.",
+  'brineland|cosmoria': "The inland sea narrows to the harbor ring. Cosmoria's shipwright district resolves out of the haze.",
+  'cosmoria|panim_haven': "The southern docks smell of pitch and commercial-grade salt. Eight days down the coastal lane to Panim's harbor quarter.",
+  'panim_haven|cosmoria': "Panim's pier-crane stays visible for the first half-day. Then the coast bends and it disappears.",
+  'eternal_lands|soreheim_proper': "Three weeks of open ocean. The Eternal Lands' shore holds another four days before it drops below the horizon.",
+  'soreheim_proper|eternal_lands': "The Titan Towers are the last thing visible before the ocean takes everything but sky.",
+  'soreheim_proper|shirshal': "The North Swirling Sea. Shirsh territory somewhere on the far horizon if the charts are right.",
+  'shirshal|soreheim_proper': "The current sets west. Soreheim's continent is across open water from here.",
+  'soreheim_proper|ithtananalor': "The Roaz coast is the landfall. No deep-water port — the vessel anchors offshore.",
+  'ithtananalor|soreheim_proper': "Roaz has no dock of its own. The tender brings you to the anchored vessel. Open ocean from here.",
+  'soreheim_proper|aurora_crown_commune': "Polar drift in the final week. The domes of Aurora are visible before any land.",
+  'aurora_crown_commune|soreheim_proper': "The commune recedes into ice-light. Open ocean to the Soreheim coast.",
+  'soreheim_proper|glasswake_commune': "Glasswake's ice-shelf is the landfall marker. Cold water from the first week.",
+  'glasswake_commune|soreheim_proper': "The commune's research lights are the last thing visible in the polar dark."
+};
