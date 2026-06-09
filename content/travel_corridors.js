@@ -125,7 +125,17 @@
     'sunspire_haven|shelkopolis':      { tier:'long', biome:'highland', foot:70.0,  horse:42.0,  cart:93.3,  boat:0 },
     'shelkopolis|sunspire_haven':      { tier:'long', biome:'highland', foot:70.0,  horse:42.0,  cart:93.3,  boat:0 },
     'soreheim_proper|shelkopolis':     { tier:'long', biome:'mountain', foot:79.5,  horse:47.7,  cart:106.0, boat:0 },
-    'shelkopolis|soreheim_proper':     { tier:'long', biome:'mountain', foot:79.5,  horse:47.7,  cart:106.0, boat:0 }
+    'shelkopolis|soreheim_proper':     { tier:'long', biome:'mountain', foot:79.5,  horse:47.7,  cart:106.0, boat:0 },
+    // Cross-continental sea routes — Soreheim Proper <-> Principalities
+    // Times from V33_2 world_graph.json coordinates (avg ocean 6.15 mi/px, 120 mi/day ship)
+    'soreheim_proper|shirshal':             { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:46 },
+    'shirshal|soreheim_proper':             { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:46 },
+    'soreheim_proper|ithtananalor':         { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:50 },
+    'ithtananalor|soreheim_proper':         { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:50 },
+    'soreheim_proper|aurora_crown_commune': { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:69 },
+    'aurora_crown_commune|soreheim_proper': { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:69 },
+    'soreheim_proper|glasswake_commune':    { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:72 },
+    'glasswake_commune|soreheim_proper':    { tier:'long', biome:'sea', foot:0, horse:0, cart:0, boat:72 }
   };
 
   // Encounter rate extras by biome (added rolls on top of base tier count)
