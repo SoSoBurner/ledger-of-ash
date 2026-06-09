@@ -10095,6 +10095,13 @@ function advanceTime(ticks) {
   const prevIndex = G.timeIndex;
   G.timeIndex = (G.timeIndex + ticks) % 4;
   if (G.timeIndex === 0) { G.dayCount = (G.dayCount || 0) + 1; G.restCount = 0; }
+  // Watchfulness decays 1 point every 3 in-game days (passive pressure relief)
+  if (G.worldClocks && typeof G.worldClocks.watchfulness === 'number' && G.worldClocks.watchfulness > 0) {
+    var _wday = G.dayCount || 0;
+    if (_wday > 0 && _wday % 3 === 0 && G.timeIndex === 0) {
+      G.worldClocks.watchfulness = Math.max(0, G.worldClocks.watchfulness - 1);
+    }
+  }
   // Drift Nomdara every 10 time units
   const drift = window.NOMDARA_OVERLAY && window.NOMDARA_OVERLAY.drift_interval_time_units || 10;
   if (((G.timeIndex + (G.dayCount||0)*4) % drift) === 0 && typeof driftNomdara === 'function') {
@@ -11527,8 +11534,9 @@ function getChoiceDC(choice, rivalMod) {
   var tier = getChoiceTier(choice);
   var baseDC = tier === 'safe' ? 7 : tier === 'bold' ? 16 : 13;
   var stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
-  var levelBonus = Math.floor(((G.level || 1) - 1) / 2);
+  var levelBonus = Math.min(2, Math.floor(((G.level || 1) - 1) / 2));
   var effectiveDC = (choice.dc != null) ? choice.dc : baseDC;
+  // watchfulness = world tension: adds +1/+2/+3 to ALL choice DCs at thresholds 3/5/7. Decays -1 per 3 days passively.
   var _wlvl = (G && G.worldClocks && G.worldClocks.watchfulness) || 0;
   var _watchPenalty = _wlvl >= 7 ? 3 : _wlvl >= 5 ? 2 : _wlvl >= 3 ? 1 : 0;
   var _alignPenalty = (G && G._alignmentDCPenalty) || 0;
@@ -11609,7 +11617,6 @@ function adaptEnrichedChoice(c) {
           }
           var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : '');
           addNarration('', _frTxt, 'complication');
-          addJournal(_frTxt, 'complication');
           if (typeof updateHUD === 'function') updateHUD();
           if (typeof saveGame === 'function') saveGame();
           setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
@@ -11744,6 +11751,7 @@ function _injectBossSeedChoices(choices) {
 }
 
 /** Evaluates G.heat thresholds and applies world-state consequences. Call on locality load. */
+// heat = faction hostility: triggers patrol encounters at heat≥5, warrant at heat≥8. NOT applied to enriched choice DCs.
 function checkHeatConsequences() {
   const heat = (G.heat && typeof G.heat === 'object') ? Math.max(0, ...Object.values(G.heat)) : 0;
   // Heat 3: world notice — NPCs become guarded
@@ -12910,7 +12918,6 @@ function handleChoice(choice) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
         addNarration('', choice.failResult, 'complication');
-        addJournal(choice.failResult, 'complication');
         if (typeof updateHUD === 'function') updateHUD();
         if (typeof saveGame === 'function') saveGame();
         setTimeout(function() { if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
@@ -13466,12 +13473,12 @@ function modHP(n) {
 const STAGE_LEVEL_CAP = {'Stage I':5, 'Stage II':10, 'Stage III':15, 'Stage IV':18, 'Stage V':20};
 
 var MASTERY_UPGRADES = [
-  { id:'m_hp', name:'Hardened', desc:'+8 max HP.', cost:40, effect:{type:'stat', stat:'maxHp', n:8} },
-  { id:'m_roll', name:'Practiced Hand', desc:'+1 to all skill checks for the remainder of this stage.', cost:40 },
-  { id:'m_gold', name:'Resourceful', desc:'Gold rewards increased by +3 per encounter for the remainder of this stage.', cost:40 },
-  { id:'m_heat', name:'Low Profile', desc:'Heat gains reduced by 1 (minimum 0) for the remainder of this stage.', cost:60 },
-  { id:'m_craft', name:'Master Crafter', desc:'All craft DCs reduced by 2 for the remainder of this stage.', cost:60 },
-  { id:'m_renown', name:'Reputation', desc:'+10 renown immediately.', cost:80, effect:{type:'renown', n:10} }
+  { id:'m_hp', name:'Hardened', desc:'+8 max HP.', cost:80, effect:{type:'stat', stat:'maxHp', n:8} },
+  { id:'m_roll', name:'Practiced Hand', desc:'+1 to all skill checks for the remainder of this stage.', cost:100 },
+  { id:'m_gold', name:'Resourceful', desc:'Gold rewards increased by +3 per encounter for the remainder of this stage.', cost:80 },
+  { id:'m_heat', name:'Low Profile', desc:'Heat gains reduced by 1 (minimum 0) for the remainder of this stage.', cost:120 },
+  { id:'m_craft', name:'Master Crafter', desc:'All craft DCs reduced by 2 for the remainder of this stage.', cost:100 },
+  { id:'m_renown', name:'Reputation', desc:'+10 renown immediately.', cost:150, effect:{type:'renown', n:10} }
 ];
 
 // Fumble backup choices for main plot CIDs.
@@ -16342,7 +16349,8 @@ function showJournal() {
 // ── CHARACTER SHEET HELPERS ─────────────────────────────────
 function renderMasterySection() {
   var mxp = G.masteryXP || 0;
-  if (mxp === 0) return '';
+  var _atCap = (typeof STAGE_LEVEL_CAP !== 'undefined') && (G.level >= (STAGE_LEVEL_CAP[G.stage] || 5));
+  if (mxp === 0 && !_atCap) return '';
   var purchased = G.masteryPurchased || [];
   var available = MASTERY_UPGRADES.filter(function(u){ return purchased.indexOf(u.id) === -1; }).slice(0,3);
   if (available.length === 0) return '<div class="trait-section"><div class="trait-section-title">Mastery \u2014 All upgrades purchased</div></div>';
