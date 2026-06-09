@@ -22,23 +22,24 @@ window.STAGE2_ANTECHAMBER = (function() {
       );
     }
 
-    (window._rawRenderChoices || window.renderChoices)([
+    var antechamberChoices = [
       {
         id: 'antechamber_accelerate',
         plot: 'main',
-        text: 'They warned me because I\u2019m close. That changes what pressing harder costs.',
-        tag: 'risky \u00b7 pressure \u00b7 DC 12',
-        action: function() {
+        label: 'They warned me because I\u2019m close. That changes what pressing harder costs.',
+        tag: 'risky',
+        skill: 'wits',
+        dc: 12,
+        xpReward: 50,
+        fn: function() {
           var r = typeof rollD20 === 'function' ? rollD20('wits') : { total: Math.floor(Math.random() * 20) + 1 };
           if (r.total >= 12) {
             G.stageProgress[2] = (G.stageProgress[2] || 0) + 2;
             addJournal('You change your route and the pace of it. The name you had been circling appears in a second source \u2014 unsolicited, mentioned in passing by a warehouse clerk who did not know it mattered. You write it down without looking up. The clerk keeps talking. You let him. Two threads, previously set aside, now point at the same thing.', 'evidence');
-            if (typeof window.gainXp === 'function') window.gainXp(30);
           } else {
             G.worldClocks = G.worldClocks || {};
             G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
             addJournal('You push faster than the situation allows. The archivist who had been meeting you in the same corridor every third day is not there. Her desk, when you pass it, has been cleared to the surface \u2014 no papers, no open ledgers, nothing. The corridor clerk looks up. You keep walking. Whatever she knew, she has decided not to share it.', 'evidence');
-            if (typeof window.gainXp === 'function') window.gainXp(15);
           }
           _resolve();
         }
@@ -46,16 +47,28 @@ window.STAGE2_ANTECHAMBER = (function() {
       {
         id: 'antechamber_acknowledge',
         plot: 'main',
-        text: 'Being watched and knowing it are two different things.',
-        tag: 'safe \u00b7 observation \u00b7 DC 0',
-        action: function() {
-          addJournal('You adjust your movements — slower, more oblique. They are watching, but watching does not mean understanding. Not yet.', 'evidence');
+        label: 'Being watched and knowing it are two different things.',
+        tag: 'safe',
+        skill: 'wits',
+        xpReward: 50,
+        failResult: function() {
+          addJournal('You try to act unbothered and the seam shows. The clerk you usually pass without looking up looks up. The corridor feels different walking back than it did walking in.', 'evidence');
           G.flags.stage2_antechamber_acknowledged = true;
-          if (typeof window.gainXp === 'function') window.gainXp(20);
+          _resolve();
+        },
+        fn: function() {
+          addJournal('You adjust your movements \u2014 slower, more oblique. They are watching, but watching does not mean understanding. Not yet.', 'evidence');
+          G.flags.stage2_antechamber_acknowledged = true;
           _resolve();
         }
       }
-    ]);
+    ];
+    var _renderFn = window._rawRenderChoices || window.renderChoices;
+    if (typeof window.adaptEnrichedChoice === 'function') {
+      _renderFn(antechamberChoices.map(window.adaptEnrichedChoice));
+    } else {
+      _renderFn(antechamberChoices);
+    }
   }
 
   function _resolve() {

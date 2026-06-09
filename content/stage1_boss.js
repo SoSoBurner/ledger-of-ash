@@ -52,11 +52,13 @@ function triggerStage1MiniBoss() {
 
   var choices = [
     {
+      id: 'stage1_miniboss_push_thread',
       plot: 'main',
-      text: 'He is running out of time on something. Push that thread.',
+      label: 'He is running out of time on something. Push that thread.',
       tag: 'risky',
       skill: 'charm',
-      action: function() {
+      xpReward: 50,
+      fn: function() {
         var roll = rollD20('charm');
         var dc = 13 + Math.floor(((G.level||1)-1)/2);
         if (roll.total >= dc) {
@@ -75,12 +77,14 @@ function triggerStage1MiniBoss() {
       }
     },
     {
+      id: 'stage1_miniboss_confront',
       cid: 'stage1_boss_confront',
       plot: 'main',
-      text: 'He will not walk away from this without a cost.',
+      label: 'He will not walk away from this without a cost.',
       tag: 'bold',
       skill: 'might',
-      action: function() {
+      xpReward: 50,
+      fn: function() {
         // Fumble lock: if this choice was already fumbled, it should be locked in renderChoices
         // On first attempt, proceed to fight — combat outcome handles narrative consequence
         G.flags['fumble_locked_stage1_boss_confront'] = false; // cleared on new encounter
@@ -88,11 +92,13 @@ function triggerStage1MiniBoss() {
       }
     },
     {
+      id: 'stage1_miniboss_second_exit',
       plot: 'main',
-      text: 'The alley has a second exit and he has not sealed it yet.',
+      label: 'The alley has a second exit and he has not sealed it yet.',
       tag: 'risky',
       skill: 'finesse',
-      action: function() {
+      xpReward: 50,
+      fn: function() {
         var roll = rollD20('finesse');
         var dc = 12 + Math.floor(((G.level||1)-1)/2);
         if (roll.total >= dc) {
@@ -108,7 +114,7 @@ function triggerStage1MiniBoss() {
     }
   ];
 
-  renderChoices(choices);
+  renderChoices(choices.map(adaptEnrichedChoice));
 }
 
 function _stage1MiniBossFight() {
@@ -144,12 +150,14 @@ function triggerStage1MainBoss() {
 
   var setupChoices = [
     {
-      text: 'Everything here is already in her files. Read what she has read.',
+      id: 'stage1_mainboss_read_files',
+      label: 'Everything here is already in her files. Read what she has read.',
       plot: 'main',
       tag: 'safe',
       skill: 'wits',
+      xpReward: 50,
       failResult: 'The room gives back nothing useful before she looks up. The desk is orderly, the lamp positioned toward the chair across from it — details that mean something, but not in time. She is already watching. The interview proceeds on her terms. The file she pulled before you arrived stays face-down on the corner of the desk where she put it.',
-      action: function() {
+      fn: function() {
         var roll = rollD20('wits');
         if (roll.total >= 10) {
           var _arcFam = (typeof getArchetypeFamily === 'function') ? getArchetypeFamily(G.archetype) : '';
@@ -164,18 +172,20 @@ function triggerStage1MainBoss() {
       }
     },
     {
-      text: 'The detainment notice needs a signature. She has not signed it yet.',
+      id: 'stage1_mainboss_grab_notice',
+      label: 'The detainment notice needs a signature. She has not signed it yet.',
       plot: 'main',
       tag: 'risky',
       skill: 'might',
-      action: function() {
+      xpReward: 50,
+      fn: function() {
         addNarration('', 'You move before the pleasantries. The notice is off the desk and in your coat in the time it takes her to stand. She stands without urgency. "That document is already in registry," she says. "Removing it changes nothing. It also confirms everything I was not certain of." Her lamp swings on its hook as she comes around the desk. The disadvantage is yours now.');
         setTimeout(function() { _stage1MainBossCombat(true); }, 50);
       }
     }
   ];
 
-  renderChoices(setupChoices);
+  renderChoices(setupChoices.map(adaptEnrichedChoice));
 }
 
 function _stage1MainBossPhase2() {
@@ -221,12 +231,14 @@ function _stage1MainBossResolution() {
 
   var resChoices = [
     {
-      text: 'Those files go with me. All of them.',
+      id: 'stage1_mainboss_take_files',
+      label: 'Those files go with me. All of them.',
       plot: 'main',
       tag: 'safe',
       skill: 'wits',
+      xpReward: 50,
       failResult: 'The stack resists — the files are bound under the desk lip by a registry cord you did not see. The ward lock begins its release cycle before you clear it. You take your own file and leave the rest. The desk looks orderly when you are done with it, but what was underneath stays underneath. The hall outside is already filling.',
-      action: function() {
+      fn: function() {
         addNarration('', 'You pull the stack and run a fast count: four files besides your own, each with the red notation, each covering a different locality and a different set of movements. The dates span eight months. Someone was running a long review. The files go inside your coat. The desk looks orderly when you are done with it — absent, but orderly.');
         addJournal('Secured four ORE intake files: each bearing a Tier 1 review notation in the same hand across eight months. This is a coordinated pattern, not individual enforcement.', 'evidence');
         G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 20);
@@ -234,11 +246,13 @@ function _stage1MainBossResolution() {
       }
     },
     {
-      text: 'Leave no trace that the files were touched.',
+      id: 'stage1_mainboss_leave_no_trace',
+      label: 'Leave no trace that the files were touched.',
       plot: 'main',
       tag: 'risky',
       skill: 'finesse',
-      action: function() {
+      xpReward: 50,
+      fn: function() {
         var roll = rollD20('finesse');
         if (roll.total >= 12) {
           addNarration('', 'You read the files without moving them. The dates, names, and notations are committed to memory. The stack goes back in the order it came. The ward lock cycles and releases and you are at the door before the latch finishes turning. The hall outside is empty. You leave nothing in the room that was not there when you arrived.');
@@ -252,11 +266,13 @@ function _stage1MainBossResolution() {
       }
     },
     {
-      text: 'Someone outside this hall should know the files exist.',
+      id: 'stage1_mainboss_leave_marker',
+      label: 'Someone outside this hall should know the files exist.',
       plot: 'main',
       tag: 'risky',
       skill: 'charm',
-      action: function() {
+      xpReward: 50,
+      fn: function() {
         addNarration('', 'You pull the topmost file — your own — and leave the others. Your name goes back in the stack facing outward where the next intake clerk will see it. On the desk you place a single line on intake-form paper: Four files. Same notation. Ask who made them. You do not sign it. The ward lock releases. In the hall, a clerk is already heading for the door. They will find the room. They will find the note. What they do with it is theirs to decide.');
         addJournal('Left a marker in the intake hall pointing toward the file stack. A clerk or registry warden will find it. The choice of what to do with it is no longer only mine.', 'complication');
         G.stageProgress[1] = Math.max(G.stageProgress[1]||0, 20);
@@ -265,7 +281,7 @@ function _stage1MainBossResolution() {
     }
   ];
 
-  renderChoices(resChoices);
+  renderChoices(resChoices.map(adaptEnrichedChoice));
 }
 
 // Pure boolean check — returns true if the boss sequence SHOULD fire, without firing anything
