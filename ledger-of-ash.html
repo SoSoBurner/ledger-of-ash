@@ -10001,6 +10001,7 @@ function _authorityResolveDetention(authorityKey, polity) {
   G.restCount = 0;
   addNarration('Detained', 'Three days in a holding cell. The charge is documented. You are released with a warning — and a record.');
   addJournal('Detained by ' + authorityKey.replace(/_/g,' ') + '. Three days lost.', 'complication');
+  if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
   setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 600);
 }
 
@@ -10111,6 +10112,7 @@ function advanceTime(ticks) {
     }
   }
   updateHUD();
+  if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
   if (typeof SHADOW_LEDGER_HINTS !== 'undefined' && SHADOW_LEDGER_HINTS.checkAndFire) SHADOW_LEDGER_HINTS.checkAndFire();
   // Passive rival pressure in Stage II
   if (G.stage === 'Stage II' && !(G.flags && G.flags.maren_oss_resolved)) {
@@ -11497,11 +11499,22 @@ function getChoiceDC(choice, rivalMod) {
   var stageBonus = G.stage === 'Stage II' ? 1 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage V' ? 4 : 0;
   var levelBonus = Math.floor(((G.level || 1) - 1) / 2);
   var effectiveDC = (choice.dc != null) ? choice.dc : baseDC;
-  return effectiveDC + stageBonus + levelBonus + (rivalMod || 0) - ((G && G._pendingDcReduce) || 0);
+  var _wlvl = (G && G.worldClocks && G.worldClocks.watchfulness) || 0;
+  var _watchPenalty = _wlvl >= 7 ? 3 : _wlvl >= 5 ? 2 : _wlvl >= 3 ? 1 : 0;
+  var _alignPenalty = (G && G._alignmentDCPenalty) || 0;
+  return effectiveDC + stageBonus + levelBonus + (rivalMod || 0)
+    - ((G && G._pendingDcReduce) || 0)
+    + _watchPenalty + _alignPenalty;
 }
 
 /** Wraps enriched choice fn() in try/catch — errors are silently swallowed. Missing G defaults are the #1 cause of silent failures. @param {Object} c — enriched choice object @returns {Object} standard choice */
 function adaptEnrichedChoice(c) {
+  if (!c.label && !c.text) {
+    console.error('[enriched] choice missing label — check content file:', JSON.stringify(c).slice(0, 200));
+    c.label = 'Continue...';
+  } else if (!c.label && c.text) {
+    c.label = c.text;
+  }
   var _rivalMod = (typeof getRivalDCMod === 'function') ? getRivalDCMod(G.location) : 0;
   var _coreInvest = c.fn && /addJournal\(.*(?:'evidence'|'intelligence'|"evidence"|"intelligence")/.test(c.fn.toString());
   if (_coreInvest) _rivalMod = 0;
@@ -14986,7 +14999,9 @@ function campAction(type) {
     }
     addNarration('Working Local', G.lastResult);
     addJournal('Spent a day off the official channels. Watchfulness reduced.', 'complication');
-    updateHUD(); saveGame();
+    updateHUD();
+    if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
+    saveGame();
     setTimeout(() => renderChoices([{text:'Back to work.',skill:'lore',tag:'safe',align:'neutral',cid:'passive_intel'}]), 300);
   } else if (type === 'sleep') {
     if (typeof shiftTension === 'function') shiftTension(-1);
@@ -15409,6 +15424,7 @@ function startTravel(destinationKey) {
   }
   G.location = destinationKey;
   if (typeof updateHUD === 'function') updateHUD();
+  if (typeof updateEnvironmentPanel === 'function') updateEnvironmentPanel();
   if (typeof loadStageChoices === 'function') loadStageChoices();
 }
 
