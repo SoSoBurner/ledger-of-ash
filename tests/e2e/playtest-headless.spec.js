@@ -930,7 +930,7 @@ async function runPlaythrough(page, archetypeId, backgroundId, family, attemptNu
         await page.waitForTimeout(PACE.afterResult);
       } catch (_) {}
 
-      const choiceCount = await waitForChoices(page, PACE.waitChoices);
+      let choiceCount = await waitForChoices(page, PACE.waitChoices);
 
       // Cap enforcement: log violations (> 8 choices in panel); hard assert runs outside loop to avoid stalling
       // Exclude: .combat-btn (attack/defend/flee combat actions), .combat-lv3 (G1 escalation), .combat-flip-btn (tension flip)
