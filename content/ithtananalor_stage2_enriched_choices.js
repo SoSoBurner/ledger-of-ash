@@ -15,7 +15,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 82,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -52,7 +51,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 78,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -85,7 +83,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 90,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -121,7 +118,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 74,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -153,7 +149,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 78,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -186,7 +181,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 84,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -219,7 +213,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 88,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -253,7 +246,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -265,7 +257,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Ivena — Second Approach', 'You find her at the Licensed Goods Counter near closing hour, when the queue has thinned. Her thumb traces the edge of a transaction stamp without pressing it. When you mention the threshold calibration — the one-unit margin — she sets the stamp down with too much precision. She says she once filed a discrepancy report through the internal channel. The report was returned to her desk the following morning with no routing record and a single word crossed through: "resolved."');
-        addJournal('Ivena filed a discrepancy report — returned without routing, marked resolved', 'evidence');
+        addJournal('Ivena filed a discrepancy report — returned without routing, marked resolved', 'evidence', 'ith_s2_ivena_discrepancy');
         maybeStageAdvance();
       } else {
         addNarration('Ivena — Closed Door', 'She sees you coming this time. By the time you reach the counter she has a queue citation form ready and her eyes fixed on the seal press, the stamp rack between you like a wall she built while you were still crossing the floor. The practiced statement surfaces again, word for word, same cadence as before — the particular blankness of a sentence rehearsed until it carries no expression at all. Whatever opened briefly in the first exchange has closed, and nothing in her posture suggests it will open again.');
@@ -281,7 +273,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -292,7 +283,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Foundry Dock — Night Manifest', 'The dock manifest board runs in two columns: daytime shipments in black ink with quota stamps, night entries in red with a classification mark you do not recognize. You copy three red entries. The weight figures in the red column do not correspond to any ore grade in the public extraction registry — the loads are too light for raw ore, too heavy for refined ingot. A fourth entry has been physically cut from the board and pasted over. The paper underneath is a different weight.');
-        addJournal('Foundry night manifest — unregistered weight class, one entry physically excised', 'evidence');
+        addJournal('Foundry night manifest — unregistered weight class, one entry physically excised', 'evidence', 'ith_s2_foundry_night_manifest');
         maybeStageAdvance();
       } else {
         addNarration('Foundry Dock — Watched', 'A labor foreman notices you at the manifest board before you can copy anything. He does not ask what you are doing. He simply stands beside the board until you move away, one hand resting on the quota stamp rack, garrison stone cold through the soles of boots that have been standing here long enough to feel it. His expression carries the particular blankness of someone who has learned not to witness things — not innocence, not compliance, just the flat professional absence of a man who has decided that his eyes are not a reliable instrument in this particular workplace.');
@@ -308,7 +299,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 30,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -320,7 +310,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
         addNarration('Checkpoint — Controlled Entry', 'You present credentials before the officer asks. The seal gets checked twice — that is standard — but you keep your weight forward and your eyes on the gate frame rather than the officer\'s hands, the way locals do when they have nothing to hide and are mildly bored by the process. He logs you through without a secondary notation. On the other side, the administrative wing archive is accessible for the next two hours without an escort requirement.');
-        addJournal('Administrative wing archive accessed without escort — two-hour window', 'discovery');
+        addJournal('Administrative wing archive accessed without escort — two-hour window', 'discovery', 'ith_s2_admin_archive_access');
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
@@ -337,7 +327,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 82,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -346,7 +335,7 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
       if (result.total >= 16) {
         G.investigationProgress++;
         G.stageProgress[2] = (G.stageProgress[2]||0) + 1;
-        if (G.investigationProgress === 5) G.worldClocks.pressure++;
+        if (G.investigationProgress === 5) { G.worldClocks = G.worldClocks || {}; G.worldClocks.pressure = (G.worldClocks.pressure || 0) + 1; }
         G.lastResult = `The seam is real. Four case numbers cross-reference between oath-binding precedent and enforcement disposition — soldiers declared oath-breakers in the same month the ghost accounts first cleared. The disposition entries are redacted to a single line each. The redaction pattern is identical across all four. One hand did this work under institutional pressure, one shift, one authorization code. The index preserves the shape of what was removed.`;
         addJournal('Archive seam: four oath-breaker dispositions redacted under one authorization', 'evidence', `ith-archive-${G.dayCount}`);
         G.recentOutcomeType = 'success';
@@ -368,7 +357,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 80,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -399,7 +387,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 78,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -430,7 +417,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -463,7 +449,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -496,7 +481,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -529,7 +513,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -562,7 +545,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -595,7 +577,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -628,7 +609,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -661,7 +641,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -694,7 +673,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -727,7 +705,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -760,7 +737,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -793,7 +769,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -826,7 +801,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 68,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -859,7 +833,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 115,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -902,7 +875,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -914,12 +886,12 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.flags.ith_forest_compact_boundary = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The forest compact boundary is a legal demarcation that establishes which arcane activities require forest-authority licensing — anything within the boundary requires approval from the compact\'s oversight body. The archive map shows the boundary running along the eastern ridge. The physical markers in the ground run two hundred meters east of the ridge, which places the enforcement quarter\'s anti-magic statute coverage area inside the compact zone. Operations that need compact oversight have been conducted without it. The discrepancy is not new: the markers were moved six years ago. The archive map was never updated. Someone left both records to coexist.';
-        addJournal('Forest compact boundary markers moved 200m east of archive map position — enforcement quarter operations in compact zone without required oversight for 6 years', 'evidence');
+        addJournal('Forest compact boundary markers moved 200m east of archive map position — enforcement quarter operations in compact zone without required oversight for 6 years', 'evidence', 'ith_s2_forest_compact_boundary');
         G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.lastResult = 'The compact boundary map is a large-format document that requires the reading room\'s extended table to lay flat. The reading room extended table is reserved for the morning session — afternoon walk-in access requires a confirmed booking. The booking register for this week is full. The compact boundary position can be verified physically by walking the marker line, which takes two hours and produces no written record.';
-        addJournal('Compact boundary archive map inaccessible afternoon — extended table reserved; physical marker survey possible but produces no record', 'intelligence');
+        addJournal('Compact boundary archive map inaccessible afternoon — extended table reserved; physical marker survey possible but produces no record', 'intelligence', 'ith_s2_compact_boundary_blocked');
         G.recentOutcomeType = 'complication';
         maybeStageAdvance();
       }
@@ -934,7 +906,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -946,13 +917,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.flags.ith_licensing_ghost_approvals = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The magical licensing register and the application log are two separate documents that are supposed to match — each approval in the register should correspond to a filed application. Cross-referencing the two reveals seven approvals in the register with no corresponding application: the approval was issued, the license number assigned, and the fee collected, but the originating application form does not exist in the log. The fee collection dates cluster around the same months the ghost ore accounts were active. The license fees went somewhere. The applications they purchased do not exist.';
-        addJournal('Magical licensing register: 7 approvals issued with no corresponding applications — fee collection dates match ghost account activity period', 'evidence');
+        addJournal('Magical licensing register: 7 approvals issued with no corresponding applications — fee collection dates match ghost account activity period', 'evidence', 'ith_s2_licensing_ghost_approvals');
         G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.worldClocks.watchfulness = (G.worldClocks.watchfulness || 0) + 1;
         G.lastResult = 'The application log is kept by the licensing bureau, and the register by the enforcement administration — they are not maintained in the same office or cross-referenced as a matter of routine. Pulling both documents together requires a formal records reconciliation request filed jointly to both offices. The reconciliation request goes to both administrators simultaneously and takes three working days. Both offices will know the comparison is being made before the comparison is done.';
-        addJournal('Licensing register and application log cross-reference requires joint formal request — both offices notified simultaneously, 3-day window', 'complication');
+        addJournal('Licensing register and application log cross-reference requires joint formal request — both offices notified simultaneously, 3-day window', 'complication', 'ith_s2_licensing_cross_ref_blocked');
         G.recentOutcomeType = 'complication';
         maybeStageAdvance();
       }
@@ -967,7 +938,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -978,12 +948,12 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.flags.ith_knowledge_suppression_pattern = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         G.lastResult = 'The subject index for arcane research materials runs from A to W. There is no X, Y, or Z section — the binding is intact on both sides of the gap, which means the sections were removed before the index was bound, not after. The removed sections covered research classifications beginning with the prefix "xen-" — a categorization used exclusively for cross-boundary arcane transfer, the class of activity the ghost accounts were funding. The removal was planned, not reactive. Whoever structured this archive knew what knowledge would need to be inaccessible before the accounts were ever opened.';
-        addJournal('Arcane research index: xen- classification sections removed before binding — cross-boundary transfer research excised in advance of ghost account activity', 'evidence');
+        addJournal('Arcane research index: xen- classification sections removed before binding — cross-boundary transfer research excised in advance of ghost account activity', 'evidence', 'ith_s2_xen_classification_excised');
         G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         G.lastResult = 'The subject index gaps are visible — sections missing from the binding — but the categories they covered are not labeled on any adjacent page. The archive attendant, when asked about the gaps, consults a procedure card taped inside the reference desk drawer. "Classification restructuring," she says. "Some categories were consolidated." The procedure card she consulted is dated two weeks ago. The restructuring explanation is recent enough to be a prepared response.';
-        addJournal('Arcane research index gaps noted — attendant cited "classification restructuring" per procedure card dated 2 weeks ago', 'complication');
+        addJournal('Arcane research index gaps noted — attendant cited "classification restructuring" per procedure card dated 2 weeks ago', 'complication', 'ith_s2_xen_classification_blocked');
         G.recentOutcomeType = 'complication';
         maybeStageAdvance();
       }
@@ -998,7 +968,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1009,14 +978,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.flags.ith_iron_accord_seal_recast = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('Foundry Gate — Re-cast Seal', 'The Iron Accord seal is supposed to sit on a foundry gate for a generation. This one has bright bronze at its edges where older patina would still hold — re-cast within the last month, not maintained, replaced. The master pattern has a fractional drift in the lower quadrant: a new die was cut, not pulled from the central registry. Someone bypassed the Accord registry to put a fresh seal on this gate, and the registry has no record of authorizing it.');
-        addJournal('Iron Accord foundry seal re-cast off-registry within last month — fresh die cut outside central authorization', 'evidence');
+        addJournal('Iron Accord foundry seal re-cast off-registry within last month — fresh die cut outside central authorization', 'evidence', 'ith_s2_iron_accord_seal_recast');
         G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         addNarration('Foundry Gate — Watched at the Seal', 'The bronze edge catches light differently than the surrounding stone — enough to draw attention, not enough to read at the distance the gate clerk permits civilians to stand. The clerk does not ask what is being studied. He simply taps a stylus against the duty log twice, and a second officer steps from the guard niche to assume the same sightline. The seal is not approached. The presence at the gate is now a logged item under the clerk\'s hand.');
-        addJournal('Foundry seal observation logged by gate clerk — second officer drawn to sightline', 'complication');
+        addJournal('Foundry seal observation logged by gate clerk — second officer drawn to sightline', 'complication', 'ith_s2_iron_accord_seal_burned');
         G.recentOutcomeType = 'complication';
-        loadStageChoices(G.location);
       }
     }
   },
@@ -1029,7 +997,6 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
     xpReward: 20,
     failResult: function() {
       addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
-      loadStageChoices(G.location);
     },
     fn: function() {
       advanceTime(1); G.telemetry.turns++; G.telemetry.actions++;
@@ -1040,14 +1007,13 @@ var ITHTANANALOR_STAGE2_ENRICHED_CHOICES = [
         G.flags.ith_prison_labor_unassigned = true;
         G.stageProgress[2] = (G.stageProgress[2] || 0) + 1;
         addNarration('Labor Manifest — Three Blank Destinations', 'The labor foreman keeps the manifest in a tin box near the muster yard, the column headings ruled in red lead and the destination field carried for every assignment back to the founding of the quota system. Three names this quarter have the destination field left blank — not redacted, not stamped "pending," simply not filled. The same three names also have no end-of-shift sign-off. Bodies were drawn from the prison labor pool and accounted for nowhere downstream of the gate.', 'success');
-        addJournal('Prison labor manifest: three workers drawn from pool with no destination assigned and no end-of-shift sign-off', 'evidence');
+        addJournal('Prison labor manifest: three workers drawn from pool with no destination assigned and no end-of-shift sign-off', 'evidence', 'ith_s2_prison_labor_unassigned');
         G.recentOutcomeType = 'success';
         maybeStageAdvance();
       } else {
         addNarration('Labor Manifest — Foreman Closes the Box', 'The muster yard runs a clean choreography during shift rotation, and any pause near the foreman\'s tin box reads as a break in that choreography from twenty paces. The foreman finishes a tally on the slate, walks to the box, and closes the lid without looking at the visitor. The clasp goes down. The manifest is not handed over and the request is not refused — the choreography simply resumes around the closed box, and the box is what the question would have to go through.', 'failure');
-        addJournal('Labor manifest box closed by foreman — manifest channel cold without escalation', 'complication');
+        addJournal('Labor manifest box closed by foreman — manifest channel cold without escalation', 'complication', 'ith_s2_prison_labor_burned');
         G.recentOutcomeType = 'complication';
-        loadStageChoices(G.location);
       }
     }
   },
