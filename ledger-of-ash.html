@@ -879,23 +879,6 @@ input, button, select, textarea { font-family: inherit; }
   transition: width .3s ease;
 }
 
-/* ── LOCATION: atmospheric footer ── */
-.l-location {
-  margin-top: auto; padding: 10px 14px 14px;
-  border-top: 1px solid var(--border);
-  background:
-    linear-gradient(0deg, rgba(200,80,16,.05) 0%, transparent 100%);
-}
-.l-loc-name {
-  font-family: var(--font-display); font-size: 13.2px; font-weight: 600;
-  color: var(--gold); letter-spacing: 1px; margin-bottom: 2px;
-}
-.l-loc-time {
-  font-family: 'Crimson Pro', serif; font-size: 12.1px; font-style: italic;
-  color: var(--ink-faint);
-}
-
-
 /* ═══════════════════════════════════════════════════════════════════
    CENTER PANEL — THE CRUCIBLE
    The active scene · The consequence · The decision
@@ -1926,6 +1909,19 @@ input, button, select, textarea { font-family: inherit; }
 .journey-tab.active { color:var(--accent-gold); border-bottom-color:var(--accent-gold); }
 .journey-tab-pane { display:none; }
 .journey-tab-pane.active { display:block; }
+.fatigue-pill {
+  display: inline-block;
+  margin: 0 6px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(216, 216, 224, 0.9);
+}
+.fatigue-pill--warn { background: rgba(216, 154, 44, 0.25); color: #d89a2c; }
+.fatigue-pill--crit { background: rgba(190, 40, 40, 0.3); color: #e76a6a; }
 </style>
 </head>
 <body>
@@ -2088,10 +2084,8 @@ input, button, select, textarea { font-family: inherit; }
           <span id="hud-plotcredits" style="display:none;font-size:11px;color:var(--gold-dim)"></span>
         </div>
         <div id="hud-consumable-count" class="stat-val" style="display:none;color:var(--jade-bright);font-size:10px;margin-top:2px;text-align:center"></div>
-        <div id="hud-day" data-clock="day" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-rival" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:2px;text-align:center;font-family:var(--font-body)"></div>
         <div id="hud-progress" style="display:none;font-size:11px;color:var(--ink-faint);margin-top:3px;text-align:center;font-family:var(--font-body);letter-spacing:0.04em"></div>
-        <div id="hud-companions" style="display:none;margin-top:8px;padding-top:8px;border-top:1px solid var(--char)"></div>
       </div>
       <div id="hud-stage-progress-wrap" class="pressure-bar-row" style="display:none;padding:0 14px 6px;">
         <div class="pressure-bar-label" style="font-family:var(--font-display);font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-faint);display:flex;justify-content:space-between;">
@@ -2145,10 +2139,6 @@ input, button, select, textarea { font-family: inherit; }
         <div id="hud-skills"></div>
       </div>
       <div class="l-divider"></div>
-      <div class="l-location">
-        <div class="l-loc-name" id="hud-location">&#x2014;</div>
-        <div class="l-loc-time" id="hud-time">Dawnrise</div>
-      </div>
     </aside>
 
     <!-- CENTER: THE CRUCIBLE -->
@@ -4924,7 +4914,17 @@ function resolveCombatAction(action, abilityId) {
     enemyDamage = eHit ? Math.floor(Math.random() * 4) + CS.enemy.attack - 3 : 0;
     enemyDamage = Math.max(0, enemyDamage);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + Might ' + combatSkill + (traitCombatBonus ? ' + trait ' + traitCombatBonus : '') + (rangeBonus !== 0 ? ' + range ' + rangeBonus : '') + (compAtkBonus ? ' + companion ' + compAtkBonus : '') + (nextAtkBonus ? ' + bonus ' + nextAtkBonus : '') + (stratAtkBonus ? ' + strategy ' + stratAtkBonus : '') + ' = <strong>' + total + '</strong><br>';
+    var _atkRollInfo = {
+      roll: roll,
+      statValue: combatSkill,
+      traitBonus: traitCombatBonus,
+      total: total,
+      rangeMod: (rangeBonus !== 0 ? rangeBonus : 0)
+    };
+    var _atkSucceeded = hit;
+    var _atkRollType = (roll === 20) ? 'crit' : (roll === 1 ? 'fumble' : (_atkSucceeded ? 'success' : 'failure'));
+    emitRollLine(_formatRollLine(_atkRollInfo, 'might', _atkThreshold, _atkSucceeded), _atkRollType);
+    resultText = '';
 
     if (hit) {
       var _critBonus = (_archFamily === 'stealth' && roll >= 18) ? (Math.floor(Math.random() * 6) + 1) : 0;
@@ -4969,8 +4969,10 @@ function resolveCombatAction(action, abilityId) {
     const eBase = Math.floor(Math.random() * 4) + CS.enemy.attack - 3;
     enemyDamage = defended ? Math.max(0, Math.floor(eBase * 0.4)) : Math.max(0, eBase);
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + Vigor ' + survSkill + (stratDefBonus ? ' + strategy ' + stratDefBonus : '') + ' = <strong>' + total + '</strong><br>';
-    resultText += defended ? 'You take a defensive stance. ' : 'Your guard is pushed.';
+    var _defRollInfo = { roll: roll, statValue: survSkill, total: total };
+    var _defRollType = (roll === 20) ? 'crit' : (roll === 1 ? 'fumble' : (defended ? 'success' : 'failure'));
+    emitRollLine(_formatRollLine(_defRollInfo, 'vigor', _defThreshold, defended), _defRollType);
+    resultText = defended ? 'You take a defensive stance. ' : 'Your guard is pushed.';
     if (enemyDamage > 0) {
       resultText += ' You take ' + enemyDamage + ' damage.';
       applyWound(enemyDamage, 'from ' + CS.enemy.name);
@@ -5080,7 +5082,10 @@ function resolveCombatAction(action, abilityId) {
     const total = roll + survSkill;
     const success = total >= 12;
 
-    resultText = '<strong>d20 roll: ' + roll + '</strong> + Vigor ' + survSkill + ' = <strong>' + total + '</strong><br>';
+    var _fleeRollInfo = { roll: roll, statValue: survSkill, total: total };
+    var _fleeRollType = (roll === 20) ? 'crit' : (roll === 1 ? 'fumble' : (success ? 'success' : 'failure'));
+    emitRollLine(_formatRollLine(_fleeRollInfo, 'vigor', 12, success), _fleeRollType);
+    resultText = '';
 
     if (success) {
       resultText += 'You break from the fight. The ' + CS.enemy.name + ' does not pursue.';
@@ -5100,7 +5105,7 @@ function resolveCombatAction(action, abilityId) {
   }
 
   CS.log.push({ round: CS.round, action, result: resultType });
-  addNarration('Round ' + CS.round, resultText, resultType);
+  addNarration('Round ' + CS.round, resultText, resultType, { primary: true });
 
   if (CS.playerFell) { CS.playerFell = false; endCombat(false); return; }
 
@@ -11475,10 +11480,9 @@ function updateEnvironmentPanel() {
   }
   const weatherSev = getWeatherSeverity ? getWeatherSeverity() : 0;
   const weatherLabel = weatherSev >= 4 ? 'Severe Weather' : weatherSev === 3 ? 'Rough Weather' : weatherSev === 2 ? 'Unsettled' : '';
-  const regionSecond = [timeStr, 'Day ' + (G.dayCount||1), weatherLabel].filter(Boolean).join(' &middot; ');
   el.innerHTML =
     '<div class="env-location">' + locationLabel + '</div>' +
-    '<div class="env-region">' + regionLabel + (regionSecond ? '<br><span style="font-size:11px;color:var(--ink-faint)">' + regionSecond + '</span>' : '') + '</div>' +
+    '<div class="env-region">' + regionLabel + '</div>' +
     '<div class="env-desc"></div>' +
     '<div class="env-status">' +
       '<span class="env-pill">' + timeStr + ' &middot; Day ' + (G.dayCount||1) + '</span>' +
@@ -11603,7 +11607,7 @@ function clearNarrative() {
   if (ac) ac.innerHTML = '';
 }
 
-function addNarration(label, html, resultType) {
+function addNarration(label, html, resultType, opts) {
   // T4: narration-emission counter for silent-choice detection.
   if (typeof G !== 'undefined' && G) {
     G._narrationCount = (G._narrationCount || 0) + 1;
@@ -11629,8 +11633,9 @@ function addNarration(label, html, resultType) {
   };
   var _typeLabel = _TYPE_LABEL_MAP[_type];
   var _headerHtml = label ? '<div class="scene-location">' + label + '</div>' : '';
+  var _primaryAttr = (opts && opts.primary === true) ? ' data-primary-outcome="true"' : '';
   var inner =
-    '<div class="scroll-entry scroll-entry--' + _type + '">' +
+    '<div class="scroll-entry scroll-entry--' + _type + '"' + _primaryAttr + '>' +
       '<span class="scroll-entry__type">' + _typeLabel + '</span>' +
       _headerHtml +
       '<div class="scroll-entry__body">' + _safeHtml + '</div>' +
@@ -11645,18 +11650,22 @@ function addNarration(label, html, resultType) {
 // Append a roll-result as a meta line inside the most recent scroll-entry.
 // Falls back to a standalone neutral entry if no entry exists yet.
 function emitRollLine(rollText, resultType) {
-  var el = document.getElementById('narrative-content');
-  if (!el) return;
-  var entries = el.querySelectorAll('.scroll-entry');
-  var last = entries[entries.length - 1];
-  if (!last) {
-    addNarration('', rollText || '', resultType || 'neutral');
+  var target = document.getElementById('scroll')
+            || document.getElementById('narrative-content')
+            || document.getElementById('narrative')
+            || document.querySelector('.narrative-text');
+  if (!target) return;
+  var primary = target.querySelector('.scroll-entry[data-primary-outcome="true"]');
+  if (primary) {
+    var meta = document.createElement('span');
+    meta.className = 'scroll-entry__meta';
+    meta.innerHTML = rollText;
+    primary.appendChild(meta);
+    primary.removeAttribute('data-primary-outcome');
     return;
   }
-  var meta = document.createElement('span');
-  meta.className = 'scroll-entry__meta';
-  meta.innerHTML = rollText || '';
-  last.appendChild(meta);
+  var rt = (typeof resultType === 'string' && resultType) ? resultType : 'failure';
+  addNarration('', rollText, rt, { primary: false });
 }
 
 // Build a canonical roll-line string from G._lastRollInfo + skill/dc/succeeded.
@@ -11672,12 +11681,15 @@ function _formatRollLine(rollInfo, skillKey, dc, succeeded) {
   if (rollInfo.sleeplessMalus)         parts.push('sleepless ' + rollInfo.sleeplessMalus);
   if (rollInfo.travelFatigueMalus)     parts.push('journey ' + rollInfo.travelFatigueMalus);
   if (rollInfo.fatigueExhaustionPenalty) parts.push('exhausted -' + rollInfo.fatigueExhaustionPenalty);
-  if (rollInfo.rivalDcMod)             parts.push('rival DC +' + rollInfo.rivalDcMod);
+  if (rollInfo.rivalDcMod && rollInfo.rivalDcMod !== 0) parts.push('rival DC +' + rollInfo.rivalDcMod);
   if (typeof rollInfo.rangeMod === 'number' && rollInfo.rangeMod !== 0 && rollInfo.rangeMod !== -99) {
     parts.push('range ' + (rollInfo.rangeMod > 0 ? '+' : '') + rollInfo.rangeMod);
   }
   var total = rollInfo.total != null ? rollInfo.total : (rollInfo.roll != null ? rollInfo.roll : '?');
-  var outcome = succeeded ? 'Pass' : 'Fail';
+  var outcome;
+  if (rollInfo.roll === 20)      outcome = 'Critical Success';
+  else if (rollInfo.roll === 1)  outcome = 'Fumble';
+  else                            outcome = succeeded ? 'Pass' : 'Fail';
   return parts.join(' \u00B7 ') + ' = <b>' + total + '</b> vs DC ' + dc + ' \u2014 ' + outcome;
 }
 
@@ -11812,6 +11824,9 @@ function adaptEnrichedChoice(c) {
         _gateShown = true;
         if (_gFailed) {
           G.recentOutcomeType = 'complication';
+          if (typeof G !== 'undefined' && G) {
+            G.lastResultType = (_gRoll === 1) ? 'fumble' : 'failure';
+          }
           if (typeof c.failResult === 'function') {
             var _narrSnapFR = G._narrationCount || 0;
             c.failResult();
@@ -11819,7 +11834,7 @@ function adaptEnrichedChoice(c) {
             if (_narrAfterFR === _narrSnapFR) {
               var _tierFR = typeof getChoiceTier === 'function' ? getChoiceTier(c) : 'risky';
               var _genFR = { safe: 'It doesn\u2019t land. You step back and reset.', risky: 'It slips. You note what went wrong.', bold: 'It fails hard. The cost outlasts the moment.' };
-              addNarration('', _genFR[_tierFR] || 'It doesn\u2019t go as hoped.', 'failure');
+              addNarration('', _genFR[_tierFR] || 'It doesn\u2019t go as hoped.', 'failure', { primary: true });
               if (!G.flags) G.flags = {};
               if (!G.flags._playtest_silent_choices) G.flags._playtest_silent_choices = [];
               var _cidFR = c.id || c.cid || (c.label ? String(c.label).slice(0, 40) : 'unknown');
@@ -11832,7 +11847,7 @@ function adaptEnrichedChoice(c) {
             return;
           }
           var _frTxt = typeof c.failResult === 'string' ? c.failResult : (c.failResult && c.failResult.text ? c.failResult.text : '');
-          addNarration('', _frTxt, 'failure');
+          addNarration('', _frTxt, 'failure', { primary: true });
           if (typeof updateHUD === 'function') updateHUD();
           if (typeof saveGame === 'function') saveGame();
           setTimeout(function(){ if (!document.querySelector('.choice-block')) loadStageChoices(G.location); }, 500);
@@ -11850,7 +11865,7 @@ function adaptEnrichedChoice(c) {
       } catch(e) {
         console.error('[enriched]', e);
         G._rivalDCPenalty = 0;
-        addNarration('', 'Something went wrong. Continuing...', 'neutral');
+        addNarration('', 'Something went wrong. Continuing...', 'neutral', { primary: false });
         setTimeout(function(){ loadStageChoices(G.location); }, 800);
       } finally {
         G._rivalDCPenalty = 0;
@@ -11899,7 +11914,7 @@ function adaptEnrichedChoice(c) {
         if (_rivalMod > 0 && (_outcomeType === 'failure' || _outcomeType === 'partial')) {
           _display += '<br><em style="color:var(--ink-faint);font-size:13px">The trail here has been worked recently.</em>';
         }
-        addNarration('', _display, _outcomeType);
+        addNarration('', _display, _outcomeType, { primary: true });
         G.narrationUpdateCounter = (G.narrationUpdateCounter || 0) + 1;
         if (_outcomeType === 'success' || _outcomeType === 'complication' || _outcomeType === 'crit' || _outcomeType === 'fumble' || G.narrationUpdateCounter >= 3) {
           G.narrationUpdateCounter = 0;
@@ -11915,7 +11930,7 @@ function adaptEnrichedChoice(c) {
         var _genericFail = { safe: 'It doesn\u2019t land. You step back and reset.', risky: 'It slips. You note what went wrong.', bold: 'It fails hard. The cost outlasts the moment.' };
         var _genTbl = _succeeded ? _genericPass : _genericFail;
         var _genTxt = _genTbl[_tier] || (_succeeded ? 'You manage it.' : 'It doesn\u2019t go as hoped.');
-        addNarration('', _genTxt, _succeeded ? 'neutral' : 'failure');
+        addNarration('', _genTxt, _succeeded ? 'neutral' : 'failure', { primary: true });
         if (!G.flags) G.flags = {};
         if (!G.flags._playtest_silent_choices) G.flags._playtest_silent_choices = [];
         var _cidS = c.id || c.cid || (c.label ? String(c.label).slice(0, 40) : 'unknown');
@@ -11989,13 +12004,13 @@ function checkHeatConsequences() {
   // Heat 3: world notice — NPCs become guarded
   if (heat >= 3 && !G.flags.heat3_noticed) {
     G.flags.heat3_noticed = true;
-    addNarration('Word has spread. Faces that once passed over you now pause a beat longer.');
+    addNarration('', 'Word has spread. Faces that once passed over you now pause a beat longer.', 'notice', { primary: false });
   }
   // Heat 5: mandatory patrol encounter pressure + DC penalty
   if (heat >= 5 && !G.flags.heat5_active) {
     G.flags.heat5_active = true;
     G._heatDCMod = 1;
-    addNarration('Authority patrols have your description. Moving freely has a cost now.');
+    addNarration('', 'Authority patrols have your description. Moving freely has a cost now.', 'complication', { primary: false });
   }
   // Heat 5 patrol encounter trigger (random, ~1-in-3 chance per locality load)
   if (heat >= 5 && Math.random() < 0.33 && !G.flags._patrolEncounterThisTick) {
@@ -12010,7 +12025,7 @@ function checkHeatConsequences() {
   if (heat >= 8 && !G.flags.warrant_issued) {
     G.flags.warrant_issued = true;
     addJournal('A warrant has been issued. Crossing any controlled threshold carries arrest risk.', 'complication');
-    addNarration('Your name appears on notice boards now. The warrant is real.');
+    addNarration('', 'Your name appears on notice boards now. The warrant is real.', 'complication', { primary: false });
   }
 }
 
@@ -12045,7 +12060,17 @@ function prioritizeChoices(choices, maxCount) {
   choices = choices.filter(function(c) {
     if (!c) return false;
     var _cid = c.cid || c.id || '';
-    if (typeof _cid === 'string' && _cid.indexOf('__combat_ability__') === 0) return false;
+    var _LEAK_PREFIXES = ['__combat__ability__', '__ability__', '__trait__'];
+    var _isLeak = false;
+    if (_cid && typeof _cid === 'string') {
+      for (var _li = 0; _li < _LEAK_PREFIXES.length; _li++) {
+        if (_cid.indexOf(_LEAK_PREFIXES[_li]) === 0) { _isLeak = true; break; }
+      }
+    }
+    if (!_isLeak && c && (c.kind === 'combat_ability' || c.kind === 'trait' || c.kind === 'ability')) {
+      _isLeak = true;
+    }
+    if (_isLeak) return false;
     return true;
   });
   // Filter archetype-exclusive choices — remove if archetypeGroup set and player family doesn't match
@@ -16795,7 +16820,13 @@ function showCharSheet() {
 
     '<div style="margin-top:20px"><div class="char-section-title">Skills</div>' +
     '<div style="display:grid;grid-template-columns:1fr 1fr;gap:4px">' +
-    Object.entries(G.skills||{}).filter(([k]) => k !== 'craft').map(([k,v]) => {
+    Object.entries(G.skills||{}).filter(([k]) => {
+      if (!k || typeof k !== 'string') return false;
+      var _kLower = k.toLowerCase();
+      if (_kLower === 'undefined' || _kLower === 'null') return false;
+      if (k === 'craft') return false;
+      return true;
+    }).map(([k,v]) => {
       const pct=Math.round((v/20)*100);
       return '<div class="char-skill-row"><span class="char-skill-name">'+skillDisplay(k)+'</span><span class="skill-val">'+v+'</span><div class="skill-bar-track"><div class="skill-bar-fill" style="width:'+pct+'%"></div></div></div>';
     }).join('') + '</div></div>' +
@@ -17889,19 +17920,6 @@ function flashStatRow(key) {
   });
 }
 
-function buildCompanionHudHTML(companions) {
-  if (!companions || companions.length === 0) return '';
-  var _cdefs = (typeof window !== 'undefined' && window.COMPANION_DEFS) || (typeof COMPANION_DEFS !== 'undefined' && COMPANION_DEFS) || {};
-  return companions.map(function(c) {
-    var def = _cdefs[c.id] || {};
-    var _passiveAbil = def.abilities && def.abilities.find(function(a){ return a.type === 'passive'; });
-    // Accept either {abilities:[{type:'passive',desc}]} or shorthand {passive:'...'} (used by tests/back-compat defs)
-    var passive = _passiveAbil ? _passiveAbil.desc : (typeof def.passive === 'string' ? def.passive : '');
-    return '<div class="hud-companion-name">' + (def.name || c.id || '').toUpperCase() + '</div>'
-      + (passive ? '<div class="hud-companion-passive">' + passive.substr(0, 60) + (passive.length > 60 ? '\u2026' : '') + '</div>' : '');
-  }).join('');
-}
-
 function updateHUD() {
   if (G && typeof G.fatigue === 'number') G.fatigue = Math.max(0, Math.min(FATIGUE_MAX, G.fatigue));
   // Stage II: keep stageProgress[2] in sync with investigationProgress
@@ -17931,9 +17949,6 @@ function updateHUD() {
   setText('hud-renown',  (G.renown||0) + ' — ' + getRenownedTitle());
   setText('hud-hp',      G.hp+' / '+G.maxHp);
   setText('hud-gold',    G.gold);
-  // Day count
-  var _dayEl = document.getElementById('hud-day');
-  if (_dayEl) { var _day = G.dayCount || 0; _dayEl.textContent = 'Day ' + _day; _dayEl.style.display = ''; }
   // Rival clock — highest renown across rivalAdventurers + Maren pressure
   var _rivalEl = document.getElementById('hud-rival');
   if (_rivalEl) {
@@ -17964,17 +17979,6 @@ function updateHUD() {
   if (_consumEl) {
     _consumEl.textContent = _consumCount > 0 ? _consumCount + ' CONSUMABLE' + (_consumCount > 1 ? 'S' : '') : '';
     _consumEl.style.display = _consumCount > 0 ? '' : 'none';
-  }
-  // Companion HUD
-  var $comps = document.getElementById('hud-companions');
-  if ($comps) {
-    var _compList = G.companions ? (Array.isArray(G.companions) ? G.companions : Object.values(G.companions).filter(function(c){ return c && c.status === 'active'; })) : [];
-    if (_compList.length > 0) {
-      $comps.style.display = 'block';
-      $comps.innerHTML = buildCompanionHudHTML(_compList);
-    } else {
-      $comps.style.display = 'none';
-    }
   }
   // Investigation thread progress
   var _progEl = document.getElementById('hud-progress');
@@ -18030,8 +18034,6 @@ function updateHUD() {
   if (_pcEl) { _pcEl.textContent = _inSore ? '\u25C6 ' + (G.sorePlotCredits || 0) : ''; _pcEl.style.display = _inSore ? '' : 'none'; }
   setText('hud-axis',    G.axisInverted?'Inverted':'Normal');
   setText('hud-tick',    G.axisTick||0);
-  setText('hud-location',WORLD_LOCATIONS[G.location]?WORLD_LOCATIONS[G.location].name:G.location);
-  setText('hud-time',    TIME_NAMES[G.timeIndex||0]);
   setText('topbar-stage',G.stage||(G.stageLabel?G.stageLabel:'Stage I'));
 
   const pct = G.hp/G.maxHp;
@@ -18049,6 +18051,9 @@ function updateHUD() {
     sk.innerHTML = '';
     var _SKILL_LABELS = { might:'Might', finesse:'Finesse', vigor:'Vigor', wits:'Wits', charm:'Charm', spirit:'Spirit', craft:'Craft', combat:'Might', stealth:'Finesse', survival:'Vigor', lore:'Wits', persuasion:'Charm' };
     Object.entries(G.skills||{}).forEach(([k,v]) => {
+      if (!k || typeof k !== 'string') return;
+      var _kLower = k.toLowerCase();
+      if (_kLower === 'undefined' || _kLower === 'null') return;
       if (k === 'craft') return;
       const r = document.createElement('div'); r.className='skill-item';
       const pct=Math.round((v/20)*100);
@@ -18071,6 +18076,15 @@ function updateHUD() {
     _fatigueEl.textContent = _fatigue > 0 ? 'FATIGUE ' + _fatigue + '/10' : '';
     _fatigueEl.style.display = _fatigue > 0 ? '' : 'none';
     _fatigueEl.style.color = _fatigue >= 5 ? 'var(--danger)' : 'var(--ink-faint)';
+  }
+  // Fatigue pill (journey-tab-strip)
+  var fp = document.getElementById('hud-fatigue-pill');
+  if (fp) {
+    var fat = Math.max(0, Math.min(10, G.fatigue || 0));
+    fp.textContent = 'Fatigue ' + fat + '/10';
+    fp.classList.remove('fatigue-pill--warn', 'fatigue-pill--crit');
+    if (fat >= 9) fp.classList.add('fatigue-pill--crit');
+    else if (fat >= 6) fp.classList.add('fatigue-pill--warn');
   }
   // Active trait readiness indicator
   // Only count unlocked abilities from ARCHETYPE_ABILITY_TREES (type:'active') as truly activatable.

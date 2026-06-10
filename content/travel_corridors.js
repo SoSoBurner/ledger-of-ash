@@ -4611,6 +4611,7 @@
         '<div class="journey-tab-strip">' +
         '<button class="journey-tab active" data-tab="journey" onclick="switchJourneyTab(\'journey\')">JOURNEY</button>' +
         '<button class="journey-tab" data-tab="camp" onclick="switchJourneyTab(\'camp\')">CAMP</button>' +
+        '<span class="fatigue-pill" id="hud-fatigue-pill">Fatigue 0/10</span>' +
         '</div>';
       var _journeyPane =
         '<div class="journey-tab-pane active" data-pane="journey">' +
