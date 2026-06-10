@@ -438,6 +438,22 @@ function checkResultTypeVocabulary(fileBody, fileName) {
       });
     }
   }
+  // Post-T2 canonical dynamic form: (G && G.lastResultType) || 'fallback'
+  // Validate the fallback string is in the locked vocabulary; the dynamic expression itself is accepted silently.
+  const dynamicRe = /addNarration\s*\(\s*[^,)]+,\s*[^,)]+,\s*\(\s*G\s*&&\s*G\.lastResultType\s*\)\s*\|\|\s*['"]([a-z_]+)['"]\s*\)/g;
+  let dm;
+  while ((dm = dynamicRe.exec(fileBody)) !== null) {
+    const fallback = dm[1];
+    if (!VALID_RESULT_TYPES.has(fallback)) {
+      const lineNo = fileBody.slice(0, dm.index).split('\n').length;
+      warnings.push({
+        file: fileName,
+        line: lineNo,
+        kind: 'invalid_resultType',
+        message: 'addNarration dynamic resultType fallback "' + fallback + '" is not in the locked vocabulary. Valid: ' + Array.from(VALID_RESULT_TYPES).join(', ')
+      });
+    }
+  }
   return warnings;
 }
 
