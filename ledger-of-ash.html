@@ -13386,9 +13386,9 @@ function handleChoice(choice) {
       }
     }
 
-    // Bold bonus XP: +5 on success for bold choices (additive on top of base XP) — halved 2026-06-10 for pacing
+    // Bold bonus XP: +3 on success for bold choices (additive on top of base XP) — Phase D.2 cut 2026-06-10 (5→3 after 1.39/20 aggregate)
     if (success && _resolvedTier === 'bold') {
-      if (typeof gainXp === 'function') gainXp(5); else G.xp = (G.xp||0)+5;
+      if (typeof gainXp === 'function') gainXp(3); else G.xp = (G.xp||0)+3;
     }
 
     // B1: Bold success → +2 stageProgress; safe/risky success → +1 stageProgress
@@ -13498,7 +13498,7 @@ function getEquipmentBonus(skill) {
 function resolveConsequence(cid, success, partial) {
   const entry = C[cid];
   if (!entry) {
-    if (success) { addNarration('', 'The action finds purchase.', 'success'); gainXp(2); /* consequence-table miss safety — halved 2026-06-10 */ }
+    if (success) { addNarration('', 'The action finds purchase.', 'success'); gainXp(1); /* consequence-table miss safety — Phase D.2 cut 2026-06-10 (2→1) */ }
     else { addNarration('', 'The approach finds no opening. The next move is yours.', 'failure'); }
     setTimeout(function(){ if (typeof loadStageChoices === 'function') loadStageChoices(G.location); }, 400);
     return;
