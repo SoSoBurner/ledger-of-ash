@@ -1024,9 +1024,9 @@ input, button, select, textarea { font-family: inherit; }
   to   { opacity: 1; transform: translateY(0); }
 }
 .scene-location {
-  font-family: var(--font-display); font-size: 8.8px; letter-spacing: 5px;
-  text-transform: uppercase; color: var(--ember-hi);
-  margin-bottom: 13px; opacity: .7;
+  font-family: var(--font-display); font-size: 14px; letter-spacing: 1.5px;
+  font-weight: 600; color: var(--gold-bright, #d89a2c);
+  margin-bottom: 13px; opacity: .85;
 }
 
 /* ── NARRATIVE PROSE ── */
@@ -1523,6 +1523,8 @@ input, button, select, textarea { font-family: inherit; }
 .combat-btn:hover { border-color: var(--ember-lo); color: var(--gold-bright); }
 .combat-btn.primary { background: linear-gradient(180deg, var(--ember-hi), var(--ember)); color: var(--white); border-color: rgba(240,120,50,.3); box-shadow: 0 2px 12px var(--ember-glow); }
 .combat-btn.danger  { background: linear-gradient(180deg, var(--blood-bright), var(--blood-mid)); color: var(--ink); border-color: var(--blood-mid); }
+.combat-btn[disabled], .choice-btn[disabled] { opacity: 0.4; cursor: not-allowed; filter: grayscale(0.5); }
+.combat-btn[disabled]:hover, .choice-btn[disabled]:hover { background: inherit; border-color: inherit; color: inherit; box-shadow: none; }
 
 
 /* ═══ LEVEL UP ════════════════════════════════════════════════════ */
@@ -1801,6 +1803,57 @@ input, button, select, textarea { font-family: inherit; }
 .stat-flash {
   animation: statFlash 500ms ease-out;
 }
+
+/* ── UNIFIED SCROLL-ENTRY SHELL ── */
+.scroll-entry {
+  position: relative;
+  margin: 14px 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--char, #131019);
+  background: rgba(12, 10, 20, 0.6);
+  font-family: var(--font-body);
+  line-height: 1.55;
+}
+.scroll-entry__type {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.35);
+}
+.scroll-entry__body { font-family: 'Crimson Pro', serif; font-weight: 300; font-size: 17px; }
+.scroll-entry__meta {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.78;
+  font-family: 'Crimson Pro', serif;
+}
+.scroll-entry--success      { border-left-color: var(--discovery, #26603e); }
+.scroll-entry--success      .scroll-entry__type { color: var(--jade-bright, #5ec78a); }
+.scroll-entry--failure      { border-left-color: var(--danger, #be2828); }
+.scroll-entry--failure      .scroll-entry__type { color: var(--blood-bright, #e76a6a); }
+.scroll-entry--partial      { border-left-color: #b88a2c; }
+.scroll-entry--partial      .scroll-entry__type { color: #d89a2c; }
+.scroll-entry--neutral      { border-left-color: rgba(216, 154, 44, 0.35); }
+.scroll-entry--neutral      .scroll-entry__type { color: rgba(216, 154, 44, 0.7); }
+.scroll-entry--complication { border-left-color: #d47517; }
+.scroll-entry--complication .scroll-entry__type { color: #d47517; }
+.scroll-entry--notice       { border-left-color: #4a7ab5; }
+.scroll-entry--notice       .scroll-entry__type { color: #4a7ab5; }
+.scroll-entry--encounter    { border-left-color: var(--danger, #be2828); }
+.scroll-entry--encounter    .scroll-entry__type { color: var(--blood-bright, #e76a6a); }
+.scroll-entry--dim          { border-left-color: rgba(120, 120, 130, 0.25); opacity: 0.7; }
+.scroll-entry--dim          .scroll-entry__type { color: rgba(180, 180, 190, 0.5); }
+.scroll-entry--crit         { border-left-color: #5ec78a; box-shadow: 0 0 12px rgba(94, 199, 138, 0.25); }
+.scroll-entry--crit         .scroll-entry__type { color: #5ec78a; }
+.scroll-entry--fumble       { border-left-color: #e76a6a; box-shadow: 0 0 12px rgba(231, 106, 106, 0.25); }
+.scroll-entry--fumble       .scroll-entry__type { color: #e76a6a; }
 </style>
 <style>
 #splash-screen {
@@ -4553,6 +4606,20 @@ function getRangeModifier(attackType) {
   return 0;
 }
 
+function getEquippedWeaponAttackType() {
+  if (!G || !G.equipped || !G.equipped.weapon) return 'melee';
+  var w = G.equipped.weapon;
+  if (typeof w === 'object' && w.attackType) return w.attackType;
+  if (typeof w === 'number' && G.inventory && G.inventory[w]) {
+    var item = G.inventory[w];
+    if (item && item.attackType) return item.attackType;
+  }
+  if (typeof w === 'string' && typeof ITEM_DEFS !== 'undefined' && ITEM_DEFS[w] && ITEM_DEFS[w].attackType) {
+    return ITEM_DEFS[w].attackType;
+  }
+  return 'melee';
+}
+
 function fleeRoll() {
   var tier = (CS && CS.rangeTier) || 'close';
   var _fleeBon = (typeof getEquipmentBonus === 'function' ? getEquipmentBonus('finesse') : 0) + (typeof getTraitBonus === 'function' ? getTraitBonus('finesse') : 0);
@@ -4621,8 +4688,17 @@ function renderCombatRound() {
   // Show d20 roll info
   html += '<div class="combat-actions"><div class="choice-label">Choose your action:</div><div class="choices">';
 
-  // Base attacks
-  html += '<button class="choice-btn combat-btn" data-action="attack">' +
+  // Base attacks — disable when weapon can't reach current range
+  var _atkType   = getEquippedWeaponAttackType();
+  var _rangeMod  = getRangeModifier(_atkType);
+  var _atkInvalid = (_rangeMod === -99);
+  var _atkDisabled = _atkInvalid ? ' disabled' : '';
+  var _atkTier   = (CS && CS.rangeTier) || 'close';
+  var _atkTip    = _atkInvalid
+    ? ' title="' + _atkType.charAt(0).toUpperCase() + _atkType.slice(1)
+      + ' attacks cannot reach at ' + _atkTier + ' range. Move closer or change weapon."'
+    : '';
+  html += '<button class="choice-btn combat-btn" data-action="attack"' + _atkDisabled + _atkTip + '>' +
     '<span class="choice-text">Strike — direct attack</span>' +
     '<span class="choice-meta"><span class="choice-skill">combat</span><span class="choice-tag bold">attack</span></span>' +
     '</button>';
@@ -4825,7 +4901,8 @@ function resolveCombatAction(action, abilityId) {
 
   } else if (action === 'attack') {
     const roll = d20();
-    const rangeBonus = getRangeModifier('melee');
+    const rangeBonus = getRangeModifier(getEquippedWeaponAttackType());
+    if (G && G._lastRollInfo) G._lastRollInfo.rangeMod = rangeBonus;
     const compAtkBonus = getCompanionPassiveBonus('combat');
     const nextAtkBonus = CS.nextAttackBonus || 0;
     const enemyDefAdj = CS.enemyDefMod || 0;
@@ -4943,7 +5020,8 @@ function resolveCombatAction(action, abilityId) {
         // Bonus-action abilities: also resolve a normal attack in the same round
         if (ab.cost === 'bonus' && CS.enemy.hp > 0) {
           var _baRoll = d20();
-          var _baRangeBonus = getRangeModifier('melee');
+          var _baRangeBonus = getRangeModifier(getEquippedWeaponAttackType());
+          if (G && G._lastRollInfo) G._lastRollInfo.rangeMod = _baRangeBonus;
           var _baCompBonus = getCompanionPassiveBonus('combat');
           var _baTotal = _baRoll + combatSkill + traitCombatBonus + _baRangeBonus + _baCompBonus;
           var _baHit = _baTotal >= (CS.enemy.defense) + 5 - (_archFamily === 'combat' ? 2 : 0);
@@ -10000,9 +10078,9 @@ function _authorityResolvePhase1(authorityKey, polity, heatLevel, outcome, roll,
   var success   = (roll + skillVal) >= dc;
   var _aStageNum = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
   var _aStageRoman = ['','II','III','IV','V'][_aStageNum] || '';
-  var _aStageSuffix = _aStageNum > 0 ? ' <span class="roll-note">(Stage ' + _aStageRoman + ' pressure +' + _aStageNum + ')</span>' : '';
-  var rollLabel = '<span class="roll-note">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix + '</span>';
-  addNarration('', rollLabel);
+  var _aPressure = _aStageNum > 0 ? ' (Stage ' + _aStageRoman + ' pressure +' + _aStageNum + ')' : '';
+  var _aLine = 'd20: <b>' + roll + '</b> +' + skillVal + ' = <b>' + (roll + skillVal) + '</b> vs DC ' + dc + _aPressure + ' \u2014 ' + (success ? 'Pass' : 'Fail');
+  emitRollLine(_aLine, success ? 'success' : 'failure');
 
   if (success) {
     if (outcome === 'comply' || outcome === 'negotiate') {
@@ -10031,9 +10109,9 @@ function _authorityResolvePhase2(authorityKey, polity, heatLevel, outcome, roll,
     var success = (roll + skillVal) >= dc;
     var _aStageNum2 = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
     var _aStageRoman2 = ['','II','III','IV','V'][_aStageNum2] || '';
-    var _aStageSuffix2 = _aStageNum2 > 0 ? ' <span class="roll-note">(Stage ' + _aStageRoman2 + ' pressure +' + _aStageNum2 + ')</span>' : '';
-    var rollLabel = '<span class="roll-note">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix2 + '</span>';
-    addNarration('', rollLabel);
+    var _aPressure2 = _aStageNum2 > 0 ? ' (Stage ' + _aStageRoman2 + ' pressure +' + _aStageNum2 + ')' : '';
+    var _aLine2 = 'd20: <b>' + roll + '</b> +' + skillVal + ' = <b>' + (roll + skillVal) + '</b> vs DC ' + dc + _aPressure2 + ' \u2014 ' + (success ? 'Pass' : 'Fail');
+    emitRollLine(_aLine2, success ? 'success' : 'failure');
     if (success) {
       addHeat(polity, 1);
       addNarration('', 'You are through before they can close. Your name is on a report now, but you are free.');
@@ -10853,7 +10931,7 @@ function _beginLegendCore() {
   // Archetype starting gear (auto-equipped)
   const _archetypeGear = {
     combat:  {
-      weapon: { name:'Iron Accord Standard Blade', type:'weapon', skillBonus:'combat',   bonus:1, desc:'Standard issue. Keeps you alive.' },
+      weapon: { name:'Iron Accord Standard Blade', type:'weapon', skillBonus:'combat',   bonus:1, attackType:'melee', desc:'Standard issue. Keeps you alive.' },
       armor:  { name:'Warden Field Plate',          type:'armor',  skillBonus:'survival', bonus:1, desc:'Worn through checkpoints. Absorbs the first hit.' }
     },
     magic:   {
@@ -11526,35 +11604,81 @@ function clearNarrative() {
 }
 
 function addNarration(label, html, resultType) {
+  // T4: narration-emission counter for silent-choice detection.
+  if (typeof G !== 'undefined' && G) {
+    G._narrationCount = (G._narrationCount || 0) + 1;
+  }
   const el = document.getElementById('narrative-content');
+  if (!el) return;
   const block = document.createElement('div');
   block.className = 'scene-block';
-  var _safeHtml = (html == null || html === undefined) ? '' : String(html);
-  let inner = '';
-  if (label) inner += '<div class="scene-location">' + label + '</div>';
-  if (resultType) {
-    var _ICON_MAP = {
-      'crit': '&#x2605; Critical Success',
-      'fumble': '&#x2620; Fumble',
-      'success': '&#x2713; Success',
-      'failure': '&#x2717; Failure',
-      'partial': '~ Partial',
-      'neutral': '&middot; Neutral',
-      'complication': '&#x26A1; Complication',
-      'notice': '&#x25C8; Notice',
-      'encounter': '&#x2694; Encounter',
-      'dim': '&middot; '
-    };
-    var icon = _ICON_MAP[resultType] || '~ Partial';
-    inner += '<div class="result-block ' + resultType + '"><div class="result-tag ' + resultType + '">' + icon + '</div><div class="result-text">' + _safeHtml + '</div></div>';
-  } else {
-    inner += '<div class="narrative-text">' + _safeHtml + '</div>';
-  }
+  var _safeHtml = (html == null) ? '' : String(html);
+  var _VALID_TYPES = { success:1, failure:1, partial:1, neutral:1, complication:1, notice:1, encounter:1, dim:1, crit:1, fumble:1 };
+  var _type = (typeof resultType === 'string' && _VALID_TYPES[resultType]) ? resultType : 'neutral';
+  var _TYPE_LABEL_MAP = {
+    success:      '\u2713 Success',
+    failure:      '\u2717 Failure',
+    partial:      '~ Partial',
+    neutral:      '\u00B7 Neutral',
+    complication: '\u26A1 Complication',
+    notice:       '\u25C8 Notice',
+    encounter:    '\u2694 Encounter',
+    dim:          '\u00B7 Aside',
+    crit:         '\u2605 Critical',
+    fumble:       '\u2620 Fumble'
+  };
+  var _typeLabel = _TYPE_LABEL_MAP[_type];
+  var _headerHtml = label ? '<div class="scene-location">' + label + '</div>' : '';
+  var inner =
+    '<div class="scroll-entry scroll-entry--' + _type + '">' +
+      '<span class="scroll-entry__type">' + _typeLabel + '</span>' +
+      _headerHtml +
+      '<div class="scroll-entry__body">' + _safeHtml + '</div>' +
+    '</div>';
   block.innerHTML = inner;
   el.appendChild(block);
   // Keep narrative-content trimmed to last 5 blocks to prevent unbounded DOM growth
   while (el.childNodes.length > 5) el.removeChild(el.firstChild);
   scrollNarrative();
+}
+
+// Append a roll-result as a meta line inside the most recent scroll-entry.
+// Falls back to a standalone neutral entry if no entry exists yet.
+function emitRollLine(rollText, resultType) {
+  var el = document.getElementById('narrative-content');
+  if (!el) return;
+  var entries = el.querySelectorAll('.scroll-entry');
+  var last = entries[entries.length - 1];
+  if (!last) {
+    addNarration('', rollText || '', resultType || 'neutral');
+    return;
+  }
+  var meta = document.createElement('span');
+  meta.className = 'scroll-entry__meta';
+  meta.innerHTML = rollText || '';
+  last.appendChild(meta);
+}
+
+// Build a canonical roll-line string from G._lastRollInfo + skill/dc/succeeded.
+function _formatRollLine(rollInfo, skillKey, dc, succeeded) {
+  rollInfo = rollInfo || {};
+  var skillDisplay = (skillKey || 'Untrained').charAt(0).toUpperCase() + (skillKey || 'untrained').slice(1);
+  var parts = [];
+  parts.push('d20: <b>' + (rollInfo.roll != null ? rollInfo.roll : '?') + '</b>');
+  if (rollInfo.statValue)              parts.push(skillDisplay + ' +' + rollInfo.statValue);
+  if (rollInfo.traitBonus)             parts.push('trait ' + (rollInfo.traitBonus > 0 ? '+' : '') + rollInfo.traitBonus);
+  if (rollInfo.equipmentBonus)         parts.push('gear ' + (rollInfo.equipmentBonus > 0 ? '+' : '') + rollInfo.equipmentBonus);
+  if (rollInfo.campoutBonus)           parts.push('rested +' + rollInfo.campoutBonus);
+  if (rollInfo.sleeplessMalus)         parts.push('sleepless ' + rollInfo.sleeplessMalus);
+  if (rollInfo.travelFatigueMalus)     parts.push('journey ' + rollInfo.travelFatigueMalus);
+  if (rollInfo.fatigueExhaustionPenalty) parts.push('exhausted -' + rollInfo.fatigueExhaustionPenalty);
+  if (rollInfo.rivalDcMod)             parts.push('rival DC +' + rollInfo.rivalDcMod);
+  if (typeof rollInfo.rangeMod === 'number' && rollInfo.rangeMod !== 0 && rollInfo.rangeMod !== -99) {
+    parts.push('range ' + (rollInfo.rangeMod > 0 ? '+' : '') + rollInfo.rangeMod);
+  }
+  var total = rollInfo.total != null ? rollInfo.total : (rollInfo.roll != null ? rollInfo.roll : '?');
+  var outcome = succeeded ? 'Pass' : 'Fail';
+  return parts.join(' \u00B7 ') + ' = <b>' + total + '</b> vs DC ' + dc + ' \u2014 ' + outcome;
 }
 
 // Draws a source-attributed rumor string for the given locality, logs to journal as 'rumor'.
@@ -11683,13 +11807,26 @@ function adaptEnrichedChoice(c) {
         if (G && G._pendingDcReduce) G._pendingDcReduce = 0;
         var _gTotal = _gRoll + _gVal;
         var _gFailed = _gTotal < _gDC;
-        var _gSkLabel = (typeof skillDisplay === 'function') ? skillDisplay(_gSk) : (_gSk.charAt(0).toUpperCase() + _gSk.slice(1));
-        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSkLabel + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span class="roll-note">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
+        var _gRollInfo = { roll: _gRoll, statValue: _gVal, total: _gTotal, rivalDcMod: (_rivalMod > 0 ? _rivalMod : 0) };
+        emitRollLine(_formatRollLine(_gRollInfo, _gSk, _gDC, !_gFailed), _gFailed ? 'failure' : 'success');
         _gateShown = true;
         if (_gFailed) {
           G.recentOutcomeType = 'complication';
           if (typeof c.failResult === 'function') {
+            var _narrSnapFR = G._narrationCount || 0;
             c.failResult();
+            var _narrAfterFR = G._narrationCount || 0;
+            if (_narrAfterFR === _narrSnapFR) {
+              var _tierFR = typeof getChoiceTier === 'function' ? getChoiceTier(c) : 'risky';
+              var _genFR = { safe: 'It doesn\u2019t land. You step back and reset.', risky: 'It slips. You note what went wrong.', bold: 'It fails hard. The cost outlasts the moment.' };
+              addNarration('', _genFR[_tierFR] || 'It doesn\u2019t go as hoped.', 'failure');
+              if (!G.flags) G.flags = {};
+              if (!G.flags._playtest_silent_choices) G.flags._playtest_silent_choices = [];
+              var _cidFR = c.id || c.cid || (c.label ? String(c.label).slice(0, 40) : 'unknown');
+              if (G.flags._playtest_silent_choices.indexOf(_cidFR) === -1) {
+                G.flags._playtest_silent_choices.push(_cidFR);
+              }
+            }
             if (typeof updateHUD === 'function') updateHUD();
             if (typeof saveGame === 'function') saveGame();
             return;
@@ -11702,6 +11839,7 @@ function adaptEnrichedChoice(c) {
           return;
         }
       }
+      var _narrSnap = G._narrationCount || 0;
       try {
         if (typeof c.fn !== 'function') {
           console.error('[enriched] choice missing fn:', c.id || c.cid || '(no id)');
@@ -11738,10 +11876,8 @@ function adaptEnrichedChoice(c) {
         if (!_gateShown) {
           var _riDC = Math.max(7, getChoiceDC(c, _rivalMod) - _primaryDcReduce);
           var _riSucceeded = (G.lastResultType === 'success' || G.lastResultType === 'crit');
-          var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
-          var _riSKD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit',craft:'Craft'};
-          var _riSkillLabel = _riSKD[_ri.skill] || _ri.skill;
-          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _riSkillLabel + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span class="roll-note">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
+          var _riInfo = Object.assign({}, _ri, { rivalDcMod: (_rivalMod > 0 ? _rivalMod : 0) });
+          emitRollLine(_formatRollLine(_riInfo, _ri.skill, _riDC, _riSucceeded), _riSucceeded ? 'success' : 'failure');
         }
         // Bold success reward: +1 renown, track session bold successes for discovery unlock
         if (_riSucceeded) {
@@ -11768,6 +11904,23 @@ function adaptEnrichedChoice(c) {
         if (_outcomeType === 'success' || _outcomeType === 'complication' || _outcomeType === 'crit' || _outcomeType === 'fumble' || G.narrationUpdateCounter >= 3) {
           G.narrationUpdateCounter = 0;
           scheduleLivingDescUpdate();
+        }
+      }
+      // Silent choice detection — fn ran but emitted no narration through any path
+      var _narrAfter = G._narrationCount || 0;
+      if (_narrAfter === _narrSnap) {
+        var _tier = typeof getChoiceTier === 'function' ? getChoiceTier(c) : 'risky';
+        var _succeeded = (_outcomeType === 'success' || _outcomeType === 'crit');
+        var _genericPass = { safe: 'You handle it steadily. Nothing dramatic happens.', risky: 'It works. You file the moment away.', bold: 'It pays off. The cost was real, but so is the result.' };
+        var _genericFail = { safe: 'It doesn\u2019t land. You step back and reset.', risky: 'It slips. You note what went wrong.', bold: 'It fails hard. The cost outlasts the moment.' };
+        var _genTbl = _succeeded ? _genericPass : _genericFail;
+        var _genTxt = _genTbl[_tier] || (_succeeded ? 'You manage it.' : 'It doesn\u2019t go as hoped.');
+        addNarration('', _genTxt, _succeeded ? 'neutral' : 'failure');
+        if (!G.flags) G.flags = {};
+        if (!G.flags._playtest_silent_choices) G.flags._playtest_silent_choices = [];
+        var _cidS = c.id || c.cid || (c.label ? String(c.label).slice(0, 40) : 'unknown');
+        if (G.flags._playtest_silent_choices.indexOf(_cidS) === -1) {
+          G.flags._playtest_silent_choices.push(_cidS);
         }
       }
       // Stage II stageProgress increment — wire c.stageProgress on success/crit outcomes
@@ -12214,7 +12367,7 @@ function loadStageChoices(locId) {
         var _r = Math.floor(Math.random()*20)+1;
         var _dc = 13;
         var _ok = (_r + _sk) >= _dc;
-        addNarration('', '<div class="roll-result '+(_ok?'success':'failure')+'">d20: '+_r+' + Wits '+_sk+' = <strong>'+(_r+_sk)+'</strong> vs DC '+_dc+' — '+(_ok?'Success':'Failure')+'</div>');
+        emitRollLine(_formatRollLine({ roll: _r, statValue: _sk, total: _r + _sk }, 'wits', _dc, _ok), _ok ? 'success' : 'failure');
         if (_ok) {
           G.investigationProgress = (G.investigationProgress||0) + 1;
           addNarration('', 'There is a gap in the chain of authorization. The name that should appear in the transit record is missing — not redacted, not smudged. Simply absent. Whatever moved through that checkpoint was never meant to be traceable back.');
@@ -12233,7 +12386,7 @@ function loadStageChoices(locId) {
         var _r = Math.floor(Math.random()*20)+1;
         var _dc = 11;
         var _ok = (_r + _sk) >= _dc;
-        addNarration('', '<div class="roll-result '+(_ok?'success':'failure')+'">d20: '+_r+' + Wits '+_sk+' = <strong>'+(_r+_sk)+'</strong> vs DC '+_dc+' — '+(_ok?'Success':'Failure')+'</div>');
+        emitRollLine(_formatRollLine({ roll: _r, statValue: _sk, total: _r + _sk }, 'wits', _dc, _ok), _ok ? 'success' : 'failure');
         if (_ok) {
           G.investigationProgress = (G.investigationProgress||0) + 1;
           addNarration('', 'The notes spread across the table again. Three manifests, different hands, the same destination code — a transfer point that appears on none of the official route records. Not an omission. A deliberate absence. The authorization column is blank where it should carry a name. Finding who signed off on that blank space is the next step.');
@@ -12783,7 +12936,7 @@ function rollD20(skill, bonus) {
   var fatigueExhaustionPenalty = (G && typeof G.fatigue === 'number' && G.fatigue >= FATIGUE_MAX && _physicalSkills[_sk]) ? 1 : 0;
   var total = roll + statValue + (bonus || 0) - penalty - sleepless - campoutMod - travelFatiguedMod - fatigueExhaustionPenalty;
   if (typeof G !== 'undefined' && G) {
-    G._lastRollInfo = { roll: roll, skill: skill, statValue: statValue, total: total, fatigueExhaustionPenalty: fatigueExhaustionPenalty };
+    G._lastRollInfo = { roll: roll, skill: skill, statValue: statValue, total: total, fatigueExhaustionPenalty: fatigueExhaustionPenalty, rangeMod: 0 };
   }
   return { roll: roll, total: total, isCrit: roll === 20, isFumble: roll === 1 };
 }
@@ -12881,8 +13034,7 @@ function handleChoice(choice) {
     const _rRoll = Math.floor(Math.random() * 20) + 1;
     const _rDiff = getChoiceDC(choice);
     const _rSuccess = (_rRoll + _rSkill) >= _rDiff;
-    var _rSkillLabel = (typeof skillDisplay === 'function') ? skillDisplay(choice.skill) : (choice.skill || '');
-    addNarration('', '<div class="roll-result ' + (_rSuccess ? 'success' : 'failure') + '">d20: ' + _rRoll + ' + ' + _rSkillLabel + ' ' + _rSkill + ' = <strong>' + (_rRoll + _rSkill) + '</strong> vs DC ' + _rDiff + ' — ' + (_rSuccess ? 'Success' : 'Failure') + '</div>');
+    emitRollLine(_formatRollLine({ roll: _rRoll, statValue: _rSkill, total: _rRoll + _rSkill }, choice.skill, _rDiff, _rSuccess), _rSuccess ? 'success' : 'failure');
     resolveRivalOutcome(_rIdx, _rOutcome, _rSuccess);
     return;
   }
@@ -13006,10 +13158,7 @@ function handleChoice(choice) {
       var _arRoll = Math.floor(Math.random() * 20) + 1;
       var _arTotal = _arRoll + _arSkillVal + _abilBonus;
       _autoRollFailed = _arTotal < _effectiveRoll.dc;
-      var _rollClass = 'roll-result ' + (_autoRollFailed ? 'failure' : 'success');
-      var _abilStr = _abilBonus > 0 ? ' + ability ' + _abilBonus : '';
-      var _skillLabel = skillDisplay(_effectiveRoll.skill);
-      addNarration('', '<div class="' + _rollClass + '">d20: ' + _arRoll + ' + ' + _skillLabel + ' ' + _arSkillVal + _abilStr + ' = <strong>' + _arTotal + '</strong> vs DC ' + _effectiveRoll.dc + ' — ' + (_autoRollFailed ? 'Failure' : 'Success') + '</div>');
+      emitRollLine(_formatRollLine({ roll: _arRoll, statValue: _arSkillVal, total: _arTotal, traitBonus: _abilBonus > 0 ? _abilBonus : 0 }, _effectiveRoll.skill, _effectiveRoll.dc, !_autoRollFailed), _autoRollFailed ? 'failure' : 'success');
       if (_autoRollFailed && choice.failResult) {
         G.lastResult = choice.failResult;
         G.recentOutcomeType = 'complication';
@@ -13118,7 +13267,8 @@ function handleChoice(choice) {
   } else if (roll === 1) {
     _critPrefix = '<span style="color:var(--danger);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Failure! </span>';
   }
-  addNarration('', _critPrefix + '<span class="roll-note">' + rollDisplay + '</span>');
+  var _rollLineType = roll === 20 ? 'crit' : (roll === 1 ? 'fumble' : (success ? 'success' : 'failure'));
+  emitRollLine(_critPrefix + rollDisplay, _rollLineType);
 
   // First-choice tutorial callout — fires once after the player's first real roll
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_choice');
@@ -17620,6 +17770,13 @@ function migrateState(loaded) {
       }
     }
   } catch(e) { /* non-fatal */ }
+  // Defensive load-time clamp: any save written before FATIGUE_MAX existed,
+  // or any save that drifted via a now-fixed leak, gets brought into bounds.
+  if (typeof loaded.fatigue === 'number' && isFinite(loaded.fatigue)) {
+    loaded.fatigue = Math.max(0, Math.min(FATIGUE_MAX, loaded.fatigue));
+  } else {
+    loaded.fatigue = 0;
+  }
   return loaded;
 }
 
@@ -18724,7 +18881,9 @@ function resolveCombatEntry(mode, enemyKey, abilityId) {
     const total = roll + persuasion + compBonus;
     const diff = enemyKey === 'hired_muscle' ? 10 : enemyKey === 'roadwarden_officer' ? 8 : 13;
     const success = total >= diff;
-    addNarration('', '<div class="roll-result ' + (success?'success':'failure') + '">d20: ' + roll + ' + persuasion ' + persuasion + (compBonus?' + companion '+compBonus:'') + ' = <strong>' + total + '</strong> vs ' + diff + ' — ' + (success ? '<span style="color:var(--jade-bright)">De-escalated</span>' : '<span style="color:var(--blood-bright)">Refused</span>') + '</div>' + (success ? 'They stand down. You have one question while they are still willing.' : 'They are not interested in talking.'));
+    addNarration('', success ? 'They stand down. You have one question while they are still willing.' : 'They are not interested in talking.', success ? 'success' : 'failure');
+    var _talkInfo = { roll: roll, statValue: persuasion, total: total, traitBonus: compBonus > 0 ? compBonus : 0 };
+    emitRollLine(_formatRollLine(_talkInfo, 'charm', diff, success), success ? 'success' : 'failure');
     if (success) {
       G.renown = (G.renown||0) + 1; G.benevolence = Math.min(50, (G.benevolence||0) + 5);
       setTimeout(function() { loadStageChoices(); }, 300);

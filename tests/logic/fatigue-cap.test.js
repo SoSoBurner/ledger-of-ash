@@ -57,3 +57,26 @@ describe('addFatigue invariant', () => {
     expect(G._lastRollInfo.fatigueExhaustionPenalty).toBe(0);
   });
 });
+
+describe('migrateState clamps fatigue at load', () => {
+  test('legacy over-cap save value is clamped', () => {
+    const { migrateState } = createGameContext({});
+    if (!migrateState) return; // accessor not exposed — skip
+    const migrated = migrateState({ fatigue: 38, schemaVersion: 2 });
+    expect(migrated.fatigue).toBe(10);
+  });
+
+  test('negative legacy value floors at 0', () => {
+    const { migrateState } = createGameContext({});
+    if (!migrateState) return;
+    const migrated = migrateState({ fatigue: -7, schemaVersion: 2 });
+    expect(migrated.fatigue).toBe(0);
+  });
+
+  test('non-numeric legacy value resets to 0', () => {
+    const { migrateState } = createGameContext({});
+    if (!migrateState) return;
+    const migrated = migrateState({ fatigue: 'broken', schemaVersion: 2 });
+    expect(migrated.fatigue).toBe(0);
+  });
+});

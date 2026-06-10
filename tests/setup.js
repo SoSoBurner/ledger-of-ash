@@ -234,6 +234,7 @@ function createGameContext(gOverrides) {
     useUtilitySkill:         ctx.useUtilitySkill,
     addFatigue:              ctx.addFatigue,
     FATIGUE_MAX:             ctx.FATIGUE_MAX,
+    migrateState:            ctx.migrateState,
     rollD20:                 ctx.rollD20,
     showToast:               sandbox.showToast,
   };

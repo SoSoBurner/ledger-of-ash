@@ -1263,3 +1263,21 @@ window.consumeHalfMaterials = consumeHalfMaterials;
 window.getCraftableRecipes = getCraftableRecipes;
 window.getAllRecipes = getAllRecipes;
 window.getEquippedBonus = getEquippedBonus;
+
+// Derive attackType for every weapon by family+chain.
+// combat = melee across all chains; magic + support = magic; stealth chain B = ranged (throwing), rest melee.
+(function() {
+  var ATTACK_TYPE_MAP = {
+    'combat:a': 'melee', 'combat:b': 'melee', 'combat:c': 'melee', 'combat:d': 'melee',
+    'magic:a':  'magic', 'magic:b':  'magic', 'magic:c':  'magic', 'magic:d':  'magic',
+    'stealth:a':'melee', 'stealth:b':'ranged','stealth:c':'melee', 'stealth:d':'melee',
+    'support:a':'magic', 'support:b':'magic', 'support:c':'magic', 'support:d':'magic'
+  };
+  Object.keys(ITEM_DEFS).forEach(function(k) {
+    var item = ITEM_DEFS[k];
+    if (item && item.type === 'weapon' && !item.attackType) {
+      var key = (item.family || '') + ':' + (item.chain || '');
+      item.attackType = ATTACK_TYPE_MAP[key] || 'melee';
+    }
+  });
+})();

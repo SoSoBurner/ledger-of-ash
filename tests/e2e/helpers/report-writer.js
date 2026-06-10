@@ -40,12 +40,20 @@ class ReportWriter {
     this._startTime = new Date();
     this._transcripts = {};  // family → [{pick, choice, result}]
     this._archetypeSigs = [];  // Block M archetype signature records
+    this._silentChoices = [];  // T4 — { family, choiceId, firstPick } records
   }
 
   setCeiling(ceiling)          { this._ceiling = ceiling; }
   setWarningBaseline(n)        { this._warnBaseline = n; }
   addFamily(result)            { this._families.push(result); }
   addJsError(err)              { this._jsErrors.push(err); }
+
+  addSilentChoices(family, choiceIds, firstPick) {
+    if (!Array.isArray(choiceIds)) return;
+    for (const cid of choiceIds) {
+      this._silentChoices.push({ family: family, choiceId: cid, firstPick: firstPick != null ? firstPick : '' });
+    }
+  }
 
   addArchetypeSignature(sig) {
     if (!this._archetypeSigs) this._archetypeSigs = [];
@@ -209,6 +217,19 @@ class ReportWriter {
       for (const s of sigs) {
         const cells = skillCols.map(sk => (s.skillCounts && s.skillCounts[sk]) ? String(s.skillCounts[sk]) : '0');
         lines.push(`| ${s.family} | ${s.archetype} | ${cells.join(' | ')} |`);
+      }
+      lines.push('');
+    }
+
+    // T4 — Silent Choices Detected (engine-side runtime queue)
+    if (this._silentChoices && this._silentChoices.length > 0) {
+      lines.push('## Silent Choices Detected');
+      lines.push('Choices whose `fn()` ran but emitted no narration. Engine fell back to generic. Queue these for author rewrite.');
+      lines.push('');
+      lines.push('| Family | Choice ID | First Hit Pick |');
+      lines.push('|---|---|---|');
+      for (const s of this._silentChoices) {
+        lines.push(`| ${s.family} | \`${s.choiceId}\` | ${s.firstPick} |`);
       }
       lines.push('');
     }

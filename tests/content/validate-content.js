@@ -214,6 +214,14 @@ function run() {
       }
       validateChoice(file, choice);
     }
+    // T4/T5 file-level static scans
+    const fileSrc = fs.readFileSync(file, 'utf8');
+    for (const w of checkNarrationEmission(fileSrc, path.basename(file))) {
+      warn(file, `L${w.line}`, w.message);
+    }
+    for (const w of checkResultTypeVocabulary(fileSrc, path.basename(file))) {
+      fail(file, `L${w.line}`, w.message);
+    }
   }
 
   console.log(`\nChecked ${checked} choices across ${files.length} files.`);
@@ -382,6 +390,57 @@ function checkWorldClockTransparency(fnSrc) {
   return { level: 'warn', msg: 'worldClock incremented without consequence signal word (attention/pressure/harder/watchful/noticed/tracked/scrutin)' };
 }
 
+// ─── T4 — Silent Choice Detection (static scan) ──────────────────────────────
+
+const SIDE_EFFECTS_RE = /\b(addNarration|addJournal|showToast|addWorldNotice|addQuest|enterCombat|startTravel|showTransitionBanner|G\.lastResult)\b/;
+
+function checkNarrationEmission(fileBody, fileName) {
+  const warnings = [];
+  const fnBlockRe = /(fn|failResult)\s*:\s*function\s*\([^)]*\)\s*\{([\s\S]*?)\n\s*\}/g;
+  let m;
+  while ((m = fnBlockRe.exec(fileBody)) !== null) {
+    const body = m[2] || '';
+    if (body.trim().length === 0) continue;
+    if (!SIDE_EFFECTS_RE.test(body)) {
+      const lineNo = fileBody.slice(0, m.index).split('\n').length;
+      warnings.push({
+        file: fileName,
+        line: lineNo,
+        kind: 'silent_choice',
+        message: m[1] + ' body has no addNarration/addJournal/showToast/G.lastResult call — risks silent fire.'
+      });
+    }
+  }
+  return warnings;
+}
+
+// ─── T5 — ResultType Vocabulary Lock ─────────────────────────────────────────
+
+const VALID_RESULT_TYPES = new Set([
+  'success', 'failure', 'partial', 'neutral', 'complication',
+  'notice', 'encounter', 'dim', 'crit', 'fumble'
+]);
+
+function checkResultTypeVocabulary(fileBody, fileName) {
+  const warnings = [];
+  // [^,)]+ stops at ) so we don't bridge two separate function calls when no comma sits between them.
+  const re = /addNarration\s*\(\s*[^,)]+,\s*[^,)]+,\s*['"]([a-z_]+)['"]\s*\)/g;
+  let m;
+  while ((m = re.exec(fileBody)) !== null) {
+    const type = m[1];
+    if (!VALID_RESULT_TYPES.has(type)) {
+      const lineNo = fileBody.slice(0, m.index).split('\n').length;
+      warnings.push({
+        file: fileName,
+        line: lineNo,
+        kind: 'invalid_resultType',
+        message: 'addNarration resultType "' + type + '" is not in the locked vocabulary. Valid: ' + Array.from(VALID_RESULT_TYPES).join(', ')
+      });
+    }
+  }
+  return warnings;
+}
+
 if (require.main === module) { run(); }
 
-module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency, checkRuleA7, loadChoicesFromFile };
+module.exports = { extractResultStrings, checkResultWordCount, checkResultOpener, extractRumorTexts, checkRumorSource, checkNpcFlagTiming, checkWorldClockTransparency, checkRuleA7, loadChoicesFromFile, checkNarrationEmission, checkResultTypeVocabulary, VALID_RESULT_TYPES };
