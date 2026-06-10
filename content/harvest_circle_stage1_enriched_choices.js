@@ -984,7 +984,7 @@ var HARVEST_CIRCLE_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The painted corner stakes around the west mid-field section define the keeper authority boundary, and section leads have closed the row-walks for the afternoon weighing rotation. The granary clerks are inside the measurement zone with the official slate. Standing here longer attracts the supervisor making his rounds along the cart track.', 'failure');
+      addNarration('', 'The painted corner stakes around the west mid-field section define the keeper authority boundary, and section leads have closed the row-walks for the afternoon weighing rotation. The granary clerks are inside the measurement zone with the official slate. Standing here longer attracts the supervisor making his rounds along the cart track.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

@@ -67,7 +67,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -106,7 +106,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -145,7 +145,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -180,7 +180,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -215,7 +215,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -251,7 +251,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -321,7 +321,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -358,7 +358,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -393,7 +393,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Lore', 'Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -512,7 +512,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -546,7 +546,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -579,7 +579,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -616,7 +616,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -653,7 +653,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -723,7 +723,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -760,7 +760,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -797,7 +797,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -834,7 +834,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -871,7 +871,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -908,7 +908,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -979,7 +979,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1849,7 +1849,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', 'failure');
+      addNarration('', 'The funerary commerce of the temple ward moves past you in a slow tide of petitioners and offering trays. A shrine clerk closes her ledger without sealing it. You step away from the rail before her thumb finds the next stamp.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1895,7 +1895,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('Sealed Hand', 'The shrine attendant intercepts you at the lectern before the lamp is lit. The registry is under purification quiet — no readings, no transcriptions, no cross-checks until the morning rites complete. She does not raise her voice. She does not move from the doorway. Her thumb rests on the ward stamp at her belt, the one that marks a record as untouchable for the rest of the cycle. The book stays closed. You step back.', 'failure');
+      addNarration('Sealed Hand', 'The shrine attendant intercepts you at the lectern before the lamp is lit. The registry is under purification quiet — no readings, no transcriptions, no cross-checks until the morning rites complete. She does not raise her voice. She does not move from the doorway. Her thumb rests on the ward stamp at her belt, the one that marks a record as untouchable for the rest of the cycle. The book stays closed. You step back.', (G && G.lastResultType) || 'failure');
       G.recentOutcomeType = 'fail';
       if (typeof gainXp === 'function') gainXp(5);
       if (typeof loadStageChoices === 'function') loadStageChoices(G.location);
@@ -1919,7 +1919,7 @@ var PANIM_HAVEN_STAGE2_ENRICHED_CHOICES = [
       if (typeof maybeStageAdvance === 'function') maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('Procession Discipline', 'A ritual enforcer breaks from the flank before you reach the diversion point. He does not ask why you are here. He hands you a folded slip of paper — a citation for unsanctified presence at a mediation route — and gestures back toward the main avenue. The procession passes without you. By the time you reach the warehouse, the loading bay doors are closed and a fresh seal has been pressed into the wax. The cycle has moved on. You have not.', 'failure');
+      addNarration('Procession Discipline', 'A ritual enforcer breaks from the flank before you reach the diversion point. He does not ask why you are here. He hands you a folded slip of paper — a citation for unsanctified presence at a mediation route — and gestures back toward the main avenue. The procession passes without you. By the time you reach the warehouse, the loading bay doors are closed and a fresh seal has been pressed into the wax. The cycle has moved on. You have not.', (G && G.lastResultType) || 'failure');
       G.recentOutcomeType = 'fail';
       if (typeof gainXp === 'function') gainXp(5);
       if (typeof loadStageChoices === 'function') loadStageChoices(G.location);

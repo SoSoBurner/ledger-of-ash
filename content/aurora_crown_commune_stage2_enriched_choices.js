@@ -67,7 +67,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -107,7 +107,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Survival', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -140,7 +140,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -173,7 +173,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -207,7 +207,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -365,7 +365,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -403,7 +403,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -439,7 +439,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -474,7 +474,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -509,7 +509,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -546,7 +546,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -582,7 +582,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -618,7 +618,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -653,7 +653,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -689,7 +689,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -724,7 +724,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -759,7 +759,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -825,7 +825,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore', 'Arcane'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -863,7 +863,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -898,7 +898,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -917,7 +917,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -936,7 +936,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -956,7 +956,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -979,7 +979,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1049,7 +1049,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Dome', 'Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1086,7 +1086,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Dome', 'Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1156,7 +1156,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1194,7 +1194,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1231,7 +1231,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1269,7 +1269,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1307,7 +1307,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1344,7 +1344,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1416,7 +1416,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1453,7 +1453,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1490,7 +1490,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1529,7 +1529,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'CrossLocality', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1602,7 +1602,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1639,7 +1639,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Dome', 'Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1709,7 +1709,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Dome', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1746,7 +1746,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Dome', 'Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1785,7 +1785,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1823,7 +1823,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1860,7 +1860,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1898,7 +1898,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1936,7 +1936,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1973,7 +1973,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2046,7 +2046,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2116,7 +2116,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2155,7 +2155,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'CrossLocality', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2192,7 +2192,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'CrossLocality', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -2230,7 +2230,7 @@ var AURORA_CROWN_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', 'failure');
+      addNarration('', 'A containment check sweeps the warm corridor with its sealed-light wand and the steward beside it watches who lingers. You ease back into the ration-court foot traffic before the wand-reading is logged.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

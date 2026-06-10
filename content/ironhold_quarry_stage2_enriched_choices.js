@@ -12,7 +12,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Darian is at the secondary gate post with the assay binder open on the shelf, one hand flat across the page. He reads the question without answering, closes the binder, and waves the next equipment cart through. The gate post stays manned until shift change. You step back to the equipment yard.', 'failure');
+      addNarration('', 'Darian is at the secondary gate post with the assay binder open on the shelf, one hand flat across the page. He reads the question without answering, closes the binder, and waves the next equipment cart through. The gate post stays manned until shift change. You step back to the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -46,7 +46,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Survival', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Velka\'s desk in the foreman office sits across from the injury log shelf — both within reach when she is alone, neither within reach when the secondary foreman is at the side counter. He is at the counter today, running the day\'s safety tally. She does not open the drawer. The conversation ends at quarry pleasantries.', 'failure');
+      addNarration('', 'Velka\'s desk in the foreman office sits across from the injury log shelf — both within reach when she is alone, neither within reach when the secondary foreman is at the side counter. He is at the counter today, running the day\'s safety tally. She does not open the drawer. The conversation ends at quarry pleasantries.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -79,7 +79,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stealth', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The lower vein face approach runs past the equipment shed and around the ore staging dock — both lit tonight by the quarry\'s night-floods. A maintenance crew is at the staging dock running a chain repair under the floods. Their work covers the access angle to the special vein. The handover window passes with no clean approach.', 'failure');
+      addNarration('', 'The lower vein face approach runs past the equipment shed and around the ore staging dock — both lit tonight by the quarry\'s night-floods. A maintenance crew is at the staging dock running a chain repair under the floods. Their work covers the access angle to the special vein. The handover window passes with no clean approach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -114,7 +114,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Escalation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Darian Ironspike is at the secondary gate when you return — the detention record from the first encounter is on the post shelf beside his ledger. He sees you approach and moves the record into his coat pocket. The gate stays closed. He does not speak. You retreat to the main equipment yard.', 'failure');
+      addNarration('', 'Darian Ironspike is at the secondary gate when you return — the detention record from the first encounter is on the post shelf beside his ledger. He sees you approach and moves the record into his coat pocket. The gate stays closed. He does not speak. You retreat to the main equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -183,7 +183,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social', 'Complication'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The weighing station queue at end-of-shift is the wrong audience — the prison laborer ahead of you in the line goes silent when you raise the tally question, and the recorder closes the day-book without comment. The crew watching shifts position. The dispute does not get aired. You step out of the queue and the count proceeds.', 'failure');
+      addNarration('', 'The weighing station queue at end-of-shift is the wrong audience — the prison laborer ahead of you in the line goes silent when you raise the tally question, and the recorder closes the day-book without comment. The crew watching shifts position. The dispute does not get aired. You step out of the queue and the count proceeds.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -217,7 +217,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The canteen at end-of-shift is crowded — quarry workers four deep at the serving line, the transport crew table empty tonight. The cook is at the range with his back to the room. The crew did not come in for the second seating. The cup of foreign script the cook keeps behind the counter stays out of sight. You take a meal and step out.', 'failure');
+      addNarration('', 'The canteen at end-of-shift is crowded — quarry workers four deep at the serving line, the transport crew table empty tonight. The cook is at the range with his back to the room. The crew did not come in for the second seating. The cup of foreign script the cook keeps behind the counter stays out of sight. You take a meal and step out.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -251,7 +251,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The secondary slope rest point is empty at the supervisor\'s usual break — a quarry runner waves you off the slope from the equipment yard below, calling that the night supervisor has been reassigned to the dock today. The wind off the lower vein carries the noise of the dock chains. You retreat down the slope before the next bell.', 'failure');
+      addNarration('', 'The secondary slope rest point is empty at the supervisor\'s usual break — a quarry runner waves you off the slope from the equipment yard below, calling that the night supervisor has been reassigned to the dock today. The wind off the lower vein carries the noise of the dock chains. You retreat down the slope before the next bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -285,7 +285,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Tor is on the standard line at the secondary cut bay when you approach — drill housing under his hands, the section supervisor watching the row from a raised platform thirty paces back. Tor sees you before you reach the row, shakes his head once without breaking the drill rhythm, and turns his back. The supervisor marks his clipboard. You move on.', 'failure');
+      addNarration('', 'Tor is on the standard line at the secondary cut bay when you approach — drill housing under his hands, the section supervisor watching the row from a raised platform thirty paces back. Tor sees you before you reach the row, shakes his head once without breaking the drill rhythm, and turns his back. The supervisor marks his clipboard. You move on.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -319,7 +319,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The weighing station queue runs three carts deep when you reach the engineer\'s platform. Osta is mid-calibration, the rod balanced on the scale frame, and a dispute supervisor stands at her elbow logging the morning\'s reconciliation. The line behind you fills the access corridor. The conversation does not get past the calibration noise. You step back into the queue.', 'failure');
+      addNarration('', 'The weighing station queue runs three carts deep when you reach the engineer\'s platform. Osta is mid-calibration, the rod balanced on the scale frame, and a dispute supervisor stands at her elbow logging the morning\'s reconciliation. The line behind you fills the access corridor. The conversation does not get past the calibration noise. You step back into the queue.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -352,7 +352,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore', 'Observation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The canteen counter at mid-morning has Prael working the range and a second cook running the pass-through ledge. The transport crew table at the far wall is occupied. Prael sees you, glances once at their table, and turns the conversation toward the day\'s stew batch. The coins stay behind the counter. You step away from the counter.', 'failure');
+      addNarration('', 'The canteen counter at mid-morning has Prael working the range and a second cook running the pass-through ledge. The transport crew table at the far wall is occupied. Prael sees you, glances once at their table, and turns the conversation toward the day\'s stew batch. The coins stay behind the counter. You step away from the counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -386,7 +386,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Velka\'s foreman office has the draft in her desk drawer when you arrive — drawer half-pulled, paper visible. The shift supervisor is at the open door behind her with the day\'s rotation tally. She slides the drawer closed without looking down. The supervisor stays at the door until you step back into the corridor.', 'failure');
+      addNarration('', 'Velka\'s foreman office has the draft in her desk drawer when you arrive — drawer half-pulled, paper visible. The shift supervisor is at the open door behind her with the day\'s rotation tally. She slides the drawer closed without looking down. The supervisor stays at the door until you step back into the corridor.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -422,7 +422,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The scheduling annex is locked tonight — the duty clerk has the key on her belt and is at the foreman office discussing the next rotation. The schedule board on the outer wall shows the posted shifts only. Standing at the board long enough to read the cross-reference would draw the duty clerk back. You step away before she returns.', 'failure');
+      addNarration('', 'The scheduling annex is locked tonight — the duty clerk has the key on her belt and is at the foreman office discussing the next rotation. The schedule board on the outer wall shows the posted shifts only. Standing at the board long enough to read the cross-reference would draw the duty clerk back. You step away before she returns.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -456,7 +456,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The infirmary at midday has two workers admitted from the morning rotation — both on cots in the back room, the orderly between them with a damp cloth. The desk ledger sits open at the front counter and a senior orderly stands beside it. He shakes his head once. You step out into the equipment corridor without asking the question.', 'failure');
+      addNarration('', 'The infirmary at midday has two workers admitted from the morning rotation — both on cots in the back room, the orderly between them with a damp cloth. The desk ledger sits open at the front counter and a senior orderly stands beside it. He shakes his head once. You step out into the equipment corridor without asking the question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -490,7 +490,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The secondary cut access tunnel approach runs past the equipment shed and the ore screening wall — both occupied today by the day shift\'s mid-rotation crews. The angle of approach to the tunnel mouth carries through clear sightlines from three crew stations. The gray coat does not appear during your observation window. You retreat to the equipment yard.', 'failure');
+      addNarration('', 'The secondary cut access tunnel approach runs past the equipment shed and the ore screening wall — both occupied today by the day shift\'s mid-rotation crews. The angle of approach to the tunnel mouth carries through clear sightlines from three crew stations. The gray coat does not appear during your observation window. You retreat to the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -526,7 +526,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The secondary cut tunnel mouth is at the lower vein face, downwind of the equipment shed where stone dust settles thick on the flagstones. The eastern guard post has a clear sightline to the tunnel approach. The guard at the post is watching the lower vein when you arrive. The angle does not open during your time at the approach.', 'failure');
+      addNarration('', 'The secondary cut tunnel mouth is at the lower vein face, downwind of the equipment shed where stone dust settles thick on the flagstones. The eastern guard post has a clear sightline to the tunnel approach. The guard at the post is watching the lower vein when you arrive. The angle does not open during your time at the approach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -560,7 +560,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The transport dock has a public perimeter barrier and a manifest counter inside it. The signing officer reaches the counter at shift-end minus ten minutes, signs the manifest in a block cipher, and seals the document before you reach the barrier rail. The dock handler closes the access gate. The window has shut by the time you arrive.', 'failure');
+      addNarration('', 'The transport dock has a public perimeter barrier and a manifest counter inside it. The signing officer reaches the counter at shift-end minus ten minutes, signs the manifest in a block cipher, and seals the document before you reach the barrier rail. The dock handler closes the access gate. The window has shut by the time you arrive.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -594,7 +594,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The secondary slope rest point at the night break is empty — wind off the lower vein and a single quarry runner crossing the slope toward the equipment yard. The runner reports that Drovish has been pulled to the dock for the overnight tally. The notebook stays in his coat at the dock, out of reach. You retreat down the slope.', 'failure');
+      addNarration('', 'The secondary slope rest point at the night break is empty — wind off the lower vein and a single quarry runner crossing the slope toward the equipment yard. The runner reports that Drovish has been pulled to the dock for the overnight tally. The notebook stays in his coat at the dock, out of reach. You retreat down the slope.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -628,7 +628,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The intake annex sits behind the equipment yard — a low room with the assignment ledger chained to the desk. Borek is at the desk, the leather strap across the ledger cover, an ORE labor relations form in front of him. He reads the form rather than looking up. He waves toward the labor relations desk across the equipment yard. The assignment ledger does not open.', 'failure');
+      addNarration('', 'The intake annex sits behind the equipment yard — a low room with the assignment ledger chained to the desk. Borek is at the desk, the leather strap across the ledger cover, an ORE labor relations form in front of him. He reads the form rather than looking up. He waves toward the labor relations desk across the equipment yard. The assignment ledger does not open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -661,7 +661,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The tool shed is at the equipment yard\'s edge — a long shed with the returned tools sorted in racks along the inside wall. The shed keeper is at the back of the shed running a wear-pattern count, two foremen at the counter discussing the day\'s issue. The red-tabbed folder sits behind the counter, unattended but unreachable. You step back into the yard.', 'failure');
+      addNarration('', 'The tool shed is at the equipment yard\'s edge — a long shed with the returned tools sorted in racks along the inside wall. The shed keeper is at the back of the shed running a wear-pattern count, two foremen at the counter discussing the day\'s issue. The red-tabbed folder sits behind the counter, unattended but unreachable. You step back into the yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -694,7 +694,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The main access corridor where the survey map is posted runs between the quarry gate and the equipment yard — a constant flow of foremen and shift workers passing the map panel at every turn change. Standing at the panel long enough to read the secondary cut zone in detail would draw three sets of eyes. You walk past it instead.', 'failure');
+      addNarration('', 'The main access corridor where the survey map is posted runs between the quarry gate and the equipment yard — a constant flow of foremen and shift workers passing the map panel at every turn change. Standing at the panel long enough to read the secondary cut zone in detail would draw three sets of eyes. You walk past it instead.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -728,7 +728,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The dispatch courier station at the quarry gate sits beside the foreman office — the evidence packets in your bag, the courier slips visible on the counter. The duty foreman is at the counter logging the day\'s outgoing manifests. He looks up. You step back into the equipment yard. The packets do not leave Ironhold tonight.', 'failure');
+      addNarration('', 'The dispatch courier station at the quarry gate sits beside the foreman office — the evidence packets in your bag, the courier slips visible on the counter. The duty foreman is at the counter logging the day\'s outgoing manifests. He looks up. You step back into the equipment yard. The packets do not leave Ironhold tonight.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -766,7 +766,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The supervisor\'s board sits at the quarry floor entrance — quota sheet on the left, output tally on the right. The shift supervisor is at the board updating the day\'s figures, two foremen on either side comparing readings. You cannot stand close enough to read both columns at once. The boards stay in place. You step back into the equipment yard.', 'failure');
+      addNarration('', 'The supervisor\'s board sits at the quarry floor entrance — quota sheet on the left, output tally on the right. The shift supervisor is at the board updating the day\'s figures, two foremen on either side comparing readings. You cannot stand close enough to read both columns at once. The boards stay in place. You step back into the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -786,7 +786,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The quarry worker is on the extraction floor at the secondary cut bay — maul in his hands, the floor supervisor pacing the row behind him with a clipboard. The worker sees you approach the bay edge and resets his grip on the maul. He does not speak. The supervisor reaches his position. You step back to the equipment yard.', 'failure');
+      addNarration('', 'The quarry worker is on the extraction floor at the secondary cut bay — maul in his hands, the floor supervisor pacing the row behind him with a clipboard. The worker sees you approach the bay edge and resets his grip on the maul. He does not speak. The supervisor reaches his position. You step back to the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -806,7 +806,7 @@ var IRONHOLD_QUARRY_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Intelligence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The supervisor\'s board has the sealed inspection envelope pinned high on the right side — wax seal intact, the inspector\'s clip beneath it. The board stands in clear sight of the quarry gate post. The gate guard is at the post writing the day\'s rotation log. The seal stays on the envelope. You step away from the board.', 'failure');
+      addNarration('', 'The supervisor\'s board has the sealed inspection envelope pinned high on the right side — wax seal intact, the inspector\'s clip beneath it. The board stands in clear sight of the quarry gate post. The gate guard is at the post writing the day\'s rotation log. The seal stays on the envelope. You step away from the board.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

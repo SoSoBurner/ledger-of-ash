@@ -17,7 +17,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'Kess finishes her gauge check without looking up. The maintenance corridor smells of sealant and old pressure lines. She replaces the cap and moves down the hall before you finish — not hostile, just done. The rotation schedule is posted on the board outside the coordinator\'s office. That\'s the open route.', 'failure');
+      addNarration('', 'Kess finishes her gauge check without looking up. The maintenance corridor smells of sealant and old pressure lines. She replaces the cap and moves down the hall before you finish — not hostile, just done. The rotation schedule is posted on the board outside the coordinator\'s office. That\'s the open route.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -60,7 +60,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The archive room is locked for the morning consolidation cycle. A handwritten notice on the door lists the open hours — two windows each day, neither of which is now. The celestial observation logs are referenced in the registry hall\'s public index. That index is always open.', 'failure');
+      addNarration('', 'The archive room is locked for the morning consolidation cycle. A handwritten notice on the door lists the open hours — two windows each day, neither of which is now. The celestial observation logs are referenced in the registry hall\'s public index. That index is always open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -102,7 +102,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'Thass is in a handoff meeting — two colleagues, ledgers open, voices low. The allocation room door stands half-open but the desk is occupied. Supply distribution summaries are posted weekly on the commons board outside the grain stores. That board is public.', 'failure');
+      addNarration('', 'Thass is in a handoff meeting — two colleagues, ledgers open, voices low. The allocation room door stands half-open but the desk is occupied. Supply distribution summaries are posted weekly on the commons board outside the grain stores. That board is public.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -144,7 +144,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'Yani\'s office door is closed, a "review in progress" card slotted into the frame. The work order queue summary — not the full log, just open items — is tacked to the corridor board outside her door. It\'s been there long enough for the corner to curl.', 'failure');
+      addNarration('', 'Yani\'s office door is closed, a "review in progress" card slotted into the frame. The work order queue summary — not the full log, just open items — is tacked to the corridor board outside her door. It\'s been there long enough for the corner to curl.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -186,7 +186,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The observation room is dark — morning cycle complete, afternoon cycle not yet begun. The high windows carry amber light from the dome panels. A single readings sheet from last week is pinned to the corkboard outside: baseline figures, unsigned. The archive carries four weeks of comparison data.', 'failure');
+      addNarration('', 'The observation room is dark — morning cycle complete, afternoon cycle not yet begun. The high windows carry amber light from the dome panels. A single readings sheet from last week is pinned to the corkboard outside: baseline figures, unsigned. The archive carries four weeks of comparison data.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -228,7 +228,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'Kael is in the sealed monitoring section — the amber light above the door means no entry. The outer reading area holds event logs: dates, cell codes, response flags. Not the full picture, but a place to start. The dates cluster.', 'failure');
+      addNarration('', 'Kael is in the sealed monitoring section — the amber light above the door means no entry. The outer reading area holds event logs: dates, cell codes, response flags. Not the full picture, but a place to start. The dates cluster.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -270,7 +270,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'Both relay operators are running an active transmission — the board shows a live channel open, amber indicator lit. The routing log summary from last month is posted in the corridor outside the relay room, part of the commune\'s transparency protocol. The secondary channel appears there as a line item.', 'failure');
+      addNarration('', 'Both relay operators are running an active transmission — the board shows a live channel open, amber indicator lit. The routing log summary from last month is posted in the corridor outside the relay room, part of the commune\'s transparency protocol. The secondary channel appears there as a line item.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -312,7 +312,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The survival planner\'s office is locked and dark — she works early shifts and is long gone. The public version of the emergency protocol is posted on the registry hall board, as required by commune charter. The recent revision stamp is visible from three paces.', 'failure');
+      addNarration('', 'The survival planner\'s office is locked and dark — she works early shifts and is long gone. The public version of the emergency protocol is posted on the registry hall board, as required by commune charter. The recent revision stamp is visible from three paces.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -356,7 +356,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The structural records section is locked for a quarterly inventory. A sign gives the reopen window: tomorrow, first light. The maintenance log summary — open items only — is in the registry hall technical room, no authorization required. The northeast quadrant appears there by section code.', 'failure');
+      addNarration('', 'The structural records section is locked for a quarterly inventory. A sign gives the reopen window: tomorrow, first light. The maintenance log summary — open items only — is in the registry hall technical room, no authorization required. The northeast quadrant appears there by section code.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -397,7 +397,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The barrier access panel requires a maintenance certification card — the slot is right there, waiting for a card you don\'t carry. The filtration installation records from eighteen months ago are in the open archive. That\'s where the specification baseline lives.', 'failure');
+      addNarration('', 'The barrier access panel requires a maintenance certification card — the slot is right there, waiting for a card you don\'t carry. The filtration installation records from eighteen months ago are in the open archive. That\'s where the specification baseline lives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -438,7 +438,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The communal records room is in use — a training session running long, tables covered. The posted supply summary outside the grain stores carries consumption figures by week. The numbers have been running in the same direction for two months.', 'failure');
+      addNarration('', 'The communal records room is in use — a training session running long, tables covered. The posted supply summary outside the grain stores carries consumption figures by week. The numbers have been running in the same direction for two months.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -479,7 +479,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The morning commons is empty — the early shift ate an hour ago and the midday shift hasn\'t arrived. The communal tables stand clean and bare. The posted decision board near the entrance carries three recent directives, none of them contested. The silence is visible in the absence of any counter-signatures.', 'failure');
+      addNarration('', 'The morning commons is empty — the early shift ate an hour ago and the midday shift hasn\'t arrived. The communal tables stand clean and bare. The posted decision board near the entrance carries three recent directives, none of them contested. The silence is visible in the absence of any counter-signatures.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -520,7 +520,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 70,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The commons is too active right now — a scheduled assembly in progress, every seat taken, voices overlapping. The amber light through the dome panels gives the room a warmth the faces don\'t match. The founding stone at the dome\'s anchor point is quieter. What was built here is written on it.', 'failure');
+      addNarration('', 'The commons is too active right now — a scheduled assembly in progress, every seat taken, voices overlapping. The amber light through the dome panels gives the room a warmth the faces don\'t match. The founding stone at the dome\'s anchor point is quieter. What was built here is written on it.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -561,7 +561,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The org chart posted in the registry hall entrance is current — names, departments, reporting lines. The three administrators whose decisions you want to cross-reference are all listed. Their signature blocks appear on the public decision log. That log is always open.', 'failure');
+      addNarration('', 'The org chart posted in the registry hall entrance is current — names, departments, reporting lines. The three administrators whose decisions you want to cross-reference are all listed. Their signature blocks appear on the public decision log. That log is always open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -604,7 +604,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The maintenance corridor is empty — shift change just ended and nobody lingers. The amber smell of dome sealant hangs without anyone to breathe it. The commons will fill again at midday. Fragments travel at mealtimes, between people who don\'t know they\'re passing the same one.', 'failure');
+      addNarration('', 'The maintenance corridor is empty — shift change just ended and nobody lingers. The amber smell of dome sealant hangs without anyone to breathe it. The commons will fill again at midday. Fragments travel at mealtimes, between people who don\'t know they\'re passing the same one.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -633,7 +633,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 80,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The communal records room closes for the afternoon inventory. A clerk carries the day\'s active files to the locked section without meeting your eyes. The registry hall\'s public index stays open. Each of the documents you need appears there by title. The route is slower but it\'s open.', 'failure');
+      addNarration('', 'The communal records room closes for the afternoon inventory. A clerk carries the day\'s active files to the locked section without meeting your eyes. The registry hall\'s public index stays open. Each of the documents you need appears there by title. The route is slower but it\'s open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -678,7 +678,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       { type: 'rival', amount: 1 }
     ],
     failResult: function() {
-      addNarration('', 'The person you\'re looking for isn\'t in the commons or the work corridor — their shift ended early and the roster shows them signed out. The maintenance division\'s door is open. Someone who works alongside them will know the same thing they know. It moves between people who work together.', 'failure');
+      addNarration('', 'The person you\'re looking for isn\'t in the commons or the work corridor — their shift ended early and the roster shows them signed out. The maintenance division\'s door is open. Someone who works alongside them will know the same thing they know. It moves between people who work together.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -718,7 +718,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 80,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The relay room is staffed and the door is closed. Through the narrow window you can see both operators at their stations. The external correspondence log — outgoing traffic summaries, no content — is posted in the registry hall as required. The secondary channel appears there as a routing entry. The log is public.', 'failure');
+      addNarration('', 'The relay room is staffed and the door is closed. Through the narrow window you can see both operators at their stations. The external correspondence log — outgoing traffic summaries, no content — is posted in the registry hall as required. The secondary channel appears there as a routing entry. The log is public.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -759,7 +759,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 75,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The records room table you need is occupied — a commune auditor running her own tally, files spread in both directions. She\'ll be there until evening. The registry hall keeps a timeline board showing system status updates: barrier, maintenance, resources, protocol. The dates are public. The pattern is in the spacing.', 'failure');
+      addNarration('', 'The records room table you need is occupied — a commune auditor running her own tally, files spread in both directions. She\'ll be there until evening. The registry hall keeps a timeline board showing system status updates: barrier, maintenance, resources, protocol. The dates are public. The pattern is in the spacing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -800,7 +800,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     xpReward: 80,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The synthesis requires a table and uninterrupted time — neither is available right now. The dome anchor is quiet in the early afternoon. The founding stone sits at its base. Sometimes the shape of a thing becomes visible when you stop reading documents and look at what was built.', 'failure');
+      addNarration('', 'The synthesis requires a table and uninterrupted time — neither is available right now. The dome anchor is quiet in the early afternoon. The founding stone sits at its base. Sometimes the shape of a thing becomes visible when you stop reading documents and look at what was built.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -841,7 +841,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1'],
     xpReward: 73,
     failResult: function() {
-      addNarration('', 'The archive section holding the bound service logs is in its morning consolidation window — thirty minutes, the sign says. The amber light from the dome panels reaches this corridor but doesn\'t warm it. The filtration specification sheet is posted in the open reference section. The specification alone won\'t show the substitution, but it names what should be there.', 'failure');
+      addNarration('', 'The archive section holding the bound service logs is in its morning consolidation window — thirty minutes, the sign says. The amber light from the dome panels reaches this corridor but doesn\'t warm it. The filtration specification sheet is posted in the open reference section. The specification alone won\'t show the substitution, but it names what should be there.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -873,7 +873,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Craft', 'Stage1'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The northeast quadrant access corridor is behind a maintenance lock — requires a rotation card, not available to visitors. The dome\'s outer walkway circles the perimeter at ground level. From there you can see the quadrant\'s exterior face. The stress isn\'t always visible, but the repair markers tell you where to look.', 'failure');
+      addNarration('', 'The northeast quadrant access corridor is behind a maintenance lock — requires a rotation card, not available to visitors. The dome\'s outer walkway circles the perimeter at ground level. From there you can see the quadrant\'s exterior face. The stress isn\'t always visible, but the repair markers tell you where to look.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -905,7 +905,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Archetype', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The central commons is packed — a scheduled assembly running over, people standing in the doorways. There\'s no vantage point in the crowd. The outer corridor runs the commons\' full length with a row of small windows. The same behavior is visible from outside the glass, without the noise.', 'failure');
+      addNarration('', 'The central commons is packed — a scheduled assembly running over, people standing in the doorways. There\'s no vantage point in the crowd. The outer corridor runs the commons\' full length with a row of small windows. The same behavior is visible from outside the glass, without the noise.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -933,7 +933,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Faction', 'NPC', 'Stage1'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The external correspondence room is locked — Merav Solind receives visitors by appointment only, and none are scheduled today. Her name appears in the registry hall\'s external liaison log alongside the complaint reference number. The log is public. The complaint was formally filed. That\'s enough to begin.', 'failure');
+      addNarration('', 'The external correspondence room is locked — Merav Solind receives visitors by appointment only, and none are scheduled today. Her name appears in the registry hall\'s external liaison log alongside the complaint reference number. The log is public. The complaint was formally filed. That\'s enough to begin.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -963,7 +963,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'The dome anchor corridor is blocked — a maintenance crew running pressure checks, the space too narrow to pass safely. The founding stone will be accessible again in an hour. The commons carry the same history in smaller form: the marks where the first internal walls were set are still visible in the floor tile pattern.', 'failure');
+      addNarration('', 'The dome anchor corridor is blocked — a maintenance crew running pressure checks, the space too narrow to pass safely. The founding stone will be accessible again in an hour. The commons carry the same history in smaller form: the marks where the first internal walls were set are still visible in the floor tile pattern.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -982,7 +982,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', 'failure');
+      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1008,7 +1008,7 @@ var AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Social', 'NPC', 'Stage1'],
     xpReward: 67,
     failResult: function() {
-      addNarration('', 'Orren\'s reassignment posting shows him in the residential maintenance block — but the block is locked for a scheduled inspection. The sealed document case he carries was stamped with an engineering certification mark. The NE quadrant inspection report in the public registry hall carries the same stamp. That report is accessible without him.', 'failure');
+      addNarration('', 'Orren\'s reassignment posting shows him in the residential maintenance block — but the block is locked for a scheduled inspection. The sealed document case he carries was stamped with an engineering certification mark. The NE quadrant inspection report in the public registry hall carries the same stamp. That report is accessible without him.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1090,7 +1090,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The latch holds — older construction, thicker than it looks. The impact rings through the maintenance passage and a patrol turns the far corner thirty seconds later. You are standing at a sealed door with a bruised shoulder and no explanation that fits the context. The patrol writes a notation in their route log. The corridor stays sealed.', 'failure');
+      addNarration('', 'The latch holds — older construction, thicker than it looks. The impact rings through the maintenance passage and a patrol turns the far corner thirty seconds later. You are standing at a sealed door with a bruised shoulder and no explanation that fits the context. The patrol writes a notation in their route log. The corridor stays sealed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1131,7 +1131,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The worker in management colors has backup one turn of the corridor away — a second crew who arrive before the confrontation resolves. You are outnumbered in a maintenance passage with no clear exit angle. The thermal vent access closes behind them. The blockade is now formal, logged, and has witnesses.', 'failure');
+      addNarration('', 'The worker in management colors has backup one turn of the corridor away — a second crew who arrive before the confrontation resolves. You are outnumbered in a maintenance passage with no clear exit angle. The thermal vent access closes behind them. The blockade is now formal, logged, and has witnesses.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1174,7 +1174,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The ward mark is on the upper edge of the panel, out of direct reading angle without a step platform. The nearest platform is locked to a maintenance crew that has already moved down the corridor. The mark stays unread. The panel installation date is visible on the lower stamp without any special access — that alone is worth noting.', 'failure');
+      addNarration('', 'The ward mark is on the upper edge of the panel, out of direct reading angle without a step platform. The nearest platform is locked to a maintenance crew that has already moved down the corridor. The mark stays unread. The panel installation date is visible on the lower stamp without any special access — that alone is worth noting.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1215,7 +1215,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The observation archive\'s interference field is strongest near the sealed section, which is behind a locked access panel requiring coordinator clearance. The open section of the archive still shows normal ley readings — the interference is specifically localized to the restricted area. That localization is itself a finding worth recording.', 'failure');
+      addNarration('', 'The observation archive\'s interference field is strongest near the sealed section, which is behind a locked access panel requiring coordinator clearance. The open section of the archive still shows normal ley readings — the interference is specifically localized to the restricted area. That localization is itself a finding worth recording.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1257,7 +1257,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The patrol gap is three minutes, not four — the second officer runs the eastern branch faster than the first. You are in the service passage when the light from her headlamp sweeps the junction. She does not see you, but she stops and checks the side passage by habit. You hold still for ninety seconds before she moves on. The window has closed and the patrol is now one rotation out of sync with the gap you mapped.', 'failure');
+      addNarration('', 'The patrol gap is three minutes, not four — the second officer runs the eastern branch faster than the first. You are in the service passage when the light from her headlamp sweeps the junction. She does not see you, but she stops and checks the side passage by habit. You hold still for ninety seconds before she moves on. The window has closed and the patrol is now one rotation out of sync with the gap you mapped.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1298,7 +1298,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The overseer takes an unscheduled stop at the secondary gauge station — a deviation that cuts the following distance to nothing. You have to peel off into the side passage before she turns around to log the gauge reading. She does not see you but she does see the side passage door, which you left two inches open. She notes it in her route log. The overseer\'s route is compromised for this shift.', 'failure');
+      addNarration('', 'The overseer takes an unscheduled stop at the secondary gauge station — a deviation that cuts the following distance to nothing. You have to peel off into the side passage before she turns around to log the gauge reading. She does not see you but she does see the side passage door, which you left two inches open. She notes it in her route log. The overseer\'s route is compromised for this shift.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1340,7 +1340,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The dome worker waves you off before you finish the offer — not hostile, just practiced. She has been managing this injury through her shift and the muscle memory of doing so has closed the conversation. She ties off the pressure wrap on her own and goes back to the gauge station. You don\'t learn why she hasn\'t reported. The next shift handoff in two hours will take her through the medical station corridor; the reason might surface there.', 'failure');
+      addNarration('', 'The dome worker waves you off before you finish the offer — not hostile, just practiced. She has been managing this injury through her shift and the muscle memory of doing so has closed the conversation. She ties off the pressure wrap on her own and goes back to the gauge station. You don\'t learn why she hasn\'t reported. The next shift handoff in two hours will take her through the medical station corridor; the reason might surface there.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1381,7 +1381,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'Both foremen have been arguing this slot long enough that they have developed fixed positions and a working dislike of each other. A third party wading in reads as another layer of the same problem. The taller foreman tells you, politely, to file a scheduling grievance through the coordinator\'s office. The shorter one just stops talking. The dispute continues without you and the corridor stays blocked.', 'failure');
+      addNarration('', 'Both foremen have been arguing this slot long enough that they have developed fixed positions and a working dislike of each other. A third party wading in reads as another layer of the same problem. The taller foreman tells you, politely, to file a scheduling grievance through the coordinator\'s office. The shorter one just stops talking. The dispute continues without you and the corridor stays blocked.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1427,7 +1427,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     archetypeGroup: 'combat',
     tags: ['Security', 'Perimeter', 'Observation'],
     failResult: function() {
-      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', 'failure');
+      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1446,7 +1446,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     archetypeGroup: 'combat',
     tags: ['Security', 'Authority', 'Intrusion'],
     failResult: function() {
-      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', 'failure');
+      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1497,7 +1497,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     archetypeGroup: 'stealth',
     tags: ['Surveillance', 'Relay', 'Gap'],
     failResult: function() {
-      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', 'failure');
+      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1516,7 +1516,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     archetypeGroup: 'stealth',
     tags: ['Maintenance', 'Pattern', 'Bypass'],
     failResult: function() {
-      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', 'failure');
+      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1536,7 +1536,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     archetypeGroup: 'support',
     tags: ['Social', 'Authority', 'Displacement'],
     failResult: function() {
-      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', 'failure');
+      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1555,7 +1555,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     archetypeGroup: 'support',
     tags: ['Social', 'Retaliation', 'Pattern'],
     failResult: function() {
-      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', 'failure');
+      addNarration('', 'A maintenance steward in a thermal-grey coat passes through the warm corridor before the conversation can land. The ration-court doors are shut for the midcycle tally. You step back and let the rhythm reabsorb you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1583,7 +1583,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The seal gives a quarter-turn before the pressure differential shoves it back — the dome\'s thermal system is still live on this branch. The bang echoes down the maintenance corridor and draws a patrol head-around from the junction. You\'re moving before they call out, but the route is burned. The technician who logs this seal will find the scuff marks.', 'failure');
+      addNarration('', 'The seal gives a quarter-turn before the pressure differential shoves it back — the dome\'s thermal system is still live on this branch. The bang echoes down the maintenance corridor and draws a patrol head-around from the junction. You\'re moving before they call out, but the route is burned. The technician who logs this seal will find the scuff marks.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1624,7 +1624,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The two workers clock you before you close the gap — commune settlements read body language the way port towns read tides. One steps sideways to block the junction gap on pure instinct. The argument stops. You\'re the new problem in the corridor, and the patrol at the far end has already slowed to look. The junction stays closed.', 'failure');
+      addNarration('', 'The two workers clock you before you close the gap — commune settlements read body language the way port towns read tides. One steps sideways to block the junction gap on pure instinct. The argument stops. You\'re the new problem in the corridor, and the patrol at the far end has already slowed to look. The junction stays closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1667,7 +1667,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The dome panel script is maintenance shorthand layered over older ward notation — two systems written in the same space, neither fully legible through the other. Reading it properly would take a reference text you don\'t have access to. The archive reading room carries the notation manual for dome inscription systems. That route is still open.', 'failure');
+      addNarration('', 'The dome panel script is maintenance shorthand layered over older ward notation — two systems written in the same space, neither fully legible through the other. Reading it properly would take a reference text you don\'t have access to. The archive reading room carries the notation manual for dome inscription systems. That route is still open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1708,7 +1708,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The observation archive is locked for the morning consolidation cycle. The posted hours show two daily windows; neither is now. The public index in the registry hall cross-references the ley-line observation logs by date. That index is always accessible and carries the same date range.', 'failure');
+      addNarration('', 'The observation archive is locked for the morning consolidation cycle. The posted hours show two daily windows; neither is now. The public index in the registry hall cross-references the ley-line observation logs by date. That index is always accessible and carries the same date range.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1750,7 +1750,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The patrol varies its return window this cycle — a response to something, or a test, or chance. You\'re in the junction gap when their lamp rounds the corner twelve seconds early. You fold into the equipment alcove and they pass close enough that the lamp heat reaches you. They slow but don\'t stop. You can\'t use this junction again today.', 'failure');
+      addNarration('', 'The patrol varies its return window this cycle — a response to something, or a test, or chance. You\'re in the junction gap when their lamp rounds the corner twelve seconds early. You fold into the equipment alcove and they pass close enough that the lamp heat reaches you. They slow but don\'t stop. You can\'t use this junction again today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1792,7 +1792,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'She looks behind her this morning — a habit broken, a lamp checked, whatever the reason. The tunnel is narrow and there is no shadow deep enough. She sees you before you can create a distance. She doesn\'t call out. She just stops and waits. The conversation you have is controlled, professional, and gives you nothing.', 'failure');
+      addNarration('', 'She looks behind her this morning — a habit broken, a lamp checked, whatever the reason. The tunnel is narrow and there is no shadow deep enough. She sees you before you can create a distance. She doesn\'t call out. She just stops and waits. The conversation you have is controlled, professional, and gives you nothing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1834,7 +1834,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'She pulls her hands back before you reach her — not hostile, just practiced. "Medical station handles injuries." She says it the way someone says something they\'ve been told to say. The medical station is two corridors east and staffed during two posted windows. Whatever she needed tending, she has decided to tend it herself, or wait.', 'failure');
+      addNarration('', 'She pulls her hands back before you reach her — not hostile, just practiced. "Medical station handles injuries." She says it the way someone says something they\'ve been told to say. The medical station is two corridors east and staffed during two posted windows. Whatever she needed tending, she has decided to tend it herself, or wait.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1875,7 +1875,7 @@ AURORA_CROWN_COMMUNE_STAGE1_ENRICHED_CHOICES.push(
     xpReward: 65,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'Both crews look at you, then at each other, then back at the disputed repair slot — and decide the problem is easier to manage without a third party involved. The argument stops. Both crews occupy opposite ends of the corridor and neither moves. The slot stays empty. Whatever was worth fighting over is no longer worth explaining to an outsider.', 'failure');
+      addNarration('', 'Both crews look at you, then at each other, then back at the disputed repair slot — and decide the problem is easier to manage without a third party involved. The argument stops. Both crews occupy opposite ends of the corridor and neither moves. The slot stays empty. Whatever was worth fighting over is no longer worth explaining to an outsider.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

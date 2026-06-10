@@ -830,7 +830,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The administrator\'s office door closes during the morning audit session — a posted notice cites Collegium scheduling. The slim folder on her desk stays out of reach behind the sealed door. The archive bell rings the half-hour and the corridor empties.', 'failure');
+      addNarration('', 'The administrator\'s office door closes during the morning audit session — a posted notice cites Collegium scheduling. The slim folder on her desk stays out of reach behind the sealed door. The archive bell rings the half-hour and the corridor empties.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -849,7 +849,7 @@ var COSMORIA_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The archivist returns the document to the shelf before you can locate the hold-stamp page. Tide cycle paperwork dominates the morning queue at the records desk; the request goes to the back of the stack. The filing date on the cover is the only line you confirmed.', 'failure');
+      addNarration('', 'The archivist returns the document to the shelf before you can locate the hold-stamp page. Tide cycle paperwork dominates the morning queue at the records desk; the request goes to the back of the stack. The filing date on the cover is the only line you confirmed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

@@ -108,7 +108,7 @@ const NOMDARA_STAGE1_CHOICES = [
     tags: ['Nomdara', 'Leave'],
     xpReward: 0,
     fn: function() {
-      addNarration('', 'The caravan noise fades behind you. The road opens again.', 'neutral');
+      addNarration('', 'The caravan noise fades behind you. The road opens again.', (G && G.lastResultType) || 'neutral');
       var returnLoc = (G && G.previousLocation) ? G.previousLocation : 'shelkopolis';
       if (typeof resolveArrival === 'function') resolveArrival(returnLoc);
     }

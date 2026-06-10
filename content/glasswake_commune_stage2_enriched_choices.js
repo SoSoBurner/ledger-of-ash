@@ -11,7 +11,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -44,7 +44,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -77,7 +77,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Craft', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -116,7 +116,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -214,7 +214,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -247,7 +247,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -309,7 +309,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -342,7 +342,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -375,7 +375,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -408,7 +408,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -442,7 +442,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -475,7 +475,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -507,7 +507,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -569,7 +569,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -601,7 +601,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -661,7 +661,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -699,7 +699,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -736,7 +736,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -773,7 +773,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -810,7 +810,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -849,7 +849,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -886,7 +886,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -923,7 +923,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -960,7 +960,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -997,7 +997,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1036,7 +1036,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1073,7 +1073,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1112,7 +1112,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1149,7 +1149,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Research', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1188,7 +1188,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1207,7 +1207,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1226,7 +1226,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1246,7 +1246,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1267,7 +1267,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1315,7 +1315,7 @@ var GLASSWAKE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', 'failure');
+      addNarration('', 'A quarantine warden in white-rimmed silvers passes the observation-gallery rail, eyes on the sensor pylon readout. You step back into the lab-corridor traffic before the scan-cycle records your idle position.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

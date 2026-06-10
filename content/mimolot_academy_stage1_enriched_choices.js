@@ -48,7 +48,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -90,7 +90,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -131,7 +131,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -175,7 +175,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -216,7 +216,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -257,7 +257,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -298,7 +298,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -339,7 +339,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -382,7 +382,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -423,7 +423,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -464,7 +464,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -505,7 +505,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -546,7 +546,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -587,7 +587,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -618,7 +618,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -661,7 +661,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -701,7 +701,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -743,7 +743,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -784,7 +784,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -825,7 +825,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -859,7 +859,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -893,7 +893,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -921,7 +921,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -951,7 +951,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'investigate'; maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -962,7 +962,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -981,7 +981,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1022,7 +1022,7 @@ var MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES = [
       G.recentOutcomeType = 'social'; maybeStageAdvance();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -1098,7 +1098,7 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -1117,7 +1117,7 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -1153,7 +1153,7 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -1173,7 +1173,7 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -1192,7 +1192,7 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -1212,7 +1212,7 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   },
@@ -1231,7 +1231,7 @@ MIMOLOT_ACADEMY_STAGE1_ENRICHED_CHOICES.push(
       if (typeof saveGame === 'function') saveGame();
     },
     failResult: function() {
-      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', 'failure');
+      addNarration('', 'Clerestory light cuts across the brass-fitted shelving in a long afternoon line. The scriptorium hush absorbs the unanswered question without acknowledging it. A junior clerk turns a page. You leave before your name attaches to the silence.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
   }

@@ -156,7 +156,7 @@ const NOMDARA_STAGE2_CHOICES = [
     tags: ['Travel', 'Nomdara'],
     xpReward: 20,
     fn: function() {
-      addNarration('', 'The caravan disbands around you. You carry what you learned forward.', 'neutral');
+      addNarration('', 'The caravan disbands around you. You carry what you learned forward.', (G && G.lastResultType) || 'neutral');
       var returnLoc = (G && G.previousLocation) ? G.previousLocation : 'shelkopolis';
       if (typeof resolveArrival === 'function') resolveArrival(returnLoc);
     }

@@ -15,7 +15,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Decon Von Reckshem closes the requisition binder, slides it into the recessed shelf above his standing-desk, and turns to the wall map. The Relic Strategy Wing office on the upper crown floor does not have a second seat at his desk. The conversation ends at his standing posture.', 'failure');
+      addNarration('', 'Decon Von Reckshem closes the requisition binder, slides it into the recessed shelf above his standing-desk, and turns to the wall map. The Relic Strategy Wing office on the upper crown floor does not have a second seat at his desk. The conversation ends at his standing posture.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -54,7 +54,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Mordoth Valinheim is at the Allocation Hall podium when you reach the floor — the mid-tower assembly chamber rings with the calling of contract numbers, a hundred factors marking ledgers in chorus. He does not break from the rhythm. The exchange is not possible mid-session.', 'failure');
+      addNarration('', 'Mordoth Valinheim is at the Allocation Hall podium when you reach the floor — the mid-tower assembly chamber rings with the calling of contract numbers, a hundred factors marking ledgers in chorus. He does not break from the rhythm. The exchange is not possible mid-session.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -93,7 +93,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Vorgul Oxtend stands at the arsenal-floor map table — mid-tower workshop level, racks of shaped steel hanging behind him. Two of his subordinates close the door at your approach and take post at it. The transport-pass ledger stays on the table. You step back into the freight corridor.', 'failure');
+      addNarration('', 'Vorgul Oxtend stands at the arsenal-floor map table — mid-tower workshop level, racks of shaped steel hanging behind him. Two of his subordinates close the door at your approach and take post at it. The transport-pass ledger stays on the table. You step back into the freight corridor.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -130,7 +130,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Cron Udenine\'s judicial chamber on the upper crown floor has a clerk posted at the inner door who logs every appointment. Yours is not on the day-sheet. The clerk turns the page so you can see the blank line and rings the bell that calls the next scheduled petitioner.', 'failure');
+      addNarration('', 'Cron Udenine\'s judicial chamber on the upper crown floor has a clerk posted at the inner door who logs every appointment. Yours is not on the day-sheet. The clerk turns the page so you can see the blank line and rings the bell that calls the next scheduled petitioner.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -167,7 +167,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Roth Udenine\'s budget annex is on the upper governance level — a long room with the expansion-project ledgers shelved in numbered series. The clerk at the entry takes your name without writing it down and tells you the budget files require council sponsorship to consult.', 'failure');
+      addNarration('', 'Roth Udenine\'s budget annex is on the upper governance level — a long room with the expansion-project ledgers shelved in numbered series. The clerk at the entry takes your name without writing it down and tells you the budget files require council sponsorship to consult.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -354,7 +354,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The transit registry sits on the upper governance floor — a long room with the manifest binders shelved by fiscal quarter. The duty clerk stands when you enter, asks for your Giant Council registry identifier, and closes the current-period binder against her chest when you do not produce one. The exemption code stays under the cover.', 'failure');
+      addNarration('', 'The transit registry sits on the upper governance floor — a long room with the manifest binders shelved by fiscal quarter. The duty clerk stands when you enter, asks for your Giant Council registry identifier, and closes the current-period binder against her chest when you do not produce one. The exemption code stays under the cover.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -392,7 +392,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Relic Strategy Wing outer office on the upper crown floor has a duty desk three steps inside the door. Senne Orvath is not at it. A senior factor is, and he writes your name on a Wing reception slip without looking up. The slip goes into a tray marked for the Wing director. You leave before the next bell.', 'failure');
+      addNarration('', 'The Relic Strategy Wing outer office on the upper crown floor has a duty desk three steps inside the door. Senne Orvath is not at it. A senior factor is, and he writes your name on a Wing reception slip without looking up. The slip goes into a tray marked for the Wing director. You leave before the next bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -428,7 +428,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The third tower\'s service corridor at the courier\'s exit point has a maintenance worker scraping forge soot from the wall at the hour the courier always leaves. He looks up once when you take position behind the column, and a second time when you move. The courier does not exit tonight. The maintenance worker stays scraping until the bell.', 'failure');
+      addNarration('', 'The third tower\'s service corridor at the courier\'s exit point has a maintenance worker scraping forge soot from the wall at the hour the courier always leaves. He looks up once when you take position behind the column, and a second time when you move. The courier does not exit tonight. The maintenance worker stays scraping until the bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -497,7 +497,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The alloy export register desk is on the mid-tower workshop floor — a long counter with the binders shelved behind glass. The register clerk asks for your guild craft identifier before you finish describing the sample. The binder stays behind the glass. The compound profile does not get cross-referenced today.', 'failure');
+      addNarration('', 'The alloy export register desk is on the mid-tower workshop floor — a long counter with the binders shelved behind glass. The register clerk asks for your guild craft identifier before you finish describing the sample. The binder stays behind the glass. The compound profile does not get cross-referenced today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -533,7 +533,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The outer-district pay station is a low room at the base of the second tower, with disbursement ledgers chained to the desks. The duty clerk asks for the Giant Council labor registry authorization and slides the request slip across the counter without further comment. Fourteen working days, she writes. The monthly file is six steps away.', 'failure');
+      addNarration('', 'The outer-district pay station is a low room at the base of the second tower, with disbursement ledgers chained to the desks. The duty clerk asks for the Giant Council labor registry authorization and slides the request slip across the counter without further comment. Fourteen working days, she writes. The monthly file is six steps away.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -569,7 +569,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The herald\'s mail bench is on the mid-tower courier floor — a long room with dispatch slots numbered along the back wall. Bren Sothwick is at the bench but the route log stays inside his document bag while you speak. Council herald privilege, he says without looking up. The bag stays at his feet.', 'failure');
+      addNarration('', 'The herald\'s mail bench is on the mid-tower courier floor — a long room with dispatch slots numbered along the back wall. Bren Sothwick is at the bench but the route log stays inside his document bag while you speak. Council herald privilege, he says without looking up. The bag stays at his feet.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -605,7 +605,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The blueprint vault is on the upper governance level — a narrow room with the drawers locked along the inner wall. The duty archivist sits at the registry desk that covers the only entrance. She turns the page of her duty log when you appear in the corridor and writes the time. You do not approach the vault door.', 'failure');
+      addNarration('', 'The blueprint vault is on the upper governance level — a narrow room with the drawers locked along the inner wall. The duty archivist sits at the registry desk that covers the only entrance. She turns the page of her duty log when you appear in the corridor and writes the time. You do not approach the vault door.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -673,7 +673,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The metallurgical verification desk is in the mid-tower workshop level, behind a glass partition that fogs in the forge updraft. The duty clerk asks for the council Arbiter authorization slip and writes the request on a triplicate form. The crate fragment stays in your bag. The form goes into a pending tray that is already three deep.', 'failure');
+      addNarration('', 'The metallurgical verification desk is in the mid-tower workshop level, behind a glass partition that fogs in the forge updraft. The duty clerk asks for the council Arbiter authorization slip and writes the request on a triplicate form. The crate fragment stays in your bag. The form goes into a pending tray that is already three deep.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -709,7 +709,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Hassel Dorn\'s outer-ring residential block is three streets from the tower base — a stone landing with two doorways and a window onto the lower forge stacks. He does not come to the door. A neighbour across the landing watches the corridor from her doorway with no particular reason to be standing there. You leave without knocking a second time.', 'failure');
+      addNarration('', 'Hassel Dorn\'s outer-ring residential block is three streets from the tower base — a stone landing with two doorways and a window onto the lower forge stacks. He does not come to the door. A neighbour across the landing watches the corridor from her doorway with no particular reason to be standing there. You leave without knocking a second time.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -745,7 +745,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The treaty amendment archive is on the upper crown floor — a narrow room with the council chancellor\'s clerk at the entry desk. She asks your name, writes it on the appointment register, and tells you the next available archive slot is in eight days. The appointment book is full. The volumes stay shelved behind the inner door.', 'failure');
+      addNarration('', 'The treaty amendment archive is on the upper crown floor — a narrow room with the council chancellor\'s clerk at the entry desk. She asks your name, writes it on the appointment register, and tells you the next available archive slot is in eight days. The appointment book is full. The volumes stay shelved behind the inner door.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -781,7 +781,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The factor-address block at dawn is in clear line of sight from the inner-ring gatehouse — a guard at the parapet whose lantern angle covers the alley the rider exits through. The rider leaves at the second bell. By the time you find a position with cover, his pace has carried him past the third turning and out of sight along the east outer-ring road.', 'failure');
+      addNarration('', 'The factor-address block at dawn is in clear line of sight from the inner-ring gatehouse — a guard at the parapet whose lantern angle covers the alley the rider exits through. The rider leaves at the second bell. By the time you find a position with cover, his pace has carried him past the third turning and out of sight along the east outer-ring road.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -816,7 +816,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Cron Udenine\'s judicial chamber on the upper crown floor has a clerk at the inner door who reads the file folder before announcing you. He reads to the third page, closes the folder, and tells you the Arbiter is in chambers on a sealed proceeding. The seal does not get applied today. The folder goes back into your bag.', 'failure');
+      addNarration('', 'Cron Udenine\'s judicial chamber on the upper crown floor has a clerk at the inner door who reads the file folder before announcing you. He reads to the third page, closes the folder, and tells you the Arbiter is in chambers on a sealed proceeding. The seal does not get applied today. The folder goes back into your bag.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -852,7 +852,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The Hammer Company forge-floor entrance is at the tower base — a wide iron door with a quota board posted to the right of the threshold. The duty foreman blocks the door at your approach and asks for a work assignment seal. The board stays inside. The Iron Accord registry sits across the plaza, but you cannot read both copies in the same trip.', 'failure');
+      addNarration('', 'The Hammer Company forge-floor entrance is at the tower base — a wide iron door with a quota board posted to the right of the threshold. The duty foreman blocks the door at your approach and asks for a work assignment seal. The board stays inside. The Iron Accord registry sits across the plaza, but you cannot read both copies in the same trip.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -884,7 +884,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The Giant Council intake desk on the mid-tower governance floor has the prohibition register posted in a glass-fronted frame. A factor stands at the frame reading it, takes a notebook out, and writes the date and time before continuing. He does not move when you approach. You step back into the corridor without reading the third panel.', 'failure');
+      addNarration('', 'The Giant Council intake desk on the mid-tower governance floor has the prohibition register posted in a glass-fronted frame. A factor stands at the frame reading it, takes a notebook out, and writes the date and time before continuing. He does not move when you approach. You step back into the corridor without reading the third panel.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -915,7 +915,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The Soreheim trade hall arbitration register sits inside the mid-tower assembly corridor — a clerk\'s counter with the case index bound by quarter. The duty clerk asks for the specific shipment identifier before pulling any volume. Without it, she opens a queue ticket and routes it through the arbiter\'s office. You take the ticket and step back into the corridor.', 'failure');
+      addNarration('', 'The Soreheim trade hall arbitration register sits inside the mid-tower assembly corridor — a clerk\'s counter with the case index bound by quarter. The duty clerk asks for the specific shipment identifier before pulling any volume. Without it, she opens a queue ticket and routes it through the arbiter\'s office. You take the ticket and step back into the corridor.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -966,7 +966,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Wardens', 'Stage2', 'Faction', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The north gate arcade at the rotation change carries a current of factor traffic — two senior Wing factors are at the gate when the rotation begins, conferring with the gate-sergeant. Standing under the lowered banner now puts you in their direct sightline. The window passes without contact. The brass grommet stays clean.', 'failure');
+      addNarration('', 'The north gate arcade at the rotation change carries a current of factor traffic — two senior Wing factors are at the gate when the rotation begins, conferring with the gate-sergeant. Standing under the lowered banner now puts you in their direct sightline. The window passes without contact. The brass grommet stays clean.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1020,7 +1020,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The Soreheim union registry sits at the base of the second tower — a low room with the procedural filings shelved by guild sector. The duty registrar reads your request and walks back to the shelf without producing the file. She returns empty-handed. The Collegium hold has flagged the volume for restricted handling, she says. The shelf stays closed.', 'failure');
+      addNarration('', 'The Soreheim union registry sits at the base of the second tower — a low room with the procedural filings shelved by guild sector. The duty registrar reads your request and walks back to the shelf without producing the file. She returns empty-handed. The Collegium hold has flagged the volume for restricted handling, she says. The shelf stays closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1041,7 +1041,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The factor exchange floor is a mid-tower commercial chamber — long tables, brass tally rails, the press of trade clerks running the afternoon session. The factor you came to speak with is at the central table calling buy lots. He does not break the call rhythm. Two clerks at his elbow shift to block your approach. The session does not pause.', 'failure');
+      addNarration('', 'The factor exchange floor is a mid-tower commercial chamber — long tables, brass tally rails, the press of trade clerks running the afternoon session. The factor you came to speak with is at the central table calling buy lots. He does not break the call rhythm. Two clerks at his elbow shift to block your approach. The session does not pause.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1062,7 +1062,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The civic archive sits inside the upper governance level — a long reading room with the pre-Decommodification volumes shelved at the back. The duty archivist asks for the access roll and notes the request in his ledger. He returns from the back shelf with only the index volume. The source volumes themselves are flagged for archival review and not currently available.', 'failure');
+      addNarration('', 'The civic archive sits inside the upper governance level — a long reading room with the pre-Decommodification volumes shelved at the back. The duty archivist asks for the access roll and notes the request in his ledger. He returns from the back shelf with only the index volume. The source volumes themselves are flagged for archival review and not currently available.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1082,7 +1082,7 @@ var SOREHEIM_PROPER_STAGE2_ENRICHED_CHOICES = [
     tags: ['Complication', 'Observation'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The civic archive reading room has two doors — the duty entrance and a smaller service door at the back. The observer near the duty entrance does not move when you stand. The service door is bolted on the far side. You return the volume you were reading to the request desk and leave the rest unread. The reading room stays at its same low murmur.', 'failure');
+      addNarration('', 'The civic archive reading room has two doors — the duty entrance and a smaller service door at the back. The observer near the duty entrance does not move when you stand. The service door is bolted on the far side. You return the volume you were reading to the request desk and leave the rest unread. The reading room stays at its same low murmur.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

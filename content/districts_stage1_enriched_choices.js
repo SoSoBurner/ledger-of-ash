@@ -13,7 +13,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -89,7 +89,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Stealth', 'Investigation'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -115,7 +115,7 @@ var AURORA_HEIGHTS_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Lore', 'Atmosphere'],
     xpReward: 60,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -192,7 +192,7 @@ var IRONSPOOL_WARD_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Stealth', 'Combat'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -306,7 +306,7 @@ var VERDANT_ROW_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Survival', 'Atmosphere'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -328,7 +328,7 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Survival', 'Investigation'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -384,7 +384,7 @@ var GRANARY_STEPS_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Lore', 'Craft'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -562,7 +562,7 @@ var RECKONING_QUARTER_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Stealth', 'Investigation'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -820,7 +820,7 @@ var COMMON_QUARTER_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Survival', 'Atmosphere'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -843,7 +843,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Combat', 'Persuasion'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -871,7 +871,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     tags: ['District', 'Stealth', 'Survival'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -901,7 +901,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
     ],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -937,7 +937,7 @@ var LOW_WARD_STAGE1_ENRICHED_CHOICES = [
   tags: ['social'],
   xpReward: 5,
   failResult: function() {
-    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+    addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
   },
   fn: function() {

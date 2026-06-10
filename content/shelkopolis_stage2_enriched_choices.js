@@ -472,7 +472,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -504,7 +504,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Lore', 'Environment', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -562,7 +562,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Advanced', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -671,7 +671,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -706,7 +706,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Stealth'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The south dock rotation gate closes ahead of you. A Roadwarden in plumed helm steps into the lane between you and Forren Dass\'s clerk window, the indigo of his sash catching the late sun. He does not ask why you came. You turn back along the wharf before he frames the question.', 'failure');
+      addNarration('', 'The south dock rotation gate closes ahead of you. A Roadwarden in plumed helm steps into the lane between you and Forren Dass\'s clerk window, the indigo of his sash catching the late sun. He does not ask why you came. You turn back along the wharf before he frames the question.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -740,7 +740,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -774,7 +774,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The trail loses itself in the Clerks\' Quarter — three streets in, all the door wards have been re-chalked in the same hand. No name on a buzzer matches a docket entry. The chapel bell across the courtyard rings the change of watch. By the second strike, the lane behind you is empty.', 'failure');
+      addNarration('', 'The trail loses itself in the Clerks\' Quarter — three streets in, all the door wards have been re-chalked in the same hand. No name on a buzzer matches a docket entry. The chapel bell across the courtyard rings the change of watch. By the second strike, the lane behind you is empty.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -807,7 +807,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Faction', 'Investigation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -843,7 +843,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Craft'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The maintenance node\'s warding glyph reads warm under your hand and then stops reading at all — someone closed the channel from the other side while you were still tracing it. The archive quarter\'s pale stone corridor smells of wax and cold ledger paper. You step out into it before the warden round comes through.', 'failure');
+      addNarration('', 'The maintenance node\'s warding glyph reads warm under your hand and then stops reading at all — someone closed the channel from the other side while you were still tracing it. The archive quarter\'s pale stone corridor smells of wax and cold ledger paper. You step out into it before the warden round comes through.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -878,7 +878,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -912,7 +912,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Ironspool yard shift gate clamps shut as you reach it. Coal-smoke and quenching steam roll up off the south stacks, hot enough to make your eyes water. A foreman you don\'t recognize meets the gate keeper\'s eye over your shoulder. You step back into the lane before the second look becomes a name.', 'failure');
+      addNarration('', 'The Ironspool yard shift gate clamps shut as you reach it. Coal-smoke and quenching steam roll up off the south stacks, hot enough to make your eyes water. A foreman you don\'t recognize meets the gate keeper\'s eye over your shoulder. You step back into the lane before the second look becomes a name.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -945,7 +945,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Permanent'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -999,7 +999,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Shadowhands', 'Stage2', 'Faction', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1053,7 +1053,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The crane operator looks down from the cab and his hand stays off the brake handle long enough to count. You step out of the load lane before he releases it. The Titan Towers shadow falls across the south dock at this hour; the crates pass beneath it unweighed, and the log stays where the foreman put it.', 'failure');
+      addNarration('', 'The crane operator looks down from the cab and his hand stays off the brake handle long enough to count. You step out of the load lane before he releases it. The Titan Towers shadow falls across the south dock at this hour; the crates pass beneath it unweighed, and the log stays where the foreman put it.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1089,7 +1089,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1125,7 +1125,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Investigation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1160,7 +1160,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Survival'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1193,7 +1193,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Faction'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', 'failure');
+      addNarration('', 'You step back into Verdant Row\'s late traffic before the question lands. The pale stone wall behind the registry holds its midafternoon heat; an indigo-and-emerald banner shifts above the lamp brackets and the moment dissolves into the noise of carriage wheels.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1227,7 +1227,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Investigation', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Inquisitorial sub-archive\'s second corridor ends at a sealed door you can\'t name a way through. The wax on the door-mark is fresh — applied today, by a hand that knew you might come. You take the back stair down past the chapel cloister, where the Silkweaver bell is mid-vespers.', 'failure');
+      addNarration('', 'The Inquisitorial sub-archive\'s second corridor ends at a sealed door you can\'t name a way through. The wax on the door-mark is fresh — applied today, by a hand that knew you might come. You take the back stair down past the chapel cloister, where the Silkweaver bell is mid-vespers.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1261,7 +1261,7 @@ var SHELKOPOLIS_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Lady Elowen sets the cup down without finishing the sip and her clerk is at the door before you finish the question. The guildhall anteroom has indigo-and-emerald paneling and a window that overlooks the Artisans Quarter; through it you see the carriage already waiting in the lane. The interview is over without ending.', 'failure');
+      addNarration('', 'Lady Elowen sets the cup down without finishing the sip and her clerk is at the door before you finish the question. The guildhall anteroom has indigo-and-emerald paneling and a window that overlooks the Artisans Quarter; through it you see the carriage already waiting in the lane. The interview is over without ending.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

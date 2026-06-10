@@ -13,7 +13,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Jorin\'s intake-form tray is empty when you reach the Material Ledger Office counter — pulled for the noon recalibration. The audit clerk three desks down watches the empty counter without moving, the way a clerk watches a counter that should not be approached unattended. You step back to the ledger balcony rail.', 'failure');
+      addNarration('', 'Jorin\'s intake-form tray is empty when you reach the Material Ledger Office counter — pulled for the noon recalibration. The audit clerk three desks down watches the empty counter without moving, the way a clerk watches a counter that should not be approached unattended. You step back to the ledger balcony rail.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -50,7 +50,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stealth', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Tess\'s Night-Lantern station at the corner of the materials yard is occupied — a floor inspector is there checking lamp-bracket records, and Tess has the careful posture of an inspector who knows she cannot speak with you while another inspector watches. She nods once toward the south lane. You take the south lane.', 'failure');
+      addNarration('', 'Tess\'s Night-Lantern station at the corner of the materials yard is occupied — a floor inspector is there checking lamp-bracket records, and Tess has the careful posture of an inspector who knows she cannot speak with you while another inspector watches. She nods once toward the south lane. You take the south lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -83,7 +83,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Copy Warden\'s copy-authentication desk has a queue stretched back to the chalk gate board — three copyists ahead, a senior journeyman behind them, and the Warden working through the stamps without looking up. Stepping past the queue to ask about the academic exemption shelf would be visible to every certified copyist in the room. You take a place in line.', 'failure');
+      addNarration('', 'The Copy Warden\'s copy-authentication desk has a queue stretched back to the chalk gate board — three copyists ahead, a senior journeyman behind them, and the Warden working through the stamps without looking up. Stepping past the queue to ask about the academic exemption shelf would be visible to every certified copyist in the room. You take a place in line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -119,7 +119,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC', 'Escalation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Jorin\'s ledger balcony desk has its second binder closed and tied. The audit-review notice clipped to his blotter is dated this morning; he has not opened the binder since he saw it. He looks at the binder. He looks at you. He does not move. You return to the public side of the balcony rail.', 'failure');
+      addNarration('', 'Jorin\'s ledger balcony desk has its second binder closed and tied. The audit-review notice clipped to his blotter is dated this morning; he has not opened the binder since he saw it. He looks at the binder. He looks at you. He does not move. You return to the public side of the balcony rail.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -155,7 +155,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Stealth', 'Environmental'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The service corridor entrance has two floor inspectors on rotation today instead of the usual one — paired duty, alternating sightlines. The panel-frame door at the corridor\'s end stays sealed. The bonded transit boundary marker at your foot is freshly chalked. You retreat to the public materials yard.', 'failure');
+      addNarration('', 'The service corridor entrance has two floor inspectors on rotation today instead of the usual one — paired duty, alternating sightlines. The panel-frame door at the corridor\'s end stays sealed. The bonded transit boundary marker at your foot is freshly chalked. You retreat to the public materials yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -190,7 +190,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The artisan turns at the copy window before you can speak, the queue behind her tightening into a half-circle. The Copy Bureau intake clerk lifts the procedural placard from the counter and sets it deliberately between the two of you. The crowd reads the gesture. You step back from the window.', 'failure');
+      addNarration('', 'The artisan turns at the copy window before you can speak, the queue behind her tightening into a half-circle. The Copy Bureau intake clerk lifts the procedural placard from the counter and sets it deliberately between the two of you. The crowd reads the gesture. You step back from the window.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -226,7 +226,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The dismissed copyist\'s old bench is at the rear of the copy tower\'s second-floor workroom — the seat now occupied by a probationary copyist who notices everyone who comes through the door. Sovi Maretch is not in the building today. You leave without crossing the workroom.', 'failure');
+      addNarration('', 'The dismissed copyist\'s old bench is at the rear of the copy tower\'s second-floor workroom — the seat now occupied by a probationary copyist who notices everyone who comes through the door. Sovi Maretch is not in the building today. You leave without crossing the workroom.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -260,7 +260,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Guild Council trade registry counter is closed for the afternoon recess — the duty registrar has hung the procedural notice on the panel-frame door and the inquiry window shutter is down. The next intake window opens at the third bell tomorrow. You note the time and step back to the ledger balcony.', 'failure');
+      addNarration('', 'The Guild Council trade registry counter is closed for the afternoon recess — the duty registrar has hung the procedural notice on the panel-frame door and the inquiry window shutter is down. The next intake window opens at the third bell tomorrow. You note the time and step back to the ledger balcony.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -294,7 +294,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The certification inspector\'s desk in the materials yard administration block is empty. Her tray of unsigned forms has been removed; the shelf behind the desk holds only a procedural binder turned spine-out. A secondary inspector across the room watches you watching the desk. You leave the block.', 'failure');
+      addNarration('', 'The certification inspector\'s desk in the materials yard administration block is empty. Her tray of unsigned forms has been removed; the shelf behind the desk holds only a procedural binder turned spine-out. A secondary inspector across the room watches you watching the desk. You leave the block.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -329,7 +329,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     plot: 'main',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The furnace hall corridor at pre-dawn carries the orange-deep heat of an active burn through the stone wall, but the access door is locked from the inside and the roster clipboard at the entrance has had its current page torn off cleanly. A workshop foreman is approaching from the materials yard. You move toward the chalk gate before he arrives.', 'failure');
+      addNarration('', 'The furnace hall corridor at pre-dawn carries the orange-deep heat of an active burn through the stone wall, but the access door is locked from the inside and the roster clipboard at the entrance has had its current page torn off cleanly. A workshop foreman is approaching from the materials yard. You move toward the chalk gate before he arrives.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -363,7 +363,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The transit office filing shelf is in the middle of its end-of-day reconciliation — every manifest in the outbound rack is being moved to the closed-file cabinets along the back wall. The clerk pauses, hands full of bound copies, and says without looking up that the rack opens again at first bell. You step out of the office.', 'failure');
+      addNarration('', 'The transit office filing shelf is in the middle of its end-of-day reconciliation — every manifest in the outbound rack is being moved to the closed-file cabinets along the back wall. The clerk pauses, hands full of bound copies, and says without looking up that the rack opens again at first bell. You step out of the office.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -396,7 +396,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Quality Standards Office reading room is at capacity — every reference stack desk has a guild solicitor or copyist seated and working, and the brass-edged partition behind the public summary board carries a closed notice. The summary board shows nothing unusual. You note your name on the wait roster.', 'failure');
+      addNarration('', 'The Quality Standards Office reading room is at capacity — every reference stack desk has a guild solicitor or copyist seated and working, and the brass-edged partition behind the public summary board carries a closed notice. The summary board shows nothing unusual. You note your name on the wait roster.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -429,7 +429,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The pre-charter archive is held behind the copy tower\'s sealed-stack partition — accessible only after the standing archivist completes her morning shelf walk. She has not yet started today\'s walk. The partition stays closed. The two copy tower clerks at the intake counter mark your inquiry on the daily access slate.', 'failure');
+      addNarration('', 'The pre-charter archive is held behind the copy tower\'s sealed-stack partition — accessible only after the standing archivist completes her morning shelf walk. She has not yet started today\'s walk. The partition stays closed. The two copy tower clerks at the intake counter mark your inquiry on the daily access slate.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -462,7 +462,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Finale', 'Stage2', 'Consequence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Guild Council chamber doors are closed for a private session. A clerk at the antechamber desk notes your appointment request without committing to a hearing date. The smell of old ink and linseed oil from the floor boards seeps under the chamber door. You step back to the antechamber bench and wait for a clerk who will not return today.', 'failure');
+      addNarration('', 'The Guild Council chamber doors are closed for a private session. A clerk at the antechamber desk notes your appointment request without committing to a hearing date. The smell of old ink and linseed oil from the floor boards seeps under the chamber door. You step back to the antechamber bench and wait for a clerk who will not return today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -498,7 +498,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The ledger balcony quota board is being updated — the guild floor coordinator and two posting clerks are working it row by row, blocking direct view of the relevant entries. They will be on the board for the rest of the morning. You step back along the balcony rail and wait for an opening that will not come this shift.', 'failure');
+      addNarration('', 'The ledger balcony quota board is being updated — the guild floor coordinator and two posting clerks are working it row by row, blocking direct view of the relevant entries. They will be on the board for the rest of the morning. You step back along the balcony rail and wait for an opening that will not come this shift.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -536,7 +536,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Archive', 'Stage2', 'Observation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The copy tower\'s public-counter daily summary has just been replaced with the early-afternoon update — the prior version pulled before you reached the counter. The clerk who posts the summaries is on the other side of the tower for the next hour. The new summary shows only the eleven standard categories.', 'failure');
+      addNarration('', 'The copy tower\'s public-counter daily summary has just been replaced with the early-afternoon update — the prior version pulled before you reached the counter. The clerk who posts the summaries is on the other side of the tower for the next hour. The new summary shows only the eleven standard categories.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -574,7 +574,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2', 'Observation'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Heln Varris\'s broker workshop in the materials yard is shuttered for the noon break — the canvas-and-board front pulled down, the inquiry slot taped over with a closed-for-recess notice in her own hand. A workshop neighbor across the lane watches the closed front without comment. You move past without slowing.', 'failure');
+      addNarration('', 'Heln Varris\'s broker workshop in the materials yard is shuttered for the noon break — the canvas-and-board front pulled down, the inquiry slot taped over with a closed-for-recess notice in her own hand. A workshop neighbor across the lane watches the closed front without comment. You move past without slowing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -612,7 +612,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The certification log binder is in the certification office\'s upper shelf, and the rolling ladder is locked at the south end of the room for a staff inventory. The duty registrar at the counter says the ladder returns at the third bell. You note the time and step back to the public lane.', 'failure');
+      addNarration('', 'The certification log binder is in the certification office\'s upper shelf, and the rolling ladder is locked at the south end of the room for a staff inventory. The duty registrar at the counter says the ladder returns at the third bell. You note the time and step back to the public lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -633,7 +633,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The master\'s workshop is mid-pour — her sleeves rolled, the crucible above the bench at working temperature, an apprentice managing the bellows. She does not look up. Interrupting now would cost the pour. You watch through the open door until the metal is set and then leave before she removes her gloves.', 'failure');
+      addNarration('', 'The master\'s workshop is mid-pour — her sleeves rolled, the crucible above the bench at working temperature, an apprentice managing the bellows. She does not look up. Interrupting now would cost the pour. You watch through the open door until the metal is set and then leave before she removes her gloves.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -654,7 +654,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Intelligence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The certification appeals archive room is closed for the afternoon — a paper notice tacked to the panel-frame door cites a scheduled cabinet reorganization. The duty clerk inside is visible through the high window, sorting binders into stacks. The room reopens at first bell tomorrow. You step back to the queue court.', 'failure');
+      addNarration('', 'The certification appeals archive room is closed for the afternoon — a paper notice tacked to the panel-frame door cites a scheduled cabinet reorganization. The duty clerk inside is visible through the high window, sorting binders into stacks. The room reopens at first bell tomorrow. You step back to the queue court.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -675,7 +675,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The appeals archive\'s public-access tray is empty — the last batch of rejection letters has been returned to the closed cabinets ahead of schedule. The duty archivist behind the counter does not offer a reason and does not look pleased to be asked. The cabinets reopen at first bell tomorrow.', 'failure');
+      addNarration('', 'The appeals archive\'s public-access tray is empty — the last batch of rejection letters has been returned to the closed cabinets ahead of schedule. The duty archivist behind the counter does not offer a reason and does not look pleased to be asked. The cabinets reopen at first bell tomorrow.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -698,7 +698,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Workshop', 'Records', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Jorin\'s high window shelf holds the bound volumes today, but the audit clerk has them pulled to her cross-reference desk on the far side of the balcony. Approaching her desk requires crossing the balcony floor in full view of the floor coordinator. You step back to Jorin\'s desk and wait for an opening that does not come.', 'failure');
+      addNarration('', 'Jorin\'s high window shelf holds the bound volumes today, but the audit clerk has them pulled to her cross-reference desk on the far side of the balcony. Approaching her desk requires crossing the balcony floor in full view of the floor coordinator. You step back to Jorin\'s desk and wait for an opening that does not come.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -734,7 +734,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The classification archive\'s upper-floor reference room requires an appointment slip stamped at the registry counter, and the registry counter has a queue running past the queue court boundary. The next available slip carries a date three days out. You take the slip and step back to the public lane.', 'failure');
+      addNarration('', 'The classification archive\'s upper-floor reference room requires an appointment slip stamped at the registry counter, and the registry counter has a queue running past the queue court boundary. The next available slip carries a date three days out. You take the slip and step back to the public lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -769,7 +769,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The manifest clerk at the stockyard intake desk is shadowed by a senior auditor on the next stool — paired review for the day. Asking about the unmarked column with the auditor at her elbow would mark the question for both of them. You request a generic record reference instead and step out of the intake office.', 'failure');
+      addNarration('', 'The manifest clerk at the stockyard intake desk is shadowed by a senior auditor on the next stool — paired review for the day. Asking about the unmarked column with the auditor at her elbow would mark the question for both of them. You request a generic record reference instead and step out of the intake office.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -802,7 +802,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Material Ledger Office ladder is locked to the far wall — a records clerk has been atop it for forty minutes, transferring volumes between high shelves. The winter binder sits at the high end, out of reach. The clerk shows no sign of finishing. You leave a request slip with the duty registrar.', 'failure');
+      addNarration('', 'The Material Ledger Office ladder is locked to the far wall — a records clerk has been atop it for forty minutes, transferring volumes between high shelves. The winter binder sits at the high end, out of reach. The clerk shows no sign of finishing. You leave a request slip with the duty registrar.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -835,7 +835,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Jorin\'s copying pace is steady — too steady. He acknowledges your presence with a single nod and returns to the line he is transcribing. The senior copyist at the next desk has her ear angled toward Jorin\'s side of the balcony. He keeps his pen moving. You take a place at the public side of the rail and watch the ink dry.', 'failure');
+      addNarration('', 'Jorin\'s copying pace is steady — too steady. He acknowledges your presence with a single nod and returns to the line he is transcribing. The senior copyist at the next desk has her ear angled toward Jorin\'s side of the balcony. He keeps his pen moving. You take a place at the public side of the rail and watch the ink dry.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -872,7 +872,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The stockyard measurement office and the Material Ledger Office sit on opposite ends of the district — the measurement office\'s reconciliation window is closed for the duty registrar\'s mid-shift rotation. Moving between the two buildings without a posted reason draws floor-coordinator attention. You return to the queue court.', 'failure');
+      addNarration('', 'The stockyard measurement office and the Material Ledger Office sit on opposite ends of the district — the measurement office\'s reconciliation window is closed for the duty registrar\'s mid-shift rotation. Moving between the two buildings without a posted reason draws floor-coordinator attention. You return to the queue court.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -939,7 +939,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The certificate archive\'s comparison table is occupied by a senior solicitor working a separate review — folios spread across the entire surface, the table booked through the end of the day. The duty archivist will not interrupt a senior member\'s booking. You note the duplicate file numbers on a slip and step back.', 'failure');
+      addNarration('', 'The certificate archive\'s comparison table is occupied by a senior solicitor working a separate review — folios spread across the entire surface, the table booked through the end of the day. The duty archivist will not interrupt a senior member\'s booking. You note the duplicate file numbers on a slip and step back.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -975,7 +975,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Evidence', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The certificate sample binders are kept on the copy tower\'s public-reference shelf, but the high window light needed to read impression depth is direct only between the second and third bells. The second bell has already passed. The shelf will not have usable light again until tomorrow morning. You note the timing.', 'failure');
+      addNarration('', 'The certificate sample binders are kept on the copy tower\'s public-reference shelf, but the high window light needed to read impression depth is direct only between the second and third bells. The second bell has already passed. The shelf will not have usable light again until tomorrow morning. You note the timing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1010,7 +1010,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The classification index is pinned behind the copy-authentication desk, but the Copy Warden is at the desk and the index is not visible from the public side of the counter. Approaching to read it directly would put the certificate on the desk in your hand. You step back and wait for the warden\'s shift change.', 'failure');
+      addNarration('', 'The classification index is pinned behind the copy-authentication desk, but the Copy Warden is at the desk and the index is not visible from the public side of the counter. Approaching to read it directly would put the certificate on the desk in your hand. You step back and wait for the warden\'s shift change.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1043,7 +1043,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Evidence', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Copy Warden\'s return tray sits below the desk edge — visible only from the public counter\'s angle, blocked from view by a senior copyist who has parked a binding cart in front of the desk and started a long conversation with the warden. The cart will not move for the next quarter hour. You step back to the chalk gate boards.', 'failure');
+      addNarration('', 'The Copy Warden\'s return tray sits below the desk edge — visible only from the public counter\'s angle, blocked from view by a senior copyist who has parked a binding cart in front of the desk and started a long conversation with the warden. The cart will not move for the next quarter hour. You step back to the chalk gate boards.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1081,7 +1081,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Workshop', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Tess is mid-circuit when you reach the Night-Lantern station — her lantern bracket already pulled, her log under her arm, the next inspection point three lanes away. She does not have the log on the desk and will not have it on the desk again until the next circuit ends. You note the schedule and step back.', 'failure');
+      addNarration('', 'Tess is mid-circuit when you reach the Night-Lantern station — her lantern bracket already pulled, her log under her arm, the next inspection point three lanes away. She does not have the log on the desk and will not have it on the desk again until the next circuit ends. You note the schedule and step back.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1117,7 +1117,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Tess is at the materials yard north scale today, doing a meter calibration check with a stockyard foreman at her elbow. She nods once when she sees you and returns to the meter. The foreman is the kind of man who reports conversations he does not understand. You move past the scale without slowing.', 'failure');
+      addNarration('', 'Tess is at the materials yard north scale today, doing a meter calibration check with a stockyard foreman at her elbow. She nods once when she sees you and returns to the meter. The foreman is the kind of man who reports conversations he does not understand. You move past the scale without slowing.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1154,7 +1154,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Evidence', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Copy Warden is at the rear bench today, sleeves rolled to the elbow, working through the morning\'s back-log with no coat in sight. The coat is on a hook in the back office, behind the panel-frame door. Approaching the coat without crossing the warden\'s sightline is not possible from any public-side angle.', 'failure');
+      addNarration('', 'The Copy Warden is at the rear bench today, sleeves rolled to the elbow, working through the morning\'s back-log with no coat in sight. The coat is on a hook in the back office, behind the panel-frame door. Approaching the coat without crossing the warden\'s sightline is not possible from any public-side angle.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1190,7 +1190,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Jorin is at his desk on the upper ledger balcony. Tess is two floors below in the calibration wing. Their schedules do not overlap in the same room today, and the inner stairway between floors is held open for a delivery crew moving binders. You leave before the crew clears the stairs.', 'failure');
+      addNarration('', 'Jorin is at his desk on the upper ledger balcony. Tess is two floors below in the calibration wing. Their schedules do not overlap in the same room today, and the inner stairway between floors is held open for a delivery crew moving binders. You leave before the crew clears the stairs.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1226,7 +1226,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Copy Warden\'s personnel record is held at the guild administration office across the queue court — a separate building with its own intake protocol and a clerk who logs every requestor by name. Filing today\'s request adds your name to a register the warden will review by the end of the shift. You hold the request.', 'failure');
+      addNarration('', 'The Copy Warden\'s personnel record is held at the guild administration office across the queue court — a separate building with its own intake protocol and a clerk who logs every requestor by name. Filing today\'s request adds your name to a register the warden will review by the end of the shift. You hold the request.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1262,7 +1262,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Jorin keeps the conversation on the current entries today — he answers each question about the line he is copying and offers nothing beyond it. The audit notice is still on his blotter. A senior factor passes his desk twice during the exchange. He shows you out at the end of the visit with the careful courtesy of a man counting witnesses.', 'failure');
+      addNarration('', 'Jorin keeps the conversation on the current entries today — he answers each question about the line he is copying and offers nothing beyond it. The audit notice is still on his blotter. A senior factor passes his desk twice during the exchange. He shows you out at the end of the visit with the careful courtesy of a man counting witnesses.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1301,7 +1301,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The allocation records run across three bound series shelved at the long table on the ledger balcony\'s east end — and the east end is occupied by an external auditor working through the same volumes at his own pace. The volumes will be checked back to the shelf when he finishes, not before. You add your name to the queue slate.', 'failure');
+      addNarration('', 'The allocation records run across three bound series shelved at the long table on the ledger balcony\'s east end — and the east end is occupied by an external auditor working through the same volumes at his own pace. The volumes will be checked back to the shelf when he finishes, not before. You add your name to the queue slate.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1337,7 +1337,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The inter-locality registration index is held in the Collegium reference room at the rear of the copy tower. Access requires a Collegium-stamped petition slip, and today\'s petition window has closed early — the duty registrar is at the long counter packing the day\'s slips for filing. You step back to the public lane.', 'failure');
+      addNarration('', 'The inter-locality registration index is held in the Collegium reference room at the rear of the copy tower. Access requires a Collegium-stamped petition slip, and today\'s petition window has closed early — the duty registrar is at the long counter packing the day\'s slips for filing. You step back to the public lane.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1373,7 +1373,7 @@ var CRAFTSPIRE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Pattern', 'Stage2'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The stockyard inspection walkway above the main floor requires a posted entry purpose — the duty warden at the walkway gate reads each slip before unlatching the rail. The Collegium output reports are accessible at the public archive window, but without the walkway view you have only one half of the comparison. You take the report and leave.', 'failure');
+      addNarration('', 'The stockyard inspection walkway above the main floor requires a posted entry purpose — the duty warden at the walkway gate reads each slip before unlatching the rail. The Collegium output reports are accessible at the public archive window, but without the walkway view you have only one half of the comparison. You take the report and leave.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

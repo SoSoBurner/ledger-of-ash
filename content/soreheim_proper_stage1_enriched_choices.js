@@ -903,7 +903,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     xpReward: 68,
     align: {type: 'order', n: -1},
     failResult: function() {
-      addNarration('', 'A junior factor crosses the tower-base corridor with an inventory clipboard, takes the long route past the shrine alcove, and notes it. Whatever cache plan you had for that alcove is gone before it was made. Pick another night and another wall.', 'failure');
+      addNarration('', 'A junior factor crosses the tower-base corridor with an inventory clipboard, takes the long route past the shrine alcove, and notes it. Whatever cache plan you had for that alcove is gone before it was made. Pick another night and another wall.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -998,7 +998,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', 'The registry-floor clerk closes the window before you reach the counter — third-bell shift change, the partition slides down with a brass click. The shift roster says she will not be back at this counter until the following morning. The blue-spine ledger stays behind glass.', 'failure');
+      addNarration('', 'The registry-floor clerk closes the window before you reach the counter — third-bell shift change, the partition slides down with a brass click. The shift roster says she will not be back at this counter until the following morning. The blue-spine ledger stays behind glass.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1018,7 +1018,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
     tags: ['Suppression', 'Bureaucracy', 'Stage1', 'Records'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'A second clerk steps up behind the partition while you stand at the anteroom counter, watches the first clerk write your name in the inquiry register, and folds his hands. The wax-and-fiber smell of the registry corridor stays the same. The answer does not change.', 'failure');
+      addNarration('', 'A second clerk steps up behind the partition while you stand at the anteroom counter, watches the first clerk write your name in the inquiry register, and folds his hands. The wax-and-fiber smell of the registry corridor stays the same. The answer does not change.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1035,7 +1035,7 @@ var SOREHEIM_PROPER_STAGE1_ENRICHED_CHOICES = [
   tags: ['Records', 'Intelligence'],
   xpReward: 15,
   failResult: function() {
-    addNarration('', 'A senior factor crosses from the inner registry corridor with three apprentices in step, and the records-desk clerk straightens. The shelf door behind him swings shut with a flat tower-floor echo. The blue-spine ledger goes back into its slot before anyone speaks.', 'failure');
+    addNarration('', 'A senior factor crosses from the inner registry corridor with three apprentices in step, and the records-desk clerk straightens. The shelf door behind him swings shut with a flat tower-floor echo. The blue-spine ledger goes back into its slot before anyone speaks.', (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
   },
   fn: function() {

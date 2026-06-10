@@ -225,7 +225,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
       { type: 'heat', polity: 'soreheim', amount: 1 }
     ],
     failResult: function() {
-      addNarration('', 'Velka is at the end of the main terrace when Darian crosses the equipment yard with two foremen at his shoulder, walking the line of carts. She watches them pass without turning. By the time the carts have cleared the eastern face track, the dust on her sleeve has settled. The conversation she wanted to have does not happen tonight.', 'failure');
+      addNarration('', 'Velka is at the end of the main terrace when Darian crosses the equipment yard with two foremen at his shoulder, walking the line of carts. She watches them pass without turning. By the time the carts have cleared the eastern face track, the dust on her sleeve has settled. The conversation she wanted to have does not happen tonight.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -333,7 +333,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The equipment shed where Velka keeps the log sits behind the secondary cut bay — a low building with the manifest board posted on the outside wall. A foreman is at the board when you reach the shed, marking the day\'s outgoing sample cases against a clipboard. He looks up. The shed stays unopened until he has finished his count.', 'failure');
+      addNarration('', 'The equipment shed where Velka keeps the log sits behind the secondary cut bay — a low building with the manifest board posted on the outside wall. A foreman is at the board when you reach the shed, marking the day\'s outgoing sample cases against a clipboard. He looks up. The shed stays unopened until he has finished his count.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -599,7 +599,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['Discovery', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', 'The end-of-shift muster pad at the eastern face has a foreman counting workers off rotation with a clipboard. He waves the next group past before you finish circling for a closer look. The fatigue patterns blur into the procession. By the time the group reaches the gate, the count has closed.', 'failure');
+      addNarration('', 'The end-of-shift muster pad at the eastern face has a foreman counting workers off rotation with a clipboard. He waves the next group past before you finish circling for a closer look. The fatigue patterns blur into the procession. By the time the group reaches the gate, the count has closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -626,7 +626,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Background', 'Stage1'],
     xpReward: 58,
     failResult: function() {
-      addNarration('', 'The eastern equipment shed door is open when you approach, but two foremen are inside reviewing the day\'s extraction tally — the wall chart is behind them on the inside wall. They do not move. You step back to the threshold and wait for the shift change. The chart stays unread.', 'failure');
+      addNarration('', 'The eastern equipment shed door is open when you approach, but two foremen are inside reviewing the day\'s extraction tally — the wall chart is behind them on the inside wall. They do not move. You step back to the threshold and wait for the shift change. The chart stays unread.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -649,7 +649,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Risky', 'Physical', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The eastern perimeter service gate has a secondary guard at the post when you reach the drainage channel access — he is logging the morning rain runoff onto a clipboard. He looks up when your boots scuff the gravel. The drainage channel sits past his sightline. You retreat to the equipment yard before he writes a name.', 'failure');
+      addNarration('', 'The eastern perimeter service gate has a secondary guard at the post when you reach the drainage channel access — he is logging the morning rain runoff onto a clipboard. He looks up when your boots scuff the gravel. The drainage channel sits past his sightline. You retreat to the equipment yard before he writes a name.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -674,7 +674,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     failResult: function() {
-      addNarration('', 'The administration building manifest cabinet is in the inner office — the door open, the foreman\'s scheduling annex visible from the threshold. The scheduling foreman looks up from his calendar when you enter. The cabinet stays closed. You ask after the day\'s production sheets instead. He pulls them and you leave with the wrong document.', 'failure');
+      addNarration('', 'The administration building manifest cabinet is in the inner office — the door open, the foreman\'s scheduling annex visible from the threshold. The scheduling foreman looks up from his calendar when you enter. The cabinet stays closed. You ask after the day\'s production sheets instead. He pulls them and you leave with the wrong document.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -718,7 +718,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The service track at the eastern perimeter is silent tonight — no cart, no contractor, no equipment. A perimeter guard has been stationed at the access point that was empty during the last rotation. He stands without moving as the second bell passes. The delivery window closes. You retreat to the equipment yard.', 'failure');
+      addNarration('', 'The service track at the eastern perimeter is silent tonight — no cart, no contractor, no equipment. A perimeter guard has been stationed at the access point that was empty during the last rotation. He stands without moving as the second bell passes. The delivery window closes. You retreat to the equipment yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -761,7 +761,7 @@ var IRONHOLD_QUARRY_STAGE1_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Bold', 'Records', 'Stage1'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'The administration building survey shelf is in the inner office — the survey volume marked but pulled. A note in the foreman\'s hand on the shelf board: "with district resource office, return pending." The shelf gap is two volumes wide. The geological binder is not in the building today. You leave without it.', 'failure');
+      addNarration('', 'The administration building survey shelf is in the inner office — the survey volume marked but pulled. A note in the foreman\'s hand on the shelf board: "with district resource office, return pending." The shelf gap is two volumes wide. The geological binder is not in the building today. You leave without it.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

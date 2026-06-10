@@ -14,7 +14,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The granary archive wing is closed for the daily quota reconciliation — Farlan and two academic recordkeepers are inside cross-checking the morning intake against last week\'s ledger. The corridor smells of damp burlap and lamp oil. The counting table is occupied and the ledger pages stay flat under their hands.', 'failure');
+      addNarration('', 'The granary archive wing is closed for the daily quota reconciliation — Farlan and two academic recordkeepers are inside cross-checking the morning intake against last week\'s ledger. The corridor smells of damp burlap and lamp oil. The counting table is occupied and the ledger pages stay flat under their hands.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -49,7 +49,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Valen Crestmark is at the threshing floor for the late-afternoon weight-validation rotation — the assessor signs every cart load against the official tally before it crosses to the granary chute. He will not be back at the assessment desk until the rotation finishes. The chalk wall stays out of reach.', 'failure');
+      addNarration('', 'Valen Crestmark is at the threshing floor for the late-afternoon weight-validation rotation — the assessor signs every cart load against the official tally before it crosses to the granary chute. He will not be back at the assessment desk until the rotation finishes. The chalk wall stays out of reach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -83,7 +83,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Jorva Helmrune is mediating a quota-distribution dispute between two Soreheim section leads at the communal council table — the proceeding is closed to outside observers and scheduled to run until the second bell. The grievance file stays squared at the corner of her desk. The council hall doors are roped off.', 'failure');
+      addNarration('', 'Jorva Helmrune is mediating a quota-distribution dispute between two Soreheim section leads at the communal council table — the proceeding is closed to outside observers and scheduled to run until the second bell. The grievance file stays squared at the corner of her desk. The council hall doors are roped off.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -116,7 +116,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Elyra Mossbane has a line of patron-family clerks at her counting table this morning — quota allocations are being released for the afternoon and every brokerage seat is in negotiation. The supplier ledger stays under her palm. She does not look up. The line stretches past the stall row and into the cart yard.', 'failure');
+      addNarration('', 'Elyra Mossbane has a line of patron-family clerks at her counting table this morning — quota allocations are being released for the afternoon and every brokerage seat is in negotiation. The supplier ledger stays under her palm. She does not look up. The line stretches past the stall row and into the cart yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -152,7 +152,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The dispute chamber outer corridor is being repainted — drop cloths cover the bench and the mediator\'s door is sealed against the lime-wash fumes. Velrik sent the day\'s scheduled cases out for rescheduling through the clerk at the front desk. The grey folder stays on his shelf, between the two volumes, unreachable.', 'failure');
+      addNarration('', 'The dispute chamber outer corridor is being repainted — drop cloths cover the bench and the mediator\'s door is sealed against the lime-wash fumes. Velrik sent the day\'s scheduled cases out for rescheduling through the clerk at the front desk. The grey folder stays on his shelf, between the two volumes, unreachable.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -326,7 +326,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Valen Crestmark is at the granary chute with the morning cart sequence — the assessment desk is empty and the drawer with the locked logbook is in his direct line of sight from the weighbridge. Approaching it from the corridor would be seen the moment he turned his head. The drawer stays closed.', 'failure');
+      addNarration('', 'Valen Crestmark is at the granary chute with the morning cart sequence — the assessment desk is empty and the drawer with the locked logbook is in his direct line of sight from the weighbridge. Approaching it from the corridor would be seen the moment he turned his head. The drawer stays closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -430,7 +430,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Farlan is hosting a visiting Mimolot recordkeeper in the archive wing this afternoon — the conversation between them is low and continuous, the door propped open onto the corridor for ventilation. The transit order shelves are visible from where they stand. The visit is scheduled to last the full afternoon. The shelves stay watched.', 'failure');
+      addNarration('', 'Farlan is hosting a visiting Mimolot recordkeeper in the archive wing this afternoon — the conversation between them is low and continuous, the door propped open onto the corridor for ventilation. The transit order shelves are visible from where they stand. The visit is scheduled to last the full afternoon. The shelves stay watched.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -468,7 +468,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Brenn Saltash is mid-cycle on the cold storage regulation and the thermal door cannot open until the next bell — the temperature ledger is hooked inside the antechamber where the keeper stands. The compressor hum from the seed vault wall masks anything quieter than a shout. The corridor stays empty and the ledger stays out of reach.', 'failure');
+      addNarration('', 'Brenn Saltash is mid-cycle on the cold storage regulation and the thermal door cannot open until the next bell — the temperature ledger is hooked inside the antechamber where the keeper stands. The compressor hum from the seed vault wall masks anything quieter than a shout. The corridor stays empty and the ledger stays out of reach.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -505,7 +505,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Oswin Tharpe is at the committee offices for the autumn variety review — a seed-keeper attendance requirement. The vault door is sealed under rotation-key protocol and the waxed notebook he keeps inside is unreachable until he returns. The committee session runs through the afternoon and a runner says it may extend.', 'failure');
+      addNarration('', 'Oswin Tharpe is at the committee offices for the autumn variety review — a seed-keeper attendance requirement. The vault door is sealed under rotation-key protocol and the waxed notebook he keeps inside is unreachable until he returns. The committee session runs through the afternoon and a runner says it may extend.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -541,7 +541,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Fen Draal is mid-route — the pre-dawn courier carries strict timing windows for each junction marker and stopping him on the lane breaks his arrival log. His supervisor watches from the dispatch window with the duty watch open in her hand. Fen does not look up from the grease-pencil strap as he passes the cart yard.', 'failure');
+      addNarration('', 'Fen Draal is mid-route — the pre-dawn courier carries strict timing windows for each junction marker and stopping him on the lane breaks his arrival log. His supervisor watches from the dispatch window with the duty watch open in her hand. Fen does not look up from the grease-pencil strap as he passes the cart yard.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -576,7 +576,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The water-works committee chamber is in mid-session for the seasonal sluice-rotation review — the column book is open on the committee table with three members reading entries aloud. The chamber doors are pinned wide and an enforcer at the threshold logs each visitor before entry. The book stays on the committee table.', 'failure');
+      addNarration('', 'The water-works committee chamber is in mid-session for the seasonal sluice-rotation review — the column book is open on the committee table with three members reading entries aloud. The chamber doors are pinned wide and an enforcer at the threshold logs each visitor before entry. The book stays on the committee table.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -612,7 +612,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Meret Osk is mid-preparation behind the partially-closed door — the commune helper at the outer bench holds up four fingers without looking up. Four stages remaining. The preparation room is an uninterruptible custom and the tally ledger sits on the inner table where Meret stands. The door stays closed.', 'failure');
+      addNarration('', 'Meret Osk is mid-preparation behind the partially-closed door — the commune helper at the outer bench holds up four fingers without looking up. Four stages remaining. The preparation room is an uninterruptible custom and the tally ledger sits on the inner table where Meret stands. The door stays closed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -648,7 +648,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The seasonal dispatch archive is in the granary attic and Farlan Inkshade is hosting the academic visitor at the lower archive bench — the staircase up to the dispatch shelves is in their direct sightline. The committee binder for the current quarter is on the upper landing. The visitor\'s conversation runs steady until evening.', 'failure');
+      addNarration('', 'The seasonal dispatch archive is in the granary attic and Farlan Inkshade is hosting the academic visitor at the lower archive bench — the staircase up to the dispatch shelves is in their direct sightline. The committee binder for the current quarter is on the upper landing. The visitor\'s conversation runs steady until evening.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -683,7 +683,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Denet Alvar\'s eastern stall is at the busy junction of the morning grain queue and a Compact-affiliated buyer has stationed himself two stalls over for the full opening hours — the kind of placement that does not happen by accident. Alvar\'s hands keep moving over the grain weights. His eyes do not lift toward you.', 'failure');
+      addNarration('', 'Denet Alvar\'s eastern stall is at the busy junction of the morning grain queue and a Compact-affiliated buyer has stationed himself two stalls over for the full opening hours — the kind of placement that does not happen by accident. Alvar\'s hands keep moving over the grain weights. His eyes do not lift toward you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -718,7 +718,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The enforcer office front desk is staffed by a duty supervisor — Jorva Helmrune is at the cold storage corridor itself conducting the morning sign-in inspection. The patrol logs are in her office under lock. The duty supervisor reads the request, writes it in the visitor register, and caps the pen. Jorva is not back until evening shift.', 'failure');
+      addNarration('', 'The enforcer office front desk is staffed by a duty supervisor — Jorva Helmrune is at the cold storage corridor itself conducting the morning sign-in inspection. The patrol logs are in her office under lock. The duty supervisor reads the request, writes it in the visitor register, and caps the pen. Jorva is not back until evening shift.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -753,7 +753,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The communal council circle-house is closed for the autumn-assembly preparation rite — the smoke from the council fire is being banked for the evening session and only seated council members are permitted on the assembly floor. The case folder stays in your hand. The first opportunity to present formally is tomorrow at the morning bell.', 'failure');
+      addNarration('', 'The communal council circle-house is closed for the autumn-assembly preparation rite — the smoke from the council fire is being banked for the evening session and only seated council members are permitted on the assembly floor. The case folder stays in your hand. The first opportunity to present formally is tomorrow at the morning bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -789,7 +789,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The commune ledger office is sealed for the quarterly cross-audit — both the internal allocation book and the guild submission copy are on the audit table with the chief recorder and a Soreheim quota clerk reviewing them line by line. The double-ledger comparison stays off-limits until the audit closes. The clerks do not look up.', 'failure');
+      addNarration('', 'The commune ledger office is sealed for the quarterly cross-audit — both the internal allocation book and the guild submission copy are on the audit table with the chief recorder and a Soreheim quota clerk reviewing them line by line. The double-ledger comparison stays off-limits until the audit closes. The clerks do not look up.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -810,7 +810,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The elder is at the eastern field walking the late-season rows with two younger growers — a knowledge-transfer custom the commune treats as uninterruptible. The elder\'s house is closed and her granddaughter at the door says the rotation walk runs until the supper bell. The crop-language conversation will not happen today.', 'failure');
+      addNarration('', 'The elder is at the eastern field walking the late-season rows with two younger growers — a knowledge-transfer custom the commune treats as uninterruptible. The elder\'s house is closed and her granddaughter at the door says the rotation walk runs until the supper bell. The crop-language conversation will not happen today.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -830,7 +830,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The labor archive is in the commune hall basement and the door is propped open for the seasonal volunteer rotation — three new clerks are being walked through the schedule binders by the head archivist. The bound schedule volumes stay on the central table. Reviewing the unattributed work period in front of the training cohort is not an option.', 'failure');
+      addNarration('', 'The labor archive is in the commune hall basement and the door is propped open for the seasonal volunteer rotation — three new clerks are being walked through the schedule binders by the head archivist. The bound schedule volumes stay on the central table. Reviewing the unattributed work period in front of the training cohort is not an option.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -850,7 +850,7 @@ var HARVEST_CIRCLE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Discovery', 'Evidence'],
     xpReward: 25,
     failResult: function() {
-      addNarration('', 'The inbound manifest archive is in active use — the supply receiving clerk is logging the morning grant inputs from the administrative source under the carrier\'s standing wait. He has the archive open at the current month. Cross-checking the diversion timeline against grant inputs requires multiple months pulled at once. The carrier does not leave the counter until afternoon.', 'failure');
+      addNarration('', 'The inbound manifest archive is in active use — the supply receiving clerk is logging the morning grant inputs from the administrative source under the carrier\'s standing wait. He has the archive open at the current month. Cross-checking the diversion timeline against grant inputs requires multiple months pulled at once. The carrier does not leave the counter until afternoon.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

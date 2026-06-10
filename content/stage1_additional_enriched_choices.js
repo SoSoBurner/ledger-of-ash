@@ -22,7 +22,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -45,7 +45,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -70,7 +70,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -115,7 +115,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -158,7 +158,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -185,7 +185,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -209,7 +209,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -253,7 +253,7 @@ var STAGE1_ADDITIONAL_ENRICHED_CHOICES = [
     xpReward: 30,
     stageProgress: 1,
     failResult: function() {
-      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', 'failure');
+      addNarration('', 'The approach yields nothing useful. You step back before drawing attention.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

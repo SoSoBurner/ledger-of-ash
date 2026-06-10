@@ -13,7 +13,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -48,7 +48,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Survival', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -80,7 +80,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -112,7 +112,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -146,7 +146,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -256,7 +256,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -290,7 +290,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -324,7 +324,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -357,7 +357,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -390,7 +390,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -423,7 +423,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -458,7 +458,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -491,7 +491,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -523,7 +523,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -555,7 +555,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -587,7 +587,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -620,7 +620,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -654,7 +654,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -686,7 +686,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -718,7 +718,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Intelligence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -750,7 +750,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Evidence'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -798,7 +798,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'Faction', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -914,7 +914,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -937,7 +937,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -956,7 +956,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -977,7 +977,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Collegium', 'Stage2', 'NPC', 'Persuasion'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1009,7 +1009,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1041,7 +1041,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1071,7 +1071,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1246,7 +1246,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     skill: 'spirit',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -1297,7 +1297,7 @@ var GUILDHEART_HUB_STAGE2_ENRICHED_CHOICES = [
     skill: 'charm',
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', 'failure');
+      addNarration('', 'A bonded auditor crosses the storage court with two registry clerks in pursuit and a tariff-mediation slip raised. You step back behind the queue rail before the arbitration pavilion logs your interest in the wrong file.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

@@ -243,7 +243,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Moral', 'Evidence', 'Confrontation', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', 'failure');
+      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -344,7 +344,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The keeper\'s office is shared space — three crossing registries open on the table and a second walker comes in to mark the watch. You leave the records where they are. Cadrin\'s shoulders register the change before his face does. The signal brazier outside the window throws a thin column of smoke at the wind.', 'failure');
+      addNarration('', 'The keeper\'s office is shared space — three crossing registries open on the table and a second walker comes in to mark the watch. You leave the records where they are. Cadrin\'s shoulders register the change before his face does. The signal brazier outside the window throws a thin column of smoke at the wind.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -521,7 +521,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Rival', 'Warning', 'Stage1', 'Meaningful'],
     xpReward: 57,
     failResult: function() {
-      addNarration('', 'Terris\'s eye drifts past you toward the inn\'s door before you finish the sentence. He has seen this question before from a different mouth. The dispute-table corner of the tavern goes quiet for a beat — the regular signal that a Compact mediator might be needed. You drop the thread.', 'failure');
+      addNarration('', 'Terris\'s eye drifts past you toward the inn\'s door before you finish the sentence. He has seen this question before from a different mouth. The dispute-table corner of the tavern goes quiet for a beat — the regular signal that a Compact mediator might be needed. You drop the thread.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -556,7 +556,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     failResult: function() {
-      addNarration('', 'A loaded wagon comes through before the dawn quiet does. The deck planks take its weight and the river-sound under the central pier vanishes into the cart\'s rumble. The bridgework crew on the morning rope-check waves you back from the rail. The moment for listening is past.', 'failure');
+      addNarration('', 'A loaded wagon comes through before the dawn quiet does. The deck planks take its weight and the river-sound under the central pier vanishes into the cart\'s rumble. The bridgework crew on the morning rope-check waves you back from the rail. The moment for listening is past.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -573,7 +573,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'ArchetypeGate', 'Stage1'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', 'failure');
+      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -600,7 +600,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Background', 'Stage1'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', 'failure');
+      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -623,7 +623,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'The director\'s administrative log sits inside a locked storage rib behind the shelter hall — snow-buried half the year, watched the rest. You can hear the ice cracking on the rib\'s lid in the wind. The duty walker turns the corner with his lantern. You step into the lee of the wall and let the lamplight pass.', 'failure');
+      addNarration('', 'The director\'s administrative log sits inside a locked storage rib behind the shelter hall — snow-buried half the year, watched the rest. You can hear the ice cracking on the rib\'s lid in the wind. The duty walker turns the corner with his lantern. You step into the lee of the wall and let the lamplight pass.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -648,7 +648,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     failResult: function() {
-      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', 'failure');
+      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -691,7 +691,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Risky', 'NPC', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'Sali sees you coming across the bridge deck and turns her shoulder before you can reach her watch post. Her tally book closes one-handed and goes inside her coat. The Loss Ledger Circle meets tonight; her name is on the calling list. The conversation will not happen here.', 'failure');
+      addNarration('', 'Sali sees you coming across the bridge deck and turns her shoulder before you can reach her watch post. Her tally book closes one-handed and goes inside her coat. The Loss Ledger Circle meets tonight; her name is on the calling list. The conversation will not happen here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -716,7 +716,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 35,
     failResult: function() {
-      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', 'failure');
+      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -733,7 +733,7 @@ var WHITEBRIDGE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Pressure', 'Bold', 'Lore', 'Stage1'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', 'failure');
+      addNarration('', 'You step back to the shelter-hall awning before the question lands. Wind off the gorge sets the signal brazier flames flat for a beat. A bridgework crew passes with rope-coils on their shoulders; their boots ring on the planks and the moment is gone before the next gust clears the smoke from the lamp line.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

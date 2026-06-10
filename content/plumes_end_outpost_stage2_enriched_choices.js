@@ -12,7 +12,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Letha is mid-shift on the instrument array — the morning pressure log has to be drawn at exact bell intervals or the four-month dataset breaks continuity. The woodsmoke from the stovepipe runs across the workbench. She lifts her eyes to the door once and back to the needle. The map stays on the desk.', 'failure');
+      addNarration('', 'Letha is mid-shift on the instrument array — the morning pressure log has to be drawn at exact bell intervals or the four-month dataset breaks continuity. The woodsmoke from the stovepipe runs across the workbench. She lifts her eyes to the door once and back to the needle. The map stays on the desk.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -48,7 +48,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Combat', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Patrol Leader is out on the southern circuit and not expected back until the changeover bell — the duty roster posted on the patrol desk runs his name through the afternoon. The road map he marks the unauthorized facility against is in his office under seal. The substitute patrol officer refuses to open the map cabinet.', 'failure');
+      addNarration('', 'The Patrol Leader is out on the southern circuit and not expected back until the changeover bell — the duty roster posted on the patrol desk runs his name through the afternoon. The road map he marks the unauthorized facility against is in his office under seal. The substitute patrol officer refuses to open the map cabinet.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -82,7 +82,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Lore', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Shrine of Cysur is in the middle of a sanctuary-rite for a southbound caravan family — three travelers kneel at the offering ledger and the shrine keeper holds the lantern over them. The pine resin in the wick smells thin. Interrupting the rite would violate the sanctuary practice. The traveler accounts stay sealed under doctrine.', 'failure');
+      addNarration('', 'The Shrine of Cysur is in the middle of a sanctuary-rite for a southbound caravan family — three travelers kneel at the offering ledger and the shrine keeper holds the lantern over them. The pine resin in the wick smells thin. Interrupting the rite would violate the sanctuary practice. The traveler accounts stay sealed under doctrine.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -118,7 +118,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The shrine has not cleared — a steady trickle of Roadwarden patrol stops through the afternoon, each one leaving a coin in the offering ledger. The pine-resin lantern stays lit. Cysur cannot speak with you privately while patrol foot-traffic crosses the threshold. The folded paper behind the ledger stays behind the ledger.', 'failure');
+      addNarration('', 'The shrine has not cleared — a steady trickle of Roadwarden patrol stops through the afternoon, each one leaving a coin in the offering ledger. The pine-resin lantern stays lit. Cysur cannot speak with you privately while patrol foot-traffic crosses the threshold. The folded paper behind the ledger stays behind the ledger.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -185,7 +185,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Social'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The northern gate checkpoint has stopped a wagon-train of Soreheim cartage workers — three carts deep, every manifest being read aloud and stamped. The Roadwarden corporal at the gate has the checkpoint book open across his thigh and the line is not moving. Stopping behind it draws attention. The approach is poorly timed.', 'failure');
+      addNarration('', 'The northern gate checkpoint has stopped a wagon-train of Soreheim cartage workers — three carts deep, every manifest being read aloud and stamped. The Roadwarden corporal at the gate has the checkpoint book open across his thigh and the line is not moving. Stopping behind it draws attention. The approach is poorly timed.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -221,7 +221,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Osset Halvarn is harnessing his team at the waystation rail when you arrive — northbound, on a turn-and-burn schedule that gives him no window for a sit-down conversation. His knuckle taps the bench compartment lid once out of habit, then his hand moves to the harness buckle and stays there. "Northbound in twenty minutes. Catch me on the return swing." He climbs to the seat without looking back.', 'failure');
+      addNarration('', 'Osset Halvarn is harnessing his team at the waystation rail when you arrive — northbound, on a turn-and-burn schedule that gives him no window for a sit-down conversation. His knuckle taps the bench compartment lid once out of habit, then his hand moves to the harness buckle and stays there. "Northbound in twenty minutes. Catch me on the return swing." He climbs to the seat without looking back.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -255,7 +255,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The intake desk has a notice tacked to the manifest cover: "Records review — Roadwarden audit team on site through end of week. No counter inquiries." Inside, two Roadwarden auditors are working through the bound ledger with marked tabs. The duty officer at the inquiry window shakes her head before you finish the question. "Come back next week."', 'failure');
+      addNarration('', 'The intake desk has a notice tacked to the manifest cover: "Records review — Roadwarden audit team on site through end of week. No counter inquiries." Inside, two Roadwarden auditors are working through the bound ledger with marked tabs. The duty officer at the inquiry window shakes her head before you finish the question. "Come back next week."', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -289,7 +289,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Brann Veld\'s forge is cold when you arrive — the brick still warm but the bellows hung, the bin of repair work covered with a tarp. A hand-chalked notice on the door reads "Out — Fairhaven supply run, back midday tomorrow." The smell of quenched iron is still in the air. The shop is shut for the day.', 'failure');
+      addNarration('', 'Brann Veld\'s forge is cold when you arrive — the brick still warm but the bellows hung, the bin of repair work covered with a tarp. A hand-chalked notice on the door reads "Out — Fairhaven supply run, back midday tomorrow." The smell of quenched iron is still in the air. The shop is shut for the day.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -324,7 +324,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Archive'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Pella Orn\'s intake window has a queue six deep when you arrive — a southbound caravan is reconciling its outbound manifest and every weight ticket needs her sign-off before the wagons can roll. She works through them without looking up. By the time the queue clears, the office hours will have ended. The personal ledger stays closed under the counter.', 'failure');
+      addNarration('', 'Pella Orn\'s intake window has a queue six deep when you arrive — a southbound caravan is reconciling its outbound manifest and every weight ticket needs her sign-off before the wagons can roll. She works through them without looking up. By the time the queue clears, the office hours will have ended. The personal ledger stays closed under the counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -387,7 +387,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Letha is at the eastern instrument cluster taking her morning baseline read when you approach, and the procedure is a forty-minute discipline she will not interrupt for inquiry. The maintenance key stays on the cord around her neck. "After the run. Walk the perimeter and come back at the bell." The wind off the ridge smells faintly of pine resin and the metal-edge cold of altitude.', 'failure');
+      addNarration('', 'Letha is at the eastern instrument cluster taking her morning baseline read when you approach, and the procedure is a forty-minute discipline she will not interrupt for inquiry. The maintenance key stays on the cord around her neck. "After the run. Walk the perimeter and come back at the bell." The wind off the ridge smells faintly of pine resin and the metal-edge cold of altitude.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -420,7 +420,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Destin Var is at the waystation posting board when you arrive, already collecting her next slip — northbound, on the dawn rotation, no window for conversation today. Two senior runners are sharing tea at the bench within easy earshot. She catches your approach with a sidelong look and shakes her head once, very small. The pack goes on her shoulder and she is through the door.', 'failure');
+      addNarration('', 'Destin Var is at the waystation posting board when you arrive, already collecting her next slip — northbound, on the dawn rotation, no window for conversation today. Two senior runners are sharing tea at the bench within easy earshot. She catches your approach with a sidelong look and shakes her head once, very small. The pack goes on her shoulder and she is through the door.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -454,7 +454,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Wend Sallor\'s shop is in the middle of a quarterly compound restock when you arrive — labelled crates open on the floor, mortar and pestle set aside, her ledger of receipts spread across the mixing counter. She is matching tin to manifest and the work cannot pause without losing her place. "Stock day. Come back after the bell." The flat tin of compound cards stays under the counter.', 'failure');
+      addNarration('', 'Wend Sallor\'s shop is in the middle of a quarterly compound restock when you arrive — labelled crates open on the floor, mortar and pestle set aside, her ledger of receipts spread across the mixing counter. She is matching tin to manifest and the work cannot pause without losing her place. "Stock day. Come back after the bell." The flat tin of compound cards stays under the counter.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -489,7 +489,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The records desk is staffed today by a Roadwarden corporal you have not seen before — temporary cover, by the look of it, working through a stack of intake correspondence with the deliberation of a man who hasn\'t yet found where everything goes. He checks the patrol log request against a procedure sheet and shakes his head. "Records steward is back tomorrow. I\'m not pulling bound chain-of-custody material without her sign-off."', 'failure');
+      addNarration('', 'The records desk is staffed today by a Roadwarden corporal you have not seen before — temporary cover, by the look of it, working through a stack of intake correspondence with the deliberation of a man who hasn\'t yet found where everything goes. He checks the patrol log request against a procedure sheet and shakes his head. "Records steward is back tomorrow. I\'m not pulling bound chain-of-custody material without her sign-off."', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -523,7 +523,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The infirmary door has a slate posted on it: "Patient under fever protocol — no visitors until evening rounds." The medic\'s assistant is in the antechamber sorting linens and confirms what the slate says without looking up. Through the inner door you hear an irregular cough and the low register of the medic\'s voice, working through whatever Molk Breyen needs working through. Evening rounds are six hours off.', 'failure');
+      addNarration('', 'The infirmary door has a slate posted on it: "Patient under fever protocol — no visitors until evening rounds." The medic\'s assistant is in the antechamber sorting linens and confirms what the slate says without looking up. Through the inner door you hear an irregular cough and the low register of the medic\'s voice, working through whatever Molk Breyen needs working through. Evening rounds are six hours off.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -556,7 +556,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Ferret Ondal\'s shift starts at the curfew bell and you have arrived four hours early. The day-watch corporal at the gate confirms Ondal won\'t come on until full dark and adds, helpfully, that the small notebook stays in his coat pocket and the coat goes with him. The transit bell tower casts a long evening shadow across the yard. There is nothing to do here until the bell.', 'failure');
+      addNarration('', 'Ferret Ondal\'s shift starts at the curfew bell and you have arrived four hours early. The day-watch corporal at the gate confirms Ondal won\'t come on until full dark and adds, helpfully, that the small notebook stays in his coat pocket and the coat goes with him. The transit bell tower casts a long evening shadow across the yard. There is nothing to do here until the bell.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -619,7 +619,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The roster clipboard is off the wall when you arrive — the Patrol Leader and the duty officer are both at the desk reviewing it together, working through next month\'s rotations with the door propped open onto the parade yard. Two Roadwarden auxiliaries are waiting on chairs against the wall for their assignment slips. There is no clean angle on the clipboard from any position in the room that isn\'t a stare. You step back out.', 'failure');
+      addNarration('', 'The roster clipboard is off the wall when you arrive — the Patrol Leader and the duty officer are both at the desk reviewing it together, working through next month\'s rotations with the door propped open onto the parade yard. Two Roadwarden auxiliaries are waiting on chairs against the wall for their assignment slips. There is no clean angle on the clipboard from any position in the room that isn\'t a stare. You step back out.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -653,7 +653,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Aldus Ferch is out running his southern line — the trapper boards at the waystation show him registered for a two-day circuit, back tomorrow at dusk if the weather holds. The waystation keeper shrugs when you ask if there\'s any way to send word. "Ferch checks the boards when he checks the boards." The packed earth around the bench shows his bootprint heading south an hour ago.', 'failure');
+      addNarration('', 'Aldus Ferch is out running his southern line — the trapper boards at the waystation show him registered for a two-day circuit, back tomorrow at dusk if the weather holds. The waystation keeper shrugs when you ask if there\'s any way to send word. "Ferch checks the boards when he checks the boards." The packed earth around the bench shows his bootprint heading south an hour ago.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -686,7 +686,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Doss Halvart\'s splitting yard is empty when you arrive — axe set across the block, sawdust drying in the late sun, no smoke from the workshop chimney. A scrap of paper pinned to the door says "Out delivering — Fairhaven road, back by dark." The fuel ledger hangs on its nail by the block, but the nail is on the inside of the locked shed door and the door does not open.', 'failure');
+      addNarration('', 'Doss Halvart\'s splitting yard is empty when you arrive — axe set across the block, sawdust drying in the late sun, no smoke from the workshop chimney. A scrap of paper pinned to the door says "Out delivering — Fairhaven road, back by dark." The fuel ledger hangs on its nail by the block, but the nail is on the inside of the locked shed door and the door does not open.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -719,7 +719,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The patrol desk is in the middle of a shift transition — the Patrol Leader is briefing his evening relief on the open road conditions, the duty officer is filing the day\'s checkpoint stamps, and Letha\'s instrument station is shuttered for her circuit walk. None of the three people you need to brief is available for the length of conversation this would require. Wind off the high route moves through the eaves of the supply wagon platform. The hour for the finale is not yet.', 'failure');
+      addNarration('', 'The patrol desk is in the middle of a shift transition — the Patrol Leader is briefing his evening relief on the open road conditions, the duty officer is filing the day\'s checkpoint stamps, and Letha\'s instrument station is shuttered for her circuit walk. None of the three people you need to brief is available for the length of conversation this would require. Wind off the high route moves through the eaves of the supply wagon platform. The hour for the finale is not yet.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -755,7 +755,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The records station window is shuttered for the noon hour — the duty warden has gone for his rotation meal and the substitute clerk handling stamp pickups won\'t pull a bound log without the warden\'s signature on the requisition. A handwritten card on the counter lists the standard inquiry hours: morning bell to noon, second bell to dusk. The noon hour has just started.', 'failure');
+      addNarration('', 'The records station window is shuttered for the noon hour — the duty warden has gone for his rotation meal and the substitute clerk handling stamp pickups won\'t pull a bound log without the warden\'s signature on the requisition. A handwritten card on the counter lists the standard inquiry hours: morning bell to noon, second bell to dusk. The noon hour has just started.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -775,7 +775,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The checkpoint queue is six wagons deep when you step up — a cartage train from the Soreheim road has arrived all at once and the warden is processing transit stamps in batches without looking up between them. There is no window for the tell. He waves you through with the same brisk movement he gives the cartage wagons, his right index finger never leaving the stamp grip. The line moves on behind you.', 'failure');
+      addNarration('', 'The checkpoint queue is six wagons deep when you step up — a cartage train from the Soreheim road has arrived all at once and the warden is processing transit stamps in batches without looking up between them. There is no window for the tell. He waves you through with the same brisk movement he gives the cartage wagons, his right index finger never leaving the stamp grip. The line moves on behind you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -795,7 +795,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Observation', 'Complication'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The checkpoint line is short today — three travelers ahead of you, every one of them stamped through without a hesitation, no refusals to observe. The warden\'s rhythm is steady, his stamp arm working through papers with the impersonal smoothness of routine. By the time you reach the desk yourself there has been nothing remarkable to see. The afternoon sun catches the inkwell and the line moves past.', 'failure');
+      addNarration('', 'The checkpoint line is short today — three travelers ahead of you, every one of them stamped through without a hesitation, no refusals to observe. The warden\'s rhythm is steady, his stamp arm working through papers with the impersonal smoothness of routine. By the time you reach the desk yourself there has been nothing remarkable to see. The afternoon sun catches the inkwell and the line moves past.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -817,7 +817,7 @@ var PLUMES_END_OUTPOST_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'The bound outpost log is on the duty officer\'s desk, open to today\'s page for the running entry — not available for back-page browsing while it\'s the active record. The corporal at the desk taps the spine. "Closed-day pages tomorrow morning, after I rule the line." Outside, the supply wagon platform creaks under a fresh load and the cold wind off the high route moves through the loading bay. Tomorrow morning, then.', 'failure');
+      addNarration('', 'The bound outpost log is on the duty officer\'s desk, open to today\'s page for the running entry — not available for back-page browsing while it\'s the active record. The corporal at the desk taps the spine. "Closed-day pages tomorrow morning, after I rule the line." Outside, the supply wagon platform creaks under a fresh load and the cold wind off the high route moves through the loading bay. Tomorrow morning, then.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

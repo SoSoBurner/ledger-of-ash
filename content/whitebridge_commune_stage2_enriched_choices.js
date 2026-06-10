@@ -12,7 +12,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -46,7 +46,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Stealth', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -79,7 +79,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Persuasion', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -111,7 +111,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Craft', 'Stage2', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -271,7 +271,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'whitebridge_commune', 'NPC', 'Persuasion', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -301,7 +301,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['stage2', 'whitebridge_commune', 'Lore', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -359,7 +359,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'Lore', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The founding charter is kept in the shelter hall under a sealed glass and the keeper is not at her desk. You can read the Route Warden Compact signatures on the wall behind the desk but the charter case stays closed. Outside, the signal brazier on the east pier flares as the wind shifts.', 'failure');
+      addNarration('', 'The founding charter is kept in the shelter hall under a sealed glass and the keeper is not at her desk. You can read the Route Warden Compact signatures on the wall behind the desk but the charter case stays closed. Outside, the signal brazier on the east pier flares as the wind shifts.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -395,7 +395,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -429,7 +429,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -463,7 +463,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'Cold drives the air out of your lungs in white plumes and your boots ring on the deck loud enough that the second-watch warden hears you before you reach the pier. The signal brazier kicks higher for a count of three — a tell. You retreat into the lee of the storage ribs and let the warden complete her round.', 'failure');
+      addNarration('', 'Cold drives the air out of your lungs in white plumes and your boots ring on the deck loud enough that the second-watch warden hears you before you reach the pier. The signal brazier kicks higher for a count of three — a tell. You retreat into the lee of the storage ribs and let the warden complete her round.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -496,7 +496,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -531,7 +531,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -566,7 +566,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -600,7 +600,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -634,7 +634,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The bath-house steam clears around a Compact mediator already in the alcove you were going to sit in. Three of the haulers stop talking mid-sentence. You take a different bench. The conversation that mattered finishes itself in another room with someone else listening.', 'failure');
+      addNarration('', 'The bath-house steam clears around a Compact mediator already in the alcove you were going to sit in. Three of the haulers stop talking mid-sentence. You take a different bench. The conversation that mattered finishes itself in another room with someone else listening.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -669,7 +669,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -704,7 +704,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -738,7 +738,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -773,7 +773,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Stage2', 'NPC'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -807,7 +807,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Finale', 'Stage2', 'Consequence', 'Meaningful'],
     xpReward: 40,
     failResult: function() {
-      addNarration('', 'The Loss Ledger Circle convenes tonight and Nyra is not at her usual table. Aster\'s log sits in your pack. The dispute-table corner of the shelter hall fills with the day\'s deferred grievances and the moment to bring this forward dissolves into the queue. You step out onto the deck. The brazier on the central pier has not been re-lit.', 'failure');
+      addNarration('', 'The Loss Ledger Circle convenes tonight and Nyra is not at her usual table. Aster\'s log sits in your pack. The dispute-table corner of the shelter hall fills with the day\'s deferred grievances and the moment to bring this forward dissolves into the queue. You step out onto the deck. The brazier on the central pier has not been re-lit.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -842,7 +842,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -861,7 +861,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['NPC', 'Intelligence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -880,7 +880,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Records', 'Evidence'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -899,7 +899,7 @@ var WHITEBRIDGE_COMMUNE_STAGE2_ENRICHED_CHOICES = [
     tags: ['Complication', 'Observation'],
     xpReward: 20,
     failResult: function() {
-      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', 'failure');
+      addNarration('', 'You step off the bridge deck before the question lands. Wind across the gorge takes the signal brazier flames sideways. A crossing registry runner tilts a clipboard against his chest and passes you with a nod that means nothing and acknowledges everything. The thread closes here.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {

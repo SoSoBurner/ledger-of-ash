@@ -15,7 +15,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', "The research annex is quiet this time of day, reed-thatch smell drifting in from the waterline. Toman Iceveil's colleagues deflect without meeting your eyes — formal hours, prepared statements, nothing beyond that. One of them straightens sample jars that were already straight. His name keeps surfacing, then getting pulled back. He works after the committee leaves. The estuary at evening is where the administrative visibility ends; that's where a real conversation becomes possible.", 'failure');
+      addNarration('', "The research annex is quiet this time of day, reed-thatch smell drifting in from the waterline. Toman Iceveil's colleagues deflect without meeting your eyes — formal hours, prepared statements, nothing beyond that. One of them straightens sample jars that were already straight. His name keeps surfacing, then getting pulled back. He works after the committee leaves. The estuary at evening is where the administrative visibility ends; that's where a real conversation becomes possible.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -44,7 +44,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 74,
     failResult: function() {
-      addNarration('', "The catalogue lists sections 7 through 12 in plain sight — not hidden, just walled. Physical access to the restricted shelves requires a senior researcher's endorsement signature. The archivist on duty names Toman Iceveil first when you ask who could provide one, then corrects herself too quickly. Water light moves across the archive table from the estuary window. Toman works late, after the committee leaves. He's the name. He's always been the name.", 'failure');
+      addNarration('', "The catalogue lists sections 7 through 12 in plain sight — not hidden, just walled. Physical access to the restricted shelves requires a senior researcher's endorsement signature. The archivist on duty names Toman Iceveil first when you ask who could provide one, then corrects herself too quickly. Water light moves across the archive table from the estuary window. Toman works late, after the committee leaves. He's the name. He's always been the name.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -74,7 +74,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     condition: function() { return (G.investigationProgress||0) < 3; },
     xpReward: 76,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -105,7 +105,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     condition: function() { return (G.investigationProgress||0) >= 3 && (G.investigationProgress||0) < 6; },
     xpReward: 70,
     failResult: function() {
-      addNarration('', "The committee roster is posted in the research hall — five names, areas of expertise, current roles. No appointment history on the posting. Tracing how the three external members arrived requires the archive appointment records, pulled during regular hours with a researcher endorsement. The sluice channels outside carry the morning smell of reed and standing water. Researcher Fen has a working access credential and hasn't yet learned what questions to avoid.", 'failure');
+      addNarration('', "The committee roster is posted in the research hall — five names, areas of expertise, current roles. No appointment history on the posting. Tracing how the three external members arrived requires the archive appointment records, pulled during regular hours with a researcher endorsement. The sluice channels outside carry the morning smell of reed and standing water. Researcher Fen has a working access credential and hasn't yet learned what questions to avoid.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -133,7 +133,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Archetype', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', "The research quarter at evening is quieter than it should be. Doors closed, walkway lamps reflected in the channel water below, the smell of net-rope and old mineral compound mixing in the mist off the estuary. Researchers move with their heads down and their cases close. Something is being communicated in the collective posture of this place, but the specific pattern isn't readable from outside. Toman knows the quarter's rhythms well enough to translate what the behavior means.", 'failure');
+      addNarration('', "The research quarter at evening is quieter than it should be. Doors closed, walkway lamps reflected in the channel water below, the smell of net-rope and old mineral compound mixing in the mist off the estuary. Researchers move with their heads down and their cases close. Something is being communicated in the collective posture of this place, but the specific pattern isn't readable from outside. Toman knows the quarter's rhythms well enough to translate what the behavior means.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -161,7 +161,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', "Fen keeps glancing toward the corridor. The older researchers told her to be careful with visitors she doesn't know — the caution was passed down in exact language and she's repeating its shape. 'I can show you the public catalogue.' Through the estuary-facing window behind her, morning mist sits low on the water, net floats half-visible. She wants to help. She was told not to. Toman's name is the one that came up before hers, and his hours are known.", 'failure');
+      addNarration('', "Fen keeps glancing toward the corridor. The older researchers told her to be careful with visitors she doesn't know — the caution was passed down in exact language and she's repeating its shape. 'I can show you the public catalogue.' Through the estuary-facing window behind her, morning mist sits low on the water, net floats half-visible. She wants to help. She was told not to. Toman's name is the one that came up before hers, and his hours are known.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -187,7 +187,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Faction', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', "The Collegium liaison table stands unmanned near the administrative hall entrance. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk slides a blank form across the counter without looking up — written request, registered party affiliation, supporting documentation attached. The room smells of floor wax and old paper. The consortium connection, three committee members appointed through an unprecedented procedural category, is the kind of documentation that changes what a formal petition can compel.", 'failure');
+      addNarration('', "The Collegium liaison table stands unmanned near the administrative hall entrance. A posted schedule lists formal petition hours twice weekly. A clerk at the side desk slides a blank form across the counter without looking up — written request, registered party affiliation, supporting documentation attached. The room smells of floor wax and old paper. The consortium connection, three committee members appointed through an unprecedented procedural category, is the kind of documentation that changes what a formal petition can compel.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -217,7 +217,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 75,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -255,7 +255,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
       { type: 'rival', amount: 1 }
     ],
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -277,7 +277,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', "The Regional Science Review's public response log shows a single entry: 'received — deferred pending institutional review, per current review protocol.' The entry is dated two days after submission. Invoking that protocol requires a registered reviewing institution to formally request it. The Review's partnership agreements are public charter filings. One of them was signed shortly before Toman's submission date — the register is accessible at the commune archive during regular hours.", 'failure');
+      addNarration('', "The Regional Science Review's public response log shows a single entry: 'received — deferred pending institutional review, per current review protocol.' The entry is dated two days after submission. Invoking that protocol requires a registered reviewing institution to formally request it. The Review's partnership agreements are public charter filings. One of them was signed shortly before Toman's submission date — the register is accessible at the commune archive during regular hours.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -303,7 +303,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 50,
     failResult: function() {
-      addNarration('', "The gallery is open and unmanned. Shard samples behind glass, interpretation panels on the walls, the low sound of water moving through the sluice channel beneath the floor. The display is polished and complete — too complete. Aesthetic framing, spiritual significance, nothing about resonance or amplification. The panels were recently updated; the older text is still faintly legible under the new layer near the mounting hardware. Toman can tell you what the original interpretation said before it was revised.", 'failure');
+      addNarration('', "The gallery is open and unmanned. Shard samples behind glass, interpretation panels on the walls, the low sound of water moving through the sluice channel beneath the floor. The display is polished and complete — too complete. Aesthetic framing, spiritual significance, nothing about resonance or amplification. The panels were recently updated; the older text is still faintly legible under the new layer near the mounting hardware. Toman can tell you what the original interpretation said before it was revised.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -322,7 +322,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['PersonalArc', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -348,7 +348,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', "The committee proceedings file is classified under the same order that covers the reclassified research — the archivist locates the file number without difficulty, then stops. Committee authorization is required to open it. One committee member could share the record informally. Researcher Winn voted against the reclassification and stayed on the committee specifically to keep the dissent inside the record. She keeps notes on every session and keeps them somewhere the classification order can't reach.", 'failure');
+      addNarration('', "The committee proceedings file is classified under the same order that covers the reclassified research — the archivist locates the file number without difficulty, then stops. Committee authorization is required to open it. One committee member could share the record informally. Researcher Winn voted against the reclassification and stayed on the committee specifically to keep the dissent inside the record. She keeps notes on every session and keeps them somewhere the classification order can't reach.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -374,7 +374,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Systems', 'Stage1', 'Meaningful'],
     xpReward: 74,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -402,7 +402,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Social', 'NPC', 'Stage1', 'Meaningful'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', "Researcher Winn listens to the first sentence, then sets her pen down and straightens papers that were already straight. 'I'm not in a position to speak informally about committee proceedings.' Each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name — that record is in the same classified file as Toman's research, but Winn keeps her own parallel notes outside the committee's filing system.", 'failure');
+      addNarration('', "Researcher Winn listens to the first sentence, then sets her pen down and straightens papers that were already straight. 'I'm not in a position to speak informally about committee proceedings.' Each word placed. The estuary light cuts across the desk between you. She doesn't ask who sent you. The dissenting vote in the committee record carries her name — that record is in the same classified file as Toman's research, but Winn keeps her own parallel notes outside the committee's filing system.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -428,7 +428,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Rumor', 'Stage1', 'Meaningful'],
     xpReward: 62,
     failResult: function() {
-      addNarration('', "The commune is aware something is wrong — you can hear it in the careful pauses, the way conversations shift when certain names come up near the committee hall. Nobody has the full shape of it. The notice board near the water-clock tower carries community postings; the morning crier covers what the board doesn't. Between the two, a partial picture assembles. The missing part is the part that requires someone who was in the room when the vote happened.", 'failure');
+      addNarration('', "The commune is aware something is wrong — you can hear it in the careful pauses, the way conversations shift when certain names come up near the committee hall. Nobody has the full shape of it. The notice board near the water-clock tower carries community postings; the morning crier covers what the board doesn't. Between the two, a partial picture assembles. The missing part is the part that requires someone who was in the room when the vote happened.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -455,7 +455,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 52,
     failResult: function() {
-      addNarration('', "The research annex is locked at this hour. Through the window: a lamp still burning over Toman's worktable, a measuring rig he built himself positioned in the middle of the room, shard samples in their brackets. He's inside. The door is closed to people he doesn't yet trust. The estuary path runs behind the annex building — the side entrance is where he comes and goes after hours, away from the main corridor.", 'failure');
+      addNarration('', "The research annex is locked at this hour. Through the window: a lamp still burning over Toman's worktable, a measuring rig he built himself positioned in the middle of the room, shard samples in their brackets. He's inside. The door is closed to people he doesn't yet trust. The estuary path runs behind the annex building — the side entrance is where he comes and goes after hours, away from the main corridor.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -476,7 +476,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Lore', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', "The founder's study is in the archive under standard classification — not restricted. A reading table near the estuary window, pages smelling of old binding and mineral dust. The anomaly observation is in a supplementary appendix, footnoted in a smaller hand than the rest of the document, never referenced in the main body. Thirty years of research passed over it. The observation was always there; the question is why no one was looking for it. Toman's work made it relevant, and he can tell you how he found it.", 'failure');
+      addNarration('', "The founder's study is in the archive under standard classification — not restricted. A reading table near the estuary window, pages smelling of old binding and mineral dust. The anomaly observation is in a supplementary appendix, footnoted in a smaller hand than the rest of the document, never referenced in the main body. Thirty years of research passed over it. The observation was always there; the question is why no one was looking for it. Toman's work made it relevant, and he can tell you how he found it.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -500,7 +500,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Investigation', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 70,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -530,7 +530,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Moral', 'Evidence', 'Stage1', 'Meaningful'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -552,7 +552,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Lore', 'Stage1', 'Meaningful'],
     xpReward: 48,
     failResult: function() {
-      addNarration('', "The shard field path is gated before sunrise — a rope-and-plank barrier across the access walkway, mist off the estuary sitting thick over the planks. A notice on the barrier post lists field access hours: sunrise to midday, midday rest break excluded. The shards are visible past the gate, dark against the pale water behind them. The morning water-clock chime is still an hour off. The access window opens with the light.", 'failure');
+      addNarration('', "The shard field path is gated before sunrise — a rope-and-plank barrier across the access walkway, mist off the estuary sitting thick over the planks. A notice on the barrier post lists field access hours: sunrise to midday, midday rest break excluded. The shards are visible past the gate, dark against the pale water behind them. The morning water-clock chime is still an hour off. The access window opens with the light.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -604,7 +604,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['WorldColor', 'Atmosphere', 'Stage1'],
     xpReward: 38,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -622,7 +622,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'ArchetypeGate', 'Stage1'],
     xpReward: 72,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -649,7 +649,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Background', 'Stage1'],
     xpReward: 55,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -672,7 +672,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Risky', 'Records', 'Stage1'],
     xpReward: 68,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -697,7 +697,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Bold', 'Records', 'Stage1'],
     xpReward: 78,
     failResult: function() {
-      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', 'failure');
+      addNarration('', 'A scanning gate cycles open at the end of the quarantine corridor and a containment warden in white-rimmed silvers steps through, clipboard ready. You drift back toward the observation gallery before the breach-protocol bell can name you.', (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -722,7 +722,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Safe', 'Lore', 'Stage1'],
     xpReward: 52,
     failResult: function() {
-      addNarration('', "The survey maps Toman references are in the research annex during formal hours — publicly accessible, not restricted. The annex is closed this afternoon for scheduled maintenance. The water-clock chime marks the hour from somewhere further along the sluice channel. The comparative maps showing the original field boundaries and the current ones are posted in the shard gallery's back room, available during gallery hours, no endorsement required.", 'failure');
+      addNarration('', "The survey maps Toman references are in the research annex during formal hours — publicly accessible, not restricted. The annex is closed this afternoon for scheduled maintenance. The water-clock chime marks the hour from somewhere further along the sluice channel. The comparative maps showing the original field boundaries and the current ones are posted in the shard gallery's back room, available during gallery hours, no endorsement required.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -740,7 +740,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
     tags: ['Information', 'Risky', 'NPC', 'Stage1'],
     xpReward: 65,
     failResult: function() {
-      addNarration('', "Arven and Missa are visible in the committee chamber from the public gallery — two figures at the far end of the long table, notebooks open, pens moving. The session ends in forty minutes. The corridor outside the chamber is where people linger after adjournment, away from the formal record. They carry their own notebooks, not the committee's standard forms. Whatever they document, it lives outside the committee minutes. The corridor at session end is the window.", 'failure');
+      addNarration('', "Arven and Missa are visible in the committee chamber from the public gallery — two figures at the far end of the long table, notebooks open, pens moving. The session ends in forty minutes. The corridor outside the chamber is where people linger after adjournment, away from the formal record. They carry their own notebooks, not the committee's standard forms. Whatever they document, it lives outside the committee minutes. The corridor at session end is the window.", (G && G.lastResultType) || 'failure');
       loadStageChoices(G.location);
     },
     fn: function() {
@@ -764,7 +764,7 @@ var GLASSWAKE_COMMUNE_STAGE1_ENRICHED_CHOICES = [
   tags: ['social'],
   xpReward: 5,
   failResult: function() {
-    addNarration('', "The notice board near the water-clock tower is crowded with overlapping postings, several layers deep at the center. The newest sheet is pinned at the corner where the reed-thatch overhang keeps the mist off — dry paper, recent ink. Nothing useful surfaces today. The morning crier covers the settlement at the second water-clock chime; her route ends near the canal gate where the sluice authority keeps its tally board.", 'failure');
+    addNarration('', "The notice board near the water-clock tower is crowded with overlapping postings, several layers deep at the center. The newest sheet is pinned at the corner where the reed-thatch overhang keeps the mist off — dry paper, recent ink. Nothing useful surfaces today. The morning crier covers the settlement at the second water-clock chime; her route ends near the canal gate where the sluice authority keeps its tally board.", (G && G.lastResultType) || 'failure');
     loadStageChoices(G.location);
   },
   fn: function() {
