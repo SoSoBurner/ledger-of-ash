@@ -682,11 +682,11 @@
                 if (typeof addMaterial === 'function') addMaterial('rope_coil', 1);
                 if (typeof addNarration === 'function') addNarration('', 'The forward two step back when the cost becomes clear. The one with the knife holds for a moment — long enough to be a decision — and then doesn\'t. The fourth figure behind you stays where he is. You move through the gap they leave.');
                 if (typeof gainXp === 'function') gainXp(30);
-                G.fatigue = (G.fatigue || 0) + 1;
+                G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The fourth figure from behind closes faster than expected. The forward positioning was designed for this — the road narrows exactly where you\'re standing. The fight is worse than the arithmetic suggested.');
                 if (typeof modHP === 'function') modHP(-3);
-                G.fatigue = (G.fatigue || 0) + 2;
+                G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
               }
               setTimeout(function() {
@@ -855,7 +855,7 @@
               } else {
                 if (typeof addNarration === 'function') addNarration('', 'The eastern road is gated a kilometer in — seasonal maintenance closure, padlocked, notice board facing the wrong direction. You walk back to the crossroads checkpoint. She watches you rejoin the queue.');
                 if (typeof addHeat === 'function') addHeat('shelk', 1);
-                G.fatigue = (G.fatigue || 0) + 1;
+                G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
               }
               setTimeout(function() {
                 if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
@@ -1091,7 +1091,7 @@
               if (typeof addNarration === 'function') addNarration('', 'ELEVATED EAST means the ash layer rises toward the settlement boundary. Moving now means moving through the transition zone while it is still crossable. You time it correctly.');
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The ash level east rises faster than the advisory suggested. You reach the boundary but not cleanly — the transition zone was already at threshold when you entered it.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() {
               if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter();
@@ -1218,7 +1218,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The checkpoint closes fifteen minutes before you reach it. The warden is already inside. The sealed arm is down. You camp at the barrier and wait for first light.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1360,7 +1360,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The waystation is at capacity. The night-duty Steward directs you to a covered platform outside — registered, but without the bunk. The cold keeps you half-awake until dawn.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1376,7 +1376,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exception exists but your cargo does not qualify under it. The Steward is patient but firm. You stay at the waystation until the Domeway reopens at first light.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1689,7 +1689,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exception requires a current apprentice transit authorization, which you do not have. The warden at the fork knows the difference between citing an exemption and qualifying for one. The waystation it is.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1830,7 +1830,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The road stone is harder than expected for sleeping. The amber moths drift closer than the advisory suggested. You rest badly and wake with the sense that the forest road has moved around you in the dark.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1846,7 +1846,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The moisture line is higher than the road grade at this section. The amber moths reach the road surface. The disorientation is mild but enough to lose the center stone. You stop and wait for the effect to pass.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1868,7 +1868,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The detour path crosses a secondary root system that the maintenance crew has not flagged yet. You stumble through it without injury but the delay adds more time than the signs suggested.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1884,7 +1884,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The stone route runs under the root mass but not through it — there is a gap where the stone was pulled up with the roots. The maintenance crew supervisor steps over and redirects you to the detour.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -1987,7 +1987,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The log is sealed. The warden opens an addendum sheet — after-cutoff registration, valid but flagged. The bunk allocation is the overflow floor space, which is a Giant-scale stone floor with a single wool blanket.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2003,7 +2003,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The exemption requires a through-transit declaration filed at the boundary marker before sunset. You did not file one. The exemption does not apply retroactively. The warden is apologetic but the log is already open.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2121,7 +2121,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'Naming his process makes him more deliberate, not faster. He takes the pack through a full hand-check to demonstrate thoroughness. The check is clean but the extra ten minutes are yours to absorb.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2160,7 +2160,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The traveler-side release was replaced last season with a warden-key lock following a breach. The gate does not open from your side. The waystation is where you are going after all.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2301,7 +2301,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wind-break wall has a gap on the north face that the posted map does not show. The gap funnels cold through the camp site for most of the night. The rest is adequate but not restorative.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2317,7 +2317,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wind shift comes later than the pattern suggested — the highland weather has its own variation. The east wind catches you in the open. The cold is functional: it slows movement and drains warmth faster than it should.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2458,7 +2458,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The tide line is higher than it appeared in the dark. The camp site floods two hours before dawn. You move to higher ground and lose the rest of the night to repositioning.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2474,7 +2474,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The tide is higher than the path\'s passable threshold. The dry section is narrower than a meter in places. You retreat to the road before the path closes entirely, having covered less distance than staying on the road would have given you.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2554,7 +2554,7 @@
               if (typeof gainXp === 'function') gainXp(15);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The warden decides the solo departure requires a secondary authorization form — a recent policy change that the advisory board has not been updated to reflect. The form takes twenty minutes to complete and adds a formal risk-acknowledgment entry to the register.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2576,7 +2576,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wide berth is not wide enough — the nest territory extends further south than the bird\'s road position suggested. The second bird lifts off from the verge grass before you clear the zone. You move through the alarm response without injury but not without noise.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2592,7 +2592,7 @@
               if (typeof gainXp === 'function') gainXp(15);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The north canopy path is thinner than the tree line suggested — the branches push you back toward the road edge and into the nest zone perimeter. The bird on the road lifts. The alarm call is loud in the unmaintained section.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2615,7 +2615,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The stone is harder than expected and the root verge is closer to the road center than the daylight suggested. The camp holds but the forest movement resumes after an hour of silence. You do not sleep deeply.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2631,7 +2631,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The movement stops when you engage with it directly. The silence is worse than the movement. Whatever it is, the pattern has changed and you cannot read the new one.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
               if (typeof modHP === 'function') modHP(-2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
@@ -2654,7 +2654,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The detour track loses itself in the forest after the first kilometer. The marker sticks stop. You navigate by general direction and rejoin the road at a different point than intended, adding an extra hour to the already extended detour.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2789,7 +2789,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The forest boundary in the dark is identifiable by the road surface change but the unmaintained section on the far side is not safe to navigate without light. You stop in the gray zone itself — the worst of the three options.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2827,7 +2827,7 @@
               if (typeof gainXp === 'function') gainXp(25);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The inspector does not accept self-presented inspections — the protocol requires her to conduct the check, not receive the results of yours. The instrument check proceeds at her pace regardless.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -2930,7 +2930,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The post ring is fouled with old rope and the tie is not as secure as it should be. The vessel drifts two meters in the night but does not pull free. The drift means repositioning at first light, which adds an hour to the departure.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3088,7 +3088,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The wind peaks faster than the thirty-minute estimate. The harbor authority issues a closure while you are anchored at the buoy. The closure holds for six hours. The wait at anchor is cold and the sea state makes rest impossible.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3104,7 +3104,7 @@
               if (typeof gainXp === 'function') gainXp(20);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The window is longer than the pattern suggested. The east wind holds at threshold for five hours rather than dropping. The crossing is feasible but punishing — every meter of progress costs more than it should. You arrive at Brineland depleted and the dock inspection proceeds without allowance for the passage conditions.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
               if (typeof modHP === 'function') modHP(-2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
@@ -3124,11 +3124,11 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The harbor authority vessel logs your heave-to compliance and issues a transit hold number. When the closure lifts, the transit hold number determines the docking queue order. You are number four. The closure lifts after four hours. The dock inspection proceeds without complications from the closure.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The heave-to position is in an exposed section of water. The sea state during the closure is worse than at the buoy. The vessel holds but the four hours in the exposed section are not restful.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 500);
           }
@@ -3322,7 +3322,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The argument escalates to a secondary review, which requires a second attendant who is not at the post. The wait is over an hour. The fatigue adds up.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
           }
@@ -3442,7 +3442,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The camp is full. The night warden points you to a windbreak shelf cut into the hillside — technically outside camp. The rest is inadequate and the cold is thorough.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
           }
@@ -3459,7 +3459,7 @@
               G.fatigue = Math.max(0, (G.fatigue || 0) - 2);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The shelter you find is exposed on one side and the wind shifts after midnight. You sleep in intervals. The morning arrives before you are ready for it.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
           }
@@ -3482,7 +3482,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The bench fills up. Six travelers are waiting when the desks open and the clerks process them in the order they arrived. You are fifth. The wait adds another three hours to your day.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
           }
@@ -3602,7 +3602,7 @@
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The watch rotation goes wrong — someone misses a period and you cover it. By morning you have worked two full watch periods without a sleep interval. The crossing is done but fatigue is compounding.');
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
           }
@@ -3637,12 +3637,12 @@
             if (r.total >= 7) {
               if (typeof addMaterial === 'function') addMaterial('salt_cloth', 1);
               if (typeof addNarration === 'function') addNarration('', 'The weather system is rough but not dangerous. Three hours of roll and spray. The convoy maintains pace. You arrive at Soreheim damp, fatigued, and on schedule. The quota post is not particularly sympathetic but the arrival is logged correctly.');
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
               if (typeof gainXp === 'function') gainXp(10);
             } else {
               if (typeof addNarration === 'function') addNarration('', 'Maintaining convoy pace in the weather costs more than expected. A fitting on the vessel gives way under the strain and requires emergency securing. The convoy continues; you fall behind and arrive outside the expected window. The quota post logs the arrival gap.');
               if (typeof modHP === 'function') modHP(-2);
-              G.fatigue = (G.fatigue || 0) + 2;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
           }
@@ -3659,7 +3659,7 @@
             } else {
               if (typeof addNarration === 'function') addNarration('', 'The system does not pass in the time you allocated. You wait four hours, arrive well outside the convoy window, and the quota post requires a detailed explanation of the variance. The weather log from the day does not match your arrival gap cleanly.');
               if (typeof addHeat === 'function') addHeat('soreheim', 1);
-              G.fatigue = (G.fatigue || 0) + 1;
+              G.fatigue = Math.min(10, (G.fatigue || 0) + 1);
             }
             setTimeout(function() { if (typeof window._travelNextEncounter === 'function') window._travelNextEncounter(); else TRAVEL_CORRIDOR.advanceDayLeg(); }, 400);
           }
@@ -4403,10 +4403,18 @@
         G.flags._corridor_nautical             = !!_ctx.nautical;
       }
 
-      // Show macroregion narration
-      var region = resolveMacroregion(from, dest);
-      var narrations = window.MACROREGION_NARRATIONS[region] || window.MACROREGION_NARRATIONS['principalities'];
-      var narText = narrations[Math.floor(Math.random() * narrations.length)];
+      // Prefer per-route narration when one is authored for this corridor;
+      // fall back to the macroregion pool otherwise.
+      var _routeKey = from + '|' + dest;
+      var _landNarr = (window.LAND_ROUTE_NARRATIONS || {})[_routeKey];
+      var narText;
+      if (_landNarr) {
+        narText = _landNarr;
+      } else {
+        var region = resolveMacroregion(from, dest);
+        var narrations = window.MACROREGION_NARRATIONS[region] || window.MACROREGION_NARRATIONS['principalities'];
+        narText = narrations[Math.floor(Math.random() * narrations.length)];
+      }
       if (typeof addNarration === 'function') {
         addNarration('On the Road', narText);
       }
@@ -4526,7 +4534,7 @@
         }
       }
       var paceMod = { fatiguePerDay: 1 };
-      G.fatigue = (G.fatigue || 0) + Math.ceil(totalDays * 0.3);
+      G.fatigue = Math.min(10, (G.fatigue || 0) + Math.ceil(totalDays * 0.3));
       G.dayCount = (G.dayCount || 0) + Math.ceil(totalDays);
       if (typeof updateHUD === 'function') updateHUD();
       G.flags._jrn_from      = fromId;
@@ -4578,8 +4586,18 @@
       var fromMacro = (window.LOCALITY_MACROREGION || {})[fromId] || 'principalities';
       var toMacro   = (window.LOCALITY_MACROREGION || {})[toId]   || 'principalities';
       var macro = dayFraction < 0.5 ? fromMacro : toMacro;
-      var narrs = (window.MACROREGION_NARRATIONS || {})[macro] || [];
-      var ambient = narrs[Math.floor(Math.random() * narrs.length)] || 'The road continues.';
+      // Prefer per-route opening narration on the first leg of a multi-day journey;
+      // fall back to the macroregion pool for later legs and for routes without
+      // authored route-specific prose.
+      var _routeKey2 = fromId + '|' + toId;
+      var _landNarr2 = (window.LAND_ROUTE_NARRATIONS || {})[_routeKey2];
+      var ambient;
+      if (_landNarr2 && current === 1) {
+        ambient = _landNarr2;
+      } else {
+        var narrs = (window.MACROREGION_NARRATIONS || {})[macro] || [];
+        ambient = narrs[Math.floor(Math.random() * narrs.length)] || 'The road continues.';
+      }
 
       var todayEncounter = schedule[schedIdx] && schedule[schedIdx].day === current;
       var todayAnchor    = anchorDay !== null && anchorDay === current && anchorId;
@@ -5397,6 +5415,28 @@
   window._wrapEncounterChoices = _wrapEncounterChoices;
 
 })();
+
+// ---------------------------------------------------------------------------
+// LAND_ROUTE_NARRATIONS — per-route opening narration for overland travel.
+// Keyed 'fromId|toId'. Checked BEFORE the MACROREGION_NARRATIONS fallback so
+// routes with defining infrastructure (research domes, dome-city checkpoints,
+// floating-city docks) open with place-specific sensory detail instead of the
+// generic Roadwardens / mile-marker macroregion copy.
+// ---------------------------------------------------------------------------
+window.LAND_ROUTE_NARRATIONS = {
+  'glasswake_commune|shelkopolis':
+    'Sensor pylons line the trench road behind the commune, frost-rimed at the joints where the cabling enters the conduit. The ice-shelf domes glow blue-grey on the receding horizon. Exposure trenches angle east, their walls cut sharp by the last surveying team. An observation mast clicks once as the wind shifts. The road drops in steady increments — frozen rut, then packed aggregate, then a Sheresh transit waystation marked for southbound logbooks.',
+  'shelkopolis|glasswake_commune':
+    'The road rises out of the Shelk lowlands and stiffens under the boots within two days. Frost-cracked stone, then frozen rut, then the first sensor pylon — a black mast cabled into the ground, its instrument package sealed against the cold. Exposure trench markers appear next. Beyond them, the Glasswake research domes sit low on the horizon, blue-grey under a sky already losing its colour. An observation mast tracks the approach.',
+  'cosmoria|shelkopolis':
+    'Shipwright cranes finish their morning load on the southern docks; a harbor manifest inspector marks the departure tickets with a wax pencil and waves the cargo lane forward. The floating city\'s underside slides past in glimpses — chain-housings, ballast plates, a kelp-tangled buoy. Eight days down the Brineland coastal lane under Cosmouth jurisdiction. Pitch and salt on the deck rails. A second inspector logs the count again at the harbor-ring boundary.',
+  'shelkopolis|cosmoria':
+    'The Brineland coastal lane runs west under Cosmouth jurisdiction, the wind off the inland sea steady and salt-edged. Cargo lanes thin to a single line at the harbor ring. Departure tickets here are stamped twice — once at boarding, once at the manifest desk where the inspector matches names against the cargo log. Pitch on the deck rails. Shipwright cranes work the southern docks ahead, their arms swinging slow against the floating city\'s silhouette.',
+  'aurora_crown_commune|shelkopolis':
+    'The Aurora ice-light domes hold a pale steady glow at the commune\'s edge as the road begins its descent. A ceremonial entry stage stands empty at the first switchback, swept clean by stewards who left their brooms leaned against the pillar. Polar dawn rises slow across the dome glass. The Whitebridge Domeway opens at the lower terrace — two checkpoints in sequence, both stamped before the southbound corridor releases the road toward Shelkopolis.',
+  'shelkopolis|aurora_crown_commune':
+    'The Whitebridge Domeway begins at the lower terrace, two checkpoint stations in sequence — the first stamps the manifest, the second matches it against the inbound register before opening the gate. The road climbs past the ceremonial entry stage where stewards work in slow rotations. Polar dawn breaks across the dome glass above. The Aurora ice-light domes resolve out of the climb, pale and steady, their inner glow holding through the last switchback.'
+};
 
 // ---------------------------------------------------------------------------
 // BOAT_ROUTE_NARRATIONS — per-route opening narration for boat travel mode.

@@ -14620,7 +14620,7 @@ function _showPackChoicesInOverlay(fromId, toId, mode) {
       if (pack === 'heavy') {
         var r = typeof rollD20 === 'function' ? rollD20('craft') : { total: 12 };
         if (r.total < 10) {
-          G.fatigue = (G.fatigue || 0) + 2;
+          G.fatigue = Math.min(10, (G.fatigue || 0) + 2);
           if (typeof addNarration === 'function') addNarration('', 'The weight is harder to manage than expected. Two points of fatigue before the road begins.');
         }
       }

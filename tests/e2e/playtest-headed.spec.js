@@ -221,15 +221,15 @@ async function actionHTML(page) {
   }).catch(() => '').then(s => String(s).slice(0, 400));
 }
 
-async function snapshotChoices(page) {
+async function snapshotChoices(page, scopeSelector) {
   try {
-    return await page.evaluate(() =>
-      Array.from(document.querySelectorAll('.choice-btn:not([disabled])'))
+    const sel = scopeSelector || '.choice-btn:not([disabled])';
+    return await page.evaluate((s) =>
+      Array.from(document.querySelectorAll(s))
         .map(b => ({
           text: (b.querySelector('.choice-text') || b).textContent.trim().slice(0, 80),
           cls:  b.className,
-        }))
-    );
+        })), sel);
   } catch (_) { return []; }
 }
 
@@ -393,7 +393,14 @@ async function handleLevelup(page, tag) {
 // Choice picker
 // ---------------------------------------------------------------------------
 async function pickChoice(page, pickNum, forcePlotMain) {
-  const buttons = page.locator('.choice-btn:visible:not([disabled])');
+  // Scope to journey overlay when active — main-area .choice-btn under the
+  // overlay are still :visible but their clicks get intercepted by the
+  // journey-tab-pane on top, causing 60s stalls during travel corridors.
+  const journeyActive = await page.locator('#overlay-map.active .journey-tab-pane.active').count().catch(() => 0);
+  const scope = journeyActive
+    ? '#journey-choice-area .choice-btn:visible:not([disabled])'
+    : '.choice-btn:visible:not([disabled])';
+  const buttons = page.locator(scope);
   const count   = await buttons.count();
   if (count === 0) return { clicked: false };
 
@@ -403,15 +410,20 @@ async function pickChoice(page, pickNum, forcePlotMain) {
     return { text: txt, isPlotMain: cls.includes('plot-main'), isCombat: cls.includes('combat-btn') };
   };
 
-  const pm = page.locator('.choice-btn.plot-main:visible').first();
-  if (await pm.isVisible({ timeout: 400 }).catch(() => false)) {
-    const m = await meta(pm); await pm.click(); return { clicked: true, ...m };
-  }
-  if (forcePlotMain) {
-    await page.waitForTimeout(200);
-    const pm2 = page.locator('.choice-btn.plot-main').first();
-    if (await pm2.isVisible({ timeout: 600 }).catch(() => false)) {
-      const m = await meta(pm2); await pm2.click(); return { clicked: true, ...m };
+  // When journey overlay is active, skip plot-main shortcuts — plot-main
+  // buttons only render in the main area, which sits under the overlay and
+  // would intercept the click.
+  if (!journeyActive) {
+    const pm = page.locator('.choice-btn.plot-main:visible').first();
+    if (await pm.isVisible({ timeout: 400 }).catch(() => false)) {
+      const m = await meta(pm); await pm.click(); return { clicked: true, ...m };
+    }
+    if (forcePlotMain) {
+      await page.waitForTimeout(200);
+      const pm2 = page.locator('.choice-btn.plot-main').first();
+      if (await pm2.isVisible({ timeout: 600 }).catch(() => false)) {
+        const m = await meta(pm2); await pm2.click(); return { clicked: true, ...m };
+      }
     }
   }
   if (pickNum % 5 === 0) {
@@ -419,7 +431,7 @@ async function pickChoice(page, pickNum, forcePlotMain) {
     const btn = buttons.nth(idx);
     const m   = await meta(btn); await btn.click(); return { clicked: true, ...m };
   }
-  const snap = await snapshotChoices(page);
+  const snap = await snapshotChoices(page, journeyActive ? '#journey-choice-area .choice-btn:not([disabled])' : null);
 
   // When ALL visible choices are combat buttons, randomize to prevent single-ability spiral.
   // Also prefer Flee every ~8 picks to let combat complete naturally.
