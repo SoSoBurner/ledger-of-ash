@@ -530,6 +530,41 @@ input, button, select, textarea { font-family: inherit; }
     rgba(200,80,16,.15) 85%,
     transparent 100%);
 }
+@media (max-width: 1366px) {
+  #topbar { padding: 0 10px; font-size: 13px; }
+  #topbar .topbar-brand .game-title { font-size: 13px; }
+  #topbar .topbar-nav { gap: 8px; }
+  #topbar .tnav-btn { padding: 4px 8px; }
+}
+@media (max-width: 1280px) {
+  #topbar .topbar-brand .game-title { display: none; }
+  #topbar #hud-safe-streak { display: none; }
+  #topbar #hud-case-file-label { display: none; }
+  #topbar #hud-case-file-track { width: 40px; }
+}
+@media (max-width: 1200px) {
+  #topbar { font-size: 12px; padding: 0 6px; }
+  #topbar .tnav-btn { padding: 3px 6px; }
+}
+.tnav-more-wrap { position: relative; display: inline-block; }
+.tnav-more-panel {
+  display: none;
+  position: absolute;
+  top: 100%; right: 0;
+  background: var(--coal, #0c0a14);
+  border: 1px solid var(--char, #131019);
+  padding: 4px;
+  min-width: 140px;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8);
+}
+.tnav-more-wrap.is-open .tnav-more-panel { display: block; }
+.tnav-more-panel .tnav-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 2px 0;
+}
 .topbar-brand { display: flex; align-items: center; gap: 12px; }
 .game-title {
   font-family: var(--font-display); font-size: 14.3px; font-weight: 700;
@@ -1951,12 +1986,16 @@ input, button, select, textarea { font-family: inherit; }
       <button class="tnav-btn" id="btn-party">Party</button>
       <button class="tnav-btn" id="btn-camp">Camp</button>
       <button class="tnav-btn" id="btn-charsheet">Sheet</button>
-      <button class="tnav-btn" id="btn-howto" onclick="showHowToPlay()">How to Play</button>
-      <button class="tnav-btn" id="btn-save" onclick="showSaveModal('save')">Save</button>
-      <button class="tnav-btn" id="btn-load" onclick="showSaveModal('load')">Load</button>
-      <button class="tnav-btn" id="btn-export-save" onclick="exportSave()">Export</button>
-      <span class="tnav-sep"></span>
-      <button class="tnav-btn tnav-end" id="btn-end-legend">End</button>
+      <span class="tnav-more-wrap" id="tnav-more-wrap">
+        <button class="tnav-btn" id="btn-more" onclick="toggleMoreMenu(event)">More &#x25BE;</button>
+        <div class="tnav-more-panel" id="tnav-more-panel">
+          <button class="tnav-btn" id="btn-save" onclick="showSaveModal('save'); closeMoreMenu();">Save</button>
+          <button class="tnav-btn" id="btn-load" onclick="showSaveModal('load'); closeMoreMenu();">Load</button>
+          <button class="tnav-btn" id="btn-export-save" onclick="exportSave(); closeMoreMenu();">Export</button>
+          <button class="tnav-btn" id="btn-howto" onclick="showHowToPlay(); closeMoreMenu();">How to Play</button>
+          <button class="tnav-btn tnav-end" id="btn-end-legend" onclick="closeMoreMenu();">End</button>
+        </div>
+      </span>
     </nav>
   </header>
 
@@ -18991,6 +19030,28 @@ document.getElementById('howto-close').addEventListener('click', function() {
     }
   };
 })();
+
+function toggleMoreMenu(e) {
+  if (e && e.stopPropagation) e.stopPropagation();
+  var wrap = document.getElementById('tnav-more-wrap');
+  if (!wrap) return;
+  wrap.classList.toggle('is-open');
+}
+
+function closeMoreMenu() {
+  var wrap = document.getElementById('tnav-more-wrap');
+  if (wrap) wrap.classList.remove('is-open');
+}
+
+document.addEventListener('click', function(e) {
+  var wrap = document.getElementById('tnav-more-wrap');
+  if (!wrap || !wrap.classList.contains('is-open')) return;
+  if (!wrap.contains(e.target)) closeMoreMenu();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeMoreMenu();
+});
 </script>
 
 </body>
