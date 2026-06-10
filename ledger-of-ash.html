@@ -1075,6 +1075,11 @@ input, button, select, textarea { font-family: inherit; }
 }
 .roll-result.success { border-left-color: var(--jade-bright); }
 .roll-result.failure { border-left-color: var(--blood-mid); }
+.roll-note {
+  font-size: 11px;
+  color: var(--ink-faint);
+  font-family: var(--font-display);
+}
 .roll-result { animation: resultIn .35s ease both; }
 .roll-summary { font-size: 12px; color: var(--ink-faint); font-family: var(--font-body); margin-bottom: 6px; padding: 4px 14px; }
 
@@ -9956,8 +9961,8 @@ function _authorityResolvePhase1(authorityKey, polity, heatLevel, outcome, roll,
   var success   = (roll + skillVal) >= dc;
   var _aStageNum = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
   var _aStageRoman = ['','II','III','IV','V'][_aStageNum] || '';
-  var _aStageSuffix = _aStageNum > 0 ? ' <span style="color:var(--ink-faint);font-size:11px">(Stage ' + _aStageRoman + ' pressure +' + _aStageNum + ')</span>' : '';
-  var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix + '</span>';
+  var _aStageSuffix = _aStageNum > 0 ? ' <span class="roll-note">(Stage ' + _aStageRoman + ' pressure +' + _aStageNum + ')</span>' : '';
+  var rollLabel = '<span class="roll-note">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix + '</span>';
   addNarration('', rollLabel);
 
   if (success) {
@@ -9987,8 +9992,8 @@ function _authorityResolvePhase2(authorityKey, polity, heatLevel, outcome, roll,
     var success = (roll + skillVal) >= dc;
     var _aStageNum2 = G.stage === 'Stage V' ? 4 : G.stage === 'Stage IV' ? 3 : G.stage === 'Stage III' ? 2 : G.stage === 'Stage II' ? 1 : 0;
     var _aStageRoman2 = ['','II','III','IV','V'][_aStageNum2] || '';
-    var _aStageSuffix2 = _aStageNum2 > 0 ? ' <span style="color:var(--ink-faint);font-size:11px">(Stage ' + _aStageRoman2 + ' pressure +' + _aStageNum2 + ')</span>' : '';
-    var rollLabel = '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix2 + '</span>';
+    var _aStageSuffix2 = _aStageNum2 > 0 ? ' <span class="roll-note">(Stage ' + _aStageRoman2 + ' pressure +' + _aStageNum2 + ')</span>' : '';
+    var rollLabel = '<span class="roll-note">d20: ' + roll + ' + ' + skillVal + ' = <strong>' + (roll + skillVal) + '</strong> vs ' + dc + _aStageSuffix2 + '</span>';
     addNarration('', rollLabel);
     if (success) {
       addHeat(polity, 1);
@@ -11640,7 +11645,7 @@ function adaptEnrichedChoice(c) {
         var _gTotal = _gRoll + _gVal;
         var _gFailed = _gTotal < _gDC;
         var _gSkLabel = (typeof skillDisplay === 'function') ? skillDisplay(_gSk) : (_gSk.charAt(0).toUpperCase() + _gSk.slice(1));
-        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSkLabel + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
+        addNarration('', '<div class="roll-result ' + (_gFailed ? 'failure' : 'success') + '">d20: ' + _gRoll + ' + ' + _gSkLabel + ' ' + _gVal + ' = <strong>' + _gTotal + '</strong> vs DC ' + _gDC + (_rivalMod > 0 ? ' <span class="roll-note">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_gFailed ? 'Failure' : 'Success') + '</div>');
         _gateShown = true;
         if (_gFailed) {
           G.recentOutcomeType = 'complication';
@@ -11697,7 +11702,7 @@ function adaptEnrichedChoice(c) {
           var _riClass = 'roll-result ' + (_riSucceeded ? 'success' : 'failure');
           var _riSKD = {combat:'Might',stealth:'Finesse',survival:'Vigor',lore:'Wits',persuasion:'Charm',might:'Might',finesse:'Finesse',vigor:'Vigor',wits:'Wits',charm:'Charm',spirit:'Spirit',craft:'Craft'};
           var _riSkillLabel = _riSKD[_ri.skill] || _ri.skill;
-          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _riSkillLabel + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span style="color:var(--ink-faint);font-size:12px">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
+          addNarration('', '<div class="' + _riClass + '">d20: ' + _ri.roll + ' + ' + _riSkillLabel + ' ' + _ri.statValue + ' = <strong>' + _ri.total + '</strong> vs DC ' + _riDC + (_rivalMod > 0 ? ' <span class="roll-note">(rival +' + _rivalMod + ')</span>' : '') + ' — ' + (_riSucceeded ? 'Success' : 'Failure') + '</div>');
         }
         // Bold success reward: +1 renown, track session bold successes for discovery unlock
         if (_riSucceeded) {
@@ -13047,7 +13052,7 @@ function handleChoice(choice) {
   if (eqBonus) rollDisplay += ' + gear ' + eqBonus;
   if (compBonus) rollDisplay += ' + companion ' + compBonus;
   var _stageRoman = ['','II','III','IV','V'][_stageNum] || '';
-  rollDisplay += ' = <strong>' + total + '</strong> vs DC ' + diff + (levelMod ? ' (L' + (G.level||1) + '+' + levelMod + ')' : '') + (_stageNum > 0 ? ' <span style="color:var(--ink-faint);font-size:11px">(Stage ' + _stageRoman + ' pressure +' + _stageNum + ')</span>' : '') + ' — ' + (success ? 'Success' : 'Failure');
+  rollDisplay += ' = <strong>' + total + '</strong> vs DC ' + diff + (levelMod ? ' (L' + (G.level||1) + '+' + levelMod + ')' : '') + (_stageNum > 0 ? ' <span class="roll-note">(Stage ' + _stageRoman + ' pressure +' + _stageNum + ')</span>' : '') + ' — ' + (success ? 'Success' : 'Failure');
 
   var _critPrefix = '';
   if (roll === 20) {
@@ -13057,7 +13062,7 @@ function handleChoice(choice) {
   } else if (roll === 1) {
     _critPrefix = '<span style="color:var(--danger);font-weight:bold;font-family:Cinzel,serif;letter-spacing:0.06em">Critical Failure! </span>';
   }
-  addNarration('', _critPrefix + '<span style="font-size:11px;color:var(--ink-faint);font-family:Cinzel,serif">' + rollDisplay + '</span>');
+  addNarration('', _critPrefix + '<span class="roll-note">' + rollDisplay + '</span>');
 
   // First-choice tutorial callout — fires once after the player's first real roll
   if (typeof maybeShowTutorial === 'function') maybeShowTutorial('first_choice');
